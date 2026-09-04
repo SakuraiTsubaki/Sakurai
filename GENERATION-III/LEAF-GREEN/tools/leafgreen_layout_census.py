@@ -116,6 +116,19 @@ def main():
               '- The pointer-like scan is only a heuristic: aligned 32-bit words whose normalized value falls in `0x08000000..0x08FFFFFF`. Compressed, graphic, or arbitrary data can produce false positives, so these counts are **not** treated as verified references.',
               '- The Japanese image has a much shorter terminal `0xFF` run than the international images, so free-space planning must be version-specific.',
               '- International builds also contain a ~5.9 MiB pure-`0xFF` gap ending at `0x0CFFFFFF`; the Japanese build has a ~5.22 MiB pure-`0xFF` gap ending at `0x0BFFFFFF`. These are high-priority candidates for reference-aware free-space validation.',
+              '', '## Fully `0xFF` 1 MiB windows', '']
+    full_ff = {}
+    for rr in region_rows:
+        if rr['ff_bytes'] == REGION:
+            full_ff.setdefault(rr['file'], []).append(rr['region_index'])
+    grouped = {}
+    for filename, indices in full_ff.items():
+        grouped.setdefault(tuple(indices), []).append(filename)
+    for indices, filenames in grouped.items():
+        windows = ', '.join(f'`0x{i*REGION:07X}–0x{((i+1)*REGION)-1:07X}`' for i in indices)
+        names = '; '.join(filenames)
+        lines.append(f'- **{names}:** regions {", ".join(map(str, indices))} ({windows})')
+    lines += ['', 'These windows are **unused/padding candidates only** until reference-aware validation and runtime regression tests are complete.',
               '', '## 1 MiB region census', '',
               '`region_usage_1m.csv` records per-region `0xFF`/`0x00` density, pointer-like source density, pointer-like target density, and a SHA-256 fingerprint. This is the first coarse map for locating shared engine areas, localization-heavy areas, and likely padding.',
               '', '## Large constant runs', '',
