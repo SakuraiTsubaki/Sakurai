@@ -1,0 +1,113 @@
+file,game_code,target_region_index,start,pointer_like_target_count
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,0,0x0000000,15467
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,1,0x0100000,15119
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,2,0x0200000,4292
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,3,0x0300000,14529
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,4,0x0400000,5393
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,5,0x0500000,683
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,6,0x0600000,2733
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,7,0x0700000,142
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,8,0x0800000,167
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,9,0x0900000,77
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,10,0x0A00000,80
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,11,0x0B00000,116
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,12,0x0C00000,2957
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,13,0x0D00000,2042
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,14,0x0E00000,178
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,15,0x0F00000,527
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,0,0x0000000,15035
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,1,0x0100000,12096
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,2,0x0200000,5854
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,3,0x0300000,12443
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,4,0x0400000,7952
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,5,0x0500000,715
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,6,0x0600000,2820
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,7,0x0700000,163
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,8,0x0800000,190
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,9,0x0900000,91
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,10,0x0A00000,89
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,11,0x0B00000,114
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,12,0x0C00000,281
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,13,0x0D00000,2848
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,14,0x0E00000,2277
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,15,0x0F00000,434
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,0,0x0000000,15046
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,1,0x0100000,12218
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,2,0x0200000,5885
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,3,0x0300000,12473
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,4,0x0400000,7951
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,5,0x0500000,687
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,6,0x0600000,2806
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,7,0x0700000,161
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,8,0x0800000,195
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,9,0x0900000,89
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,10,0x0A00000,90
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,11,0x0B00000,121
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,12,0x0C00000,279
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,13,0x0D00000,2849
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,14,0x0E00000,2278
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,15,0x0F00000,437
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,0,0x0000000,15047
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,1,0x0100000,12290
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,2,0x0200000,5845
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,3,0x0300000,12469
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,4,0x0400000,8004
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,5,0x0500000,712
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,6,0x0600000,2878
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,7,0x0700000,164
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,8,0x0800000,187
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,9,0x0900000,94
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,10,0x0A00000,90
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,11,0x0B00000,119
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,12,0x0C00000,280
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,13,0x0D00000,2848
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,14,0x0E00000,2240
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,15,0x0F00000,465
+Pokemon - Leaf Green Version (USA).gba,BPGE,0,0x0000000,15051
+Pokemon - Leaf Green Version (USA).gba,BPGE,1,0x0100000,12282
+Pokemon - Leaf Green Version (USA).gba,BPGE,2,0x0200000,5846
+Pokemon - Leaf Green Version (USA).gba,BPGE,3,0x0300000,12464
+Pokemon - Leaf Green Version (USA).gba,BPGE,4,0x0400000,8007
+Pokemon - Leaf Green Version (USA).gba,BPGE,5,0x0500000,715
+Pokemon - Leaf Green Version (USA).gba,BPGE,6,0x0600000,2878
+Pokemon - Leaf Green Version (USA).gba,BPGE,7,0x0700000,164
+Pokemon - Leaf Green Version (USA).gba,BPGE,8,0x0800000,186
+Pokemon - Leaf Green Version (USA).gba,BPGE,9,0x0900000,94
+Pokemon - Leaf Green Version (USA).gba,BPGE,10,0x0A00000,89
+Pokemon - Leaf Green Version (USA).gba,BPGE,11,0x0B00000,115
+Pokemon - Leaf Green Version (USA).gba,BPGE,12,0x0C00000,280
+Pokemon - Leaf Green Version (USA).gba,BPGE,13,0x0D00000,2849
+Pokemon - Leaf Green Version (USA).gba,BPGE,14,0x0E00000,2239
+Pokemon - Leaf Green Version (USA).gba,BPGE,15,0x0F00000,465
+Pokemon - Version Vert Feuille (France).gba,BPGF,0,0x0000000,15058
+Pokemon - Version Vert Feuille (France).gba,BPGF,1,0x0100000,12196
+Pokemon - Version Vert Feuille (France).gba,BPGF,2,0x0200000,5883
+Pokemon - Version Vert Feuille (France).gba,BPGF,3,0x0300000,12471
+Pokemon - Version Vert Feuille (France).gba,BPGF,4,0x0400000,7949
+Pokemon - Version Vert Feuille (France).gba,BPGF,5,0x0500000,680
+Pokemon - Version Vert Feuille (France).gba,BPGF,6,0x0600000,2809
+Pokemon - Version Vert Feuille (France).gba,BPGF,7,0x0700000,165
+Pokemon - Version Vert Feuille (France).gba,BPGF,8,0x0800000,185
+Pokemon - Version Vert Feuille (France).gba,BPGF,9,0x0900000,90
+Pokemon - Version Vert Feuille (France).gba,BPGF,10,0x0A00000,90
+Pokemon - Version Vert Feuille (France).gba,BPGF,11,0x0B00000,118
+Pokemon - Version Vert Feuille (France).gba,BPGF,12,0x0C00000,277
+Pokemon - Version Vert Feuille (France).gba,BPGF,13,0x0D00000,2844
+Pokemon - Version Vert Feuille (France).gba,BPGF,14,0x0E00000,2277
+Pokemon - Version Vert Feuille (France).gba,BPGF,15,0x0F00000,456
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,0,0x0000000,15048
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,1,0x0100000,12188
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,2,0x0200000,5901
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,3,0x0300000,12462
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,4,0x0400000,7948
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,5,0x0500000,680
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,6,0x0600000,2799
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,7,0x0700000,167
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,8,0x0800000,190
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,9,0x0900000,89
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,10,0x0A00000,88
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,11,0x0B00000,118
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,12,0x0C00000,281
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,13,0x0D00000,2849
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,14,0x0E00000,2277
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,15,0x0F00000,429
