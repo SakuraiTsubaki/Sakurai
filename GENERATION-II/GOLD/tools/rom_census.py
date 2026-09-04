@@ -5,7 +5,7 @@ Outputs only metadata, cryptographic hashes, header checks, and bank-level
 fingerprints/statistics. It never embeds or copies ROM bytes into reports.
 """
 from __future__ import annotations
-import argparse, csv, hashlib, itertools, json, os
+import argparse, csv, hashlib, itertools, json, math
 from collections import Counter
 from pathlib import Path
 
@@ -64,6 +64,32 @@ def bank_hashes(path: Path) -> list[str]:
     data = path.read_bytes()
     return [hashlib.sha1(data[i:i+BANK_SIZE]).hexdigest() for i in range(0, len(data), BANK_SIZE)]
 
+def bank_metrics(path: Path) -> list[dict]:
+    data = path.read_bytes()
+    rows = []
+    for bank, start in enumerate(range(0, len(data), BANK_SIZE)):
+        chunk = data[start:start+BANK_SIZE]
+        counts = Counter(chunk)
+        entropy = -sum((n/len(chunk))*math.log2(n/len(chunk)) for n in counts.values())
+        fill = chunk[-1]
+        i = len(chunk) - 1
+        while i >= 0 and chunk[i] == fill:
+            i -= 1
+        rows.append({
+            "file": path.name,
+            "bank": f"0x{bank:02X}",
+            "bank_index": bank,
+            "sha1": hashlib.sha1(chunk).hexdigest(),
+            "entropy_bits_per_byte": round(entropy, 6),
+            "unique_byte_values": len(counts),
+            "ff_bytes": counts.get(0xFF, 0),
+            "zero_bytes": counts.get(0x00, 0),
+            "trailing_fill_byte": f"0x{fill:02X}",
+            "trailing_fill_length": len(chunk) - 1 - i,
+            "all_same_byte": len(counts) == 1,
+        })
+    return rows
+
 def byte_diff(a: bytes, b: bytes) -> dict:
     n = min(len(a), len(b))
     positions = [i for i in range(n) if a[i] != b[i]]
@@ -100,6 +126,11 @@ def main() -> None:
     with (out / "rom_inventory.csv").open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=rows[0].keys())
         w.writeheader(); w.writerows(rows)
+
+    bank_rows = [row for p in files for row in bank_metrics(p)]
+    with (out / "bank_census.csv").open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=bank_rows[0].keys())
+        w.writeheader(); w.writerows(bank_rows)
 
     hashes = {p.name: bank_hashes(p) for p in files}
     pairs = []
