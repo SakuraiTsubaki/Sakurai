@@ -1,0 +1,5 @@
+template_flag,trainer_count,bytes_per_pokemon,payload
+0,547,8,base
+1,42,16,base + four explicit moves
+2,20,10,base + held item
+3,7,18,base + held item + four explicit moves
