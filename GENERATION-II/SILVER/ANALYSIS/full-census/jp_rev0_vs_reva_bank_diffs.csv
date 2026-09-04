@@ -1,0 +1,65 @@
+bank_hex,layout_label,diff_bytes,diff_pct,diff_run_count,largest_diff_run,first_diff,last_diff
+00,ROM0: vectors/header/home,179,1.092529,6,123,0x00014C,0x003FBF
+01,bank1,103,0.628662,4,81,0x007F64,0x007FCD
+02,bank2,0,0.0,0,0,,
+03,bank3,5,0.030518,1,5,0x00FFA5,0x00FFA9
+04,bank4,60,0.366211,6,55,0x011ACB,0x013F8A
+05,bank5,2,0.012207,2,1,0x0142CF,0x017FF4
+06,Tileset Data 1,0,0.0,0,0,,
+07,Roofs / Tileset Data 2 / Extra Songs 1,0,0.0,0,0,,
+08,Clock Reset / Tileset Data 3 / Catch Tutorial / Egg Moves,0,0.0,0,0,,
+09,bank9,82,0.500488,2,81,0x024C9F,0x027F81
+0A,bankA,1,0.006104,1,1,0x029720,0x029720
+0B,bankB,7,0.042725,1,7,0x02FC6E,0x02FC74
+0C,Tileset Data 4,0,0.0,0,0,,
+0D,Effect Commands,0,0.0,0,0,,
+0E,Enemy Trainers,0,0.0,0,0,,
+0F,Battle Core,160,0.976562,4,101,0x03E10A,0x03FF99
+10,bank10 / Evolutions and Attacks,0,0.0,0,0,,
+11,bank11 / Pokedex Entries / Pokemon Mail,0,0.0,0,0,,
+12,Pic Pointers / Pics 1,0,0.0,0,0,,
+13,Map Scripts 1,0,0.0,0,0,,
+14,bank14 / Egg Pic,2,0.012207,2,1,0x050059,0x050356
+15,Pics 2,0,0.0,0,0,,
+16,Pics 3,0,0.0,0,0,,
+17,Pics 4,0,0.0,0,0,,
+18,Pics 5,0,0.0,0,0,,
+19,Pics 6,0,0.0,0,0,,
+1A,Pics 7,0,0.0,0,0,,
+1B,Pics 8,0,0.0,0,0,,
+1C,Pics 9,0,0.0,0,0,,
+1D,Pics 10,0,0.0,0,0,,
+1E,Pics 11,0,0.0,0,0,,
+1F,Unown Pic Pointers / Pics 12,0,0.0,0,0,,
+20,Trainer Pic Pointers / Pics 13,0,0.0,0,0,,
+21,bank21 / Credits,2,0.012207,2,1,0x086629,0x08665D
+22,Map Scripts 2,0,0.0,0,0,,
+23,bank23,10787,65.838623,422,367,0x08CC5D,0x08FC6D
+24,bank24,1,0.006104,1,1,0x092023,0x092023
+25,Maps / Events,60,0.366211,5,24,0x097E02,0x097E41
+26,Map Scripts 3,0,0.0,0,0,,
+27,Map Scripts 4,0,0.0,0,0,,
+28,Map Scripts 5,0,0.0,0,0,,
+29,Map Scripts 6,0,0.0,0,0,,
+2A,Map Blocks 1,0,0.0,0,0,,
+2B,Map Blocks 2,0,0.0,0,0,,
+2C,Map Scripts 7,0,0.0,0,0,,
+2D,Map Scripts 8,0,0.0,0,0,,
+2E,Pics 14 / bank2E,0,0.0,0,0,,
+2F,Map Scripts 9,0,0.0,0,0,,
+30,Sprites 1,0,0.0,0,0,,
+31,Sprites 2 / bank31,0,0.0,0,0,,
+32,bank32 / The End,0,0.0,0,0,,
+33,Move Animations / Extra Songs 2,0,0.0,0,0,,
+34,Map Scripts 10,0,0.0,0,0,,
+35,Map Scripts 11,0,0.0,0,0,,
+36,Standard Scripts / Phone Scripts / Map Scripts 12,0,0.0,0,0,,
+37,Map Blocks 3 / Tileset Data 5,0,0.0,0,0,,
+38,bank38,0,0.0,0,0,,
+39,Copyright / Title Screen / Options / Font Inversed / Intro,0,0.0,0,0,,
+3A,Audio / Songs 1,0,0.0,0,0,,
+3B,Songs 2,0,0.0,0,0,,
+3C,Songs 3 / Sound Effects / Cries,0,0.0,0,0,,
+3D,Songs 4,0,0.0,0,0,,
+3E,bank3E / Shrink Pics / bank3E_2,79,0.482178,2,65,0x0FBF58,0x0FBFA7
+3F,bank3F,7620,46.508789,365,1006,0x0FE048,0x0FFFE3
