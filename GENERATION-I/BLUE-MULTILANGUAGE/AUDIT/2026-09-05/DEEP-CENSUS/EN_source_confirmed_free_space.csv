@@ -1,0 +1,46 @@
+bank_dec,bank_hex,role,cpu_start,cpu_end,file_start,file_end,length,authority
+0,00,ROM0 / interrupts / header / home engine,00BE,00FF,0000BE,0000FF,66,pret/pokered pokeblue.map
+0,00,ROM0 / interrupts / header / home engine,3FA6,3FFF,003FA6,003FFF,90,pret/pokered pokeblue.map
+1,01,system engine / menus / naming / marts / Pokédex display,7C49,7FFF,007C49,007FFF,951,pret/pokered pokeblue.map
+2,02,audio headers + SFX + audio engine 1 + music 1,7FF4,7FFF,00BFF4,00BFFF,12,pret/pokered pokeblue.map
+3,03,overworld core / items / hidden-event dispatch / field logic,7C4A,7FFF,00FC4A,00FFFF,950,pret/pokered pokeblue.map
+4,04,NPC sprites 1 + font + battle engine 1,7AA0,7FFF,013AA0,013FFF,1376,pret/pokered pokeblue.map
+5,05,NPC sprites 2 + battle engine 2,7F5F,7FFF,017F5F,017FFF,161,pret/pokered pokeblue.map
+6,06,maps 1-2 + play time + doors/ledges,6718,7FFF,01A718,01BFFF,6376,pret/pokered pokeblue.map
+7,07,maps 3-4 + Pokémon names + hidden events 1,6CC2,7FFF,01ECC2,01FFFF,4926,pret/pokered pokeblue.map
+8,08,audio headers + SFX + audio engine 2 + music 2,7F52,7FFF,023F52,023FFF,174,pret/pokered pokeblue.map
+9,09,Pokémon pics 1 + battle engine 3,7FB8,7FFF,027FB8,027FFF,72,pret/pokered pokeblue.map
+10,0A,Pokémon pics 2 + battle engine 4,7EFC,7FFF,02BEFC,02BFFF,260,pret/pokered pokeblue.map
+11,0B,Pokémon pics 3 + battle engine 5,7F3C,7FFF,02FF3C,02FFFF,196,pret/pokered pokeblue.map
+12,0C,Pokémon pics 4 + battle engine 6,7F90,7FFF,033F90,033FFF,112,pret/pokered pokeblue.map
+13,0D,Pokémon pics 5 + slot machines,7E88,7FFF,037E88,037FFF,376,pret/pokered pokeblue.map
+14,0E,battle engine 7 + move/base-stat/cry/evolution data,7BE6,7FFF,03BBE6,03BFFF,1050,pret/pokered pokeblue.map
+15,0F,battle core + battle effects,7BC8,7FFF,03FBC8,03FFFF,1080,pret/pokered pokeblue.map
+16,10,Pokédex menu + trade/intro movies,67F3,7FFF,0427F3,043FFF,6157,pret/pokered pokeblue.map
+17,11,maps 5-6 + Pokédex rating + hidden-event core,70AB,7FFF,0470AB,047FFF,3925,pret/pokered pokeblue.map
+18,12,maps 7-8 + screen effects,638F,7FFF,04A38F,04BFFF,7281,pret/pokered pokeblue.map
+19,13,trainer pics + maps 9 + predefs,7FA2,7FFF,04FFA2,04FFFF,94,pret/pokered pokeblue.map
+20,14,maps 10 + battle engine 8 + hidden events 2,6A42,7FFF,052A42,053FFF,5566,pret/pokered pokeblue.map
+21,15,maps 11-12 + battle engine 9 + diploma + trainer sight,6A4B,7FFF,056A4B,057FFF,5557,pret/pokered pokeblue.map
+22,16,maps 13-14 + battle engine 10 + Saffron guards,65BB,7FFF,05A5BB,05BFFF,6725,pret/pokered pokeblue.map
+23,17,maps 15-16 + starter dex + hidden events 3,5F15,7FFF,05DF15,05FFFF,8427,pret/pokered pokeblue.map
+24,18,maps 17-18 + Cinnabar lab + hidden events 4,652A,7FFF,06252A,063FFF,6870,pret/pokered pokeblue.map
+25,19,tilesets 1,7FE0,7FFF,067FE0,067FFF,32,pret/pokered pokeblue.map
+26,1A,battle engine 11 + version gfx + tilesets 2,7FEF,7FFF,06BFEF,06BFFF,17,pret/pokered pokeblue.map
+28,1C,splash/Hall of Fame/healing/player anims/transitions/map/icons/trades/palettes/save,7B9D,7FFF,073B9D,073FFF,1123,pret/pokered pokeblue.map
+29,1D,maps 19-21 + itemfinder + vending + hidden items,687C,7FFF,07687C,077FFF,6020,pret/pokered pokeblue.map
+30,1E,battle animations + overworld effects + evolution + TM prices,7FC0,7FFF,07BFC0,07BFFF,64,pret/pokered pokeblue.map
+31,1F,audio headers + SFX + audio engine 3 + music 3,7FFA,7FFF,07FFFA,07FFFF,6,pret/pokered pokeblue.map
+32,20,Text 1,6AAF,7FFF,082AAF,083FFF,5457,pret/pokered pokeblue.map
+33,21,Text 2,6CA1,7FFF,086CA1,087FFF,4959,pret/pokered pokeblue.map
+34,22,Text 3,6CF9,7FFF,08ACF9,08BFFF,4871,pret/pokered pokeblue.map
+35,23,Text 4,6C09,7FFF,08EC09,08FFFF,5111,pret/pokered pokeblue.map
+36,24,Text 5,6903,7FFF,092903,093FFF,5885,pret/pokered pokeblue.map
+37,25,Text 6,6A38,7FFF,096A38,097FFF,5576,pret/pokered pokeblue.map
+38,26,Text 7,6B7B,7FFF,09AB7B,09BFFF,5253,pret/pokered pokeblue.map
+39,27,Text 8,6AA4,7FFF,09EAA4,09FFFF,5468,pret/pokered pokeblue.map
+40,28,Text 9,6A37,7FFF,0A2A37,0A3FFF,5577,pret/pokered pokeblue.map
+41,29,Text 10,6B94,7FFF,0A6B94,0A7FFF,5228,pret/pokered pokeblue.map
+42,2A,Text 11,4330,7FFF,0A8330,0ABFFF,15568,pret/pokered pokeblue.map
+43,2B,Pokédex text,7838,7FFF,0AF838,0AFFFF,1992,pret/pokered pokeblue.map
+44,2C,move names,460F,7FFF,0B060F,0B3FFF,14833,pret/pokered pokeblue.map
