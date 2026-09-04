@@ -1,0 +1,32 @@
+file,game_code,revision,table,offset,record_width,record_count,name_field_width,confidence,evidence
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,0,species_names,0x0203C94,6,412,6,confirmed,dummy entry + first species sequence; move table begins exactly after 412 records
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,0,move_names,0x020463C,8,355,8,confirmed,entry 0 dash + sequential move names; non-name data begins exactly after 355 records
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,0,type_names,0x020C050,5,18,5,confirmed,18 sequential type records including index 9 ??? sentinel
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,0,species_names,0x0245D8C,11,412,11,confirmed,dummy entry + first species sequence; move table begins exactly after 412 records
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,0,move_names,0x0246F40,13,355,13,confirmed,entry 0 dash + sequential move names; non-name data begins exactly after 355 records
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,0,type_names,0x024F04C,7,18,7,confirmed,18 sequential type records including index 9 ??? sentinel
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,0,species_names,0x0241628,11,412,11,confirmed,dummy entry + first species sequence; move table begins exactly after 412 records
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,0,move_names,0x02427DC,13,355,13,confirmed,entry 0 dash + sequential move names; non-name data begins exactly after 355 records
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,0,type_names,0x024A8E8,7,18,7,confirmed,18 sequential type records including index 9 ??? sentinel
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,1,species_names,0x0245F2C,11,412,11,confirmed,dummy entry + first species sequence; move table begins exactly after 412 records
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,1,move_names,0x02470E0,13,355,13,confirmed,entry 0 dash + sequential move names; non-name data begins exactly after 355 records
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,1,type_names,0x024F1EC,7,18,7,confirmed,18 sequential type records including index 9 ??? sentinel
+Pokemon - Leaf Green Version (USA).gba,BPGE,0,species_names,0x0245EBC,11,412,11,confirmed,dummy entry + first species sequence; move table begins exactly after 412 records
+Pokemon - Leaf Green Version (USA).gba,BPGE,0,move_names,0x0247070,13,355,13,confirmed,entry 0 dash + sequential move names; non-name data begins exactly after 355 records
+Pokemon - Leaf Green Version (USA).gba,BPGE,0,type_names,0x024F17C,7,18,7,confirmed,18 sequential type records including index 9 ??? sentinel
+Pokemon - Version Vert Feuille (France).gba,BPGF,0,species_names,0x02402C8,11,412,11,confirmed,dummy entry + first species sequence; move table begins exactly after 412 records
+Pokemon - Version Vert Feuille (France).gba,BPGF,0,move_names,0x024147C,13,355,13,confirmed,entry 0 dash + sequential move names; non-name data begins exactly after 355 records
+Pokemon - Version Vert Feuille (France).gba,BPGF,0,type_names,0x0249588,7,18,7,confirmed,18 sequential type records including index 9 ??? sentinel
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,0,species_names,0x023EF60,11,412,11,confirmed,dummy entry + first species sequence; move table begins exactly after 412 records
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,0,move_names,0x0240114,13,355,13,confirmed,entry 0 dash + sequential move names; non-name data begins exactly after 355 records
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,0,type_names,0x0248220,7,18,7,confirmed,18 sequential type records including index 9 ??? sentinel
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,0,item_records,0x03DA354,44,375,14,confirmed,dummy item 0 + Master/Ultra/etc.; item 374 Sapphire; non-item data at record 375
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,0,item_records,0x03D4D8C,44,375,14,confirmed,dummy item 0 + Master/Ultra/etc.; item 374 Sapphire; non-item data at record 375
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,1,item_records,0x03DAED4,44,375,14,confirmed,dummy item 0 + Master/Ultra/etc.; item 374 Sapphire; non-item data at record 375
+Pokemon - Leaf Green Version (USA).gba,BPGE,0,item_records,0x03DAE64,44,375,14,confirmed,dummy item 0 + Master/Ultra/etc.; item 374 Sapphire; non-item data at record 375
+Pokemon - Version Vert Feuille (France).gba,BPGF,0,item_records,0x03D3160,44,375,14,confirmed,dummy item 0 + Master/Ultra/etc.; item 374 Sapphire; non-item data at record 375
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,0,item_records,0x03D1D24,44,375,14,confirmed,dummy item 0 + Master/Ultra/etc.; item 374 Sapphire; non-item data at record 375
+Pokemon - Leaf Green Version (USA).gba,BPGE,0,ability_names,0x024FC1C,13,78,13,confirmed,dummy ------- + STENCH/DRIZZLE/...; pointer data begins after entry 77
+Pokemon - Leaf Green Version (USA).gba,BPGE,0,trainer_class_names,0x023E604,13,92,13,confirmed,BLACK BELT..PAINTER + blank slot; zero region starts at record 92
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,1,ability_names,0x024FC8C,13,78,13,confirmed,dummy ------- + STENCH/DRIZZLE/...; pointer data begins after entry 77
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,1,trainer_class_names,0x023E674,13,92,13,confirmed,BLACK BELT..PAINTER + blank slot; zero region starts at record 92
