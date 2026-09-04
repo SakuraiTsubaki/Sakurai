@@ -1,0 +1,214 @@
+rom,bank,candidate_strings,en_role_reference
+EN,00,6,Header/Home/RST/interrupts
+EN,01,11,Core engine/menu/items
+EN,03,8,Events/items/pokemon core
+EN,04,12,Movement/menus/naming/events
+EN,05,18,RTC/overworld/save/marts/breeding
+EN,09,37,Menus/text buffers/battle menu
+EN,0A,3,Link/Mystery Gift/Wildmons
+EN,0D,8,Effect Commands
+EN,0E,29,Enemy Trainers
+EN,0F,7,Battle Core
+EN,10,22,Pokedex/moves/evolution
+EN,11,3,AI/Pokedex2/events
+EN,14,29,Party/base stats/names/pics loader
+EN,1F,1,Unown pic pointers/Pics 12
+EN,21,2,Printer/Battle anim GFX/Hall of Fame/Credits
+EN,23,2,"Save/phone tilemap, field moves, sprite anims, icons"
+EN,24,116,Phone/RTC/Pokegear/landmarks/slot machine
+EN,25,3,Maps/Events
+EN,26,2,Title Screen
+EN,33,1,Move Animations/Extra Songs 2
+EN,38,24,Diploma/minigames/Bills PC
+EN,39,6,Copyright/Title Screen 2
+EN,3D,1,Songs 4
+EN,40,38,Standard Scripts
+EN,41,56,Phone Scripts
+EN,4B,1,Map Scripts 10
+EN,53,2,Map Scripts 18
+EN,56,3,Map Scripts 21
+EN,57,14,Map Scripts 22
+EN,5C,1,Map Scripts 26
+EN,5E,11,Map Scripts 28
+EN,64,54,Text 1
+EN,65,44,Text 2
+EN,66,11,Text 3
+EN,68,171,Pokedex 001-064
+EN,69,182,Pokedex 065-128
+EN,6A,180,Pokedex 129-192
+EN,6B,165,Pokedex 193-251
+EN,6C,716,Names
+EN,6D,251,Move Descriptions
+EN,6E,160,Item Descriptions
+EN,70,82,Tileset 6/Pokegear GFX/Credits Strings
+DE,00,9,Header/Home/RST/interrupts
+DE,01,18,Core engine/menu/items
+DE,03,5,Events/items/pokemon core
+DE,04,17,Movement/menus/naming/events
+DE,05,22,RTC/overworld/save/marts/breeding
+DE,09,48,Menus/text buffers/battle menu
+DE,0A,3,Link/Mystery Gift/Wildmons
+DE,0D,6,Effect Commands
+DE,0E,38,Enemy Trainers
+DE,0F,6,Battle Core
+DE,10,22,Pokedex/moves/evolution
+DE,11,3,AI/Pokedex2/events
+DE,14,31,Party/base stats/names/pics loader
+DE,1F,1,Unown pic pointers/Pics 12
+DE,21,2,Printer/Battle anim GFX/Hall of Fame/Credits
+DE,23,2,"Save/phone tilemap, field moves, sprite anims, icons"
+DE,24,17,Phone/RTC/Pokegear/landmarks/slot machine
+DE,25,3,Maps/Events
+DE,26,2,Title Screen
+DE,27,99,unassigned/padding/unknown
+DE,33,2,Move Animations/Extra Songs 2
+DE,38,25,Diploma/minigames/Bills PC
+DE,39,6,Copyright/Title Screen 2
+DE,3D,1,Songs 4
+DE,40,30,Standard Scripts
+DE,41,35,Phone Scripts
+DE,57,14,Map Scripts 22
+DE,58,2,unassigned/padding/unknown
+DE,5C,1,Map Scripts 26
+DE,5E,10,Map Scripts 28
+DE,5F,1,Map Scripts 29
+DE,64,60,Text 1
+DE,65,39,Text 2
+DE,66,15,Text 3
+DE,68,177,Pokedex 001-064
+DE,69,185,Pokedex 065-128
+DE,6A,186,Pokedex 129-192
+DE,6B,171,Pokedex 193-251
+DE,6C,734,Names
+DE,6D,251,Move Descriptions
+DE,6E,160,Item Descriptions
+DE,70,88,Tileset 6/Pokegear GFX/Credits Strings
+FR,00,10,Header/Home/RST/interrupts
+FR,01,19,Core engine/menu/items
+FR,03,8,Events/items/pokemon core
+FR,04,22,Movement/menus/naming/events
+FR,05,22,RTC/overworld/save/marts/breeding
+FR,09,48,Menus/text buffers/battle menu
+FR,0A,3,Link/Mystery Gift/Wildmons
+FR,0D,7,Effect Commands
+FR,0E,34,Enemy Trainers
+FR,0F,7,Battle Core
+FR,10,22,Pokedex/moves/evolution
+FR,11,3,AI/Pokedex2/events
+FR,14,31,Party/base stats/names/pics loader
+FR,1F,1,Unown pic pointers/Pics 12
+FR,21,2,Printer/Battle anim GFX/Hall of Fame/Credits
+FR,23,2,"Save/phone tilemap, field moves, sprite anims, icons"
+FR,24,18,Phone/RTC/Pokegear/landmarks/slot machine
+FR,25,3,Maps/Events
+FR,26,2,Title Screen
+FR,27,99,unassigned/padding/unknown
+FR,33,2,Move Animations/Extra Songs 2
+FR,38,24,Diploma/minigames/Bills PC
+FR,39,6,Copyright/Title Screen 2
+FR,3D,1,Songs 4
+FR,3F,1,Debug dummy/tileset anims/NPC trade/etc
+FR,40,31,Standard Scripts
+FR,41,36,Phone Scripts
+FR,53,1,Map Scripts 18
+FR,57,13,Map Scripts 22
+FR,58,2,unassigned/padding/unknown
+FR,5C,1,Map Scripts 26
+FR,5E,10,Map Scripts 28
+FR,64,54,Text 1
+FR,65,41,Text 2
+FR,66,13,Text 3
+FR,68,183,Pokedex 001-064
+FR,69,187,Pokedex 065-128
+FR,6A,191,Pokedex 129-192
+FR,6B,168,Pokedex 193-251
+FR,6C,709,Names
+FR,6D,251,Move Descriptions
+FR,6E,160,Item Descriptions
+FR,70,88,Tileset 6/Pokegear GFX/Credits Strings
+IT,00,9,Header/Home/RST/interrupts
+IT,01,21,Core engine/menu/items
+IT,03,8,Events/items/pokemon core
+IT,04,22,Movement/menus/naming/events
+IT,05,21,RTC/overworld/save/marts/breeding
+IT,09,41,Menus/text buffers/battle menu
+IT,0A,3,Link/Mystery Gift/Wildmons
+IT,0D,8,Effect Commands
+IT,0E,21,Enemy Trainers
+IT,0F,7,Battle Core
+IT,10,22,Pokedex/moves/evolution
+IT,11,2,AI/Pokedex2/events
+IT,14,33,Party/base stats/names/pics loader
+IT,1F,1,Unown pic pointers/Pics 12
+IT,21,2,Printer/Battle anim GFX/Hall of Fame/Credits
+IT,23,2,"Save/phone tilemap, field moves, sprite anims, icons"
+IT,24,18,Phone/RTC/Pokegear/landmarks/slot machine
+IT,25,3,Maps/Events
+IT,26,2,Title Screen
+IT,27,98,unassigned/padding/unknown
+IT,33,2,Move Animations/Extra Songs 2
+IT,38,24,Diploma/minigames/Bills PC
+IT,39,6,Copyright/Title Screen 2
+IT,3D,1,Songs 4
+IT,40,28,Standard Scripts
+IT,41,36,Phone Scripts
+IT,4B,1,Map Scripts 10
+IT,53,1,Map Scripts 18
+IT,57,10,Map Scripts 22
+IT,58,3,unassigned/padding/unknown
+IT,5C,2,Map Scripts 26
+IT,5E,8,Map Scripts 28
+IT,64,57,Text 1
+IT,65,41,Text 2
+IT,66,15,Text 3
+IT,68,182,Pokedex 001-064
+IT,69,185,Pokedex 065-128
+IT,6A,179,Pokedex 129-192
+IT,6B,167,Pokedex 193-251
+IT,6C,718,Names
+IT,6D,251,Move Descriptions
+IT,6E,160,Item Descriptions
+IT,70,87,Tileset 6/Pokegear GFX/Credits Strings
+ES,00,9,Header/Home/RST/interrupts
+ES,01,17,Core engine/menu/items
+ES,03,7,Events/items/pokemon core
+ES,04,32,Movement/menus/naming/events
+ES,05,21,RTC/overworld/save/marts/breeding
+ES,09,46,Menus/text buffers/battle menu
+ES,0A,3,Link/Mystery Gift/Wildmons
+ES,0D,7,Effect Commands
+ES,0E,18,Enemy Trainers
+ES,0F,7,Battle Core
+ES,10,22,Pokedex/moves/evolution
+ES,11,3,AI/Pokedex2/events
+ES,14,32,Party/base stats/names/pics loader
+ES,1F,1,Unown pic pointers/Pics 12
+ES,21,2,Printer/Battle anim GFX/Hall of Fame/Credits
+ES,23,2,"Save/phone tilemap, field moves, sprite anims, icons"
+ES,24,16,Phone/RTC/Pokegear/landmarks/slot machine
+ES,25,3,Maps/Events
+ES,26,2,Title Screen
+ES,27,98,unassigned/padding/unknown
+ES,33,2,Move Animations/Extra Songs 2
+ES,38,27,Diploma/minigames/Bills PC
+ES,39,6,Copyright/Title Screen 2
+ES,3D,1,Songs 4
+ES,40,37,Standard Scripts
+ES,41,34,Phone Scripts
+ES,53,1,Map Scripts 18
+ES,56,1,Map Scripts 21
+ES,57,13,Map Scripts 22
+ES,58,1,unassigned/padding/unknown
+ES,5C,2,Map Scripts 26
+ES,5E,11,Map Scripts 28
+ES,64,51,Text 1
+ES,65,43,Text 2
+ES,66,12,Text 3
+ES,68,175,Pokedex 001-064
+ES,69,179,Pokedex 065-128
+ES,6A,178,Pokedex 129-192
+ES,6B,169,Pokedex 193-251
+ES,6C,716,Names
+ES,6D,251,Move Descriptions
+ES,6E,160,Item Descriptions
+ES,70,88,Tileset 6/Pokegear GFX/Credits Strings
