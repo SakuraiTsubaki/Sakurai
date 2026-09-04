@@ -1,0 +1,5 @@
+game_code,from_file,to_file,byte_differences,first_diff,last_diff,contiguous_runs,largest_run
+AXPE,Pokemon - Sapphire Version (USA).gba,Pokemon - Sapphire Version (Europe) (Rev 1).gba,5638997,0x000000BC,0x00EA79CE,377087,2856
+AXPE,Pokemon - Sapphire Version (Europe) (Rev 1).gba,"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",4,0x000000BC,0x000091BF,3,2
+AXPF,Pokemon - Version Saphir (France).gba,Pokemon - Version Saphir (France) (Rev 1).gba,4,0x000000BC,0x0000938B,3,2
+AXPI,Pokemon - Versione Zaffiro (Italy).gba,Pokemon - Versione Zaffiro (Italy) (Rev 1).gba,4,0x000000BC,0x0000938B,3,2
