@@ -1,0 +1,19 @@
+# ROM images are analysis inputs only. Never commit copyrighted ROM binaries.
+*.gba
+*.gb
+*.gbc
+*.nds
+*.3ds
+*.cia
+*.xci
+*.nsp
+*.bin
+*.rom
+
+# Local working/output directories
+roms/
+ROMs/
+input/
+inputs/
+work/
+working/
