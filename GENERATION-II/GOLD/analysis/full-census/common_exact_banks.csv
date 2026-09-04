@@ -1,0 +1,136 @@
+group,bank,role_reference,all_zero_in_group
+ALL_8,0C,Tileset Data 4,False
+ALL_8,2A,Map Blocks 1,False
+ALL_8,30,Sprites 1,False
+ALL_8,37,Map Blocks 3/Tileset Data 5,False
+ALL_8,3B,Songs 2,False
+ALL_8,3C,Songs 3/SFX/Cries,False
+ALL_8,3D,Songs 4,False
+WESTERN_5,0C,Tileset Data 4,False
+WESTERN_5,12,Pic pointers/Pics 1,False
+WESTERN_5,13,unassigned/padding/unknown,True
+WESTERN_5,15,Pics 2,False
+WESTERN_5,16,Pics 3,False
+WESTERN_5,17,Pics 4,False
+WESTERN_5,18,Pics 5,False
+WESTERN_5,19,Pics 6,False
+WESTERN_5,1A,Pics 7,False
+WESTERN_5,1B,Pics 8,False
+WESTERN_5,1C,Pics 9,False
+WESTERN_5,1D,Pics 10,False
+WESTERN_5,1E,Pics 11,False
+WESTERN_5,1F,Unown pic pointers/Pics 12,False
+WESTERN_5,20,Trainer pic pointers/Pics 13,False
+WESTERN_5,22,unassigned/padding/unknown,True
+WESTERN_5,28,unassigned/padding/unknown,True
+WESTERN_5,29,unassigned/padding/unknown,True
+WESTERN_5,2A,Map Blocks 1,False
+WESTERN_5,2B,Map Blocks 2,False
+WESTERN_5,2C,unassigned/padding/unknown,True
+WESTERN_5,2D,unassigned/padding/unknown,True
+WESTERN_5,2F,unassigned/padding/unknown,True
+WESTERN_5,30,Sprites 1,False
+WESTERN_5,34,unassigned/padding/unknown,True
+WESTERN_5,35,unassigned/padding/unknown,True
+WESTERN_5,37,Map Blocks 3/Tileset Data 5,False
+WESTERN_5,3B,Songs 2,False
+WESTERN_5,3C,Songs 3/SFX/Cries,False
+WESTERN_5,3D,Songs 4,False
+WESTERN_5,63,unassigned/padding/unknown,True
+WESTERN_5,67,unassigned/padding/unknown,True
+WESTERN_5,6F,unassigned/padding/unknown,True
+WESTERN_5,71,unassigned/padding/unknown,True
+WESTERN_5,72,unassigned/padding/unknown,True
+WESTERN_5,73,unassigned/padding/unknown,True
+WESTERN_5,74,unassigned/padding/unknown,True
+WESTERN_5,75,unassigned/padding/unknown,True
+WESTERN_5,76,unassigned/padding/unknown,True
+WESTERN_5,77,unassigned/padding/unknown,True
+WESTERN_5,78,unassigned/padding/unknown,True
+WESTERN_5,79,unassigned/padding/unknown,True
+WESTERN_5,7A,unassigned/padding/unknown,True
+WESTERN_5,7B,unassigned/padding/unknown,True
+WESTERN_5,7C,unassigned/padding/unknown,True
+WESTERN_5,7D,unassigned/padding/unknown,True
+WESTERN_5,7E,unassigned/padding/unknown,True
+NON_JP_6,0C,Tileset Data 4,False
+NON_JP_6,13,unassigned/padding/unknown,True
+NON_JP_6,22,unassigned/padding/unknown,True
+NON_JP_6,28,unassigned/padding/unknown,True
+NON_JP_6,29,unassigned/padding/unknown,True
+NON_JP_6,2A,Map Blocks 1,False
+NON_JP_6,2C,unassigned/padding/unknown,True
+NON_JP_6,2D,unassigned/padding/unknown,True
+NON_JP_6,2F,unassigned/padding/unknown,True
+NON_JP_6,30,Sprites 1,False
+NON_JP_6,34,unassigned/padding/unknown,True
+NON_JP_6,35,unassigned/padding/unknown,True
+NON_JP_6,37,Map Blocks 3/Tileset Data 5,False
+NON_JP_6,3B,Songs 2,False
+NON_JP_6,3C,Songs 3/SFX/Cries,False
+NON_JP_6,3D,Songs 4,False
+NON_JP_6,63,unassigned/padding/unknown,True
+NON_JP_6,67,unassigned/padding/unknown,True
+NON_JP_6,6F,unassigned/padding/unknown,True
+NON_JP_6,73,unassigned/padding/unknown,True
+NON_JP_6,74,unassigned/padding/unknown,True
+NON_JP_6,75,unassigned/padding/unknown,True
+NON_JP_6,76,unassigned/padding/unknown,True
+NON_JP_6,77,unassigned/padding/unknown,True
+NON_JP_6,7C,unassigned/padding/unknown,True
+NON_JP_6,7D,unassigned/padding/unknown,True
+NON_JP_6,7E,unassigned/padding/unknown,True
+JP_REVISIONS,01,Core engine/menu/items,False
+JP_REVISIONS,02,Palette/player/math/predef,False
+JP_REVISIONS,03,Events/items/pokemon core,False
+JP_REVISIONS,06,Tileset Data 1,False
+JP_REVISIONS,07,Roofs/Tileset Data 2/Extra Songs 1,False
+JP_REVISIONS,08,Clock Reset/Tileset Data 3/Catch Tutorial/Egg Moves,False
+JP_REVISIONS,0B,Item/move descriptions/trainers,False
+JP_REVISIONS,0C,Tileset Data 4,False
+JP_REVISIONS,0D,Effect Commands,False
+JP_REVISIONS,0E,Enemy Trainers,False
+JP_REVISIONS,10,Pokedex/moves/evolution,False
+JP_REVISIONS,11,Pokedex Entries/Pokemon Mail,False
+JP_REVISIONS,12,Pic pointers/Pics 1,False
+JP_REVISIONS,13,Map Scripts 1,False
+JP_REVISIONS,15,Pics 2,False
+JP_REVISIONS,16,Pics 3,False
+JP_REVISIONS,17,Pics 4,False
+JP_REVISIONS,18,Pics 5,False
+JP_REVISIONS,19,Pics 6,False
+JP_REVISIONS,1A,Pics 7,False
+JP_REVISIONS,1B,Pics 8,False
+JP_REVISIONS,1C,Pics 9,False
+JP_REVISIONS,1D,Pics 10,False
+JP_REVISIONS,1E,Pics 11,False
+JP_REVISIONS,1F,Unown Pics,False
+JP_REVISIONS,20,Trainer Pics,False
+JP_REVISIONS,22,Map Scripts 2,False
+JP_REVISIONS,25,Maps/Events,False
+JP_REVISIONS,26,Map Scripts 3,False
+JP_REVISIONS,27,Map Scripts 4,False
+JP_REVISIONS,28,Map Scripts 5,False
+JP_REVISIONS,29,Map Scripts 6,False
+JP_REVISIONS,2A,Map Blocks 1,False
+JP_REVISIONS,2B,Map Blocks 2,False
+JP_REVISIONS,2C,Map Scripts 7,False
+JP_REVISIONS,2D,Map Scripts 8,False
+JP_REVISIONS,2E,Pics 14/bank2E,False
+JP_REVISIONS,2F,Map Scripts 9,False
+JP_REVISIONS,30,Sprites 1,False
+JP_REVISIONS,31,Sprites 2,False
+JP_REVISIONS,32,Battle anim BG/The End,False
+JP_REVISIONS,33,Move Animations/Extra Songs 2,False
+JP_REVISIONS,34,Map Scripts 10,False
+JP_REVISIONS,35,Map Scripts 11,False
+JP_REVISIONS,36,Standard/Phone/Map Scripts 12,False
+JP_REVISIONS,37,Map Blocks 3/Tileset 5,False
+JP_REVISIONS,38,Diploma/minigames/Bills PC,False
+JP_REVISIONS,39,Copyright/Title/Options/Font/Intro,False
+JP_REVISIONS,3A,Audio/Songs 1,False
+JP_REVISIONS,3B,Songs 2,False
+JP_REVISIONS,3C,Songs 3/SFX/Cries,False
+JP_REVISIONS,3D,Songs 4,False
+JP_REVISIONS,3E,Font/collision/time capsule/etc,False
+JP_REVISIONS,3F,Debug/tileset anims/NPC trade/etc,False
