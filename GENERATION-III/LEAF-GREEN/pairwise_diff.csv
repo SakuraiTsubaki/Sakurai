@@ -1,0 +1,22 @@
+a,b,different_bytes,different_pct,same_64k_blocks,total_64k_blocks,identical_prefix_bytes,identical_suffix_bytes
+Pocket Monsters - Leaf Green (Japan).gba,Pokemon - Blattgruene Edition (Germany).gba,10476307,62.44365572929382,84,256,175,131073
+Pocket Monsters - Leaf Green (Japan).gba,Pokemon - Edicion Verde Hoja (Spain).gba,10425312,62.13970184326172,84,256,175,131073
+Pocket Monsters - Leaf Green (Japan).gba,Pokemon - Leaf Green Version (Europe) (Rev 1).gba,10477060,62.44814395904541,84,256,175,131073
+Pocket Monsters - Leaf Green (Japan).gba,Pokemon - Leaf Green Version (USA).gba,10470545,62.40931153297424,84,256,175,131073
+Pocket Monsters - Leaf Green (Japan).gba,Pokemon - Version Vert Feuille (France).gba,10418986,62.10199594497681,85,256,175,131073
+Pocket Monsters - Leaf Green (Japan).gba,Pokemon - Versione Verde Foglia (Italy).gba,10418854,62.10120916366577,85,256,175,131073
+Pokemon - Blattgruene Edition (Germany).gba,Pokemon - Edicion Verde Hoja (Spain).gba,8093415,48.24051260948181,115,256,175,1367160
+Pokemon - Blattgruene Edition (Germany).gba,Pokemon - Leaf Green Version (Europe) (Rev 1).gba,7848662,46.78167104721069,115,256,175,1367240
+Pokemon - Blattgruene Edition (Germany).gba,Pokemon - Leaf Green Version (USA).gba,7808533,46.54248356819153,115,256,175,1367240
+Pokemon - Blattgruene Edition (Germany).gba,Pokemon - Version Vert Feuille (France).gba,8072766,48.11743497848511,115,256,175,1367240
+Pokemon - Blattgruene Edition (Germany).gba,Pokemon - Versione Verde Foglia (Italy).gba,7620733,45.42310833930969,115,256,175,1366964
+Pokemon - Edicion Verde Hoja (Spain).gba,Pokemon - Leaf Green Version (Europe) (Rev 1).gba,7011290,41.79054498672485,137,256,175,1367160
+Pokemon - Edicion Verde Hoja (Spain).gba,Pokemon - Leaf Green Version (USA).gba,6995053,41.69376492500305,137,256,175,1367160
+Pokemon - Edicion Verde Hoja (Spain).gba,Pokemon - Version Vert Feuille (France).gba,6688889,39.86888527870178,137,256,175,1367160
+Pokemon - Edicion Verde Hoja (Spain).gba,Pokemon - Versione Verde Foglia (Italy).gba,7832045,46.68262600898743,115,256,175,1366964
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,Pokemon - Leaf Green Version (USA).gba,6424014,38.29010725021362,142,256,188,9331832
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,Pokemon - Version Vert Feuille (France).gba,7015698,41.816818714141846,137,256,175,1367272
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,Pokemon - Versione Verde Foglia (Italy).gba,8057172,48.02448749542236,115,256,175,1366964
+Pokemon - Leaf Green Version (USA).gba,Pokemon - Version Vert Feuille (France).gba,7018388,41.832852363586426,137,256,175,1367272
+Pokemon - Leaf Green Version (USA).gba,Pokemon - Versione Verde Foglia (Italy).gba,8048315,47.9716956615448,115,256,175,1366964
+Pokemon - Version Vert Feuille (France).gba,Pokemon - Versione Verde Foglia (Italy).gba,7918060,47.19531536102295,116,256,175,1366964
