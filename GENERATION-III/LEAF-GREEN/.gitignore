@@ -1,0 +1,7 @@
+# Never commit source ROM images.
+*.gba
+*.gb
+*.gbc
+*.nds
+*.3ds
+*.cia
