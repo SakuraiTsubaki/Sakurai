@@ -1,0 +1,26 @@
+rom,bank_dec,bank_hex,cpu_addr,file_offset,symbol,kind,note
+EN_BLUE,0,00,01AE,0001AE,MapHeaderPointers,pointer table,source map exact
+EN_BLUE,4,04,5A80,011A80,FontGraphics,font,source map exact
+EN_BLUE,7,07,421E,01C21E,MonsterNames,name table,source map exact; western Pokémon names
+EN_BLUE,9,09,4000,024000,RhydonPicFront,compressed Pokémon gfx,source map exact
+EN_BLUE,14,0E,4000,038000,Moves,move data table,source map exact
+EN_BLUE,14,0E,43DE,0383DE,BaseStats,base-stat table,source map exact
+EN_BLUE,14,0E,5446,039446,CryData,cry table,source map exact
+EN_BLUE,16,10,447E,04047E,PokedexEntryPointers,Pokédex metadata pointer table,source map exact
+EN_BLUE,16,10,45FA,0405FA,RhydonDexEntry,Pokédex metadata record,source map exact; contains far text reference
+EN_BLUE,19,13,4000,04C000,YoungsterPic,trainer gfx,source map exact
+EN_BLUE,25,19,4000,064000,Overworld_GFX,tileset gfx,source map exact
+EN_BLUE,43,2B,4000,0AC000,_RhydonDexEntry,Pokédex description text,source map exact; dedicated western Pokédex text bank
+EN_BLUE,44,2C,4000,0B0000,MoveNames,move-name table,source map exact; dedicated western move-name bank
+JP_AO,0,00,0167,000167,MapHeaderPointers,pointer table,source map exact
+JP_AO,4,04,4000,010000,MoveNames,move-name table,source map exact; inline in bank 04
+JP_AO,4,04,5E99,011E99,FontGraphics,font,source map exact
+JP_AO,9,09,4000,024000,RhydonPicFront,compressed Pokémon gfx,source map exact
+JP_AO,14,0E,4000,038000,Moves,move data table,source map exact
+JP_AO,14,0E,43DE,0383DE,BaseStats,base-stat table,source map exact
+JP_AO,14,0E,5446,039446,MonsterNames,name table,source map exact; JP Pokémon names embedded in battle-data bank
+JP_AO,14,0E,57FC,0397FC,CryData,cry table,source map exact; shifted by inline MonsterNames
+JP_AO,16,10,445B,04045B,PokedexEntryPointers,Pokédex pointer table,source map exact
+JP_AO,16,10,45D7,0405D7,RhydonDexEntry,Pokédex full record + inline description,"source map exact; JP description is inline, not far-bank text"
+JP_AO,19,13,4000,04C000,YoungsterPic,trainer gfx,source layout/map exact
+JP_AO,25,19,4000,064000,Overworld_GFX,tileset gfx,source layout/map exact
