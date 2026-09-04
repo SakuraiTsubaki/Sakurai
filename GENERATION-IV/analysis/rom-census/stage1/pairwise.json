@@ -1,0 +1,12 @@
+[
+  {"a":"Diamond_USA","b":"Pearl_USA","common_named_paths":268,"identical_named_paths":268,"different_named_paths":0,"only_a_named":1,"only_b_named":1,"exact_fat_objects_shared":337},
+  {"a":"Diamond_USA","b":"Platinum_KOR","common_named_paths":239,"identical_named_paths":166,"different_named_paths":73,"only_a_named":30,"only_b_named":100,"exact_fat_objects_shared":178},
+  {"a":"Diamond_USA","b":"HeartGold_KOR","common_named_paths":74,"identical_named_paths":64,"different_named_paths":10,"only_a_named":195,"only_b_named":308,"exact_fat_objects_shared":109},
+  {"a":"Diamond_USA","b":"SoulSilver_KOR","common_named_paths":74,"identical_named_paths":64,"different_named_paths":10,"only_a_named":195,"only_b_named":308,"exact_fat_objects_shared":109},
+  {"a":"Pearl_USA","b":"Platinum_KOR","common_named_paths":238,"identical_named_paths":165,"different_named_paths":73,"only_a_named":31,"only_b_named":101,"exact_fat_objects_shared":177},
+  {"a":"Pearl_USA","b":"HeartGold_KOR","common_named_paths":74,"identical_named_paths":64,"different_named_paths":10,"only_a_named":195,"only_b_named":308,"exact_fat_objects_shared":108},
+  {"a":"Pearl_USA","b":"SoulSilver_KOR","common_named_paths":74,"identical_named_paths":64,"different_named_paths":10,"only_a_named":195,"only_b_named":308,"exact_fat_objects_shared":108},
+  {"a":"Platinum_KOR","b":"HeartGold_KOR","common_named_paths":76,"identical_named_paths":66,"different_named_paths":10,"only_a_named":263,"only_b_named":306,"exact_fat_objects_shared":142},
+  {"a":"Platinum_KOR","b":"SoulSilver_KOR","common_named_paths":76,"identical_named_paths":66,"different_named_paths":10,"only_a_named":263,"only_b_named":306,"exact_fat_objects_shared":142},
+  {"a":"HeartGold_KOR","b":"SoulSilver_KOR","common_named_paths":382,"identical_named_paths":379,"different_named_paths":3,"only_a_named":0,"only_b_named":0,"exact_fat_objects_shared":390}
+]
