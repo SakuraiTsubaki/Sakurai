@@ -6,7 +6,7 @@ Generated from the eight project ROMs. ROM binaries are intentionally excluded f
 
 - ROMs inspected: **8**
 - Total input bytes: **14,680,064**
-- Output: hashes, cartridge headers, bank-level fingerprints, pairwise byte-difference statistics, and Japanese Rev0/RevA difference runs.
+- Version-controlled outputs in this pass: ROM identity/header manifest, pairwise byte comparison, and reproducible census tool.
 
 ## ROM manifest
 
@@ -26,19 +26,19 @@ Generated from the eight project ROMs. ROM binaries are intentionally excluded f
 - Japanese Rev0/RevA ROMs are **1 MiB** each; the six localized ROMs are **2 MiB** each.
 - All eight Nintendo-logo headers validate: **8/8**.
 - Header checksum valid: **8/8**; global checksum valid: **8/8**.
-- Every ROM uses banked Game Boy Color cartridge structure; see `bank_manifest.csv` for 16 KiB bank fingerprints.
+- All eight use `MBC3+TIMER+RAM+BATTERY` and declare 32 KiB external RAM.
+- Japanese Rev0 and RevA differ in **19,150 / 1,048,576 bytes (1.826286%)** across the shared image.
+- Japanese Rev0/RevA have **48 identical aligned 16 KiB banks out of 64**.
 
-## Japanese Rev0 vs Rev A
+## Pairwise comparison
 
-- Differing bytes: **19,150 / 1,048,576 (1.826286%)**.
-- First differing offset: **0x00014C**; last differing offset: **0x0FFFE3**.
-- Contiguous difference runs: **826**.
-- Identical aligned 16 KiB banks: **48/64**.
-- Exact runs are in `jp_rev0_vs_reva_diff_runs.csv`; this gives a precise starting map for revision-specific bugfix/content changes.
+`pairwise_comparison.csv` compares all 28 ROM pairs across their shared byte range and records differing-byte counts, first/last differing offsets, and identical aligned 16 KiB banks.
 
-## Pairwise comparison note
+A low aligned-bank identity count across languages is expected because localization can change text, fonts, code layout, and storage placement; it is not by itself evidence of gameplay differences.
 
-`pairwise_comparison.csv` compares every pair across their shared byte range. A low aligned-bank identity count across languages is expected because text, font, code layout and localization storage can relocate data; it is not by itself evidence of gameplay differences.
+## Reproducibility
+
+`rom_census.py` reads local `.gbc` inputs without modifying them and regenerates the ROM/header manifest plus pairwise comparison data. ROM binaries themselves remain outside GitHub.
 
 ## Next forensic layers
 
