@@ -1,0 +1,110 @@
+[
+  {
+    "bank": 27,
+    "offset_start": 442368,
+    "shared_groups": [
+      [
+        "Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb",
+        "Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb",
+        "Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb",
+        "Pokemon - Version Bleue (France) (SGB Enhanced).gb",
+        "Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"
+      ]
+    ]
+  },
+  {
+    "bank": 45,
+    "offset_start": 737280,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 46,
+    "offset_start": 753664,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 47,
+    "offset_start": 770048,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 48,
+    "offset_start": 786432,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 49,
+    "offset_start": 802816,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 50,
+    "offset_start": 819200,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 51,
+    "offset_start": 835584,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 52,
+    "offset_start": 851968,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 53,
+    "offset_start": 868352,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 54,
+    "offset_start": 884736,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 55,
+    "offset_start": 901120,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 56,
+    "offset_start": 917504,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 57,
+    "offset_start": 933888,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 58,
+    "offset_start": 950272,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 59,
+    "offset_start": 966656,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 60,
+    "offset_start": 983040,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 61,
+    "offset_start": 999424,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 62,
+    "offset_start": 1015808,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  },
+  {
+    "bank": 63,
+    "offset_start": 1032192,
+    "shared_groups": [["Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","Pokemon - Version Bleue (France) (SGB Enhanced).gb","Pokemon - Versione Blu (Italy) (SGB Enhanced).gb"]]
+  }
+]
