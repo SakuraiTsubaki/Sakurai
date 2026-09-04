@@ -1,0 +1,22 @@
+a,b,file_a,file_b,identical,differing_bytes,difference_percent,first_diff_offset,last_diff_offset,identical_64k_blocks,total_64k_blocks
+BPEJ,BPES,Pocket Monsters - Emerald (Japan).gba,Pokemon - Edicion Esmeralda (Spain).gba,False,13394712,79.838705,0x000000AF,0x00F3F7C7,36,256
+BPEJ,BPEE,Pocket Monsters - Emerald (Japan).gba,Pokemon - Emerald Version (U).gba,False,13390435,79.813212,0x000000AF,0x00F3F7C7,36,256
+BPEJ,BPEE,Pocket Monsters - Emerald (Japan).gba,"Pokemon - Emerald Version (USA, Europe).gba",False,13390435,79.813212,0x000000AF,0x00F3F7C7,36,256
+BPEJ,BPED,Pocket Monsters - Emerald (Japan).gba,Pokemon - Smaragd-Edition (Germany).gba,False,13386784,79.791451,0x000000AF,0x00F3F7C7,36,256
+BPEJ,BPEF,Pocket Monsters - Emerald (Japan).gba,Pokemon - Version Emeraude (France).gba,False,13362861,79.648858,0x000000AF,0x00F3F7C7,36,256
+BPEJ,BPEI,Pocket Monsters - Emerald (Japan).gba,Pokemon - Versione Smeraldo (Italy).gba,False,13352629,79.587871,0x000000AF,0x00F3F7C7,36,256
+BPES,BPEE,Pokemon - Edicion Esmeralda (Spain).gba,Pokemon - Emerald Version (U).gba,False,10158364,60.548568,0x000000AF,0x00DEA0C9,69,256
+BPES,BPEE,Pokemon - Edicion Esmeralda (Spain).gba,"Pokemon - Emerald Version (USA, Europe).gba",False,10158364,60.548568,0x000000AF,0x00DEA0C9,69,256
+BPES,BPED,Pokemon - Edicion Esmeralda (Spain).gba,Pokemon - Smaragd-Edition (Germany).gba,False,10744509,64.042264,0x000000AF,0x00DEA0C9,68,256
+BPES,BPEF,Pokemon - Edicion Esmeralda (Spain).gba,Pokemon - Version Emeraude (France).gba,False,9927235,59.170932,0x000000AF,0x00DEA128,69,256
+BPES,BPEI,Pokemon - Edicion Esmeralda (Spain).gba,Pokemon - Versione Smeraldo (Italy).gba,False,10199886,60.796058,0x000000AF,0x00DEA0C9,69,256
+BPEE,BPEE,Pokemon - Emerald Version (U).gba,"Pokemon - Emerald Version (USA, Europe).gba",True,0,0.0,,,256,256
+BPEE,BPED,Pokemon - Emerald Version (U).gba,Pokemon - Smaragd-Edition (Germany).gba,False,10785193,64.28476,0x000000AF,0x00DEA07A,68,256
+BPEE,BPEF,Pokemon - Emerald Version (U).gba,Pokemon - Version Emeraude (France).gba,False,10409185,62.043577,0x000000AF,0x00DEA128,69,256
+BPEE,BPEI,Pokemon - Emerald Version (U).gba,Pokemon - Versione Smeraldo (Italy).gba,False,10494578,62.552559,0x000000AF,0x00DE9F90,69,256
+BPEE,BPED,"Pokemon - Emerald Version (USA, Europe).gba",Pokemon - Smaragd-Edition (Germany).gba,False,10785193,64.28476,0x000000AF,0x00DEA07A,68,256
+BPEE,BPEF,"Pokemon - Emerald Version (USA, Europe).gba",Pokemon - Version Emeraude (France).gba,False,10409185,62.043577,0x000000AF,0x00DEA128,69,256
+BPEE,BPEI,"Pokemon - Emerald Version (USA, Europe).gba",Pokemon - Versione Smeraldo (Italy).gba,False,10494578,62.552559,0x000000AF,0x00DE9F90,69,256
+BPED,BPEF,Pokemon - Smaragd-Edition (Germany).gba,Pokemon - Version Emeraude (France).gba,False,10740226,64.016736,0x000000AF,0x00DEA128,68,256
+BPED,BPEI,Pokemon - Smaragd-Edition (Germany).gba,Pokemon - Versione Smeraldo (Italy).gba,False,10399592,61.986399,0x000000AF,0x00DEA07A,69,256
+BPEF,BPEI,Pokemon - Version Emeraude (France).gba,Pokemon - Versione Smeraldo (Italy).gba,False,10402855,62.005848,0x000000AF,0x00DEA128,69,256
