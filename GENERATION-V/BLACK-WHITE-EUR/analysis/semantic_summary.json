@@ -1,13 +1,19 @@
 {
-  "phase": "semantic-census-2",
+  "phase": "semantic-census-2-corrected",
   "narc_total": 237,
-  "role_identified_confirmed_high_probable": 31,
+  "role_identified_confirmed_high_probable": 34,
   "confidence_counts": {
-    "confirmed": 16,
-    "high": 12,
-    "probable": 3,
-    "structural": 206
+    "high": 9,
+    "confirmed": 22,
+    "structural": 203,
+    "probable": 3
   },
+  "field_subsystem": {
+    "zonedata": "/a/0/1/2 (427x48B)",
+    "overworld": "/a/1/2/5 (428 members)",
+    "scripts": "/a/0/5/7 (899 members)"
+  },
+  "rejected_cross_version_mapping": "/a/0/5/6 is NOT BW1 field scripts",
   "version_different_narcs": [
     "/a/0/2/6",
     "/a/0/8/6",
@@ -16,15 +22,5 @@
     "/a/2/3/1"
   ],
   "version_different_narc_members": 66,
-  "decompressed_overlay_differences": 180,
-  "fixed_tables": {
-    "/a/0/1/6": "669 members; 667x60B + 56B + 1300B",
-    "/a/0/1/9": "668x42B",
-    "/a/0/2/0": "650x2B",
-    "/a/0/2/1": "560x36B",
-    "/a/0/2/4": "627x36B",
-    "/a/0/9/2": "616 members; 615x20B + 16B",
-    "/a/1/2/6": "100x232B + 12x928B",
-    "/a/1/7/8": "649x249B"
-  }
+  "decompressed_overlay_differences": 180
 }
