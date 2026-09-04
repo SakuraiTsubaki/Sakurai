@@ -1,0 +1,66 @@
+{
+  "roms": {
+    "JP0": {
+      "file": "Pocket Monsters Kin (Japan).gbc",
+      "size": 1048576,
+      "banks": 64,
+      "sha1": "8814f1039450a5d3684b1389f588ccd7ee7c3436",
+      "sha256": "7cfeceae00737a1f0713c9ab0b3a9e6eb8d05ff6002eb81308072a6f85e385e7"
+    },
+    "JPA": {
+      "file": "Pocket Monsters Kin (Japan) (Rev A).gbc",
+      "size": 1048576,
+      "banks": 64,
+      "sha1": "a222402235d484ee8e39f3f31bae57cf13daf585",
+      "sha256": "27a07a1d3faf9c6a0b1b60d5e88ee3a4159a751a47b4c46ab09f1202d52bac3e"
+    },
+    "EN": {
+      "file": "Pokemon - Gold Version (USA, Europe).gbc",
+      "size": 2097152,
+      "banks": 128,
+      "sha1": "d8b8a3600a465308c9953dfa04f0081c05bdcb94",
+      "sha256": "fb0016d27b1e5374e1ec9fcad60e6628d8646103b5313ca683417f52b97e7e4e"
+    },
+    "DE": {
+      "file": "Pokemon - Goldene Edition (Germany).gbc",
+      "size": 2097152,
+      "banks": 128,
+      "sha1": "9254195d461ea942eaaa08cc4b83de3cf82aea0d",
+      "sha256": "542f275f8632ef5265e5cde80a8ba1f0ec11ce714ef9d773088a92680bd17d73"
+    },
+    "FR": {
+      "file": "Pokemon - Version Or (France).gbc",
+      "size": 2097152,
+      "banks": 128,
+      "sha1": "c147c0d8c2b71b7628a7233436f5c052b5b17081",
+      "sha256": "6103cadf2ae505f4b489a8a414c8db27a2307d797ddf8a3a848659b591dd4023"
+    },
+    "IT": {
+      "file": "Pokemon - Versione Oro (Italy).gbc",
+      "size": 2097152,
+      "banks": 128,
+      "sha1": "032608fe8947b627584a4a0eccc7bf9ad3588426",
+      "sha256": "367e606f82b9e2e16d0cc8011c5ba2df1862da574e57ffd66e786a82af5b6e22"
+    },
+    "ES": {
+      "file": "Pokemon - Edicion Oro (Spain).gbc",
+      "size": 2097152,
+      "banks": 128,
+      "sha1": "162ea54c6a3cff374642e6dd842f9bffac847e7b",
+      "sha256": "7b78e33a348a0729e38ee0fd778cf49b3e07c35d2175ebc74d8f9be41f41455b"
+    },
+    "KR": {
+      "file": "Pocket Monsters Geum (Korea).gbc",
+      "size": 2097152,
+      "banks": 128,
+      "sha1": "c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65",
+      "sha256": "9c273e86e6120c6a038160ccb0153b8b20425b84fc08a496281c1d1bcac492f6"
+    }
+  },
+  "jp_revision": {
+    "different_bytes": 10841,
+    "diff_ranges": 426,
+    "changed_banks": [0, 4, 5, 9, 10, 15, 20, 33, 35, 36],
+    "semantic_change": "Rev A moves POP AF and inserts 5-byte zero-skip guard (7e a7 20 01 34) in _InitSpriteAnimStruct; bank23 grows by 5 bytes, causing relocated addresses and pointer fixups."
+  }
+}
