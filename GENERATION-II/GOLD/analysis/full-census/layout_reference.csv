@@ -1,0 +1,321 @@
+family,bank,role
+EN/WEST,00,Header/Home/RST/interrupts
+EN/WEST,01,Core engine/menu/items
+EN/WEST,02,Palette/player/math/predef
+EN/WEST,03,Events/items/pokemon core
+EN/WEST,04,Movement/menus/naming/events
+EN/WEST,05,RTC/overworld/save/marts/breeding
+EN/WEST,06,Tileset Data 1
+EN/WEST,07,Roofs/Tileset Data 2/Extra Songs 1
+EN/WEST,08,Clock Reset/Tileset Data 3/Catch Tutorial/Egg Moves
+EN/WEST,09,Menus/text buffers/battle menu
+EN/WEST,0A,Link/Mystery Gift/Wildmons
+EN/WEST,0B,Descriptions/trainers/TMHM/Pokerus
+EN/WEST,0C,Tileset Data 4
+EN/WEST,0D,Effect Commands
+EN/WEST,0E,Enemy Trainers
+EN/WEST,0F,Battle Core
+EN/WEST,10,Pokedex/moves/evolution
+EN/WEST,11,AI/Pokedex2/events
+EN/WEST,12,Pic pointers/Pics 1
+EN/WEST,13,unassigned/padding/unknown
+EN/WEST,14,Party/base stats/names/pics loader
+EN/WEST,15,Pics 2
+EN/WEST,16,Pics 3
+EN/WEST,17,Pics 4
+EN/WEST,18,Pics 5
+EN/WEST,19,Pics 6
+EN/WEST,1A,Pics 7
+EN/WEST,1B,Pics 8
+EN/WEST,1C,Pics 9
+EN/WEST,1D,Pics 10
+EN/WEST,1E,Pics 11
+EN/WEST,1F,Unown pic pointers/Pics 12
+EN/WEST,20,Trainer pic pointers/Pics 13
+EN/WEST,21,Printer/Battle anim GFX/Hall of Fame/Credits
+EN/WEST,22,unassigned/padding/unknown
+EN/WEST,23,"Save/phone tilemap, field moves, sprite anims, icons"
+EN/WEST,24,Phone/RTC/Pokegear/landmarks/slot machine
+EN/WEST,25,Maps/Events
+EN/WEST,26,Title Screen
+EN/WEST,27,unassigned/padding/unknown
+EN/WEST,28,unassigned/padding/unknown
+EN/WEST,29,unassigned/padding/unknown
+EN/WEST,2A,Map Blocks 1
+EN/WEST,2B,Map Blocks 2
+EN/WEST,2C,unassigned/padding/unknown
+EN/WEST,2D,unassigned/padding/unknown
+EN/WEST,2E,Pics 14/bank2E
+EN/WEST,2F,unassigned/padding/unknown
+EN/WEST,30,Sprites 1
+EN/WEST,31,Sprites 2/bank31
+EN/WEST,32,Battle anim BG/The End
+EN/WEST,33,Move Animations/Extra Songs 2
+EN/WEST,34,unassigned/padding/unknown
+EN/WEST,35,unassigned/padding/unknown
+EN/WEST,36,Font Inversed
+EN/WEST,37,Map Blocks 3/Tileset Data 5
+EN/WEST,38,Diploma/minigames/Bills PC
+EN/WEST,39,Copyright/Title Screen 2
+EN/WEST,3A,Audio/Songs 1
+EN/WEST,3B,Songs 2
+EN/WEST,3C,Songs 3/SFX/Cries
+EN/WEST,3D,Songs 4
+EN/WEST,3E,Font/collision/time capsule/etc
+EN/WEST,3F,Debug dummy/tileset anims/NPC trade/etc
+EN/WEST,40,Standard Scripts
+EN/WEST,41,Phone Scripts
+EN/WEST,42,Map Scripts 1
+EN/WEST,43,Map Scripts 2
+EN/WEST,44,Map Scripts 3
+EN/WEST,45,Map Scripts 4
+EN/WEST,46,Map Scripts 5
+EN/WEST,47,Map Scripts 6
+EN/WEST,48,Map Scripts 7
+EN/WEST,49,Map Scripts 8
+EN/WEST,4A,Map Scripts 9
+EN/WEST,4B,Map Scripts 10
+EN/WEST,4C,Map Scripts 11
+EN/WEST,4D,Map Scripts 12
+EN/WEST,4E,Map Scripts 13
+EN/WEST,4F,Map Scripts 14
+EN/WEST,50,Map Scripts 15
+EN/WEST,51,Map Scripts 16
+EN/WEST,52,Map Scripts 17
+EN/WEST,53,Map Scripts 18
+EN/WEST,54,Map Scripts 19
+EN/WEST,55,Map Scripts 20
+EN/WEST,56,Map Scripts 21
+EN/WEST,57,Map Scripts 22
+EN/WEST,58,unassigned/padding/unknown
+EN/WEST,59,Map Scripts 23
+EN/WEST,5A,Map Scripts 24
+EN/WEST,5B,Map Scripts 25
+EN/WEST,5C,Map Scripts 26
+EN/WEST,5D,Map Scripts 27
+EN/WEST,5E,Map Scripts 28
+EN/WEST,5F,Map Scripts 29
+EN/WEST,60,Map Scripts 30
+EN/WEST,61,Map Scripts 31
+EN/WEST,62,Map Scripts 32
+EN/WEST,63,unassigned/padding/unknown
+EN/WEST,64,Text 1
+EN/WEST,65,Text 2
+EN/WEST,66,Text 3
+EN/WEST,67,unassigned/padding/unknown
+EN/WEST,68,Pokedex 001-064
+EN/WEST,69,Pokedex 065-128
+EN/WEST,6A,Pokedex 129-192
+EN/WEST,6B,Pokedex 193-251
+EN/WEST,6C,Names
+EN/WEST,6D,Move Descriptions
+EN/WEST,6E,Item Descriptions
+EN/WEST,6F,unassigned/padding/unknown
+EN/WEST,70,Tileset 6/Pokegear GFX/Credits Strings
+EN/WEST,71,unassigned/padding/unknown
+EN/WEST,72,unassigned/padding/unknown
+EN/WEST,73,unassigned/padding/unknown
+EN/WEST,74,unassigned/padding/unknown
+EN/WEST,75,unassigned/padding/unknown
+EN/WEST,76,unassigned/padding/unknown
+EN/WEST,77,unassigned/padding/unknown
+EN/WEST,78,unassigned/padding/unknown
+EN/WEST,79,unassigned/padding/unknown
+EN/WEST,7A,unassigned/padding/unknown
+EN/WEST,7B,unassigned/padding/unknown
+EN/WEST,7C,unassigned/padding/unknown
+EN/WEST,7D,unassigned/padding/unknown
+EN/WEST,7E,unassigned/padding/unknown
+EN/WEST,7F,Stadium 2 checksums
+JP,00,Header/Home/RST/interrupts
+JP,01,Core engine/menu/items
+JP,02,Palette/player/math/predef
+JP,03,Events/items/pokemon core
+JP,04,Movement/menus/naming/events
+JP,05,RTC/overworld/save/marts/breeding
+JP,06,Tileset Data 1
+JP,07,Roofs/Tileset Data 2/Extra Songs 1
+JP,08,Clock Reset/Tileset Data 3/Catch Tutorial/Egg Moves
+JP,09,Menus/text buffers/battle menu
+JP,0A,Link/Mystery Gift/Wildmons
+JP,0B,Item/move descriptions/trainers
+JP,0C,Tileset Data 4
+JP,0D,Effect Commands
+JP,0E,Enemy Trainers
+JP,0F,Battle Core
+JP,10,Pokedex/moves/evolution
+JP,11,Pokedex Entries/Pokemon Mail
+JP,12,Pic pointers/Pics 1
+JP,13,Map Scripts 1
+JP,14,Party/base stats/names
+JP,15,Pics 2
+JP,16,Pics 3
+JP,17,Pics 4
+JP,18,Pics 5
+JP,19,Pics 6
+JP,1A,Pics 7
+JP,1B,Pics 8
+JP,1C,Pics 9
+JP,1D,Pics 10
+JP,1E,Pics 11
+JP,1F,Unown Pics
+JP,20,Trainer Pics
+JP,21,Printer/HOF/Credits
+JP,22,Map Scripts 2
+JP,23,Field moves/Sprite anims/icons
+JP,24,Phone/RTC/Pokegear
+JP,25,Maps/Events
+JP,26,Map Scripts 3
+JP,27,Map Scripts 4
+JP,28,Map Scripts 5
+JP,29,Map Scripts 6
+JP,2A,Map Blocks 1
+JP,2B,Map Blocks 2
+JP,2C,Map Scripts 7
+JP,2D,Map Scripts 8
+JP,2E,Pics 14/bank2E
+JP,2F,Map Scripts 9
+JP,30,Sprites 1
+JP,31,Sprites 2
+JP,32,Battle anim BG/The End
+JP,33,Move Animations/Extra Songs 2
+JP,34,Map Scripts 10
+JP,35,Map Scripts 11
+JP,36,Standard/Phone/Map Scripts 12
+JP,37,Map Blocks 3/Tileset 5
+JP,38,Diploma/minigames/Bills PC
+JP,39,Copyright/Title/Options/Font/Intro
+JP,3A,Audio/Songs 1
+JP,3B,Songs 2
+JP,3C,Songs 3/SFX/Cries
+JP,3D,Songs 4
+JP,3E,Font/collision/time capsule/etc
+JP,3F,Debug/tileset anims/NPC trade/etc
+KR,00,Header/Home/RST/interrupts
+KR,01,Core engine/menu/items
+KR,02,Palette/player/math/predef
+KR,03,Events/items/pokemon core
+KR,04,Movement/menus/naming/events
+KR,05,RTC/overworld/save/marts/breeding
+KR,06,Tileset Data 1
+KR,07,Roofs/Tileset Data 2/Extra Songs 1
+KR,08,Clock Reset/Tileset Data 3/Catch Tutorial/Egg Moves
+KR,09,Menus/text buffers/battle menu
+KR,0A,Link/Mystery Gift/Wildmons
+KR,0B,Descriptions/trainers/TMHM/Pokerus
+KR,0C,Tileset Data 4
+KR,0D,Effect Commands
+KR,0E,Enemy Trainers
+KR,0F,Battle Core
+KR,10,Pokedex/moves/evolution
+KR,11,AI/Pokedex2/events
+KR,12,Pic pointers/Pics 1
+KR,13,unassigned/padding/unknown
+KR,14,Party/base stats/names/pics loader
+KR,15,Pics 2
+KR,16,Pics 3
+KR,17,Pics 4
+KR,18,Pics 5
+KR,19,Pics 6
+KR,1A,Pics 7
+KR,1B,Pics 8
+KR,1C,Pics 9
+KR,1D,Pics 10
+KR,1E,Pics 11
+KR,1F,Unown pic pointers/Pics 12
+KR,20,Trainer pic pointers/Pics 13
+KR,21,Printer/Battle anim GFX/Hall of Fame/Credits
+KR,22,unassigned/padding/unknown
+KR,23,"Save/phone tilemap, field moves, sprite anims, icons"
+KR,24,Phone/RTC/Pokegear/landmarks/slot machine
+KR,25,Maps/Events
+KR,26,Title Screen
+KR,27,unassigned/padding/unknown
+KR,28,unassigned/padding/unknown
+KR,29,unassigned/padding/unknown
+KR,2A,Map Blocks 1
+KR,2B,Map Blocks 2
+KR,2C,unassigned/padding/unknown
+KR,2D,unassigned/padding/unknown
+KR,2E,Pics 14/bank2E
+KR,2F,unassigned/padding/unknown
+KR,30,Sprites 1
+KR,31,Sprites 2/bank31
+KR,32,Battle anim BG/The End
+KR,33,Move Animations/Extra Songs 2
+KR,34,unassigned/padding/unknown
+KR,35,unassigned/padding/unknown
+KR,36,Font Inversed
+KR,37,Map Blocks 3/Tileset Data 5
+KR,38,Diploma/minigames/Bills PC
+KR,39,Copyright/Title Screen 2
+KR,3A,Audio/Songs 1
+KR,3B,Songs 2
+KR,3C,Songs 3/SFX/Cries
+KR,3D,Songs 4
+KR,3E,Font/collision/time capsule/etc
+KR,3F,Debug dummy/tileset anims/NPC trade/etc
+KR,40,Standard Scripts
+KR,41,Phone Scripts
+KR,42,Map Scripts 1
+KR,43,Map Scripts 2
+KR,44,Map Scripts 3
+KR,45,Map Scripts 4
+KR,46,Map Scripts 5
+KR,47,Map Scripts 6
+KR,48,Map Scripts 7
+KR,49,Map Scripts 8
+KR,4A,Map Scripts 9
+KR,4B,Map Scripts 10
+KR,4C,Map Scripts 11
+KR,4D,Map Scripts 12
+KR,4E,Map Scripts 13
+KR,4F,Map Scripts 14
+KR,50,Map Scripts 15
+KR,51,Map Scripts 16
+KR,52,Map Scripts 17
+KR,53,Map Scripts 18
+KR,54,Map Scripts 19 (ROM present; KR WIP source not yet sectioned)
+KR,55,Map Scripts 20 (ROM present; KR WIP source not yet sectioned)
+KR,56,Map Scripts 21 (ROM present; KR WIP source not yet sectioned)
+KR,57,Map Scripts 22 (ROM present; KR WIP source not yet sectioned)
+KR,58,unassigned/padding/unknown
+KR,59,Map Scripts 23 (ROM present; KR WIP source not yet sectioned)
+KR,5A,Map Scripts 24 (ROM present; KR WIP source not yet sectioned)
+KR,5B,Map Scripts 25 (ROM present; KR WIP source not yet sectioned)
+KR,5C,Map Scripts 26 (ROM present; KR WIP source not yet sectioned)
+KR,5D,Map Scripts 27 (ROM present; KR WIP source not yet sectioned)
+KR,5E,Map Scripts 28 (ROM present; KR WIP source not yet sectioned)
+KR,5F,Map Scripts 29 (ROM present; KR WIP source not yet sectioned)
+KR,60,Map Scripts 30 (ROM present; KR WIP source not yet sectioned)
+KR,61,Map Scripts 31 (ROM present; KR WIP source not yet sectioned)
+KR,62,Map Scripts 32 (ROM present; KR WIP source not yet sectioned)
+KR,63,unassigned/padding/unknown
+KR,64,Text 1
+KR,65,Text 2
+KR,66,Text 3
+KR,67,unassigned/padding/unknown
+KR,68,Pokedex Entries 001-128
+KR,69,Pokedex Entries 129-251
+KR,6A,unassigned/padding
+KR,6B,unassigned/padding
+KR,6C,Names
+KR,6D,Move Descriptions
+KR,6E,Item Descriptions
+KR,6F,unassigned/padding/unknown
+KR,70,Tileset 6/Pokegear GFX/Credits Strings
+KR,71,Hangul naming/composition tables + naming-screen GFX (KR)
+KR,72,DMG Error Screen
+KR,73,unassigned/padding/unknown
+KR,74,unassigned/padding/unknown
+KR,75,unassigned/padding/unknown
+KR,76,unassigned/padding/unknown
+KR,77,unassigned/padding/unknown
+KR,78,Hangul Tables 1
+KR,79,Hangul Tables 2
+KR,7A,Hangul Tables 3
+KR,7B,Diploma GFX
+KR,7C,unassigned/padding/unknown
+KR,7D,unassigned/padding/unknown
+KR,7E,unassigned/padding/unknown
+KR,7F,Hangul/double-byte renderer + core support (KR)
