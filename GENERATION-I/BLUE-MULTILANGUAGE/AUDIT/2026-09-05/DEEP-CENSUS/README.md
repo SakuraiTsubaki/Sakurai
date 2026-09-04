@@ -120,13 +120,14 @@ EN raw trailing padding is one byte larger than its authoritative ROMX free tota
 - `deep_census.py` — deterministic generator; reads local ROMs but embeds no ROM bytes.
 - `deep_census_summary.json` — machine summary.
 - `source_verification.csv` — hash-to-disassembly provenance status.
-- `bank_role_matrix.csv` — every bank in every ROM with role, entropy, hashes, filler metrics and similarities.
-- `western_bank_diff.csv` — bankwise EN/DE/FR/IT/ES comparison with padding-corrected used-span consensus.
-- `western_shared_runs.csv` — contiguous all-five-identical runs of at least 32 bytes.
-- `filler_runs_ge256.csv` — raw `00`/`FF` runs ≥256 bytes; **heuristic only**.
+- `bank_matrix_compact_parts/part-01.csv` … `part-04.csv` — complete 64-bank cross-language census: bank roles, source-confirmed EN free bytes, per-ROM bank SHA-1s and trailing-zero packing.
+- `western_bank_diff.csv` — bankwise EN/DE/FR/IT/ES comparison with padding-corrected used-span consensus and shared-run summary metrics.
 - `EN_source_confirmed_free_space.csv` — authoritative EN linker free ranges from the exact `pret/pokered` build map.
 - `JP_vs_Western_topology.csv` — bank-by-bank JP ↔ western topology and same-position similarity.
 - `high_value_anchor_addresses.csv` — exact source-backed addresses for major tables/assets.
+- `MANIFEST.sha256` — integrity manifest for the canonical committed census artifacts.
+
+`deep_census.py` can additionally regenerate verbose raw ledgers (`bank_role_matrix.csv`, `western_shared_runs.csv`, `filler_runs_ge256.csv`) when the six local ROMs are present. These verbose dumps are derivations of the committed generator and compact/decision-grade ledgers; no ROM bytes are embedded.
 
 ## Interpretation rule
 
