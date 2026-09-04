@@ -1,0 +1,16 @@
+category	source_area	rev0_location	revA_location	change	impact
+header	ROM header	00:014C	00:014C	version byte 00 -> 01; checksums updated	revision identification only
+serial	home/serial.asm	00:0C14	00:0C14	remove Rev0-only 18-byte storeReceivedByte redirection when LINK_STATE_RESET/internal clock	link code cleanup; net -18-byte downstream shift in bank 00
+serial	home/serial.asm	00:0C2E / 00:0CAA	00:0CC9 / 00:0C1C	move serial2 include relative to Serial_ExchangeByte	function reordering; many address/pointer changes without new game content
+link	engine/link/cable_club.asm	01:5115+	01:5115+	remove wUnknown_CCE0 use; send explicit zero sync bytes	link synchronization cleanup
+link	engine/link/cable_club.asm	01:52CE-5367	removed	remove player/enemy name first-char Ａ corrupted-data check, error text, endless loop	removes false/corrupt-data guard behavior; shrinks bank 01
+link	engine/link/cable_club_npc.asm	01:7388	01:732D	remove Rev0 write $10 to wUnknown_CCE0	companion cleanup for removed serial variable use
+battle	engine/battle/move_effects/haze.asm	04:7F4C	04:7F4C	AND mask 07 -> 27 (sleep -> sleep|freeze)	after Haze cures freeze, selected action is now cancelled like cured sleep
+unused	engine/battle/print_type.asm	09:7DCE-7DF3	removed	delete 0x26-byte UnusedSerialFunction	38-byte deletion; following PrintMonType shifts from 09:7DF4 to 09:7DCE
+battle	engine/battle/core.asm	0F:426D+	0F:426D+	when enemy trapping move prevents action, set wPlayerSelectedMove=CANNOT_MOVE	explicit no-action state instead of only skipping move selection
+link battle	engine/battle/core.asm	0F:42xx / 56xx / 57xx	same region, revised	introduce LINKBATTLE_NO_ACTION=$0D handling and transmission	prevents trapped/no-action turns from being mistaken for a move/switch; improves synchronization
+battle	engine/battle/core.asm	0F:56xx	0F:56xx	Rev0 checked enemy trapping flag where player trapping flag was intended; RevA checks wPlayerBattleStatus1	correct trapping-state side used during enemy move selection
+menu	engine/battle/core.asm	0F:51xx	0F:51xx	clear wMenuItemToSwap after battle bag list	partial fix for closed-menu Select/swap-state glitch
+optimization	engine/battle/core.asm	multiple	multiple	bit tests/indexing/store sequences rewritten to shorter/equivalent forms	code size/layout changes; not intended gameplay changes
+wram	ram/wram.asm	WRAM labels	same allocation	remove Rev0-only labels wUnknown_CCE0/wUnknownSerialCounter3/wUnknownSerialByte while preserving allocated layout via ds/UNION	no save-layout expansion; supports deleted unused serial logic
+garbage	garbage.asm	many banks	many banks	revision-specific leftover/padding/garbage bytes differ	explains many small byte diffs; not gameplay/content tables
