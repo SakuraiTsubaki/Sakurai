@@ -1,0 +1,61 @@
+[
+  {
+    "from_file": "Pokemon - Sapphire Version (USA).gba",
+    "to_file": "Pokemon - Sapphire Version (Europe) (Rev 1).gba",
+    "byte_differences": 5638997,
+    "first_diff": "0x000000BC",
+    "last_diff": "0x00EA79CE",
+    "contiguous_runs": 377087,
+    "largest_run": 2856,
+    "tiny_diff_bytes": [],
+    "game_code": "AXPE"
+  },
+  {
+    "from_file": "Pokemon - Sapphire Version (Europe) (Rev 1).gba",
+    "to_file": "Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",
+    "byte_differences": 4,
+    "first_diff": "0x000000BC",
+    "last_diff": "0x000091BF",
+    "contiguous_runs": 3,
+    "largest_run": 2,
+    "tiny_diff_bytes": [
+      {"offset": "0x000000BC", "from": "0x01", "to": "0x02"},
+      {"offset": "0x000000BD", "from": "0x54", "to": "0x53"},
+      {"offset": "0x0000919B", "from": "0xDD", "to": "0xDB"},
+      {"offset": "0x000091BF", "from": "0xDC", "to": "0xDA"}
+    ],
+    "game_code": "AXPE"
+  },
+  {
+    "from_file": "Pokemon - Version Saphir (France).gba",
+    "to_file": "Pokemon - Version Saphir (France) (Rev 1).gba",
+    "byte_differences": 4,
+    "first_diff": "0x000000BC",
+    "last_diff": "0x0000938B",
+    "contiguous_runs": 3,
+    "largest_run": 2,
+    "tiny_diff_bytes": [
+      {"offset": "0x000000BC", "from": "0x00", "to": "0x01"},
+      {"offset": "0x000000BD", "from": "0x54", "to": "0x53"},
+      {"offset": "0x00009367", "from": "0xDD", "to": "0xDB"},
+      {"offset": "0x0000938B", "from": "0xDC", "to": "0xDA"}
+    ],
+    "game_code": "AXPF"
+  },
+  {
+    "from_file": "Pokemon - Versione Zaffiro (Italy).gba",
+    "to_file": "Pokemon - Versione Zaffiro (Italy) (Rev 1).gba",
+    "byte_differences": 4,
+    "first_diff": "0x000000BC",
+    "last_diff": "0x0000938B",
+    "contiguous_runs": 3,
+    "largest_run": 2,
+    "tiny_diff_bytes": [
+      {"offset": "0x000000BC", "from": "0x00", "to": "0x01"},
+      {"offset": "0x000000BD", "from": "0x51", "to": "0x50"},
+      {"offset": "0x00009367", "from": "0xDD", "to": "0xDB"},
+      {"offset": "0x0000938B", "from": "0xDC", "to": "0xDA"}
+    ],
+    "game_code": "AXPI"
+  }
+]
