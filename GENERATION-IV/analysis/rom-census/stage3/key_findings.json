@@ -1,0 +1,48 @@
+{
+  "character_map": {
+    "mapped_codes": 2873,
+    "hangul_ksx1001": 2350,
+    "hangul_jamo": 33,
+    "hangul_extra": 5,
+    "hangul_extra_chars": "뢔쌰쎼쓔쬬",
+    "max_korean_code_hex": "0D65"
+  },
+  "hgss_messages": {
+    "banks": 822,
+    "messages": 47515,
+    "visible_units": 1148362,
+    "mapped_visible_units": 1148362,
+    "mapping_coverage_pct": 100.0,
+    "unknown_visible_units": 0,
+    "compressed_markers": 0,
+    "top_unknown_codes": [],
+    "samples": {
+      "species_bank": 233,
+      "species_1": "이상해씨",
+      "move_bank": 743,
+      "move_1": "막치기",
+      "move_53": "화염방사",
+      "move_57": "파도타기",
+      "move_98": "전광석화"
+    }
+  },
+  "fonts": {
+    "hgss_main_font_plausible_font_members": 6,
+    "hgss_main_font_max_num_glyphs": 3440,
+    "korean_max_code_decimal": 3429
+  },
+  "scripts": {
+    "Diamond_USA": {"banks":1051,"bytecode_banks":535,"map_script_header_banks":512,"unresolved_banks":4,"entries":3399},
+    "Pearl_USA": {"banks":1051,"bytecode_banks":535,"map_script_header_banks":512,"unresolved_banks":4,"entries":3399},
+    "Platinum_KOR": {"banks":1124,"bytecode_banks":572,"map_script_header_banks":549,"unresolved_banks":3,"entries":4059},
+    "HeartGold_KOR": {"banks":965,"bytecode_banks":497,"map_script_header_banks":468,"unresolved_banks":0,"entries":3893},
+    "SoulSilver_KOR": {"banks":965,"bytecode_banks":497,"map_script_header_banks":468,"unresolved_banks":0,"entries":3893}
+  },
+  "events_hgss": {
+    "HeartGold_KOR": {"banks":491,"valid_banks":491,"bg_events":1034,"object_events":2667,"warp_events":1317,"coord_events":195},
+    "SoulSilver_KOR": {"banks":491,"valid_banks":491,"bg_events":1034,"object_events":2667,"warp_events":1317,"coord_events":195}
+  },
+  "sprites": {"main_slots":494,"species_slots_1_493":493,"hg_vs_ss_main_exact":true,"hg_vs_ss_alt_exact":true},
+  "version_binary": {"arm9_diff_bytes":712099,"arm7_diff_bytes":0,"overlays_total":129,"overlays_identical":11,"overlays_different":118},
+  "legacy_exact_named_mappings": 146
+}
