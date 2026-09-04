@@ -1,0 +1,33 @@
+bank_hex,rom_offset_start,rom_offset_end,primary_role,layout_sections,rev0_text_candidates,rev0_entropy,raw_diff_bytes_vs_reva,sequence_similarity_vs_reva
+00,000000,003FFF,"fixed-bank core: reset/interrupts, text engine, graphics transfer, serial/audio dispatch, common routines",NULL | rst0 | rst8 | rst10 | rst18 | rst20 | rst28 | rst30 | rst38 | vblank | lcd | timer | serial | joypad | Garbage Header | Header | Home | Garbage 0,16,7.148893,13109,0.935791
+01,004000,007FFF,"mixed core data/routines: sprite facings, Pokémon/item data and names, miscellaneous systems",bank1 | Garbage 1,189,7.254003,11803,0.918396
+02,008000,00BFFF,audio engine/music/SFX set 1,Audio Engine 1 | Music 1 | Play Battle Music (Audio Engine 1) | Sound Effect Headers 1 | Music Headers 1 | Sound Effects 1 | Garbage 2,16,6.978919,18,0.998901
+03,00C000,00FFFF,input + map/object/event support (mixed bank),bank3 | Garbage 3,25,7.349282,366,0.977234
+04,010000,013FFF,move names/font/start menu/NPC sprites/battle engine,Move Names | Font Graphics | Start Menu | NPC Sprites 1 | Battle Engine 1 | Garbage 4,170,6.778047,233,0.985107
+05,014000,017FFF,NPC sprites + battle engine,NPC Sprites 2 | Battle Engine 2 | Garbage 5,10,6.30234,83,0.994934
+06,018000,01BFFF,maps + play time + doors/ledges,Maps 1 | Play Time | Maps 2 | Doors and Ledges | Garbage 6,14,7.250023,348,0.977905
+07,01C000,01FFFF,maps + clear-save + hidden events,Maps 3 | Clear Save | Maps 4 | Hidden Events 1 | Garbage 7,35,7.184923,560,0.963989
+08,020000,023FFF,Bill PC + audio engine/music/SFX set 2,Bill's PC | Audio Engine 2 | Music 2 | Low Health Alarm (Audio Engine 2) | Sound Effect Headers 2 | Music Headers 2 | Sound Effects 2,39,7.059168,60,0.996277
+09,024000,027FFF,compressed pictures + battle engine,Pics 1 | Battle Engine 3 | Garbage 9,52,7.80888,519,0.990173
+0A,028000,02BFFF,compressed pictures + battle engine,Pics 2 | Battle Engine 4 | Garbage 10,47,7.840146,14,0.999146
+0B,02C000,02FFFF,compressed pictures + battle engine,Pics 3 | Battle Engine 5 | Garbage 11,29,7.836844,13,0.999207
+0C,030000,033FFF,compressed pictures + battle engine,Pics 4 | Battle Engine 6 | Garbage 12,34,7.81998,32,0.998047
+0D,034000,037FFF,compressed pictures + slot machines,Pics 5 | Slot Machines,32,7.803008,65,0.995728
+0E,038000,03BFFF,battle engine,Battle Engine 7 | Garbage 14,138,7.145405,79,0.995178
+0F,03C000,03FFFF,battle core,Battle Core | Garbage 15 (Rev0 only),27,7.080828,15403,0.902527
+10,040000,043FFF,Pokédex menus + trade movie + mixed routines,bank10 | Garbage 16,248,6.969505,135,0.991394
+11,044000,047FFF,maps + Pokédex rating + hidden-event core,Maps 5 | Pokédex Rating | Maps 6 | Hidden Events Core | Garbage 17,12,7.196892,307,0.979431
+12,048000,04BFFF,maps + screen effects,Maps 7 | Screen Effects | Maps 8 | Garbage 18,38,7.12793,406,0.974304
+13,04C000,04FFFF,trainer pictures + maps + predefs,Trainer Pics | Maps 9 | Predefs | Garbage 19,41,7.835871,36,0.997803
+14,050000,053FFF,maps + battle engine + hidden events,Maps 10 | Battle Engine 8 | Hidden Events 2 | Garbage 20,30,7.294475,379,0.976501
+15,054000,057FFF,maps + battle engine + diploma + trainer sight,Maps 11 | Battle Engine 9 | Diploma | Trainer Sight | Garbage 21,22,7.139841,313,0.980347
+16,058000,05BFFF,maps + battle engines,Maps 12 | Battle Engine 10 | Maps 13 | Battle Engine 11 | Garbage 22,32,7.160632,330,0.979614
+17,05C000,05FFFF,maps + starter Pokédex + hidden events,Maps 14 | Starter Dex | Maps 15 | Hidden Events 3 | Garbage 23,30,7.101634,397,0.975281
+18,060000,063FFF,maps + fossil lab + hidden events,Maps 16 | Cinnabar Lab Fossils | Maps 17 | Hidden Events 4 | Garbage 24,12,7.049474,359,0.978088
+19,064000,067FFF,tilesets,Tilesets 1 | Garbage 25,26,6.50805,32,0.998047
+1A,068000,06BFFF,version graphics + tilesets + battle engine,Version GFX | Tilesets 2 | Battle Engine 12 | Garbage 26 (RevA only),12,6.371074,2,0.999878
+1B,06C000,06FFFF,tilesets,Tilesets 3,6,6.201428,0,1.0
+1C,070000,073FFF,credits + splash/movie and mixed presentation routines,bank1C | Garbage 28,124,6.873593,203,0.987366
+1D,074000,077FFF,maps + itemfinder + vending machine,Maps 18 | Itemfinder 1 | Maps 19 | Vending Machine | Maps 20 | Itemfinder 2 | Garbage 29,30,7.091263,425,0.973633
+1E,078000,07BFFF,status ailments + battle animations and mixed Pokémon/battle systems,bank1E | Garbage 30,12,6.782914,132,0.991699
+1F,07C000,07FFFF,audio engine/music/SFX set 3,Audio Engine 3 | Music 3 | Sound Effect Headers 3 | Music Headers 3 | Sound Effects 3 | Garbage 31,32,7.072184,7,0.999573
