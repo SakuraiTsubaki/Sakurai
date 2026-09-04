@@ -1,0 +1,9 @@
+{
+  "jp_rev0": {"game_code":"BPGJ","revision":0,"size":16777216,"sha1":"5946f1b59e8d71cc61249661464d864185c92a5f","md5":"138a71a5be83f3f3d7af3d31916a5fc7"},
+  "de_rev0": {"game_code":"BPGD","revision":0,"size":16777216,"sha1":"0802d1fb185ee3ed48d9a22afb25e66424076dac","md5":"4dd5e72f942a921d3fe53d21a39f4cba"},
+  "es_rev0": {"game_code":"BPGS","revision":0,"size":16777216,"sha1":"f9ebee5d228cb695f18ef2ced41630a09fa9eb05","md5":"765178ed4d402033ef7ed6b82d059f5a"},
+  "en_eu_rev1": {"game_code":"BPGE","revision":1,"size":16777216,"sha1":"7862c67bdecbe21d1d69ce082ce34327e1c6ed5e","md5":"9d33a02159e018d09073e700e1fd10fd"},
+  "en_us_rev0": {"game_code":"BPGE","revision":0,"size":16777216,"sha1":"574fa542ffebb14be69902d1d36f1ec0a4afd71e","md5":"612ca9473451fa42b51d1711031ed5f6"},
+  "fr_rev0": {"game_code":"BPGF","revision":0,"size":16777216,"sha1":"4b5758c14d0a07b70ef3ef0bd7fa5e7ce6978672","md5":"c5bc831107f459816508b45d9392afc9"},
+  "it_rev0": {"game_code":"BPGI","revision":0,"size":16777216,"sha1":"a1dfea1493d26d1f024be8ba1de3d193fcfc651e","md5":"1e52f38082b252e04173efb340a9286e"}
+}
