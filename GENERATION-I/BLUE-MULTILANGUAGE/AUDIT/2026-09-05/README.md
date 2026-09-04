@@ -48,10 +48,13 @@ ROM 원본은 저장소에 포함하지 않는다. 이 문서는 프로젝트에
 ## Generated ledgers
 
 - `blue_rom_inventory.csv`: ROM-level header/hash inventory.
-- `bank_census.csv`: every 16 KiB bank with SHA-1, entropy, zero/FF counts and blank-bank flags.
 - `pairwise_similarity.csv`: ROM-pair byte similarity and exact-bank matches.
-- `blue_rom_inventory.json`: machine-readable full baseline, including per-bank hashes.
+- `banks/JP_AO.csv`: JP Blue 32-bank census.
+- `banks/EN_BLUE.csv`, `banks/DE_BLUE.csv`, `banks/FR_BLUE.csv`, `banks/IT_BLUE.csv`, `banks/ES_BLUE.csv`: western 64-bank censuses.
+- `shared_western_bank_groups.json`: exact 16 KiB bank groups shared across western versions.
 - `audit_blue_roms.py`: reproducible audit generator; ROM bytes are never embedded.
+
+Each bank census records SHA-1, entropy, zero/FF byte counts, blank-bank flags and unique-byte-value counts.
 
 ## Next census layers
 
