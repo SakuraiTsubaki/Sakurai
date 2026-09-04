@@ -1,0 +1,92 @@
+{
+  "Diamond_vs_Pearl_learnsets": {
+    "left_count": 501,
+    "right_count": 501,
+    "common_count": 501,
+    "different_common_members": 0,
+    "different_indices": [],
+    "extra_left": [],
+    "extra_right": []
+  },
+  "Diamond_vs_Pearl_trainers": {
+    "left_count": 850,
+    "right_count": 850,
+    "common_count": 850,
+    "different_common_members": 0,
+    "different_indices": [],
+    "extra_left": [],
+    "extra_right": []
+  },
+  "Diamond_vs_Pearl_trainer_parties": {
+    "left_count": 850,
+    "right_count": 850,
+    "common_count": 850,
+    "different_common_members": 0,
+    "different_indices": [],
+    "extra_left": [],
+    "extra_right": []
+  },
+  "Diamond_vs_Pearl_messages": {
+    "left_count": 624,
+    "right_count": 624,
+    "common_count": 624,
+    "different_common_members": 0,
+    "different_indices": [],
+    "extra_left": [],
+    "extra_right": []
+  },
+  "HG_vs_SS_learnsets": {
+    "left_count": 508,
+    "right_count": 508,
+    "common_count": 508,
+    "different_common_members": 0,
+    "different_indices": [],
+    "extra_left": [],
+    "extra_right": []
+  },
+  "HG_vs_SS_trainers": {
+    "left_count": 738,
+    "right_count": 738,
+    "common_count": 738,
+    "different_common_members": 0,
+    "different_indices": [],
+    "extra_left": [],
+    "extra_right": []
+  },
+  "HG_vs_SS_trainer_parties": {
+    "left_count": 738,
+    "right_count": 738,
+    "common_count": 738,
+    "different_common_members": 0,
+    "different_indices": [],
+    "extra_left": [],
+    "extra_right": []
+  },
+  "HG_vs_SS_messages": {
+    "left_count": 822,
+    "right_count": 822,
+    "common_count": 822,
+    "different_common_members": 0,
+    "different_indices": [],
+    "extra_left": [],
+    "extra_right": []
+  },
+  "HG_vs_SS_gold_enc_archive": {
+    "left_count": 142,
+    "right_count": 142,
+    "common_count": 142,
+    "different_common_members": 0,
+    "different_indices": [],
+    "extra_left": [],
+    "extra_right": []
+  },
+  "HG_vs_SS_silver_enc_archive": {
+    "left_count": 142,
+    "right_count": 142,
+    "common_count": 142,
+    "different_common_members": 0,
+    "different_indices": [],
+    "extra_left": [],
+    "extra_right": []
+  }
+}
