@@ -1,0 +1,8 @@
+file,game_code,ascii_runs,pointer_tables,pointer_entries,lz77_valid_aligned,lz77_nonoverlap_selected,intl_text_candidates,repeated_nonconstant_4k_groups
+Pocket Monsters - Leaf Green (Japan).gba,BPGJ,78538,1718,24064,3740,3739,0,0
+Pokemon - Blattgruene Edition (Germany).gba,BPGD,76782,1710,23879,3726,3725,11830,0
+Pokemon - Edicion Verde Hoja (Spain).gba,BPGS,76640,1712,23889,3726,3725,11163,0
+Pokemon - Leaf Green Version (Europe) (Rev 1).gba,BPGE,77049,1713,23974,3726,3725,11777,0
+Pokemon - Leaf Green Version (USA).gba,BPGE,77033,1713,23974,3726,3725,11778,0
+Pokemon - Version Vert Feuille (France).gba,BPGF,76855,1712,23901,3726,3725,11676,0
+Pokemon - Versione Verde Foglia (Italy).gba,BPGI,76767,1711,23884,3728,3726,11750,0
