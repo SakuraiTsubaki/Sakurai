@@ -1,0 +1,101 @@
+file,family,bank_hex,bank_dec,rom_offset_start,layout_label,sha1,entropy_bits_per_byte,unique_bytes,zero_pct,ff_pct,longest_00_run,longest_ff_run,longest_uniform_run,longest_uniform_value,pointer_like_word_pct,western_textcode_pct
+Pokemon - Edicion Plata (Spain).gbc,INTL,2C,44,0x0B0000,(data),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,2D,45,0x0B4000,(data),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,2E,46,0x0B8000,Pics 14 / bank2E,f3e4487449ef374f05114d27093953cdcbc25389,6.097216,256,24.7681,3.2654,2237,8,2237,0x00,14.209,28.5461
+Pokemon - Edicion Plata (Spain).gbc,INTL,2F,47,0x0BC000,(data),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,30,48,0x0C0000,Sprites 1,8655cd6b958c5d53da5dc7aed0aae9e6eb09b731,6.082367,209,4.5654,0.8972,64,8,64,0x00,11.9751,42.9016
+Pokemon - Edicion Plata (Spain).gbc,INTL,31,49,0x0C4000,Sprites 2 / bank31,6356edcfb6b3aef247af5d03ac4e8ba261e5f72a,5.929515,255,18.4265,1.0254,802,3,802,0x00,12.7319,37.6282
+Pokemon - Edicion Plata (Spain).gbc,INTL,32,50,0x0C8000,bank32 / The End,98df5d851a8f954a9f8000484fec41b9ea52fdf8,6.470887,256,12.6038,2.2156,600,5,600,0x00,21.1914,32.3181
+Pokemon - Edicion Plata (Spain).gbc,INTL,33,51,0x0CC000,Move Animations / Extra Songs 2,e1e9c10433bf89813ad7357e4f97d8610948b603,6.517243,255,13.5681,0.9216,440,2,440,0x00,21.2158,19.8181
+Pokemon - Edicion Plata (Spain).gbc,INTL,34,52,0x0D0000,(data),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,35,53,0x0D4000,(data),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,36,54,0x0D8000,Font Inversed,416067978de654dedea06a43048af9e51b138a29,0.635013,80,93.75,1.3855,15360,9,15360,0x00,0.769,3.8391
+Pokemon - Edicion Plata (Spain).gbc,INTL,37,55,0x0DC000,Map Blocks 3 / Tileset Data 5,fd4efbe19c7c2b8f26537b555877b535c64b3dda,6.494348,255,10.1501,2.948,416,104,416,0x00,13.2935,17.8467
+Pokemon - Edicion Plata (Spain).gbc,INTL,38,56,0x0E0000,bank38,eb0f44e5168b308d40f73ef84b91d800a4c5bc7f,6.644988,256,17.4072,2.6672,2063,5,2063,0x00,14.209,29.01
+Pokemon - Edicion Plata (Spain).gbc,INTL,39,57,0x0E4000,Copyright / Title Screen 2 / bank39,e41a69d75149645142a33cf93a3136f1115b07be,6.332715,256,22.7661,4.1687,2869,8,2869,0x00,13.0249,29.3457
+Pokemon - Edicion Plata (Spain).gbc,INTL,3A,58,0x0E8000,Audio / Songs 1,d484eceab56b0b07f5e66bf5fefd7b75bb9ace1f,6.998383,255,3.4607,1.0437,73,2,73,0x00,21.8262,42.9993
+Pokemon - Edicion Plata (Spain).gbc,INTL,3B,59,0x0EC000,Songs 2,0817a94053fbd6b83cd3640b2286817814f3346c,6.374539,247,7.5989,0.7812,267,1,267,0x00,19.1528,45.1782
+Pokemon - Edicion Plata (Spain).gbc,INTL,3C,60,0x0F0000,Songs 3 / Sound Effects / Cries,5d36c19cdbe4ed8014d67d2a43e981ac5f7ab136,6.699448,256,10.083,3.4912,138,2,138,0x00,15.5762,32.2937
+Pokemon - Edicion Plata (Spain).gbc,INTL,3D,61,0x0F4000,Songs 4,bd5b998ef17a222cf209971ec62df27223e0607f,6.525259,247,6.7383,0.9094,269,1,269,0x00,20.7031,44.0186
+Pokemon - Edicion Plata (Spain).gbc,INTL,3E,62,0x0F8000,bank3E / Shrink Pics / bank3E_2,90e4e317f5779b6892cbe3605c23a0c930d84876,5.345413,256,11.3098,27.8625,168,138,168,0x00,11.5967,54.8523
+Pokemon - Edicion Plata (Spain).gbc,INTL,3F,63,0x0FC000,bank3F,78c11a205aed3750081fa0804e2252bd1712c428,4.1006,256,56.2439,3.3569,8672,19,8672,0x00,8.8013,19.2871
+Pokemon - Edicion Plata (Spain).gbc,INTL,40,64,0x100000,Standard Scripts,9f3e7c206a2d81150616e250d0cf2128f5ebe9c1,4.27547,232,45.9961,0.0122,7155,1,7155,0x00,12.7686,43.3533
+Pokemon - Edicion Plata (Spain).gbc,INTL,41,65,0x104000,Phone Scripts,ba2ff79341e844dc48163be6aa1e0aaa8b78f20a,3.859567,220,53.4485,0.0061,8297,1,8297,0x00,12.3291,34.5215
+Pokemon - Edicion Plata (Spain).gbc,INTL,42,66,0x108000,Map Scripts 1,6241d8c64879e9d53daa7a72dec12c29fa9389f6,3.623844,224,57.5745,0.9033,8974,2,8974,0x00,9.1309,30.365
+Pokemon - Edicion Plata (Spain).gbc,INTL,43,67,0x10C000,Map Scripts 2,d2baedae7b12dc1b4fc6b9ca41c274f35eb19129,5.359749,241,25.9521,0.9644,3769,2,3769,0x00,16.2109,61.9263
+Pokemon - Edicion Plata (Spain).gbc,INTL,44,68,0x110000,Map Scripts 3,ec7bf300e1c013540dd7d9c5bd3dce50fa85ea7a,5.333013,244,28.4424,1.123,4123,2,4123,0x00,15.0391,55.304
+Pokemon - Edicion Plata (Spain).gbc,INTL,45,69,0x114000,Map Scripts 4,6111dd260b9efb63efacb31b027eba92d3ee5957,5.335103,248,30.896,0.6836,4357,2,4357,0x00,16.1865,48.1873
+Pokemon - Edicion Plata (Spain).gbc,INTL,46,70,0x118000,Map Scripts 5,3f856d6b97b071100a5ceffd25ae333ddc66b754,4.408743,249,48.1201,1.001,7357,2,7357,0x00,11.1206,35.1868
+Pokemon - Edicion Plata (Spain).gbc,INTL,47,71,0x11C000,Map Scripts 6,a2e77bea03ee0fea57a4b23547f16cf5be17569c,1.549519,183,85.199,0.47,13731,2,13731,0x00,3.0762,9.491
+Pokemon - Edicion Plata (Spain).gbc,INTL,48,72,0x120000,Map Scripts 7,7b401fc0becf7f516cbf002f48be3324f10f1d31,4.567781,231,42.9443,0.9277,6599,2,6599,0x00,12.8174,44.9768
+Pokemon - Edicion Plata (Spain).gbc,INTL,49,73,0x124000,Map Scripts 8,521ebce4d3588861e1f5635790b17d8e72a1e455,3.878961,225,53.3447,0.647,8413,2,8413,0x00,9.7168,38.2568
+Pokemon - Edicion Plata (Spain).gbc,INTL,4A,74,0x128000,Map Scripts 9,b0b6bccd8be2237a5e0b223002c2e0bfcd9c11f9,3.982963,234,52.6611,0.9155,8234,2,8234,0x00,11.4014,36.6638
+Pokemon - Edicion Plata (Spain).gbc,INTL,4B,75,0x12C000,Map Scripts 10,6600b80ab49ab3d48c9f01d639fec45d8b35fbf8,4.867787,242,38.1531,1.0132,5758,2,5758,0x00,14.4165,48.5413
+Pokemon - Edicion Plata (Spain).gbc,INTL,4C,76,0x130000,Map Scripts 11,e09119175cac076f42e42b874735c019db7d5c03,3.855238,238,54.0527,1.1597,8478,2,8478,0x00,10.0098,37.085
+Pokemon - Edicion Plata (Spain).gbc,INTL,4D,77,0x134000,Map Scripts 12,32e8f96c2e480b06e174b9e057800c1c5df2679a,3.90567,237,53.9062,1.0559,8450,2,8450,0x00,10.2783,36.2061
+Pokemon - Edicion Plata (Spain).gbc,INTL,4E,78,0x138000,Map Scripts 13,c37f85855707a6aa0ea880c2a8702df176b531ca,4.122796,216,48.4802,1.001,7608,2,7608,0x00,10.7666,43.4875
+Pokemon - Edicion Plata (Spain).gbc,INTL,4F,79,0x13C000,Map Scripts 14,3bb1e5dea6ef444860fe0f9398d3d76715728f72,4.446519,240,44.1528,1.2329,6846,2,6846,0x00,11.7798,46.2036
+Pokemon - Edicion Plata (Spain).gbc,INTL,50,80,0x140000,Map Scripts 15,36ef624b1cfebdca418d8d764e7fb175ba4e6aca,3.210901,215,62.9333,0.7935,10018,2,10018,0x00,8.2886,30.3833
+Pokemon - Edicion Plata (Spain).gbc,INTL,51,81,0x144000,Map Scripts 16,c4fa22b87bed4d9f35c3dfdb88da7b92de265cc1,3.648588,213,55.4626,0.9033,8745,2,8745,0x00,9.375,37.5305
+Pokemon - Edicion Plata (Spain).gbc,INTL,52,82,0x148000,Map Scripts 17,855133b6029d988a836f30df76a1f2f82198cb3f,3.47228,200,57.9224,0.7202,9237,2,9237,0x00,8.4717,35.4614
+Pokemon - Edicion Plata (Spain).gbc,INTL,53,83,0x14C000,Map Scripts 18,4317be440f203733d38045debb7be1996eba191c,3.750211,219,54.0222,0.8118,8500,2,8500,0x00,9.4116,37.9578
+Pokemon - Edicion Plata (Spain).gbc,INTL,54,84,0x150000,Map Scripts 19,26bf85eea22b91c4e83156eab2680dc08c8f9378,3.325451,209,61.0168,0.6897,9688,2,9688,0x00,8.2397,32.074
+Pokemon - Edicion Plata (Spain).gbc,INTL,55,85,0x154000,Map Scripts 20,542c248e9731eb3bae42d5faf547811f5770d9a2,2.921071,204,67.1387,0.4517,10790,2,10790,0x00,7.1045,26.7944
+Pokemon - Edicion Plata (Spain).gbc,INTL,56,86,0x158000,Map Scripts 21,27ccdadff42d0e1bdd65f29248ee4edf5a9410f5,3.009287,191,63.9221,0.5371,10285,2,10285,0x00,7.2754,31.5735
+Pokemon - Edicion Plata (Spain).gbc,INTL,57,87,0x15C000,Map Scripts 22,2bf85a3dc6505d019e46482a27b1954bbe18091d,5.474208,247,25.8118,1.5747,3544,2,3544,0x00,17.1753,58.5815
+Pokemon - Edicion Plata (Spain).gbc,INTL,58,88,0x160000,(layout gap / data),65c3298c1d4d0e575de0965dedbdbb60428c875f,3.776248,210,53.5339,0.4333,8481,2,8481,0x00,10.6812,38.7573
+Pokemon - Edicion Plata (Spain).gbc,INTL,59,89,0x164000,Map Scripts 23,713a5c48fa4b280ff78790e04cdd90b515298847,3.803999,197,52.5635,0.6958,8293,2,8293,0x00,9.5947,40.9912
+Pokemon - Edicion Plata (Spain).gbc,INTL,5A,90,0x168000,Map Scripts 24,2165537a6e64771cce624b3d35792228655c8283,3.82385,217,53.894,0.6226,8496,2,8496,0x00,9.5947,36.4502
+Pokemon - Edicion Plata (Spain).gbc,INTL,5B,91,0x16C000,Map Scripts 25,c700d703255f253399b893dd3c176275347f9156,4.881,237,38.2507,0.8362,5694,2,5694,0x00,14.4775,45.6543
+Pokemon - Edicion Plata (Spain).gbc,INTL,5C,92,0x170000,Map Scripts 26,9feb739ad142ff3643da5d4f6074fde433edbfc4,2.97479,212,67.3218,0.6897,10657,2,10657,0x00,7.8735,24.4507
+Pokemon - Edicion Plata (Spain).gbc,INTL,5D,93,0x174000,Map Scripts 27,0f84e665f6275d0a01b1debce53d000ad3829810,3.662442,208,55.011,1.0559,8665,2,8665,0x00,9.1675,38.1958
+Pokemon - Edicion Plata (Spain).gbc,INTL,5E,94,0x178000,Map Scripts 28,19006c05a27d557a2d306fd809fa6f713d008401,4.885538,234,37.3352,1.532,5486,4,5486,0x00,13.7207,49.4873
+Pokemon - Edicion Plata (Spain).gbc,INTL,5F,95,0x17C000,Map Scripts 29,3bb61d00f87f82f0012811d25803e99871c01048,2.417714,180,73.3521,0.5615,11809,2,11809,0x00,5.3833,22.467
+Pokemon - Edicion Plata (Spain).gbc,INTL,60,96,0x180000,Map Scripts 30,bbe0fb25704424afb89f9a30bd477b16b74c41a9,4.476324,227,42.6025,0.3723,6559,2,6559,0x00,13.4521,47.1497
+Pokemon - Edicion Plata (Spain).gbc,INTL,61,97,0x184000,Map Scripts 31,fb265f0736636a0305b0373d4c6a92d2348bde15,3.21906,204,62.7686,0.7874,10002,2,10002,0x00,7.5073,30.3223
+Pokemon - Edicion Plata (Spain).gbc,INTL,62,98,0x188000,Map Scripts 32,d77ecbe7bd02ebaeaf8fa136a5a49750f698262c,2.065396,172,78.0701,0.3967,12609,2,12609,0x00,4.834,18.0664
+Pokemon - Edicion Plata (Spain).gbc,INTL,63,99,0x18C000,(layout gap / data),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,64,100,0x190000,Text 1,4ee6664ce9206c81108a49ab150827faf1e12d9f,3.71731,115,49.6887,0.0,7764,0,7764,0x00,11.084,46.46
+Pokemon - Edicion Plata (Spain).gbc,INTL,65,101,0x194000,Text 2,89531dcac88b062ff6c7ea2e9188e5253f13b9e2,3.749267,106,48.7366,0.0366,7653,1,7653,0x00,10.6445,47.8088
+Pokemon - Edicion Plata (Spain).gbc,INTL,66,102,0x198000,Text 3,fd25cfda66b924db7f492a92b6d8847a70cfd64b,1.512343,96,83.5815,0.0,13575,0,13575,0x00,3.4058,15.2466
+Pokemon - Edicion Plata (Spain).gbc,INTL,67,103,0x19C000,(layout gap / data),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,68,104,0x1A0000,Pokedex Entries 001-064,273ef68834fe2e9563590be822be6ccce705e7d5,2.987572,127,59.5093,0.0,9711,0,9711,0x00,6.9824,39.3738
+Pokemon - Edicion Plata (Spain).gbc,INTL,69,105,0x1A4000,Pokedex Entries 065-128,06ef0e570bae165aebac3b20aca3d36f27249207,3.022394,128,58.9539,0.0,9640,0,9640,0x00,6.958,39.8743
+Pokemon - Edicion Plata (Spain).gbc,INTL,6A,106,0x1A8000,Pokedex Entries 129-192,41fa17ac17035263a487de9f4ecfb4c42b320fd2,2.945543,135,60.498,0.0061,9873,1,9873,0x00,6.9092,38.3484
+Pokemon - Edicion Plata (Spain).gbc,INTL,6B,107,0x1AC000,Pokedex Entries 193-251,e8ff14197e4cbb82cf0f1e1ef29c8db8f36f0634,2.805005,129,62.8601,0.0,10279,0,10279,0x00,6.189,36.1267
+Pokemon - Edicion Plata (Spain).gbc,INTL,6C,108,0x1B0000,Names,09b2695f695065cebdb672e2eb88f59bc0f8e238,3.22689,53,50.0366,0.0305,8198,1,8198,0x00,9.8511,49.054
+Pokemon - Edicion Plata (Spain).gbc,INTL,6D,109,0x1B4000,Move Descriptions,a60963d0871eea9fa9d20bc8ae613b35d6f1d6eb,3.686781,204,48.0896,0.0,7873,0,7873,0x00,11.1084,49.7253
+Pokemon - Edicion Plata (Spain).gbc,INTL,6E,110,0x1B8000,Item Descriptions,809ac76d4186a537e61259eec27f90aed7e290ea,2.864353,183,65.3992,0.0244,10714,3,10714,0x00,8.9966,31.6833
+Pokemon - Edicion Plata (Spain).gbc,INTL,6F,111,0x1BC000,(layout gap / data),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,70,112,0x1C0000,bank70 / Tileset Data 6 / Pokegear GFX / Credits Strings,a06d2561a57962c44dfc61dbceedd8e23ea58fe6,5.041128,256,41.4551,3.0823,5156,4,5156,0x00,12.8906,28.5095
+Pokemon - Edicion Plata (Spain).gbc,INTL,71,113,0x1C4000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,72,114,0x1C8000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,73,115,0x1CC000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,74,116,0x1D0000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,75,117,0x1D4000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,76,118,0x1D8000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,77,119,0x1DC000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,78,120,0x1E0000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,79,121,0x1E4000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,7A,122,0x1E8000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,7B,123,0x1EC000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,7C,124,0x1F0000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,7D,125,0x1F4000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,7E,126,0x1F8000,(unlabeled / unresolved),897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,1,100.0,0.0,16384,0,16384,0x00,0.0,0.0
+Pokemon - Edicion Plata (Spain).gbc,INTL,7F,127,0x1FC000,Stadium 2 Checksums / bank7F,cbb6466aaaed13915b803751c9b8fe03f3f6b7e7,0.384931,190,96.8323,0.0122,15864,1,15864,0x00,0.5859,1.9348
+Pokemon - Silberne Edition (Germany).gbc,INTL,00,0,0x000000,ROM0: vectors/header/home,906e353c3613b0e140a72506a52c226d8d63dbc6,7.036215,256,4.1077,0.6409,158,3,158,0x00,13.562,34.1492
+Pokemon - Silberne Edition (Germany).gbc,INTL,01,1,0x004000,bank1,433e10c3c846cae709538069108da188a61e38d5,5.949261,255,26.6968,0.5493,2739,3,2739,0x00,13.9282,20.3247
+Pokemon - Silberne Edition (Germany).gbc,INTL,02,2,0x008000,bank2,687495006c18ee8155728a088d56b358fc753d22,6.590662,256,17.2913,3.6682,966,6,966,0x00,19.5068,24.1333
+Pokemon - Silberne Edition (Germany).gbc,INTL,03,3,0x00C000,bank3,22a71bb04cdbbe3fe1f20c1cad7fa0335fd4d83d,6.79541,256,11.6211,0.4272,1529,2,1529,0x00,19.4092,27.4658
+Pokemon - Silberne Edition (Germany).gbc,INTL,04,4,0x010000,bank4,261683df9b30c156e439eba3571ac88d4f41ee3a,6.900878,256,7.5806,6.2683,535,388,535,0x00,17.627,36.5967
+Pokemon - Silberne Edition (Germany).gbc,INTL,05,5,0x014000,bank5,d130dd6f39515afaac350c29f23ef3f4f0ac2833,6.695706,256,14.978,1.9165,1926,14,1926,0x00,18.0054,25.2747
+Pokemon - Silberne Edition (Germany).gbc,INTL,06,6,0x018000,Tileset Data 1,7b4fccb4ae71a46fce526280574c6ef0f33a4ffb,6.139475,254,14.7522,1.9531,1276,16,1276,0x00,18.3716,18.1702
+Pokemon - Silberne Edition (Germany).gbc,INTL,07,7,0x01C000,Roofs / Tileset Data 2 / Extra Songs 1,f5ca65f4856c3cd555c9fcfffb7f95b0caf7b4a3,6.565594,256,9.9731,5.3284,257,96,257,0x00,12.2925,30.4626
+Pokemon - Silberne Edition (Germany).gbc,INTL,08,8,0x020000,Clock Reset / Tileset Data 3 / Catch Tutorial / Egg Moves,5c5de6dd3031103ebdb373bd13fa62d16ba50a85,6.54474,256,13.3789,7.4158,449,496,496,0xFF,16.3574,28.7231
+Pokemon - Silberne Edition (Germany).gbc,INTL,09,9,0x024000,bank9,b190065807fadf0b9eec779d32791eafd27abc70,6.785475,256,15.3259,2.2156,1050,5,1050,0x00,15.7959,29.4189
+Pokemon - Silberne Edition (Germany).gbc,INTL,0A,10,0x028000,bankA,86f36085602d556792fbf92d994b0c565042676e,7.059597,256,3.9856,0.6775,157,2,157,0x00,16.2476,23.6816
+Pokemon - Silberne Edition (Germany).gbc,INTL,0B,11,0x02C000,bankB,99a732c2aac15a5f9f1a0ba6f2b56e3d66bfbf08,1.700818,239,84.4604,0.0549,13775,2,13775,0x00,3.418,4.4739
+Pokemon - Silberne Edition (Germany).gbc,INTL,0C,12,0x030000,Tileset Data 4,dcf5777c6f8295847a8ff24f2512aa4376d83152,6.468876,256,13.6597,4.8096,639,32,639,0x00,11.9141,27.9297
+Pokemon - Silberne Edition (Germany).gbc,INTL,0D,13,0x034000,Effect Commands,626b094de5c009f0ba5c9af4a70fbe119b972c32,6.856718,256,1.4343,0.5127,95,2,95,0x00,17.4072,30.426
+Pokemon - Silberne Edition (Germany).gbc,INTL,0E,14,0x038000,Enemy Trainers,e4ea53d9d437f5387e64b3bf9f913feee09ae0ee,6.606154,256,17.8284,3.1982,2275,1,2275,0x00,16.6138,37.2192
+Pokemon - Silberne Edition (Germany).gbc,INTL,0F,15,0x03C000,Battle Core,3f7d43146a548c70baa1a038341bf09874cf9386,7.011118,256,3.6682,0.6348,333,2,333,0x00,15.3442,32.0862
