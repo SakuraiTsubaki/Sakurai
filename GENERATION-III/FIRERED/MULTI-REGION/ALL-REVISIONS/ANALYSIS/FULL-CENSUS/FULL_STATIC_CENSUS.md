@@ -1,0 +1,238 @@
+# Pokémon FireRed — Full Static Census, Stage 2
+
+## Scope
+
+Eight FireRed ROM images in the FIRE RED project workspace were scanned across the complete
+`0x00000000–0x00FFFFFF` addressable file range. ROM binaries are **not** included in this
+repository. This directory contains analysis only.
+
+This stage extends the Stage 1 hash/header census into:
+
+- 4 KiB whole-ROM statistical census
+- 64 KiB bank census
+- long `00` / `FF` run inventory
+- pointer-like 32-bit word census
+- GBA LZ77 stream census
+- 64 KiB cross-version identity matrix
+- revision-pair difference density
+- embedded ASCII / SDK signature census
+- fixed-width species-name and move-name table anchors
+- item-structure table anchors
+- decoded species / move / item name ledgers for all eight ROMs
+
+## ROM-level structural findings
+
+### Western builds (EN/DE/FR/IT/ES)
+
+The six western ROMs share the same broad physical layout:
+
+1. Main used region from `0x00000000` to roughly `0x0070xxxx–0x0071xxxx`.
+2. A very large `FF`-filled interval ending exactly at `0x00CFFFFF`.
+3. A second used region beginning at `0x00D00000`.
+4. Final large `FF`-filled tail beginning near `0x00EBxxxx`.
+
+Exact primary `FF` ranges:
+
+| Build | Large FF range 1 | Length | Large FF range 2 |
+|---|---|---:|---|
+| ES | `0x00710DE4–0x00CFFFFF` | `0x5EF21C` | `0x00EB229C–0x00FFFFFF` |
+| DE | `0x00718C40–0x00CFFFFF` | `0x5E73C0` | `0x00EB218C–0x00FFFFFF` |
+| EN Rev0 | `0x0071A23C–0x00CFFFFF` | `0x5E5DC4` | `0x00EB0B20–0x00FFFFFD` |
+| EN Rev1 | `0x0071A29C–0x00CFFFFF` | `0x5E5D64` | `0x00EB0B20–0x00FFFFFD` |
+| FR | `0x007105B8–0x00CFFFFF` | `0x5EFA48` | `0x00EB21A0–0x00FFFFFF` |
+| IT | `0x0070DE68–0x00CFFFFF` | `0x5F2198` | `0x00EB22EC–0x00FFFFFF` |
+
+The two English files end in the Stage 1 two-byte tail tags, so their final `FF` runs stop at
+`0x00FFFFFD`.
+
+### Japanese builds
+
+Japanese ROM organization is visibly different from the western builds.
+
+JP Rev1:
+
+- `FF`: `0x006C32B4–0x00BFFFFF`
+- active secondary region: `0x00C00000–0x00D95DC3`
+- `FF`: `0x00D95DC4–0x00EFFFFF`
+- mostly zero-filled reserve: `0x00F00000–0x00F3F3E3`
+- `FF`: `0x00F3F3E4–0x00FFFFFF`
+
+JP Rev0:
+
+- `FF`: `0x006C7D38–0x00BFFFFF`
+- active secondary region: `0x00C00000–0x00D95DC3`
+- `FF`: `0x00D95DC4–0x00EFFFFF`
+- mostly zero-filled reserve: `0x00F00000–0x00F3F3E7`
+- **additional low-entropy data** occupies approximately `0x00F3F3E8–0x00FDFFFE`
+- `FF`: `0x00FDFFFF–0x00FFFFFF`
+
+The roughly 658 KiB JP-Rev0-only tail is a major revision-specific structural difference and is
+kept as an unresolved semantic region in this stage rather than being mislabeled.
+
+## Build timestamps embedded in the ROMs
+
+| ROM | Embedded build stamp | Offset |
+|---|---|---|
+| JP Rev0 | `2003 12 29 23:17` | `0x001CDE34` |
+| JP Rev1 | `2004 03 01 16:45` | `0x001C9704` |
+| EN Rev0 | `2004 04 26 11:20` | `0x001E9F14` |
+| EN Rev1 | `2004 07 20 09:30` | `0x001E9F84` |
+| ES | `2004 07 20 15:50` | `0x001E575C` |
+| FR | `2004 07 21 13:50` | `0x001E43FC` |
+| DE | `2004 07 26 17:40` | `0x001E9EC0` |
+| IT | `2004 07 26 17:40` | `0x001E3094` |
+
+All eight images also contain the `FLASH1M_V103` and `NINTENDOSio32ID_030820` SDK/library
+signatures. Exact offsets are in `build_and_sdk_signatures.csv`.
+
+## Pointer-like word census
+
+Aligned 32-bit words falling into the GBA ROM address window (`0x08000000–0x08FFFFFF`) were
+counted. These are **pointer-like values**, not automatically proven semantic references.
+
+| ROM | ROM-window words |
+|---|---:|
+| JP Rev1 | 63,953 |
+| JP Rev0 | 64,495 |
+| ES | 63,563 |
+| DE | 63,463 |
+| EN Rev0 | 63,771 |
+| EN Rev1 | 63,766 |
+| FR | 63,524 |
+| IT | 63,511 |
+
+EWRAM, IWRAM, I/O, palette, VRAM, OAM, and SRAM-like ranges are separately counted in
+`pointer_summary.csv`. ROM pointer-like targets are also aggregated by target bank in
+`rom_pointer_target_banks.csv`.
+
+**Important:** long `FF`/`00` runs are not automatically declared safe free space merely because
+they look blank. Random/structured data can contain pointer-looking values, computed pointers do
+not appear as literals, and some blank regions can be reserved by runtime logic. This census
+therefore records blank regions as *padding/free-space candidates*, not as patch-safe allocations.
+
+## Validated GBA LZ77 census
+
+Detection filter:
+
+- stream starts on a 4-byte boundary
+- GBA `0x10` LZ77 header
+- complete, internally valid back-reference parse
+- uncompressed size at least 32 bytes
+- compressed stream smaller than its decoded size
+
+| ROM | Validated candidates | Total compressed bytes | Total decoded bytes |
+|---|---:|---:|---:|
+| JP Rev0 | 2,444 | 1,724,404 | 4,568,996 |
+| JP Rev1 | 2,444 | 1,724,404 | 4,568,996 |
+| ES | 2,430 | 1,800,087 | 4,695,624 |
+| DE | 2,430 | 1,800,136 | 4,695,624 |
+| EN Rev0 | 2,430 | 1,803,788 | 4,679,648 |
+| EN Rev1 | 2,430 | 1,803,788 | 4,679,648 |
+| FR | 2,430 | 1,799,852 | 4,695,656 |
+| IT | 2,430 | 1,799,964 | 4,695,624 |
+
+Individual offsets and sizes are generated by the committed scanner as `lz77_objects.csv`.
+
+## Cross-version bank identity
+
+Each ROM was divided into 256 × 64 KiB banks and SHA-256 hashed independently.
+
+- **83 / 256 banks are byte-identical across all eight ROMs.**
+- EN Rev0 ↔ EN Rev1: **141 identical banks**
+- JP Rev0 ↔ JP Rev1: **136 identical banks**
+- ES ↔ FR: **137 identical banks**
+
+Many of the universally identical banks are completely blank `FF` banks, especially inside the
+large reserved intervals, so identity alone does not imply shared executable/game data.
+`bank_identity_matrix.csv` records the number of distinct hashes for every bank.
+
+## Core localization tables — exact physical anchors
+
+The following tables were located directly in every ROM by fixed-stride structure and content.
+
+| ROM | Species names | Field | Move names | Field | Item table | Item struct / name field |
+|---|---|---:|---|---:|---|---:|
+| JP Rev1 | `0x001FF4D0` | 6 | `0x001FFE78` | 8 | `0x0039BEB8` | 40 / 10 |
+| JP Rev0 | `0x00203CB8` | 6 | `0x00204660` | 8 | `0x003A06F8` | 40 / 10 |
+| ES | `0x0024164C` | 11 | `0x00242800` | 13 | `0x003D4F50` | 44 / 14 |
+| DE | `0x00245DB0` | 11 | `0x00246F64` | 13 | `0x003DA518` | 44 / 14 |
+| EN Rev0 | `0x00245EE0` | 11 | `0x00247094` | 13 | `0x003DB028` | 44 / 14 |
+| EN Rev1 | `0x00245F50` | 11 | `0x00247104` | 13 | `0x003DB098` | 44 / 14 |
+| FR | `0x002402EC` | 11 | `0x002414A0` | 13 | `0x003D3324` | 44 / 14 |
+| IT | `0x0023EF84` | 11 | `0x00240138` | 13 | `0x003D1EE8` | 44 / 14 |
+
+Counts:
+
+- species-name slots: **412** internal slots
+- move-name slots: **355**
+- item slots: **375**
+
+The 412 internal species-name slots are engine slots, not a claim that FireRed contains 412
+National Pokédex species.
+
+This exposes a fundamental localization-layout difference:
+
+- JP fixed species field: 6 bytes; western: 11 bytes
+- JP fixed move field: 8 bytes; western: 13 bytes
+- JP item-name field / struct: 10 / 40 bytes
+- western item-name field / struct: 14 / 44 bytes
+
+All species, move, and item names from all eight builds are decoded into
+`core_names_species_moves_items.csv`. JP Rev0 and JP Rev1 have **zero decoded name
+differences** in these three tables; EN Rev0 and EN Rev1 likewise have **zero decoded name
+differences**.
+
+## Revision census
+
+Previous Stage 1 byte totals remain valid:
+
+- JP Rev0 ↔ Rev1: 7,016,197 differing bytes
+- EN Rev0 ↔ Rev1: 6,367,135 differing bytes
+
+`revision_diff_by_bank.csv` records the exact differing-byte count for every 64 KiB bank in both
+revision pairs. Exact byte-run generation is reproducible from `fire_red_full_census.py` and is
+intentionally not committed as a several-hundred-thousand-row uncompressed ledger.
+
+## Committed analysis artifacts
+
+The GitHub census commits the high-value, reviewable result ledgers directly:
+
+- `bank_census_64k.csv` — every 64 KiB bank of all eight ROMs
+- `padding_runs_ge_0x100.csv` — every homogeneous `00`/`FF` run >= 256 bytes
+- `pointer_summary.csv` — GBA address-family word counts
+- `rom_pointer_target_banks.csv` — pointer-like ROM targets by 64 KiB target bank
+- `build_and_sdk_signatures.csv` — build timestamps and SDK signatures
+- `bank_identity_matrix.csv` — bank distinctness across all eight ROMs
+- `pairwise_bank_identity.csv` — equal-bank census for all 28 ROM pairs
+- `revision_diff_by_bank.csv` — JP and EN revision-pair difference density
+- `core_table_offsets.csv` — species/move/item physical anchors
+- `core_names_species_moves_items.csv` — decoded core-name ledger across all eight ROMs
+- `fire_red_full_census.py` — reproducible scanner
+
+The scanner also deterministically generates the large raw diagnostic corpora below. They are
+kept out of the review-facing Git history because they are high-volume intermediate candidate
+sets rather than additional semantic conclusions:
+
+- every 4 KiB block metric (`whole_rom_block_census_4k.csv`)
+- every validated aligned LZ77 candidate (`lz77_objects.csv`)
+- every printable ASCII run >= 6 bytes (`ascii_strings_ge6.csv`)
+
+These raw corpora are reproducible byte-for-byte from the eight identified ROMs with the
+committed scanner; their aggregate findings and all high-confidence discoveries are preserved in
+the committed ledgers and this report. ROM binaries themselves are never committed.
+
+## Interpretation boundary
+
+This stage is a **complete static physical census**, not yet a claim that every byte has been
+assigned a final game-semantic label. The scanner intentionally separates proven facts from
+heuristics:
+
+- proven: hashes, offsets, run lengths, fixed-width tables, decoded names, build strings
+- validated format candidates: LZ77 streams
+- heuristic: pointer-like values and Thumb opcode-density metrics
+- unresolved: semantic identity of some large data regions, especially JP Rev0's unique tail
+
+The next semantic layer is to bind these physical regions to game systems: executable functions,
+event-script tables, map groups/events, graphics/palettes, battle data, Pokémon base stats and
+learnsets, trainers, wild encounters, Pokédex text, UI/font data, save layout, audio, wireless /
+Mystery Gift / e-Reader data, and all text-pointer families.
