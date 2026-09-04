@@ -1,0 +1,11 @@
+# Never commit original ROM images
+*.nds
+*.srl
+*.gba
+*.gb
+*.gbc
+*.3ds
+*.cia
+*.xci
+*.nsp
+*.rom
