@@ -46,6 +46,10 @@
     }
   },
   "output_files": {
+    "gen3_binary_layout.json": {
+      "sha256": "bcb4094c8b8ca99bb26330dd971df6e7340cd0d4070777f88366615f060c1094",
+      "bytes": 1509
+    },
     "gen3_evolutions.csv": {
       "sha256": "fdf68abb9ae912e494cf2fdc8e196575b2098094bfc3511b614ac38a1a270dcc",
       "bytes": 2570
@@ -55,8 +59,12 @@
       "bytes": 37720
     },
     "gen3_manifest.json": {
-      "sha256": "1d931ac199a425b9317605a169ce2b651ef4c29c0fc7bae0a1840422eb1c53c6",
-      "bytes": 2789
+      "sha256": "c0bcee8fb578265675c3233da098e33eded603947d9e08b4a48b4f992604590b",
+      "bytes": 2928
+    },
+    "gen3_parameter_block.bin": {
+      "sha256": "0c3d4f2057c7b3fb6b3b02f216f471c956b770223b9b95b097b9f9e0f6892f03",
+      "bytes": 27461
     },
     "gen3_parameter_bundle.json": {
       "sha256": "6ab877c5233e70c6d431169f06d77a0b24495270d0455a0726e7802fa7c9ca77",
