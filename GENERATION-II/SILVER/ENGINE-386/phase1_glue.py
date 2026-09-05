@@ -98,8 +98,6 @@ breeding.write_text(s)
 
 main=pg/'main.asm'
 s=main.read_text()
-# first_stages.asm is a newly-added expand-branch file, so vanilla main.asm has
-# no include to relocate. Always add it exactly once.
 if 'INCLUDE "data/pokemon/first_stages.asm"' in s:
     s=s.replace('INCLUDE "data/pokemon/first_stages.asm"\n', '')
 if 'SECTION "First-stage Pokemon", ROMX' not in s:
@@ -110,12 +108,8 @@ if 'SECTION "Relocated Home routines", ROMX' not in s:
     s += '\n\nSECTION "Relocated Home routines", ROMX\n\n' + stone_romx + '\n' + region_romx + '\n'
 if 'GetLowestEvolutionStage::' not in s:
     s += '''\n\nSECTION "16-bit evolution helpers", ROMX\n\nGetLowestEvolutionStage::\n\tld a, [wCurPartySpecies]\n\tcall GetPokemonIndexFromID\n\tld bc, FirstEvoStages - 2\n\tadd hl, hl\n\tadd hl, bc\n\tld a, BANK(FirstEvoStages)\n\tcall GetFarWord\n\tcall GetPokemonIDFromIndex\n\tld [wCurPartySpecies], a\n\tret\n'''
-# Bills PC and printer ask for the canonical u16 species index stored beside a
-# saved box. Input b=slot, c=zero-based box. BoxIndexAddresses is the 14-entry
-# far-pointer table created by the mechanically-applied save conversion. Return
-# b=SRAM bank and hl=address of that slot's little-endian u16 index.
 if 'GetBoxMonPokemonIndexPointer::' not in s:
-    s += '''\n\nSECTION "16-bit box index helpers", ROMX\n\nGetBoxMonPokemonIndexPointer::\n\tpush de\n\tld e, c\n\tld d, 0\n\tld hl, BoxIndexAddresses\n\tadd hl, de\n\tadd hl, de\n\tadd hl, de\n\tld a, [hli]\n\tpush af\n\tld a, [hli]\n\tld h, [hl]\n\tld l, a\n\tld e, b\n\tld d, 0\n\tadd hl, de\n\tadd hl, de\n\tpop af\n\tld b, a\n\tpop de\n\tret\n'''
+    s += '''\n\nSECTION "16-bit box index helpers", ROMX\n\nGetBoxMonPokemonIndexPointer::\n; in: b = slot, c = zero-based saved box\n; out: b = SRAM bank, hl = little-endian u16 canonical species index\n\tpush de\n\tld e, c\n\tld d, 0\n\tld hl, SilverBoxIndexAddresses\n\tadd hl, de\n\tadd hl, de\n\tadd hl, de\n\tld a, [hli]\n\tpush af\n\tld a, [hli]\n\tld h, [hl]\n\tld l, a\n\tld e, b\n\tld d, 0\n\tadd hl, de\n\tadd hl, de\n\tpop af\n\tld b, a\n\tpop de\n\tret\n\nSilverBoxIndexAddresses:\n\tdba sBox1PokemonIndexes\n\tdba sBox2PokemonIndexes\n\tdba sBox3PokemonIndexes\n\tdba sBox4PokemonIndexes\n\tdba sBox5PokemonIndexes\n\tdba sBox6PokemonIndexes\n\tdba sBox7PokemonIndexes\n\tdba sBox8PokemonIndexes\n\tdba sBox9PokemonIndexes\n\tdba sBox10PokemonIndexes\n\tdba sBox11PokemonIndexes\n\tdba sBox12PokemonIndexes\n\tdba sBox13PokemonIndexes\n\tdba sBox14PokemonIndexes\n'''
 main.write_text(s)
 
 pal=pg/'data/pokemon/palettes.asm'
@@ -137,4 +131,4 @@ run(['git','checkout','HEAD','--','maps'], pg)
 run(['git','checkout','HEAD','--','engine/events/fish.asm'], pg)
 run(['git','checkout','HEAD','--','data/wild/fish.asm'], pg)
 
-print('phase1 glue installed; first-stage and saved-box 16-bit helpers linked')
+print('phase1 glue installed; Gold/Silver saved-box u16 address table linked')
