@@ -1,0 +1,9 @@
+rom,ability_names,ability_descriptions,description_layout,count,name_stride,total_description_bytes,unique_description_hashes,description_vector_sha256
+Pocket Monsters - Fire Red (Japan) (Rev 1).gba,0x00207A8C,0x00207CFC,direct_blob,78,8,,,
+Pocket Monsters - Fire Red (Japan).gba,0x0020C274,0x0020C4E4,direct_blob,78,8,,,
+Pokemon - Edicion Rojo Fuego (Spain).gba,0x0024B408,0x0024B2D0,pointer_table,78,13,1949,73,69d4f9a9d1c61ef42a28d8e3a9223ed48950db912a349588547662d8d5195557
+Pokemon - Feuerrote Edition (Germany).gba,0x0024FB64,0x0024FA2C,pointer_table,78,13,1942,74,0cac9fa575ab7ed6ff41ecfc63639c28f6514e62cc9f7b345443fc29aaed4a3c
+Pokemon - Fire Red Version (USA).gba,0x0024FC40,0x0024FB08,pointer_table,78,13,1859,72,052e54f6c5ad72161f5ed68f266898424767e9df6c3a5afc38ee092c345fe556
+"Pokemon - Fire Red Version (USA, Europe) (Rev 1).gba",0x0024FCB0,0x0024FB78,pointer_table,78,13,1859,72,052e54f6c5ad72161f5ed68f266898424767e9df6c3a5afc38ee092c345fe556
+Pokemon - Version Rouge Feu (France).gba,0x0024A090,0x00249F58,pointer_table,78,13,1926,74,6d5be056e920c1c58ca1553f6f1f34f375accc43b44b7f52692ec0beddd435d1
+Pokemon - Versione Rosso Fuoco (Italy).gba,0x00248D20,0x00248BE8,pointer_table,78,13,1918,75,05f69b31e0e9a694fd24f29c2261436a34e08ac184a2b7da768e6b74f1d8254b
