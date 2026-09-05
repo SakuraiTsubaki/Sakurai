@@ -11,13 +11,14 @@ sG386CommittedDayCare:: ds 3
 sG386CommittedDataEnd::
 sG386Checksum:: db
 
-; Working state. This is an SRAM-backed runtime sidecar because stock Green has
-; no free WRAM0 bytes. It is copied from committed state at load and committed
-; only when the vanilla game saves.
+; Working persistent state. SRAM is used because stock Green has zero free WRAM0.
 sG386WorkParty:: ds PARTY_LENGTH * 3
-sG386WorkEnemyParty:: ds PARTY_LENGTH * 3
 sG386WorkBoxes:: ds NUM_BOXES * MONS_PER_BOX * 3
 sG386WorkDayCare:: ds 3
+
+; Ephemeral working state. Clearing from WorkEnemyParty onward must not erase
+; the persistent party/box/daycare identities copied from committed state.
+sG386WorkEnemyParty:: ds PARTY_LENGTH * 3
 sG386WorkBattle:: ds 3
 sG386WorkEnemyBattle:: ds 3
 sG386WorkPending:: ds 3
