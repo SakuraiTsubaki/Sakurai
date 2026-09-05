@@ -1,0 +1,67 @@
+{
+  "magic": "S3PARM1",
+  "version": 1,
+  "canonical_range": [
+    252,
+    386
+  ],
+  "species_count": 135,
+  "record_size": 48,
+  "block_bytes": 27461,
+  "block_sha256": "0c3d4f2057c7b3fb6b3b02f216f471c956b770223b9b95b097b9f9e0f6892f03",
+  "payload_crc32": "80b25660",
+  "source_repo": "pret/pokeemerald",
+  "source_commit": "5eff78649e7170a877b961ef0b3da13b81a16038",
+  "sections": {
+    "records": {
+      "offset": 64,
+      "count": 135,
+      "bytes": 6480
+    },
+    "evolutions": {
+      "offset": 6544,
+      "count": 62,
+      "entry_size": 6,
+      "bytes": 372
+    },
+    "level_up": {
+      "offset": 6916,
+      "count": 1507,
+      "entry_size": 3,
+      "bytes": 4521
+    },
+    "tm_hm": {
+      "offset": 11437,
+      "count": 3140,
+      "entry_size": 2,
+      "bytes": 6280
+    },
+    "tutor": {
+      "offset": 17717,
+      "count": 1954,
+      "entry_size": 2,
+      "bytes": 3908
+    },
+    "dictionary": {
+      "offset": 21625,
+      "bytes": 5836
+    },
+    "end": 27461
+  },
+  "registry_counts": {
+    "type": 17,
+    "item": 29,
+    "growth": 6,
+    "egg_group": 14,
+    "ability": 67,
+    "body_color": 10,
+    "evo_method": 9,
+    "move": 314
+  },
+  "notes": [
+    "Canonical species IDs are National Dex u16 values.",
+    "Pokeemerald raw IDs are provenance only.",
+    "Symbol registries are embedded so no Gen-III parameter names are discarded.",
+    "The block is data-staging only until Silver runtime lookup/save/battle routines are routed to the cumulative engine."
+  ]
+}

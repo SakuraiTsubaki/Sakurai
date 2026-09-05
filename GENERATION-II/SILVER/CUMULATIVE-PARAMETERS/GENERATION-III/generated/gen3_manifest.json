@@ -54,6 +54,10 @@
       "sha256": "1e96c7ed2c92b687cd864c99a795b189c7fd72d15711c1f081daeb55f9971656",
       "bytes": 37720
     },
+    "gen3_manifest.json": {
+      "sha256": "1d931ac199a425b9317605a169ce2b651ef4c29c0fc7bae0a1840422eb1c53c6",
+      "bytes": 2789
+    },
     "gen3_parameter_bundle.json": {
       "sha256": "6ab877c5233e70c6d431169f06d77a0b24495270d0455a0726e7802fa7c9ca77",
       "bytes": 370561
