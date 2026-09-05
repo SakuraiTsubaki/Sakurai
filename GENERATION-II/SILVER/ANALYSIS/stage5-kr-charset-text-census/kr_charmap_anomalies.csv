@@ -1,0 +1,8 @@
+kind,lead_hex,index_hex,character,note
+omitted_ks_x_1001,02,F4,댜,slot has zero glyph and is absent from pokegold-kr charmap
+omitted_ks_x_1001,03,1B,돐,slot has zero glyph and is absent from pokegold-kr charmap
+added_non_wansung,03,D0,뢔,custom complete syllable present in ROM/source
+added_non_wansung,06,2F,쌰,custom complete syllable present in ROM/source
+added_non_wansung,06,30,쎼,custom complete syllable present in ROM/source
+added_non_wansung,06,A0,쓔,custom complete syllable present in ROM/source
+added_non_wansung,08,30,쬬,custom complete syllable present in ROM/source
