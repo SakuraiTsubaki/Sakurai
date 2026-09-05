@@ -1,23 +1,4 @@
-jynx/front_silver.2bpp gfx/pokemon/jynx/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/omastar/front_silver.2bpp gfx/pokemon/omastar/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/smeargle/front_silver.2bpp gfx/pokemon/smeargle/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/ponyta/front_silver.2bpp gfx/pokemon/ponyta/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/nidorina/front_silver.2bpp gfx/pokemon/nidorina/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/seel/front_silver.2bpp gfx/pokemon/seel/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/gligar/front_silver.2bpp gfx/pokemon/gligar/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/sandslash/front_silver.2bpp gfx/pokemon/sandslash/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/snorlax/front_silver.2bpp gfx/pokemon/snorlax/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/gastly/front_silver.2bpp gfx/pokemon/gastly/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/yanma/back.2bpp gfx/pokemon/yanma/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/xatu/front_silver.2bpp gfx/pokemon/xatu/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/sneasel/front.2bpp gfx/pokemon/sneasel/front.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/quilava/front_silver.2bpp gfx/pokemon/quilava/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/clefable/back.2bpp gfx/pokemon/clefable/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/granbull/front_silver.2bpp gfx/pokemon/granbull/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/jolteon/front_silver.2bpp gfx/pokemon/jolteon/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/pidgeotto/front_silver.2bpp gfx/pokemon/pidgeotto/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/magikarp/front_silver.2bpp gfx/pokemon/magikarp/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/raticate/front_silver.2bpp gfx/pokemon/raticate/front_silver.2bpp.lz
+front_silver.2bpp gfx/pokemon/raticate/front_silver.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/wartortle/front_silver.2bpp gfx/pokemon/wartortle/front_silver.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/suicune/back.2bpp gfx/pokemon/suicune/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/tangela/front_silver.2bpp gfx/pokemon/tangela/front_silver.2bpp.lz
@@ -196,7 +177,6 @@ tools/lzcompress --matching -- gfx/pokemon/voltorb/back.2bpp gfx/pokemon/voltorb
 tools/lzcompress --matching -- gfx/pokemon/swinub/back.2bpp gfx/pokemon/swinub/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/mantine/back.2bpp gfx/pokemon/mantine/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/natu/front_silver.2bpp gfx/pokemon/natu/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/natu/back.2bpp gfx/pokemon/natu/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_h/back.2bpp gfx/pokemon/unown_h/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_g/front.2bpp gfx/pokemon/unown_g/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/magnemite/back.2bpp gfx/pokemon/magnemite/back.2bpp.lz
@@ -234,7 +214,61 @@ tools/lzcompress --matching -- gfx/pokemon/unown_r/front.2bpp gfx/pokemon/unown_
 rgbasm -Weverything -Wtruncation=1 -Q8 -P includes.asm -D _SILVER -o main_silver.o main.asm
 rgbasm -Weverything -Wtruncation=1 -Q8 -P includes.asm -D _SILVER -o gfx/pics_silver.o gfx/pics_silver.asm
 rgblink -Weverything -Wtruncation=1 -l layout.link -n pokesilver.sym -m pokesilver.map -o pokesilver.gbc audio_silver.o home_silver.o main_silver.o ram_silver.o data/text/common_silver.o data/maps/map_data_silver.o data/pokemon/egg_moves_silver.o data/pokemon/evos_attacks_silver.o engine/movie/credits_silver.o engine/overworld/events_silver.o gfx/misc_silver.o gfx/sprites_silver.o gfx/tilesets_silver.o data/pokemon/dex_entries_silver.o gfx/pics_silver.o
-error: Undefined symbol `BoxIndexAddresses`
-    at main.asm(631)
-Linking failed with 1 error
+error: Undefined symbol `sBox14PokemonIndexes`
+    at main.asm(665)
+error: Requested `BANK()` of undefined symbol `sBox14PokemonIndexes`
+    at main.asm(665)
+error: Undefined symbol `sBox13PokemonIndexes`
+    at main.asm(664)
+error: Requested `BANK()` of undefined symbol `sBox13PokemonIndexes`
+    at main.asm(664)
+error: Undefined symbol `sBox12PokemonIndexes`
+    at main.asm(663)
+error: Requested `BANK()` of undefined symbol `sBox12PokemonIndexes`
+    at main.asm(663)
+error: Undefined symbol `sBox11PokemonIndexes`
+    at main.asm(662)
+error: Requested `BANK()` of undefined symbol `sBox11PokemonIndexes`
+    at main.asm(662)
+error: Undefined symbol `sBox10PokemonIndexes`
+    at main.asm(661)
+error: Requested `BANK()` of undefined symbol `sBox10PokemonIndexes`
+    at main.asm(661)
+error: Undefined symbol `sBox9PokemonIndexes`
+    at main.asm(660)
+error: Requested `BANK()` of undefined symbol `sBox9PokemonIndexes`
+    at main.asm(660)
+error: Undefined symbol `sBox8PokemonIndexes`
+    at main.asm(659)
+error: Requested `BANK()` of undefined symbol `sBox8PokemonIndexes`
+    at main.asm(659)
+error: Undefined symbol `sBox7PokemonIndexes`
+    at main.asm(658)
+error: Requested `BANK()` of undefined symbol `sBox7PokemonIndexes`
+    at main.asm(658)
+error: Undefined symbol `sBox6PokemonIndexes`
+    at main.asm(657)
+error: Requested `BANK()` of undefined symbol `sBox6PokemonIndexes`
+    at main.asm(657)
+error: Undefined symbol `sBox5PokemonIndexes`
+    at main.asm(656)
+error: Requested `BANK()` of undefined symbol `sBox5PokemonIndexes`
+    at main.asm(656)
+error: Undefined symbol `sBox4PokemonIndexes`
+    at main.asm(655)
+error: Requested `BANK()` of undefined symbol `sBox4PokemonIndexes`
+    at main.asm(655)
+error: Undefined symbol `sBox3PokemonIndexes`
+    at main.asm(654)
+error: Requested `BANK()` of undefined symbol `sBox3PokemonIndexes`
+    at main.asm(654)
+error: Undefined symbol `sBox2PokemonIndexes`
+    at main.asm(653)
+error: Requested `BANK()` of undefined symbol `sBox2PokemonIndexes`
+    at main.asm(653)
+error: Undefined symbol `sBox1PokemonIndexes`
+    at main.asm(652)
+error: Requested `BANK()` of undefined symbol `sBox1PokemonIndexes`
+    at main.asm(652)
+Linking failed with 28 errors
 make: *** [Makefile:199: pokesilver.gbc] Error 1
