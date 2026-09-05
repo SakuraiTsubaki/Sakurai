@@ -68,6 +68,13 @@ jobs:
             | base64 -w 2048 \
             > sakurai/GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/generated/green_386_forms_runtime_parameter_block.xz.b64.txt
 
+      - name: Generate GetMonHeader hook non-ROM outputs
+        run: |
+          python sakurai/GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/getmonheader-hook-v1/generate_nonrom_outputs.py \
+            --base-runtime sakurai/GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/generated/green_386_forms_runtime_parameter_block.bin \
+            --map-csv sakurai/GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/scaffold/green_legacy8_to_canonical16_map.csv \
+            --out sakurai/GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/getmonheader-hook-v1/generated
+
       - name: Upload deterministic runtime block artifact
         uses: actions/upload-artifact@v4
         with:
@@ -84,11 +91,12 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add GENERATION-I/GREEN/parameters/gen2-gen3/generated \
-                  GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/generated
+                  GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/generated \
+                  GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/getmonheader-hook-v1/generated
           if git diff --cached --quiet; then
             echo 'No generated changes.'
             exit 0
           fi
-          git commit -m 'Generate Green Gen2-Gen3 and 386-form runtime layers'
+          git commit -m 'Generate Green Gen2-Gen3 and GetMonHeader runtime outputs'
           git pull --rebase origin main
           git push
