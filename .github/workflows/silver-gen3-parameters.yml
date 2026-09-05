@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/build_gen3_parameters.py'
+      - 'GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/build_gen3_binary.py'
       - '.github/workflows/silver-gen3-parameters.yml'
 
 permissions:
@@ -24,6 +25,12 @@ jobs:
           python GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/build_gen3_parameters.py \
             /tmp/pokeemerald \
             GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated
+      - name: Pack ROM-staging parameter block
+        run: |
+          python GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/build_gen3_binary.py \
+            GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated \
+            GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_parameter_block.bin \
+            GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_binary_layout.json
       - name: Commit deterministic generated outputs
         run: |
           git config user.name 'github-actions[bot]'
