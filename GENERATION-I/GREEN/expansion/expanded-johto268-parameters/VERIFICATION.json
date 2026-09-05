@@ -1,0 +1,30 @@
+{
+  "registry_rows": 268,
+  "kanto_legacy": 151,
+  "johto_reclaimed_8bit": 100,
+  "gen4_extended": 17,
+  "escape_id": "0xFC",
+  "no_mon": "0x00",
+  "terminator": "0xFF",
+  "reserved": ["0xFD", "0xFE"],
+  "builds": {
+    "rev0": {
+      "base_sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+      "rom_sha1": "dfff4d9475cfa41e6c109a1a650caeeede59730d",
+      "ips_sha1": "2d4265fd539f9ee2a2e4ad8e2908d97fc99ed836",
+      "header_checksum_ok": true,
+      "global_checksum_ok": true,
+      "ips_roundtrip": true,
+      "original_region_changed_offsets": ["0x147", "0x148", "0x14d", "0x14e", "0x14f"]
+    },
+    "reva": {
+      "base_sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+      "rom_sha1": "5488b7509fcce40e300cbf8d3643182945c59da0",
+      "ips_sha1": "4bd669ef362be5ad7fe3d5869a82e00cd8fe5c2f",
+      "header_checksum_ok": true,
+      "global_checksum_ok": true,
+      "ips_roundtrip": true,
+      "original_region_changed_offsets": ["0x147", "0x148", "0x14d", "0x14e", "0x14f"]
+    }
+  }
+}
