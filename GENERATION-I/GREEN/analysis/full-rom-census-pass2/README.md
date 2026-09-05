@@ -38,13 +38,14 @@ This pass is generated from the two uploaded Japanese Green ROMs and cross-check
 - Trainer objects cross-checked against class/party data: 334, invalid references: 0
 
 ## Revision-stability check
-Core table ranges checked: 14; byte-identical: 14.
+Core table ranges checked: 15; byte-identical: 15. This includes the full 8,640-byte Pokédex entry data region (`bank 10:$45DA-$6799`).
 Non-identical checked ranges: none.
 
 ## Notes
-- `map_*` CSVs preserve all 248 map-ID slots, including aliases/unused IDs; alias fields prevent accidental double counting.
+- The 22 explicit `UNUSED_MAP_*` IDs preserve their raw pointer/bank combinations instead of being dereferenced as playable maps. Some deliberately use dummy bank bytes with reused pointers.
+- Three non-unused copy slots share complete header/object resources with another map slot; parsed playable content therefore resolves to 223 unique map resources from 226 parsed slots.
 - Object event parsing follows the actual macro encoding: ordinary 6-byte events, item events +1 byte, and 8-byte battle objects. Battle objects are split into trainer objects (`OPP_ID_OFFSET + class`) and static Pokémon battles (internal species ID + level).
 - Wild data is expanded into one row per `(map, terrain, encounter slot)` while retaining pointer-alias information.
 - Pokémon internal index and Pokédex number are deliberately separate columns.
 - Shared Japanese glyph tiles that are ambiguous in the original font are rendered as `べ/ベ`, `ぺ/ペ`, `へ/ヘ`, or `り/リ` rather than guessed.
-- Heuristic scans and source-confirmed tables should remain separate; this pass focuses on source-confirmed table structures.
+- Heuristic scans and source-confirmed tables remain separate; this pass focuses on source-confirmed table structures.
