@@ -30,8 +30,6 @@ for path in [
 ]:
     sync(path)
 
-# Gold/Silver include glue. Do not wholesale replace these top-level files with
-# Crystal versions: they also encode game-specific layout and features.
 inc=pg/'includes.asm'
 s=inc.read_text()
 anchor='INCLUDE "macros/vc.asm"\n'
@@ -52,8 +50,6 @@ home.write_text(s)
 
 main=pg/'main.asm'
 s=main.read_text()
-# The upstream first-stage table lands in Crystal bank24, but that overflows
-# Gold/Silver by $40. Give it an unconstrained ROMX section instead.
 needle='INCLUDE "data/pokemon/first_stages.asm"\n'
 if needle in s:
     s=s.replace(needle, '')
@@ -62,11 +58,16 @@ if 'INCLUDE "engine/16/table_functions.asm"' not in s:
     s += '\n\nSECTION "16-bit ID stuff", ROMX\n\nINCLUDE "engine/16/table_functions.asm"\n'
 main.write_text(s)
 
-# The 16-bit branch makes Egg a negative special species. Gold/Silver's old
-# palette table stored Egg and padding *after* species 251 and asserted against
-# EGG+1; with EGG=-3 that assertion becomes -2. Re-layout only the four legacy
-# special palettes to match the new negative-index convention while preserving
-# all Gold/Silver 0..251 palette data verbatim.
+# The upstream WRAM patch does not apply mechanically because Gold/Silver and
+# Crystal lay out unrelated work RAM differently. The conversion table itself
+# is self-contained, so give it a Gold/Silver WRAMX section without replacing
+# any existing structures.
+wram=pg/'ram/wram.asm'
+s=wram.read_text()
+if 'wPokemonIndexTable' not in s:
+    s += '\n\nSECTION "16-bit WRAM tables", WRAMX\n\twram_conversion_table wPokemonIndexTable, MON_TABLE\n'
+wram.write_text(s)
+
 pal=pg/'data/pokemon/palettes.asm'
 s=pal.read_text()
 marker='\n; 252\n'
@@ -74,11 +75,7 @@ if marker in s and s.startswith('PokemonPalettes:'):
     cut=s.index(marker)
     species=s[:cut].rstrip()+"\n"
     special='''; Special negative species palettes for 16-bit lookup.\n; Egg (-3)\nINCBIN "gfx/pokemon/egg/egg.gbcpal", middle_colors\nINCLUDE "gfx/pokemon/egg/shiny.pal"\n\n; -2\n\tRGB 30, 26, 11\n\tRGB 23, 16, 00\n; -2 shiny\n\tRGB 30, 26, 11\n\tRGB 23, 16, 00\n\n; -1\n\tRGB 23, 23, 23\n\tRGB 17, 17, 17\n; -1 shiny\n\tRGB 23, 23, 23\n\tRGB 17, 17, 17\n\n'''
-    s=special+species
-    pal.write_text(s)
+    pal.write_text(special+species)
 
-# Map-script conversion depends on two new script opcodes that need a deliberate
-# Gold/Silver hand-port. Keep vanilla maps during compiler bring-up.
 run(['git','checkout','HEAD','--','maps'], pg)
-
-print('phase1 glue installed; palette specials relocated; map script opcodes deferred')
+print('phase1 glue installed; WRAM table/palette layout added; map script opcodes deferred')
