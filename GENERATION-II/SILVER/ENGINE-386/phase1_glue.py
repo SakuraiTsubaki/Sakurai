@@ -17,8 +17,6 @@ def sync(path):
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(source(path))
 
-# These files are new infrastructure on the 16-bit branch and can be carried
-# over without replacing Gold/Silver game-content files.
 for path in [
     'macros/wram_16bit.asm',
     'macros/indirection.asm',
@@ -32,8 +30,8 @@ for path in [
 ]:
     sync(path)
 
-# Gold/Silver include glue. Do not wholesale replace includes.asm/home.asm/main.asm
-# with Crystal versions: those files also describe game-specific layout.
+# Gold/Silver include glue. Do not wholesale replace these top-level files with
+# Crystal versions: they also encode game-specific layout and features.
 inc=pg/'includes.asm'
 s=inc.read_text()
 anchor='INCLUDE "macros/vc.asm"\n'
@@ -54,13 +52,33 @@ home.write_text(s)
 
 main=pg/'main.asm'
 s=main.read_text()
+# The upstream first-stage table lands in Crystal bank24, but that overflows
+# Gold/Silver by $40. Give it an unconstrained ROMX section instead.
+needle='INCLUDE "data/pokemon/first_stages.asm"\n'
+if needle in s:
+    s=s.replace(needle, '')
+    s += '\n\nSECTION "First-stage Pokemon", ROMX\n\nINCLUDE "data/pokemon/first_stages.asm"\n'
 if 'INCLUDE "engine/16/table_functions.asm"' not in s:
     s += '\n\nSECTION "16-bit ID stuff", ROMX\n\nINCLUDE "engine/16/table_functions.asm"\n'
 main.write_text(s)
 
-# Map-script conversion on the upstream branch depends on two new script
-# opcodes that need a deliberate Gold/Silver hand-port. Keep vanilla maps for
-# this compiler bring-up so the 16-bit core can be advanced independently.
+# The 16-bit branch makes Egg a negative special species. Gold/Silver's old
+# palette table stored Egg and padding *after* species 251 and asserted against
+# EGG+1; with EGG=-3 that assertion becomes -2. Re-layout only the four legacy
+# special palettes to match the new negative-index convention while preserving
+# all Gold/Silver 0..251 palette data verbatim.
+pal=pg/'data/pokemon/palettes.asm'
+s=pal.read_text()
+marker='\n; 252\n'
+if marker in s and s.startswith('PokemonPalettes:'):
+    cut=s.index(marker)
+    species=s[:cut].rstrip()+"\n"
+    special='''; Special negative species palettes for 16-bit lookup.\n; Egg (-3)\nINCBIN "gfx/pokemon/egg/egg.gbcpal", middle_colors\nINCLUDE "gfx/pokemon/egg/shiny.pal"\n\n; -2\n\tRGB 30, 26, 11\n\tRGB 23, 16, 00\n; -2 shiny\n\tRGB 30, 26, 11\n\tRGB 23, 16, 00\n\n; -1\n\tRGB 23, 23, 23\n\tRGB 17, 17, 17\n; -1 shiny\n\tRGB 23, 23, 23\n\tRGB 17, 17, 17\n\n'''
+    s=special+species
+    pal.write_text(s)
+
+# Map-script conversion depends on two new script opcodes that need a deliberate
+# Gold/Silver hand-port. Keep vanilla maps during compiler bring-up.
 run(['git','checkout','HEAD','--','maps'], pg)
 
-print('phase1 glue installed; map script opcode conversion deferred')
+print('phase1 glue installed; palette specials relocated; map script opcodes deferred')
