@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "identity": {
+    "species_id": "u16 National Dex number",
+    "form_id": "u8 per-species form selector"
+  },
+  "species": [
+    {
+      "species_id": 201,
+      "constant": "UNOWN",
+      "storage_policy": "persistent",
+      "form_rule": "explicit form_id in expanded engine; legacy Gen II IV-derived shape is imported only when reading untouched vanilla data",
+      "forms": [
+        {"form_id":0,"name":"A"},{"form_id":1,"name":"B"},{"form_id":2,"name":"C"},{"form_id":3,"name":"D"},{"form_id":4,"name":"E"},{"form_id":5,"name":"F"},{"form_id":6,"name":"G"},{"form_id":7,"name":"H"},{"form_id":8,"name":"I"},{"form_id":9,"name":"J"},{"form_id":10,"name":"K"},{"form_id":11,"name":"L"},{"form_id":12,"name":"M"},{"form_id":13,"name":"N"},{"form_id":14,"name":"O"},{"form_id":15,"name":"P"},{"form_id":16,"name":"Q"},{"form_id":17,"name":"R"},{"form_id":18,"name":"S"},{"form_id":19,"name":"T"},{"form_id":20,"name":"U"},{"form_id":21,"name":"V"},{"form_id":22,"name":"W"},{"form_id":23,"name":"X"},{"form_id":24,"name":"Y"},{"form_id":25,"name":"Z"},{"form_id":26,"name":"EXCLAMATION"},{"form_id":27,"name":"QUESTION"}
+      ],
+      "parameter_override": "none; sprite/form index only"
+    },
+    {
+      "species_id": 351,
+      "constant": "CASTFORM",
+      "storage_policy": "battle-derived; revert to Normal outside battle unless a future compatibility mode says otherwise",
+      "form_rule": "Forecast + active weather",
+      "forms": [
+        {"form_id":0,"name":"NORMAL","type1":"NORMAL","type2":"NORMAL"},
+        {"form_id":1,"name":"SUNNY","type1":"FIRE","type2":"FIRE"},
+        {"form_id":2,"name":"RAINY","type1":"WATER","type2":"WATER"},
+        {"form_id":3,"name":"SNOWY","type1":"ICE","type2":"ICE"}
+      ],
+      "parameter_override": "type and sprite/palette; base stats remain species base record"
+    },
+    {
+      "species_id": 386,
+      "constant": "DEOXYS",
+      "storage_policy": "persistent",
+      "form_rule": "explicit form_id; target engine exposes all four Generation III forms",
+      "forms": [
+        {"form_id":0,"name":"NORMAL","hp":50,"attack":150,"defense":50,"speed":150,"sp_attack":150,"sp_defense":50},
+        {"form_id":1,"name":"ATTACK","hp":50,"attack":180,"defense":20,"speed":150,"sp_attack":180,"sp_defense":20},
+        {"form_id":2,"name":"DEFENSE","hp":50,"attack":70,"defense":160,"speed":90,"sp_attack":70,"sp_defense":160},
+        {"form_id":3,"name":"SPEED","hp":50,"attack":95,"defense":90,"speed":180,"sp_attack":95,"sp_defense":90}
+      ],
+      "parameter_override": "base stats, sprite/palette and form-specific level-up learnset"
+    }
+  ],
+  "counts": {
+    "species_with_forms": 3,
+    "form_records_total": 36,
+    "alternate_form_records": 33
+  },
+  "excluded_as_discrete_forms": [
+    {
+      "species_id": 327,
+      "constant": "SPINDA",
+      "reason": "personality-derived spot pattern; preserve personality visual algorithm rather than allocate discrete form IDs"
+    }
+  ]
+}
