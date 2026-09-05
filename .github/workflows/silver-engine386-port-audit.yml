@@ -1,0 +1,136 @@
+name: Audit SILVER ENGINE-386 port surface
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'GENERATION-II/SILVER/ENGINE-386/**'
+      - '.github/workflows/silver-engine386-port-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch upstream engine references
+        run: |
+          git clone --depth 1 --branch master https://github.com/fellowship-of-the-roms/pokecrystal16.git /tmp/pc16
+          git -C /tmp/pc16 fetch --depth 40 origin expand-mon-ID:refs/remotes/origin/expand-mon-ID
+          git clone --depth 1 https://github.com/pret/pokegold.git /tmp/pgold
+
+      - name: Build mechanical port audit
+        run: |
+          python - <<'PY'
+          import json, pathlib, subprocess, difflib, tempfile
+
+          pc = pathlib.Path('/tmp/pc16')
+          pg = pathlib.Path('/tmp/pgold')
+          out = pathlib.Path('GENERATION-II/SILVER/ENGINE-386/generated')
+          out.mkdir(parents=True, exist_ok=True)
+
+          def run(cmd, cwd=None, check=True):
+              return subprocess.run(cmd, cwd=cwd, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=check)
+
+          names = run(['git','diff','--name-only','master..origin/expand-mon-ID'], cwd=pc).stdout.splitlines()
+          rows=[]
+          mechanical_base_stats=0
+          for path in names:
+              if path.startswith('data/pokemon/base_stats/'):
+                  mechanical_base_stats += 1
+                  continue
+              p=pg/path
+              exists=p.exists()
+              old=''
+              new=''
+              try:
+                  old=run(['git','show',f'master:{path}'], cwd=pc).stdout
+              except subprocess.CalledProcessError:
+                  pass
+              try:
+                  new=run(['git','show',f'origin/expand-mon-ID:{path}'], cwd=pc).stdout
+              except subprocess.CalledProcessError:
+                  pass
+              similarity=None
+              if exists and old:
+                  try:
+                      similarity=round(difflib.SequenceMatcher(None, old, p.read_text(errors='replace')).ratio(),4)
+                  except Exception:
+                      similarity=None
+              patch=run(['git','diff','--binary','master..origin/expand-mon-ID','--',path], cwd=pc).stdout
+              applies=False
+              if exists and patch:
+                  tf=tempfile.NamedTemporaryFile('w', delete=False)
+                  tf.write(patch); tf.close()
+                  r=run(['git','apply','--check',tf.name], cwd=pg, check=False)
+                  applies=(r.returncode==0)
+              if path.startswith('engine/') or path.startswith('home/'):
+                  category='engine'
+              elif path.startswith('constants/'):
+                  category='constants'
+              elif path.startswith('data/pokemon/'):
+                  category='pokemon_data'
+              elif path.startswith('data/wild/') or path.startswith('data/trainers/'):
+                  category='encounter_trainer_data'
+              elif path.startswith('data/'):
+                  category='other_data'
+              else:
+                  category='build_or_other'
+              rows.append({'path':path,'category':category,'exists_in_pokegold':exists,'master_similarity_to_pokegold':similarity,'patch_applies_cleanly':applies})
+
+          counts={}
+          for r in rows:
+              counts[r['category']]=counts.get(r['category'],0)+1
+          report={
+              'reference_repo':'fellowship-of-the-roms/pokecrystal16',
+              'reference_base':'master',
+              'reference_head':'expand-mon-ID',
+              'reference_commit_count':29,
+              'target_repo':'pret/pokegold',
+              'changed_paths_total':len(names),
+              'mechanical_base_stat_files_excluded':mechanical_base_stats,
+              'audited_paths':len(rows),
+              'paths_existing_in_pokegold':sum(r['exists_in_pokegold'] for r in rows),
+              'patches_applying_cleanly':sum(r['patch_applies_cleanly'] for r in rows),
+              'category_counts':counts,
+              'rows':rows,
+          }
+          (out/'port_audit.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
+
+          priority=[]
+          for r in rows:
+              if r['category'] in ('engine','constants','pokemon_data'):
+                  priority.append(r)
+          md=['# ENGINE-386 upstream port audit','',
+              f"Reference: `pokecrystal16 master..expand-mon-ID` (29 commits)",
+              f"Target: `pret/pokegold`",'',
+              f"- Changed paths: **{len(names)}**",
+              f"- Mechanical per-species base-stat files excluded from manual audit: **{mechanical_base_stats}**",
+              f"- Audited non-mechanical paths: **{len(rows)}**",
+              f"- Same paths present in pokegold: **{report['paths_existing_in_pokegold']}**",
+              f"- Upstream patches that apply cleanly without hand-porting: **{report['patches_applying_cleanly']}**",'',
+              '## Priority engine surface','',
+              '| Path | Category | Exists | Similarity | Clean apply |','|---|---|---:|---:|---:|']
+          for r in priority:
+              md.append(f"| `{r['path']}` | {r['category']} | {'yes' if r['exists_in_pokegold'] else 'no'} | {r['master_similarity_to_pokegold'] if r['master_similarity_to_pokegold'] is not None else '-'} | {'yes' if r['patch_applies_cleanly'] else 'no'} |")
+          md += ['', 'This is a port-surface audit only. A cleanly applying hunk is not considered functionally validated until Silver builds and runtime regression tests pass.']
+          (out/'port_audit.md').write_text('\n'.join(md)+'\n')
+          print(json.dumps({k:v for k,v in report.items() if k!='rows'}, indent=2))
+          PY
+
+      - name: Commit audit outputs
+        run: |
+          git add GENERATION-II/SILVER/ENGINE-386/generated/port_audit.json GENERATION-II/SILVER/ENGINE-386/generated/port_audit.md
+          if git diff --cached --quiet; then
+            echo 'Audit outputs already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Audit Silver ENGINE-386 16-bit port surface'
+          git push
