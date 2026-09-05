@@ -1,0 +1,39 @@
+{
+  "schema": "green-expanded-johto268-v3",
+  "count": 268,
+  "base_hgss_count": 256,
+  "dppt_inserted": 12,
+  "gen4_evolution_total": 17,
+  "id_plan": {
+    "reclaimable_total": 103,
+    "gen2_used": 100,
+    "escape_id": 252,
+    "reserved_future": [253, 254],
+    "no_mon": 0,
+    "terminator": 255,
+    "gen4_extended": 17
+  },
+  "data_bank": "0x21",
+  "data_offset": "0x084000",
+  "parameter_block_sha1": "8b6984805500f2244bada46a7f285354f1ea0f1b",
+  "builds": [
+    {
+      "revision": 0,
+      "input_sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+      "output": "Pocket Monsters - Midori (Japan) - Expanded Johto Dex 268 Parameters (rev0).gb",
+      "output_sha1": "dfff4d9475cfa41e6c109a1a650caeeede59730d",
+      "ips": "green_expanded_johto268_parameters_rev0.ips",
+      "ips_sha1": "2d4265fd539f9ee2a2e4ad8e2908d97fc99ed836",
+      "original_region_changed_offsets": ["0x147", "0x148", "0x14d", "0x14e", "0x14f"]
+    },
+    {
+      "revision": 1,
+      "input_sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+      "output": "Pocket Monsters - Midori (Japan) - Expanded Johto Dex 268 Parameters (reva).gb",
+      "output_sha1": "5488b7509fcce40e300cbf8d3643182945c59da0",
+      "ips": "green_expanded_johto268_parameters_reva.ips",
+      "ips_sha1": "4bd669ef362be5ad7fe3d5869a82e00cd8fe5c2f",
+      "original_region_changed_offsets": ["0x147", "0x148", "0x14d", "0x14e", "0x14f"]
+    }
+  ]
+}
