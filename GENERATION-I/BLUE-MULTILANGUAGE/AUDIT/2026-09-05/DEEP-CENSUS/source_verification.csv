@@ -1,7 +1,0 @@
-rom,sha1,source_repo,verification,notes
-JP_AO,0da501e3e5c51ab8fef55b092dcdd7e6b050e424,Narishma-gb/pokeblue,exact,layout.link + symbols map available
-EN_BLUE,d7037c83e1ae5b39bde3c30787637ba1d4c48ce2,pret/pokered,exact,layout.link + symbols map available
-DE_BLUE,20e72dc6f41493eee1fdd0cef54214e6c3389688,einstein95/pokered-de,exact,layout.link + exact SHA source; symbols available
-FR_BLUE,47faa910d0e073c600665bf9c83b6bd17babdf8a,einstein95/pokered-fr,exact,layout.link + exact SHA source
-ES_BLUE,7715e7b133e8634df48918b9138374110212a108,einstein95/pokered-es,exact,layout.link + exact SHA source
-IT_BLUE,f69ed1a1332f04c24c7db899a09019bb045fa8b3,,raw-only,no exact public disassembly verified in this pass

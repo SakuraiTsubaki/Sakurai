@@ -1,9 +1,0 @@
-rom,bank,classification,reference_relation,first_nonzero,last_nonzero,nonzero_bytes,trailing_zero_bytes
-DE,27,Localized landmark/location-name table,EN bank 0x24 landmark names,0000,061F,1560,14816
-DE,58,Localized map-text/script overflow,EN uses no bank 0x58; overflow from localized map scripts/text,0002,24BF,9122,6976
-FR,27,Localized landmark/location-name table,EN bank 0x24 landmark names,0000,05F5,1518,14858
-FR,58,Localized map-text/script overflow,EN uses no bank 0x58; overflow from localized map scripts/text,0002,1FAD,7823,8274
-IT,27,Localized landmark/location-name table,EN bank 0x24 landmark names,0000,06BA,1715,14661
-IT,58,Localized map-text/script overflow,EN uses no bank 0x58; overflow from localized map scripts/text,0002,1EA9,7564,8534
-ES,27,Localized landmark/location-name table,EN bank 0x24 landmark names,0000,060C,1541,14835
-ES,58,Localized map-text/script overflow,EN uses no bank 0x58; overflow from localized map scripts/text,0002,1EDE,7613,8481

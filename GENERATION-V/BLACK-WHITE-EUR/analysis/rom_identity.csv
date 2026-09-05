@@ -1,3 +1,0 @@
-version,filename,physical_file_size,declared_capacity_bytes,used_rom_size,is_physically_trimmed,internal_title,game_code,maker_code,unit_code,revision,sha1,sha256
-Black,Pokemon.Black.Version.EUR.NDS-SweeTnDs.nds,268435456,268435456,205229568,False,POKEMON B,IRBO,01,2,0,a68b3bedf5c1e53556e41e59cdf396c20b331896,2e40416b8e8183d936084c7be0adeaab4fa3f786a68f90d7291ab77d340f0c1d
-White,Pokemon.White.Version.EUR.NDS-SweeTnDs.nds,232521728,268435456,205231104,True,POKEMON W,IRAO,01,2,0,8f1bede1ac7eda570ced765b72a6d8fa5d49ed29,f7267ab3852bfdf31c79518ac92aa361776f70cffef8c8824d783d4494e94f9a

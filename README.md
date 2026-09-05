@@ -1,28 +1,19 @@
 # Sakurai
 
-Pokémon ROM **analysis, census, comparison, verification, and technical research** repository.
+Pokémon project analysis and census repository.
 
-## Repository role
+## Canonical hierarchy
 
-- ROM binaries are **not stored here**.
-- All analysis results, full-census results, comparison reports, technical notes, manifests, hashes, scripts, tables, and verification records belong here.
-- Asset files belong in the separate `SakuraiTsubaki/Tsubaki` repository.
+`GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
 
-## Structure
+Example:
 
 ```text
-GENERATION-I/
-GENERATION-II/
 GENERATION-III/
-GENERATION-IV/
-GENERATION-V/
-GENERATION-VI/
-GENERATION-VII/
-GENERATION-VIII/
-GENERATION-IX/
-CROSS-GENERATION/
+└─ EMERALD/
+   └─ KR/
+      └─ REV-0/
+         └─ analysis/
 ```
 
-Within each generation, organize by game, then language/region, revision, and analysis type whenever applicable.
-
-**Canonical hierarchy:** `GENERATION → GAME → LANGUAGE/REGION → REVISION → TYPE`
+This repository stores analysis, census, comparison, verification, reports, manifests, scripts, tables, and other research outputs. ROM binaries and reusable asset files are not stored here.

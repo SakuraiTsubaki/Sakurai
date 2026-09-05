@@ -1,9 +1,0 @@
-rom,items,count,stride,name_width,scalar_semantic_sha256,total_description_bytes,unique_description_hashes
-Pocket Monsters - Fire Red (Japan) (Rev 1).gba,0x0039BEB8,375,40,10,45d77e86cc2cc76c42053efc157858f1fdf0803421dc2372fc6f32bef4d0f14d,13491,282
-Pocket Monsters - Fire Red (Japan).gba,0x003A06F8,375,40,10,45d77e86cc2cc76c42053efc157858f1fdf0803421dc2372fc6f32bef4d0f14d,13491,282
-Pokemon - Edicion Rojo Fuego (Spain).gba,0x003D4F50,375,44,14,45d77e86cc2cc76c42053efc157858f1fdf0803421dc2372fc6f32bef4d0f14d,20165,283
-Pokemon - Feuerrote Edition (Germany).gba,0x003DA518,375,44,14,45d77e86cc2cc76c42053efc157858f1fdf0803421dc2372fc6f32bef4d0f14d,22738,280
-Pokemon - Fire Red Version (USA).gba,0x003DB028,375,44,14,45d77e86cc2cc76c42053efc157858f1fdf0803421dc2372fc6f32bef4d0f14d,24268,283
-"Pokemon - Fire Red Version (USA, Europe) (Rev 1).gba",0x003DB098,375,44,14,45d77e86cc2cc76c42053efc157858f1fdf0803421dc2372fc6f32bef4d0f14d,24268,283
-Pokemon - Version Rouge Feu (France).gba,0x003D3324,375,44,14,45d77e86cc2cc76c42053efc157858f1fdf0803421dc2372fc6f32bef4d0f14d,17656,273
-Pokemon - Versione Rosso Fuoco (Italy).gba,0x003D1EE8,375,44,14,45d77e86cc2cc76c42053efc157858f1fdf0803421dc2372fc6f32bef4d0f14d,17716,272

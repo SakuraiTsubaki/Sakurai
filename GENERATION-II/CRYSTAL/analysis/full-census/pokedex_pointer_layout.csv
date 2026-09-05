@@ -1,8 +1,0 @@
-rom,pointer_table_offset,pointer_table_bank,layout,data_banks
-JP,0x044337 + 0x0458B3,0x11,split 99x2 + 152x2 tables,all data in bank 11
-EN0,0x044378,0x11,single 251x2 table,60/6E/73/74
-EN1,0x044378,0x11,single 251x2 table,60/6E/73/74
-DE,0x04436C,0x11,single 251x2 table,60/6E/73/74
-FR,0x04436C,0x11,single 251x2 table,60/6E/73/74
-IT,0x04436C,0x11,single 251x2 table,60/6E/73/74
-ES,0x04436C,0x11,single 251x2 table,60/6E/73/74

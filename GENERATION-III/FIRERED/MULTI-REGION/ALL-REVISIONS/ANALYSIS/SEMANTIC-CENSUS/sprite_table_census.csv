@@ -1,9 +1,0 @@
-rom,pokemon_front_pic_table,pokemon_back_pic_table,pokemon_normal_palette_table,pokemon_shiny_palette_table,pokemon_sprite_entries,front_lz77_targets,back_lz77_targets,normal_palette_lz77_targets,shiny_palette_lz77_targets,trainer_pic_table,trainer_palette_table,trainer_sprite_entries,trainer_pic_lz77_targets,trainer_palette_lz77_targets
-Pocket Monsters - Fire Red (Japan) (Rev 1).gba,0x001EFEA8,0x001F1348,0x001F2108,0x001F2EC8,440,440,440,440,440,0x001F4378,0x001F4818,148,148,148
-Pocket Monsters - Fire Red (Japan).gba,0x001F4690,0x001F5B30,0x001F68F0,0x001F76B0,440,440,440,440,440,0x001F8B60,0x001F9000,148,148,148
-Pokemon - Edicion Rojo Fuego (Spain).gba,0x00230818,0x00231CB8,0x00232A78,0x00233838,440,440,440,440,440,0x00234CE8,0x00235188,148,148,148
-Pokemon - Feuerrote Edition (Germany).gba,0x00234F7C,0x0023641C,0x002371DC,0x00237F9C,440,440,440,440,440,0x0023944C,0x002398EC,148,148,148
-Pokemon - Fire Red Version (USA).gba,0x002350AC,0x0023654C,0x0023730C,0x002380CC,440,440,440,440,440,0x0023957C,0x00239A1C,148,148,148
-"Pokemon - Fire Red Version (USA, Europe) (Rev 1).gba",0x0023511C,0x002365BC,0x0023737C,0x0023813C,440,440,440,440,440,0x002395EC,0x00239A8C,148,148,148
-Pokemon - Version Rouge Feu (France).gba,0x0022F4B8,0x00230958,0x00231718,0x002324D8,440,440,440,440,440,0x00233988,0x00233E28,148,148,148
-Pokemon - Versione Rosso Fuoco (Italy).gba,0x0022E150,0x0022F5F0,0x002303B0,0x00231170,440,440,440,440,440,0x00232620,0x00232AC0,148,148,148

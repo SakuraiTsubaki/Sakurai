@@ -1,9 +1,0 @@
-file,family,bytes,banks,mean_bank_entropy,low_entropy_banks_lt5,high_entropy_banks_gt7_5,uniform_slack_runs_64plus,uniform_slack_bytes_64plus,western_textlike_runs
-Pocket Monsters Eun (Korea).gbc,KR,2097152,128,4.089846,73,0,162,902329,0
-Pocket Monsters Gin (Japan) (Rev A).gbc,JP,1048576,64,6.769589,1,0,61,25638,0
-Pocket Monsters Gin (Japan).gbc,JP,1048576,64,6.81428,0,0,59,16739,0
-Pokemon - Edicion Plata (Spain).gbc,INTL,2097152,128,3.969436,74,0,148,944741,3459
-Pokemon - Silberne Edition (Germany).gbc,INTL,2097152,128,4.060648,71,0,147,907363,3779
-"Pokemon - Silver Version (USA, Europe).gbc",INTL,2097152,128,3.945625,74,0,149,947855,3729
-Pokemon - Version Argent (France).gbc,INTL,2097152,128,3.985726,74,0,148,938741,3652
-Pokemon - Versione Argento (Italy).gbc,INTL,2097152,128,3.964671,74,0,147,942155,3607

@@ -1,9 +1,0 @@
-rom,pointer_table_offset,pointer_count,first_data_offset,last_data_start_offset,unique_learnset_arrays,total_levelup_entries_across_species,max_moves_in_one_learnset,invalid_decoded_entries,per_species_hash_vector_sha256
-Pocket Monsters - Fire Red (Japan) (Rev 1).gba,0x002159D4,412,0x0020F6B4,0x00211958,411,4047,18,0,167f403b1a095f6a7a5a33087c756f14753cbb3a7bd158fb5e0644157e2c02c2
-Pocket Monsters - Fire Red (Japan).gba,0x0021A1BC,412,0x00213E9C,0x00216140,411,4047,18,0,167f403b1a095f6a7a5a33087c756f14753cbb3a7bd158fb5e0644157e2c02c2
-Pokemon - Edicion Rojo Fuego (Spain).gba,0x00258F7C,412,0x00252C5C,0x00254F00,411,4047,18,0,167f403b1a095f6a7a5a33087c756f14753cbb3a7bd158fb5e0644157e2c02c2
-Pokemon - Feuerrote Edition (Germany).gba,0x0025D6D8,412,0x002573B8,0x0025965C,411,4047,18,0,167f403b1a095f6a7a5a33087c756f14753cbb3a7bd158fb5e0644157e2c02c2
-Pokemon - Fire Red Version (USA).gba,0x0025D7B4,412,0x00257494,0x00259738,411,4047,18,0,167f403b1a095f6a7a5a33087c756f14753cbb3a7bd158fb5e0644157e2c02c2
-"Pokemon - Fire Red Version (USA, Europe) (Rev 1).gba",0x0025D824,412,0x00257504,0x002597A8,411,4047,18,0,167f403b1a095f6a7a5a33087c756f14753cbb3a7bd158fb5e0644157e2c02c2
-Pokemon - Version Rouge Feu (France).gba,0x00257C04,412,0x002518E4,0x00253B88,411,4047,18,0,167f403b1a095f6a7a5a33087c756f14753cbb3a7bd158fb5e0644157e2c02c2
-Pokemon - Versione Rosso Fuoco (Italy).gba,0x00256894,412,0x00250574,0x00252818,411,4047,18,0,167f403b1a095f6a7a5a33087c756f14753cbb3a7bd158fb5e0644157e2c02c2

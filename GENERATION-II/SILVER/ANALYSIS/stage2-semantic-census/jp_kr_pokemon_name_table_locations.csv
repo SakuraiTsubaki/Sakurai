@@ -1,4 +1,0 @@
-file,language,table,bank,start,end_exclusive,record_width,records,structural_good_records,padding_bytes,detection
-Pocket Monsters Gin (Japan).gbc,JP-Rev0,PokemonNames,14,0x0539F0,0x053EF0,5,256,256,142,fixed-width @-padding structural scan
-Pocket Monsters Gin (Japan) (Rev A).gbc,JP-RevA,PokemonNames,14,0x0539F0,0x053EF0,5,256,256,142,fixed-width @-padding structural scan
-Pocket Monsters Eun (Korea).gbc,KR,PokemonNames,6C,0x1B0C4A,0x1B164A,10,256,256,1029,fixed-width @-padding structural scan
