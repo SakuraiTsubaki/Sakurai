@@ -35,6 +35,12 @@ jobs:
           path: pokeemerald
           fetch-depth: 1
 
+      - name: Extract full Generation II overlay
+        run: |
+          python sakurai/GENERATION-I/GREEN/parameters/gen2-gen3/extract_gen2_full_overlay.py \
+            --pokecrystal pokecrystal \
+            --out sakurai/GENERATION-I/GREEN/parameters/gen2-gen3/generated
+
       - name: Extract and verify Generation II and III parameters
         run: |
           python sakurai/GENERATION-I/GREEN/parameters/gen2-gen3/extract_gen2_gen3_parameters.py \
