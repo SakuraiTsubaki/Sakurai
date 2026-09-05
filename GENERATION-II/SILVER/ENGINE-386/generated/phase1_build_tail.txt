@@ -1,54 +1,4 @@
-ing -- gfx/pokemon/jynx/front_silver.2bpp gfx/pokemon/jynx/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/omastar/front_silver.2bpp gfx/pokemon/omastar/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/smeargle/front_silver.2bpp gfx/pokemon/smeargle/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/ponyta/front_silver.2bpp gfx/pokemon/ponyta/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/nidorina/front_silver.2bpp gfx/pokemon/nidorina/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/seel/front_silver.2bpp gfx/pokemon/seel/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/gligar/front_silver.2bpp gfx/pokemon/gligar/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/sandslash/front_silver.2bpp gfx/pokemon/sandslash/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/snorlax/front_silver.2bpp gfx/pokemon/snorlax/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/gastly/front_silver.2bpp gfx/pokemon/gastly/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/yanma/back.2bpp gfx/pokemon/yanma/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/xatu/front_silver.2bpp gfx/pokemon/xatu/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/sneasel/front.2bpp gfx/pokemon/sneasel/front.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/quilava/front_silver.2bpp gfx/pokemon/quilava/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/clefable/back.2bpp gfx/pokemon/clefable/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/granbull/front_silver.2bpp gfx/pokemon/granbull/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/jolteon/front_silver.2bpp gfx/pokemon/jolteon/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/pidgeotto/front_silver.2bpp gfx/pokemon/pidgeotto/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/magikarp/front_silver.2bpp gfx/pokemon/magikarp/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/raticate/front_silver.2bpp gfx/pokemon/raticate/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/wartortle/front_silver.2bpp gfx/pokemon/wartortle/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/suicune/back.2bpp gfx/pokemon/suicune/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/tangela/front_silver.2bpp gfx/pokemon/tangela/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/slowking/back.2bpp gfx/pokemon/slowking/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/elekid/back.2bpp gfx/pokemon/elekid/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/farfetch_d/front_silver.2bpp gfx/pokemon/farfetch_d/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/ariados/front.2bpp gfx/pokemon/ariados/front.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/drowzee/front_silver.2bpp gfx/pokemon/drowzee/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/celebi/back.2bpp gfx/pokemon/celebi/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/vulpix/front_silver.2bpp gfx/pokemon/vulpix/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/krabby/back.2bpp gfx/pokemon/krabby/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/espeon/front_silver.2bpp gfx/pokemon/espeon/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/miltank/front_silver.2bpp gfx/pokemon/miltank/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/goldeen/front_silver.2bpp gfx/pokemon/goldeen/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/tyranitar/back.2bpp gfx/pokemon/tyranitar/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/togetic/front_silver.2bpp gfx/pokemon/togetic/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/seadra/back.2bpp gfx/pokemon/seadra/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/ledyba/back.2bpp gfx/pokemon/ledyba/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/nidoran_m/back.2bpp gfx/pokemon/nidoran_m/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/crobat/front_silver.2bpp gfx/pokemon/crobat/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/magmar/back.2bpp gfx/pokemon/magmar/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/cyndaquil/back.2bpp gfx/pokemon/cyndaquil/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/vileplume/front_silver.2bpp gfx/pokemon/vileplume/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/nidorino/front_silver.2bpp gfx/pokemon/nidorino/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/dugtrio/front_silver.2bpp gfx/pokemon/dugtrio/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/doduo/back.2bpp gfx/pokemon/doduo/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/rapidash/back.2bpp gfx/pokemon/rapidash/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/charmeleon/front_silver.2bpp gfx/pokemon/charmeleon/front_silver.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/mankey/back.2bpp gfx/pokemon/mankey/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/typhlosion/back.2bpp gfx/pokemon/typhlosion/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/hypno/back.2bpp gfx/pokemon/hypno/back.2bpp.lz
+ols/lzcompress --matching -- gfx/pokemon/hypno/back.2bpp gfx/pokemon/hypno/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/sandshrew/back.2bpp gfx/pokemon/sandshrew/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/chansey/front_silver.2bpp gfx/pokemon/chansey/front_silver.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/shellder/back.2bpp gfx/pokemon/shellder/back.2bpp.lz
@@ -225,7 +175,6 @@ tools/lzcompress --matching -- gfx/pokemon/unown_y/front.2bpp gfx/pokemon/unown_
 tools/lzcompress --matching -- gfx/pokemon/unown_u/back.2bpp gfx/pokemon/unown_u/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_q/back.2bpp gfx/pokemon/unown_q/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_p/front.2bpp gfx/pokemon/unown_p/front.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/unown_p/back.2bpp gfx/pokemon/unown_p/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_i/back.2bpp gfx/pokemon/unown_i/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_i/front.2bpp gfx/pokemon/unown_i/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_r/back.2bpp gfx/pokemon/unown_r/back.2bpp.lz
@@ -233,7 +182,146 @@ tools/lzcompress --matching -- gfx/pokemon/unown_r/front.2bpp gfx/pokemon/unown_
 rgbasm -Weverything -Wtruncation=1 -Q8 -P includes.asm -D _SILVER -o main_silver.o main.asm
 rgbasm -Weverything -Wtruncation=1 -Q8 -P includes.asm -D _SILVER -o gfx/pics_silver.o gfx/pics_silver.asm
 rgblink -Weverything -Wtruncation=1 -l layout.link -n pokesilver.sym -m pokesilver.map -o pokesilver.gbc audio_silver.o home_silver.o main_silver.o ram_silver.o data/text/common_silver.o data/maps/map_data_silver.o data/pokemon/egg_moves_silver.o data/pokemon/evos_attacks_silver.o engine/movie/credits_silver.o engine/overworld/events_silver.o gfx/misc_silver.o gfx/sprites_silver.o gfx/tilesets_silver.o data/pokemon/dex_entries_silver.o gfx/pics_silver.o
-error: The linker script assigns section "Home" to address $0150, but then it would overflow ROM0 by 127 bytes
-    at layout.link(31)
-Linking failed with 1 error
+error: Requested `BANK()` of undefined symbol `GetLowestEvolutionStage`
+    at macros/farcall.asm::callfar(15)
+    <- engine/pokemon/move_mon.asm(1157)
+    <- main.asm(41)
+error: Undefined symbol `GetLowestEvolutionStage`
+    at macros/farcall.asm::callfar(14)
+    <- engine/pokemon/move_mon.asm(1157)
+    <- main.asm(41)
+error: Undefined symbol `wBaseSpecies`
+    at engine/pokemon/move_mon.asm(95)
+    <- main.asm(41)
+error: Undefined symbol `FarSkipEvolutions`
+    at engine/pokemon/breeding.asm(478)
+    <- main.asm(97)
+error: Undefined symbol `IsInWordArray`
+    at engine/events/daycare.asm(730)
+    <- main.asm(93)
+error: Requested `BANK()` of undefined symbol `GetLowestEvolutionStage`
+    at macros/farcall.asm::callfar(15)
+    <- engine/events/daycare.asm(586)
+    <- main.asm(93)
+error: Undefined symbol `GetLowestEvolutionStage`
+    at macros/farcall.asm::callfar(14)
+    <- engine/events/daycare.asm(586)
+    <- main.asm(93)
+error: Undefined symbol `hSRAMBank`
+    at engine/rtc/rtc.asm(88)
+    <- main.asm(78)
+error: Undefined symbol `hSRAMBank`
+    at engine/rtc/rtc.asm(84)
+    <- main.asm(78)
+error: Undefined symbol `hSRAMBank`
+    at engine/rtc/rtc.asm(19)
+    <- main.asm(78)
+error: Undefined symbol `hSRAMBank`
+    at engine/rtc/rtc.asm(6)
+    <- main.asm(78)
+error: Undefined symbol `CountSetBits16`
+    at engine/events/prof_oaks_pc.asm(42)
+    <- main.asm(129)
+error: Undefined symbol `CountSetBits16`
+    at engine/events/prof_oaks_pc.asm(38)
+    <- main.asm(129)
+error: Undefined symbol `CountSetBits16`
+    at engine/menus/trainer_card.asm(289)
+    <- main.asm(128)
+error: Undefined symbol `CountSetBits16`
+    at engine/link/mystery_gift_2.asm(24)
+    <- main.asm(150)
+error: Undefined symbol `hSRAMBank`
+    at engine/printer/printer.asm(888)
+    <- main.asm(218)
+error: Undefined symbol `GetBoxMonPokemonIndexPointer`
+    at macros/farcall.asm::farcall(9)
+    <- engine/printer/printer.asm(887)
+    <- main.asm(218)
+error: Requested `BANK()` of undefined symbol `GetBoxMonPokemonIndexPointer`
+    at macros/farcall.asm::farcall(8)
+    <- engine/printer/printer.asm(887)
+    <- main.asm(218)
+error: Undefined symbol `hSRAMBank`
+    at engine/pokemon/bills_pc.asm(1465)
+    <- main.asm(286)
+error: Undefined symbol `GetBoxMonPokemonIndexPointer`
+    at macros/farcall.asm::farcall(9)
+    <- engine/pokemon/bills_pc.asm(1464)
+    <- main.asm(286)
+error: Requested `BANK()` of undefined symbol `GetBoxMonPokemonIndexPointer`
+    at macros/farcall.asm::farcall(8)
+    <- engine/pokemon/bills_pc.asm(1464)
+    <- main.asm(286)
+error: Undefined symbol `CopyStringWithTerminator`
+    at engine/events/npc_trade.asm(358)
+    <- main.asm(318)
+error: Undefined symbol `CopyStringWithTerminator`
+    at engine/events/npc_trade.asm(350)
+    <- main.asm(318)
+error: Undefined symbol `CopyStringWithTerminator`
+    at engine/events/npc_trade.asm(225)
+    <- main.asm(318)
+error: Undefined symbol `CopyStringWithTerminator`
+    at engine/events/npc_trade.asm(218)
+    <- main.asm(318)
+error: Undefined symbol `CopyStringWithTerminator`
+    at engine/events/npc_trade.asm(214)
+    <- main.asm(318)
+error: Undefined symbol `CopyStringWithTerminator`
+    at engine/events/npc_trade.asm(207)
+    <- main.asm(318)
+error: Undefined symbol `CopyStringWithTerminator`
+    at engine/events/npc_trade.asm(200)
+    <- main.asm(318)
+error: Undefined symbol `CopyStringWithTerminator`
+    at engine/events/npc_trade.asm(169)
+    <- main.asm(318)
+error: Undefined symbol `CopyStringWithTerminator`
+    at engine/events/npc_trade.asm(164)
+    <- main.asm(318)
+error: Undefined symbol `CopyStringWithTerminator`
+    at engine/events/npc_trade.asm(157)
+    <- main.asm(318)
+error: Undefined symbol `CopyStringWithTerminator`
+    at engine/events/npc_trade.asm(151)
+    <- main.asm(318)
+error: Undefined symbol `wConversionTableBitmap`
+    at engine/16/macros.asm::___conversion_bitmap_set(417)
+    <- engine/16/table_functions.asm(43)
+    <- main.asm(398)
+error: Undefined symbol `wConversionTableBitmap`
+    at engine/16/macros.asm::___conversion_bitmap_set(414)
+    <- engine/16/table_functions.asm(43)
+    <- main.asm(398)
+error: Undefined symbol `wConversionTableBitmap`
+    at engine/16/macros.asm::___conversion_bitmap_free_unused(342)
+    <- engine/16/table_functions.asm(38)
+    <- main.asm(398)
+error: Undefined symbol `wTempLoopCounter`
+    at engine/16/macros.asm::___conversion_bitmap_check_structs(325)
+    <- engine/16/table_functions.asm(35)
+    <- main.asm(398)
+error: Undefined symbol `wTempLoopCounter`
+    at engine/16/macros.asm::___conversion_bitmap_check_structs(310)
+    <- engine/16/table_functions.asm(35)
+    <- main.asm(398)
+error: Undefined symbol `hSRAMBank`
+    at engine/16/table_functions.asm(31)
+    <- main.asm(398)
+error: Undefined symbol `wBaseSpecies`
+    at engine/16/macros.asm::___conversion_bitmap_check_values::REPT~7(334)
+    <- engine/16/macros.asm::___conversion_bitmap_check_values(333)
+    <- engine/16/table_functions.asm(28)
+    <- main.asm(398)
+error: Undefined symbol `wOddEggSpecies`
+    at engine/16/macros.asm::___conversion_bitmap_check_values::REPT~6(334)
+    <- engine/16/macros.asm::___conversion_bitmap_check_values(333)
+    <- engine/16/table_functions.asm(28)
+    <- main.asm(398)
+error: Undefined symbol `wConversionTableBitmap`
+    at engine/16/macros.asm::___conversion_bitmap_initialize(278)
+    <- engine/16/table_functions.asm(16)
+    <- main.asm(398)
+Linking failed with 41 errors
 make: *** [Makefile:199: pokesilver.gbc] Error 1
