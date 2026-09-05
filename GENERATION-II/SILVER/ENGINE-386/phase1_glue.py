@@ -49,6 +49,16 @@ inc.write_text(s)
 for path in ['home/array.asm','home/copy_name.asm','home/pokedex_flags.asm','home/sram.asm']:
     run(['git','checkout','HEAD','--',path], pg)
 
+# ROM0 is completely packed in vanilla Gold/Silver. Move one self-contained,
+# non-interrupt Home routine to ROMX and leave a carry-safe FarCall trampoline.
+# HandleStoneQueue takes its live map-object state through registers/globals and
+# returns success in carry. FarCall preserves F, so this relocation keeps the
+# routine's observable calling convention while recovering enough ROM0 space
+# for the real 16-bit conversion/indirection entry points.
+stone=pg/'home/stone_queue.asm'
+stone_romx=stone.read_text().replace('HandleStoneQueue::','_HandleStoneQueue::',1)
+stone.write_text('HandleStoneQueue::\n\tfarcall _HandleStoneQueue\n\tret\n')
+
 home=pg/'home.asm'
 s=home.read_text()
 if 'INCLUDE "home/indirection.asm"' not in s:
@@ -63,6 +73,8 @@ if needle in s:
     s += '\n\nSECTION "First-stage Pokemon", ROMX\n\nINCLUDE "data/pokemon/first_stages.asm"\n'
 if 'INCLUDE "engine/16/table_functions.asm"' not in s:
     s += '\n\nSECTION "16-bit ID stuff", ROMX\n\nINCLUDE "engine/16/table_functions.asm"\n'
+if 'SECTION "Relocated Home routines", ROMX' not in s:
+    s += '\n\nSECTION "Relocated Home routines", ROMX\n\n' + stone_romx + '\n'
 main.write_text(s)
 
 wram=pg/'ram/wram.asm'
@@ -97,4 +109,4 @@ run(['git','checkout','HEAD','--','maps'], pg)
 run(['git','checkout','HEAD','--','engine/events/fish.asm'], pg)
 run(['git','checkout','HEAD','--','data/wild/fish.asm'], pg)
 
-print('phase1 glue installed; core layout unpinned; Home/map/fishing feature ports deferred')
+print('phase1 glue installed; core layout unpinned; stone queue relocated; map/fishing feature ports deferred')
