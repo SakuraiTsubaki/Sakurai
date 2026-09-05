@@ -1,0 +1,29 @@
+{
+  "schema": "green-386-forms-runtime-block-v2",
+  "magic": "G386F3",
+  "identity_abi": {
+    "species_id": "u16",
+    "form_id": "u8"
+  },
+  "canonical_species_max": 386,
+  "species_form_combinations": 419,
+  "gen2_overlay": {
+    "count": 251,
+    "record_size": 29,
+    "offset": 256
+  },
+  "gen3_overlay": {
+    "count": 386,
+    "record_size": 30,
+    "offset": 7535
+  },
+  "form_descriptors": {
+    "count": 36,
+    "record_size": 8,
+    "offset": 19115
+  },
+  "size": 19403,
+  "crc32": "48d9c019",
+  "sha1": "2ce3ef33a991d52135dbf43080787a51995cc908",
+  "runtime_status": "parameter scaffold only; Green engine hooks/party/box/save/battle migration are separate and not yet claimed complete"
+}
