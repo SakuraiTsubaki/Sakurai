@@ -42,6 +42,13 @@ if 'INCLUDE "constants/16_bit_translation_constants.asm"' not in s:
     s=s.replace(anchor, anchor+extra)
 inc.write_text(s)
 
+# During compiler bring-up, keep Gold/Silver's existing Home routines and add
+# only the new 16-bit core entry points. The mechanically clean changes below
+# are functionality work, but together with the new core they overflow ROM0.
+# They will be hand-ported after the core image links.
+for path in ['home/array.asm','home/copy_name.asm','home/pokedex_flags.asm','home/sram.asm']:
+    run(['git','checkout','HEAD','--',path], pg)
+
 home=pg/'home.asm'
 s=home.read_text()
 if 'INCLUDE "home/indirection.asm"' not in s:
@@ -73,14 +80,21 @@ if marker in s and s.startswith('PokemonPalettes:'):
     special='''; Special negative species palettes for 16-bit lookup.\n; Egg (-3)\nINCBIN "gfx/pokemon/egg/egg.gbcpal", middle_colors\nINCLUDE "gfx/pokemon/egg/shiny.pal"\n\n; -2\n\tRGB 30, 26, 11\n\tRGB 23, 16, 00\n; -2 shiny\n\tRGB 30, 26, 11\n\tRGB 23, 16, 00\n\n; -1\n\tRGB 23, 23, 23\n\tRGB 17, 17, 17\n; -1 shiny\n\tRGB 23, 23, 23\n\tRGB 17, 17, 17\n\n'''
     pal.write_text(special+species)
 
+# Widened evolution targets add one byte per evolution. The original linker
+# layout pins the section immediately after bank10, leaving no growth room.
+# Likewise the expanded save metadata adds bytes to Backup Save 2. Unpin those
+# two sections for the compiler-core image; symbolic BANK()/address references
+# can then follow their relocated linker placement.
+layout=pg/'layout.link'
+s=layout.read_text()
+s=s.replace('\t"Evolutions and Attacks"\n','')
+s=s.replace('\t"Backup Save 2"\n','')
+layout.write_text(s)
+
 # Compiler bring-up deferrals. These upstream conversions are functional work
 # that must be hand-ported around Gold/Silver's tighter bank/layout rules.
 run(['git','checkout','HEAD','--','maps'], pg)
 run(['git','checkout','HEAD','--','engine/events/fish.asm'], pg)
-# engine/events/fish.asm includes data/wild/fish.asm at its tail. Restoring the
-# code alone still leaves the widened u16 fishing records in packed bank24.
-# Restore the data too for the compiler-core milestone; it will be relocated and
-# re-enabled as a 16-bit table in the later encounter-routing phase.
 run(['git','checkout','HEAD','--','data/wild/fish.asm'], pg)
 
-print('phase1 glue installed; WRAM/palette fixed; map/fishing opcode+data work deferred')
+print('phase1 glue installed; core layout unpinned; Home/map/fishing feature ports deferred')
