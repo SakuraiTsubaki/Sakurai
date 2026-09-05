@@ -1,0 +1,9 @@
+rom,pointer_occurrences_all_byte,pointer_occurrences_aligned,pointer_occurrences_shift1,pointer_occurrences_shift2,pointer_occurrences_shift3,unique_pointer_targets,referenced_string_candidates,candidates_with_aligned_refs,candidates_unaligned_only,candidate_bytes_total,candidate_pointer_occurrences
+Pocket Monsters - Fire Red (Japan) (Rev 1).gba,143178,63953,32614,14026,32585,75795,18595,12298,6297,1095392,31855
+Pocket Monsters - Fire Red (Japan).gba,144721,64495,32826,14418,32982,75984,18461,11997,6464,1286679,32573
+Pokemon - Edicion Rojo Fuego (Spain).gba,140276,63563,31312,13564,31837,75619,12610,8103,4507,673336,17395
+Pokemon - Feuerrote Edition (Germany).gba,140385,63463,31554,13355,32013,75523,13150,8166,4984,1007845,21592
+Pokemon - Fire Red Version (USA).gba,141483,63771,32215,13348,32149,75925,12969,8096,4873,972905,21116
+"Pokemon - Fire Red Version (USA, Europe) (Rev 1).gba",141209,63766,31976,13319,32148,75908,13047,8101,4946,949951,20332
+Pokemon - Version Rouge Feu (France).gba,140902,63524,31890,13634,31854,75654,12520,8098,4422,656635,17797
+Pokemon - Versione Rosso Fuoco (Italy).gba,140234,63511,31352,13507,31864,75601,12607,8133,4474,654968,17620
