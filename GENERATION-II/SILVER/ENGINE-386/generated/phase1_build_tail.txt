@@ -1,4 +1,5 @@
-front_silver.2bpp gfx/pokemon/raticate/front_silver.2bpp.lz
+gfx/pokemon/magikarp/front_silver.2bpp.lz
+tools/lzcompress --matching -- gfx/pokemon/raticate/front_silver.2bpp gfx/pokemon/raticate/front_silver.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/wartortle/front_silver.2bpp gfx/pokemon/wartortle/front_silver.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/suicune/back.2bpp gfx/pokemon/suicune/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/tangela/front_silver.2bpp gfx/pokemon/tangela/front_silver.2bpp.lz
@@ -196,7 +197,6 @@ tools/lzcompress --matching -- gfx/pokemon/unown_o/back.2bpp gfx/pokemon/unown_o
 tools/lzcompress --matching -- gfx/pokemon/unown_k/front.2bpp gfx/pokemon/unown_k/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_n/front.2bpp gfx/pokemon/unown_n/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_a/back.2bpp gfx/pokemon/unown_a/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/unown_n/back.2bpp gfx/pokemon/unown_n/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_a/front.2bpp gfx/pokemon/unown_a/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_m/back.2bpp gfx/pokemon/unown_m/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_t/front.2bpp gfx/pokemon/unown_t/front.2bpp.lz
