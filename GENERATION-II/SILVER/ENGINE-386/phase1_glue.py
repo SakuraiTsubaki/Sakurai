@@ -42,11 +42,6 @@ if 'INCLUDE "constants/16_bit_translation_constants.asm"' not in s:
     s=s.replace(anchor, anchor+extra)
 inc.write_text(s)
 
-# The expand branch versions of array/copy_name/pokedex_flags/sram were already
-# applied mechanically. Keep them: they provide IsInWordArray,
-# CopyStringWithTerminator, CountSetBits16, and tracked SRAM-bank semantics.
-# Gold/Silver ROM0 is extremely tight, so recover space by relocating two
-# self-contained Home routines behind farcall trampolines.
 stone=pg/'home/stone_queue.asm'
 stone_romx=stone.read_text().replace('HandleStoneQueue::','_HandleStoneQueue::',1)
 stone.write_text('HandleStoneQueue::\n\tfarcall _HandleStoneQueue\n\tret\n')
@@ -57,8 +52,6 @@ region_romx=''
 marker='SetXYCompareFlags::'
 if marker in region_text:
     prefix, suffix = region_text.split(marker, 1)
-    # The relocated original body already starts with push hl and ends with
-    # pop hl/ret, so the wrapper must not save HL a second time.
     region.write_text(prefix + 'SetXYCompareFlags::\n\tfarcall _SetXYCompareFlags\n\tret\n')
     region_romx = '_SetXYCompareFlags::' + suffix
 
@@ -68,8 +61,6 @@ if 'INCLUDE "home/indirection.asm"' not in s:
     s += '\nINCLUDE "home/indirection.asm"\nINCLUDE "home/16bit.asm"\n'
 home.write_text(s)
 
-# Preserve Gold/Silver HRAM addresses while naming the five-byte scratch prefix
-# the 16-bit/SRAM code expects. hFarByte aliases hTempBank as upstream does.
 hram=pg/'ram/hram.asm'
 s=hram.read_text()
 if 'hSRAMBank::' not in s:
@@ -80,9 +71,6 @@ if 'hSRAMBank::' not in s:
     s=s.replace(old,new,1)
 hram.write_text(s)
 
-# Gold calls the first byte of BaseData wBaseDexNo; for the original 251 this is
-# numerically identical to species. Alias the 16-bit port name without changing
-# layout. Also carve wTempLoopCounter out of an existing 12-byte unused gap.
 wram=pg/'ram/wram.asm'
 s=wram.read_text()
 if 'wBaseSpecies::' not in s:
@@ -97,16 +85,11 @@ if 'wPokemonIndexTable' not in s:
     s += '\n\nSECTION "16-bit WRAM tables", WRAMX\n\twram_conversion_table wPokemonIndexTable, MON_TABLE\n'
 wram.write_text(s)
 
-# Gold/Silver has no Crystal Odd Egg subsystem, so do not invent a fake live
-# species variable merely to satisfy the Crystal garbage collector.
 tablefunc=pg/'engine/16/table_functions.asm'
 s=tablefunc.read_text()
 s=s.replace(', wOddEggSpecies, wBaseSpecies', ', wBaseSpecies')
 tablefunc.write_text(s)
 
-# breeding.asm was mechanically widened, but evolve.asm is one of the paths
-# that does not apply cleanly to pokegold. Supply the far-aware evolution-list
-# skipper in the same ROMX section as breeding so its direct CALL is valid.
 breeding=pg/'engine/pokemon/breeding.asm'
 s=breeding.read_text()
 if 'FarSkipEvolutions::' not in s:
@@ -115,9 +98,11 @@ breeding.write_text(s)
 
 main=pg/'main.asm'
 s=main.read_text()
-needle='INCLUDE "data/pokemon/first_stages.asm"\n'
-if needle in s:
-    s=s.replace(needle, '')
+# first_stages.asm is a newly-added expand-branch file, so vanilla main.asm has
+# no include to relocate. Always add it exactly once.
+if 'INCLUDE "data/pokemon/first_stages.asm"' in s:
+    s=s.replace('INCLUDE "data/pokemon/first_stages.asm"\n', '')
+if 'SECTION "First-stage Pokemon", ROMX' not in s:
     s += '\n\nSECTION "First-stage Pokemon", ROMX\n\nINCLUDE "data/pokemon/first_stages.asm"\n'
 if 'INCLUDE "engine/16/table_functions.asm"' not in s:
     s += '\n\nSECTION "16-bit ID stuff", ROMX\n\nINCLUDE "engine/16/table_functions.asm"\n'
@@ -125,6 +110,12 @@ if 'SECTION "Relocated Home routines", ROMX' not in s:
     s += '\n\nSECTION "Relocated Home routines", ROMX\n\n' + stone_romx + '\n' + region_romx + '\n'
 if 'GetLowestEvolutionStage::' not in s:
     s += '''\n\nSECTION "16-bit evolution helpers", ROMX\n\nGetLowestEvolutionStage::\n\tld a, [wCurPartySpecies]\n\tcall GetPokemonIndexFromID\n\tld bc, FirstEvoStages - 2\n\tadd hl, hl\n\tadd hl, bc\n\tld a, BANK(FirstEvoStages)\n\tcall GetFarWord\n\tcall GetPokemonIDFromIndex\n\tld [wCurPartySpecies], a\n\tret\n'''
+# Bills PC and printer ask for the canonical u16 species index stored beside a
+# saved box. Input b=slot, c=zero-based box. BoxIndexAddresses is the 14-entry
+# far-pointer table created by the mechanically-applied save conversion. Return
+# b=SRAM bank and hl=address of that slot's little-endian u16 index.
+if 'GetBoxMonPokemonIndexPointer::' not in s:
+    s += '''\n\nSECTION "16-bit box index helpers", ROMX\n\nGetBoxMonPokemonIndexPointer::\n\tpush de\n\tld e, c\n\tld d, 0\n\tld hl, BoxIndexAddresses\n\tadd hl, de\n\tadd hl, de\n\tadd hl, de\n\tld a, [hli]\n\tpush af\n\tld a, [hli]\n\tld h, [hl]\n\tld l, a\n\tld e, b\n\tld d, 0\n\tadd hl, de\n\tadd hl, de\n\tpop af\n\tld b, a\n\tpop de\n\tret\n'''
 main.write_text(s)
 
 pal=pg/'data/pokemon/palettes.asm'
@@ -142,10 +133,8 @@ s=s.replace('\t"Evolutions and Attacks"\n','')
 s=s.replace('\t"Backup Save 2"\n','')
 layout.write_text(s)
 
-# Compiler bring-up deferrals. These are restored as real 16-bit data/routines
-# after the core image links; they are not being discarded.
 run(['git','checkout','HEAD','--','maps'], pg)
 run(['git','checkout','HEAD','--','engine/events/fish.asm'], pg)
 run(['git','checkout','HEAD','--','data/wild/fish.asm'], pg)
 
-print('phase1 glue installed; Home helpers restored; Gold-specific HRAM/WRAM/evolution glue installed')
+print('phase1 glue installed; first-stage and saved-box 16-bit helpers linked')
