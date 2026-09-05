@@ -58,10 +58,6 @@ if 'INCLUDE "engine/16/table_functions.asm"' not in s:
     s += '\n\nSECTION "16-bit ID stuff", ROMX\n\nINCLUDE "engine/16/table_functions.asm"\n'
 main.write_text(s)
 
-# The upstream WRAM patch does not apply mechanically because Gold/Silver and
-# Crystal lay out unrelated work RAM differently. The conversion table itself
-# is self-contained, so give it a Gold/Silver WRAMX section without replacing
-# any existing structures.
 wram=pg/'ram/wram.asm'
 s=wram.read_text()
 if 'wPokemonIndexTable' not in s:
@@ -77,5 +73,9 @@ if marker in s and s.startswith('PokemonPalettes:'):
     special='''; Special negative species palettes for 16-bit lookup.\n; Egg (-3)\nINCBIN "gfx/pokemon/egg/egg.gbcpal", middle_colors\nINCLUDE "gfx/pokemon/egg/shiny.pal"\n\n; -2\n\tRGB 30, 26, 11\n\tRGB 23, 16, 00\n; -2 shiny\n\tRGB 30, 26, 11\n\tRGB 23, 16, 00\n\n; -1\n\tRGB 23, 23, 23\n\tRGB 17, 17, 17\n; -1 shiny\n\tRGB 23, 23, 23\n\tRGB 17, 17, 17\n\n'''
     pal.write_text(special+species)
 
+# Compiler bring-up deferrals. These upstream conversions are functional work
+# that must be hand-ported around Gold/Silver's tighter bank/layout rules.
 run(['git','checkout','HEAD','--','maps'], pg)
-print('phase1 glue installed; WRAM table/palette layout added; map script opcodes deferred')
+run(['git','checkout','HEAD','--','engine/events/fish.asm'], pg)
+
+print('phase1 glue installed; WRAM/palette fixed; map/fishing opcode work deferred')
