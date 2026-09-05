@@ -1,4 +1,6 @@
-bpp.lz
+ing -- gfx/pokemon/jynx/front_silver.2bpp gfx/pokemon/jynx/front_silver.2bpp.lz
+tools/lzcompress --matching -- gfx/pokemon/omastar/front_silver.2bpp gfx/pokemon/omastar/front_silver.2bpp.lz
+tools/lzcompress --matching -- gfx/pokemon/smeargle/front_silver.2bpp gfx/pokemon/smeargle/front_silver.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/ponyta/front_silver.2bpp gfx/pokemon/ponyta/front_silver.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/nidorina/front_silver.2bpp gfx/pokemon/nidorina/front_silver.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/seel/front_silver.2bpp gfx/pokemon/seel/front_silver.2bpp.lz
@@ -213,7 +215,6 @@ tools/lzcompress --matching -- gfx/pokemon/unown_o/back.2bpp gfx/pokemon/unown_o
 tools/lzcompress --matching -- gfx/pokemon/unown_k/front.2bpp gfx/pokemon/unown_k/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_n/front.2bpp gfx/pokemon/unown_n/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_a/back.2bpp gfx/pokemon/unown_a/back.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/unown_n/back.2bpp gfx/pokemon/unown_n/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_a/front.2bpp gfx/pokemon/unown_a/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_m/back.2bpp gfx/pokemon/unown_m/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_t/front.2bpp gfx/pokemon/unown_t/front.2bpp.lz
@@ -224,6 +225,7 @@ tools/lzcompress --matching -- gfx/pokemon/unown_y/front.2bpp gfx/pokemon/unown_
 tools/lzcompress --matching -- gfx/pokemon/unown_u/back.2bpp gfx/pokemon/unown_u/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_q/back.2bpp gfx/pokemon/unown_q/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_p/front.2bpp gfx/pokemon/unown_p/front.2bpp.lz
+tools/lzcompress --matching -- gfx/pokemon/unown_p/back.2bpp gfx/pokemon/unown_p/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_i/back.2bpp gfx/pokemon/unown_i/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_i/front.2bpp gfx/pokemon/unown_i/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_r/back.2bpp gfx/pokemon/unown_r/back.2bpp.lz
@@ -231,11 +233,7 @@ tools/lzcompress --matching -- gfx/pokemon/unown_r/front.2bpp gfx/pokemon/unown_
 rgbasm -Weverything -Wtruncation=1 -Q8 -P includes.asm -D _SILVER -o main_silver.o main.asm
 rgbasm -Weverything -Wtruncation=1 -Q8 -P includes.asm -D _SILVER -o gfx/pics_silver.o gfx/pics_silver.asm
 rgblink -Weverything -Wtruncation=1 -l layout.link -n pokesilver.sym -m pokesilver.map -o pokesilver.gbc audio_silver.o home_silver.o main_silver.o ram_silver.o data/text/common_silver.o data/maps/map_data_silver.o data/pokemon/egg_moves_silver.o data/pokemon/evos_attacks_silver.o engine/movie/credits_silver.o engine/overworld/events_silver.o gfx/misc_silver.o gfx/sprites_silver.o gfx/tilesets_silver.o data/pokemon/dex_entries_silver.o gfx/pics_silver.o
-error: The linker script assigns section "Home" to address $0150, but then it would overflow ROM0 by 224 bytes
+error: The linker script assigns section "Home" to address $0150, but then it would overflow ROM0 by 127 bytes
     at layout.link(31)
-error: The linker script assigns section "Evolutions and Attacks" to address $69b3, but then it would overflow ROMX by 85 bytes
-    at layout.link(69)
-error: The linker script assigns section "Backup Save 2" to address $be68, but then it would overflow SRAM by 18 bytes
-    at layout.link(299)
-Linking failed with 3 errors
+Linking failed with 1 error
 make: *** [Makefile:199: pokesilver.gbc] Error 1
