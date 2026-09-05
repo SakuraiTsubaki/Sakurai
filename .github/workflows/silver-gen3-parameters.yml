@@ -6,6 +6,7 @@ on:
     paths:
       - 'GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/build_gen3_parameters.py'
       - 'GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/build_gen3_binary.py'
+      - 'GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/build_gen3_staging_ips.py'
       - '.github/workflows/silver-gen3-parameters.yml'
 
 permissions:
@@ -33,6 +34,12 @@ jobs:
             GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_binary_layout.json
           base64 -w76 GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_parameter_block.bin \
             > GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_parameter_block.b64
+      - name: Build per-ROM staging IPS patches
+        run: |
+          python GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/build_gen3_staging_ips.py \
+            GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_parameter_block.bin \
+            GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/patches \
+            GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/stage3_patch_report.json
       - name: Commit deterministic generated outputs
         run: |
           git config user.name 'github-actions[bot]'
