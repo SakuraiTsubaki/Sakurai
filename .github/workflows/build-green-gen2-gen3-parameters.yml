@@ -68,6 +68,16 @@ jobs:
             | base64 -w 2048 \
             > sakurai/GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/generated/green_386_forms_runtime_parameter_block.xz.b64.txt
 
+      - name: Upload deterministic runtime block artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: green-386-forms-runtime-block
+          path: |
+            sakurai/GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/generated/green_386_forms_runtime_parameter_block.bin
+            sakurai/GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/generated/RUNTIME_BLOCK_MANIFEST.json
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Commit generated non-ROM outputs
         working-directory: sakurai
         run: |
