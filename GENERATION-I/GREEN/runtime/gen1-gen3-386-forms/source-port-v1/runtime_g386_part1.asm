@@ -44,6 +44,7 @@ G386IdentityPtr::
 
 ; A = box number, C = slot. Returns HL -> working box identity.
 G386BoxIdentityPtr::
+	push bc
 	ld e, a
 	ld d, 0
 	ld hl, sG386WorkBoxes
@@ -56,6 +57,7 @@ G386BoxIdentityPtr::
 	dec e
 	jr .boxLoop
 .slot
+	pop bc
 	ld a, c
 	jp G386IdentityPtr
 
