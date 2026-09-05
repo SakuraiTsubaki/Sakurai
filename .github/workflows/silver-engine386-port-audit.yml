@@ -47,13 +47,8 @@ jobs:
               p=pg/path
               exists=p.exists()
               old=''
-              new=''
               try:
                   old=run(['git','show',f'master:{path}'], cwd=pc).stdout
-              except subprocess.CalledProcessError:
-                  pass
-              try:
-                  new=run(['git','show',f'origin/expand-mon-ID:{path}'], cwd=pc).stdout
               except subprocess.CalledProcessError:
                   pass
               similarity=None
@@ -102,13 +97,10 @@ jobs:
           }
           (out/'port_audit.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
 
-          priority=[]
-          for r in rows:
-              if r['category'] in ('engine','constants','pokemon_data'):
-                  priority.append(r)
+          priority=[r for r in rows if r['category'] in ('engine','constants','pokemon_data')]
           md=['# ENGINE-386 upstream port audit','',
-              f"Reference: `pokecrystal16 master..expand-mon-ID` (29 commits)",
-              f"Target: `pret/pokegold`",'',
+              'Reference: `pokecrystal16 master..expand-mon-ID` (29 commits)',
+              'Target: `pret/pokegold`','',
               f"- Changed paths: **{len(names)}**",
               f"- Mechanical per-species base-stat files excluded from manual audit: **{mechanical_base_stats}**",
               f"- Audited non-mechanical paths: **{len(rows)}**",
@@ -133,4 +125,13 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'Audit Silver ENGINE-386 16-bit port surface'
-          git push
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo 'Could not push audit outputs after retries.' >&2
+          exit 1
