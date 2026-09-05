@@ -220,6 +220,7 @@ tools/lzcompress --matching -- gfx/pokemon/unown_o/back.2bpp gfx/pokemon/unown_o
 tools/lzcompress --matching -- gfx/pokemon/unown_k/front.2bpp gfx/pokemon/unown_k/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_n/front.2bpp gfx/pokemon/unown_n/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_a/back.2bpp gfx/pokemon/unown_a/back.2bpp.lz
+tools/lzcompress --matching -- gfx/pokemon/unown_n/back.2bpp gfx/pokemon/unown_n/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_a/front.2bpp gfx/pokemon/unown_a/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_m/back.2bpp gfx/pokemon/unown_m/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_t/front.2bpp gfx/pokemon/unown_t/front.2bpp.lz
@@ -230,14 +231,13 @@ tools/lzcompress --matching -- gfx/pokemon/unown_y/front.2bpp gfx/pokemon/unown_
 tools/lzcompress --matching -- gfx/pokemon/unown_u/back.2bpp gfx/pokemon/unown_u/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_q/back.2bpp gfx/pokemon/unown_q/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_p/front.2bpp gfx/pokemon/unown_p/front.2bpp.lz
-tools/lzcompress --matching -- gfx/pokemon/unown_p/back.2bpp gfx/pokemon/unown_p/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_i/back.2bpp gfx/pokemon/unown_i/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_i/front.2bpp gfx/pokemon/unown_i/front.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_r/back.2bpp gfx/pokemon/unown_r/back.2bpp.lz
 tools/lzcompress --matching -- gfx/pokemon/unown_r/front.2bpp gfx/pokemon/unown_r/front.2bpp.lz
 rgbasm -Weverything -Wtruncation=1 -Q8 -P includes.asm -D _SILVER -o main_silver.o main.asm
 rgbasm -Weverything -Wtruncation=1 -Q8 -P includes.asm -D _SILVER -o gfx/pics_silver.o gfx/pics_silver.asm
-error: Section "bank24" grew too big (max size = 0x4000 bytes, reached 0x4040)
+error: Section "bank24" grew too big (max size = 0x4000 bytes, reached 0x4042)
     at main.asm(399)
 Assembly aborted with 1 error
 make: *** [Makefile:164: main_silver.o] Error 1
