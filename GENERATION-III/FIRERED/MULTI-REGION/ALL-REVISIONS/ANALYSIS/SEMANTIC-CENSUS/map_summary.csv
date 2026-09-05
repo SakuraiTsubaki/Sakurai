@@ -1,0 +1,9 @@
+rom,gMapGroups_offset,group_count,map_header_pointer_array_offset,map_header_pointer_count,unique_map_headers,duplicate_map_header_pointers,unique_layout_ptrs,unique_events_ptrs,unique_script_ptrs,unique_connection_blocks,total_object_events,total_warps,total_coord_events,total_bg_events,total_map_connections,invalid_map_headers
+Pocket Monsters - Fire Red (Japan) (Rev 1).gba,0x00311F70,43,0x003118CC,425,425,0,309,425,425,62,1647,1294,228,702,116,0
+Pocket Monsters - Fire Red (Japan).gba,0x00316758,43,0x003160B4,425,425,0,309,425,425,62,1647,1294,228,702,116,0
+Pokemon - Edicion Rojo Fuego (Spain).gba,0x0034DE70,43,0x0034D7CC,425,425,0,309,425,425,62,1648,1294,228,702,116,0
+Pokemon - Feuerrote Edition (Germany).gba,0x003525CC,43,0x00351F28,425,425,0,309,425,425,62,1648,1294,228,702,116,0
+Pokemon - Fire Red Version (USA).gba,0x003526A8,43,0x00352004,425,425,0,309,425,425,62,1648,1294,228,702,116,0
+"Pokemon - Fire Red Version (USA, Europe) (Rev 1).gba",0x00352718,43,0x00352074,425,425,0,309,425,425,62,1648,1294,228,702,116,0
+Pokemon - Version Rouge Feu (France).gba,0x0034CAF8,43,0x0034C454,425,425,0,309,425,425,62,1648,1294,228,702,116,0
+Pokemon - Versione Rosso Fuoco (Italy).gba,0x0034B788,43,0x0034B0E4,425,425,0,309,425,425,62,1648,1294,228,702,116,0
