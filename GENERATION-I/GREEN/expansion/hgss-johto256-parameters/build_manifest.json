@@ -1,0 +1,67 @@
+{
+  "format": "HGJD256",
+  "format_version": 1,
+  "scope": "HGSS Johto 256 structural parameter layer for Pokemon Green",
+  "status": {
+    "roster_order": "complete",
+    "national_dex_mapping": "complete",
+    "hgss_types": "complete",
+    "legacy_green_internal_bridge": "complete",
+    "base_stats": "pending",
+    "evolutions": "pending",
+    "learnsets": "pending",
+    "runtime_species16_hooks": "pending",
+    "save_format_migration": "pending",
+    "pokedex_ui_hooks": "pending"
+  },
+  "architecture": {
+    "rom_expansion": "512 KiB -> 1 MiB",
+    "mapper": "MBC1+RAM+BATTERY retained",
+    "new_parameter_bank": "0x21",
+    "bank_0x20": "reserved/unusable as MBC1 switchable bank",
+    "canonical_species_id_width_bytes": 2,
+    "species_count": 256,
+    "seen_owned_bitset_bytes_target": 32,
+    "legacy_internal_species_slots": 190,
+    "legacy_pokedex_order_offset": "0x4279A"
+  },
+  "sources_note": "Roster/order and HGSS-era types cross-checked against the HGSS Johto Pokedex; engine identity/layout cross-checked against Pokemon Green disassembly. Exact HGSS personal/evo/learnset payloads are intentionally not guessed.",
+  "outputs": [
+    {
+      "revision": 0,
+      "tag": "rev0",
+      "input": "Pocket Monsters - Midori (Japan) (SGB Enhanced).gb",
+      "input_sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+      "output": "Pocket Monsters - Midori (Japan) - HGSS Johto 256 Parameters (rev0).gb",
+      "output_sha1": "47801542242756f72f1532a44fbc8ae44c68462d",
+      "output_size": 1048576,
+      "ips": "green_hgss_johto256_parameters_rev0.ips",
+      "ips_sha1": "24142459e09a489ad101de03b1da7368c85ba25d",
+      "ips_size": 6807,
+      "header_checksum": "9B",
+      "global_checksum": "4D44",
+      "parameter_bank": "21",
+      "parameter_file_offset": "0x084000",
+      "parameter_size": 6957,
+      "feature_flags": 7
+    },
+    {
+      "revision": 1,
+      "tag": "reva",
+      "input": "Pocket Monsters - Midori (Japan) (Rev A) (SGB Enhanced).gb",
+      "input_sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+      "output": "Pocket Monsters - Midori (Japan) - HGSS Johto 256 Parameters (reva).gb",
+      "output_sha1": "7a7eeb0441a7349c32455bc347d2dccbc32fd479",
+      "output_size": 1048576,
+      "ips": "green_hgss_johto256_parameters_reva.ips",
+      "ips_sha1": "568b76a55380ed4d906ba4e79bcc27493ec6aca5",
+      "ips_size": 6807,
+      "header_checksum": "9A",
+      "global_checksum": "64B6",
+      "parameter_bank": "21",
+      "parameter_file_offset": "0x084000",
+      "parameter_size": 6957,
+      "feature_flags": 7
+    }
+  ]
+}
