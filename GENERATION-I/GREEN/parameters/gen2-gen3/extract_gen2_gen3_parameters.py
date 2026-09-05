@@ -244,7 +244,7 @@ def parse_gen3_species_info(path: Path, ability_ids: dict[str,int]):
     text=path.read_text(encoding='utf-8')
     repo_root=path.parents[3]
     text, unown_macro_source=expand_species_alias(text,repo_root,'UNOWN','UNOWN_SPECIES_INFO')
-    rx=re.compile(r'^\s*\[SPECIES_([A-Z0-9_]+)\]\s*=\s*\n\s*\{(.*?)^\s*\},',re.M|re.S)
+    rx=re.compile(r'^\s*\[SPECIES_([A-Z0-9_]+)\]\s*=\s*\n\s*\{(.*?)^\s*\}\s*,?',re.M|re.S)
     block_by_name={name:body for name,body in rx.findall(text) if name!='NONE'}
     national_names=parse_national_dex_names(repo_root)
     missing=[name for name in national_names if name not in block_by_name]
