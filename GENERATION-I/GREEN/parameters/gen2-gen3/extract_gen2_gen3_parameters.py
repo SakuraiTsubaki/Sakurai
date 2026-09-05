@@ -78,6 +78,50 @@ def norm_growth(tok): return GROWTH_IDS.get(tok.strip(),255)
 def norm_egg(tok): return EGG_IDS.get(tok.strip(),255)
 def norm_ability(tok): return ABILITY_IDS.get(tok.strip(),255)
 
+def find_multiline_c_macro(root: Path, macro_name: str):
+    """Find and unfold a committed multiline #define without hardcoding its data."""
+    rx = re.compile(r'^\s*#define\s+' + re.escape(macro_name) + r'\b(.*)$')
+    allowed = {'.h','.c','.inc','.in','.txt'}
+    for p in root.rglob('*'):
+        if not p.is_file() or p.suffix.lower() not in allowed:
+            continue
+        try:
+            lines = p.read_text(encoding='utf-8').splitlines()
+        except (UnicodeDecodeError, OSError):
+            continue
+        for i,line in enumerate(lines):
+            m=rx.match(line)
+            if not m:
+                continue
+            parts=[]
+            cur=m.group(1).rstrip()
+            continued=line.rstrip().endswith('\\')
+            if cur.endswith('\\'):
+                cur=cur[:-1].rstrip()
+            if cur:
+                parts.append(cur)
+            j=i+1
+            while continued and j < len(lines):
+                raw=lines[j].rstrip()
+                continued=raw.endswith('\\')
+                if continued:
+                    raw=raw[:-1].rstrip()
+                parts.append(raw)
+                j += 1
+            body='\n'.join(parts).strip()
+            if not body:
+                raise ValueError(f'empty macro {macro_name} in {p}')
+            return body, p
+    raise ValueError(f'macro {macro_name} not found under {root}')
+
+def expand_species_alias(text: str, repo_root: Path, species: str, macro_name: str):
+    alias_rx=re.compile(r'(^\s*\[SPECIES_'+re.escape(species)+r'\]\s*=\s*)'+re.escape(macro_name)+r'(\s*,)',re.M)
+    if not alias_rx.search(text):
+        return text, None
+    macro_body, source_path=find_multiline_c_macro(repo_root,macro_name)
+    text=alias_rx.sub(lambda m: m.group(1)+'\n'+macro_body+m.group(2),text,count=1)
+    return text, source_path
+
 def parse_gen2_file(p: Path):
     text=p.read_text(encoding='utf-8')
     lines=text.splitlines()
@@ -125,11 +169,13 @@ def parse_gen2_file(p: Path):
 
 def parse_gen3_species_info(path: Path):
     text=path.read_text(encoding='utf-8')
+    repo_root=path.parents[3]
+    text, unown_macro_source=expand_species_alias(text,repo_root,'UNOWN','UNOWN_SPECIES_INFO')
     rx=re.compile(r'^\s*\[SPECIES_([A-Z0-9_]+)\]\s*=\s*\n\s*\{(.*?)^\s*\},',re.M|re.S)
     blocks=[(name,body) for name,body in rx.findall(text) if name!='NONE']
     names=[n for n,_ in blocks]
-    if 'BULBASAUR' not in names or 'CELEBI' not in names or 'TREECKO' not in names or 'DEOXYS' not in names:
-        raise ValueError('expected species anchors missing')
+    if 'BULBASAUR' not in names or 'UNOWN' not in names or 'CELEBI' not in names or 'TREECKO' not in names or 'DEOXYS' not in names:
+        raise ValueError('expected species anchors missing after alias expansion')
     def span(a,b,startdex):
         ia,ib=names.index(a),names.index(b)
         sub=blocks[ia:ib+1]
@@ -163,7 +209,7 @@ def parse_gen3_species_info(path: Path):
             'egg_group1_token':e1,'egg_group2_token':e2,'egg_group1_id':norm_egg(e1),'egg_group2_id':norm_egg(e2),
             'ability1_token':a1,'ability2_token':a2,'ability1_id':norm_ability(a1),'ability2_id':norm_ability(a2),
             'safari_flee_rate':vals['safariZoneFleeRate'],'body_color_token':field(body,'bodyColor'),'no_flip_token':field(body,'noFlip'),
-            'source_path':str(path).replace('\\','/'),
+            'source_path':str(unown_macro_source if name=='UNOWN' and unown_macro_source else path).replace('\\','/'),
         })
     return out
 
