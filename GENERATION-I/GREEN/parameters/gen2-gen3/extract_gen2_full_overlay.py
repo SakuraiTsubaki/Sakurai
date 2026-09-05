@@ -100,7 +100,7 @@ def parse_file(p: Path, item_ids: dict[str,int], tmhm_order: list[str], base_hap
     hatch=re.search(r'^\s*db\s+(\d+)\s*;\s*step cycles to hatch',text,re.M)
     growth=re.search(r'^\s*db\s+(GROWTH_[A-Z0-9_]+)\s*;\s*growth rate',text,re.M)
     eggs=re.search(r'^\s*dn\s+([A-Z0-9_]+)\s*,\s*([A-Z0-9_]+)\s*;\s*egg groups',text,re.M)
-    tmhm=re.search(r'^\s*tmhm\s*(.*?)\s*$',text,re.M)
+    tmhm=re.search(r'^[ \t]*tmhm[ \t]*([^\r\n]*)$',text,re.M)
     if not all([stats,types,items,gender,hatch,growth,eggs]):
         raise ValueError(f'incomplete Crystal base stats: {p}')
     comments={}
