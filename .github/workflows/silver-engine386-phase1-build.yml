@@ -84,6 +84,10 @@ jobs:
           print(json.dumps({k:v for k,v in summary.items() if not k.endswith('_paths')},indent=2))
           PY
 
+      - name: Install Gold Silver phase1 glue
+        run: |
+          python GENERATION-II/SILVER/ENGINE-386/phase1_glue.py /tmp/pgold /tmp/pc16
+
       - name: Build Silver candidate
         id: build
         continue-on-error: true
@@ -96,7 +100,7 @@ jobs:
         if: always()
         run: |
           python - <<'PY'
-          import json, pathlib, os, hashlib
+          import json, pathlib, hashlib
           out=pathlib.Path('GENERATION-II/SILVER/ENGINE-386/generated')
           log=pathlib.Path('/tmp/engine386-build.log').read_text(errors='replace') if pathlib.Path('/tmp/engine386-build.log').exists() else ''
           rom=pathlib.Path('/tmp/pgold/pokesilver.gbc')
