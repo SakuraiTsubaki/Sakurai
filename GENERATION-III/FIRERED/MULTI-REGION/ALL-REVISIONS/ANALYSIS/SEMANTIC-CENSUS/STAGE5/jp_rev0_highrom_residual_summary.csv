@@ -1,3 +1,0 @@
-build,start,end_exclusive,last_difference,region_size,sha256,entropy,zero_pct,ff_pct,allbyte_ptr_EWRAM,allbyte_ptr_IWRAM,allbyte_ptr_IO,allbyte_ptr_PAL,allbyte_ptr_VRAM,allbyte_ptr_OAM,allbyte_ptr_ROM
-JP Rev0,0x00F3F3E4,0x00FE0000,0x00FDFFFE,658460,3e42fb9607cb58f5481f9c108824e943336e027bbb4d06616a8d1a229cd9c9d1,2.209426,48.553291,35.672782,1425,50,1120,77,176,26,1584
-JP Rev1,0x00F3F3E4,0x00FE0000,0x00FDFFFE,658460,dd8059e56d4af8774d2b6631cec40a99158997bc5b4a89b840a344d04b8158c4,-0.0,0.0,100.0,0,0,0,0,0,0,0

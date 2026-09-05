@@ -1,9 +1,0 @@
-rom,map_name,map_group,map_num,event_type,local_id,graphics_id,x,y,clone_target_local_id,clone_target_map_num,clone_target_map_group,interpretation
-Pokemon - Fire Red Version (USA).gba,Route7,3,25,object clone,1,95,-8,12,10,6,3,CUT TREE clone from Celadon City border tree
-Pokemon - Version Rouge Feu (France).gba,Route7,3,25,object clone,1,95,-8,12,10,6,3,CUT TREE clone from Celadon City border tree
-Pokemon - Versione Rosso Fuoco (Italy).gba,Route7,3,25,object clone,1,95,-8,12,10,6,3,CUT TREE clone from Celadon City border tree
-"Pokemon - Fire Red Version (USA, Europe) (Rev 1).gba",Route7,3,25,object clone,1,95,-8,12,10,6,3,CUT TREE clone from Celadon City border tree
-Pokemon - Edicion Rojo Fuego (Spain).gba,Route7,3,25,object clone,1,95,-8,12,10,6,3,CUT TREE clone from Celadon City border tree
-Pokemon - Feuerrote Edition (Germany).gba,Route7,3,25,object clone,1,95,-8,12,10,6,3,CUT TREE clone from Celadon City border tree
-Pocket Monsters - Fire Red (Japan) (Rev 1).gba,Route7,3,25,object clone,ABSENT,,,,,,,JP build has no Route7 border-tree clone
-Pocket Monsters - Fire Red (Japan).gba,Route7,3,25,object clone,ABSENT,,,,,,,JP build has no Route7 border-tree clone

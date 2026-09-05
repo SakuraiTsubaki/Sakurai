@@ -1,9 +1,0 @@
-rom,stage2_aligned_expected,stage5_aligned_actual,aligned_regression_match,allbyte_occurrences,allbyte_ge_aligned,shift_sum_match,string_candidates_positive
-Pocket Monsters - Fire Red (Japan) (Rev 1).gba,63953,63953,True,143178,True,True,True
-Pocket Monsters - Fire Red (Japan).gba,64495,64495,True,144721,True,True,True
-Pokemon - Edicion Rojo Fuego (Spain).gba,63563,63563,True,140276,True,True,True
-Pokemon - Feuerrote Edition (Germany).gba,63463,63463,True,140385,True,True,True
-Pokemon - Fire Red Version (USA).gba,63771,63771,True,141483,True,True,True
-"Pokemon - Fire Red Version (USA, Europe) (Rev 1).gba",63766,63766,True,141209,True,True,True
-Pokemon - Version Rouge Feu (France).gba,63524,63524,True,140902,True,True,True
-Pokemon - Versione Rosso Fuoco (Italy).gba,63511,63511,True,140234,True,True,True

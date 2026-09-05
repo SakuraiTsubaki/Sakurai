@@ -1,9 +1,0 @@
-logical_id,role,chunk_capacity,used_west,used_jp,free_west,free_jp,physical_sector_size,notes
-0,SaveBlock2,3968,3876,3876,92,92,4096,player/options/pokedex header block
-1-4,SaveBlock1,15872,15720,15680,152,192,4096,4 logical sectors
-5-13,PokemonStorage,35712,33744,33744,1968,1968,4096,9 logical sectors; 14 boxes x 30 BoxPokemon
-slot-total,Main save slot,55552,53340,53300,2212,2252,57344,14 x 4096 physical sectors; payload capacity is 14 x 3968
-0-13 / 14-27,Two alternating save slots,111104,106680,106600,4424,4504,114688,28 physical sectors total
-28-29,Hall of Fame / save index special area,,,,,,8192,special sectors; sector 28 also used by save-index logic
-30-31,Trainer Tower special area,,,,,,8192,special sectors
-all,Flash,,,,,,131072,32 x 4096 = 128 KiB FLASH1M
