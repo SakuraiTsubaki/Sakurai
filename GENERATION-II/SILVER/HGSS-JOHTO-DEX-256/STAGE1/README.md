@@ -1,10 +1,12 @@
 # SILVER — HGSS Johto Pokédex 256 / Stage 1
 
+> **ID-model correction:** the values `252..256` below are canonical **16-bit logical IDs only**. They are **not** direct assignments to Silver's vanilla one-byte species field. A follow-up audit confirmed that vanilla `$FD` is `EGG`, `$FF` is used as a species-list terminator, `$FC/$FE` are undefined rather than automatically safe, and `256` cannot fit in one byte. Engine hookup is blocked until a proper conversion layer is in place. See `../INTERNAL-ID-AUDIT.md`.
+
 ## Goal
 Expand all eight Pokémon Silver ROM targets from the vanilla 251-species model to the HGSS Johto Pokédex's 256-species roster, while preserving each Silver version's language/content identity.
 
-## Canonical 16-bit species IDs
-Vanilla species retain logical IDs `1..251`. The five HGSS Johto additions receive new logical IDs:
+## Canonical 16-bit logical species IDs
+Vanilla species retain logical IDs `1..251`. The five HGSS Johto additions receive new **logical** IDs:
 
 | Logical ID | National Dex | Species | HGSS Johto # | Evolution trigger |
 |---:|---:|---|---:|---|
@@ -13,6 +15,8 @@ Vanilla species retain logical IDs `1..251`. The five HGSS Johto additions recei
 | 254 | 463 | Lickilicky | 181 | Lickitung level-up while knowing Rollout (#205) |
 | 255 | 465 | Tangrowth | 183 | Tangela level-up while knowing AncientPower (#246) |
 | 256 | 473 | Mamoswine | 197 | Piloswine level-up while knowing AncientPower (#246) |
+
+These logical IDs must be translated/encoded by the future 16-bit species layer; they must never be stored directly as vanilla raw species bytes.
 
 The final Pokédex positions remain Lugia #252, Ho-Oh #253, Mewtwo #254, Mew #255, Celebi #256.
 
@@ -32,6 +36,7 @@ Double Hit is staged as a new logical move #252 with Gen-IV parameters: Normal, 
 ## ROM census findings used by the patch
 - All eight ROMs contain the same 251-entry New Pokédex order as a complete permutation of species IDs 1..251.
 - All eight ROMs contain byte-identical `251 × 32-byte` Silver base-data tables (SHA-256 `dccd0f065a1ccba8ee1a1b7dbee960574499262a2739f46f67fa2f7e686654ac`).
+- Direct ID audit confirms the leading ID byte of those 251 base-data records is exactly `1..251` in all eight ROMs.
 - The international/Korean 2 MiB ROMs have Bank `$7E` entirely zero-filled.
 - Japanese Rev0/RevA are 1 MiB. Stage 1 expands them to 2 MiB (MBC3 maximum), changes header ROM-size code `$05 → $06`, and uses the same Bank `$7E` as the other versions.
 
@@ -50,7 +55,7 @@ For species 1..251, the new 33-byte base record is the original 32-byte Silver r
 ## Current status
 **Data staging is complete, engine routing is not.** The generated `DATA-STAGED` ROMs still execute the vanilla one-byte species engine. They are intentionally not labeled as final/playable 256-species builds.
 
-The next engine stage must port the 16-bit species-index conversion architecture into Gold/Silver and route at least:
+No new species raw-byte assignment is approved yet. The next engine stage must first complete the vanilla species-ID reference census, then port the 16-bit species-index conversion architecture into Gold/Silver and route at least:
 
 - party/box/save species handling and reserved values
 - base-data lookup
@@ -64,10 +69,11 @@ The next engine stage must port the 16-bit species-index conversion architecture
 - `EVOLVE_MOVE_KNOWN`
 - Double Hit move data/effect/animation hookup
 
-The reference architecture is the stable `expand-mon-ID` branch of `fellowship-of-the-roms/pokecrystal16`, ported to the Silver engine rather than copying Crystal content.
+The reference architecture is the `expand-mon-ID` branch of `fellowship-of-the-roms/pokecrystal16`, ported to the Silver engine rather than copying Crystal content. Its conversion design reserves high raw values so existing egg/sentinel semantics are not accidentally consumed.
 
 ## Files
-- `manifest.json` — canonical 256-species order and new-species parameters
+- `../INTERNAL-ID-AUDIT.md` — vanilla raw-ID audit and reserved-value findings
+- `manifest.json` — canonical 256-species logical order and new-species parameters
 - `build_report.json` — per-ROM source/output hashes and offsets
 - `build_stage1_payload.py` — reproducible Stage-1 data injector
 - `validate_stage1.py` — independent payload/header validator
