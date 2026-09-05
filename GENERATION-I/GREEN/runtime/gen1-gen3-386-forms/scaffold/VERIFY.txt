@@ -1,0 +1,20 @@
+GREEN 386 + GEN III FORMS / MBC5 STATIC SCAFFOLD VERIFICATION
+
+Runtime block: 19403 bytes SHA1 2ce3ef33a991d52135dbf43080787a51995cc908
+Legacy map: 512 bytes / 151 mapped Kanto species
+ROM: 1 MiB / MBC5+RAM+BATTERY / 64 banks
+
+rev0: output SHA1 378e77d5f273a76e155d4421057c272e62313e9c
+rev0: IPS SHA1 899238d1f85fa47e95066bedf0d85e9326b2d514
+rev0: header/global checksum PASS
+rev0: IPS roundtrip PASS
+rev0: original 512 KiB changes only 0x000147, 0x000148, 0x00014D, 0x00014E, 0x00014F
+
+reva: output SHA1 afdf58500ff5a29548d3f66dd6fbab605022b022
+reva: IPS SHA1 ab32713ea454366579dd214aa01d82cd0d17424a
+reva: header/global checksum PASS
+reva: IPS roundtrip PASS
+reva: original 512 KiB changes only 0x000147, 0x000148, 0x00014D, 0x00014E, 0x00014F
+
+IMPORTANT: This proves structural embedding and deterministic patching only.
+No engine hook is active yet, and no emulator boot/play test has been performed.
