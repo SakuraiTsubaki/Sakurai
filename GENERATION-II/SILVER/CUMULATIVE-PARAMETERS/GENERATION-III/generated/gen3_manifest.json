@@ -59,8 +59,12 @@
       "bytes": 37720
     },
     "gen3_manifest.json": {
-      "sha256": "c0bcee8fb578265675c3233da098e33eded603947d9e08b4a48b4f992604590b",
-      "bytes": 2928
+      "sha256": "49b5538f3c639dc5cb7d65709ce95d9dfe7850e7df19d7d52b1f1ae10dd20e05",
+      "bytes": 3218
+    },
+    "gen3_parameter_block.b64": {
+      "sha256": "946f0b1273b0be2079f6a76960f38ffe9664003b4a0cf1bfd2e19300ebd48b16",
+      "bytes": 36617
     },
     "gen3_parameter_block.bin": {
       "sha256": "0c3d4f2057c7b3fb6b3b02f216f471c956b770223b9b95b097b9f9e0f6892f03",
