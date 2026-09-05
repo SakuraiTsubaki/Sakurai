@@ -25,7 +25,7 @@ Native National Dex range: **#252-386 (135 species)**.
 
 Because Generation III adds abilities and the modern EV/IV model to old species as well, the generated Gen III overlay contains **all #001-386 species**. It adds two ability slots, six EV-yield fields and explicit Generation III personal metadata while retaining the six-stat/type/breeding fields.
 
-Generation III also introduces the 25 natures and abilities #1-76 (Stench through Air Lock). Exact Emerald personal data is extracted from `src/data/pokemon/species_info.h`.
+Generation III also introduces the 25 natures. Emerald's ability constants occupy IDs **#1-77**: `CACOPHONY` is the unused ID #76 and `AIR_LOCK` is #77, so the source numbering is preserved rather than compacted. Exact Emerald personal data is extracted from `src/data/pokemon/species_info.h` and joined to the National Dex names from `include/constants/pokedex.h`; Emerald internal species order is never assumed to equal National Dex order.
 
 ## Generated outputs
 
@@ -34,7 +34,7 @@ The workflow generates and commits:
 - `gen2_native_personal_152_251.csv`
 - `gen3_native_personal_252_386.csv`
 - `gen3_personal_overlay_001_386.csv`
-- `gen3_abilities_001_076.csv`
+- `gen3_abilities_001_077.csv`
 - `gen3_natures_25.csv`
 - `green_gen2_gen3_parameter_layer.bin`
 - `MANIFEST.json`
