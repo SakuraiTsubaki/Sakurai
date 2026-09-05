@@ -1,0 +1,53 @@
+{
+  "rom_hash_correction": {
+    "rev0_sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+    "reva_sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b"
+  },
+  "maps": {
+    "map_id_slots": 248,
+    "unused_map_id_slots": 22,
+    "parsed_map_id_slots": 226,
+    "unique_header_resources": 223,
+    "unique_object_resources": 223,
+    "slot_total_connections": 78,
+    "slot_total_warps": 813,
+    "slot_total_bg_events": 204,
+    "slot_total_object_events": 924,
+    "slot_normal_objects": 472,
+    "slot_item_objects": 106,
+    "slot_trainer_objects": 334,
+    "slot_battle_mon_objects": 12,
+    "semantic_map_slots_changed_rev0_to_reva": 0
+  },
+  "wild": {
+    "map_slots": 248,
+    "unique_wild_resources": 59,
+    "maps_with_grass": 55,
+    "maps_with_water": 3,
+    "slot_encounter_rows": 580
+  },
+  "pokemon": {
+    "internal_index_slots": 190,
+    "dex_species": 151,
+    "missingno_internal_slots": 39,
+    "unique_dex_entry_pointers": 152,
+    "base_stat_records": 151,
+    "evolution_rows": 72,
+    "levelup_move_rows": 728
+  },
+  "moves": {
+    "move_count": 165
+  },
+  "items": {
+    "item_name_strings_in_ItemNames_region": 97,
+    "item_names_region_bytes": 694
+  },
+  "trainers": {
+    "trainer_classes": 47,
+    "trainer_party_records": 415,
+    "trainer_object_references": 334,
+    "invalid_trainer_party_references": 0
+  },
+  "core_tables_identical_count": 14,
+  "core_tables_checked": 14
+}
