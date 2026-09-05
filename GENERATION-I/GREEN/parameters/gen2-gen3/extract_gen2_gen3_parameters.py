@@ -71,6 +71,7 @@ def pct_gender_value(token: str):
 def norm_type(tok):
     tok=tok.strip()
     if tok.startswith('TYPE_'): tok=tok[5:]
+    if tok == 'PSYCHIC_TYPE': tok = 'PSYCHIC'
     return TYPE_IDS[tok]
 
 def norm_growth(tok): return GROWTH_IDS.get(tok.strip(),255)
