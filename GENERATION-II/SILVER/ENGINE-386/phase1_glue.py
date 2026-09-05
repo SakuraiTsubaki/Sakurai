@@ -46,7 +46,7 @@ inc.write_text(s)
 # applied mechanically. Keep them: they provide IsInWordArray,
 # CopyStringWithTerminator, CountSetBits16, and tracked SRAM-bank semantics.
 # Gold/Silver ROM0 is extremely tight, so recover space by relocating two
-# self-contained Home routines behind carry/register-safe farcall trampolines.
+# self-contained Home routines behind farcall trampolines.
 stone=pg/'home/stone_queue.asm'
 stone_romx=stone.read_text().replace('HandleStoneQueue::','_HandleStoneQueue::',1)
 stone.write_text('HandleStoneQueue::\n\tfarcall _HandleStoneQueue\n\tret\n')
@@ -57,7 +57,9 @@ region_romx=''
 marker='SetXYCompareFlags::'
 if marker in region_text:
     prefix, suffix = region_text.split(marker, 1)
-    region.write_text(prefix + 'SetXYCompareFlags::\n\tpush hl\n\tfarcall _SetXYCompareFlags\n\tpop hl\n\tret\n')
+    # The relocated original body already starts with push hl and ends with
+    # pop hl/ret, so the wrapper must not save HL a second time.
+    region.write_text(prefix + 'SetXYCompareFlags::\n\tfarcall _SetXYCompareFlags\n\tret\n')
     region_romx = '_SetXYCompareFlags::' + suffix
 
 home=pg/'home.asm'
@@ -89,8 +91,6 @@ if 'wBaseSpecies::' not in s:
 if 'wTempLoopCounter::' not in s:
     s=s.replace('wHoursSince:: db\nwDaysSince:: db\n\n\tds 12',
                 'wHoursSince:: db\nwDaysSince:: db\n\nwTempLoopCounter:: db\n\tds 11',1)
-# Garbage collection needs a contiguous 32-byte bitmap in bank-0 WRAM.
-# Keep it as an independent section so RGBDS can place it in available WRAM0.
 if 'wConversionTableBitmap::' not in s:
     s += '\n\nSECTION "16-bit conversion bitmap", WRAM0\n\nwConversionTableBitmap:: ds $20\n'
 if 'wPokemonIndexTable' not in s:
@@ -123,9 +123,6 @@ if 'INCLUDE "engine/16/table_functions.asm"' not in s:
     s += '\n\nSECTION "16-bit ID stuff", ROMX\n\nINCLUDE "engine/16/table_functions.asm"\n'
 if 'SECTION "Relocated Home routines", ROMX' not in s:
     s += '\n\nSECTION "Relocated Home routines", ROMX\n\n' + stone_romx + '\n' + region_romx + '\n'
-# evolve.asm failed the mechanical branch patch. Its callers use callfar, so a
-# Gold-specific ROMX implementation is safe here and uses the already-added
-# FirstEvoStages 16-bit table.
 if 'GetLowestEvolutionStage::' not in s:
     s += '''\n\nSECTION "16-bit evolution helpers", ROMX\n\nGetLowestEvolutionStage::\n\tld a, [wCurPartySpecies]\n\tcall GetPokemonIndexFromID\n\tld bc, FirstEvoStages - 2\n\tadd hl, hl\n\tadd hl, bc\n\tld a, BANK(FirstEvoStages)\n\tcall GetFarWord\n\tcall GetPokemonIDFromIndex\n\tld [wCurPartySpecies], a\n\tret\n'''
 main.write_text(s)
@@ -139,8 +136,6 @@ if marker in s and s.startswith('PokemonPalettes:'):
     special='''; Special negative species palettes for 16-bit lookup.\n; Egg (-3)\nINCBIN "gfx/pokemon/egg/egg.gbcpal", middle_colors\nINCLUDE "gfx/pokemon/egg/shiny.pal"\n\n; -2\n\tRGB 30, 26, 11\n\tRGB 23, 16, 00\n; -2 shiny\n\tRGB 30, 26, 11\n\tRGB 23, 16, 00\n\n; -1\n\tRGB 23, 23, 23\n\tRGB 17, 17, 17\n; -1 shiny\n\tRGB 23, 23, 23\n\tRGB 17, 17, 17\n\n'''
     pal.write_text(special+species)
 
-# Widened evolution targets and save metadata need movable sections in Gold's
-# packed layout. Symbolic references follow their linker-selected placement.
 layout=pg/'layout.link'
 s=layout.read_text()
 s=s.replace('\t"Evolutions and Attacks"\n','')
