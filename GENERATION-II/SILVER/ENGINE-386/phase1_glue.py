@@ -77,5 +77,10 @@ if marker in s and s.startswith('PokemonPalettes:'):
 # that must be hand-ported around Gold/Silver's tighter bank/layout rules.
 run(['git','checkout','HEAD','--','maps'], pg)
 run(['git','checkout','HEAD','--','engine/events/fish.asm'], pg)
+# engine/events/fish.asm includes data/wild/fish.asm at its tail. Restoring the
+# code alone still leaves the widened u16 fishing records in packed bank24.
+# Restore the data too for the compiler-core milestone; it will be relocated and
+# re-enabled as a 16-bit table in the later encounter-routing phase.
+run(['git','checkout','HEAD','--','data/wild/fish.asm'], pg)
 
-print('phase1 glue installed; WRAM/palette fixed; map/fishing opcode work deferred')
+print('phase1 glue installed; WRAM/palette fixed; map/fishing opcode+data work deferred')
