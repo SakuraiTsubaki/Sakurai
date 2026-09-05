@@ -1,0 +1,11 @@
+metric,value
+two_byte_codes_total,2419
+hangul_lead_01_0A_codes,2353
+ks_x_1001_codes_present,2348
+added_non_wansung_codes,5
+special_table_b_codes,66
+omitted_ks_x_1001_codes,2
+names_decoded,830
+descriptions_decoded,512
+pokedex_entries_decoded,251
+unknown_codes_across_all_three_corpora,0
