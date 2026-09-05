@@ -1,0 +1,35 @@
+GREEN HGSS JOHTO 256 PARAMETER LAYER — VERIFICATION
+
+Base ROMs:
+Rev0 SHA1 82c0eef40a5e2423699d9fd8ba15dfaa8b51d196
+RevA SHA1 4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b
+
+Generated ROMs:
+Rev0 1048576 bytes SHA1 47801542242756f72f1532a44fbc8ae44c68462d
+RevA 1048576 bytes SHA1 7a7eeb0441a7349c32455bc347d2dccbc32fd479
+
+Parameter block:
+Magic HGJD256\0
+Bank 0x21
+File offset 0x084000
+Size 6957 bytes
+Format version 1
+Species count 256
+Completion-required count 254
+Record size 16 bytes
+Legacy Green internal slots 190
+Seen/owned bitset target 32 bytes
+Feature flags 0x0007
+
+Original 512 KiB region modifications only:
+0x0148 ROM size
+0x014D header checksum
+0x014E global checksum high
+0x014F global checksum low
+
+IPS round-trip:
+Rev0 PASS — patch(base) == generated ROM byte-for-byte
+RevA PASS — patch(base) == generated ROM byte-for-byte
+
+Runtime exposure status:
+PENDING — the 256-species registry is installed but vanilla 8-bit gameplay paths are not hooked yet.
