@@ -1,0 +1,14 @@
+{
+  "format": "IPS",
+  "verified": true,
+  "patches": [
+    {"source":"Pokemon - Edicion Plata (Spain).gbc","patch":"Pokemon - Edicion Plata (Spain) - HGSS Expanded Johto 268 DATA-STAGED.ips","patch_size":15431,"patch_sha256":"608a0f1548ac2b0f573df88010f0dd2a423443e03719754e2dc1127cd80ae135","verified_output_sha256":"a2ea2ca806fcabf28d639fd9341edae99e1bfdd016e6f1114ed3159283feb417"},
+    {"source":"Pokemon - Versione Argento (Italy).gbc","patch":"Pokemon - Versione Argento (Italy) - HGSS Expanded Johto 268 DATA-STAGED.ips","patch_size":15431,"patch_sha256":"5c7137cdd67cc0e95833eb5914ee9656a03afb80918ac6d62b78537ddd4e8020","verified_output_sha256":"1e45a3467effd2ee075fb9cd5b3f77ed08761e06b08c684cec92f020ce495156"},
+    {"source":"Pokemon - Silver Version (USA, Europe).gbc","patch":"Pokemon - Silver Version (USA, Europe) - HGSS Expanded Johto 268 DATA-STAGED.ips","patch_size":15431,"patch_sha256":"29c8b72bb9364acd23e2724d21656b9193fbf9ffc0089d4b8a6ab7648f48db8b","verified_output_sha256":"4f6aea938b7d5d6da0d2209953b9b3491bb1f0c86cd2d368fd51748653e77cde"},
+    {"source":"Pocket Monsters Gin (Japan).gbc","patch":"Pocket Monsters Gin (Japan) - HGSS Expanded Johto 268 DATA-STAGED.ips","patch_size":15438,"patch_sha256":"478ca731c68cc718da8afee1e2909cbe0fd0448fc1a2dcadf91bf57e6a1945a2","verified_output_sha256":"26ce0a05147b31a6951d9167bf34c93dc351d002b026911a32ead9bc9c51305c"},
+    {"source":"Pocket Monsters Gin (Japan) (Rev A).gbc","patch":"Pocket Monsters Gin (Japan) (Rev A) - HGSS Expanded Johto 268 DATA-STAGED.ips","patch_size":15438,"patch_sha256":"b6b15900b1752991bd6ce3bda820d5627dfa7d162cb0409f226a0acab2c92569","verified_output_sha256":"fe164ad85cfeb55c2c0142a53f35f22703780036f22b3b51d0c36796606f5588"},
+    {"source":"Pokemon - Silberne Edition (Germany).gbc","patch":"Pokemon - Silberne Edition (Germany) - HGSS Expanded Johto 268 DATA-STAGED.ips","patch_size":15430,"patch_sha256":"2a1df43c3b7295c03e0b68590e2d27b2d4dfdc53a4074eabdd2d40591b7f5b0e","verified_output_sha256":"42314026705c443dbb70c57d2bc281c5758745ee082c027c41d99d489d08cf7f"},
+    {"source":"Pocket Monsters Eun (Korea).gbc","patch":"Pocket Monsters Eun (Korea) - HGSS Expanded Johto 268 DATA-STAGED.ips","patch_size":15430,"patch_sha256":"a8f7fdd3fd22685c96aea6b98b6fda1f024a0428e95ffca01ba67b2e56e13b9a","verified_output_sha256":"44aacc4a9a29946cd8bd9dcbe08fce992dcd73f7aa2fa3fd30d83d38a99dfd12"},
+    {"source":"Pokemon - Version Argent (France).gbc","patch":"Pokemon - Version Argent (France) - HGSS Expanded Johto 268 DATA-STAGED.ips","patch_size":15431,"patch_sha256":"4a171c37ca8d3e74c941ec70979ac9996469bf76d7b0054b460cf4730b9b7ded","verified_output_sha256":"12a8db430376491eaa0900987e4986d2611a2600a172001b837aadf7122cde5d"}
+  ]
+}
