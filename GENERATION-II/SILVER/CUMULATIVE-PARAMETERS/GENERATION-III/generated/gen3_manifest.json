@@ -1,0 +1,74 @@
+{
+  "canonical_range": [
+    252,
+    386
+  ],
+  "species_count": 135,
+  "canonical_id_rule": "National Dex number; never pokeemerald raw species ID",
+  "source_repo": "pret/pokeemerald",
+  "source_commit": "5eff78649e7170a877b961ef0b3da13b81a16038",
+  "special_engine_cases": [
+    "Wurmple evolution branch depends on personality value.",
+    "Nincada evolution requires special Shedinja creation handling.",
+    "Feebas evolves by Beauty; Silver has no native Contest condition.",
+    "Generation III adds Abilities and six-stat EV yields.",
+    "Generation III adds Erratic and Fluctuating growth curves used by some species.",
+    "Deoxys is canonical species #386; form handling must be separated from species identity."
+  ],
+  "source_files": {
+    "species_info": {
+      "path": "src/data/pokemon/species_info.h",
+      "sha256": "1aac881bb02361339dc4dd33c7a5804a7127c0367426b77b982ee213a713e0af"
+    },
+    "species_constants": {
+      "path": "include/constants/species.h",
+      "sha256": "a1867c83e78fb767b16a9c95c4c06d51d56c986fd48d713b98dbf01c8305089d"
+    },
+    "evolution": {
+      "path": "src/data/pokemon/evolution.h",
+      "sha256": "a7d05352fb5b7039b8851049bc9575dc8eaa4450bf9964d03b7857db98c32d3c"
+    },
+    "levelup": {
+      "path": "src/data/pokemon/level_up_learnsets.h",
+      "sha256": "a7569a51e3bb0ca4f094830c76c6db45a692c7ed64db21e59bc76a90237599e0"
+    },
+    "levelup_pointers": {
+      "path": "src/data/pokemon/level_up_learnset_pointers.h",
+      "sha256": "7a85513797da2a2ebdf7893ce58d94f99aee07deb1aec4f0d7a31422dc8040de"
+    },
+    "tmhm": {
+      "path": "src/data/pokemon/tmhm_learnsets.h",
+      "sha256": "3ff6e2976f66b8ab3884d879fe5e46d266cfb88b35156ab958011d3d14ae4da3"
+    },
+    "tutor": {
+      "path": "src/data/pokemon/tutor_learnsets.h",
+      "sha256": "8b0fa33c75b6fbefcd3379f2c6cbf72be9e32ca34ce785ec83f085afee7f9d97"
+    }
+  },
+  "output_files": {
+    "gen3_evolutions.csv": {
+      "sha256": "fdf68abb9ae912e494cf2fdc8e196575b2098094bfc3511b614ac38a1a270dcc",
+      "bytes": 2570
+    },
+    "gen3_levelup_learnsets.csv": {
+      "sha256": "1e96c7ed2c92b687cd864c99a795b189c7fd72d15711c1f081daeb55f9971656",
+      "bytes": 37720
+    },
+    "gen3_parameter_bundle.json": {
+      "sha256": "6ab877c5233e70c6d431169f06d77a0b24495270d0455a0726e7802fa7c9ca77",
+      "bytes": 370561
+    },
+    "gen3_species_parameters.csv": {
+      "sha256": "a66cdc979b167a276d5bb0e5c7c9f0fc0272b04551a150366e92cfc06709c6bd",
+      "bytes": 31952
+    },
+    "gen3_tmhm_learnsets.csv": {
+      "sha256": "ec51df18e6feb0f006169766b32396a28c5f5df974157f03eabfbfa761158990",
+      "bytes": 70572
+    },
+    "gen3_tutor_learnsets.csv": {
+      "sha256": "5f7604beac33e741e2903b38bdd5cab1a4861ce9e121141dfb3d6b9010e9a5b5",
+      "bytes": 54272
+    }
+  }
+}
