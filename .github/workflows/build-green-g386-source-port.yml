@@ -1,0 +1,102 @@
+name: Build Green G386 source port
+
+on:
+  push:
+    paths:
+      - 'GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/source-port-v1/**'
+      - 'GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/generated/**'
+      - 'GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/getmonheader-hook-v1/generated/green_legacy8_to_canonical16_map.bin'
+      - '.github/workflows/build-green-g386-source-port.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Sakurai
+        uses: actions/checkout@v4
+        with:
+          path: sakurai
+          fetch-depth: 0
+
+      - name: Checkout exact Pokémon Green disassembly
+        uses: actions/checkout@v4
+        with:
+          repository: Narishma-gb/pokegreen
+          ref: 953f41b34108621b2bf13c3b1e53abfc9c3e5aec
+          path: pokegreen
+          fetch-depth: 1
+
+      - name: Checkout RGBDS 1.0.3
+        uses: actions/checkout@v4
+        with:
+          repository: gbdev/rgbds
+          ref: v1.0.3
+          path: rgbds
+          fetch-depth: 1
+
+      - name: Build RGBDS
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bison libpng-dev pkg-config
+          make -C rgbds -j2
+          sudo make -C rgbds install
+          rgbasm --version
+
+      - name: Reproduce stock Green Rev0 and RevA
+        run: |
+          make -C pokegreen DEBUG=1 green green11
+          echo '82c0eef40a5e2423699d9fd8ba15dfaa8b51d196  pokegreen/pokegreen.gb' | sha1sum -c -
+          echo '4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b  pokegreen/pokegreen11.gb' | sha1sum -c -
+          cp pokegreen/pokegreen.gb /tmp/g386-stock-rev0.gb
+          cp pokegreen/pokegreen11.gb /tmp/g386-stock-reva.gb
+
+      - name: Apply canonical identity source port
+        run: |
+          ASSETS="$GITHUB_WORKSPACE/sakurai/GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/source-port-v1"
+          python "$ASSETS/apply_source_port.py" \
+            --pokegreen "$GITHUB_WORKSPACE/pokegreen" \
+            --sakurai "$GITHUB_WORKSPACE/sakurai" \
+            --assets "$ASSETS"
+          mkdir -p "$ASSETS/generated"
+          git -C pokegreen diff > "$ASSETS/generated/source_patch.diff"
+          git -C pokegreen status --short > "$ASSETS/generated/PATCHED_SOURCE_FILES.txt"
+
+      - name: Build modified Rev0 and RevA
+        run: |
+          make -C pokegreen clean
+          make -C pokegreen DEBUG=1 green green11
+
+      - name: Verify and generate non-ROM deliverables
+        run: |
+          OUT="$GITHUB_WORKSPACE/sakurai/GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/source-port-v1/generated"
+          python sakurai/GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/source-port-v1/build_outputs.py \
+            --stock-rev0 /tmp/g386-stock-rev0.gb \
+            --stock-reva /tmp/g386-stock-reva.gb \
+            --mod-rev0 pokegreen/pokegreen.gb \
+            --mod-reva pokegreen/pokegreen11.gb \
+            --sym-rev0 pokegreen/pokegreen.sym \
+            --sym-reva pokegreen/pokegreen11.sym \
+            --out "$OUT"
+          rm -f /tmp/g386-stock-rev0.gb /tmp/g386-stock-reva.gb
+          rm -f pokegreen/pokegreen.gb pokegreen/pokegreen11.gb
+          test ! -e "$OUT/pokegreen.gb"
+          test ! -e "$OUT/pokegreen11.gb"
+
+      - name: Commit non-ROM build outputs
+        working-directory: sakurai
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add GENERATION-I/GREEN/runtime/gen1-gen3-386-forms/source-port-v1/generated
+          if git diff --cached --quiet; then
+            echo 'No generated changes.'
+            exit 0
+          fi
+          git commit -m 'Build Green G386 canonical identity source port'
+          git pull --rebase origin main
+          git push
