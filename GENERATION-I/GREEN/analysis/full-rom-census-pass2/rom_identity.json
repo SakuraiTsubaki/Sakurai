@@ -1,0 +1,23 @@
+{
+  "rev0": {
+    "file_label": "Pocket Monsters - Midori (Japan) (SGB Enhanced).gb",
+    "size": 524288,
+    "banks": 32,
+    "md5": "e30ffbab1f239f09b226477d84db1368",
+    "sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+    "sha256": "6576b4e0979e93d4a6fa02db893c294b7aeab3b841b1acc8658bc10b3554f33c",
+    "header": {"title":"POKEMON GREEN","sgb_flag":3,"cart_type":3,"rom_size_code":4,"ram_size_code":3,"destination_code":0,"old_licensee":51,"mask_rom_version":0,"header_checksum":156,"header_checksum_valid":true,"global_checksum":56789,"global_checksum_valid":true},
+    "entropy": 7.583544
+  },
+  "reva": {
+    "file_label": "Pocket Monsters - Midori (Japan) (Rev A) (SGB Enhanced).gb",
+    "size": 524288,
+    "banks": 32,
+    "md5": "16ddd8897092936fbc0e286c6a6b23a2",
+    "sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+    "sha256": "3f0dc460ca8d06be1c9ac96307c939c0ea7baa366b40c2f1f4ad63242b6c4816",
+    "header": {"title":"POKEMON GREEN","sgb_flag":3,"cart_type":3,"rom_size_code":4,"ram_size_code":3,"destination_code":0,"old_licensee":51,"mask_rom_version":1,"header_checksum":155,"header_checksum_valid":true,"global_checksum":62791,"global_checksum_valid":true},
+    "entropy": 7.582806
+  },
+  "comparison": {"different_bytes":46168,"different_percent":8.805847,"contiguous_diff_runs":5436,"largest_diff_run":523}
+}
