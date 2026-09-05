@@ -1,0 +1,56 @@
+name: Build Green Gen2-Gen3 parameter layer
+
+on:
+  push:
+    paths:
+      - 'GENERATION-I/GREEN/parameters/gen2-gen3/**'
+      - '.github/workflows/build-green-gen2-gen3-parameters.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Sakurai
+        uses: actions/checkout@v4
+        with:
+          path: sakurai
+          fetch-depth: 0
+
+      - name: Checkout pokecrystal
+        uses: actions/checkout@v4
+        with:
+          repository: pret/pokecrystal
+          path: pokecrystal
+          fetch-depth: 1
+
+      - name: Checkout pokeemerald
+        uses: actions/checkout@v4
+        with:
+          repository: pret/pokeemerald
+          path: pokeemerald
+          fetch-depth: 1
+
+      - name: Extract and verify Generation II and III parameters
+        run: |
+          python sakurai/GENERATION-I/GREEN/parameters/gen2-gen3/extract_gen2_gen3_parameters.py \
+            --pokecrystal pokecrystal \
+            --pokeemerald pokeemerald \
+            --out sakurai/GENERATION-I/GREEN/parameters/gen2-gen3/generated
+
+      - name: Commit generated non-ROM outputs
+        working-directory: sakurai
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add GENERATION-I/GREEN/parameters/gen2-gen3/generated
+          if git diff --cached --quiet; then
+            echo 'No generated changes.'
+            exit 0
+          fi
+          git commit -m 'Generate Green Gen2-Gen3 parameter layer'
+          git push
