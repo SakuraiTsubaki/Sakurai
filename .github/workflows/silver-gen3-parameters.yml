@@ -26,12 +26,12 @@ jobs:
             GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated
       - name: Commit deterministic generated outputs
         run: |
-          if git diff --quiet -- GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated; then
-            echo 'Generated outputs already current.'
-            exit 0
-          fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated
+          if git diff --cached --quiet; then
+            echo 'Generated outputs already current.'
+            exit 0
+          fi
           git commit -m 'Generate Silver Generation III parameter layer'
           git push
