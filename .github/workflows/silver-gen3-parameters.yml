@@ -31,9 +31,8 @@ jobs:
             GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated \
             GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_parameter_block.bin \
             GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_binary_layout.json
-          base64 -w0 GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_parameter_block.bin \
+          base64 -w76 GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_parameter_block.bin \
             > GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_parameter_block.b64
-          printf '\n' >> GENERATION-II/SILVER/CUMULATIVE-PARAMETERS/GENERATION-III/generated/gen3_parameter_block.b64
       - name: Commit deterministic generated outputs
         run: |
           git config user.name 'github-actions[bot]'
