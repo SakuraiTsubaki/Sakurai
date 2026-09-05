@@ -35,19 +35,9 @@
     "evolution_rows": 72,
     "levelup_move_rows": 728
   },
-  "moves": {
-    "move_count": 165
-  },
-  "items": {
-    "item_name_strings_in_ItemNames_region": 97,
-    "item_names_region_bytes": 694
-  },
-  "trainers": {
-    "trainer_classes": 47,
-    "trainer_party_records": 415,
-    "trainer_object_references": 334,
-    "invalid_trainer_party_references": 0
-  },
-  "core_tables_identical_count": 14,
-  "core_tables_checked": 14
+  "moves": {"move_count": 165},
+  "items": {"item_name_strings_in_ItemNames_region": 97,"item_names_region_bytes": 694},
+  "trainers": {"trainer_classes": 47,"trainer_party_records": 415,"trainer_object_references": 334,"invalid_trainer_party_references": 0},
+  "core_tables_identical_count": 15,
+  "core_tables_checked": 15
 }
