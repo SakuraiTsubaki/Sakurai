@@ -1,0 +1,9 @@
+rom,small_latin_width_signature_hits,offsets,signature_sha256,signature_length,classification
+Pocket Monsters - Fire Red (Japan) (Rev 1).gba,0,,62acde2c5ef66a787102bdeedf7856fd6ce43bc2d2c9a89c71b2438ad39123ce,64,JP layout differs / no shared Latin prefix
+Pocket Monsters - Fire Red (Japan).gba,0,,62acde2c5ef66a787102bdeedf7856fd6ce43bc2d2c9a89c71b2438ad39123ce,64,JP layout differs / no shared Latin prefix
+Pokemon - Edicion Rojo Fuego (Spain).gba,1,0x001EA66C,62acde2c5ef66a787102bdeedf7856fd6ce43bc2d2c9a89c71b2438ad39123ce,64,shared Western small-Latin width prefix
+Pokemon - Feuerrote Edition (Germany).gba,1,0x001EEDD0,62acde2c5ef66a787102bdeedf7856fd6ce43bc2d2c9a89c71b2438ad39123ce,64,shared Western small-Latin width prefix
+Pokemon - Fire Red Version (USA).gba,1,0x001EEF00,62acde2c5ef66a787102bdeedf7856fd6ce43bc2d2c9a89c71b2438ad39123ce,64,shared Western small-Latin width prefix
+"Pokemon - Fire Red Version (USA, Europe) (Rev 1).gba",1,0x001EEF70,62acde2c5ef66a787102bdeedf7856fd6ce43bc2d2c9a89c71b2438ad39123ce,64,shared Western small-Latin width prefix
+Pokemon - Version Rouge Feu (France).gba,1,0x001E930C,62acde2c5ef66a787102bdeedf7856fd6ce43bc2d2c9a89c71b2438ad39123ce,64,shared Western small-Latin width prefix
+Pokemon - Versione Rosso Fuoco (Italy).gba,1,0x001E7FA4,62acde2c5ef66a787102bdeedf7856fd6ce43bc2d2c9a89c71b2438ad39123ce,64,shared Western small-Latin width prefix
