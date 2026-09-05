@@ -87,6 +87,7 @@ jobs:
       - name: Install Gold Silver phase1 glue
         run: |
           python GENERATION-II/SILVER/ENGINE-386/phase1_glue.py /tmp/pgold /tmp/pc16
+          python GENERATION-II/SILVER/ENGINE-386/phase1_sram_glue.py /tmp/pgold
 
       - name: Build Silver candidate
         id: build
