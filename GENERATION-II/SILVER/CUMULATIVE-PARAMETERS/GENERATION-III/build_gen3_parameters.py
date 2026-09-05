@@ -87,7 +87,8 @@ def parse_pair(body: str, field: str) -> list[str]:
 
 
 def parse_species_info(text: str) -> dict[str, dict]:
-    pat = re.compile(r'^\s*\[SPECIES_([A-Z0-9_]+)\]\s*=\s*\n\s*\{\n(.*?)^\s{4}\},\s*$', re.M | re.S)
+    # Every real species entry terminates with a line indented four spaces: "    },".
+    pat = re.compile(r'^\s*\[SPECIES_([A-Z0-9_]+)\]\s*=\s*\n\s*\{\n(.*?)^\s{4}\},?\s*$', re.M | re.S)
     out: dict[str, dict] = {}
     for name, body in pat.findall(text):
         d = {f: parse_scalar(body, f) for f in BASE_FIELDS}
@@ -106,6 +107,7 @@ def parse_species_info(text: str) -> dict[str, dict]:
 
 
 def parse_evolutions(text: str, raw_ids: dict[str,int]) -> list[dict]:
+    # Accumulate each designated initializer, including wrapped multi-evolution entries.
     starts = list(re.finditer(r'^\s*\[SPECIES_([A-Z0-9_]+)\]\s*=\s*', text, re.M))
     rows = []
     for i, m in enumerate(starts):
@@ -118,7 +120,14 @@ def parse_evolutions(text: str, raw_ids: dict[str,int]) -> list[dict]:
             target_nat = NAT_BY_CONST.get(target)
             if target_nat is None and raw_ids.get(target, 9999) <= 251:
                 target_nat = raw_ids[target]
-            rows.append({'from_national_id': NAT_BY_CONST[src], 'from_constant': src, 'method': method, 'parameter': param.strip(), 'to_constant': target, 'to_national_id': target_nat if target_nat is not None else ''})
+            rows.append({
+                'from_national_id': NAT_BY_CONST[src],
+                'from_constant': src,
+                'method': method,
+                'parameter': param.strip(),
+                'to_constant': target,
+                'to_national_id': target_nat if target_nat is not None else '',
+            })
     return rows
 
 
@@ -151,6 +160,8 @@ def parse_tmhm(text: str) -> list[dict]:
 
 
 def parse_tutor(text: str) -> list[dict]:
+    # Emerald tutor table uses TUTOR(MOVE) bit macros in per-species entries in older revisions,
+    # and designated bitfields in current revisions. Support both forms.
     rows=[]
     starts=list(re.finditer(r'^\s*\[SPECIES_([A-Z0-9_]+)\]\s*=\s*', text, re.M))
     for i,m in enumerate(starts):
@@ -178,37 +189,117 @@ def main():
     ap.add_argument('output_dir', type=Path)
     args=ap.parse_args()
     root=args.pokeemerald_root.resolve(); out=args.output_dir.resolve(); out.mkdir(parents=True,exist_ok=True)
-    files={'species_info': root/'src/data/pokemon/species_info.h','species_constants': root/'include/constants/species.h','evolution': root/'src/data/pokemon/evolution.h','levelup': root/'src/data/pokemon/level_up_learnsets.h','levelup_pointers': root/'src/data/pokemon/level_up_learnset_pointers.h','tmhm': root/'src/data/pokemon/tmhm_learnsets.h','tutor': root/'src/data/pokemon/tutor_learnsets.h'}
+
+    files={
+        'species_info': root/'src/data/pokemon/species_info.h',
+        'species_constants': root/'include/constants/species.h',
+        'evolution': root/'src/data/pokemon/evolution.h',
+        'levelup': root/'src/data/pokemon/level_up_learnsets.h',
+        'levelup_pointers': root/'src/data/pokemon/level_up_learnset_pointers.h',
+        'tmhm': root/'src/data/pokemon/tmhm_learnsets.h',
+        'tutor': root/'src/data/pokemon/tutor_learnsets.h',
+    }
     missing=[str(p) for p in files.values() if not p.exists()]
-    if missing: raise SystemExit('Missing pokeemerald source files: '+', '.join(missing))
+    if missing:
+        raise SystemExit('Missing pokeemerald source files: '+', '.join(missing))
+
     raw_ids=parse_species_constants(read(files['species_constants']))
     info=parse_species_info(read(files['species_info']))
+
     base=[]
     for const in GEN3_CONSTANTS:
-        if const not in info: raise SystemExit(f'Missing species info: {const}')
+        if const not in info:
+            raise SystemExit(f'Missing species info: {const}')
         d=info[const]
-        row={'national_id':NAT_BY_CONST[const], 'constant':const,'pokeemerald_raw_species_id':raw_ids.get(const,''),'hp':d['baseHP'],'attack':d['baseAttack'],'defense':d['baseDefense'],'speed':d['baseSpeed'],'sp_attack':d['baseSpAttack'],'sp_defense':d['baseSpDefense'],'type1':d['types'][0],'type2':d['types'][1], 'catch_rate':d['catchRate'],'exp_yield':d['expYield'],'ev_hp':d['evYield_HP'],'ev_attack':d['evYield_Attack'],'ev_defense':d['evYield_Defense'],'ev_speed':d['evYield_Speed'],'ev_sp_attack':d['evYield_SpAttack'],'ev_sp_defense':d['evYield_SpDefense'],'item_common':d['itemCommon'],'item_rare':d['itemRare'],'gender_ratio':d['genderRatio'],'egg_cycles':d['eggCycles'],'friendship':d['friendship'],'growth_rate':d['growthRate'],'egg_group1':d['eggGroups'][0],'egg_group2':d['eggGroups'][1],'ability1':d['abilities'][0],'ability2':d['abilities'][1],'safari_flee_rate':d['safariZoneFleeRate'],'body_color':d['bodyColor'],'no_flip':d['noFlip']}
+        row={
+            'national_id':NAT_BY_CONST[const], 'constant':const,
+            'pokeemerald_raw_species_id':raw_ids.get(const,''),
+            'hp':d['baseHP'],'attack':d['baseAttack'],'defense':d['baseDefense'],
+            'speed':d['baseSpeed'],'sp_attack':d['baseSpAttack'],'sp_defense':d['baseSpDefense'],
+            'type1':d['types'][0],'type2':d['types'][1], 'catch_rate':d['catchRate'],
+            'exp_yield':d['expYield'],'ev_hp':d['evYield_HP'],'ev_attack':d['evYield_Attack'],
+            'ev_defense':d['evYield_Defense'],'ev_speed':d['evYield_Speed'],
+            'ev_sp_attack':d['evYield_SpAttack'],'ev_sp_defense':d['evYield_SpDefense'],
+            'item_common':d['itemCommon'],'item_rare':d['itemRare'],'gender_ratio':d['genderRatio'],
+            'egg_cycles':d['eggCycles'],'friendship':d['friendship'],'growth_rate':d['growthRate'],
+            'egg_group1':d['eggGroups'][0],'egg_group2':d['eggGroups'][1],
+            'ability1':d['abilities'][0],'ability2':d['abilities'][1],
+            'safari_flee_rate':d['safariZoneFleeRate'],'body_color':d['bodyColor'],'no_flip':d['noFlip'],
+        }
         base.append(row)
-    write_csv(out/'gen3_species_parameters.csv',base,list(base[0].keys()))
-    evos=parse_evolutions(read(files['evolution']),raw_ids); write_csv(out/'gen3_evolutions.csv',evos,['from_national_id','from_constant','method','parameter','to_constant','to_national_id'])
-    level=parse_levelup(read(files['levelup']),read(files['levelup_pointers'])); write_csv(out/'gen3_levelup_learnsets.csv',level,['national_id','constant','level','move'])
-    tmhm=parse_tmhm(read(files['tmhm'])); write_csv(out/'gen3_tmhm_learnsets.csv',tmhm,['national_id','constant','machine_move'])
-    tutor=parse_tutor(read(files['tutor'])); write_csv(out/'gen3_tutor_learnsets.csv',tutor,['national_id','constant','tutor_move'])
-    by_nat={int(r['national_id']):r for r in base}; evo_by={i:[] for i in by_nat}; lvl_by={i:[] for i in by_nat}; tm_by={i:[] for i in by_nat}; tut_by={i:[] for i in by_nat}
+
+    base_fields=list(base[0].keys())
+    write_csv(out/'gen3_species_parameters.csv',base,base_fields)
+
+    evos=parse_evolutions(read(files['evolution']),raw_ids)
+    write_csv(out/'gen3_evolutions.csv',evos,['from_national_id','from_constant','method','parameter','to_constant','to_national_id'])
+
+    level=parse_levelup(read(files['levelup']),read(files['levelup_pointers']))
+    write_csv(out/'gen3_levelup_learnsets.csv',level,['national_id','constant','level','move'])
+
+    tmhm=parse_tmhm(read(files['tmhm']))
+    write_csv(out/'gen3_tmhm_learnsets.csv',tmhm,['national_id','constant','machine_move'])
+
+    tutor=parse_tutor(read(files['tutor']))
+    write_csv(out/'gen3_tutor_learnsets.csv',tutor,['national_id','constant','tutor_move'])
+
+    # Canonical JSON bundle: source symbolic enum names are intentionally preserved.
+    by_nat={int(r['national_id']):r for r in base}
+    evo_by={i:[] for i in by_nat}; lvl_by={i:[] for i in by_nat}; tm_by={i:[] for i in by_nat}; tut_by={i:[] for i in by_nat}
     for r in evos: evo_by[int(r['from_national_id'])].append(r)
     for r in level: lvl_by[int(r['national_id'])].append({'level':r['level'],'move':r['move']})
     for r in tmhm: tm_by[int(r['national_id'])].append(r['machine_move'])
     for r in tutor: tut_by[int(r['national_id'])].append(r['tutor_move'])
     bundle=[]
-    for nid in range(252,387): bundle.append({'national_id':nid,'species':CONST_BY_NAT[nid],'source_internal_id':by_nat[nid]['pokeemerald_raw_species_id'],'base_parameters':by_nat[nid],'evolutions':evo_by[nid],'level_up':lvl_by[nid],'tm_hm':tm_by[nid],'tutor':tut_by[nid]})
+    for nid in range(252,387):
+        bundle.append({
+            'national_id':nid,
+            'species':CONST_BY_NAT[nid],
+            'source_internal_id':by_nat[nid]['pokeemerald_raw_species_id'],
+            'base_parameters':by_nat[nid],
+            'evolutions':evo_by[nid],
+            'level_up':lvl_by[nid],
+            'tm_hm':tm_by[nid],
+            'tutor':tut_by[nid],
+        })
     (out/'gen3_parameter_bundle.json').write_text(json.dumps(bundle,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    special={'canonical_range':[252,386],'species_count':135,'canonical_id_rule':'National Dex number; never pokeemerald raw species ID','source_repo':'pret/pokeemerald','source_commit':git_head(root),'special_engine_cases':['Wurmple evolution branch depends on personality value.','Nincada evolution requires special Shedinja creation handling.','Feebas evolves by Beauty; Silver has no native Contest condition.','Generation III adds Abilities and six-stat EV yields.','Generation III adds Erratic and Fluctuating growth curves used by some species.','Deoxys is canonical species #386; form handling must be separated from species identity.'],'source_files':{k:{'path':str(v.relative_to(root)),'sha256':sha256(v)} for k,v in files.items()},'output_files':{}}
+
+    special={
+        'canonical_range':[252,386],
+        'species_count':135,
+        'canonical_id_rule':'National Dex number; never pokeemerald raw species ID',
+        'source_repo':'pret/pokeemerald',
+        'source_commit':git_head(root),
+        'special_engine_cases':[
+            'Wurmple evolution branch depends on personality value.',
+            'Nincada evolution requires special Shedinja creation handling.',
+            'Feebas evolves by Beauty; Silver has no native Contest condition.',
+            'Generation III adds Abilities and six-stat EV yields.',
+            'Generation III adds Erratic and Fluctuating growth curves used by some species.',
+            'Deoxys is canonical species #386; form handling must be separated from species identity.',
+        ],
+        'source_files':{k:{'path':str(v.relative_to(root)),'sha256':sha256(v)} for k,v in files.items()},
+        'output_files':{},
+    }
     for p in sorted(out.glob('gen3_*')):
         if p.is_file(): special['output_files'][p.name]={'sha256':sha256(p),'bytes':p.stat().st_size}
     (out/'gen3_manifest.json').write_text(json.dumps(special,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    assert len(base)==135 and [int(r['national_id']) for r in base]==list(range(252,387)); assert len({r['constant'] for r in base})==135
-    treecko=base[0]; deoxys=base[-1]; chimecho=base[358-252]
-    assert treecko['constant']=='TREECKO' and int(treecko['hp'])==40; assert deoxys['constant']=='DEOXYS' and int(deoxys['attack'])==150; assert chimecho['constant']=='CHIMECHO'; assert int(treecko['pokeemerald_raw_species_id']) != 252
-    print(json.dumps({'species':len(base),'evolution_rows':len(evos),'levelup_rows':len(level),'tmhm_rows':len(tmhm),'tutor_rows':len(tutor),'source_commit':special['source_commit'],'output':str(out)}, indent=2))
 
-if __name__=='__main__': main()
+    # Recompute manifest with its own neighboring outputs already listed (manifest intentionally excludes itself).
+    # Validation invariants.
+    assert len(base)==135 and [int(r['national_id']) for r in base]==list(range(252,387))
+    assert len({r['constant'] for r in base})==135
+    treecko=base[0]; deoxys=base[-1]; chimecho=base[358-252]
+    assert treecko['constant']=='TREECKO' and int(treecko['hp'])==40
+    assert deoxys['constant']=='DEOXYS' and int(deoxys['attack'])==150
+    assert chimecho['constant']=='CHIMECHO'
+    assert int(treecko['pokeemerald_raw_species_id']) != 252, 'raw-ID guard failed: expected Old-Unown offset'
+
+    print(json.dumps({
+        'species':len(base),'evolution_rows':len(evos),'levelup_rows':len(level),
+        'tmhm_rows':len(tmhm),'tutor_rows':len(tutor),'source_commit':special['source_commit'],
+        'output':str(out)
+    }, indent=2))
+
+if __name__=='__main__':
+    main()
