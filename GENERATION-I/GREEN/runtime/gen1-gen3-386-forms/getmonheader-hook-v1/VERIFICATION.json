@@ -1,0 +1,115 @@
+{
+  "schema": "green-getmonheader-hook-verification-v1",
+  "runtime_hooked_block": {
+    "size": 19403,
+    "sha1": "081e9919db0220c0a201ff210d2471ea2fd45ae3",
+    "crc32_zeroed_crc_field": "5b4bca1f",
+    "version": 3,
+    "overlay_helper_bank": "0x20",
+    "overlay_helper_address": "0x4080",
+    "overlay_helper_size": 59
+  },
+  "legacy_map_helper": {
+    "bank": "0x21",
+    "address": "0x5300",
+    "size": 16,
+    "all_256_legacy_ids_machine_code_emulation": "PASS",
+    "mapped_kanto_species": 151,
+    "invalid_ids_return_ffff": 105
+  },
+  "kanto_overlay_helper": {
+    "canonical_range": "1..151",
+    "all_151_machine_code_emulation": "PASS",
+    "invalid_canonical_ids_noop": "PASS",
+    "overlaid_fields": [
+      "base_hp",
+      "base_attack",
+      "base_defense",
+      "base_speed",
+      "catch_rate",
+      "base_exp",
+      "growth_rate"
+    ],
+    "preserved_fields": [
+      "base_special",
+      "type1",
+      "type2",
+      "sprite_dimension",
+      "front_sprite_pointer",
+      "back_sprite_pointer",
+      "level1_moves",
+      "tm_hm_bits"
+    ],
+    "reason_special_preserved": "Generation I has one Special stat; Generation III splits it into Sp. Atk/Sp. Def. No projection rule is silently imposed.",
+    "reason_types_preserved": "Steel/Dark require the Generation I type engine, type chart, names, and UI to be expanded first."
+  },
+  "observable_gen3_difference": {
+    "species": "RATICATE",
+    "national_dex": 20,
+    "legacy_internal_id": "0xA6",
+    "field": "catch_rate",
+    "green_stock": 90,
+    "generation3_overlay": 127
+  },
+  "roms": {
+    "rev0": {
+      "original_sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+      "scaffold_sha1": "378e77d5f273a76e155d4421057c272e62313e9c",
+      "output_sha1": "3d81675b8a2801fd3550685153b6ffcff0913010",
+      "output_md5": "e082301e02317e8d170ddc7e683fbf1d",
+      "output_size": 1048576,
+      "ips_sha1": "d0c1ef38d6e974aeca337e3286eb488c05ef7aa6",
+      "ips_size": 20764,
+      "getmonheader_tail_offset": "0x002FA7",
+      "fixed_stub_offset": "0x000008",
+      "fixed_stub_size": 29,
+      "map_helper_file_offset": "0x085300",
+      "map_helper_size": 16,
+      "overlay_helper_file_offset": "0x080080",
+      "overlay_helper_size": 59,
+      "original_region_diff_count": 37,
+      "original_region_diff_ranges": [
+        "0x000008-0x000010",
+        "0x000012-0x000024",
+        "0x000147-0x000148",
+        "0x00014D-0x00014F",
+        "0x002FA7-0x002FAA"
+      ],
+      "header_checksum": 131,
+      "global_checksum": "ba8a",
+      "ips_roundtrip": "PASS",
+      "checksum": "PASS",
+      "old_rst_bytes_sha1": "4ba44e783f6862d4cb94cdfcd25702ad2bd005b9"
+    },
+    "reva": {
+      "original_sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+      "scaffold_sha1": "afdf58500ff5a29548d3f66dd6fbab605022b022",
+      "output_sha1": "d1d1defb34ba84798b5a7f2fe025b4e118496d69",
+      "output_md5": "029ea2d9aef45b9a3471b57409ace253",
+      "output_size": 1048576,
+      "ips_sha1": "435c7c956b8109b7b9ae5b96453031c8252a6e3a",
+      "ips_size": 20764,
+      "getmonheader_tail_offset": "0x002F95",
+      "fixed_stub_offset": "0x000008",
+      "fixed_stub_size": 29,
+      "map_helper_file_offset": "0x085300",
+      "map_helper_size": 16,
+      "overlay_helper_file_offset": "0x080080",
+      "overlay_helper_size": 59,
+      "original_region_diff_count": 37,
+      "original_region_diff_ranges": [
+        "0x000008-0x000010",
+        "0x000012-0x000024",
+        "0x000147-0x000148",
+        "0x00014D-0x00014F",
+        "0x002F95-0x002F98"
+      ],
+      "header_checksum": 130,
+      "global_checksum": "d3b2",
+      "ips_roundtrip": "PASS",
+      "checksum": "PASS",
+      "old_rst_bytes_sha1": "4ba44e783f6862d4cb94cdfcd25702ad2bd005b9"
+    }
+  },
+  "emulator_boot_test": "NOT_RUN_NO_GAME_BOY_EMULATOR_AVAILABLE_IN_RUNTIME"
+}
