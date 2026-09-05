@@ -41,6 +41,9 @@ jobs:
             --pokecrystal pokecrystal \
             --pokeemerald pokeemerald \
             --out sakurai/GENERATION-I/GREEN/parameters/gen2-gen3/generated
+          base64 -w 4096 \
+            sakurai/GENERATION-I/GREEN/parameters/gen2-gen3/generated/green_gen2_gen3_parameter_layer.bin \
+            > sakurai/GENERATION-I/GREEN/parameters/gen2-gen3/generated/green_gen2_gen3_parameter_layer.b64.txt
 
       - name: Commit generated non-ROM outputs
         working-directory: sakurai
