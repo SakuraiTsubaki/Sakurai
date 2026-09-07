@@ -1,0 +1,30 @@
+{
+  "passed": 21,
+  "total": 21,
+  "all_pass": true,
+  "checks": [
+    {"name":"size_32MiB","pass":true,"detail":"33554432"},
+    {"name":"sha_changed","pass":true,"detail":""},
+    {"name":"names_first_1079_preserved","pass":true,"detail":""},
+    {"name":"stats_first_1079_preserved","pass":true,"detail":""},
+    {"name":"evo_first_1079_preserved","pass":true,"detail":""},
+    {"name":"levelptr_first_1079_preserved","pass":true,"detail":""},
+    {"name":"engine_entries_1633","pass":true,"detail":""},
+    {"name":"alt_variety_slots_326","pass":true,"detail":""},
+    {"name":"extra_cosmetic_slots_228","pass":true,"detail":""},
+    {"name":"new_slots_total_554","pass":true,"detail":""},
+    {"name":"natdex_limit_mov_204","pass":true,"detail":"0x24cc"},
+    {"name":"natdex_limit_shift_x8","pass":true,"detail":"0xe4"},
+    {"name":"natdex_sentinel_1633","pass":true,"detail":"1633"},
+    {"name":"names_all_pointer_sites_repointed","pass":true,"detail":"66 sites"},
+    {"name":"stats_all_pointer_sites_repointed","pass":true,"detail":"45 sites"},
+    {"name":"nat_all_pointer_sites_repointed","pass":true,"detail":"2 sites"},
+    {"name":"evo_all_pointer_sites_repointed","pass":true,"detail":"6 sites"},
+    {"name":"lvl_all_pointer_sites_repointed","pass":true,"detail":"6 sites"},
+    {"name":"variety_relation_table_zero","pass":true,"detail":""},
+    {"name":"form_relation_table_zero","pass":true,"detail":""},
+    {"name":"form_flags_zero","pass":true,"detail":""}
+  ],
+  "sha1": "47a2e8fc6928edb767d868fedcd7ee4d9324aa74",
+  "sha256": "33062d0d52fc353f90b4bb9c0146a192a0d32ff2b310bbc38e39a8727a8794f8"
+}
