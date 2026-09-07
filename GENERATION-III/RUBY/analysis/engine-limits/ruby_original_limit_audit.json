@@ -1,0 +1,62 @@
+{
+  "base_rom": "Pokemon - Ruby Version (USA).gba",
+  "sha1": "f28b6ffc97847e94a6c21a63cacf633ee5c8df1e",
+  "rom_size": 16777216,
+  "tables": {
+    "species_names": {
+      "offset": "0x001F716C",
+      "entries": 440,
+      "stride": 11
+    },
+    "base_stats": {
+      "offset": "0x001FEC18",
+      "entries": 440,
+      "stride": 28
+    },
+    "national_map": {
+      "offset": "0x001FC516",
+      "entries": 411,
+      "stride": 2
+    },
+    "evolution": {
+      "offset": "0x00203B68",
+      "entries": 412,
+      "compiled_row_stride": 40,
+      "branches_per_species": 5
+    },
+    "levelup_pointer_table": {
+      "offset": "0x00207BC8",
+      "entries": 412,
+      "stride": 4
+    }
+  },
+  "stock_counts": {
+    "national_dex": 386,
+    "pokemon_slots_number": 412,
+    "name_stat_internal_entries": 440,
+    "moves_including_none": 355,
+    "abilities_including_none": 78
+  },
+  "hard_fields": {
+    "species_id_bits": 16,
+    "move_id_save_bits": 16,
+    "levelup_move_bits": 9,
+    "levelup_level_bits": 7,
+    "ability_id_bits": 8,
+    "ability_choice_bits": 1,
+    "base_exp_yield_bits": 8,
+    "base_stat_bits": 8,
+    "ev_yield_per_stat_bits": 2,
+    "ball_bits": 4,
+    "met_game_bits": 4,
+    "iv_bits": 5,
+    "tmhm_bitset_bits": 64
+  },
+  "save_flag_capacity_without_sector_reallocation": 3744,
+  "targets": {
+    "species": 1025,
+    "varieties": 1351,
+    "forms": 1579
+  },
+  "status": "1025/1351/1579 identity counts fit; faithful modern data requires packed-field redesigns listed in markdown audit"
+}
