@@ -1,0 +1,13 @@
+*.gb
+*.gbc
+*.sav
+*.srm
+*.state
+*.rtc
+*.zip
+*.7z
+*.rar
+silver_*_core/
+output/
+build/
+__pycache__/
