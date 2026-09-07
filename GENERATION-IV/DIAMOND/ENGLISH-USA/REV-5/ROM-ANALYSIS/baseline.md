@@ -22,4 +22,5 @@
 
 ## Verification
 - Local header/hash extraction completed.
+- Header CRC16 recalculation: `CA37` → **PASS**.
 - SHA-1 matches the known Pokémon Diamond USA Rev 5 baseline used by the pret decompilation project.
