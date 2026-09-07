@@ -22,5 +22,6 @@
 
 ## Verification
 - Local header/hash extraction completed.
+- Header CRC16 recalculation: `C645` → **PASS**.
 - `IPKK` identifies the Korean HeartGold release.
 - Exact external clean-dump hash equivalence has not yet been asserted; this manifest records the uploaded source exactly.
