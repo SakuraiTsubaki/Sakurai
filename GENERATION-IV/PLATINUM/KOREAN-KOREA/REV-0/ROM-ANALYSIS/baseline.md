@@ -22,5 +22,6 @@
 
 ## Verification
 - Local header/hash extraction completed.
+- Header CRC16 recalculation: `260F` → **PASS**.
 - `CPUK` identifies the Korean release of Pocket Monsters Pt - Giratina.
 - Exact external clean-dump hash equivalence has not yet been asserted; this manifest records the uploaded source exactly.
