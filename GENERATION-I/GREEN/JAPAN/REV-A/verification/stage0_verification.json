@@ -1,0 +1,11 @@
+{
+  "revision": "Rev.A",
+  "source_sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+  "output_sha1": "3cecc0a53ff7df63d20ada17e80c7e31febc184a",
+  "output_size": 4194304,
+  "changed_original_offsets": ["0x147", "0x148", "0x149", "0x14d", "0x14e", "0x14f"],
+  "unexpected_changes_in_original_512KiB": 0,
+  "header_checksum_ok": true,
+  "global_checksum_ok": true,
+  "magic_ok": true
+}
