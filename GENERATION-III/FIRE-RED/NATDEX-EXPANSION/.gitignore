@@ -1,0 +1,15 @@
+# Never commit copyrighted ROM/save binaries
+*.gba
+*.gb
+*.gbc
+*.nds
+*.3ds
+*.cia
+*.sav
+*.srm
+
+# Generated local build outputs
+build/
+out/
+*.elf
+*.map
