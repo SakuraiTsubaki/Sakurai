@@ -22,4 +22,5 @@
 
 ## Verification
 - Local header/hash extraction completed.
+- Header CRC16 recalculation: `A80C` → **PASS**.
 - SHA-1 matches the known Pokémon Pearl USA Rev 5 baseline used by the pret decompilation project.
