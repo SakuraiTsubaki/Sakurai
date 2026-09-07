@@ -9,13 +9,19 @@
   - 조사 결과
   - 검증 로그
   - 기계 판독용 분석 JSON
-  - 설계 문서
+  - 매니페스트
+  - 설계/연구 문서
 
 - `SakuraiTsubaki/Tsubaki`
   - 빌더/도구 소스
-  - 매니페스트
   - 패치 생성 소스
   - 재현 가능한 작업 자산
+
+## Canonical hierarchy
+
+`GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
+
+Ruby AXVE v0 기준 경로는 `GENERATION-III/RUBY/USA/REV-0/...` 이다.
 
 ## Never upload
 
