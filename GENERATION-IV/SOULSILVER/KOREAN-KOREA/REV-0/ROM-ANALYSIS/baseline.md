@@ -22,5 +22,6 @@
 
 ## Verification
 - Local header/hash extraction completed.
+- Header CRC16 recalculation: `D817` → **PASS**.
 - `IPGK` identifies the Korean SoulSilver release.
 - Exact external clean-dump hash equivalence has not yet been asserted; this manifest records the uploaded source exactly.
