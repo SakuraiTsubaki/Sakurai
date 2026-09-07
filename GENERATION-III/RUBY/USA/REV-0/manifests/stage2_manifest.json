@@ -1,0 +1,45 @@
+{
+  "project": "Pokemon Ruby full National Species / Varieties / Forms",
+  "stage": 2,
+  "base_stage1_sha1": "b26be978f56cf5a89e15f55d8fecbca967a742b6",
+  "output_sha1": "47a2e8fc6928edb767d868fedcd7ee4d9324aa74",
+  "output_sha256": "33062d0d52fc353f90b4bb9c0146a192a0d32ff2b310bbc38e39a8727a8794f8",
+  "output_size": 33554432,
+  "pokeapi_snapshot_counts": {
+    "pokemon_species": 1025,
+    "pokemon_varieties": 1351,
+    "pokemon_forms": 1579,
+    "additional_gameplay_varieties_over_species": 326,
+    "additional_cosmetic_form_records_over_varieties": 228
+  },
+  "engine_capacity": {
+    "internal_entries": 1633,
+    "internal_id_range": [0, 1632],
+    "stage1_canonical_capacity_end": 1078,
+    "reserved_alt_gameplay_variety_ids": [1079, 1404],
+    "reserved_extra_cosmetic_form_ids": [1405, 1632],
+    "legacy_internal_extras_preserved": 53
+  },
+  "tables": {
+    "species_names": {"offset": "0x1300000", "entries": 1633, "stride": 11},
+    "base_stats": {"offset": "0x1305000", "entries": 1633, "stride": 28},
+    "internal_to_national": {"offset": "0x1311000", "entries": 1633, "stride": 2},
+    "evolution": {"offset": "0x1313000", "entries": 1633, "stride": 40},
+    "level_up_pointer": {"offset": "0x1324000", "entries": 1633, "stride": 4},
+    "internal_to_variety_reserved": {"offset": "0x1326000", "entries": 1633, "stride": 2},
+    "internal_to_form_reserved": {"offset": "0x1327000", "entries": 1633, "stride": 2},
+    "form_flags_reserved": {"offset": "0x1328000", "entries": 1633, "stride": 1}
+  },
+  "pointer_patch_counts": {
+    "species_names": 66,
+    "base_stats": 45,
+    "national_mapping": 2,
+    "evolution": 6,
+    "level_up_pointer": 6
+  },
+  "code_patch": {
+    "NationalPokedexNumToSpecies.max_scan_internal": 1632,
+    "not_found_sentinel": 1633
+  },
+  "status": "capacity/layout complete for 1025 Species + 1351 gameplay varieties + 1579 form records; extra form relation/data rows reserved, not populated yet"
+}
