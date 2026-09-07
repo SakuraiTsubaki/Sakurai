@@ -1,0 +1,81 @@
+name: Yellow 1025 data pack
+
+on:
+  push:
+    paths:
+      - '.github/workflows/yellow1025-data.yml'
+      - 'GENERATION-I/YELLOW/1025/**'
+  workflow_dispatch:
+
+jobs:
+  build-data-pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build compact 1025 data pack
+        shell: python
+        run: |
+          import csv, io, json, struct, urllib.request
+          from pathlib import Path
+
+          url = 'https://raw.githubusercontent.com/steffanossa/pokemon_dataset/main/pkmn_dataset.csv'
+          raw = urllib.request.urlopen(url).read().decode('utf-8-sig')
+          rows = list(csv.DictReader(io.StringIO(raw)))
+          rows = [r for r in rows if 1 <= int(r['dex_no']) <= 1025]
+          rows.sort(key=lambda r: int(r['dex_no']))
+          assert len(rows) == 1025
+          assert int(rows[0]['dex_no']) == 1 and int(rows[-1]['dex_no']) == 1025
+
+          keep = [
+              'dex_no','name_en','generation','forms','category','height_m','weight_kg','hatch_time',
+              'has_gender','female_percent','male_percent','is_breedable','catch_rate','leveling_rate',
+              'pokedex_colour','base_friendship','base_hp','base_atk','base_def','base_spatk','base_spdef',
+              'base_speed','base_experience_yield','egg_group_0','egg_group_1','type_0','type_1',
+              'ev_yield_hp','ev_yield_attack','ev_yield_defense','ev_yield_special_attack',
+              'ev_yield_special_defense','ev_yield_speed','ability_0','ability_1','hidden_ability',
+              'is_legendary','is_mythical','is_part_of_evolution','stage','evolution_level'
+          ]
+          out = Path('yellow1025-artifact')
+          out.mkdir(exist_ok=True)
+          with (out/'yellow1025_core.csv').open('w', newline='', encoding='utf-8') as f:
+              w=csv.DictWriter(f, fieldnames=keep)
+              w.writeheader()
+              for r in rows: w.writerow({k:r.get(k,'') for k in keep})
+          with (out/'yellow1025_core.json').open('w', encoding='utf-8') as f:
+              json.dump([{k:r.get(k,'') for k in keep} for r in rows], f, ensure_ascii=False, indent=2)
+
+          type_ids = {
+              'Normal':0,'Fighting':1,'Flying':2,'Poison':3,'Ground':4,'Rock':5,'Bug':6,'Ghost':7,
+              'Steel':8,'Fire':9,'Water':10,'Grass':11,'Electric':12,'Psychic':13,'Ice':14,'Dragon':15,
+              'Dark':16,'Fairy':17,'':255
+          }
+          growth_ids = {'Medium Fast':0,'Medium Slow':1,'Fast':2,'Slow':3,'Erratic':4,'Fluctuating':5}
+          def b(v, default=0):
+              try: return max(0,min(255,int(float(v))))
+              except: return default
+          def u16(v, default=0):
+              try: return max(0,min(65535,int(float(v))))
+              except: return default
+          blob=bytearray()
+          # 16-byte packed record:
+          # dex:u16 hp atk def spd specialCompat type1 type2 catch baseExp:u16 growth spa spd flags
+          for r in rows:
+              spa=b(r['base_spatk']); spd=b(r['base_spdef'])
+              special=(spa+spd+1)//2
+              flags=(1 if r['is_legendary']=='True' else 0) | (2 if r['is_mythical']=='True' else 0)
+              rec=struct.pack('<HBBBBBBBBHBBBB',
+                  int(r['dex_no']), b(r['base_hp']), b(r['base_atk']), b(r['base_def']), b(r['base_speed']), special,
+                  type_ids.get(r['type_0'],255), type_ids.get(r['type_1'],255), b(r['catch_rate']),
+                  u16(r['base_experience_yield']), growth_ids.get(r['leveling_rate'],0), spa, spd, flags)
+              assert len(rec)==16
+              blob += rec
+          (out/'yellow1025_engine_records.bin').write_bytes(blob)
+          (out/'manifest.json').write_text(json.dumps({
+              'records':len(rows),'first':rows[0]['name_en'],'last':rows[-1]['name_en'],
+              'record_size':16,'binary_size':len(blob),'special_compat':'round_half_up_average(sp_atk, sp_def)',
+              'source':url
+          }, indent=2), encoding='utf-8')
+      - uses: actions/upload-artifact@v4
+        with:
+          name: yellow1025-data-pack
+          path: yellow1025-artifact/
