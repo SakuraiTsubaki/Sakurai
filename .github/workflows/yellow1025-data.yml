@@ -7,11 +7,15 @@ on:
       - 'GENERATION-I/YELLOW/1025/**'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-data-pack:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Build Species / Variety / Form registries
         shell: python
         run: |
@@ -32,14 +36,12 @@ jobs:
           assert len(forms) == 1579, len(forms)
           assert species[-1]['identifier'] == 'pecharunt'
 
-          out=Path('yellow-complete-artifact')
-          out.mkdir(exist_ok=True)
+          out=Path('GENERATION-I/YELLOW/1025/generated')
+          out.mkdir(parents=True, exist_ok=True)
           (out/'pokemon_species_1025.csv').write_text(species_raw, encoding='utf-8')
           (out/'pokemon_varieties_1351.csv').write_text(pokemon_raw, encoding='utf-8')
           (out/'pokemon_forms_1579.csv').write_text(forms_raw, encoding='utf-8')
 
-          # Compact relations used by the ROM-side generator.
-          species_by_id={int(r['id']):r for r in species}
           varieties=[]
           for r in pokemon:
               sid=int(r['species_id'])
@@ -53,6 +55,7 @@ jobs:
                   'weight_hg':int(r['weight']) if r['weight'] else None,
                   'base_experience':int(r['base_experience']) if r['base_experience'] else None,
               })
+
           forms_compact=[]
           for r in forms:
               forms_compact.append({
@@ -92,7 +95,20 @@ jobs:
               'source':BASE
           }, indent=2), encoding='utf-8')
 
+      - name: Commit generated data to repository
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add GENERATION-I/YELLOW/1025/generated/
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Update generated Yellow National Dex data [skip ci]"
+            git push
+          fi
+
       - uses: actions/upload-artifact@v4
         with:
           name: yellow-complete-species-variety-form-pack
-          path: yellow-complete-artifact/
+          path: GENERATION-I/YELLOW/1025/generated/
