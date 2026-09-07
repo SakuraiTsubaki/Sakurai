@@ -9,8 +9,8 @@ Pokémon project analysis and census repository.
 Example:
 
 ```text
-GENERATION-III/
-└─ EMERALD/
+GENERATION-II/
+└─ GOLD/
    └─ KR/
       └─ REV-0/
          └─ analysis/
