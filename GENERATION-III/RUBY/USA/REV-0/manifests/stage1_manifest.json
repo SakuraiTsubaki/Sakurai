@@ -1,0 +1,33 @@
+{
+  "project": "Pokemon Ruby National Dex 1025",
+  "stage": 1,
+  "base_stage0_sha1": "1e044cf00c59ad7a1f8298bd3588f23651c081fb",
+  "output_sha1": "b26be978f56cf5a89e15f55d8fecbca967a742b6",
+  "output_sha256": "08eee54e659ff7938fc6aabf14640275354a799f253fa784296804d98408b504",
+  "output_size": 33554432,
+  "mapping": {
+    "national_1_386": "preserve vanilla real-species mapping",
+    "old_unown_internal_252_276": "remapped to National #201 to free #387-411",
+    "unown_form_internal_413_439": "National #201",
+    "national_387_internal": 440,
+    "national_1025_internal": 1078,
+    "formula_387_plus": "internal = national + 53",
+    "guard_internal_1079_1081": "National 0"
+  },
+  "tables": {
+    "national_mapping": {"old": "0x1fc516", "new": "0x120d000", "entries": 1081, "stride": 2},
+    "evolution": {"old": "0x203b68", "new": "0x1210000", "entries": 1079, "compiled_row_stride": 40},
+    "level_up_pointer_table": {"old": "0x207bc8", "new": "0x1220000", "entries": 1079, "stride": 4}
+  },
+  "pointer_patches": {
+    "national_mapping": ["0x3f83c", "0x3f8b0"],
+    "evolution": ["0x3f534", "0x3f584", "0x3f628", "0x3f778", "0x4189c", "0x1123f4"],
+    "level_up_pointer_table": ["0x3b7bc", "0x3b850", "0x3b8c4", "0x40510", "0x40568", "0x406cc"]
+  },
+  "code_patches": {
+    "NationalPokedexNumToSpecies.limit_mov": "0x3f814",
+    "NationalPokedexNumToSpecies.limit_shift": "0x3f816",
+    "NationalPokedexNumToSpecies.sentinel": "0x3f840"
+  },
+  "status": "core species-index infrastructure; new species parameter rows/learnsets/evolutions are reserved but not populated yet"
+}
