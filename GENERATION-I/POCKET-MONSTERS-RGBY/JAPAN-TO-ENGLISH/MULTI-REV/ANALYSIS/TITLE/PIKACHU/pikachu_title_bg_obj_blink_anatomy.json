@@ -1,0 +1,34 @@
+{
+  "rom": "Pocket Monsters - Pikachu (Japan) (Rev D) (SGB Enhanced).gb",
+  "offsets": {
+    "tilemap": "0xA411B",
+    "bg_gfx": "0xA4787",
+    "obj_gfx": "0xA4B87"
+  },
+  "bg": {
+    "origin_tile": [4, 8],
+    "origin_px": [32, 64],
+    "size_tiles": [12, 9],
+    "size_px": [96, 72]
+  },
+  "blink": {
+    "open": ["F0", "F1", "F2", "F3"],
+    "half": ["F4", "F5", "F6", "F7"],
+    "closed": ["F8", "F9", "FA", "FB"]
+  },
+  "oam": [
+    {"screen_x":56,"screen_y":80,"tile":"F1","xflip":true},
+    {"screen_x":64,"screen_y":80,"tile":"F0","xflip":true},
+    {"screen_x":56,"screen_y":88,"tile":"F3","xflip":true},
+    {"screen_x":64,"screen_y":88,"tile":"F2","xflip":true},
+    {"screen_x":88,"screen_y":80,"tile":"F0","xflip":false},
+    {"screen_x":96,"screen_y":80,"tile":"F1","xflip":false},
+    {"screen_x":88,"screen_y":88,"tile":"F2","xflip":false},
+    {"screen_x":96,"screen_y":88,"tile":"F3","xflip":false}
+  ],
+  "sha256": {
+    "tilemap": "c9ca917925a90a9ee4b0d19b72a2879863c781ab0ee097ffecf38277c1faa86e",
+    "bg_gfx": "b42e2ca0523f9b95873eceff70c5ae81ebe0d4485485d0d6eb3f44ca35156d9b",
+    "obj_gfx": "3cca54bd3004a7dd3d3cf612ddd34aef63b7094d6c477585bbcd9e3a62ce9a3f"
+  }
+}
