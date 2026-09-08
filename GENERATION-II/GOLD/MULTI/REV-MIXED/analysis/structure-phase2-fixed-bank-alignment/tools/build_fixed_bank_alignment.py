@@ -14,7 +14,9 @@ HEX_RE=re.compile(r'\$[0-9a-fA-F]{2,4}')
 DEC_RE=re.compile(r'(?<![A-Za-z_])[-+]?\d+(?![A-Za-z_])')
 
 def norm(mn:str)->str:
+    # Preserve opcode/register structure while abstracting localization-dependent targets/constants.
     s=HEX_RE.sub('$IMM',mn.lower())
+    # Keep bit numbers/rst vectors meaningful; decimal immediates are rare in emitted syntax.
     return ' '.join(s.split())
 
 def load_cfg(root:Path,region:str,rev:str):
@@ -25,15 +27,18 @@ def load_cfg(root:Path,region:str,rev:str):
     return labels,ins
 
 def blocks(labels,ins):
-    addrs=sorted(labels); out=[]
+    addrs=sorted(labels)
+    out=[]
     for a in addrs:
         if a not in ins: continue
-        seq=[]; rawbytes=0; pc=a; seen=set()
+        seq=[]; rawbytes=0; pc=a
+        seen=set()
         while pc in ins and pc not in seen:
             seen.add(pc); x=ins[pc]
             seq.append(norm(x['mnemonic'])); rawbytes+=x['len']
             nxt=pc+x['len']
             if x['flow'] in FLOW_END: break
+            # A branch/call target is a boundary only for the target, not current fallthrough.
             if nxt in labels and nxt!=a: break
             pc=nxt
         sig='\n'.join(seq)
@@ -50,6 +55,7 @@ def main():
     by={}
     for label,reg,rev in VERSIONS:
         labs,ins=load_cfg(a.phase1_root,reg,rev);by[label]=blocks(labs,ins)
+    # Exact normalized basic-block families.
     groups={}
     for ver,bs in by.items():
         for b in bs: groups.setdefault(b['sig'],[]).append((ver,b))
@@ -57,7 +63,9 @@ def main():
     for sig,members in sorted(groups.items(), key=lambda kv:(-len(kv[1]),kv[0])):
         versions=sorted({v for v,_ in members})
         if len(versions)<2: continue
-        gid+=1; family=f'F{gid:03d}'; exemplar=members[0][1]
+        gid+=1
+        family=f'F{gid:03d}'
+        exemplar=members[0][1]
         family_signatures.append((family,exemplar['hash'],exemplar['insns'],sig.replace('\n',' | '),len(versions),' '.join(versions)))
         for ver,b in sorted(members,key=lambda x:(x[0],x[1]['address'])):
             family_members.append((family,ver,f"0x{b['address']:04X}",b['label'],b['insns'],b['bytes']))
@@ -65,9 +73,11 @@ def main():
     wr_csv(out/'basic_block_family_signatures.csv',['family','normalized_sha256_16','instruction_count','normalized_sequence','version_count','versions'],family_signatures)
     wr_csv(out/'basic_block_family_members.csv',['family','version','address','label','instruction_count','byte_count'],family_members)
 
+    # KR -> USA exact/fuzzy alignment. Prefer exact normalized blocks; then best sequence match.
     kr=by['KR-REV-0']; us=by['USA-EUROPE-REV-0']; rows=[]
     semantic_names={'ResetVector','FarCall','Bankswitch','Rst18Trap','Rst20Trap','JumpTable','Rst38Trap','VBlankVector','LCDVector','TimerVector','SerialVector','JoypadVector','Start','VBlank','LCD','_Start','Serial','Joypad','FarCall_hl'}
     for kb in kr:
+        # Known semantic anchors are aligned by independently established label semantics first.
         if kb['label'] in semantic_names:
             same=next((u for u in us if u['label']==kb['label']),None)
         else:
@@ -91,13 +101,17 @@ def main():
                         score0*=min(len(kb['seq']),len(u0['seq']))/max(len(kb['seq']),len(u0['seq']))
                     scored.append((score0,u0))
                 score,u=max(scored,key=lambda x:x[0])
-                kind='fuzzy-normalized' if score>=0.65 else 'unmatched'
+                if score>=0.65:
+                    kind='fuzzy-normalized'
+                else:
+                    kind='unmatched'
         if kind=='unmatched':
             rows.append((f"0x{kb['address']:04X}",kb['label'],'','',kind,f'{score:.6f}',kb['insns'],'',''))
         else:
             rows.append((f"0x{kb['address']:04X}",kb['label'],f"0x{u['address']:04X}",u['label'],kind,f'{score:.6f}',kb['insns'],u['insns'],f'{u["address"]-kb["address"]:+d}'))
     wr_csv(out/'kr_to_usa_alignment.csv',['kr_address','kr_label','usa_address','usa_label','match_kind','score','kr_insns','usa_insns','address_delta'],rows)
 
+    # Stable semantic anchors and per-version address matrix.
     semantic=['ResetVector','FarCall','Bankswitch','JumpTable','VBlankVector','LCDVector','TimerVector','SerialVector','JoypadVector','Start','VBlank','LCD','_Start','Serial','Joypad','FarCall_hl']
     matrix=[]
     for name in semantic:
