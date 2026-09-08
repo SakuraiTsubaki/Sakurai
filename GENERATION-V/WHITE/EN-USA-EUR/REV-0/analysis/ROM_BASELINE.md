@@ -4,38 +4,47 @@
 
 `GENERATION-V → WHITE → EN-USA-EUR → REV-0 → analysis`
 
-## Uploaded source attachment
+## Uploaded read-only source
 
 - Filename: `Pokemon.White.Version.EUR.NDS-SweeTnDs.nds`
-- Scene release identity: `Pokemon.White.Version.EUR.NDS-SweeTnDs`
-- Language: English
-- Region: USA / Europe
-- Serial / game code: `IRAO`
-- Game revision: REV-0 (no later revision marker in the referenced release metadata)
+- Scene identity: `Pokemon.White.Version.EUR.NDS-SweeTnDs`
+- Game code: `IRAO`
+- ROM version byte: `0`
+- Actual file size: `268,435,456` bytes (256 MiB)
 
-## Dump-quality status
+## Locally measured hashes
 
-The SweeTnDs release is classified as a bad dump (`[b]`) because DSi data is missing. It may be used for comparison/research, but it is **not** the canonical clean-ROM baseline for final patch generation or lossless verification.
-
-Published reference for this SweeTnDs/bad-dump variant:
+These values were computed directly from the uploaded bytes on 2026-09-08.
 
 - CRC32: `EDCD5161`
-- SHA-1: `152A08C4A0EFABA2C8083B7D71AAEBA017D545AD`
-- MD5: `EFD442BDD6D1EAFDCE52BB2A79EAB3F5`
+- MD5: `8DFEF9A099E1269AF5C1FCF9D7736A11`
+- SHA-1: `F94D4578956487C09FEE20809A591E858017769E`
+- SHA-256: `93E4F473CE9A0543BCCF2E689ECD07AB4FCC39DD00FB4F194343CBD5E70E17ED`
 
-Canonical good-dump reference (USA, Europe, NDSi Enhanced):
+## Structure census
 
-- CRC32: `B552501C`
-- MD5: `77C34BA77F8FA44E7CAF04F695DB0560`
-- SHA-1: `BC696A0DFB448C7B3A8A206F0F8214411A039208`
+- FAT entries: `484`
+- ARM9 overlays: `237`
+- named FNT/NitroFS files: `247`
+- ARM7 overlays: `0`
+- detected top-level NARC containers: `237`
+- full payload inventory rows (top-level + NARC members): `54,538`
+
+## Rebuild verification
+
+Two independent no-change rebuild paths were executed:
+
+1. source-ROM template + extracted editable regions
+2. source-independent 1 MiB physical base chunks + extracted editable regions
+
+Both rebuilt images matched the uploaded source byte-for-byte. CRC32, MD5, SHA-1 and SHA-256 all matched exactly.
+
+## Black / White consolidation result
+
+At equivalent payload paths, `54,287 / 54,538` payloads are byte-identical between Black and White. Only `251` payload paths differ. This allows a common-base + version-delta workflow.
 
 ## Repository policy
 
-- The uploaded ROM binary is read-only source material and must never be committed to GitHub.
-- `Sakurai` stores analysis, verification, manifests, scripts, tables, reports, and census results.
-- Reusable patches/build assets belong in `SakuraiTsubaki/Tsubaki` under the same canonical hierarchy.
-- Whenever project work produces distributable outputs, commit them to the matching repository/path as part of the same work session.
-
-## Verification note
-
-The release identity above is confirmed from the uploaded filename and external release/database records. Local byte-for-byte hashing of the attachment should be recorded here once the file runtime is available; until then, do not claim that the uploaded bytes match the published CRC/SHA values.
+- The uploaded ROM and source-derived binary payloads are read-only/private working material and are never committed to GitHub.
+- `Sakurai` stores hashes, inventories, reports, reproducibility scripts and verification results.
+- Reusable implementation assets/patches belong in `SakuraiTsubaki/Tsubaki` under the same hierarchy.
