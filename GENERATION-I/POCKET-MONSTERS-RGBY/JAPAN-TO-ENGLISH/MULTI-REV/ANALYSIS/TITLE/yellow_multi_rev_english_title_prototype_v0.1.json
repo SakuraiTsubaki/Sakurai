@@ -1,0 +1,68 @@
+{
+  "project": "RBY ENGLISH → ポケットモンスター",
+  "target_base": "Japanese Pocket Monsters Pikachu revisions",
+  "english_reference": "Pokemon - Yellow Version (USA, Europe).gbc",
+  "implementation": {
+    "jp_title_bank": "0x29",
+    "safe_tail_start_file_offset": "0x0A4E60",
+    "new_loader_file_offset": "0x0A4E60",
+    "new_logo_placement_file_offset": "0x0A4EA0",
+    "new_bubble_placement_file_offset": "0x0A4EB0",
+    "new_logo_tilemap_file_offset": "0x0A4F00",
+    "new_bubble_tilemap_file_offset": "0x0A4F70",
+    "new_logo_gfx_file_offset": "0x0A4F90",
+    "new_corner_gfx_file_offset": "0x0A56C0",
+    "english_logo_main_size": "0x730",
+    "english_logo_corner_size": "0x30",
+    "english_logo_tilemap_size": "0x70",
+    "english_bubble_tilemap_size": "0x1C"
+  },
+  "compatibility_checks": {
+    "jp_pikachu_bg_equals_english": true,
+    "jp_pikachu_obj_equals_english": true,
+    "jp_pikachu_tilemap_equals_english": true,
+    "ips_reapply_verified_all": true
+  },
+  "outputs": [
+    {
+      "revision": "Rev 0A",
+      "source_file": "Pocket Monsters - Pikachu (Japan) (Rev 0A) (SGB Enhanced).gb",
+      "source_sha1": "1fb6c264e950d97ce3fd99b347e485b2150df4ff",
+      "source_sha256": "09a083624c4f84ccae99165d4091e7c5403aaf9ae44329a9349b4d59b4095436",
+      "output_sha256": "3a02199ee36556e21c08c8a1f4af7c65e059cc051fd9f27e56ef4e5960ec1021",
+      "ips_sha256": "266dcc5168c155c1198e86d35008a79e94265821eeaf4cdcff49baa8c3ef7618",
+      "far_copy_data_cpu_address": "0x15E4",
+      "global_checksum": "0xA159"
+    },
+    {
+      "revision": "Rev B",
+      "source_file": "Pocket Monsters - Pikachu (Japan) (Rev B) (SGB Enhanced).gb",
+      "source_sha1": "28e4b8531ea4ea1de5a396fccb0cfba51b06b149",
+      "source_sha256": "1acab20d1aa3e19c081abaac3e303c4cf3e582213937acbf25942b31c28aecfe",
+      "output_sha256": "91ce33e1438113dfaae3f10a3913f719e4856a89241d4614cceaec2d11318c74",
+      "ips_sha256": "296a0d88b76e6d8c86eba73034ddd80c14f4ff8fbcd730fcc147adb3eb9fe75f",
+      "far_copy_data_cpu_address": "0x15EA",
+      "global_checksum": "0x6427"
+    },
+    {
+      "revision": "Rev C",
+      "source_file": "Pocket Monsters - Pikachu (Japan) (Rev C) (SGB Enhanced).gb",
+      "source_sha1": "91864ecdf26d1c593bde4d9ed615520eb57d5e41",
+      "source_sha256": "2c67561f6b2de4ca3a1150f04dc736aead4bf7b5a98ce38196cef899a91be2fd",
+      "output_sha256": "211037974042033d6b6d7ab0717f679093021751617306030bf0e98db4971bbb",
+      "ips_sha256": "121b21a0ad0a6fc8bf49100cb06531b2f2e7b4ac419d6b28b249b02add1bd19f",
+      "far_copy_data_cpu_address": "0x15EA",
+      "global_checksum": "0xC5F4"
+    },
+    {
+      "revision": "Rev D",
+      "source_file": "Pocket Monsters - Pikachu (Japan) (Rev D) (SGB Enhanced).gb",
+      "source_sha1": "a40298a8123613ee60cd7aab204d788b8425976e",
+      "source_sha256": "1349408f328f633b33e059e654edabd19810530df9c883eda03a85d5bb10161a",
+      "output_sha256": "1e865f0f06c937b0fe2075d7a8a680374cf2442f40a08a0b4efe9dcf9ac03d23",
+      "ips_sha256": "0569738692c495e6ceccc60cb8a1818eba509d4a13554a137f3c20d2f350e07a",
+      "far_copy_data_cpu_address": "0x15EA",
+      "global_checksum": "0xA304"
+    }
+  ]
+}
