@@ -1,0 +1,62 @@
+{
+  "scope": "Japanese Pocket Monsters Red/Green/Blue title-screen trainer and passing Pokemon",
+  "yellow_note": "Pikachu/Yellow uses a separate Pikachu-centric title system and does not use this RGB cycling-mon mechanism.",
+  "trainer_graphics": {
+    "japanese_red_green": {
+      "file_offset": "0x11711",
+      "length": "0x230",
+      "tiles": 35,
+      "layout": "5x7 OAM sprites",
+      "display_top_left_px": [40, 80],
+      "sha256": "e06aa949b0d7b4a011cbae90e970b3e8d74103bfa19319653a546870baa9c419"
+    },
+    "japanese_blue": {
+      "file_offset": "0x12AA1",
+      "length": "0x230",
+      "tiles": 35,
+      "layout": "5x7 OAM sprites",
+      "display_top_left_px": [82, 80],
+      "sha256": "ba9b23c06943808a89bb66b97a400d77a148f946774c1c6740fd6db39be8a938"
+    },
+    "english_red_blue": {
+      "file_offset": "0x126A8",
+      "length": "0x230",
+      "sha256": "ba9b23c06943808a89bb66b97a400d77a148f946774c1c6740fd6db39be8a938",
+      "byte_identical_to_japanese_blue": true
+    }
+  },
+  "pokemon_anchor": {
+    "japanese_red_green": {"tile_coord": [9, 10], "pixel_anchor": [72, 80]},
+    "japanese_blue_english_red_blue": {"tile_coord": [5, 10], "pixel_anchor": [40, 80]}
+  },
+  "raster_scroll": {
+    "active_scanlines": {"start_hex": "0x48", "end_hex": "0x88", "visible_band_px": [72, 135]},
+    "effect": "Only the middle band is horizontally SCX-scrolled; trainer OAM remains fixed."
+  },
+  "legacy_red_green": {
+    "scroll_step_px": 8,
+    "scroll_in_iterations": 20,
+    "scroll_transition_iterations": 12,
+    "wait_input_counter": 255,
+    "title_ball_animation": false
+  },
+  "revised_blue_english": {
+    "wait_input_counter": 200,
+    "title_ball_animation": true,
+    "title_scroll_in_table_hex": ["A2", "94", "84", "63", "52", "31", "11", "00"],
+    "title_ball_y_table_hex": ["00", "71", "6F", "6E", "6D", "6C", "6D", "6E", "6F", "71", "74", "00"]
+  },
+  "selection": {
+    "method": "Random low nibble (0-15), reject if same as current",
+    "candidate_count_per_version": 16,
+    "lists": {
+      "Red": ["Charmander", "Squirtle", "Bulbasaur", "Weedle", "Nidoran♂", "Scyther", "Pikachu", "Clefairy", "Rhydon", "Abra", "Gastly", "Ditto", "Pidgeotto", "Onix", "Ponyta", "Magikarp"],
+      "Green": ["Bulbasaur", "Charmander", "Squirtle", "Caterpie", "Nidoran♀", "Pinsir", "Pikachu", "Clefairy", "Rhydon", "Abra", "Gastly", "Ditto", "Pidgeotto", "Onix", "Ponyta", "Magikarp"],
+      "Blue": ["Squirtle", "Charmander", "Bulbasaur", "Mankey", "Hitmonlee", "Vulpix", "Chansey", "Aerodactyl", "Jolteon", "Snorlax", "Gloom", "Poliwag", "Doduo", "Porygon", "Gengar", "Raichu"]
+    }
+  },
+  "project_preservation_recommendation": {
+    "red_green": "Preserve legacy left-trainer/right-Pokemon layout, legacy trainer art, candidate lists, and legacy scroll behavior.",
+    "blue": "Preserve revised right-trainer/left-Pokemon layout, revised trainer art, candidate list, Poké Ball animation, and revised scroll behavior."
+  }
+}
