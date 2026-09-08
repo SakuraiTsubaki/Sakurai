@@ -1,0 +1,7 @@
+d7cf8f156ba9c455d164e1ea780a6bf1945465c2  Pocket Monsters - Emerald (Japan).gba
+fe1558a3dcb0360ab558969e09b690888b846dd9  Pokemon - Edicion Esmeralda (Spain).gba
+f3ae088181bf583e55daf962a92bb46f4f1d07b7  Pokemon - Emerald Version (USA, Europe).gba
+f3ae088181bf583e55daf962a92bb46f4f1d07b7  Pokemon - Emerald Version (U).gba
+61c2eb2b380b1a75f0c94b767a2d4c26cd7ce4e3  Pokemon - Smaragd-Edition (Germany).gba
+ca666651374d89ca439007bed54d839eb7bd14d0  Pokemon - Version Emeraude (France).gba
+1692db322400c3141c5de2db38469913ceb1f4d4  Pokemon - Versione Smeraldo (Italy).gba
