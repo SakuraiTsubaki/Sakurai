@@ -1,0 +1,70 @@
+[
+  {
+    "sha1": "05bb8e99f24d498613930949730afa8024e77d08",
+    "count": 2,
+    "filenames": [
+      "Pokemon - Versione Gialla (Italy).gbc",
+      "Pokemon - Versione Gialla - Speciale Edizione Pikachu (Italy) (GBC,SGB Enhanced).gb"
+    ]
+  },
+  {
+    "sha1": "0aceec0ef7aa2ca5aa831554598d91f61a925591",
+    "count": 2,
+    "filenames": [
+      "Pokemon - Version Jaune (France).gbc",
+      "Pokemon - Version Jaune - Edition Speciale Pikachu (France) (GBC,SGB Enhanced).gb"
+    ]
+  },
+  {
+    "sha1": "1dc242039218fba50928d1afb66b70565b6b9daf",
+    "count": 2,
+    "filenames": [
+      "Pokemon - Edicion Amarilla (Spain).gbc",
+      "Pokemon - Edicion Amarilla - Edicion Especial Pikachu (Spain) (GBC,SGB Enhanced).gb"
+    ]
+  },
+  {
+    "sha1": "1fb6c264e950d97ce3fd99b347e485b2150df4ff",
+    "count": 1,
+    "filenames": [
+      "Pocket Monsters - Pikachu (Japan) (Rev 0A) (SGB Enhanced).gb"
+    ]
+  },
+  {
+    "sha1": "28e4b8531ea4ea1de5a396fccb0cfba51b06b149",
+    "count": 1,
+    "filenames": [
+      "Pocket Monsters - Pikachu (Japan) (Rev B) (SGB Enhanced).gb"
+    ]
+  },
+  {
+    "sha1": "42f3714eec6eca25200d42461ff08d57c98f6d1d",
+    "count": 2,
+    "filenames": [
+      "Pokemon - Gelbe Edition (Germany).gbc",
+      "Pokemon - Gelbe Edition - Special Pikachu Edition (Germany) (GBC,SGB Enhanced).gb"
+    ]
+  },
+  {
+    "sha1": "91864ecdf26d1c593bde4d9ed615520eb57d5e41",
+    "count": 1,
+    "filenames": [
+      "Pocket Monsters - Pikachu (Japan) (Rev C) (SGB Enhanced).gb"
+    ]
+  },
+  {
+    "sha1": "a40298a8123613ee60cd7aab204d788b8425976e",
+    "count": 1,
+    "filenames": [
+      "Pocket Monsters - Pikachu (Japan) (Rev D) (SGB Enhanced).gb"
+    ]
+  },
+  {
+    "sha1": "cc7d03262ebfaf2f06772c1a480c7d9d5f4a38e1",
+    "count": 2,
+    "filenames": [
+      "Pokemon - Yellow Version (USA, Europe).gbc",
+      "Pokemon - Yellow Version - Special Pikachu Edition (USA, Europe) (GBC,SGB Enhanced).gb"
+    ]
+  }
+]
