@@ -1,0 +1,12 @@
+area,banks_16k,mib,purpose
+original_compatibility_core,128,2.0,Original Gold content and compatibility baseline
+engine_refactor_bugfix_compat,48,0.75,"16-bit IDs, far pointers, mapper, save/link migration, bug fixes"
+species_forms_data,64,1.0,species/forms/base stats/evolution/learnsets/dex/names
+pokemon_graphics,192,3.0,"front/back sprites, icons, palettes, form/gender assets"
+moves_animations_fx,96,1.5,"move tables, effects, animations, graphics"
+items_abilities_mechanics,64,1.0,"items, abilities, held effects, modern battle mechanics"
+text_ui_localization,64,1.0,"expanded text engines, UI, descriptions, multilingual support data"
+audio_cries_music_extension,64,1.0,cry synthesis data and sequence assets; not raw PCM
+maps_events_optional,64,1.0,new events/facilities/content while retaining Johto/Kanto core
+gen10_future_reserve,128,2.0,"unknown Gen X roster, forms, moves, abilities and future fixes"
+alignment_build_slack,112,1.75,"bank alignment, growth, emergency relocation space"
