@@ -1,0 +1,5 @@
+rom_id,baseline,total_differing_bytes,identical_banks,nonidentical_banks,very_close_banks_lt_100_diff,blank_tail_banks_2D_3F_identical
+de_rev0,en_rev0,269925,20,44,7,True
+es_rev0,en_rev0,278533,20,44,6,True
+fr_rev0,en_rev0,267165,20,44,7,True
+it_rev0,en_rev0,258417,20,44,7,True
