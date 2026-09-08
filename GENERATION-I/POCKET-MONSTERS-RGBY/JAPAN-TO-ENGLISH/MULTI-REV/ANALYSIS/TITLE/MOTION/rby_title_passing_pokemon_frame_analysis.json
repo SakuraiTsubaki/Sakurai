@@ -1,0 +1,52 @@
+{
+  "scope": "Japanese Pocket Monsters Red/Green/Blue title passing-Pokemon frame audit",
+  "base_rule": "Japanese ROMs are the project originals; English ROMs are implementation references only",
+  "rom_verified": {
+    "red_green_scroll_core": "0x48F3-0x491A",
+    "red_green_core_identical": ["Red Rev 0", "Red Rev A", "Green Rev 0", "Green Rev A"],
+    "red_green_candidate_table": "0x49C1",
+    "blue_candidate_table": "0x4592",
+    "blue_revised_timing_block": "0x37244-0x372AB",
+    "blue_timing_identical_to_supplied_english_red_blue": true
+  },
+  "red_green": {
+    "trainer_visible_origin_px": [40, 80],
+    "pokemon_anchor_px": [72, 80],
+    "wait_frames": 255,
+    "out_scx": [0,8,16,24,32,40,48,56,64,72,80,88,96,104,112,120,128,136,144,152],
+    "incoming_scx": [160,168,176,184,192,200,208,216,224,232,240,248],
+    "tilemap_transfer_frames": 3,
+    "front_sprite_vram_copy_frames": 7,
+    "minimum_synchronized_cycle_frames": 297,
+    "minimum_synchronized_cycle_seconds_at_59_7275hz": 4.973
+  },
+  "blue": {
+    "trainer_visible_origin_px": [82, 80],
+    "pokemon_anchor_px": [40, 80],
+    "wait_frames": 200,
+    "out_scx": [0,1,2,4,6,9,12,16,20,25,30,36,42,50,58,66,75,84],
+    "extra_input_check_frames": 1,
+    "incoming_scx": [136,146,156,165,174,183,192,200,208,216,224,230,236,242,247,252,255],
+    "starter_ball_animation_frames": 10,
+    "ball_visible_y_px": [97,95,94,93,92,93,94,95,97,100],
+    "tilemap_transfer_frames": 3,
+    "front_sprite_vram_copy_frames": 7,
+    "minimum_nonstarter_cycle_frames": 246,
+    "minimum_nonstarter_cycle_seconds_at_59_7275hz": 4.119,
+    "minimum_starter_cycle_frames": 256,
+    "minimum_starter_cycle_seconds_at_59_7275hz": 4.286
+  },
+  "sprite_loading": {
+    "fixed_buffer_tiles": "7x7",
+    "source_sizes_seen": ["5x5", "6x6", "7x7"],
+    "movement_is_species_independent": true,
+    "visible_timing_can_shift_by_about_one_frame_due_to_centered_artwork_footprint": true
+  },
+  "selection": {
+    "candidate_count": 16,
+    "index": "low nibble of RNG",
+    "immediate_repeat": "rejected and rerolled",
+    "probability_each_other_candidate_if_low_nibble_uniform": "1/15"
+  },
+  "timing_caveat": "CPU decompression and RNG execution time are not included in the fixed frame totals; emulator/cycle tracing is still required for exact wall-clock runtime."
+}
