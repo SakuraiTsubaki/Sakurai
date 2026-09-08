@@ -1,0 +1,47 @@
+{
+  "project": "RBY ENGLISH -> Pocket Monsters",
+  "prototype": "Japanese Red English title screen v0.1",
+  "source": {
+    "file": "Pocket Monsters - Aka (Japan) (SGB Enhanced).gb",
+    "sha256": "392ce450d708c8d127aaed7afc20001a48625bd83a5fa5325be82f5c0972ccfa",
+    "size": 524288
+  },
+  "technical_reference": {
+    "file": "Pokemon - Red Version (USA, Europe) (SGB Enhanced).gb",
+    "sha256": "5ca7ba01642a3b27b0cc0b5349b52792795b62d3ed977e98a09390659af96b7b"
+  },
+  "output": {
+    "file": "Pocket Monsters - Aka (Japan) - English Title Prototype.gb",
+    "sha256": "ab99ff626af1e8428fe6780b56be3980b3475214e1ef252eefc52f8607c6c32e",
+    "size": 524288
+  },
+  "patch": {
+    "file": "Pocket Monsters - Aka (Japan) - English Title Prototype.ips",
+    "sha256": "cbeeee43dba6ea44ee61ef156c9154bdcdc6a6c0913e0bab2f81fac88d97167e",
+    "size": 1812,
+    "format": "IPS"
+  },
+  "changes": [
+    {"offset": "0x00014E", "size": "0x2", "purpose": "recomputed Game Boy global checksum"},
+    {"offset": "0x010419", "size": "0x700", "purpose": "replace Japanese Pocket Monsters title logo tiles with English Pokemon title logo tiles"}
+  ],
+  "reference_offsets": {
+    "english_pokemon_logo": "0x011380",
+    "japanese_red_version_gfx": "0x068000",
+    "english_red_version_gfx": "0x06802F"
+  },
+  "findings": {
+    "red_version_gfx_identical_between_jp_and_en": true,
+    "title_logo_geometry": "16x7 2bpp tiles",
+    "logo_bytes": "0x700"
+  },
+  "validation": {
+    "ips_round_trip_matches_output_rom": true,
+    "rom_size_preserved": true,
+    "header_checksum_unchanged": "0x32",
+    "new_global_checksum": "0x5008",
+    "unexpected_modified_ranges": 0,
+    "boot_test_performed": false,
+    "boot_test_note": "No Game Boy emulator executable was available in the current runtime."
+  }
+}
