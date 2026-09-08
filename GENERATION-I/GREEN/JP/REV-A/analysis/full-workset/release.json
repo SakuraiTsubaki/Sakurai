@@ -1,7 +1,7 @@
 {
   "workset": "Pocket Monsters Green (Japan) Full Reproducible Workset",
   "release_date": "2026-09-08",
-  "release_layer": "byte-complete + exact-source provenance + RGBDS section/symbol indexing toolchain",
+  "release_layer": "byte-complete + exact-source provenance + RGBDS section/symbol indexing + source dependency inventory toolchain",
   "canonical_inputs": {
     "REV-0": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
     "REV-A": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b"
@@ -12,5 +12,5 @@
   "pinned_symbols_commit": "bcb11e981bfc46428b388a42be249bcf547b1c93",
   "raw_map_sym_embedded": false,
   "raw_map_sym_policy": "fetch/rebuild from immutable pins and verify byte size plus Git blob SHA-1",
-  "deterministic_zip_sha256": "678c712a8071257eaea36616d40ec30643b719af1d71aee038df3e6a50ab2572"
+  "deterministic_zip_sha256": "911c0ba10b0ae97d1bd7997cb0c32313c133601494e072406bc98998af4b9533"
 }
