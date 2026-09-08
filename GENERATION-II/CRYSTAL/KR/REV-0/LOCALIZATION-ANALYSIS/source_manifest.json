@@ -1,0 +1,74 @@
+{
+  "project": "GS Korean -> Crystal Korean",
+  "target": {
+    "generation": "GENERATION-II",
+    "game": "CRYSTAL",
+    "language_region": "KR",
+    "revision": "REV-0"
+  },
+  "policy": {
+    "rom_binaries_in_git": false,
+    "source_roms_read_only": true,
+    "offsets": "fresh-discovery-only",
+    "translation_source": "Japanese Crystal",
+    "korean_implementation_reference": [
+      "Korean Gold",
+      "Korean Silver"
+    ],
+    "official_names": "current-official-korean",
+    "translation_style": "new-natural-korean-preserving-original-game-tone"
+  },
+  "sources": [
+    {
+      "role": "korean-implementation-reference",
+      "game": "GOLD",
+      "language_region": "KR",
+      "revision": "REV-0",
+      "label": "Pocket Monsters Geum (Korea).gbc",
+      "size": 2097152,
+      "sha1": "c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65"
+    },
+    {
+      "role": "korean-implementation-reference",
+      "game": "SILVER",
+      "language_region": "KR",
+      "revision": "REV-0",
+      "label": "Pocket Monsters Eun (Korea).gbc",
+      "size": 2097152,
+      "sha1": "cb22d7e03a74dc3a563fde6be8626626b2b392e7"
+    },
+    {
+      "role": "content-and-translation-target",
+      "game": "CRYSTAL",
+      "language_region": "JP",
+      "revision": "REV-0",
+      "label": "Pocket Monsters - Crystal Version (Japan).gbc",
+      "size": 2097152,
+      "sha1": "95127b901bbce2407daf43cce9f45d4c27ef635d"
+    }
+  ],
+  "artifact_routing": {
+    "Sakurai": [
+      "analysis",
+      "research",
+      "comparison",
+      "validation",
+      "reports",
+      "manifests",
+      "scripts",
+      "tables"
+    ],
+    "Tsubaki": [
+      "sprites",
+      "graphics",
+      "palettes",
+      "fonts",
+      "icons",
+      "tiles",
+      "ui-resources",
+      "patches",
+      "conversion-resources",
+      "build-assets"
+    ]
+  }
+}
