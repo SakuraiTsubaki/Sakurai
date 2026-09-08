@@ -10,6 +10,16 @@ The full-byte baseline is Phase 0. Each later phase must preserve the same sourc
 - all-region pairwise bank/byte comparison
 - USA/Europe Rev0↔Rev1 exact changed-byte map
 - heuristic LR35902 JP/CALL candidate map
+- file-offset/bank/CPU-address maps
+- same-offset cross-version bank/page equivalence map
+- exhaustive 16-bit word target-class summary
+- exact temporary bank split→reassemble roundtrip for all seven ROMs
+
+## Phase 0.5 — source baseline bridge (English complete as a pinned reference)
+- pin `pret/pokecrystal` source reference and toolchain expectation
+- bind USA/Europe Rev0 and Rev1 to exact upstream build SHA-1 identities
+- retain independent local ROM identities as the acceptance oracle
+- do not import raw ROM binaries into the source repository
 
 ## Phase 1 — executable structure
 - reset/interrupt vectors and entry flow
