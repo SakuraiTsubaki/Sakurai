@@ -1,0 +1,15 @@
+{
+  "schema_version": 3,
+  "purpose": "ROM-free reproducible whole-ROM analysis/work-unit pipeline",
+  "bank_size": 16384,
+  "roms": [
+    {"code":"JP","filename_reference":"Pocket Monsters - Ao (Japan) (SGB Enhanced).gb","size":524288,"sha256":"71a70e5f77c109177d21c998310ffe01a68e8cd2f41e72e7129093b890c7d3d1","banks":32},
+    {"code":"EN","filename_reference":"Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb","size":1048576,"sha256":"2a951313c2640e8c2cb21f25d1db019ae6245d9c7121f754fa61afd7bee6452d","banks":64},
+    {"code":"DE","filename_reference":"Pokemon - Blaue Edition (Germany) (SGB Enhanced).gb","size":1048576,"sha256":"2cfec2223090dc9f544aa36c99c48801be5018757a1366b88d8f40739541458e","banks":64},
+    {"code":"FR","filename_reference":"Pokemon - Version Bleue (France) (SGB Enhanced).gb","size":1048576,"sha256":"73dee67befed0c39cd0a6ed53a98ff5b98b3bddc3e7a0dae1d982776a4d0889b","banks":64},
+    {"code":"IT","filename_reference":"Pokemon - Versione Blu (Italy) (SGB Enhanced).gb","size":1048576,"sha256":"e197c7535135a516fe9bf92cf7821c9f72926bf90fce3a2a5742d1b0b6a0564b","banks":64},
+    {"code":"ES","filename_reference":"Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb","size":1048576,"sha256":"31317f74fed2935dfc5fbb6ada766cf8515949c85c6c6e8d32d0f752b85b8f9e","banks":64}
+  ],
+  "reports": ["pointer_table_candidates.csv","semantic_work_coverage.csv","structural_xref_summary.csv","text_candidate_summary.csv","text_candidate_top20_per_bank.csv","tile_unit_statistics.csv","work_unit_registry.csv"],
+  "policy": {"source_roms":"local read-only","committed_raw_rom_bytes":false,"candidate_scans":"heuristic unless explicitly marked EXACT/HIGH/MEDIUM","semantic_completion_gate":"extract/reinsert must reproduce original SHA-256 exactly"}
+}
