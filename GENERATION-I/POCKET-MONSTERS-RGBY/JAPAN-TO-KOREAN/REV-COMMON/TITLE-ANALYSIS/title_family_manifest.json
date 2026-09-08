@@ -1,0 +1,16 @@
+{
+  "family": "Generation I Japanese -> Korean title family",
+  "titles": {
+    "red": "포켓몬스터 레드",
+    "green": "포켓몬스터 그린",
+    "blue": "포켓몬스터 블루",
+    "pikachu": "포켓몬스터 피카츄"
+  },
+  "approved_treatment": "B",
+  "common_logo_source": "official GS Korean Gold/Silver title artwork",
+  "version_name_source": "GS Korean Hangul glyphs",
+  "common_logo_integrity": "preserve including 터",
+  "ai_image_generation": false,
+  "rom_binary_included": false,
+  "runtime_validation": "pending per target ROM"
+}
