@@ -1,0 +1,21 @@
+{
+  "schema": "silver-work-corpus-v1",
+  "generated_file_count": 133,
+  "generated_payload_bytes": 20044814,
+  "rom_bytes_included": false,
+  "targets": [
+    {"label":"JP-REV0","sha256":"0a532063a3ff5750a464582aa7bbee2b6d42e1a92a136d9f4590e373487b615c","size":1048576},
+    {"label":"JP-REVA","sha256":"99e5267fbf5a7748d4f3b75ba1990cb5d91348339468607a04bfbc6081c62d71","size":1048576},
+    {"label":"EN","sha256":"72b190859a59623cbef6c49d601f8de52c1d2331b4f08a8d2acc17274fc19a8c","size":2097152},
+    {"label":"DE","sha256":"c3d1fd0dec1d5fa9aa7f85275e79c52aa9175d191c63cbed7b406c306d946348","size":2097152},
+    {"label":"FR","sha256":"e120c4ddb0dc3e25b95c9c71b3ffd59ff57ce689cf4d79d04913ba59140c18c2","size":2097152},
+    {"label":"IT","sha256":"04c442246d1ae0ed6bf5e072bb7e3d06376e584b953d6b14047b39e45fbb0cb4","size":2097152},
+    {"label":"ES","sha256":"6797010c052e8f9373ea2b9e855ec078b34fda12e5ccf742eb19bb5e8f6947c2","size":2097152},
+    {"label":"KR","sha256":"ebbac63c0c4309c82dbb6723e7163369784f962b4fd3e2f486075307c3008a22","size":2097152}
+  ],
+  "reference_sources": {
+    "layout":{"repository":"pret/pokegold","commit":"656583c939d30f920a316177311a502dd222b57c","path":"layout.link","url":"https://github.com/pret/pokegold/blob/656583c939d30f920a316177311a502dd222b57c/layout.link"},
+    "charmap":{"repository":"pret/pokegold","commit":"656583c939d30f920a316177311a502dd222b57c","path":"constants/charmap.asm","url":"https://github.com/pret/pokegold/blob/656583c939d30f920a316177311a502dd222b57c/constants/charmap.asm"},
+    "korean_charmap":{"repository":"SakuraiTsubaki/pokegold-kr","branch":"master","path":"constants/charmap.asm","note":"Korean characters use 2-byte codepoints: first byte 0x01-0x0B selects table, second byte indexes it."}
+  }
+}
