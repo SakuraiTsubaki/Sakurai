@@ -1,0 +1,41 @@
+{
+  "project_rule": "Japanese ROMs are the source/work ROMs; English RBY are implementation references.",
+  "rgb": {
+    "shared_flow": ["copyright", "Game Freak shooting-star animation", "PRESENTS in Japanese builds", "letterboxed battle intro", "fade to white", "title"],
+    "red_green_front_fighter": "Nidorino",
+    "blue_front_fighter": "Jigglypuff",
+    "back_fighter": "Gengar",
+    "front_fighter_rendering": "6x6 / 36 OAM objects, three graphics frames",
+    "movement": "2-pixel increments plus scripted 5-frame pose steps",
+    "interruptible": true
+  },
+  "pikachu": {
+    "shared_prefix": ["copyright", "Game Freak shooting-star animation", "PRESENTS"],
+    "replaces_rgb_battle_intro": true,
+    "scene_pairs": [
+      {"scene": 0, "action": "running Pikachu 1", "wait_scene": 1, "timer_frames": 130},
+      {"scene": 2, "action": "Pikachu kick", "wait_scene": 3, "timer_frames": 128},
+      {"scene": 4, "action": "running Pikachu 2", "wait_scene": 5, "timer_frames": 128},
+      {"scene": 6, "action": "surfing Pikachu", "wait_scene": 7, "timer_frames": 88},
+      {"scene": 8, "action": "running Pikachu 3", "wait_scene": 9, "timer_frames": 128},
+      {"scene": 10, "action": "flying Pikachu", "wait_scene": 11, "timer_frames": 128},
+      {"scene": 12, "action": "Pikachu close-up", "wait_scene": 13, "timer_frames": 128},
+      {"scene": 14, "action": "Pikachu Thunderbolt / palette sequence", "wait_scene": 15, "timer_after_flash_frames": 40},
+      {"scene": 16, "action": "fade to white", "wait_scene": 17, "final_wait_frames": 64}
+    ],
+    "music": "MUSIC_YELLOW_INTRO",
+    "skip_buttons": ["A", "B", "START"],
+    "japanese_cgb_flag": "0x00",
+    "japanese_sgb_flag": "0x03",
+    "english_yellow_cgb_flag": "0x80",
+    "english_yellow_sgb_flag": "0x03",
+    "english_yellow_extra": "native CGB palette/attribute handling added in intro scenes"
+  },
+  "localization_implications": [
+    "Keep Japanese Red/Green Nidorino intro and Japanese Blue Jigglypuff intro independently.",
+    "Do not normalize all RGB openings to one English version.",
+    "Keep Japanese Pikachu montage and timing as the base opening.",
+    "Audit PRESENTS and any language-dependent splash assets separately.",
+    "Treat English Yellow CGB color support as a technical porting decision separate from text translation."
+  ]
+}
