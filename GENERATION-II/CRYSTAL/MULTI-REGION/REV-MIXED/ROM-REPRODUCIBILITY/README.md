@@ -16,6 +16,12 @@ The verifier recomputes every bank and every page SHA-256 and checks that their 
 - `tools/crystal_rom_audit.py` — header decode, ROM identity, bank/page manifests, entropy/fill maps, pairwise comparisons, Rev0↔Rev1 byte-change map.
 - `tools/scan_candidates.py` — exhaustive byte-pattern scan for LR35902 immediate JP/CALL candidates. These are **candidates**, not proven code boundaries.
 - `tools/verify_outputs.py` — re-hashes every bank/page and verifies total byte coverage.
+- `tools/lossless_roundtrip.py` — temporary 16 KiB bank split→concatenate roundtrip; proves byte-identical reconstruction without bundling the split binaries.
+- `tools/address_map.py` — deterministic file-offset ↔ bank ↔ CPU-address maps.
+- `tools/cross_version_equivalence.py` — same-offset bank/page equality groups across all seven targets.
+- `tools/pointer_sweep_summary.py` — exhaustive adjacent 16-bit word target-class summaries (heuristic evidence, not pointer proof).
+- `tools/run_full_pipeline.py` — orchestration entry point for the complete forensic pipeline.
+- `tools/verify_pokecrystal_bridge.py` — verifies source builds from a pinned `pret/pokecrystal` checkout against the two exact English target hashes.
 - `rom_catalog.template.json` — expected filenames, SHA-256 identities and repository output paths.
 
 Python 3.10+ is sufficient; only the standard library is used.
@@ -27,9 +33,7 @@ Python 3.10+ is sufficient; only the standard library is used.
 3. Run:
 
 ```bash
-python tools/crystal_rom_audit.py --catalog rom_catalog.template.json --output output
-python tools/scan_candidates.py --catalog rom_catalog.template.json --output output
-python tools/verify_outputs.py --catalog rom_catalog.template.json --output output
+python tools/run_full_pipeline.py --catalog rom_catalog.template.json --output output
 ```
 
 The audit aborts if any configured source SHA-256 does not match.
@@ -54,8 +58,35 @@ Cross-region comparison material uses:
 - ES/DE/FR/IT Rev 0 each have bank `7A` completely zero-filled.
 - USA/Europe Rev 0 ↔ Rev 1 differs in 584 byte positions across banks `00 10 11 3E 47 5C 7E 7F`; 120 of 128 banks are byte-identical.
 
-## Important boundary
+## Reproducibility level reached
 
-This is the **full-byte forensic/reproducibility baseline**, not yet a semantically complete source-code disassembly. Page classifications and JP/CALL scans are heuristic. The next reconstruction layers should convert identified regions into symbolic code/data while retaining lossless rebuild tests.
+All seven supplied targets have now passed **L2 lossless structural roundtrip**: each ROM was split into 128 consecutive 16 KiB banks in temporary scratch space, concatenated in order, and reproduced byte-identically with the same SHA-256. The temporary bank binaries and rebuilt ROMs are not bundled.
+
+The two USA/Europe English targets are additionally linked to the pinned public `pret/pokecrystal` source baseline by exact SHA-1 identity; see `SOURCE_BRIDGE.md` and `source_bridge.json`.
+
+This is still not a semantically complete regional source reconstruction. Page classifications, JP/CALL scans and 16-bit word sweeps are heuristic evidence. The next reconstruction layers must convert every region into symbolic code/typed data/assets while retaining exact rebuild tests.
 
 No `.gbc` file or raw bank dump belongs in GitHub.
+
+## Bank/page semantic ownership seeds
+
+The workpack now also creates `bank_ownership_seed.csv` and `page_ownership_seed.csv` for every target. These do **not** pretend that regional reconstruction is finished. They distinguish:
+
+- exact English targets whose bank roles come from the pinned source layout;
+- regional chunks that are byte-identical at the same offset to an English target, which can inherit that role with high confidence;
+- differing regional chunks, which remain tentative until a typed decoder/symbol alignment proves their contents.
+
+This means all 2 MiB of every target has a reproducible analysis status while still keeping “known” separate from “inferred”.
+
+## External source/symbol bridge
+
+See:
+
+- `SOURCE_BRIDGE.md`
+- `UPSTREAM_SYMBOLS.md`
+- `source_bridge.json`
+- `upstream_bank_roles.csv`
+- `tools/bootstrap_pokecrystal.sh`
+- `tools/verify_pokecrystal_bridge.py`
+
+The workpack pins the external source reference instead of copying an entire third-party source tree into this package.
