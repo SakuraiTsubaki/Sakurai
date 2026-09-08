@@ -1,0 +1,17 @@
+{
+  "repository": "https://github.com/Narishma-gb/pokegreen",
+  "commit": "953f41b34108621b2bf13c3b1e53abfc9c3e5aec",
+  "commit_date": "2026-08-16T12:52:41Z",
+  "rgbds_version": "1.0.3",
+  "expected_outputs": {
+    "pokegreen.gb": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+    "pokegreen11.gb": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b"
+  },
+  "key_blob_shas": {
+    ".rgbds-version": "21e8796a09d4f26935ffc4879147879a153f0193",
+    "Makefile": "1238390e9e9458b5d7f565aacd28ed7cb71b6d2c",
+    "layout.link": "da0b3fd6c7266f279c043c47b75f4be7e81e6fa6",
+    "roms.sha1": "b5dde194fb1b1cfdfbad0c9a0295efc30baf54f7",
+    "includes.asm": "f8fae81dd9637bd0685bea7b7b9a30c9c9247d49"
+  }
+}
