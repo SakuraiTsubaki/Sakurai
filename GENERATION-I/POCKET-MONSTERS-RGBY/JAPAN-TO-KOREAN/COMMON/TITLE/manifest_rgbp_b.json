@@ -1,0 +1,29 @@
+{
+  "family": "Generation I JP -> Korean title design",
+  "treatment": "B: exterior-only black outline + top/left highlight recolor",
+  "common_logo": "Exact common title pixels from official Korean Gold/Silver; x<=128 preserved",
+  "version_names": {
+    "Red": "레드",
+    "Green": "그린",
+    "Blue": "블루",
+    "Pikachu": "피카츄"
+  },
+  "glyph_codes": {
+    "레": {"table": 3, "index": "0xE9"},
+    "드": {"table": 3, "index": "0x45"},
+    "그": {"table": 1, "index": "0xA7"},
+    "린": {"table": 4, "index": "0x40"},
+    "블": {"table": 5, "index": "0x4D"},
+    "루": {"table": 4, "index": "0x17"},
+    "피": {"table": 10, "index": "0x67"},
+    "카": {"table": 9, "index": "0x0B"},
+    "츄": {"table": 8, "index": "0xF2"}
+  },
+  "pikachu_note": "Three syllables use a smaller native-width-like layout so all three fit entirely in the GS Korean version-name zone without touching 터.",
+  "source_rom_hashes": {
+    "Pocket Monsters Geum (Korea).gbc": "9c273e86e6120c6a038160ccb0153b8b20425b84fc08a496281c1d1bcac492f6",
+    "Pocket Monsters Eun (Korea).gbc": "ebbac63c0c4309c82dbb6723e7163369784f962b4fd3e2f486075307c3008a22"
+  },
+  "external_crosscheck": "Narishma-gb/pokegold-kr Korean charmap tables; glyph pixels are extracted from the uploaded Korean ROMs, not copied from the repository.",
+  "status": "visual family review; per-ROM insertion and title-animation validation pending"
+}
