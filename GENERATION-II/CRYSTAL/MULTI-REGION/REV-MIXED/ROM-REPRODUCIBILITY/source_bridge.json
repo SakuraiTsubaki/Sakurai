@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "upstream": {
+    "repository": "pret/pokecrystal",
+    "branch_observed": "master",
+    "pinned_commit": "7a7881d0d62e0ddbd82dcf10e7116807487ac651",
+    "observed_commit_date": "2026-08-13T21:31:52Z",
+    "recommended_rgbds": "1.0.3"
+  },
+  "exact_source_build_targets": [
+    {
+      "workpack_label": "USA-EUROPE_REV0",
+      "upstream_output": "pokecrystal.gbc",
+      "build_command": "make",
+      "expected_sha1": "f4cd194bdee0d04ca4eac29e09b8e4e9d818c133",
+      "local_rom_sha1": "f4cd194bdee0d04ca4eac29e09b8e4e9d818c133",
+      "identity_match": true
+    },
+    {
+      "workpack_label": "USA-EUROPE_REV1",
+      "upstream_output": "pokecrystal11.gbc",
+      "build_command": "make crystal11",
+      "expected_sha1": "f2f52230b536214ef7c9924f483392993e226cfb",
+      "local_rom_sha1": "f2f52230b536214ef7c9924f483392993e226cfb",
+      "identity_match": true
+    }
+  ],
+  "regional_targets_without_upstream_exact_build_in_this_bridge": ["JP_REV0", "DE_REV0", "ES_REV0", "FR_REV0", "IT_REV0"],
+  "policy": "Do not copy ROM binaries into the repository. Use the pinned source tree as a semantic reference/source baseline for the exact English targets and build regional reconstruction layers from the user's verified originals."
+}
