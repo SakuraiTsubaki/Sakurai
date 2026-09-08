@@ -1,0 +1,47 @@
+[
+  {
+    "path": "README.md",
+    "size": 1074,
+    "sha256": "38f040e3470d28882229b40456a1fdedfe33c16dfc0cfd8830a99077bdca0574"
+  },
+  {
+    "path": "SOURCE-PHASE1.md",
+    "size": 271,
+    "sha256": "60935c338bab375abdbcb4884f5cc736091f5fb1aff43f27b43cb35783db0fcf"
+  },
+  {
+    "path": "basic_block_family_members.csv",
+    "size": 13236,
+    "sha256": "081573f6de267fd4d8379c49eb7dd6a82b1d70d0b58d01edf706f9efac0bf181"
+  },
+  {
+    "path": "basic_block_family_signatures.csv",
+    "size": 8131,
+    "sha256": "d875fc542d9669033102ba2bc19f84fa4550fbafaea77a8f411dcde08582ba9f"
+  },
+  {
+    "path": "kr_to_usa_alignment.csv",
+    "size": 3040,
+    "sha256": "e50fc8ad378a6aec4241034e13a667ba3b564b68f1be9e5f0720df10e8c84f1d"
+  },
+  {
+    "path": "semantic_anchor_matrix.csv",
+    "size": 1151,
+    "sha256": "be6b74ed3e19d4246a70e552ee5b1108e8620acd2851da7b401d84b4ef4f7842"
+  },
+  {
+    "path": "tools/build_fixed_bank_alignment.py",
+    "size": 8409,
+    "sha256": "ffc85c4dcf00822a5bccc130abab98cb1c175a0adfd4431512d7fc3a4e8b0ed6"
+  },
+  {
+    "path": "tools/build_phase2_corpus.py",
+    "size": 1909,
+    "sha256": "8266088b6a81aa7e609e3d24915699ab10bd838db64c3748f7a91c8f46445194"
+  },
+  {
+    "path": "tools/verify_phase2_corpus.py",
+    "size": 1349,
+    "sha256": "adb82cf9f4ec2ed34371daf749eeafc0d9fee9e2f921e923af692245f165f89f"
+  }
+]
