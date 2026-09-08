@@ -1,49 +1,10 @@
 {
-  "project": "RBY ENGLISH → Pocket Monsters",
-  "phase": "Title screen prototype - Green",
-  "result": "Pokémon logo transplanted; original Japanese Green Version graphics preserved",
-  "english_implementation_reference": "Pokemon - Red Version (USA, Europe) (SGB Enhanced).gb",
-  "english_logo_sha1": "f024baaff85e91e005ac745d78f5a2e3f44e2020",
-  "roms": [
-    {
-      "revision": "Rev 0",
-      "source_file": "Pocket Monsters - Midori (Japan) (SGB Enhanced).gb",
-      "source_size": 524288,
-      "source_sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
-      "source_sha256": "6576b4e0979e93d4a6fa02db893c294b7aeab3b841b1acc8658bc10b3554f33c",
-      "output_file": "Pocket Monsters - Midori (Japan) - Rev 0 - English Title Prototype.gb",
-      "output_sha1": "bb7258c03a66e73665b5b55d22682ceed308a0c1",
-      "output_sha256": "7862c4d0d8a5f273b38ea98b46f7bc17497ab3eb1e11b1d10a26549cda067565",
-      "ips_file": "Pocket Monsters - Midori (Japan) - Rev 0 - English Title Prototype.ips",
-      "ips_sha256": "cdcf70b7986114e1ac211b4c0e741445223ca3051bf70eb5fc8383334e002ed4",
-      "logo_offset": "0x010419",
-      "logo_length": "0x700",
-      "version_text_selector_offset": "0x0049DA",
-      "version_text_selector_bytes": "62 63 64 7F 65 66 67 68 69 50",
-      "version_gfx_offset": "0x068000",
-      "version_gfx_length": "0x50",
-      "header_checksum": "0x9C",
-      "global_checksum": "0x4261"
-    },
-    {
-      "revision": "Rev A",
-      "source_file": "Pocket Monsters - Midori (Japan) (Rev A) (SGB Enhanced).gb",
-      "source_size": 524288,
-      "source_sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
-      "source_sha256": "3f0dc460ca8d06be1c9ac96307c939c0ea7baa366b40c2f1f4ad63242b6c4816",
-      "output_file": "Pocket Monsters - Midori (Japan) - Rev A - English Title Prototype.gb",
-      "output_sha1": "13a8487ac491175eae5745b1f8b12202d83f2216",
-      "output_sha256": "bb1d0bdc344977095df5efe2d8da32e24dcf06cc70fedbd04b7e76b21d85912d",
-      "ips_file": "Pocket Monsters - Midori (Japan) - Rev A - English Title Prototype.ips",
-      "ips_sha256": "0becd16cf8cb7d5f1772970051e9cc7df37c1ac3b0ea289ec8ee60051ad73fd7",
-      "logo_offset": "0x010419",
-      "logo_length": "0x700",
-      "version_text_selector_offset": "0x0049DA",
-      "version_text_selector_bytes": "62 63 64 7F 65 66 67 68 69 50",
-      "version_gfx_offset": "0x068000",
-      "version_gfx_length": "0x50",
-      "header_checksum": "0x9B",
-      "global_checksum": "0x59D3"
-    }
+  "status": "INVALID",
+  "do_not_use": true,
+  "reason": "The prototype inherited the incorrect English-logo source offset assumption from the early Red work.",
+  "verified_english_logo_file_offset": "0x011380",
+  "replacements": [
+    "green_rev0_english_title_corrected_v0.2.ips",
+    "green_reva_english_title_corrected_v0.2.ips"
   ]
 }
