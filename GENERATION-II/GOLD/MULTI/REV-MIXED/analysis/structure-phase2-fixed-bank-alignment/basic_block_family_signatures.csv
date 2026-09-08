@@ -1,0 +1,40 @@
+family,normalized_sha256_16,instruction_count,normalized_sequence,version_count,versions
+F001,abcc92451ea5a6aa,1,jp $IMM,8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F002,eba6c38223ebfd9f,8,rst $IMM | nop | nop | nop | nop | nop | nop | nop,7,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A USA-EUROPE-REV-0
+F003,26924099ca7b53f8,1,reti,8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F004,3fda10ba50840f62,2,call $IMM | jr $IMM,8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F005,85526a7c3917acdd,5,"dec c | jr nz,$IMM | dec b | jr nz,$IMM | ret",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F006,a7c672f478632da6,2,di | jp $IMM,8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F007,2cff65c6e05f78cb,6,"halt | nop | ld a,[$IMM] | and a | jr nz,$IMM | ret",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F008,8f444df1a13fc64d,3,inc b | inc c | jr $IMM,8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F009,0cdf1a213c7fe587,1,jp hl,8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F010,8f87ebe36f353793,19,"ld [$IMM],a | ldh a,[$IMM+$IMM] | push af | ld a,$IMM | rst $IMM | call $IMM | rst $IMM | ld hl,$IMM | push hl | ld a,[$IMM] | ld h,a | ld a,[$IMM] | ld l,a | push hl | ld a,[$IMM] | ld h,a | ld a,[$IMM] | ld l,a | ret",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F011,dbde3e28b5cfd818,18,"ld [$IMM],a | ldh a,[$IMM+$IMM] | push af | ld a,[$IMM] | rst $IMM | call $IMM | ld a,b | ld [$IMM],a | ld a,c | ld [$IMM],a | pop bc | ld a,b | rst $IMM | ld a,[$IMM] | ld b,a | ld a,[$IMM] | ld c,a | ret",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F012,7508ff1f5b135c2b,1,"ld [hli],a",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F013,5c1cbdcf3eef55f4,4,"ld [hli],a | dec b | jr nz,$IMM | ret",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F014,8aa712c11afa0c57,2,"ld a,$IMM | ld [$IMM],a",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F015,2627fd5c39b8a371,4,"ld a,$IMM | ldh [$IMM+$IMM],a | ld a,$IMM | ldh [$IMM+$IMM],a",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F016,7428e01a4f925dad,3,"ld hl,$IMM | ld b,$IMM | xor a",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F017,619ad42e9bac4bef,5,"ld hl,$IMM | ld bc,$IMM | xor a | call $IMM | ret",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F018,54388550b43e1e0e,20,"ldh [$IMM+$IMM],a | di | xor a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ld [$IMM],a | ld a,$IMM | ldh [$IMM+$IMM],a",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F019,68bc5c31be3751c8,3,"ldh [$IMM+$IMM],a | ld [$IMM],a | ret",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F020,ff85facc36dcd70b,8,"ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | cp $IMM | jr z,$IMM | xor a | ldh [$IMM+$IMM],a | ld a,$IMM | ldh [$IMM+$IMM],a",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F021,a15f4eeecefeb388,8,"ldh a,[$IMM+$IMM] | bit 7,a | jr nz,$IMM | ld a,$IMM | ldh [$IMM+$IMM],a | ld a,$IMM | ldh [$IMM+$IMM],a | jr $IMM",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F022,d9b9f43413a25506,7,"ldh a,[$IMM+$IMM] | cp $IMM | jr nz,$IMM | xor a | ldh [$IMM+$IMM],a | ld hl,$IMM | ld bc,$IMM",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F023,c0ff93e9da656982,5,"ldh a,[$IMM+$IMM] | cp $IMM | jr z,$IMM | cp $IMM | jr nz,$IMM",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F024,75ec0fe74e885d71,8,"ldh a,[$IMM+$IMM] | push af | ld a,$IMM | rst $IMM | call $IMM | pop af | rst $IMM | ret",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F025,3a06a7aaa463e3b9,2,nop | jp $IMM,8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F026,decdb520ac4ef7e5,2,pop af | reti,8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F027,2921ad3558d644ce,5,pop hl | pop de | pop bc | pop af | reti,8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F028,4763cf83fa51bfb6,22,"push af | push bc | push de | push hl | ld a,[$IMM] | bit 0,a | jr nz,$IMM | ldh a,[$IMM+$IMM] | inc a | jr z,$IMM | ldh a,[$IMM+$IMM] | ldh [$IMM+$IMM],a | ldh a,[$IMM+$IMM] | ldh [$IMM+$IMM],a | ldh a,[$IMM+$IMM] | cp $IMM | jr z,$IMM | ld a,$IMM | ldh [$IMM+$IMM],a | ld a,$IMM | ldh [$IMM+$IMM],a | jr $IMM",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F029,747d3bc767418ac7,17,"push af | push bc | push de | push hl | ldh a,[$IMM+$IMM] | and $IMM | ld e,a | ld d,$IMM | ld hl,$IMM | add hl,de | add hl,de | ld a,[hli] | ld h,[hl] | ld l,a | ld de,$IMM | push de | jp hl",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F030,b9e8e261cb141caa,10,"push de | ld e,a | ld d,$IMM | add hl,de | add hl,de | ld a,[hli] | ld h,[hl] | ld l,a | pop de | jp hl",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F031,681f291cd60c7b4b,18,"push hl | push de | push bc | push af | ldh a,[$IMM+$IMM] | push af | ld a,$IMM | ldh [$IMM+$IMM],a | ld [$IMM],a | call $IMM | pop af | ldh [$IMM+$IMM],a | ld [$IMM],a | pop af | pop bc | pop de | pop hl | ret",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F032,292e9c0eb2ef1cef,2,"xor a | ldh [$IMM+$IMM],a",8,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A KR-REV-0 USA-EUROPE-REV-0
+F033,15c91e8ee746c06c,4,"cp $IMM | jr z,$IMM | xor a | jr $IMM",7,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A USA-EUROPE-REV-0
+F034,c9d7660875b1c28b,66,"ld [hl],$IMM | inc hl | dec bc | ld a,b | or c | jr nz,$IMM | ld sp,$IMM | call $IMM | ldh a,[$IMM+$IMM] | push af | xor a | ld hl,$IMM | ld bc,$IMM | call $IMM | pop af | ldh [$IMM+$IMM],a | call $IMM | ld a,$IMM | rst $IMM | call $IMM | xor a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ld a,$IMM | ldh [$IMM+$IMM],a | ld a,$IMM | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ld a,$IMM | ldh [$IMM+$IMM],a | ldh [$IMM+$IMM],a | ld a,$IMM | ldh [$IMM+$IMM],a | ld h,$IMM | call $IMM | ld h,$IMM | call $IMM | ld hl,$IMM | ld a,$IMM | rst $IMM | ld a,$IMM | ldh [$IMM+$IMM],a | xor a | ldh [$IMM+$IMM],a | ld a,$IMM | ld hl,$IMM | rst $IMM | ld a,$IMM | ld [$IMM],a | ld a,$IMM | ld [$IMM],a | ld [$IMM],a | ld a,$IMM | ldh [$IMM+$IMM],a | ld a,$IMM | ldh [$IMM+$IMM],a | ei | call $IMM | ld a,$IMM | call $IMM | call $IMM | xor a | ld [$IMM],a | jp $IMM",7,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A USA-EUROPE-REV-0
+F035,8c40d0c39eeaa75d,6,"ld [hli],a | dec e | jr nz,$IMM | dec d | jr nz,$IMM | ret",7,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A USA-EUROPE-REV-0
+F036,cc157470b948fe9d,1,"ld a,$IMM",7,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A USA-EUROPE-REV-0
+F037,6d0b6daa08f0f5df,2,"ld a,$IMM | jr $IMM",7,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A USA-EUROPE-REV-0
+F038,3a437eefd3cbea59,2,"ld de,$IMM | ld l,e",7,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A USA-EUROPE-REV-0
+F039,1d69f2cbc72d2ff5,15,"push af | ldh a,[$IMM+$IMM] | and a | jr z,$IMM | push hl | ldh a,[$IMM+$IMM] | ld l,a | ld h,$IMM | ld h,[hl] | ldh a,[$IMM+$IMM] | ld l,a | ld a,h | ld h,$IMM | ld [hl],a | pop hl",7,DE-REV-0 ES-REV-0 FR-REV-0 IT-REV-0 JP-REV-0 JP-REV-A USA-EUROPE-REV-0
