@@ -1,0 +1,12 @@
+domain,gen4_baseline,current_reference,recommended_cap,storage,reason
+Species ID,493,1025,2048,u16,Covers Gen X and substantial later growth; remove 10-bit trainer packing
+Form/Variant records,special-case,1579,4096,u16 FormRecordID,"Separate species, cosmetic form, battle transformation"
+Moves,471,934,2048,u16,Current core-series count is already about 2x Gen IV
+Abilities,123,313,1024,u16,Gen IV battle structs use u8; mandatory widening
+Items,514,>1000,4096,u16,Bag/category tables must become data-driven
+Types,17,18+Stellar mechanics,32,u8,Type chart and UI must be table-driven
+Machines/TM compatibility,104,modern >100,512,bitset 512,Replace fixed 104-bit Gen IV compatibility field
+Evolution methods,fixed Gen IV set,many later conditions,256,u16 method + params,Method dispatcher + parameterized conditions
+Volatile battle states,u32-heavy,later mechanics add many,128 flags,bitset/registry,Avoid exhausting status2/moveEffectFlags
+Ribbons/Marks,fixed bitfields,many later ribbons/marks,512 bits,extensible bitset,Save migration required
+PC storage,18 boxes × 30,1025+ species ecosystem,64 boxes × 30,paged,Optional extended save profile
