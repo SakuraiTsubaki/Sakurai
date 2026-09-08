@@ -1,0 +1,6 @@
+{
+  "phase0": "base analysis files outside structure-phase* and full-rom-reproducibility",
+  "phase1": "structure-phase1",
+  "phase2": "structure-phase2-fixed-bank-alignment",
+  "phase3": "full-rom-reproducibility"
+}
