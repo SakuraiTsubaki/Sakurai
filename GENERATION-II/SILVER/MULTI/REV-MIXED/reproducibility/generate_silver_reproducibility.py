@@ -53,7 +53,7 @@ def global_checksum(data: bytes) -> int:
 
 
 def parse_header(data: bytes) -> dict:
-    title_raw = data[0x134:0x144]
+    title_raw = data[0x134:0x143]
     title = ''.join(chr(x) if 32 <= x < 127 else f'\\x{x:02X}' for x in title_raw).rstrip('\\x00')
     return {
         "entry_point_hex": data[0x100:0x104].hex(),
