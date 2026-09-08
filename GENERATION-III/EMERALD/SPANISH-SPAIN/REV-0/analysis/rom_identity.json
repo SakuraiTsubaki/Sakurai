@@ -1,0 +1,4 @@
+{
+  "file": {"tag":"ES-ES","filename":"Pokemon - Edicion Esmeralda (Spain).gba","size":16777216,"md5":"67b770405f7b87589e0342513b25fe9b","sha1":"fe1558a3dcb0360ab558969e09b690888b846dd9","sha256":"e32c82bd10f174cf4019123b36f3ef7729105fb6634d9aa6b61413ee5101a55e","crc32":"8c4d3108","unique_image":true,"canonical_duplicate_of":""},
+  "header": {"tag":"ES-ES","title":"POKEMON EMER","game_code":"BPES","maker_code":"01","fixed_value":150,"software_version":0,"header_checksum_stored":100,"header_checksum_calculated":100,"header_checksum_valid":true,"entry_branch_word_le":"0xEA00007F"}
+}
