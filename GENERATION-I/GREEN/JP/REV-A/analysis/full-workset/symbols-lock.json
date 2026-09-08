@@ -1,0 +1,11 @@
+{
+  "repository": "Narishma-gb/pokegreen",
+  "branch": "symbols",
+  "branch_commit": "bcb11e981bfc46428b388a42be249bcf547b1c93",
+  "files": {
+    "pokegreen.map": {"git_blob_sha1": "8dae4f50c0df81e3815054372388d2c96633f2a8", "size": 778922},
+    "pokegreen.sym": {"git_blob_sha1": "3ee28df23617fdaa2697bc13244909d54afbcf68", "size": 615574},
+    "pokegreen11.map": {"git_blob_sha1": "3d420a01f00fc113775dab606e9dec313d0b9b9b", "size": 778457},
+    "pokegreen11.sym": {"git_blob_sha1": "4168ec7be791c287a0e59a380c043b69b63597ec", "size": 615222}
+  }
+}
