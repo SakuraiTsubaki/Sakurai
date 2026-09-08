@@ -1,0 +1,69 @@
+{
+  "project": "RBY ENGLISH → ポケットモンスター",
+  "status": "CORRECTED v0.2",
+  "v0.1_status": "INVALID - do not use",
+  "v0.1_error": "English ROM file offset 0x10419 was incorrectly assumed to match the Japanese ROM layout.",
+  "verified_english_logo_rom_address": "04:5380",
+  "verified_english_logo_file_offset": "0x011380",
+  "japanese_target_logo_file_offset": "0x010419",
+  "logo_length": "0x700",
+  "english_logo_sha1": "146e44272f4dd6d24f727320de32814954179bd8",
+  "results": [
+    {
+      "label": "Red Rev 0",
+      "source_file": "Pocket Monsters - Aka (Japan) (SGB Enhanced).gb",
+      "source_sha256": "392ce450d708c8d127aaed7afc20001a48625bd83a5fa5325be82f5c0972ccfa",
+      "output_file": "Pocket Monsters - Aka (Japan) - English Title Corrected v0.2.gb",
+      "output_sha256": "ab99ff626af1e8428fe6780b56be3980b3475214e1ef252eefc52f8607c6c32e",
+      "ips_file": "Pocket Monsters - Aka (Japan) - English Title Corrected v0.2.ips",
+      "ips_sha256": "d3667a53eec4b403f3468dc88dc506605b60cf10398b7e05b7ef8f55a1459db8",
+      "changed_byte_count": 1393,
+      "change_min": "0x00014E",
+      "change_max": "0x010B16",
+      "header_checksum": "0x32",
+      "global_checksum": "0x5008"
+    },
+    {
+      "label": "Red Rev A",
+      "source_file": "Pocket Monsters - Aka (Japan) (Rev A) (SGB Enhanced).gb",
+      "source_sha256": "751abb1fb2b2d6b91dc631fa10ed36bd07f682cb5c3febe6c8f0e3dabc1fae1c",
+      "output_file": "Pocket Monsters - Aka (Japan) - Rev A - English Title Corrected v0.2.gb",
+      "output_sha256": "87bc925bd5b969faf7c2c73fc2f9ffd40facd568b5cc67b920eb6125fe2c6fb8",
+      "ips_file": "Pocket Monsters - Aka (Japan) - Rev A - English Title Corrected v0.2.ips",
+      "ips_sha256": "a19a009fba2ef65a889a3ef2c286650d784ca6eb7d26945b22c4823dc39a6cda",
+      "changed_byte_count": 1393,
+      "change_min": "0x00014E",
+      "change_max": "0x010B16",
+      "header_checksum": "0x31",
+      "global_checksum": "0x65AD"
+    },
+    {
+      "label": "Green Rev 0",
+      "source_file": "Pocket Monsters - Midori (Japan) (SGB Enhanced).gb",
+      "source_sha256": "6576b4e0979e93d4a6fa02db893c294b7aeab3b841b1acc8658bc10b3554f33c",
+      "output_file": "Pocket Monsters - Midori (Japan) - Rev 0 - English Title Corrected v0.2.gb",
+      "output_sha256": "40ef6b9a7d959bb13ad081c7b72ac5c661e49099824b7665f83687692bca642b",
+      "ips_file": "Pocket Monsters - Midori (Japan) - Rev 0 - English Title Corrected v0.2.ips",
+      "ips_sha256": "018b5fbff148130b9146c9c051d975cc9f1e09af1cbd0cd7395220aefffcf036",
+      "changed_byte_count": 1393,
+      "change_min": "0x00014E",
+      "change_max": "0x010B16",
+      "header_checksum": "0x9C",
+      "global_checksum": "0x8B1C"
+    },
+    {
+      "label": "Green Rev A",
+      "source_file": "Pocket Monsters - Midori (Japan) (Rev A) (SGB Enhanced).gb",
+      "source_sha256": "3f0dc460ca8d06be1c9ac96307c939c0ea7baa366b40c2f1f4ad63242b6c4816",
+      "output_file": "Pocket Monsters - Midori (Japan) - Rev A - English Title Corrected v0.2.gb",
+      "output_sha256": "cf42c277b8eaca439e8a3da9763d649ffa72554d3026e42a8f0d7b076862005e",
+      "ips_file": "Pocket Monsters - Midori (Japan) - Rev A - English Title Corrected v0.2.ips",
+      "ips_sha256": "3aeb4d024a020123f34468bfa2bd8b24d9b5404450d620b1285f1c5c089f4f05",
+      "changed_byte_count": 1393,
+      "change_min": "0x00014E",
+      "change_max": "0x010B16",
+      "header_checksum": "0x9B",
+      "global_checksum": "0xA28E"
+    }
+  ]
+}
