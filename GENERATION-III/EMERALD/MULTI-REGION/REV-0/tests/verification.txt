@@ -1,8 +1,0 @@
-source_file_count=7
-unique_rom_count=6
-all_sizes_16MiB=True
-all_header_checksums_valid=True
-english_alias_byte_identical=True
-chunk_records=7168
-expected_chunk_records=7168
-full_chunk_coverage=True

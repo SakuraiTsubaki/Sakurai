@@ -1,9 +1,0 @@
-*.gba
-*.bin
-roms/
-raw/
-chunks/
-materialized/
-rebuilt/
-generated-local/
-__pycache__/

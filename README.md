@@ -1,19 +1,11 @@
 # Sakurai
 
-Pokémon project analysis and census repository.
+Pokémon project analysis and research repository.
 
 ## Canonical hierarchy
 
 `GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
 
-Example:
+This repository stores reproducible analysis, census, comparison, verification, reports, manifests, scripts, tables, maps, symbols, tests, and other research outputs.
 
-```text
-GENERATION-II/
-└─ GOLD/
-   └─ KR/
-      └─ REV-0/
-         └─ analysis/
-```
-
-This repository stores analysis, census, comparison, verification, reports, manifests, scripts, tables, and other research outputs. ROM binaries and reusable asset files are not stored here.
+Distributable work products are reflected here automatically after work is completed. Original ROM binaries and non-redistributable copyrighted binaries are never stored here.

@@ -1,4 +1,0 @@
-{
-  "file": {"tag":"IT-IT","filename":"Pokemon - Versione Smeraldo (Italy).gba","size":16777216,"md5":"c3e85be7372bbd5e43f6334a565968c1","sha1":"1692db322400c3141c5de2db38469913ceb1f4d4","sha256":"63cbff3500b657cb6966568beb0780de3655d3a0b2e5ac6e0ec33d5d01a916ad","crc32":"a0aec80a","unique_image":true,"canonical_duplicate_of":""},
-  "header": {"tag":"IT-IT","title":"POKEMON EMER","game_code":"BPEI","maker_code":"01","fixed_value":150,"software_version":0,"header_checksum_stored":110,"header_checksum_calculated":110,"header_checksum_valid":true,"entry_branch_word_le":"0xEA00007F"}
-}
