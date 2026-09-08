@@ -1,0 +1,65 @@
+bank_hex,sections,categories,pret_aggregators,EN_sha1,EN_entropy,EN_text_candidates,identical_all_international,identical_all_JP_revisions,identical_all_9,unique_bank_variants_across_9
+00,NULL | rst0 | rst8 | rst10 | rst18 | rst20 | rst28 | rst30 | rst38 | vblank | lcd | timer | serial | joypad | High Home | Header | Home,layout/padding | core engine | header,home.asm,c30b75ba21c9c6183cc03220b2bf802c59d7f690,7.08504,90,False,False,False,9
+01,bank1,mixed engine/data,main.asm,1d126f82afaa2aacc62f09d32886116bbd4730bd,6.899598,185,False,False,False,9
+02,Sound Effect Headers 1 | Music Headers 1 | Sound Effects 1 | Audio Engine 1 | Music 1,audio,audio.asm,7bf99c6f26d2564275fe192436c137c28f3f7e67,6.934376,78,False,False,False,9
+03,bank3,mixed engine/data,main.asm,49024578d9ad3816d7acc1d921685b0daa2b79c8,7.038046,43,False,False,False,9
+04,bank4 | NPC Sprites 1 | Battle Engine 1,mixed engine/data | overworld graphics | battle engine/data,main.asm | gfx/sprites.asm,5554b5f767c8016e1851df2cb5dbd5f5d55c7c8e,6.292705,117,False,False,False,9
+05,bank5 | NPC Sprites 2 | Battle Engine 2,mixed engine/data | overworld graphics | battle engine/data,main.asm | gfx/sprites.asm,14cb943d332b8b777b46a2d4ddd6c9660679c733,6.171651,114,False,False,False,9
+06,Maps 1 | Maps 2 | Doors and Ledges,map | mixed engine/data,maps.asm | main.asm,58873f8ba81ac9ca9d8f34955ce99c1427c44409,5.350608,4,False,False,False,9
+07,Maps 3 | bank7 | Maps 4 | Hidden Events 1,map | mixed engine/data | events/scripts,maps.asm | main.asm,34a4c90af85420d0581d2a303bb6ab1d2ea68f6f,5.085153,13,False,False,False,9
+08,Sound Effect Headers 2 | Music Headers 2 | Sound Effects 2 | Low Health Alarm (Audio Engine 2) | Bill's PC | Audio Engine 2 | Music 2,audio | minigame/feature engine,audio.asm | main.asm,d80a47e4c647c45e58db38c558a8d829898a728e,6.525309,84,False,False,False,9
+09,Pics 1 | Battle Engine 3,pokemon/trainer graphics | battle engine/data,gfx/pics.asm | main.asm,9939b0cc0f0466f972e030ba74d014e419bad768,7.808658,184,False,False,False,9
+0A,Pics 2 | Battle Engine 4,pokemon/trainer graphics | battle engine/data,gfx/pics.asm | main.asm,4f97c2b688f37f7bc5aab9e2c46446d42d797b57,7.78616,131,False,False,False,9
+0B,Pics 3 | Battle Engine 5,pokemon/trainer graphics | battle engine/data,gfx/pics.asm | main.asm,03b94c5dd9f7f2361ac22513edd57df4f675b28a,7.786038,141,False,False,False,9
+0C,Pics 4,pokemon/trainer graphics,gfx/pics.asm,79283ddf5099402dcbc6beb754dd88273c0c6554,7.740457,154,True,False,False,4
+0D,Pics 5 | Slot Machines,pokemon/trainer graphics | minigame/feature engine,gfx/pics.asm | main.asm,4c42f0d30ff2c66a16f797df2f4ad80a56ca2314,7.778416,141,False,False,False,9
+0E,Battle Engine 6,battle engine/data,main.asm,6869c09a03be6e9e9d2424afa4e52b100baac8ef,6.741821,64,False,False,False,9
+0F,Battle Core,battle engine/data,main.asm,57df3e8d5ed02f597d5bb38a110ce49e4d4de588,6.847064,42,False,False,False,9
+10,bank10,mixed engine/data,main.asm,666c9766f99fae3ccf76c69b76a1a7c923bbfc38,4.353383,180,False,False,False,9
+11,Maps 5 | Pokédex Rating | Maps 6 | Dungeon Warps,map | events/scripts,maps.asm | main.asm,cc95c3bcb767f29d668734e2a4aebceab6db3779,5.609395,2,False,False,False,9
+12,Maps 7 | Maps 8,map,maps.asm,58a6b30ebfb3fa3c6875d63b1905fe78395ff9d6,4.968129,14,False,False,False,9
+13,Trainer Pics | Maps 9,pokemon/trainer graphics | map,gfx/pics.asm | maps.asm,09afa9b2b7080921e922f07f0e71c19f09c15294,7.812634,169,False,False,False,9
+14,Maps 10 | Hidden Events 2,map | events/scripts,maps.asm | main.asm,40a303b3948dc04f1cb2716960d6033043e044e6,5.499709,12,False,False,False,9
+15,Maps 11 | Battle Engine 7 | Maps 12 | Diploma | Trainer Sight,map | battle engine/data | events/scripts,maps.asm | main.asm,f178cc3f899620c23a5f6b0ea0822ab9f6840504,5.389728,5,False,False,False,9
+16,Maps 13 | bank16 | Maps 14 | Saffron Guards,map | mixed engine/data | events/scripts,maps.asm | main.asm,490532848365eb2bde95891dd863434802fbadef,5.042157,19,False,False,False,9
+17,Maps 15 | Starter Dex | Maps 16 | Hidden Events 3,map | events/scripts,maps.asm | main.asm,443d8438ef6ab3ac1f4073f373d4f2e5495855b3,4.388647,20,False,False,False,9
+18,Maps 17 | Cinnabar Lab Fossils | Maps 18 | Hidden Events 4,map | events/scripts,maps.asm | main.asm,63c2eeb47840a83d3e036c2244dbaa63a7de5dae,5.027875,2,False,False,False,9
+19,Tilesets 1,graphics,gfx/tilesets.asm,0d4fbe9fb98ba08abfffe90ed00650376f82c0d8,6.502477,157,False,True,False,6
+1A,Version Graphics | Tilesets 2,graphics,main.asm | gfx/tilesets.asm,704166996a4c2eb55664e45a4e741d4ba35d2c27,6.367923,154,True,False,False,5
+1B,Tilesets 3,graphics,gfx/tilesets.asm,682b94550690d2e4c4103fe93753ed74ab38fc72,6.201428,155,True,True,True,1
+1C,bank1C,mixed engine/data,main.asm,547d30bb0b4b42450ec3eb5b1c787cf266b594df,6.708398,106,False,False,False,9
+1D,Maps 19 | Itemfinder 1 | Maps 20 | Vending Machine | Maps 21 | Itemfinder 2,map | events/scripts,maps.asm | main.asm,9e6c5d0968f0054130cb0d694016bcf1a46713dc,4.625927,18,False,False,False,9
+1E,bank1E,mixed engine/data,main.asm,1696e8d8ba099cff58412fcd6a13e6cd4b758924,6.763746,32,False,False,False,9
+1F,Sound Effect Headers 3 | Music Headers 3 | Sound Effects 3 | Audio Engine 3 | Music 3,audio,audio.asm,b390100d430d0c779a703d230195d2fe4a5da4b9,6.491126,68,False,False,False,8
+20,Sound Effect Headers 4 | Music Headers 4 | Sound Effects 4 | Surfing Pikachu Graphics | Audio Engine 4 | Music 4,audio | graphics,audio.asm | gfx/surfing_pikachu.asm,c661f84326a4db6ae5264caf0831bb342f30b0b6,5.768457,85,False,False,False,9
+21,Pikachu Cries 1,audio,audio/pikachu_cries.asm,0da78ef523e54b6e6a9b09b929ca33d359fe54eb,3.790824,114,True,False,False,4
+22,Pikachu Cries 2,audio,audio/pikachu_cries.asm,42af15b0aeb8daa1d9a52d735668713a50887188,4.428398,134,True,False,False,4
+23,Pikachu Cries 3,audio,audio/pikachu_cries.asm,57a747d6a2d15cbc70865d1c8ca0e447140b52cb,5.790976,163,True,False,False,4
+24,Pikachu Cries 4,audio,audio/pikachu_cries.asm,1ce087a31d17d5bb20f98e8f71c6e7005f8339ad,3.344203,88,True,False,False,4
+25,Pikachu Cries 5,audio,audio/pikachu_cries.asm,e3b479ed350124b9fa58f0f2da487aa6e0511975,3.567485,186,True,False,False,4
+26,Text 1,text,text.asm,15dfa631859e577ac047e30ced621434226a6422,5.174941,1093,False,False,False,9
+27,Text 2,text,text.asm,a8e3767a69442b3cee8fe6f5946962b1e2119adf,5.290266,1097,False,False,False,9
+28,Text 3,text,text.asm,98607d154b02868e08a06edbc4763b0a616e2297,5.297702,1134,False,False,False,9
+29,Text 4,text,text.asm,a93ed49b41bdb61ea255fd623dbb56cdb21ba3a0,5.005802,1066,False,False,False,9
+2A,Text 5,text,text.asm,d9b32cf3944b075c5a153de6770858c9d248b42e,5.209778,1092,False,False,False,9
+2B,Text 6,text,text.asm,5a0ce3d78dc1dbebc1afbd4f362da67c11aa6c82,5.209043,1089,False,False,False,9
+2C,Text 7,text,text.asm,d63301770f93b2edde1e3394d0158ac004ed4dbb,5.139788,1068,False,False,False,9
+2D,Text 8,text,text.asm,44e6eed1e72b43282d3d9454a09488df5c4980bb,4.889507,927,False,False,False,9
+2E,Pokédex Text,text,text.asm,53df29ef43bd7b4400342bb3e5f68313f15bd759,4.656427,921,False,False,False,9
+2F,Move Names | BG Map Attributes (Debug) | BG Map Attributes,text | cgb graphics attributes,text.asm | main.asm,38eb882f8fd21d94de75fa28351a611e6ef87207,1.837744,162,False,False,False,9
+30,bank30,garbage/padding,main.asm,0a96df9470c34a54d9e88b4a2cb3957bf3c4cb75,1.690841,7,False,False,False,9
+31,Pikachu Cries 6,audio,audio/pikachu_cries.asm,b8fd444824826d4f83bad58b5a88c0432ef962a3,4.220997,85,True,False,False,4
+32,Pikachu Cries 7,audio,audio/pikachu_cries.asm,4e65e200a13e8da09b920049a661d420a973a99c,2.693239,174,True,True,True,1
+33,Pikachu Cries 8,audio,audio/pikachu_cries.asm,ccf50b3e94a3eec064dd4d199381704e54d4f44d,3.573877,118,True,False,False,3
+34,Pikachu Cries 9,audio,audio/pikachu_cries.asm,1b7fc618bcd9a20870007604fdb0efa3ba07027c,2.441956,121,True,False,False,4
+35,Pikachu Cries 10,audio,audio/pikachu_cries.asm,4a8d28591f380537fe84f15cddfcdccaf50ff4e1,3.724261,101,True,False,False,4
+36,Pikachu Cries 11,audio,audio/pikachu_cries.asm,f0e89a351de8a04c63e9e2225dc9aa501938443e,3.626713,172,True,False,False,4
+37,Pikachu Cries 12,audio,audio/pikachu_cries.asm,a0dea2b2102e693cf44bc45fa959872fa8bc104e,4.130818,110,True,False,False,4
+38,Pikachu Cries 13,audio,audio/pikachu_cries.asm,2dd386432b4776797cb2f87cf429bce13014d107,3.969442,167,True,False,False,4
+39,Pikachu Graphics 1,graphics,gfx/pikachu.asm,70b95cbce18c50a472d53032a825d196342e3839,5.120172,90,True,False,False,4
+3A,bank3A,mixed engine/data,main.asm,92248655ba0740b20fd766bf664c4d640c250a21,5.134712,207,False,False,False,9
+3B,(empty bank in EN layout),empty,,897256b6709e1a4da9daba92b6bde39ccfccd8c1,-0.0,0,False,False,False,9
+3C,Pikachu PCM | bank3C | Tilesets 4 | Try Pikachu Movement | Pikachu Graphics 2 | Credits | Maps 22 | Hidden Events Core,audio | mixed engine/data | graphics | events/scripts | map,audio.asm | main.asm | gfx/tilesets.asm | gfx/pikachu.asm | maps.asm,68d47bd6657b3b6ce2a139ef613dce55354d3bfb,5.411857,114,False,False,False,9
+3D,Battle Engine 8 | Pics 7 | Battle Engine 9,battle engine/data | pokemon/trainer graphics,main.asm | gfx/pics.asm,8473a80796b0c6aa338547baf1c4e9bcfb4e922f,5.073475,91,False,False,False,9
+3E,Surfing Minigame,minigame/feature engine,main.asm,89ee2544bb5625589687bf5029c99d9ca45b5317,6.042373,71,False,False,False,9
+3F,Overworld Pikachu | NPC Sprites 3,pikachu engine/data | overworld graphics,main.asm | gfx/sprites.asm,6a79a25743cd749c99af4954165802525fa599dd,6.078,41,False,False,False,9
