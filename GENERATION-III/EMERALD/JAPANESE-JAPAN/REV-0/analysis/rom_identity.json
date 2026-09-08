@@ -1,0 +1,25 @@
+{
+  "file": {
+    "tag": "JA-JP",
+    "filename": "Pocket Monsters - Emerald (Japan).gba",
+    "size": 16777216,
+    "md5": "92eecf93f1ab828bdf2a83daddacf3e5",
+    "sha1": "d7cf8f156ba9c455d164e1ea780a6bf1945465c2",
+    "sha256": "33f5610b9186b4add09fef68895deb00f552b997b3d133b5a961e5123506343c",
+    "crc32": "4881f3f8",
+    "unique_image": true,
+    "canonical_duplicate_of": ""
+  },
+  "header": {
+    "tag": "JA-JP",
+    "title": "POKEMON EMER",
+    "game_code": "BPEJ",
+    "maker_code": "01",
+    "fixed_value": 150,
+    "software_version": 0,
+    "header_checksum_stored": 109,
+    "header_checksum_calculated": 109,
+    "header_checksum_valid": true,
+    "entry_branch_word_le": "0xEA00007F"
+  }
+}
