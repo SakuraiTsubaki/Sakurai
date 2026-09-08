@@ -1,0 +1,20 @@
+{
+  "project": "RBY ENGLISH → ポケットモンスター",
+  "target": "Pocket Monsters Blue (Japan)",
+  "target_is_japanese_rom": true,
+  "english_rom_role": "technical implementation reference only",
+  "japanese_logo_file_offset": "0x011799",
+  "english_blue_logo_file_offset": "0x011380",
+  "logo_length": "0x700",
+  "source_sha1": "0da501e3e5c51ab8fef55b092dcdd7e6b050e424",
+  "source_sha256": "71a70e5f77c109177d21c998310ffe01a68e8cd2f41e72e7129093b890c7d3d1",
+  "output_sha256": "c9ff9e8cbb09d489fb1fc65853e143df1a42a64ec9128c7434c8cd2f1f045352",
+  "ips_sha256": "aed2353a4f4cb9b9028978eacff3c531f7b8a1ed956c933c1fe82b8eb2268929",
+  "changed_byte_count": 1393,
+  "change_min": "0x00014E",
+  "change_max": "0x011E96",
+  "header_title": "POKEMON BLUE",
+  "header_checksum": "0xE5",
+  "global_checksum": "0x897D",
+  "verification": "IPS reapplied to clean Japanese Blue and reproduced output byte-for-byte"
+}
