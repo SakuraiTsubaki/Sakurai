@@ -1,0 +1,23 @@
+{
+  "project": "GS Korean -> Pocket Monsters Korean localization/new translation",
+  "target": "Pocket Monsters - Midori (Japan) (Rev A) (SGB Enhanced)",
+  "change": "Title-screen large logo prototype: 포켓몬스터 / 그린",
+  "source_sha256": "3f0dc460ca8d06be1c9ac96307c939c0ea7baa366b40c2f1f4ad63242b6c4816",
+  "source_sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+  "rom_size": 524288,
+  "logo_offset_start": "0x10400",
+  "logo_offset_end_inclusive": "0x109FF",
+  "logo_length": 1536,
+  "tile_format": "Game Boy 2bpp, 16 x 6 tiles, row-major",
+  "tile_count": 96,
+  "original_block_sha256": "4338a503015a43d2ae6c65fb4e37d8994ede08f67f82413454ac4106f8ae021d",
+  "new_block_sha256": "f8bb8203d370a597b153c0ea0271abe8a5890b02ec58f7d3916b51b98d42d4fd",
+  "patched_working_copy_sha256": "0c87a29a09c42aeafff4294a28a75ad62b475f2d9d2707a9b784dc071fab467c",
+  "ips_apply_byte_identical": true,
+  "changed_bytes": 1146,
+  "notes": [
+    "Original ROM is not modified or stored in GitHub.",
+    "IPS contains only the changed 0x600-byte title asset.",
+    "Runtime emulator verification is still pending in this environment."
+  ]
+}
