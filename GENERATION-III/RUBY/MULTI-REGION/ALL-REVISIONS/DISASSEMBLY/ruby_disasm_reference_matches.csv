@@ -1,0 +1,14 @@
+rom_key,file,sha1,reference_repo,reference_build,reference_variant,match_status
+AXVJ_v0_JPN,Pocket Monsters - Ruby (Japan).gba,5c5e546720300b99ae45d2aa35c646c8b8ff5c56,,,,no_exact_pokeruby_reference
+AXVS_v1_ESP,Pokemon - Edicion Rubi (Spain) (Rev 1).gba,9ac73481d7f5d150a018309bba91d185ce99fb7c,,,,no_exact_pokeruby_reference
+AXVS_v0_ESP,Pokemon - Edicion Rubi (Spain).gba,1f49f7289253dcbfecbc4c5ba3e67aa0652ec83c,,,,no_exact_pokeruby_reference
+AXVD_v0_DEU_DEBUG,Pokemon - Rubin-Edition (Germany) (Debug Version).gba,ca5e3d415c4b47353a73a616878ba833f3648b7a,pret/pokeruby,pokeruby_de_debug.gba,ruby_de_debug,exact
+AXVD_v1_DEU,Pokemon - Rubin-Edition (Germany) (Rev 1).gba,424740be1fc67a5ddb954794443646e6aeee2c1b,pret/pokeruby,pokeruby_de_rev1.gba,ruby_de_rev1,exact
+AXVD_v0_DEU,Pokemon - Rubin-Edition (Germany).gba,1c2a53332382e14dab8815e3a6dd81ad89534050,pret/pokeruby,pokeruby_de.gba,ruby_de,exact
+AXVE_v1_EUR,Pokemon - Ruby Version (Europe) (Rev 1).gba,610b96a9c9a7d03d2bafb655e7560ccff1a6d894,pret/pokeruby,pokeruby_rev1.gba,ruby_rev1,exact
+AXVE_v0_USA,Pokemon - Ruby Version (USA).gba,f28b6ffc97847e94a6c21a63cacf633ee5c8df1e,pret/pokeruby,pokeruby.gba,ruby,exact
+AXVE_v2_USA_EUR,"Pokemon - Ruby Version (USA, Europe) (Rev 2).gba",5b64eacf892920518db4ec664e62a086dd5f5bc8,pret/pokeruby,pokeruby_rev2.gba,ruby_rev2,exact
+AXVF_v1_FRA,Pokemon - Version Rubis (France) (Rev 1).gba,ba888dfba231a231cbd60fe228e894b54fb1ed79,,,,no_exact_pokeruby_reference
+AXVF_v0_FRA,Pokemon - Version Rubis (France).gba,a6ee94202bec0641c55d242757e84dc89336d4cb,,,,no_exact_pokeruby_reference
+AXVI_v1_ITA,Pokemon - Versione Rubino (Italy) (Rev 1).gba,015a5d380afe316a2a6fcc561798ebff9dfb3009,,,,no_exact_pokeruby_reference
+AXVI_v0_ITA,Pokemon - Versione Rubino (Italy).gba,2b3134224392f58da00f802faa1bf4b5cf6270be,,,,no_exact_pokeruby_reference
