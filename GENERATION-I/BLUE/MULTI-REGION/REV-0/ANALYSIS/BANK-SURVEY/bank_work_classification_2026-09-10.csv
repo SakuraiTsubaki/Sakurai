@@ -1,0 +1,65 @@
+bank_hex,class,disassembly_priority,western_mean_similarity,JP_semantic,western_semantic,note
+00,LOCALIZATION_HEAVY,5,0.452875,ROM0: vectors/header/home engine,ROM0: vectors/header/home engine,
+01,LOCALIZATION_HEAVY,5,0.170715,bank1 + garbage,bank1: core engine/events/menus,
+02,NEAR_IDENTICAL,2,0.999512,audio 1 + garbage,audio 1,
+03,LOCALIZATION_HEAVY,5,0.483838,overworld/core engine + garbage,overworld/core engine,
+04,MIXED,4,0.704059,move names + NPC sprites 1 + font + battle engine 1 + garbage,NPC sprites 1 + font + battle engine 1,
+05,HIGH_SIMILARITY,3,0.985645,NPC sprites 2 + battle engine 2 + garbage,NPC sprites 2 + battle engine 2,
+06,MIXED,4,0.866663,maps 1-2 + play time + doors/ledges + garbage,maps 1-2 + play time + doors/ledges,
+07,MIXED,4,0.68783,maps 3-4 + clear save + hidden events 1 + garbage,maps 3-4 + Pokémon names + hidden events 1,
+08,LOCALIZATION_HEAVY,5,0.392169,audio 2 + Bill PC,audio 2 + Bill PC,
+09,HIGH_SIMILARITY,3,0.9724,Pokémon pics 1 + battle engine 3 + garbage,Pokémon pics 1 + battle engine 3,
+0A,NEAR_IDENTICAL,2,0.999243,Pokémon pics 2 + battle engine 4 + garbage,Pokémon pics 2 + battle engine 4,
+0B,NEAR_IDENTICAL,2,0.998578,Pokémon pics 3 + battle engine 5 + garbage,Pokémon pics 3 + battle engine 5,
+0C,NEAR_IDENTICAL,2,0.999274,Pokémon pics 4 + battle engine 6 + garbage,Pokémon pics 4 + battle engine 6,
+0D,MIXED,4,0.898163,Pokémon pics 5 + slot machines + garbage,Pokémon pics 5 + slot machines,
+0E,LOCALIZATION_HEAVY,5,0.497906,battle engine 7 + garbage,battle engine 7 / Pokémon+move data,
+0F,LOCALIZATION_HEAVY,5,0.309381,battle core,battle core,
+10,LOCALIZATION_HEAVY,5,0.496503,Pokédex/menu/trade/intro + garbage,Pokédex/menu/trade/intro,
+11,HIGH_SIMILARITY,3,0.953174,maps 5-6 + Pokédex rating + hidden events core + garbage,maps 5-6 + Pokédex rating + hidden events core,
+12,MIXED,4,0.650769,maps 7-8 + screen effects + garbage,maps 7-8 + screen effects,
+13,HIGH_SIMILARITY,3,0.993634,trainer pics + maps 9 + predefs + garbage,trainer pics + maps 9 + predefs,
+14,MIXED,4,0.643951,maps 10 + battle engine 8 + hidden events 2 + garbage,maps 10 + battle engine 8 + hidden events 2,
+15,MIXED,4,0.90946,maps 11-12 + battle engine 9 + diploma/trainer sight + garbage,maps 11-12 + battle engine 9 + diploma/trainer sight,
+16,HIGH_SIMILARITY,3,0.950488,maps 13-14 + battle engine 10 + Saffron guards + garbage,maps 13-14 + battle engine 10 + Saffron guards,
+17,MIXED,4,0.620581,maps 15-16 + starter dex + hidden events 3 + garbage,maps 15-16 + starter dex + hidden events 3,
+18,HIGH_SIMILARITY,3,0.955115,maps 17-18 + fossils + hidden events 4 + garbage,maps 17-18 + Cinnabar fossils + hidden events 4,
+19,NEAR_IDENTICAL,2,0.99834,tilesets 1 + garbage,tilesets 1,
+1A,LOCALIZATION_HEAVY,5,0.375781,battle engine 11 + version gfx + tilesets 2 + garbage,battle engine 11 + tilesets 2,
+1B,EXACT_COMMON,1,1.0,tilesets 3,tilesets 3,
+1C,LOCALIZATION_HEAVY,5,0.228534,splash/Hall of Fame/animations/palettes/save + garbage,splash/Hall of Fame/animations/palettes/save,
+1D,LOCALIZATION_HEAVY,5,0.415387,maps 19-21 + itemfinder/vending + garbage,maps 19-21 + itemfinder/vending,
+1E,HIGH_SIMILARITY,3,0.989258,battle animations/evolution/TM prices + garbage,battle animations/evolution/TM prices,
+1F,NEAR_IDENTICAL,2,0.999854,audio 3 + garbage,audio 3,
+20,LOCALIZATION_HEAVY,5,0.247729,,text 1,
+21,LOCALIZATION_HEAVY,5,0.243677,,text 2,
+22,LOCALIZATION_HEAVY,5,0.227612,,text 3,
+23,LOCALIZATION_HEAVY,5,0.260376,,text 4,
+24,LOCALIZATION_HEAVY,5,0.271124,,text 5,
+25,LOCALIZATION_HEAVY,5,0.278418,,text 6,
+26,LOCALIZATION_HEAVY,5,0.255609,,text 7,
+27,LOCALIZATION_HEAVY,5,0.290381,,text 8,
+28,LOCALIZATION_HEAVY,5,0.277209,,text 9,
+29,LOCALIZATION_HEAVY,5,0.264886,,text 10,
+2A,MIXED,4,0.949554,,text 11,
+2B,LOCALIZATION_HEAVY,5,0.184949,,Pokédex text,
+2C,MIXED,4,0.903113,,move names,
+2D,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+2E,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+2F,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+30,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+31,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+32,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+33,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+34,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+35,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+36,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+37,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+38,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+39,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+3A,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+3B,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+3C,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+3D,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+3E,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
+3F,PADDING,99,1.0,,padding / unused 1 MiB tail,Five Western ROMs: full 16 KiB zero-filled bank; JP has no corresponding bank.
