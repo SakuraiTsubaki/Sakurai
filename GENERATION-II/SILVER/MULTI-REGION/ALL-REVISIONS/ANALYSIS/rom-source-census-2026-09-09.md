@@ -47,7 +47,7 @@ The largest revision deltas are concentrated in banks `0x23` and `0x3F`; these s
 
 - `rom-source-manifest-2026-09-09.csv`: one row per ROM with hashes, header fields, checksums, and zero-bank map.
 - `rom-source-manifest-2026-09-09.json`: machine-readable equivalent.
-- `bank-fingerprint-matrix-2026-09-09.csv`: per-bank SHA-1 fingerprints and equality flags across all regions.
+- `bank-fingerprint-matrix-2026-09-09.csv.gz.b64`: gzip-compressed, Base64-encoded full per-bank SHA-1 fingerprint/equality matrix. Reconstruct with `base64 -d ... | gzip -dc > bank-fingerprint-matrix-2026-09-09.csv`.
 - `jp-rev0-vs-reva-diff-banks-2026-09-09.csv`: bank-level Rev0/Rev A change map.
 
 ## Next analysis axis
