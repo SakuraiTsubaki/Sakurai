@@ -9,11 +9,11 @@ bank,primary_role,raw_diff_bytes,similarity_percent,direct_revision_edit,root_ca
 07,Maps 3-4; clear save; hidden events 1,560,96.582031,no,492 HOME relocation bytes + bank01 DisplayNameRaterScreen relocation + 67 Garbage7 bytes; no direct bank7 edit,DEEP-AUDITED
 08,Bill's PC; Audio Engine 2; music/SFX,60,99.633789,no,60 HOME relocation bytes; no residual region and no direct bank8 edit,DEEP-AUDITED
 09,Pics 1; Battle Engine 3,519,96.832275,yes,Rev0-only 0x26-byte unused serial routine removed + downstream shift + filler,DEEP-AUDITED
-0A,Pics 2; Battle Engine 4,14,99.914551,no,relocated operands + filler,STRUCTURAL
-0B,Pics 3; Battle Engine 5,13,99.920654,no,relocated operands + filler,STRUCTURAL
-0C,Pics 4; Battle Engine 6,32,99.804688,no,relocated operands + filler,STRUCTURAL
-0D,Pics 5; slot machines,65,99.603271,no,relocated operands,STRUCTURAL
-0E,base stats; names; cries; moves; AI; evos/moves; Battle Engine 7,79,99.517822,no,relocated cross-bank addresses + filler,STRUCTURAL
+0A,Pics 2; Battle Engine 4,14,99.914551,no,5 HOME relocation bytes + bank0F MoveHitTest/PlayCurrentMoveAnimation relocations + 7 Garbage10 bytes; no direct bank0A edit,DEEP-AUDITED
+0B,Pics 3; Battle Engine 5,13,99.920654,no,12 HOME relocation bytes + 1 Garbage11 byte; no direct bank0B edit,DEEP-AUDITED
+0C,Pics 4; Battle Engine 6,32,99.804688,no,3 HOME relocation bytes + bank0F PlayCurrentMoveAnimation/PrintButItFailedText relocations + 27 Garbage12 bytes; no direct bank0C edit,DEEP-AUDITED
+0D,Pics 5; slot machines,65,99.603271,no,64 HOME relocation bytes + bank01 DisplayTextIDInit relocation; no direct bank0D edit,DEEP-AUDITED
+0E,base stats; names; cries; moves; AI; evos/moves; Battle Engine 7,79,99.517822,no,67 HOME relocation bytes + 11 bank0F relocation bytes + 1 Garbage14 byte; no direct bank0E edit,DEEP-AUDITED
 0F,Battle Core + effects,15403,5.987549,yes,multiple direct battle fixes + +0x05 growth + dense address/pointer cascade,DEEP-AUDITED
 10,Pokédex; trade movie; intro,135,99.176025,no,relocated operands + filler,STRUCTURAL
 11,Maps 5-6; Pokédex rating; Hidden Events Core,307,98.126221,no,relocated pointers/calls + filler,STRUCTURAL
