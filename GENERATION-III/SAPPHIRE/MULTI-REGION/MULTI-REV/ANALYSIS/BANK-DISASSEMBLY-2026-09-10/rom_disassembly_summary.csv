@@ -1,0 +1,10 @@
+rom_id,file,size,banks,arm_start,thumb_entry,main_code_end,main_code_end_gba,function_seeds,basic_blocks,instructions,code_bytes,code_pct,cfg_edges,block_limit_failures,code_island_banks
+AXPJ_rev0,Pocket Monsters - Sapphire (Japan).gba,8388608,128,0xD0,0x24C,0x145190,0x08145190,9494,31758,406780,839456,10.007095,75789,0,"1A,1B"
+AXPD_rev1,Pokemon - Saphir-Edition (Germany) (Rev 1).gba,16777216,256,0x204,0x380,0x14B208,0x0814B208,9685,32211,415217,857104,5.108738,76884,0,1E
+AXPE_rev0,Pokemon - Sapphire Version (USA).gba,16777216,256,0xD0,0x24C,0x14AE30,0x0814AE30,9674,32144,414710,856072,5.102587,76720,0,"1D,1E"
+AXPE_rev1,Pokemon - Sapphire Version (Europe) (Rev 1).gba,16777216,256,0xD0,0x24C,0x14AE50,0x0814AE50,9668,32132,414544,855716,5.100465,76692,0,"1D,1E"
+AXPE_rev2,"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",16777216,256,0xD0,0x24C,0x14AE50,0x0814AE50,9668,32132,414544,855716,5.100465,76692,0,"1D,1E"
+AXPF_rev0,Pokemon - Version Saphir (France).gba,16777216,256,0x204,0x380,0x14B2EC,0x0814B2EC,9688,32231,415391,857444,5.110765,76933,0,1E
+AXPF_rev1,Pokemon - Version Saphir (France) (Rev 1).gba,16777216,256,0x204,0x380,0x14B2EC,0x0814B2EC,9688,32231,415391,857444,5.110765,76933,0,1E
+AXPI_rev0,Pokemon - Versione Zaffiro (Italy).gba,16777216,256,0x204,0x380,0x14B250,0x0814B250,9692,32234,415402,857494,5.111063,76927,0,"1D,1E"
+AXPI_rev1,Pokemon - Versione Zaffiro (Italy) (Rev 1).gba,16777216,256,0x204,0x380,0x14B250,0x0814B250,9692,32234,415402,857494,5.111063,76927,0,"1D,1E"
