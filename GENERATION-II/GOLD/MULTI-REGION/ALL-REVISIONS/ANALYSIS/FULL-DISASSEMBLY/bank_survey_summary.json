@@ -1,0 +1,33 @@
+{
+  "physical_bank_rows": 896,
+  "matrix_rows": 128,
+  "japanese_revision_changed_banks": [
+    "00",
+    "04",
+    "05",
+    "09",
+    "0A",
+    "0F",
+    "14",
+    "21",
+    "23",
+    "24"
+  ],
+  "japanese_revision_changed_bytes": 10841,
+  "eu_extra_nonzero_banks_vs_english": [
+    "27",
+    "58"
+  ],
+  "korean_extra_nonzero_banks_vs_english": [
+    "71",
+    "72",
+    "78",
+    "79",
+    "7A",
+    "7B"
+  ],
+  "korean_missing_nonzero_banks_vs_english": [
+    "6A",
+    "6B"
+  ]
+}
