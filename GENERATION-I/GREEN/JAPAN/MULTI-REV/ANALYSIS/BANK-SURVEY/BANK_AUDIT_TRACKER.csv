@@ -12,22 +12,22 @@ bank,primary_role,raw_diff_bytes,similarity_percent,direct_revision_edit,root_ca
 0A,Pics 2; Battle Engine 4,14,99.914551,no,5 HOME relocation bytes + bank0F MoveHitTest/PlayCurrentMoveAnimation relocations + 7 Garbage10 bytes; no direct bank0A edit,DEEP-AUDITED
 0B,Pics 3; Battle Engine 5,13,99.920654,no,12 HOME relocation bytes + 1 Garbage11 byte; no direct bank0B edit,DEEP-AUDITED
 0C,Pics 4; Battle Engine 6,32,99.804688,no,3 HOME relocation bytes + bank0F PlayCurrentMoveAnimation/PrintButItFailedText relocations + 27 Garbage12 bytes; no direct bank0C edit,DEEP-AUDITED
-0D,Pics 5; slot machines,65,99.603271,no,64 HOME relocation bytes + bank01 DisplayTextIDInit relocation; no direct bank0D edit,DEEP-AUDITED
+0D,Pics 5; slot machines,65,99.603271,no,63 HOME relocation bytes + 2-byte bank01 DisplayTextIDInit relocation; no direct bank0D edit,DEEP-AUDITED
 0E,base stats; names; cries; moves; AI; evos/moves; Battle Engine 7,79,99.517822,no,67 HOME relocation bytes + 11 bank0F relocation bytes + 1 Garbage14 byte; no direct bank0E edit,DEEP-AUDITED
 0F,Battle Core + effects,15403,5.987549,yes,multiple direct battle fixes + +0x05 growth + dense address/pointer cascade,DEEP-AUDITED
-10,Pokédex; trade movie; intro,135,99.176025,no,relocated operands + filler,STRUCTURAL
-11,Maps 5-6; Pokédex rating; Hidden Events Core,307,98.126221,no,relocated pointers/calls + filler,STRUCTURAL
-12,Maps 7-8; screen effects,406,97.521973,no,relocated pointers/calls + filler,STRUCTURAL
-13,trainer pics; Maps 9; Predefs,36,99.780273,no,relocated predef/call operands + filler,STRUCTURAL
-14,Maps 10; Battle Engine 8; Hidden Events 2,379,97.686768,no,relocated pointers/calls + filler,STRUCTURAL
-15,Maps 11; Battle Engine 9; diploma; trainer sight,313,98.089600,no,relocated pointers/calls + filler,STRUCTURAL
-16,Maps 12-13; Battle Engines 10-11,330,97.985840,no,relocated pointers/calls + filler,STRUCTURAL
-17,Maps 14-15; Starter Dex; Hidden Events 3,397,97.576904,no,relocated pointers/calls + filler,STRUCTURAL
-18,Maps 16-17; Cinnabar fossils; Hidden Events 4,359,97.808838,no,relocated pointers/calls + filler,STRUCTURAL
-19,Tilesets 1,32,99.804688,no,tail filler / address-dependent metadata,STRUCTURAL
-1A,Version GFX; Tilesets 2; Battle Engine 12,2,99.987793,no,one revision residual byte + one relocated operand,STRUCTURAL
-1B,Tilesets 3,0,100.000000,no,identical,VERIFIED-IDENTICAL
-1C,credits; Hall of Fame; transitions; map/icons/trades/palettes/save,203,98.760986,no,relocated calls/pointers + filler,STRUCTURAL
-1D,Maps 18-20; itemfinder; vending; League PC; hidden items,425,97.406006,no,relocated pointers/calls + filler,STRUCTURAL
-1E,status; battle animations; evolution; elevator; TM prices,132,99.194336,no,relocated calls/pointers + filler,STRUCTURAL
-1F,Audio Engine 3; music/SFX,7,99.957275,no,relocated operands / tail filler,STRUCTURAL
+10,Pokédex; trade movie; intro,135,99.176025,no,121 HOME relocation bytes + 14 Garbage16 bytes; no direct bank10 edit,DEEP-AUDITED
+11,Maps 5-6; Pokédex rating; Hidden Events Core,307,98.126221,no,259 HOME relocation bytes + 48 Garbage17 bytes; no direct bank11 edit,DEEP-AUDITED
+12,Maps 7-8; screen effects,406,97.521973,no,321 HOME relocation bytes + 85 Garbage18 bytes; no direct bank12 edit,DEEP-AUDITED
+13,trainer pics; Maps 9; Predefs,36,99.780273,no,13 ordinary HOME relocation bytes + 21 changed bytes across 19 PredefPointers entries + 2 Garbage19 bytes; no direct bank13 edit,DEEP-AUDITED
+14,Maps 10; Battle Engine 8; Hidden Events 2,379,97.686768,no,354 HOME relocation bytes + 6 bank0F relocation bytes + 19 Garbage20 bytes; no direct bank14 edit,DEEP-AUDITED
+15,Maps 11; Battle Engine 9; diploma; trainer sight,313,98.089600,no,295 HOME relocation bytes + 5 bank0F relocation bytes + 2-byte bank01 relocation + 11 Garbage21 bytes; no direct bank15 edit,DEEP-AUDITED
+16,Maps 12-13; Battle Engines 10-11,330,97.985840,no,305 HOME relocation bytes + 2 LoadEnemyMonData relocation bytes + 23 Garbage22 bytes; no direct bank16 edit,DEEP-AUDITED
+17,Maps 14-15; Starter Dex; Hidden Events 3,397,97.576904,no,347 HOME relocation bytes + 50 Garbage23 bytes; no direct bank17 edit,DEEP-AUDITED
+18,Maps 16-17; Cinnabar fossils; Hidden Events 4,359,97.808838,no,315 HOME relocation bytes + 44 Garbage24 bytes; no direct bank18 edit,DEEP-AUDITED
+19,Tilesets 1,32,99.804688,no,live Tilesets1 byte-identical; all 32 differences are Garbage25,DEEP-AUDITED
+1A,Version GFX; Tilesets 2; Battle Engine 12,2,99.987793,no,1 HOME relocation byte + final 00->FF residual/free-byte difference; no direct bank1A edit,DEEP-AUDITED
+1B,Tilesets 3,0,100.000000,no,entire bank byte-identical across revisions,DEEP-AUDITED
+1C,credits; Hall of Fame; transitions; map/icons/trades/palettes/save,203,98.760986,no,193 HOME relocation bytes + 2-byte bank01 PrintSaveScreenText relocation + 8 Garbage28 bytes; no direct bank1C edit,DEEP-AUDITED
+1D,Maps 18-20; itemfinder; vending; League PC; hidden items,425,97.406006,no,363 HOME relocation bytes + 62 Garbage29 bytes; no direct bank1D edit,DEEP-AUDITED
+1E,status; battle animations; evolution; elevator; TM prices,132,99.194336,no,113 HOME relocation bytes + 19 Garbage30 bytes; no direct bank1E edit,DEEP-AUDITED
+1F,Audio Engine 3; music/SFX,7,99.957275,no,3 HOME relocation bytes + 4 Garbage31 bytes; no direct bank1F edit,DEEP-AUDITED
