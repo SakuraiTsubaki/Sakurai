@@ -1,0 +1,22 @@
+rom,rom_address,value,classification
+JP_R0,0x08000244,0x080003A5,Thumb entry literal (AgbMain|1)
+JP_R0,0x0800039C,0x03007488,EWRAM literal data
+JP_R0,0x080003A0,0x03003580,EWRAM literal data
+EN_R0,0x08000244,0x080003A5,Thumb entry literal (AgbMain|1)
+EN_R0,0x0800039C,0x03007438,EWRAM literal data
+EN_R0,0x080003A0,0x03003540,EWRAM literal data
+EN_R1,0x08000244,0x080003A5,Thumb entry literal (AgbMain|1)
+EN_R1,0x0800039C,0x03007438,EWRAM literal data
+EN_R1,0x080003A0,0x03003540,EWRAM literal data
+DE_R0,0x08000244,0x080003A5,Thumb entry literal (AgbMain|1)
+DE_R0,0x0800039C,0x03007328,EWRAM literal data
+DE_R0,0x080003A0,0x03003490,EWRAM literal data
+ES_R0,0x08000244,0x080003A5,Thumb entry literal (AgbMain|1)
+ES_R0,0x0800039C,0x03007328,EWRAM literal data
+ES_R0,0x080003A0,0x03003490,EWRAM literal data
+FR_R0,0x08000244,0x080003A5,Thumb entry literal (AgbMain|1)
+FR_R0,0x0800039C,0x03007328,EWRAM literal data
+FR_R0,0x080003A0,0x03003490,EWRAM literal data
+IT_R0,0x08000244,0x080003A5,Thumb entry literal (AgbMain|1)
+IT_R0,0x0800039C,0x03007328,EWRAM literal data
+IT_R0,0x080003A0,0x03003490,EWRAM literal data
