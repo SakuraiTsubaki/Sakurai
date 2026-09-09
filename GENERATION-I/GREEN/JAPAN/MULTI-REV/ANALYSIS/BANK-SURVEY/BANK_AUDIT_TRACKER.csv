@@ -4,10 +4,10 @@ bank,primary_role,raw_diff_bytes,similarity_percent,direct_revision_edit,root_ca
 02,Audio Engine 1; music/SFX,18,99.890137,no,6 HOME relocation operand bytes + 12 Garbage2 bytes; no direct audio edit,DEEP-AUDITED
 03,joypad; inventory; overworld; wild mons; items; hidden-event helpers,366,97.766113,no,332 HOME relocation bytes + 4 bank0F relocation bytes + 30 Garbage3 bytes; no direct bank3 edit,DEEP-AUDITED
 04,move names; font/player GFX; start menu; Battle Engine 1,233,98.577881,yes,Haze direct logic fix + relocated operands + filler,DEEP-AUDITED
-05,NPC sprites 2; Battle Engine 2,83,99.493408,no,relocated operands + filler,STRUCTURAL
-06,Maps 1-2; play time; doors/ledges,348,97.875977,no,relocated pointers/calls + filler,STRUCTURAL
-07,Maps 3-4; clear save; hidden events 1,560,96.582031,no,relocated pointers/calls + filler,STRUCTURAL
-08,Bill's PC; Audio Engine 2; music/SFX,60,99.633789,no,relocated call/address operands,STRUCTURAL
+05,NPC sprites 2; Battle Engine 2,83,99.493408,no,39 HOME relocation bytes + bank0F PlayCurrentMoveAnimation/DrawHUDsAndHPBars + bank01 PlayerPC relocations + 41 Garbage5 bytes; no direct bank5 edit,DEEP-AUDITED
+06,Maps 1-2; play time; doors/ledges,348,97.875977,no,308 HOME relocation bytes + 40 Garbage6 bytes; no direct bank6 edit,DEEP-AUDITED
+07,Maps 3-4; clear save; hidden events 1,560,96.582031,no,492 HOME relocation bytes + bank01 DisplayNameRaterScreen relocation + 67 Garbage7 bytes; no direct bank7 edit,DEEP-AUDITED
+08,Bill's PC; Audio Engine 2; music/SFX,60,99.633789,no,60 HOME relocation bytes; no residual region and no direct bank8 edit,DEEP-AUDITED
 09,Pics 1; Battle Engine 3,519,96.832275,yes,Rev0-only 0x26-byte unused serial routine removed + downstream shift + filler,DEEP-AUDITED
 0A,Pics 2; Battle Engine 4,14,99.914551,no,relocated operands + filler,STRUCTURAL
 0B,Pics 3; Battle Engine 5,13,99.920654,no,relocated operands + filler,STRUCTURAL
