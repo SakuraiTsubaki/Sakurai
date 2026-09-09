@@ -1,0 +1,26 @@
+{
+  "physical_bank_rows": 896,
+  "roms": 8,
+  "candidate_cpu_active_rows": 245,
+  "candidate_cpu_decoded_bytes": 689028,
+  "candidate_cpu_decoded_instructions": 355770,
+  "state_counts": {
+    "needs-code-seeding-or-structure-analysis": 43,
+    "cpu-disassembly-candidate-partial": 201,
+    "needs-structured-data-decoder": 196,
+    "empty-confirmed": 156,
+    "cpu-disassembly-validated-partial": 44,
+    "needs-audio-bytecode-disassembly": 24,
+    "needs-script-bytecode-disassembly": 232
+  },
+  "domain_counts": {
+    "cpu/mixed-data": 186,
+    "data/gfx": 214,
+    "text/data": 52,
+    "empty": 156,
+    "mixed:data+cpu": 8,
+    "mixed:gfx+cpu": 8,
+    "audio-bytecode/mixed": 40,
+    "script-bytecode/text": 232
+  }
+}
