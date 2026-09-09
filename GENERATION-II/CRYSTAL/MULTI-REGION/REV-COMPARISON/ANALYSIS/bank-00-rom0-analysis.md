@@ -72,3 +72,32 @@ No byte in `$0000-$014B` or `$0150-$3FFF` changes. Therefore Bank 00 contains **
 - ES0 semantic source: exact upstream anchor.
 - FR0 semantic source: exact upstream anchor.
 - DE0/IT0: semantic symbol lifting pending for the `$0150-$3FFF` Home engine.
+
+## Integrated disassembly pass (new workflow)
+
+Bank 00 is now being processed under the combined **census + disassembly** rule. A conservative LR35902 recursive control-flow decoder was run from trusted ROM0 entry points first, then a second provisional pass added frequently referenced ROM0 `CALL/JP` targets (>=5 raw references) as heuristic seeds. The heuristic pass is useful for code discovery but does **not** by itself prove code/data boundaries; exact semantic sources and byte reconstruction remain the authority.
+
+| ROM | Heuristic seeds | Decoded instructions | Provisional code bytes | Bank coverage |
+|---|---:|---:|---:|---:|
+| JP0 | 741 | 7180 | 11639 | 71.039% |
+| EN0 | 580 | 6717 | 11082 | 67.639% |
+| EN1 | 580 | 6717 | 11082 | 67.639% |
+| ES0 | 573 | 6632 | 10907 | 66.571% |
+| DE0 | 570 | 6863 | 11452 | 69.897% |
+| FR0 | 570 | 6686 | 11057 | 67.487% |
+| IT0 | 572 | 6997 | 11613 | 70.880% |
+
+The remaining bytes are **not automatically data**; they are simply not proven reachable code in this pass. They include genuine data/tables/padding plus executable routines reached only indirectly or from other banks.
+
+### Bank 00 completion state
+
+- Physical census: **complete**
+- Vector semantics: **confirmed**
+- Header semantics: **confirmed**
+- EN Rev0/RevA Bank 00 revision analysis: **confirmed**
+- Seven-ROM recursive control-flow disassembly: **generated / provisional**
+- Full Home symbol lifting: **in progress**
+- Exact code/data boundary map: **in progress**
+- Byte-exact semantic Bank 00 rebuild: **pending**
+
+Bank 01 must not begin as a completed work unit until Bank 00 has either passed this completion gate or is explicitly carried as a documented unresolved bank.
