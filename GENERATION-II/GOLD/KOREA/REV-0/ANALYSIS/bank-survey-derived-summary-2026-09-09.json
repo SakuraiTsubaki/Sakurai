@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-09",
+  "roms": 23,
+  "banks_16k": 1760,
+  "bytes_inspected": 28835840,
+  "exact_duplicate_hash_clusters": 375,
+  "whole_bank_single_byte_fill_instances": 188,
+  "same_index_exact_anchor_clusters_ge4roms": 33,
+  "kr_gold_silver_exact_banks": 92,
+  "verified_kr_semantic_banks": {
+    "68": "Pokedex description text",
+    "69": "Pokedex description text",
+    "6C": "Korean name/string tables; 830 previously losslessly reassembled records",
+    "78": "Hangul table/font resource block",
+    "79": "Hangul table/font resource block",
+    "7A": "Hangul table/font resource block"
+  },
+  "safety": "00/FF fill banks and runs are candidates only; no space is approved until reference tracing is complete"
+}
