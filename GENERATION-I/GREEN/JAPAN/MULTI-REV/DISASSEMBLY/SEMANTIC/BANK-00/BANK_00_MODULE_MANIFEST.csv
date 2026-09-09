@@ -1,0 +1,68 @@
+order,source_path,role,kind,status
+1,home/header.asm,vectors/header,code+header,verified-core
+2,home/start.asm,startup,code,verified-core
+3,home/joypad.asm,input wrapper,code,verified-core
+4,home/lcd.asm,LCD control,code,verified-core
+5,home/clear_sprites.asm,sprite/OAM clear,code,source-mapped
+6,home/copy.asm,memory copy,code,source-mapped
+7,data/tilesets/collision_tile_ids.asm,tileset collision IDs,data,source-mapped
+8,home/copy2.asm,memory/video copy,code,source-mapped
+9,home/text.asm,text engine,code+data,source-mapped
+10,home/vcopy.asm,VRAM/BG copy,code,source-mapped
+11,home/init.asm,initialization,code,verified-core
+12,home/vblank.asm,VBlank interrupt/frame sync,code,verified-core
+13,home/fade.asm,palette fades,code,source-mapped
+14,home/serial.asm,serial/link core,code,verified-core
+15,home/timer.asm,timer interrupt,code,verified-core
+16,home/audio.asm,audio dispatch,code,source-mapped
+17,home/update_sprites.asm,sprite update dispatch,code,source-mapped
+18,data/items/marts.asm,mart inventory tables,data,source-mapped
+19,home/overworld_text.asm,overworld text helpers,code+text,source-mapped
+20,home/uncompress.asm,sprite decompression,code+tables,source-mapped
+21,home/reset_player_sprite.asm,player sprite reset,code,source-mapped
+22,home/fade_audio.asm,audio fade,code,source-mapped
+23,home/text_script.asm,text/script dispatch,code+text,source-mapped
+24,home/start_menu.asm,start menu dispatch,code,source-mapped
+25,home/count_set_bits.asm,bit counting,code,source-mapped
+26,home/inventory.asm,inventory helpers,code,source-mapped
+27,home/list_menu.asm,list menu,code,source-mapped
+28,home/names.asm,name helpers,code+data,source-mapped
+29,home/reload_tiles.asm,tile reload,code,source-mapped
+30,data/maps/map_header_pointers.asm,map-header pointer table,data/pointers,source-mapped
+31,home/overworld.asm,overworld core helpers,code,source-mapped
+32,home/pokemon.asm,Pokémon helpers,code,source-mapped
+33,home/print_bcd.asm,BCD printing,code,source-mapped
+34,home/pics.asm,picture helpers,code,source-mapped
+35,home/item.asm,item helpers,code,source-mapped
+36,home/textbox.asm,text box helpers,code,source-mapped
+37,home/npc_movement.asm,NPC movement,code,source-mapped
+38,home/trainers.asm,trainer helpers,code,source-mapped
+39,home/map_objects.asm,map object helpers,code,source-mapped
+40,home/trainers2.asm,trainer helpers 2,code,source-mapped
+41,home/money.asm,money/coin helpers,code,source-mapped
+42,home/bankswitch.asm,ROM bank switching,code,verified-core
+43,home/yes_no.asm,yes/no menu,code,source-mapped
+44,home/pathfinding.asm,pathfinding helpers,code,source-mapped
+45,home/load_font.asm,font loading,code,source-mapped
+46,home/tilemap.asm,tilemap helpers,code,source-mapped
+47,home/delay.asm,delay helpers,code,source-mapped
+48,home/names2.asm,name helpers 2,code+data,source-mapped
+49,home/item_price.asm,item price lookup,code,source-mapped
+50,home/copy_string.asm,string copy,code,source-mapped
+51,home/joypad2.asm,input helpers,code,source-mapped
+52,home/math.asm,math helpers,code,source-mapped
+53,home/print_text.asm,text printing wrappers,code,source-mapped
+54,home/move_mon.asm,party/box mon movement,code,source-mapped
+55,home/array.asm,array helpers,code,source-mapped
+56,home/compare.asm,compare helpers,code,source-mapped
+57,home/oam.asm,OAM helpers,code,source-mapped
+58,home/window.asm,window helpers,code,source-mapped
+59,home/print_num.asm,number printing,code,source-mapped
+60,home/array2.asm,array helpers 2,code,source-mapped
+61,home/palettes.asm,palette helpers,code,source-mapped
+62,home/reload_sprites.asm,sprite reload,code,source-mapped
+63,home/give.asm,give item/mon wrappers,code,source-mapped
+64,home/random.asm,random wrapper,code,source-mapped
+65,home/predef.asm,predef dispatch,code,source-mapped
+66,home/hidden_events.asm,hidden event dispatch,code,source-mapped
+67,home/predef_text.asm,predef text dispatch,code,source-mapped
