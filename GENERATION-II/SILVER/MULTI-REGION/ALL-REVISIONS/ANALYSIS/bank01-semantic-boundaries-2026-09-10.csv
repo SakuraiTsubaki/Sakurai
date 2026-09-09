@@ -1,0 +1,161 @@
+build,label,cpu_address,rom_offset,kind
+KR,PlaceWaitingText,4000,004000,CODE
+KR,.Waiting,4025,004025,TEXT
+KR,DummyPredef1,4033,004033,CODE
+KR,WriteOAMDMACodeToHRAM,4034,004034,CODE
+KR,OAMDMACode,4042,004042,CODE copied to HRAM
+KR,Facings,404C,00404C,POINTER+OAM DATA
+KR,SpriteMovementData,4276,004276,DATA
+KR,DeleteMapObject,435A,00435A,CODE / map_objects
+KR,MainMenu,5A5B,005A5B,CODE+TEXT/DATA
+KR,NewGame,5C4B,005C4B,CODE+TEXT/DATA / intro_menu
+KR,ReanchorBGMap_NoOAMUpdate,65F0,0065F0,CODE / init_map
+KR,LearnMove,6686,006686,CODE+text commands
+KR,CorrectNickErrors,681D,00681D,CODE+validation table
+KR,_Multiply,685D,00685D,CODE / math
+KR,ItemAttributes,6940,006940,DATA 256x7 bytes
+KR,CanObjectMoveInDirection,7040,007040,CODE / npc_movement
+KR,GetFirstPokemonHappiness,730C,00730C,CODE+DATA / happiness_egg
+KR,GiveShuckle,7481,007481,CODE+TEXT / shuckle
+KR,BillsGrandfather,756B,00756B,CODE+DATA / haircut
+KR,LastNonZero,75ED,0075ED,END
+JP0,PlaceWaitingText,4000,004000,CODE
+JP0,.Waiting,4025,004025,TEXT
+JP0,DummyPredef1,4031,004031,CODE
+JP0,WriteOAMDMACodeToHRAM,4032,004032,CODE
+JP0,OAMDMACode,4040,004040,CODE copied to HRAM
+JP0,Facings,404A,00404A,POINTER+OAM DATA
+JP0,SpriteMovementData,4274,004274,DATA
+JP0,DeleteMapObject,4358,004358,CODE / map_objects
+JP0,MainMenu,5A4D,005A4D,CODE+TEXT/DATA
+JP0,NewGame,5C1A,005C1A,CODE+TEXT/DATA / intro_menu
+JP0,ReanchorBGMap_NoOAMUpdate,6718,006718,CODE / init_map
+JP0,LearnMove,67AE,0067AE,CODE+text commands
+JP0,CorrectNickErrors,6A36,006A36,CODE+validation table
+JP0,_Multiply,6A75,006A75,CODE / math
+JP0,ItemAttributes,6B58,006B58,DATA 256x7 bytes
+JP0,CanObjectMoveInDirection,79B0,0079B0,CODE / npc_movement
+JP0,GetFirstPokemonHappiness,7C7C,007C7C,CODE+DATA / happiness_egg
+JP0,GiveShuckle,7DF1,007DF1,CODE+TEXT / shuckle
+JP0,BillsGrandfather,7EE1,007EE1,CODE+DATA / haircut
+JP0,LastNonZero,7FCD,007FCD,END
+JPA,PlaceWaitingText,4000,004000,CODE
+JPA,.Waiting,4025,004025,TEXT
+JPA,DummyPredef1,4031,004031,CODE
+JPA,WriteOAMDMACodeToHRAM,4032,004032,CODE
+JPA,OAMDMACode,4040,004040,CODE copied to HRAM
+JPA,Facings,404A,00404A,POINTER+OAM DATA
+JPA,SpriteMovementData,4274,004274,DATA
+JPA,DeleteMapObject,4358,004358,CODE / map_objects
+JPA,MainMenu,5A4D,005A4D,CODE+TEXT/DATA
+JPA,NewGame,5C1A,005C1A,CODE+TEXT/DATA / intro_menu
+JPA,ReanchorBGMap_NoOAMUpdate,6718,006718,CODE / init_map
+JPA,LearnMove,67AE,0067AE,CODE+text commands
+JPA,CorrectNickErrors,6A36,006A36,CODE+validation table
+JPA,_Multiply,6A75,006A75,CODE / math
+JPA,ItemAttributes,6B58,006B58,DATA 256x7 bytes
+JPA,CanObjectMoveInDirection,79B0,0079B0,CODE / npc_movement
+JPA,GetFirstPokemonHappiness,7C7C,007C7C,CODE+DATA / happiness_egg
+JPA,GiveShuckle,7DF1,007DF1,CODE+TEXT / shuckle
+JPA,BillsGrandfather,7EE1,007EE1,CODE+DATA / haircut
+JPA,LastNonZero,7F63,007F63,END
+EN,PlaceWaitingText,4000,004000,CODE
+EN,.Waiting,4025,004025,TEXT
+EN,DummyPredef1,4031,004031,CODE
+EN,WriteOAMDMACodeToHRAM,4032,004032,CODE
+EN,OAMDMACode,4040,004040,CODE copied to HRAM
+EN,Facings,404A,00404A,POINTER+OAM DATA
+EN,SpriteMovementData,4274,004274,DATA
+EN,DeleteMapObject,4358,004358,CODE / map_objects
+EN,MainMenu,5A4D,005A4D,CODE+TEXT/DATA
+EN,NewGame,5C1E,005C1E,CODE+TEXT/DATA / intro_menu
+EN,ReanchorBGMap_NoOAMUpdate,6517,006517,CODE / init_map
+EN,LearnMove,65AD,0065AD,CODE+text commands
+EN,CorrectNickErrors,6744,006744,CODE+validation table
+EN,_Multiply,6783,006783,CODE / math
+EN,ItemAttributes,6866,006866,DATA 256x7 bytes
+EN,CanObjectMoveInDirection,6F66,006F66,CODE / npc_movement
+EN,GetFirstPokemonHappiness,7232,007232,CODE+DATA / happiness_egg
+EN,GiveShuckle,73A7,0073A7,CODE+TEXT / shuckle
+EN,BillsGrandfather,7491,007491,CODE+DATA / haircut
+EN,LastNonZero,7513,007513,END
+DE,PlaceWaitingText,4000,004000,CODE
+DE,.Waiting,4025,004025,TEXT
+DE,DummyPredef1,4032,004032,CODE
+DE,WriteOAMDMACodeToHRAM,4033,004033,CODE
+DE,OAMDMACode,4041,004041,CODE copied to HRAM
+DE,Facings,404B,00404B,POINTER+OAM DATA
+DE,SpriteMovementData,4275,004275,DATA
+DE,DeleteMapObject,4359,004359,CODE / map_objects
+DE,MainMenu,5A4E,005A4E,CODE+TEXT/DATA
+DE,NewGame,5C3C,005C3C,CODE+TEXT/DATA / intro_menu
+DE,ReanchorBGMap_NoOAMUpdate,654F,00654F,CODE / init_map
+DE,LearnMove,65E5,0065E5,CODE+text commands
+DE,CorrectNickErrors,677C,00677C,CODE+validation table
+DE,_Multiply,67BB,0067BB,CODE / math
+DE,ItemAttributes,689E,00689E,DATA 256x7 bytes
+DE,CanObjectMoveInDirection,6F9E,006F9E,CODE / npc_movement
+DE,GetFirstPokemonHappiness,726A,00726A,CODE+DATA / happiness_egg
+DE,GiveShuckle,73DF,0073DF,CODE+TEXT / shuckle
+DE,BillsGrandfather,74CA,0074CA,CODE+DATA / haircut
+DE,LastNonZero,754C,00754C,END
+FR,PlaceWaitingText,4000,004000,CODE
+FR,.Waiting,4025,004025,TEXT
+FR,DummyPredef1,4031,004031,CODE
+FR,WriteOAMDMACodeToHRAM,4032,004032,CODE
+FR,OAMDMACode,4040,004040,CODE copied to HRAM
+FR,Facings,404A,00404A,POINTER+OAM DATA
+FR,SpriteMovementData,4274,004274,DATA
+FR,DeleteMapObject,4358,004358,CODE / map_objects
+FR,MainMenu,5A4D,005A4D,CODE+TEXT/DATA
+FR,NewGame,5C35,005C35,CODE+TEXT/DATA / intro_menu
+FR,ReanchorBGMap_NoOAMUpdate,654C,00654C,CODE / init_map
+FR,LearnMove,65E2,0065E2,CODE+text commands
+FR,CorrectNickErrors,6779,006779,CODE+validation table
+FR,_Multiply,67B8,0067B8,CODE / math
+FR,ItemAttributes,689B,00689B,DATA 256x7 bytes
+FR,CanObjectMoveInDirection,6F9B,006F9B,CODE / npc_movement
+FR,GetFirstPokemonHappiness,7267,007267,CODE+DATA / happiness_egg
+FR,GiveShuckle,73DC,0073DC,CODE+TEXT / shuckle
+FR,BillsGrandfather,74C4,0074C4,CODE+DATA / haircut
+FR,LastNonZero,7546,007546,END
+IT,PlaceWaitingText,4000,004000,CODE
+IT,.Waiting,4025,004025,TEXT
+IT,DummyPredef1,4030,004030,CODE
+IT,WriteOAMDMACodeToHRAM,4031,004031,CODE
+IT,OAMDMACode,403F,00403F,CODE copied to HRAM
+IT,Facings,4049,004049,POINTER+OAM DATA
+IT,SpriteMovementData,4273,004273,DATA
+IT,DeleteMapObject,4357,004357,CODE / map_objects
+IT,MainMenu,5A4C,005A4C,CODE+TEXT/DATA
+IT,NewGame,5C38,005C38,CODE+TEXT/DATA / intro_menu
+IT,ReanchorBGMap_NoOAMUpdate,6549,006549,CODE / init_map
+IT,LearnMove,65DF,0065DF,CODE+text commands
+IT,CorrectNickErrors,6776,006776,CODE+validation table
+IT,_Multiply,67B5,0067B5,CODE / math
+IT,ItemAttributes,6898,006898,DATA 256x7 bytes
+IT,CanObjectMoveInDirection,6F98,006F98,CODE / npc_movement
+IT,GetFirstPokemonHappiness,7264,007264,CODE+DATA / happiness_egg
+IT,GiveShuckle,73D9,0073D9,CODE+TEXT / shuckle
+IT,BillsGrandfather,74C3,0074C3,CODE+DATA / haircut
+IT,LastNonZero,7545,007545,END
+ES,PlaceWaitingText,4000,004000,CODE
+ES,.Waiting,4025,004025,TEXT
+ES,DummyPredef1,402F,00402F,CODE
+ES,WriteOAMDMACodeToHRAM,4030,004030,CODE
+ES,OAMDMACode,403E,00403E,CODE copied to HRAM
+ES,Facings,4048,004048,POINTER+OAM DATA
+ES,SpriteMovementData,4272,004272,DATA
+ES,DeleteMapObject,4356,004356,CODE / map_objects
+ES,MainMenu,5A4B,005A4B,CODE+TEXT/DATA
+ES,NewGame,5C3D,005C3D,CODE+TEXT/DATA / intro_menu
+ES,ReanchorBGMap_NoOAMUpdate,6561,006561,CODE / init_map
+ES,LearnMove,65F7,0065F7,CODE+text commands
+ES,CorrectNickErrors,678E,00678E,CODE+validation table
+ES,_Multiply,67CD,0067CD,CODE / math
+ES,ItemAttributes,68B0,0068B0,DATA 256x7 bytes
+ES,CanObjectMoveInDirection,6FB0,006FB0,CODE / npc_movement
+ES,GetFirstPokemonHappiness,727C,00727C,CODE+DATA / happiness_egg
+ES,GiveShuckle,73F1,0073F1,CODE+TEXT / shuckle
+ES,BillsGrandfather,74DA,0074DA,CODE+DATA / haircut
+ES,LastNonZero,755C,00755C,END
