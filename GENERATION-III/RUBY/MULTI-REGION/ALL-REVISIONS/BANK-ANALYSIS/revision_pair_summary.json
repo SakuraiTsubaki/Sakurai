@@ -1,0 +1,58 @@
+[
+  {
+    "pair": "AXVS_v0_ESP__VS__AXVS_v1_ESP",
+    "different_bytes": 4,
+    "changed_banks": 1,
+    "banks_compared": 256,
+    "first_diff": "0x000000BC",
+    "last_diff": "0x0000938B"
+  },
+  {
+    "pair": "AXVI_v0_ITA__VS__AXVI_v1_ITA",
+    "different_bytes": 4,
+    "changed_banks": 1,
+    "banks_compared": 256,
+    "first_diff": "0x000000BC",
+    "last_diff": "0x0000938B"
+  },
+  {
+    "pair": "AXVF_v0_FRA__VS__AXVF_v1_FRA",
+    "different_bytes": 4,
+    "changed_banks": 1,
+    "banks_compared": 256,
+    "first_diff": "0x000000BC",
+    "last_diff": "0x0000938B"
+  },
+  {
+    "pair": "AXVD_v0_DEU__VS__AXVD_v1_DEU",
+    "different_bytes": 4,
+    "changed_banks": 1,
+    "banks_compared": 256,
+    "first_diff": "0x000000BC",
+    "last_diff": "0x0000938B"
+  },
+  {
+    "pair": "AXVE_v1_EUR__VS__AXVE_v2_USA_EUR",
+    "different_bytes": 4,
+    "changed_banks": 1,
+    "banks_compared": 256,
+    "first_diff": "0x000000BC",
+    "last_diff": "0x000091BF"
+  },
+  {
+    "pair": "AXVE_v0_USA__VS__AXVE_v1_EUR",
+    "different_bytes": 5744535,
+    "changed_banks": 109,
+    "banks_compared": 256,
+    "first_diff": "0x000000BC",
+    "last_diff": "0x00EA7822"
+  },
+  {
+    "pair": "AXVD_v0_DEU__VS__AXVD_v0_DEU_DEBUG",
+    "different_bytes": 6751723,
+    "changed_banks": 110,
+    "banks_compared": 256,
+    "first_diff": "0x00000128",
+    "last_diff": "0x006DF84F"
+  }
+]
