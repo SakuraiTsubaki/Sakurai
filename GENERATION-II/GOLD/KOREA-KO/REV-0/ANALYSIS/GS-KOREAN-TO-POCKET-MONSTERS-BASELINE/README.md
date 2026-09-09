@@ -5,11 +5,11 @@ No ROM bytes or extracted copyrighted payloads are included.
 
 ## Scope
 
-- ROM files scanned: 16
-- 16 KiB banks scanned: 1248
-- Valid header checksums: 16/16
-- Valid global checksums: 16/16
-- Same-title revision comparisons: 6
+- ROM files scanned: 23
+- 16 KiB banks scanned: 1760
+- Valid header checksums: 23/23
+- Valid global checksums: 23/23
+- Same-title revision comparisons: 11
 
 ## Outputs
 

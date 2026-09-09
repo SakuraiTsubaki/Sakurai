@@ -22,7 +22,7 @@ from pathlib import Path
 BANK_SIZE = 0x4000
 NINTENDO_LOGO = bytes.fromhex(
     "CEED6666CC0D000B03730083000C000D"
-    "0001111F8889000EDCCC6EE6DDDDD999"
+    "0008111F8889000EDCCC6EE6DDDDD999"
     "BBBB67636E0EECCCDDDC999FBBB9333E"
 )
 ROM_SIZE_CODES = {
@@ -65,32 +65,42 @@ class Identity:
 def classify(filename: str) -> Identity:
     n = filename.lower()
     if "midori" in n:
-        return Identity("GENERATION-I", "GREEN", "JAPAN-JA", "REV-0")
+        rev = "REV-A" if "rev-a" in n or "rev a" in n else "REV-0"
+        return Identity("GENERATION-I", "GREEN", "JAPAN-JA", rev)
     if "aka" in n:
-        rev = "REV-A" if "rev-a" in n else "REV-0"
+        rev = "REV-A" if "rev-a" in n or "rev a" in n else "REV-0"
         return Identity("GENERATION-I", "RED", "JAPAN-JA", rev)
+    if "ao" in n and "japan" in n:
+        return Identity("GENERATION-I", "BLUE", "JAPAN-JA", "REV-0")
     if "pikachu" in n:
-        match = re.search(r"rev-([0-9a-z]+)", n)
+        match = re.search(r"rev[ -]([0-9a-z]+)", n)
         rev = f"REV-{match.group(1).upper()}" if match else "REV-0"
         return Identity("GENERATION-I", "PIKACHU", "JAPAN-JA", rev)
-    if "pokemon-red" in n:
+    if "pokemon-red" in n or "pokemon - red" in n:
         return Identity("GENERATION-I", "RED", "USA-EUROPE-EN", "REV-0")
-    if "pokemon-yellow" in n:
+    if "pokemon-blue" in n or "pokemon - blue" in n:
+        return Identity("GENERATION-I", "BLUE", "USA-EUROPE-EN", "REV-0")
+    if "pokemon-yellow" in n or "pokemon - yellow" in n:
         return Identity("GENERATION-I", "YELLOW", "USA-EUROPE-EN", "REV-0")
-    if "kin-" in n or "kin-japan" in n:
-        rev = "REV-A" if "rev-a" in n else "REV-0"
+    if "kin-" in n or "kin-japan" in n or "kin (japan" in n:
+        rev = "REV-A" if "rev-a" in n or "rev a" in n else "REV-0"
         return Identity("GENERATION-II", "GOLD", "JAPAN-JA", rev)
-    if "gin-" in n or "gin-japan" in n:
-        rev = "REV-A" if "rev-a" in n else "REV-0"
+    if "gin-" in n or "gin-japan" in n or "gin (japan" in n:
+        rev = "REV-A" if "rev-a" in n or "rev a" in n else "REV-0"
         return Identity("GENERATION-II", "SILVER", "JAPAN-JA", rev)
+    if "eun" in n and "korea" in n:
+        return Identity("GENERATION-II", "SILVER", "KOREA-KO", "REV-0")
     if "geum" in n:
         return Identity("GENERATION-II", "GOLD", "KOREA-KO", "REV-0")
-    if "pokemon-gold" in n:
+    if "pokemon-gold" in n or "pokemon - gold" in n:
         return Identity("GENERATION-II", "GOLD", "USA-EUROPE-EN", "REV-0")
-    if "pokemon-silver" in n:
+    if "pokemon-silver" in n or "pokemon - silver" in n:
         return Identity("GENERATION-II", "SILVER", "USA-EUROPE-EN", "REV-0")
+    if "crystal" in n and "japan" in n:
+        rev = "REV-A" if "rev-a" in n or "rev a" in n else "REV-0"
+        return Identity("GENERATION-II", "CRYSTAL", "JAPAN-JA", rev)
     if "crystal" in n:
-        rev = "REV-A" if "rev-a" in n else "REV-0"
+        rev = "REV-A" if "rev-a" in n or "rev a" in n else "REV-0"
         return Identity("GENERATION-II", "CRYSTAL", "USA-EUROPE-EN", rev)
     return Identity("UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN")
 
