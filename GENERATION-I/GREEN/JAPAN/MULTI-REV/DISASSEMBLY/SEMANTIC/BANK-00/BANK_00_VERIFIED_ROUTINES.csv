@@ -1,0 +1,19 @@
+symbol_or_section,rev0_address,reva_address,role,verification
+Vectors/Header,$0000-$014F,$0000-$014F,interrupt/reset vectors + cart header,Rev0/RevA same semantic layout; unused RST vectors documented
+_Start,$0150,$0150,startup trampoline,jp Init; byte-identical
+Joypad,$0153,$0153,input wrapper,byte-identical
+DisableLCD,$0167,$0167,safe LCD disable at VBlank line,$1A bytes; byte-identical
+EnableLCD,$0181,$0181,LCD enable,byte-identical
+Init,$09DA,$09DA,full hardware/WRAM/VRAM/init sequence,logic same; embedded calls to shifted HOME symbols differ
+ClearVram,$0A8C,$0A8C,VRAM clear wrapper,same entry
+StopAllSounds,$0A96,$0A96,audio bank/reset dispatch,same entry; PlaySound target later shifts
+VBlank,$0AAC,$0AAC,VBlank interrupt handler,same logic; some call operands follow shifted HOME targets
+DelayFrame,$0B31,$0B31,HALT until VBlank,same entry
+Serial,$0BA7,$0BA7,serial interrupt handler,byte-identical routine
+Serial_ExchangeBytes,$0BF1,$0BF1,bulk serial exchange,Rev0-only 18-byte receive redirection block at .storeReceivedByte
+Serial_ExchangeByte,$0CAA,$0C1C,single-byte exchange,same source routine; relocated by serial2 ordering/removal
+Serial_ExchangeLinkMenuSelection,$0C2E,$0CC9,link-menu reliable exchange,serial2.asm moved from before to after Serial_ExchangeByte in RevA
+Timer,$0D9A,$0D88,timer ISR,single RETI; relocated only
+BankswitchHome,$3606,$35F4,home-bank ROM switch,same logic; -$12 location shift
+BankswitchBack,$3617,$3605,restore saved ROM bank,same logic; -$12 location shift
+Bankswitch,$3620,$360E,self-contained far-call trampoline,same logic; .Return immediate follows relocation
