@@ -1,0 +1,9 @@
+rom,sha1,semantic_source,semantic_status,note
+Pocket Monsters Geum (Korea).gbc,c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65,Narishma-gb/pokegold-kr,WIP semantic disassembly,exact SHA-1 build target confirmed
+Pocket Monsters Kin (Japan) (Rev A).gbc,a222402235d484ee8e39f3f31bae57cf13daf585,Narishma-gb/pokesilver,WIP semantic disassembly,exact SHA-1 build target confirmed
+Pocket Monsters Kin (Japan).gbc,8814f1039450a5d3684b1389f588ccd7ee7c3436,Narishma-gb/pokesilver,WIP semantic disassembly,exact SHA-1 build target confirmed
+Pokemon - Edicion Oro (Spain).gbc,162ea54c6a3cff374642e6dd842f9bffac847e7b,pret/pokegold as structural base,derive localization delta,no exact semantic source found in current search
+Pokemon - Gold Version (USA Europe).gbc,d8b8a3600a465308c9953dfa04f0081c05bdcb94,pret/pokegold,complete semantic disassembly,exact SHA-1 build target confirmed
+Pokemon - Goldene Edition (Germany).gbc,9254195d461ea942eaaa08cc4b83de3cf82aea0d,pret/pokegold as structural base,derive localization delta,no exact semantic source found in current search
+Pokemon - Version Or (France).gbc,c147c0d8c2b71b7628a7233436f5c052b5b17081,pret/pokegold as structural base,derive localization delta,no exact semantic source found in current search
+Pokemon - Versione Oro (Italy).gbc,032608fe8947b627584a4a0eccc7bf9ad3588426,pret/pokegold as structural base,derive localization delta,no exact semantic source found in current search
