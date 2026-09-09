@@ -1,0 +1,13 @@
+rom_a,rom_b,offset,gba_address,old_bytes,new_bytes,old_instruction,new_instruction,classification
+AXPE_rev1,AXPE_rev2,0x000000BC,0x080000BC,01,02,GBA header,GBA header,header revision/checksum
+AXPE_rev1,AXPE_rev2,0x000000BD,0x080000BD,54,53,GBA header,GBA header,header revision/checksum
+AXPE_rev1,AXPE_rev2,0x0000919A,0x0800919A,11 DD,11 DB,ble 0x080091C0,blt 0x080091C0,Thumb instruction
+AXPE_rev1,AXPE_rev2,0x000091BE,0x080091BE,ED DC,ED DA,bgt 0x0800919C,bge 0x0800919C,Thumb instruction
+AXPF_rev0,AXPF_rev1,0x000000BC,0x080000BC,00,01,GBA header,GBA header,header revision/checksum
+AXPF_rev0,AXPF_rev1,0x000000BD,0x080000BD,54,53,GBA header,GBA header,header revision/checksum
+AXPF_rev0,AXPF_rev1,0x00009366,0x08009366,11 DD,11 DB,ble 0x0800938C,blt 0x0800938C,Thumb instruction
+AXPF_rev0,AXPF_rev1,0x0000938A,0x0800938A,ED DC,ED DA,bgt 0x08009368,bge 0x08009368,Thumb instruction
+AXPI_rev0,AXPI_rev1,0x000000BC,0x080000BC,00,01,GBA header,GBA header,header revision/checksum
+AXPI_rev0,AXPI_rev1,0x000000BD,0x080000BD,51,50,GBA header,GBA header,header revision/checksum
+AXPI_rev0,AXPI_rev1,0x00009366,0x08009366,11 DD,11 DB,ble 0x0800938C,blt 0x0800938C,Thumb instruction
+AXPI_rev0,AXPI_rev1,0x0000938A,0x0800938A,ED DC,ED DA,bgt 0x08009368,bge 0x08009368,Thumb instruction
