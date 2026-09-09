@@ -1,0 +1,33 @@
+bank,role,raw_byte_coverage,revision_delta_audit,source_section_mapping,instruction_semantic_pass,xref_reachability_pass,bug_review,overall
+00,ROM0/Home,100%,complete,100% mapped,core-verified/in-progress,in-progress,complete,active
+01,bank1/menu/link,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+02,Audio1,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+03,overworld/items,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+04,Battle1/font/move names,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+05,Battle2/NPC sprites,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+06,maps/playtime,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+07,maps/hidden events,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+08,Bills PC/Audio2,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+09,Pics1/Battle3,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+0A,Pics2/Battle4,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+0B,Pics3/Battle5,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+0C,Pics4/Battle6,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+0D,Pics5/slots,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+0E,Battle7/core data,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+0F,Battle Core,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+10,Pokedex/trade/intro,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+11,maps/rating/hidden core,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+12,maps/screen FX,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+13,trainer pics/maps/predefs,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+14,maps/Battle8,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+15,maps/Battle9,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+16,maps/Battle10-11,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+17,maps/starter/hidden,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+18,maps/fossils/hidden,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+19,Tilesets1,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+1A,Version GFX/Tilesets2/Battle12,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+1B,Tilesets3,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+1C,credits/HOF/map/icons/save,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+1D,maps/itemfinder/vending,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+1E,status/anims/evolution,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
+1F,Audio3,100%,complete,bank role mapped,pending symbol pass,pending,complete,active
