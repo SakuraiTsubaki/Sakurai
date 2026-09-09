@@ -13,6 +13,7 @@ This ledger separates confirmed revision behavior from shared candidate bugs tha
 | GRN-CAND-SERIAL-002 | unused serial helper | Rev0 only | source-annotated dead/buggy code | `UnusedSerialFunction` contains source comment `bug: fallthrough`; function removed in RevA. Confirm no callers in symbol/xref pass. |
 | GRN-CAND-LINK-003 | trapping move + Metronome/Mirror Move | both | source-annotated desync candidate | Source says missing MIRROR MOVE check might cause link desync. Reproduce with two-instance deterministic link test. |
 | GRN-INTENT-RST-001 | RST38 / low vectors | both | intentional unreachable anomaly | RST38 jumps to `$F080` echo RAM; source labels vectors unused. Keep documented; do not change without proving reachability. |
+| GRN-CAND-PREDEF-004 | PredefPointers / bank selector | both | source-annotated wrong-bank candidates | `JumpMoveEffect` is forced to bank `$03`; `_LeaveMapAnim` and `EnterMapAnim` are forced to bank `$1E`, each marked `wrong bank` in source. Determine whether any live predef call reaches them and whether the wrong selector is masked by execution context. |
 
 ## Rule for later fixes
 
