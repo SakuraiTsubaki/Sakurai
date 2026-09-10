@@ -4,198 +4,211 @@
 
 This audit covers the Generation V party interface (Japanese in-game name: ポケモンリスト / Pokémon List) as an implementation reference for Generation V → ポケットモンスター.
 
-Primary evidence used in this pass:
-
-- Nintendo Pokémon Black Version instruction booklet
-- Nintendo Pokémon Black Version 2 / White Version 2 instruction booklets
-- Bulbapedia Party interface comparison
-- representative Japanese BW / B2W2 in-game screenshots
-- existing project BW/White ROM images as the intended binary baseline
-
-The current runtime could not complete direct reads of the uploaded BW ROM images because local container access timed out. Therefore exact overlay/NARC/member IDs and ROM offsets are deliberately left UNRESOLVED in this pass.
-
-ROM binaries are not stored in GitHub.
+ROM binaries are not stored in GitHub. Direct binary claims below were verified against the supplied BW ROM images; external documentation is used only for cross-checking behavior and archive identity.
 
 ## Core BW field-party presentation
 
-BW displays the six party slots on the Nintendo DS touch screen in a 2-column × 3-row grid. The first party slot is the upper-left panel and the second is the upper-right; Nintendo's manual explicitly identifies the upper-left party Pokémon as the one sent out first when a battle begins.
+BW displays up to six party members in a 2-column × 3-row grid on the DS touch screen. The upper-left panel is party slot 0 / the normal lead slot. Party member panels expose the Pokémon icon, nickname/name, gender when applicable, level, HP bar and current/max HP, with context-sensitive state for Eggs/status/etc.
 
-Representative Japanese screenshots confirm that each normal party panel visibly carries:
+The field-party action layer includes Summary, party-order switching, held-item handling, and usable field moves. Battle invocation uses a different context and legal-action set. B2W2 additionally supports direct held-item movement between party members and registered/Ready-menu access.
 
-- Pokémon menu icon
-- nickname/name
-- gender when applicable
-- level
-- HP label/bar
-- current HP / maximum HP
+## Direct ROM baseline — Black EUR
 
-The party interface is touch-enabled but also remains operable with the D-pad and A/B controls.
+Supplied Black image:
 
-## Party-selection command layer in BW
+- game code: `IRBO`
+- physical file size: `268,435,456` bytes (`0x10000000`, 256 MiB)
+- SHA-1: `a68b3bedf5c1e53556e41e59cdf396c20b331896`
+- header logical capacity: 256 MiB
+- header used-ROM-size field: `0x0C3B8E00`
+- FAT entries: 484
+- FAT maximum referenced end: `0x0BFD983C`
+- ARM9 overlay entries: 237
+- all FAT entries are physically present in this image
 
-Nintendo's manual confirms that the Pokémon menu allows the player to:
+This image is usable as the complete binary/resource baseline for the current party-screen trace.
 
-- view information / Summary
-- change party order
-- give Pokémon held items
-- select usable field moves from Pokémon that know them
+## Direct ROM baseline — White EUR: incomplete image
 
-A contemporary BW guide describes the selected-Pokémon command family as:
+Supplied White image:
 
-- Summary
-- Switch
-- Item
-- Field Move
+- game code: `IRAO`
+- physical file size: `66,060,288` bytes (`0x03F00000`, exactly 63 MiB)
+- SHA-1: `9337c23adfa0d200ebbf59bc46e3a1a75061a9b7`
+- header logical capacity: 256 MiB
+- header used-ROM-size field: `0x0C3B9400`
+- FAT entries: 484
+- FAT maximum referenced end: `0x0BFD9C3C`
+- ARM9 overlay entries: 237
 
-These should be modeled as capabilities rather than assumed to be one hard-coded menu for every context, because battle and special selection contexts expose different command sets.
+This is **not** an ordinary tail-trimmed image. FAT file ID 246 crosses the physical EOF:
 
-## Party order semantics
+- FID 246 path: `a/0/0/4`
+- start: `0x038E3200`
+- expected end: `0x04069398`
+- physical EOF: `0x03F00000`
 
-The six visible positions are not cosmetic. Party order determines initial send-out order:
+FID 246 is therefore incomplete, and 238 FAT entries are wholly or partly beyond EOF. The last fully present FAT entry is FID 245 (`a/0/0/3`). FID 246 (`a/0/0/4`) is the Gen-V Pokémon battle-sprite/pokegra archive and is cut mid-file.
 
-- Single Battle: first usable party Pokémon
-- Double Battle: first two usable party Pokémon
-- Triple / Rotation Battle: first three usable party Pokémon
+All 237 ARM9 overlays reside before this truncation and can still be extracted from White, so code comparison remains possible. Full White NitroFS/resource comparison is not valid until a complete White image is supplied.
 
-Nintendo's BW manual explicitly states that the top-left party Pokémon is sent out first. Therefore the grid-to-party-index mapping must be preserved by any backward port even if the target engine renders the party in a different shape.
+## Party subsystem overlay — ARM9 Overlay 91
 
-## Held-item handling
+Direct extraction and BLZ decompression identifies **ARM9 Overlay ID 91** as the Pokémon-list / party-screen subsystem.
 
-BW allows item give/take handling from the party interface through the selected Pokémon command flow.
+### Embedded original source-module names
 
-B2W2 adds an important improvement: held items can be moved directly between party Pokémon. This is a Generation V sequel-specific capability and should not be back-attributed to BW.
+The decompressed overlay contains these literal source filenames in sequence:
 
-Recommended capability split:
+- `pokelist.c`
+- `plist_plate.c`
+- `plist_message.c`
+- `plist_menu.c`
+- `plist_battle.c`
+- `plist_demo.c`
 
-- PARTY_ITEM_GIVE
-- PARTY_ITEM_TAKE
-- PARTY_ITEM_MOVE_BETWEEN_MEMBERS (B2W2)
+This is direct binary evidence, not a guessed overlay assignment. It establishes that the overlay contains the general Pokémon list, party-member plate rendering/handling, message layer, menu/action layer, battle-context layer, and demo/special-context layer.
 
-## Field moves
+### Black Overlay 91 metadata
 
-BW retains the classic field-move action from the party screen. Nintendo's manual explicitly states that if a Pokémon knows a move usable in the field, that move can be selected for use from the Pokémon menu.
+- overlay ID: 91
+- RAM base: `0x021B6240`
+- RAM size: `0x8B40` (35,648 bytes)
+- BSS size: `0x20`
+- static-init range: `0x021BECF0–0x021BECF4`
+- overlay file ID: 91
+- ROM range: `0x00166400–0x0016CF70`
+- compressed/raw size: `0x6B70` (27,504 bytes)
+- decompressed size: 35,648 bytes
+- decompressed SHA-1: `0b369df319d81d7eeba7c5687099fb673fd02106`
 
-This capability must remain distinct from the battle move list because legality and context depend on field state, map/event rules, badges/permissions where applicable, and the specific move effect.
+Embedded module-name offsets in the decompressed image:
 
-Recommended capability:
+- `pokelist.c` at `+0x8ACC`
+- `plist_plate.c` at `+0x8AD8`
+- `plist_message.c` at `+0x8AE8`
+- `plist_menu.c` at `+0x8AF8`
+- `plist_battle.c` at `+0x8B08`
+- `plist_demo.c` at `+0x8B18`
 
-- PARTY_FIELD_MOVE_ACTIONS
+### White Overlay 91 metadata
 
-## Battle party screen is a distinct context
+- overlay ID: 91
+- RAM base: `0x021B6260`
+- RAM size: `0x8B40`
+- BSS size: `0x20`
+- static-init range: `0x021BED10–0x021BED14`
+- overlay file ID: 91
+- ROM range: `0x00166400–0x0016CF70`
+- compressed/raw size: 27,504 bytes
+- decompressed size: 35,648 bytes
+- decompressed SHA-1: `5dd02b92ad4280e64c253336b8e8a7e0992a68df`
 
-From Generation IV onward, the battle party interface is not simply the unchanged overworld party screen. Nintendo's BW manual confirms that choosing POKÉMON during battle displays the party and that selecting a replacement exposes SHIFT.
+The same six embedded source-module names occur at the same overlay-relative offsets. Black and White decompressed overlay images are **not byte-identical**: 1,287 byte positions differ. White's overlay RAM base/static-init addresses are shifted by `+0x20` relative to Black. Exact semantic version deltas remain to be reconstructed; addresses must not be assumed interchangeable.
 
-Battle context therefore needs separate command gating:
+## Six-member hard limit in Overlay 91
 
-- view battle-relevant party data
-- view Summary
-- switch/SHIFT when legal
-- reject Eggs / fainted Pokémon / active-slot-invalid selections as appropriate
-- enforce battle-format positioning constraints
+Thumb disassembly of Black Overlay 91 shows repeated loops explicitly comparing counters against `6`. Examples occur in the early initialization path at:
 
-This matters especially for BW because Triple Battles and Rotation Battles make party index, active position, and selectable replacement semantics more complex than a simple one-active-mon model.
+- `0x021B6334`: `cmp r6, #0x6`
+- `0x021B6382`: `cmp r5, #0x6`
+- `0x021B6438`: `cmp r5, #0x6`
 
-Recommended capability split:
+Many additional `cmp ..., #0x6` sites occur later in the same overlay. This is direct evidence that six-party-member handling is hard-coded in multiple code paths rather than existing only as a data-table count.
 
-- PARTY_CONTEXT_FIELD
-- PARTY_CONTEXT_BATTLE
-- PARTY_BATTLE_SHIFT
-- PARTY_BATTLE_POSITION_AWARENESS
+For Generation V → ポケットモンスター this matters if the party model is ever expanded: changing only the saved party-array capacity would be insufficient. Overlay loops, plate arrays, touch hitboxes, action-selection code and battle-context logic all require a hard-bound audit.
 
-## Touch interaction
+## Overlay architecture implication
 
-BW continues DS touch interaction for the party interface. D-pad and button navigation remain available, so touch must be treated as an input adapter, not as a required semantic dependency.
-
-For backward ports to GBC/GBA targets, preserve every party action and remap touch-only affordances to buttons/cursor commands rather than deleting the feature.
-
-## BW -> B2W2 changes confirmed in this pass
-
-B2W2 preserves the Generation V party-grid family while adding at least two relevant interface capabilities:
-
-1. the party screen can be registered to the Ready Button menu / registered-menu system;
-2. held items can be moved directly between party Pokémon.
-
-The second change is especially important for the unified party ABI because it is a genuine workflow feature, not merely a different graphic.
-
-## Egg / invalid-object presentation
-
-Party rendering is conditional on Pokémon object state. Eggs do not expose the normal full set of level/HP/gender information. Generation V also has distinct Bad Egg behavior documented separately; exact error-object behavior should remain a compatibility/debug path and must not be conflated with ordinary Egg UI.
-
-Recommended capability:
-
-- PARTY_EGG_PRESENTATION
-- PARTY_INVALID_OBJECT_PRESENTATION
-
-## Proposed unified Party ABI
-
-Do not hard-code the BW grid itself as the semantics of the system. Separate party data/order from presentation and context.
-
-Suggested structure:
+The embedded module split supports the following implementation model:
 
 ```text
-PartyContext
-├── source Party[0..5]
-├── selectedSlot
-├── activeBattleSlots
-├── battleFormat
-├── mode (field / battle / trade / facility / script selection)
-├── capabilityBits
-└── returnAction
-
-PartyMemberView
-├── species/form/icon
-├── nickname
-├── gender
-├── level
-├── hp/maxHp/hpState
-├── majorStatus
-├── heldItem/mail
-├── egg/invalid flags
-└── context markers
-
-PartyActionRegistry
-├── SUMMARY
-├── SWITCH_ORDER
-├── ITEM_GIVE
-├── ITEM_TAKE
-├── ITEM_MOVE_BETWEEN_MEMBERS
-├── FIELD_MOVE
-├── BATTLE_SHIFT
-└── GAME_SPECIFIC
+Overlay 91 / Pokémon List
+├── pokelist.c       : application/core list orchestration
+├── plist_plate.c    : party-member plate/panel layer
+├── plist_message.c  : message/help/status text layer
+├── plist_menu.c     : field/menu command handling
+├── plist_battle.c   : battle-context party handling
+└── plist_demo.c     : demo/special/scripted contexts
 ```
 
-Render adapters can then preserve each target game's original party layout while exposing Generation V capabilities through expansion.
+This confirms that field-party and battle-party behavior are context branches of the same broader Pokémon-list subsystem rather than unrelated screens.
 
-## Preservation implications for Generation V → ポケットモンスター
+## Confirmed Pokémon icon archive
 
-- Do not replace original RBY/GSC/RSE/FRLG/DPPt/HGSS party layouts wholesale merely to imitate BW.
-- Preserve original slot order and version-specific icon behavior.
-- Add BW/B2W2 commands and metadata through context-aware action registration.
-- Preserve B2W2 direct held-item movement as an optional expanded capability.
-- Preserve Triple/Rotation positional semantics separately from the six-slot storage order.
-- Treat touch as one input adapter; provide button equivalents on targets without touch hardware.
-- Keep field-party and battle-party contexts separate.
+Black FNT/FAT direct mapping:
+
+- path: `a/0/0/7`
+- FAT file ID: 249
+- ROM range: `0x04912800–0x049D0E8C`
+- archive size: 779,916 bytes
+- NARC members: 1,431
+
+External Gen-V filesystem documentation independently identifies `a/0/0/7` as the Pokémon icon archive. Resource identity is therefore CONFIRMED. Exact Overlay-91 loader call-site mapping to this NARC is still pending and should not be replaced with a guessed function/NARC ID.
+
+Because the supplied White image ends inside FID 246, White does **not** contain FID 249 and cannot be used to compare this icon archive.
+
+## Other relevant Black NARC candidates
+
+Direct Black mappings currently include:
+
+| Path | FID | Size | Members | Current classification |
+|---|---:|---:|---:|---|
+| `a/0/7/0` | 312 | 24,200 B | 6 | menu/UI resource family; exact party use unresolved |
+| `a/0/7/7` | 319 | 75,500 B | 8 | summary/ribbon-family cross-reference; not assigned to party |
+| `a/0/7/8` | 320 | 170,496 B | 179 | large animated 2D UI bundle; party association still unresolved |
+
+Do not promote `a/0/7/8` to “party NARC” without a direct Overlay-91 resource-loader trace. B2W2 filesystem mappings cannot be blindly back-applied to BW because archive membership/layout differs between the games.
+
+## Party order / action semantics
+
+The six visible positions are semantic party indices, not cosmetic tiles. Party order determines initial send-out order; Triple and Rotation Battles make storage slot, active battle position and legal replacement state separate concepts.
+
+Recommended context/capability split remains:
+
+- `PARTY_CONTEXT_FIELD`
+- `PARTY_CONTEXT_BATTLE`
+- `PARTY_CONTEXT_TRADE`
+- `PARTY_CONTEXT_FACILITY`
+- `PARTY_CONTEXT_SCRIPT_SELECTION`
+- `PARTY_SUMMARY`
+- `PARTY_SWITCH_ORDER`
+- `PARTY_ITEM_GIVE`
+- `PARTY_ITEM_TAKE`
+- `PARTY_ITEM_MOVE_BETWEEN_MEMBERS` (B2W2)
+- `PARTY_FIELD_MOVE_ACTIONS`
+- `PARTY_BATTLE_SHIFT`
+- `PARTY_BATTLE_POSITION_AWARENESS`
+- `PARTY_EGG_PRESENTATION`
+- `PARTY_INVALID_OBJECT_PRESENTATION`
+
+Touch is an input adapter, not a semantic dependency; backward ports must retain button-accessible equivalents.
 
 ## Verification state
 
 ### CONFIRMED
 
-- BW six-member party is displayed as a 2-column × 3-row DS grid in representative Japanese screenshots.
-- top-left party slot is first in battle order: Nintendo BW manual.
-- BW Pokémon menu supports viewing Pokémon information, changing order, held-item handling, and field-move use: Nintendo BW manual.
-- BW selected-member workflow includes Summary / Switch / Item / Field Move: contemporary guide documentation.
-- BW party interface retains touch interaction and button/D-pad navigation.
-- battle Pokémon menu allows Summary/switch workflow and exposes SHIFT for a legal replacement: Nintendo BW manual.
-- B2W2 allows held items to be moved directly between party members: cross-game interface documentation.
-- B2W2 allows the party screen to participate in the registered-menu / Ready Button system: cross-game interface documentation.
+- Black physical ROM/FNT/FAT/overlay baseline above.
+- White supplied image is 63 MiB and severely truncated, not merely tail-trimmed.
+- White truncation begins inside FID 246 `a/0/0/4`; 238 FAT entries are partly/fully outside EOF.
+- all 237 White ARM9 overlays are physically present and decompressible.
+- Overlay 91 is the Pokémon-list/party subsystem, based on embedded original source filenames.
+- Overlay 91 contains repeated hard-coded six-member loops.
+- Overlay 91 includes separate plate/message/menu/battle/demo source modules.
+- Black `a/0/0/7` is FID 249, 779,916 bytes, 1,431 members; external documentation identifies it as Pokémon icons.
 
-### UNRESOLVED / PENDING DIRECT ROM TRACE
+### PARTIAL / UNRESOLVED
 
-- exact BW/B2W2 party-menu overlay number(s)
-- exact NARC archives and member IDs for panel graphics, cursor, touch hitboxes, icons, palettes, and strings
-- exact state-machine function boundaries
-- exact BW-vs-White binary equality/differences for party UI assets
-- exact Black-vs-White and B2-vs-W2 version-specific graphical deltas
-- language/region/revision-specific asset and string differences
+- exact function boundaries and original function names inside Overlay 91.
+- exact direct Overlay-91 call sites that open each UI NARC.
+- exact party plate/background/cursor/touch-hitbox archive/member mapping.
+- semantic meaning of all 1,287 Black-vs-White Overlay-91 byte differences.
+- complete White UI/data comparison, blocked by the incomplete White image.
+- B2W2 binary overlay/NARC correspondence; this must be audited separately rather than inferred from BW.
 
-No guessed ROM offsets or archive IDs are recorded as facts.
+No guessed overlay numbers, NARC IDs, member numbers or function names are promoted to confirmed facts.
+
+## External cross-checks
+
+- Project Pokémon Black raw NARC inventory: BW archive member counts, including `a/0/0/4` = 14,285 members and `a/0/0/7` = 1,431 members.
+- Project Pokémon B2W2 filesystem documentation: `a/0/0/4` Pokémon sprites/pokegra, `a/0/0/7` Pokémon icons, and B2W2 UI-family mappings. B2W2 mappings are used only as cross-generation/sequel references, not as BW binary identities.
