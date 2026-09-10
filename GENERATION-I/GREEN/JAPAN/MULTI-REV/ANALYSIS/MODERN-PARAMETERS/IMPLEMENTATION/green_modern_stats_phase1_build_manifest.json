@@ -1,0 +1,42 @@
+{
+  "phase": "modern-parameters-phase1-direct-legacy-compatible",
+  "policy": "Apply only modern changes that map unambiguously to the legacy Gen I stat fields; defer Special split and new types until engine support exists.",
+  "changes": [
+    {"dex":15,"name":"Beedrill","field":"attack","old":80,"new":90,"generation":"Gen VI"},
+    {"dex":18,"name":"Pidgeot","field":"speed","old":91,"new":101,"generation":"Gen VI"},
+    {"dex":24,"name":"Arbok","field":"attack","old":85,"new":95,"generation":"Gen VII"},
+    {"dex":25,"name":"Pikachu","field":"defense","old":30,"new":40,"generation":"Gen VI"},
+    {"dex":26,"name":"Raichu","field":"speed","old":100,"new":110,"generation":"Gen VI"},
+    {"dex":31,"name":"Nidoqueen","field":"attack","old":82,"new":92,"generation":"Gen VI"},
+    {"dex":34,"name":"Nidoking","field":"attack","old":92,"new":102,"generation":"Gen VI"},
+    {"dex":51,"name":"Dugtrio","field":"attack","old":80,"new":100,"generation":"Gen VII"},
+    {"dex":62,"name":"Poliwrath","field":"attack","old":85,"new":95,"generation":"Gen VI"},
+    {"dex":76,"name":"Golem","field":"attack","old":110,"new":120,"generation":"Gen VI"},
+    {"dex":83,"name":"Farfetch'd","field":"attack","old":65,"new":90,"generation":"Gen VII"},
+    {"dex":85,"name":"Dodrio","field":"speed","old":100,"new":110,"generation":"Gen VII"},
+    {"dex":101,"name":"Electrode","field":"speed","old":140,"new":150,"generation":"Gen VII"}
+  ],
+  "builds": {
+    "REV-0": {
+      "source_sha1":"82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+      "output_sha1":"f01c53a1e0b896bd24c924f8b7e798c97f91ce6a",
+      "ips_sha1":"977f2c4d7dddacca6ba5cddf4b643675394b3d4d",
+      "source_global_checksum":"0xDDD5",
+      "output_global_checksum":"0xDE70",
+      "header_checksum":"0x9C",
+      "stat_byte_changes":13,
+      "total_rom_byte_changes_including_checksum":15
+    },
+    "REV-A": {
+      "source_sha1":"4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+      "output_sha1":"2882e96b3f22478af4654e2390d96b5dadb944ae",
+      "ips_sha1":"e7a9d73462cfb18dc7dd5b86a7aa25a628d45cd8",
+      "source_global_checksum":"0xF547",
+      "output_global_checksum":"0xF5E2",
+      "header_checksum":"0x9B",
+      "stat_byte_changes":13,
+      "total_rom_byte_changes_including_checksum":14
+    }
+  },
+  "deferred_engine_work": ["Special -> Sp. Atk/Sp. Def split","Steel type","Fairy type","type chart integration"]
+}
