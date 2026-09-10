@@ -1,0 +1,55 @@
+{
+  "source": {
+    "black_file": "Pokemon.Black.Version.EUR.NDS-SweeTnDs.nds",
+    "black_sha1": "a68b3bedf5c1e53556e41e59cdf396c20b331896",
+    "white_file": "Pokemon.White.Version.EUR.NDS-SweeTnDs.nds",
+    "white_sha1": "49baeb3f44df1303d1854b7875fd78250101bcf6",
+    "personal_narc_path": "/a/0/1/6",
+    "personal_narc_sha1": "0cc77c1d0d649c1c3daa7ad4d1aeeab2c63ce94b",
+    "black_white_personal_identical": true
+  },
+  "scope": {
+    "sprites": "deferred",
+    "gen2_species": "001-251",
+    "gen3_species": "001-386",
+    "direct_fields_scanned_gen2": ["base_stats", "types", "catch_rate", "gender_ratio", "hatch_cycles", "growth_rate", "egg_groups"],
+    "direct_fields_scanned_gen3": ["base_stats", "types", "catch_rate", "ev_yield", "gender_ratio", "hatch_cycles", "base_friendship", "growth_rate", "egg_groups"],
+    "excluded_pending_expansion": ["Gen5 base EXP (16-bit / Gen5 EXP mechanics)", "held-item ID/3-slot mapping", "abilities/hidden abilities", "TM/HM compatibility expansion", "new species 387-649", "new types beyond target engine if applicable"]
+  },
+  "result_summary": {
+    "target_rom_count": 14,
+    "gen2_rom_count": 4,
+    "gen3_rom_count": 10,
+    "gen2_differences_per_rom": 3,
+    "gen3_differences_per_rom": 6,
+    "gen2_changes": [
+      {"species":20,"name":"Raticate / ラッタ","field":"catch_rate","old":90,"new":127},
+      {"species":183,"name":"Marill / マリル","field":"hatch_cycles","old":20,"new":10},
+      {"species":184,"name":"Azumarill / マリルリ","field":"hatch_cycles","old":20,"new":10}
+    ],
+    "gen3_changes": [
+      {"species":193,"name":"Yanma / ヤンヤンマ","field":"ev_yield","old":[0,0,0,2,0,0],"new":[0,0,0,1,0,0]},
+      {"species":200,"name":"Misdreavus / ムウマ","field":"ev_yield","old":[0,0,0,0,1,1],"new":[0,0,0,0,0,1]},
+      {"species":242,"name":"Blissey / ハピナス","field":"ev_yield","old":[2,0,0,0,0,0],"new":[3,0,0,0,0,0]},
+      {"species":315,"name":"Roselia / ロゼリア","field":"ev_yield","old":[0,0,0,0,1,0],"new":[0,0,0,0,2,0]},
+      {"species":355,"name":"Duskull / ヨマワル","field":"ev_yield","old":[0,0,1,0,0,1],"new":[0,0,0,0,0,1]},
+      {"species":356,"name":"Dusclops / サマヨール","field":"ev_yield","old":[0,0,1,0,0,2],"new":[0,0,1,0,0,1]}
+    ]
+  },
+  "targets": [
+    {"generation":"GENERATION-II","game":"GOLD","language_region":"KOREA","revision":0,"source_sha1":"dd89f430b715ed24ad7f57d7f9c90d43c759c38f","base_data_offset":"0x51BDF","patch":"GENERATION-II/GOLD/KOREA/REV-0/PATCHES/GOLD_KOREA_REV-0_BW_direct_params.ips"},
+    {"generation":"GENERATION-II","game":"SILVER","language_region":"KOREA","revision":0,"source_sha1":"de673ccc5a5e54f50e733c893231dadf1634159e","base_data_offset":"0x51BDF","patch":"GENERATION-II/SILVER/KOREA/REV-0/PATCHES/SILVER_KOREA_REV-0_BW_direct_params.ips"},
+    {"generation":"GENERATION-II","game":"CRYSTAL","language_region":"JAPAN","revision":0,"source_sha1":"95127b901bbce2407daf43cce9f45d4c27ef635d","base_data_offset":"0x514BA","patch":"GENERATION-II/CRYSTAL/JAPAN/REV-0/PATCHES/CRYSTAL_JAPAN_REV-0_BW_direct_params.ips"},
+    {"generation":"GENERATION-II","game":"CRYSTAL","language_region":"USA-EUROPE","revision":1,"source_sha1":"f2f52230b536214ef7c9924f483392993e226cfb","base_data_offset":"0x51424","patch":"GENERATION-II/CRYSTAL/USA-EUROPE/REV-1/PATCHES/CRYSTAL_USA-EUROPE_REV-1_BW_direct_params.ips"},
+    {"generation":"GENERATION-III","game":"RUBY","language_region":"JAPAN","revision":0,"species_info_bulbasaur_offset":"0x1D09E8","patch":"GENERATION-III/RUBY/JAPAN/REV-0/PATCHES/RUBY_JAPAN_REV-0_BW_direct_params.ips"},
+    {"generation":"GENERATION-III","game":"RUBY","language_region":"USA-EUROPE","revision":2,"species_info_bulbasaur_offset":"0x1FEC4C","patch":"GENERATION-III/RUBY/USA-EUROPE/REV-2/PATCHES/RUBY_USA-EUROPE_REV-2_BW_direct_params.ips"},
+    {"generation":"GENERATION-III","game":"SAPPHIRE","language_region":"JAPAN","revision":0,"species_info_bulbasaur_offset":"0x1D0978","patch":"GENERATION-III/SAPPHIRE/JAPAN/REV-0/PATCHES/SAPPHIRE_JAPAN_REV-0_BW_direct_params.ips"},
+    {"generation":"GENERATION-III","game":"SAPPHIRE","language_region":"USA-EUROPE","revision":2,"species_info_bulbasaur_offset":"0x1FEBDC","patch":"GENERATION-III/SAPPHIRE/USA-EUROPE/REV-2/PATCHES/SAPPHIRE_USA-EUROPE_REV-2_BW_direct_params.ips"},
+    {"generation":"GENERATION-III","game":"EMERALD","language_region":"JAPAN","revision":0,"species_info_bulbasaur_offset":"0x2F0D70","patch":"GENERATION-III/EMERALD/JAPAN/REV-0/PATCHES/EMERALD_JAPAN_REV-0_BW_direct_params.ips"},
+    {"generation":"GENERATION-III","game":"EMERALD","language_region":"USA-EUROPE","revision":0,"species_info_bulbasaur_offset":"0x3203E8","patch":"GENERATION-III/EMERALD/USA-EUROPE/REV-0/PATCHES/EMERALD_USA-EUROPE_REV-0_BW_direct_params.ips"},
+    {"generation":"GENERATION-III","game":"FIRERED","language_region":"JAPAN","revision":1,"species_info_bulbasaur_offset":"0x20C9C0","patch":"GENERATION-III/FIRERED/JAPAN/REV-1/PATCHES/FIRERED_JAPAN_REV-1_BW_direct_params.ips"},
+    {"generation":"GENERATION-III","game":"FIRERED","language_region":"USA-EUROPE","revision":1,"species_info_bulbasaur_offset":"0x254810","patch":"GENERATION-III/FIRERED/USA-EUROPE/REV-1/PATCHES/FIRERED_USA-EUROPE_REV-1_BW_direct_params.ips"},
+    {"generation":"GENERATION-III","game":"LEAFGREEN","language_region":"JAPAN","revision":0,"species_info_bulbasaur_offset":"0x211184","patch":"GENERATION-III/LEAFGREEN/JAPAN/REV-0/PATCHES/LEAFGREEN_JAPAN_REV-0_BW_direct_params.ips"},
+    {"generation":"GENERATION-III","game":"LEAFGREEN","language_region":"USA-EUROPE","revision":1,"species_info_bulbasaur_offset":"0x2547EC","patch":"GENERATION-III/LEAFGREEN/USA-EUROPE/REV-1/PATCHES/LEAFGREEN_USA-EUROPE_REV-1_BW_direct_params.ips"}
+  ]
+}
