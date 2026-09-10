@@ -1,0 +1,11 @@
+id,event,gold_silver,crystal,hgss,integration_decision,status
+OP-001,New Bark west-exit safety gate,"NPC blocks leaving without a Pokemon","Same structure","Expanded scene-variable progression","Preserve GSC gate; add only new branch flags",verified
+OP-002,Rival outside Elm's Lab,"Rival watches lab and shoves player","Same core event","Rival plus opposite-gender friend and Marill in New Bark","Keep rival event; add friend+Marill separately",verified
+OP-003,First meeting with Elm,"Direct errand setup into starter choice","Expanded acceptance/email/mission sequence","Expanded scripted intro and communication cue","Use Crystal/HGSS cinematic structure; retain G/S content as supplemental dialogue",verified
+OP-004,Starter selection,"Three lab Poke Balls; starter flags","Same with longer lead-in","Dedicated starter selection; transitions to follower","Preserve starter flags; layer HGSS post-selection flow",verified
+OP-005,Immediate starter nickname,"Absent","Absent","Immediate nickname offer","Backport nickname prompt independently of follower system",verified
+OP-006,Starter follows player,"Absent","Absent","Present during opening","Add after follower-system port; never hard-gate story on rendering",verified
+OP-007,Elm aide Potion reward,"1 Potion","1 Potion","5 Potions","Default candidate 5; keep quantity as compatibility constant",verified
+OP-008,Cherrygrove guide,"Optional tour; Map Card reward","Same core event","Tour gives Running Shoes; later return gives Map Card","Keep accept/decline choice; use HGSS reward order when accepted",verified
+OP-009,First rival battle,"Return-route interception; counter starter","Same core battle","Passerby Boy entries selected by starter; encounter flag set","Keep GSC scene identity; backport useful HGSS pre-name state",verified
+OP-010,Rival naming after theft,"Police asks player to name thief","Same core event","Dedicated NameRival call; friend participates in expanded lab scene","Keep police naming; add friend witness/context",verified
