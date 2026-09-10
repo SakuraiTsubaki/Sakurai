@@ -37,8 +37,8 @@
     ]
   },
   "targets": [
-    {"generation":"GENERATION-II","game":"GOLD","language_region":"KOREA","revision":0,"source_sha1":"dd89f430b715ed24ad7f57d7f9c90d43c759c38f","base_data_offset":"0x51BDF","patch":"GENERATION-II/GOLD/KOREA/REV-0/PATCHES/GOLD_KOREA_REV-0_BW_direct_params.ips"},
-    {"generation":"GENERATION-II","game":"SILVER","language_region":"KOREA","revision":0,"source_sha1":"de673ccc5a5e54f50e733c893231dadf1634159e","base_data_offset":"0x51BDF","patch":"GENERATION-II/SILVER/KOREA/REV-0/PATCHES/SILVER_KOREA_REV-0_BW_direct_params.ips"},
+    {"generation":"GENERATION-II","game":"GOLD","language_region":"KOREA","revision":0,"source_sha1":"c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65","base_data_offset":"0x51BDF","patch":"GENERATION-II/GOLD/KOREA/REV-0/PATCHES/GOLD_KOREA_REV-0_BW_direct_params.ips"},
+    {"generation":"GENERATION-II","game":"SILVER","language_region":"KOREA","revision":0,"source_sha1":"cb22d7e03a74dc3a563fde6be8626626b2b392e7","base_data_offset":"0x51BDF","patch":"GENERATION-II/SILVER/KOREA/REV-0/PATCHES/SILVER_KOREA_REV-0_BW_direct_params.ips"},
     {"generation":"GENERATION-II","game":"CRYSTAL","language_region":"JAPAN","revision":0,"source_sha1":"95127b901bbce2407daf43cce9f45d4c27ef635d","base_data_offset":"0x514BA","patch":"GENERATION-II/CRYSTAL/JAPAN/REV-0/PATCHES/CRYSTAL_JAPAN_REV-0_BW_direct_params.ips"},
     {"generation":"GENERATION-II","game":"CRYSTAL","language_region":"USA-EUROPE","revision":1,"source_sha1":"f2f52230b536214ef7c9924f483392993e226cfb","base_data_offset":"0x51424","patch":"GENERATION-II/CRYSTAL/USA-EUROPE/REV-1/PATCHES/CRYSTAL_USA-EUROPE_REV-1_BW_direct_params.ips"},
     {"generation":"GENERATION-III","game":"RUBY","language_region":"JAPAN","revision":0,"species_info_bulbasaur_offset":"0x1D09E8","patch":"GENERATION-III/RUBY/JAPAN/REV-0/PATCHES/RUBY_JAPAN_REV-0_BW_direct_params.ips"},
