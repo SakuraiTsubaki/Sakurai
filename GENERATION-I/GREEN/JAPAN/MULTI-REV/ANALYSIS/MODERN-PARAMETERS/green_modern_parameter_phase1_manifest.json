@@ -1,0 +1,54 @@
+{
+  "project": "GREEN",
+  "source_roms": {
+    "REV-0": {
+      "filename": "Pocket Monsters - Midori (Japan) (SGB Enhanced).gb",
+      "size": 524288,
+      "sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+      "md5": "e30ffbab1f239f09b226477d84db1368",
+      "header_version": 0,
+      "base_stats_001_150_sha1": "55dfb6414fa45bd701814d58ae832969af056e37",
+      "mew_record_hex": "97646464646418182d4055b040aa410100000003ffffffffffffffff"
+    },
+    "REV-A": {
+      "filename": "Pocket Monsters - Midori (Japan) (Rev A) (SGB Enhanced).gb",
+      "size": 524288,
+      "sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+      "md5": "16ddd8897092936fbc0e286c6a6b23a2",
+      "header_version": 1,
+      "base_stats_001_150_sha1": "55dfb6414fa45bd701814d58ae832969af056e37",
+      "mew_record_hex": "97646464646418182d4055b040aa410100000003ffffffffffffffff"
+    }
+  },
+  "base_stats_structure": {
+    "regular_table_start": "0x38000",
+    "regular_entries": "001-150",
+    "record_size": 28,
+    "mew_entry_offset": "0x04200",
+    "mew_dex": 151,
+    "fields": [
+      "dex",
+      "hp",
+      "attack",
+      "defense",
+      "speed",
+      "special",
+      "type1",
+      "type2",
+      "catch_rate",
+      "base_exp",
+      "sprite_dimensions",
+      "front_sprite_ptr",
+      "back_sprite_ptr",
+      "start_moves[4]",
+      "growth_rate",
+      "tmhm_flags[8]"
+    ]
+  },
+  "modernization_scope_phase1": {
+    "explicit_regular_gen1_base_stat_buffs_after_gen_v": 20,
+    "gen1_species_type_changes": 7,
+    "special_split_note": "Gen I Special must be migrated to separate Sp. Atk and Sp. Def values for the modern data model."
+  },
+  "reference_baseline": "Generation IX current data, with Pokémon Champions as released 2026 battle platform; future 2027 titles are not yet used as source data."
+}
