@@ -1,0 +1,15 @@
+{
+  "move_rows": 251,
+  "unchanged": 201,
+  "changed_total": 50,
+  "spacing_normalization": 29,
+  "renamed_or_spelling": 21,
+  "pkhex_pokeapi_agreement": 251,
+  "direct_official_source_verified": 0,
+  "all_names_encodable_in_gs_korean": true,
+  "old_table_bytes_with_terminators": 2199,
+  "new_table_bytes_with_terminators": 2170,
+  "table_byte_delta": -29,
+  "max_latest_name_encoded_bytes": 14,
+  "rom_output_written": false
+}
