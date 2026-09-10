@@ -1,0 +1,20 @@
+{
+  "work": "GS Korean full Hangul glyph extraction",
+  "verified": true,
+  "source_rom_sha256": {
+    "Pocket Monsters Geum (Korea).gbc": "9c273e86e6120c6a038160ccb0153b8b20425b84fc08a496281c1d1bcac492f6",
+    "Pocket Monsters Eun (Korea).gbc": "ebbac63c0c4309c82dbb6723e7163369784f962b4fd3e2f486075307c3008a22"
+  },
+  "font_banks": ["0x78", "0x79", "0x7A"],
+  "table_count": 11,
+  "bytes_per_table": 4096,
+  "glyph_slots_per_table": 256,
+  "glyph_cell": "8x16 1bpp",
+  "bytes_per_glyph": 16,
+  "combined_bytes": 45056,
+  "combined_sha256": "4a9151fb06807d0727fb40dd5779479f9cc9546610c2a4cd162ed185562d3d60",
+  "gold_silver_payload_identical": true,
+  "asset_repository": "SakuraiTsubaki/Tsubaki",
+  "asset_path": "GENERATION-II/POCKET-MONSTERS-GOLD-SILVER/KOREA/REV-COMMON/FONT/",
+  "rom_binary_committed": false
+}
