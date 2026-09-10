@@ -1,0 +1,3 @@
+game,game_code,overlay_id,ram_base,ram_size,bss_size,static_init_start,static_init_end,file_id,rom_start,rom_end,raw_size,decompressed_size,decompressed_sha1,source_modules
+Black EUR,IRBO,91,0x021B6240,0x8B40,0x20,0x021BECF0,0x021BECF4,91,0x00166400,0x0016CF70,27504,35648,0b369df319d81d7eeba7c5687099fb673fd02106,"pokelist.c;plist_plate.c;plist_message.c;plist_menu.c;plist_battle.c;plist_demo.c"
+White EUR (incomplete ROM but overlay intact),IRAO,91,0x021B6260,0x8B40,0x20,0x021BED10,0x021BED14,91,0x00166400,0x0016CF70,27504,35648,5dd02b92ad4280e64c253336b8e8a7e0992a68df,"pokelist.c;plist_plate.c;plist_message.c;plist_menu.c;plist_battle.c;plist_demo.c"
