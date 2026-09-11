@@ -34,7 +34,8 @@ u8 Gen5GetBoxMonAbilitySlot(struct BoxPokemon *boxMon)
     if (Gen5BoxMonHasHiddenAbility(boxMon))
         return GEN5_ABILITY_SLOT_HIDDEN;
 
-    return GetBoxMonData2(boxMon, MON_DATA_ABILITY_NUM)
+    /* Three-argument form works with pokeruby and dispatches correctly in FRLG/Emerald. */
+    return GetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, NULL)
         ? GEN5_ABILITY_SLOT_2
         : GEN5_ABILITY_SLOT_1;
 }
@@ -46,12 +47,12 @@ u8 Gen5GetMonAbilitySlot(struct Pokemon *mon)
 
 u8 Gen5GetBoxMonAbilityRaw(struct BoxPokemon *boxMon)
 {
-    u16 species = GetBoxMonData2(boxMon, MON_DATA_SPECIES);
+    u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL);
     return Gen5GetAbilityRaw(species, Gen5GetBoxMonAbilitySlot(boxMon));
 }
 
 u8 Gen5GetMonAbilityRaw(struct Pokemon *mon)
 {
-    u16 species = GetMonData2(mon, MON_DATA_SPECIES);
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     return Gen5GetAbilityRaw(species, Gen5GetMonAbilitySlot(mon));
 }
