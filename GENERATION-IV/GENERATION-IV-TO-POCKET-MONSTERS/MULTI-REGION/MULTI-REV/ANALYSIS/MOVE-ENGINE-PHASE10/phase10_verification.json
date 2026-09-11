@@ -1,0 +1,32 @@
+{
+  "official_move_range": "0..467",
+  "new_move_range": "355..467",
+  "new_move_count": 113,
+  "gen4_active_archive_records": 471,
+  "extra_archive_records_outside_NUM_MOVES": [
+    468,
+    469,
+    470
+  ],
+  "dp_pearl_active_tables_identical": true,
+  "hgss_active_tables_identical": true,
+  "new_355_467_identical_across_DP_Pt_HGSS": true,
+  "official_move_ids_with_version_differences": [
+    95,
+    258
+  ],
+  "category_counts_new": {
+    "STATUS": 32,
+    "PHYSICAL": 52,
+    "SPECIAL": 29
+  },
+  "new_moves_with_effect_gt_213": 56,
+  "distinct_effect_ids_gt_213_used_by_new_moves": 54,
+  "max_hgss_effect_id_official_moves": 276,
+  "gen3_targets_staged": 10,
+  "expanded_entries": 468,
+  "expanded_stride": 12,
+  "expanded_bytes": 5616,
+  "old_bytes": 4260,
+  "growth_bytes": 1356
+}
