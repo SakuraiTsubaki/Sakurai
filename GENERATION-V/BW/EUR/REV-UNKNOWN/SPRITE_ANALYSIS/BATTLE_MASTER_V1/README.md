@@ -55,11 +55,11 @@ Female static/parts slots that are empty because the species has no visual sexua
 
 ## Static preservation-v2 conversion
 
-The Generation IV master used fixed 80×80 → 64×64 weighted index selection. BW static battle sprites are nominally 96×96, so the same selection rule is generalized to the actual decoded static source dimensions:
+The Generation IV master converted the **entire decoded 80×80 source canvas** to 64×64. It did not crop each Pokémon to its opaque bounding box first. Generation V follows the same rule so the source game's own cross-species scale and placement are retained.
 
 1. Decode the dedicated static NCGR directly from the project BW ROM `/a/0/0/4` archive.
 2. Keep the source as palette **indices**, not interpolated RGB.
-3. Fit the complete opaque source extent into a 62×62 safe inner area on a 64×64 target, preserving aspect ratio and a 1-pixel safety margin.
+3. Convert the **complete decoded static source canvas** (normally 96×96 in BW) directly to the complete 64×64 target canvas. Transparent source margins are preserved proportionally; there is no per-species opaque-bbox normalization or artificial enlargement.
 4. For every target pixel, calculate exact source-pixel area overlap.
 5. Select one of the overlapping source palette indices using weighted overlap voting.
 6. Apply the same mild rare-index preference used by the Generation IV preservation-v2 strategy.
@@ -68,7 +68,7 @@ The Generation IV master used fixed 80×80 → 64×64 weighted index selection. 
 9. Render normal and shiny from the original `+18` / `+19` BW palettes after index selection.
 10. Deduplicate identical 64×64 RGBA results globally by SHA-256 while retaining every logical role in the manifest.
 
-Implementation kernel: `preservation_v2_generalized.py`.
+Implementation kernel: `preservation_v2_generalized.py`. Static conversion uses `resize_static_canvas()`; the union-envelope transform is reserved for the separate animation track.
 
 ## Separate animation-preservation track
 
@@ -108,6 +108,7 @@ A result is not called `BATTLE_MASTER_V1` unless all of the following pass:
 
 - ROM-primary provenance recorded
 - dedicated static NCGR used for the static 64×64 master
+- complete static source canvas preserved proportionally; no opaque-bbox normalization
 - source-index-only color selection
 - no antialiasing/interpolation/new colors
 - front/back and normal/shiny coverage verified
