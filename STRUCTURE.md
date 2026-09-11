@@ -1,113 +1,51 @@
 # Repository Structure
 
-This repository uses one canonical path model:
+## Canonical path
 
 `GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
 
-## 1. Generation
+This path model is mandatory for all new project outputs.
 
-Allowed roots are `GENERATION-I` through `GENERATION-IX`.
+## Root
 
-## 2. Game
+Allowed project roots are `GENERATION-I` through `GENERATION-IX`. Repository infrastructure may also use `.github`, `README.md`, `STRUCTURE.md`, and `MIGRATION.md`. No ad-hoc project folders are allowed at repository root.
 
-The GAME level contains only one canonical game title or the reserved `_SHARED` folder.
+## GAME
 
-Canonical game names currently in scope:
+GAME contains only a canonical single-game title or `_SHARED`.
 
 - Generation I: `RED`, `GREEN`, `BLUE`, `YELLOW`
 - Generation II: `GOLD`, `SILVER`, `CRYSTAL`
 - Generation III: `RUBY`, `SAPPHIRE`, `EMERALD`, `FIRERED`, `LEAFGREEN`
 - Generation IV: `DIAMOND`, `PEARL`, `PLATINUM`, `HEARTGOLD`, `SOULSILVER`
 - Generation V: `BLACK`, `WHITE`, `BLACK2`, `WHITE2`
-- Generation VI: `X`, `Y`, `OMEGA-RUBY`, `ALPHA-SAPPHIRE`
-- Generation VII: `SUN`, `MOON`, `ULTRA-SUN`, `ULTRA-MOON`, `LETS-GO-PIKACHU`, `LETS-GO-EEVEE`
-- Generation VIII: `SWORD`, `SHIELD`, `BRILLIANT-DIAMOND`, `SHINING-PEARL`, `LEGENDS-ARCEUS`
+- Generation VI: `X`, `Y`, `OMEGARUBY`, `ALPHASAPPHIRE`
+- Generation VII: `SUN`, `MOON`, `ULTRASUN`, `ULTRAMOON`, `LETSGO-PIKACHU`, `LETSGO-EEVEE`
+- Generation VIII: `SWORD`, `SHIELD`, `BRILLIANTDIAMOND`, `SHININGPEARL`, `LEGENDS-ARCEUS`
 - Generation IX: `SCARLET`, `VIOLET`, `LEGENDS-Z-A`
 
-Pair/group aliases such as `RGBY`, `GSC`, `GOLD-SILVER`, `DIAMOND-PEARL`, `DPPt-HGSS`, `BW`, `BW-B2W2`, `RSE-FRLG`, or `GEN3-SHARED` are not valid GAME folders. Truly shared material goes under `_SHARED`.
+`_SHARED` is reserved for material that genuinely applies to multiple games in the same generation. Names such as `RGBY`, `GSC`, `RSE-FRLG`, `DPPt-HGSS`, `BW`, and `BW-B2W2` are not GAME names and must not be created at this level.
 
-## 3. Language / Region
+## LANGUAGE/REGION
 
-Use normalized locale tokens only:
+Canonical values include `JP-JA`, `KR-KO`, `US-EN`, `EU-EN`, `EU-DE`, `EU-FR`, `EU-IT`, `EU-ES`, and `MULTI`.
 
-- `JP-JA`
-- `US-EN`
-- `EU-EN`
-- `EU-DE`
-- `EU-FR`
-- `EU-IT`
-- `EU-ES`
-- `KR-KO`
-- `MULTI` only for artifacts that intentionally compare multiple locale variants
-- `COMMON` only for language-independent data
+A transformation direction such as `JAPAN-TO-KOREAN` is metadata, not a locale folder. Source/target direction belongs inside localization manifests or documentation.
 
-Translation directions such as `JAPAN-TO-KOREAN` are not locale folders. Put that information in the work type and provenance metadata.
+## REV
 
-## 4. Revision
+Use explicit revision folders such as `REV-0`, `REV-A`, `REV-1`, or `REV-ALL`. `MULTI-REV` and `REV-COMMON` are legacy names and are forbidden for new paths.
 
-Use revision identifiers only:
+## WORK TYPE — Sakurai
 
-- `REV-0`, `REV-A`, `REV-B`, `REV-1`, etc. for one real revision
-- `REV-ALL` only for intentional cross-revision comparison
+Allowed research work types are:
 
-`MULTI-REV` and `REV-COMMON` are not valid revision names.
+`ANALYSIS`, `CENSUS`, `STRUCTURE`, `TEXT`, `DATA`, `DIFFS`, `TOOLS`, `TESTS`, `VERIFICATION`, `REPORTS`, `LOCALIZATION`, `DISASSEMBLY`, `MANIFESTS`, `MAPS`, `SYMBOLS`, and `MIGRATED`.
 
-## 5. Work Type — Sakurai
+`MIGRATED` is a read-only compatibility/archive bucket created only during repository restructuring. New project output must never be written there.
 
-Allowed top-level work types:
+Directories below WORK TYPE are free to describe the actual subject, phase, bank, table, map, or component.
 
-- `META`
-- `ROM-IDENTITY`
-- `STRUCTURE`
-- `TEXT`
-- `GAME-DATA`
-- `EVENTS`
-- `GRAPHICS-ANALYSIS`
-- `DIFFS`
-- `UNUSED`
-- `LOCALIZATION`
-- `TOOLS`
-- `TESTS`
-- `REPORTS`
+## Legacy workflows
 
-Subfolders may exist below a work type when they describe real technical subdivisions, but they must not repeat generation/game/locale/revision concepts.
-
-## 6. Shared and cross-generation work
-
-`_SHARED` is reserved for genuinely generation-wide material that cannot belong to one game.
-
-For cross-generation asset application:
-
-- Source asset provenance stays with the original source game in Tsubaki.
-- Target implementation analysis stays with the target game in Sakurai.
-- Record source generation/game in a manifest instead of creating a synthetic GAME folder.
-
-## 7. Naming rules
-
-- Folder names are uppercase ASCII with hyphens where needed.
-- No date folders. Dates belong in filenames or metadata.
-- No `TEMP`, `MISC`, `ETC`, `FINAL`, `FINAL2`, or ad-hoc project aliases.
-- Do not create a second alias for an existing game.
-- Do not place workflows, translation directions, or project nicknames at the GAME level.
-
-## Examples
-
-```text
-GENERATION-II/
-└─ SILVER/
-   └─ KR-KO/
-      └─ REV-0/
-         ├─ STRUCTURE/
-         ├─ TEXT/
-         └─ TESTS/
-```
-
-```text
-GENERATION-IV/
-└─ _SHARED/
-   └─ COMMON/
-      └─ REV-ALL/
-         └─ REPORTS/
-```
-
-This document is the canonical path policy for all future automatic GitHub reflection.
+Old project-specific GitHub Actions are preserved under `.github/workflows-legacy/` and are intentionally inactive. The only active repository-wide workflow after migration is structural validation unless a new workflow is explicitly designed for the canonical paths.
