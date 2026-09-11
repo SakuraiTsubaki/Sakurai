@@ -1,6 +1,4 @@
-# Generation IV Battle Sprite Master v1 — GitHub text index
-
-This directory mirrors the full local master metadata. Large manifests are split only to satisfy GitHub Contents API size limits; no logical scope is intentionally omitted.
+# Generation IV Battle Sprite Master v1 — GitHub index
 
 ## Master counts
 
@@ -9,13 +7,21 @@ This directory mirrors the full local master metadata. Large manifests are split
 - Atlas pages: 24
 - `otherpoke` members inventoried: 727
 
-## Text artifacts
+## Uploaded now
 
+- `README.md`
 - `summary.json`
 - `build_gen4_sprite_master.py`
-- `logical_slots_compact_part_01.tsv` … `logical_slots_compact_part_03.tsv`
-- `asset_index_part_01.csv` … `asset_index_part_02.csv`
-- `atlas_map.csv`
-- `otherpoke_member_inventory.csv`
+- `decode_manifests.py`
+- `otherpoke_unreferenced.csv`
 
-The binary PNG atlas pages and ZIP master are not converted into fake text files. The current GitHub connector can write UTF-8 text only, so binary assets remain in the project workspace until a binary-capable repository upload path is available.
+## Present in project workspace but not yet stored in this repository through the current connector
+
+- full `logical_slots.csv` (4,194,193 bytes)
+- full `asset_index.csv` (998,573 bytes)
+- full `atlas_map.csv` (306,982 bytes)
+- full `otherpoke_member_inventory.csv` (66,397 bytes)
+- 24 PNG atlas pages
+- `gen4_battle_sprite_master_v1.zip`
+
+The current GitHub connector exposes UTF-8 text writes but no local binary-file upload action. Binary PNG/ZIP files are therefore tracked by SHA-256 in the Tsubaki `BINARY_MANIFEST.json` rather than being falsely marked as uploaded.
