@@ -1,0 +1,7 @@
+form_id,form,exclusive_move
+0,Base,NONE
+1,Heat,OVERHEAT
+2,Wash,HYDRO_PUMP
+3,Frost,BLIZZARD
+4,Fan,AIR_SLASH
+5,Mow,LEAF_STORM
