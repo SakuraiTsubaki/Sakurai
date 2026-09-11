@@ -1,0 +1,3 @@
+move_id,move_name,comparison,changed_fields,before,after
+95,,DP->Pt,accuracy,accuracy=70,accuracy=60
+258,,Pt->HGSS,unkB,unkB=2,unkB=0
