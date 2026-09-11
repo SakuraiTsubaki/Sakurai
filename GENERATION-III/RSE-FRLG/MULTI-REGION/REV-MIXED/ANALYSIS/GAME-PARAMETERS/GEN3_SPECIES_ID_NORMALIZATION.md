@@ -17,8 +17,9 @@ The Generation III target runtime will use National Pokédex order as the canoni
 - `252..386` = Generation III species
 - `387..493` = Generation IV species
 - `494..649` = Generation V species
+- `650` = `EGG` pseudo-species token for APIs that require a species-like egg value
 
-Thus the project base-species ID is numerically identical to the National Pokédex number for 001-649.
+Thus the project base-species ID is numerically identical to the National Pokédex number for 001-649. `EGG` is outside the real-species range.
 
 Examples:
 
@@ -29,14 +30,27 @@ Examples:
 - Arceus = 493
 - Victini = 494
 - Genesect = 649
+- EGG pseudo-species = 650
 
 ## Egg and forms
 
-`EGG` is not allowed to occupy a National Pokédex species number in the normalized namespace. It becomes a special sentinel/state outside the 001-649 base-species range.
+The actual stored Pokémon keeps its real species and egg state separately. `650` is only the project replacement for legacy `SPECIES_EGG` in APIs such as species-or-egg display/filter logic; it is not a real `SpeciesInfo` record.
 
 Unown B-Z, ! and ? are not represented as independent base species. They are routed through the form system as `(SPECIES_UNOWN, form_id)`.
 
 The same rule applies to other Generation III-V alternate forms: base species ID remains the National Pokédex species, while form identity is stored/routed separately.
+
+### Project form selector
+
+The unified form selector is 5 bits:
+
+- `0..27` explicit form IDs
+- `28..30` reserved
+- `31` = `FORM_AUTO`
+
+The 5-bit width is required because direct extraction of the uploaded Pokémon Black personal NARC shows Unown has `form_count = 28` and Arceus has `form_count = 17`.
+
+For Generation III persistent Pokémon, the project stores form bits 0-3 in the original four unused `BoxPokemon` header bits and form bit 4 in one original `unusedRibbons` bit. This preserves the original `BoxPokemon` size. Battle-time resolved form state is held separately rather than forcing all dynamic forms into persistent storage.
 
 ## Migration consequences
 
@@ -77,7 +91,7 @@ For the original base species:
 - legacy 1-251 -> project 1-251
 - legacy 252-276 -> invalid/obsolete OLD_UNOWN legacy slots
 - legacy 277-411 -> project 252-386
-- legacy 412 (`EGG`) -> special egg state, not a base-species ID
+- legacy 412 (`EGG`) -> project pseudo-species 650 when a species-like token is required; stored egg state remains separate
 - legacy 413+ Unown form IDs -> `(SPECIES_UNOWN, form_id)`
 
 ## Project rule
