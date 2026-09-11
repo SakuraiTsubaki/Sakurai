@@ -1,0 +1,9 @@
+species,side,width,height,y_offset,nearest_gen3_reference,reference_width,reference_height,reference_y_offset,geometry_distance,v3_note
+Dialga,front,64,64,0,Rayquaza,64,64,0,0,current geometry already near native reference; retain scale and manually create breathing room
+Dialga,back,56,64,0,Rayquaza,56,64,0,0,current geometry already near native reference; retain scale and manually create breathing room
+Palkia,front,64,64,2,Groudon,64,64,1,2,current geometry already near native reference; retain scale and manually create breathing room
+Palkia,back,64,56,6,Groudon,64,56,7,2,current geometry already near native reference; retain scale and manually create breathing room
+Giratina Altered,front,64,64,1,Groudon,64,64,1,0,current geometry already near native reference; retain scale and manually create breathing room
+Giratina Altered,back,64,64,0,Rayquaza,56,64,0,8,review scale/composition before finalizing; do not force 64x64 occupancy
+Giratina Origin,front,64,64,0,Rayquaza,64,64,0,0,current geometry already near native reference; retain scale and manually create breathing room
+Giratina Origin,back,64,56,0,Groudon,64,56,7,14,review scale/composition before finalizing; do not force 64x64 occupancy
