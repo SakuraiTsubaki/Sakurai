@@ -1,35 +1,37 @@
 #!/usr/bin/env python3
-"""Generation V generalized preservation-v2 index resampler.
+"""Generation V preservation-v2 palette-index resampler.
 
-This is the ROM-primary 64x64 conversion kernel for BW battle sprites.
-It deliberately works on palette *indices*, not RGBA colors.
+Two related uses are intentionally separated:
 
-The Generation IV master used a fixed 80x80 -> 64x64 mapping.  Generation V
-battle graphics are multipart and their legal rendered envelope is variable, so
-this module generalizes the same rule to an arbitrary union envelope while
-preserving a common scale and relative anchor for every frame in that logical
-animation set.
+1. Static insertion master
+   The dedicated BW static NCGR is converted as a complete source canvas to
+   64x64, exactly mirroring the Generation IV philosophy of converting the
+   complete 80x80 source canvas rather than cropping opaque bounds first.
 
-Invariant: every non-transparent output pixel is one of the palette indices
-already present in the source index image.  No RGB interpolation or new colors
-are possible in this stage.
+2. Multipart animation track
+   A legal animation union envelope can be mapped into a safe target rectangle
+   with one shared scale/anchor for every frame.
+
+All conversion operates on palette indices, never interpolated RGB.  Therefore
+non-transparent output colors can only come from indices that already occur in
+the ROM source image.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass
-from collections import Counter
 import hashlib
 import math
-from typing import Iterable, Sequence
+from typing import Sequence
 
 import numpy as np
 from PIL import Image
 
 TARGET = 64
-SAFE_MARGIN = 1
-INNER = TARGET - SAFE_MARGIN * 2
+ANIMATION_SAFE_MARGIN = 1
 RARITY_EXPONENT = 0.08
-OPAQUE_COVERAGE_FORCE = 0.50  # Gen IV 0.78125 / 1.5625 == 50%.
+# Generation IV used opaque overlap >= 0.78125 in a 1.5625-area footprint.
+# That is exactly a 50% opaque-coverage rule, generalized here to any scale.
+OPAQUE_COVERAGE_FORCE = 0.50
 
 
 @dataclass(frozen=True)
@@ -58,22 +60,22 @@ def make_transform(
     *,
     anchor_src: tuple[int, int],
     target: int = TARGET,
-    safe_margin: int = SAFE_MARGIN,
+    safe_margin: int = ANIMATION_SAFE_MARGIN,
 ) -> EnvelopeTransform:
-    """Fit the full legal animation union into the target with one uniform scale.
+    """Fit one source rectangle with uniform scaling.
 
-    The shorter dimension is centered.  Because the *union* is transformed as a
-    whole, the battle anchor keeps the same relative position for all frames.
+    For animation this rectangle is the legal union envelope and safe_margin is
+    normally 1.  For the static master the rectangle is the *entire decoded
+    static NCGR canvas* and safe_margin is 0.
     """
     l, t, r, b = _validate_bbox(union_bbox)
     uw, uh = r - l, b - t
     inner = target - safe_margin * 2
+    if inner <= 0:
+        raise ValueError("safe margin leaves no target area")
     scale = min(inner / uw, inner / uh)
-    # Floor avoids ever exceeding the safe inner box due to rounding.
     out_w = max(1, min(inner, int(math.floor(uw * scale + 1e-9))))
     out_h = max(1, min(inner, int(math.floor(uh * scale + 1e-9))))
-    # Recompute effective per-axis footprint from the integer raster size only
-    # for placement. Sampling still uses the exact union geometry below.
     dst_x = safe_margin + (inner - out_w) // 2
     dst_y = safe_margin + (inner - out_h) // 2
     ax, ay = anchor_src
@@ -84,6 +86,25 @@ def make_transform(
     return EnvelopeTransform(
         (l, t, r, b), scale, out_w, out_h, dst_x, dst_y,
         tuple(map(int, anchor_src)), anchor_dst,
+    )
+
+
+def make_static_transform(src_canvas: np.ndarray, *, target: int = TARGET) -> EnvelopeTransform:
+    """Map the complete static source canvas to the full 64x64 target.
+
+    This deliberately does NOT crop the visible bbox.  Transparent source
+    margins are part of the original composition and preserve cross-species
+    relative scale/placement, just as in the Generation IV 80x80 -> 64x64
+    master.
+    """
+    if src_canvas.ndim != 2:
+        raise ValueError("src_canvas must be HxW palette-index array")
+    h, w = src_canvas.shape
+    return make_transform(
+        (0, 0, w, h),
+        anchor_src=(w // 2, h),
+        target=target,
+        safe_margin=0,
     )
 
 
@@ -111,13 +132,7 @@ def resize_index_frame(
     *,
     target: int = TARGET,
 ) -> np.ndarray:
-    """Convert one source-index frame with weighted area-overlap voting.
-
-    Source index 0 is transparent.  Output is a 64x64 palette-index array.
-    Every selected nonzero index is selected from source pixels overlapping the
-    corresponding target pixel footprint.  Mild rarity weighting mirrors the
-    Generation IV preservation-v2 strategy.
-    """
+    """Convert one palette-index image using weighted area-overlap voting."""
     if src_canvas.ndim != 2:
         raise ValueError("src_canvas must be HxW palette-index array")
     src = np.asarray(src_canvas)
@@ -127,15 +142,13 @@ def resize_index_frame(
     l, t, r, b = transform.union_bbox
     H, W = src.shape
     if l < 0 or t < 0 or r > W or b > H:
-        raise ValueError(f"union bbox {transform.union_bbox} outside source canvas {W}x{H}")
+        raise ValueError(f"source rectangle {transform.union_bbox} outside source canvas {W}x{H}")
 
     crop = src[t:b, l:r]
     sh, sw = crop.shape
     rarity = _rarity_weights(crop)
     out = np.zeros((target, target), dtype=src.dtype)
 
-    # Map only the raster rectangle allocated to the union envelope.  The rest
-    # of the 64x64 target remains transparent.
     for oy in range(transform.out_h):
         sy0 = oy * sh / transform.out_h
         sy1 = (oy + 1) * sh / transform.out_h
@@ -170,12 +183,16 @@ def resize_index_frame(
                 scores.pop(0, None)
             if not scores:
                 continue
-            # Stable tie break: larger score, then prefer opaque, then lower
-            # palette index for deterministic rebuilds.
             chosen = max(scores, key=lambda i: (scores[i], i != 0, -i))
             out[transform.dst_y + oy, transform.dst_x + ox] = chosen
 
     return out
+
+
+def resize_static_canvas(src_canvas: np.ndarray, *, target: int = TARGET) -> np.ndarray:
+    """Generation V static-master entry point: complete canvas -> 64x64."""
+    tr = make_static_transform(src_canvas, target=target)
+    return resize_index_frame(src_canvas, tr, target=target)
 
 
 def render_indices(index64: np.ndarray, palette_rgba: Sequence[Sequence[int]]) -> Image.Image:
@@ -199,14 +216,14 @@ def validate_source_index_only(src: np.ndarray, out: np.ndarray) -> None:
         raise AssertionError(f"output invented palette indices: {sorted(extra)}")
 
 
-def validate_no_clip(out: np.ndarray, *, safe_margin: int = SAFE_MARGIN) -> None:
+def validate_no_clip(out: np.ndarray, *, safe_margin: int = 0) -> None:
     ys, xs = np.where(out != 0)
     if not len(xs):
         return
     if xs.min() < safe_margin or ys.min() < safe_margin:
-        raise AssertionError("opaque output violates top/left safe margin")
+        raise AssertionError("opaque output violates top/left safety bound")
     if xs.max() >= out.shape[1] - safe_margin or ys.max() >= out.shape[0] - safe_margin:
-        raise AssertionError("opaque output violates bottom/right safe margin")
+        raise AssertionError("opaque output violates bottom/right safety bound")
 
 
 def describe(index64: np.ndarray) -> dict:
