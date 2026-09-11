@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 import sys
 
 ROOT = Path('.')
@@ -14,8 +15,9 @@ GENERATIONS = {
     'GENERATION-IX': {'SCARLET','VIOLET','LEGENDS-Z-A'},
 }
 LOCALES = {'JP-JA','KR-KO','US-EN','EU-EN','EU-DE','EU-FR','EU-IT','EU-ES','MULTI'}
-WORK_TYPES = {'ANALYSIS','CENSUS','STRUCTURE','TEXT','DATA','DIFFS','TOOLS','TESTS','VERIFICATION','REPORTS','LOCALIZATION','DISASSEMBLY','MANIFESTS','MAPS','SYMBOLS','MIGRATED'}
+WORK_TYPES = {'ANALYSIS','CENSUS','STRUCTURE','TEXT','DATA','DIFFS','TOOLS','TESTS','VERIFICATION','REPORTS','LOCALIZATION','DISASSEMBLY','MANIFESTS','MAPS','SYMBOLS'}
 ROOT_ALLOWED = set(GENERATIONS) | {'.github','README.md','STRUCTURE.md','MIGRATION.md','.git'}
+REV_RE = re.compile(r'^REV-(?:ALL|[A-Z]|\d+)$')
 
 errors = []
 for p in ROOT.iterdir():
@@ -42,7 +44,7 @@ for gen, games in GENERATIONS.items():
             for rev in locale.iterdir():
                 if rev.name == '.gitkeep':
                     continue
-                if not rev.is_dir() or not rev.name.startswith('REV-'):
+                if not rev.is_dir() or not REV_RE.fullmatch(rev.name):
                     errors.append(f'invalid REV path: {rev}')
                     continue
                 for work in rev.iterdir():
