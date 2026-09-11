@@ -1,0 +1,63 @@
+{
+  "gold": {
+    "version": "KOREAN_GOLD",
+    "source_rom_sha1": "c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65",
+    "bank_6c_original_sha256": "80ddef8bda9351e49f891ffd18b97cebae56b368594b596d7ca02b49e8cb8416",
+    "bank_6c_dry_run_sha256": "b4bfc4a0e5456da6bc58a7f2397d869bf9893005238eb003ef5cabd601f053fc",
+    "original_table_cpu_start_hex": "0x564A",
+    "original_table_cpu_end_exclusive_hex": "0x5EE1",
+    "dry_run_table_cpu_end_exclusive_hex": "0x5EC4",
+    "original_table_bytes": 2199,
+    "dry_run_table_bytes": 2170,
+    "byte_delta": -29,
+    "original_zero_tail_bytes": 8479,
+    "dry_run_zero_tail_bytes": 8508,
+    "names_pointer_entry": {
+      "bank_hex": "0x6C",
+      "cpu_address_hex": "0x564A"
+    },
+    "lookup_model": "TERMINATOR_SCANNED_NTH_STRING_NO_PER_MOVE_POINTERS",
+    "name_buffer_copy_capacity_bytes": 21,
+    "max_original_display_tiles": 7,
+    "max_latest_display_tiles": 7,
+    "max_latest_encoded_bytes_with_terminator": 15,
+    "all_names_buffer_safe": true,
+    "all_names_no_worse_than_shipped_global_display_max": true,
+    "dry_run_full_rom_sha1": "47e7f9d4bbc4088f602095e20531ea52c537f9df",
+    "rom_output_written": false
+  },
+  "silver": {
+    "version": "KOREAN_SILVER",
+    "source_rom_sha1": "cb22d7e03a74dc3a563fde6be8626626b2b392e7",
+    "bank_6c_original_sha256": "80ddef8bda9351e49f891ffd18b97cebae56b368594b596d7ca02b49e8cb8416",
+    "bank_6c_dry_run_sha256": "b4bfc4a0e5456da6bc58a7f2397d869bf9893005238eb003ef5cabd601f053fc",
+    "original_table_cpu_start_hex": "0x564A",
+    "original_table_cpu_end_exclusive_hex": "0x5EE1",
+    "dry_run_table_cpu_end_exclusive_hex": "0x5EC4",
+    "original_table_bytes": 2199,
+    "dry_run_table_bytes": 2170,
+    "byte_delta": -29,
+    "original_zero_tail_bytes": 8479,
+    "dry_run_zero_tail_bytes": 8508,
+    "names_pointer_entry": {
+      "bank_hex": "0x6C",
+      "cpu_address_hex": "0x564A"
+    },
+    "lookup_model": "TERMINATOR_SCANNED_NTH_STRING_NO_PER_MOVE_POINTERS",
+    "name_buffer_copy_capacity_bytes": 21,
+    "max_original_display_tiles": 7,
+    "max_latest_display_tiles": 7,
+    "max_latest_encoded_bytes_with_terminator": 15,
+    "all_names_buffer_safe": true,
+    "all_names_no_worse_than_shipped_global_display_max": true,
+    "dry_run_full_rom_sha1": "6acda6b9ff01e2cf684cc2655e8ced45bf4a816a",
+    "rom_output_written": false
+  },
+  "gold_silver_dry_run_bank_identical": true,
+  "lookup_routines_identical_and_verified": true,
+  "ui_rows": 251,
+  "names_with_positive_display_tile_delta": 5,
+  "names_exceeding_shipped_global_max": 0,
+  "dry_run_only": true,
+  "rom_output_written": false
+}

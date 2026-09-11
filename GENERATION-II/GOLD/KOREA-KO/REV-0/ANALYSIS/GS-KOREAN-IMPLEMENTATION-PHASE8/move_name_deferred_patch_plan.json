@@ -1,0 +1,16 @@
+{
+  "operation": "DEFERRED_INTEGRATED_INSERTION",
+  "write_binary_now": false,
+  "target_bank_hex": "0x6C",
+  "target_cpu_start_hex": "0x564A",
+  "method": "re-encode 251 names in ID order, append 0x50 to each, replace table, zero-fill remaining bank tail",
+  "pointer_edits_required": false,
+  "reason": "NamesPointers retains Bank 0x6C / CPU 0x564A and GetNthString scans terminators dynamically.",
+  "integration_prerequisites": [
+    "finish official terminology masters",
+    "finish text/UI/pointer audits",
+    "apply all approved edits to separate Gold/Silver working copies",
+    "recompute cartridge header/global checksums",
+    "run emulator and event regression suite"
+  ]
+}
