@@ -1,0 +1,78 @@
+name: Analyze BW animated sprite bboxes
+
+on:
+  push:
+    paths:
+      - '.github/workflows/analyze-bw-animated-bboxes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check pillow
+      - name: Analyze official BW animated GIF cross-checks
+        shell: bash
+        run: |
+          mkdir -p out
+          python - <<'PY'
+          from PIL import Image
+          import urllib.request, json, pathlib
+
+          ROOT = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated'
+          dexes = [643, 644, 646]
+          results = []
+
+          def union(a,b):
+              if a is None: return b
+              if b is None: return a
+              return [min(a[0],b[0]), min(a[1],b[1]), max(a[2],b[2]), max(a[3],b[3])]
+
+          for dex in dexes:
+              for side, sub in [('front',''),('back','back/')]:
+                  url = f'{ROOT}/{sub}{dex}.gif'
+                  fn = pathlib.Path('out') / f'{dex}_{side}.gif'
+                  urllib.request.urlretrieve(url, fn)
+                  im = Image.open(fn)
+                  u = None
+                  frames = []
+                  durations = []
+                  for i in range(getattr(im,'n_frames',1)):
+                      im.seek(i)
+                      rgba = im.convert('RGBA')
+                      alpha = rgba.getchannel('A')
+                      b = alpha.getbbox()
+                      if b:
+                          b = list(b)
+                          u = union(u,b)
+                      frames.append(b)
+                      durations.append(im.info.get('duration', 0))
+                  results.append({
+                      'dex': dex,
+                      'side': side,
+                      'logical_size': list(im.size),
+                      'frame_count': getattr(im,'n_frames',1),
+                      'duration_ms_total': sum(durations),
+                      'union_bbox': u,
+                      'union_size': [u[2]-u[0],u[3]-u[1]] if u else None,
+                      'frame_bboxes': frames,
+                      'frame_durations_ms': durations,
+                      'source_url': url,
+                      'role': 'external cross-check; not ROM-primary evidence'
+                  })
+
+          pathlib.Path('out/summary.json').write_text(json.dumps(results, indent=2), encoding='utf-8')
+          for r in results:
+              print(r['dex'], r['side'], 'logical', r['logical_size'], 'frames', r['frame_count'], 'union', r['union_bbox'], 'size', r['union_size'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bw-animated-bbox-crosscheck
+          path: out/
