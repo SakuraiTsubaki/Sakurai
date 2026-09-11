@@ -1,0 +1,7 @@
+species,side,width,height,y_offset
+Kyogre,front,64,56,4
+Groudon,front,64,64,1
+Rayquaza,front,64,64,0
+Kyogre,back,64,32,19
+Groudon,back,64,56,7
+Rayquaza,back,56,64,0
