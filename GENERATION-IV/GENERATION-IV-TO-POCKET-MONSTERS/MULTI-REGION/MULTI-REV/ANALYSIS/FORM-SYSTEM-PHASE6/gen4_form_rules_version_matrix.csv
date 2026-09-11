@@ -1,0 +1,14 @@
+natdex,species,Diamond_Pearl,Platinum,HeartGold_SoulSilver,storage_class,trigger
+201,Unown,DV/personality-derived letter; no stored player-select form,same,same,DERIVED,personality/DV
+351,Castform,Forecast + weather battle form,same,same,VOLATILE,battle weather
+386,Deoxys,all 4 forms; Gen IV meteorite interaction changes stored form,same; Veilstone meteorites,same; HGSS meteorites,PERSISTENT,field meteorite
+412,Burmy,cloak updates after participating in battle according to battle terrain,same,same,PERSISTENT,post-battle terrain
+413,Wormadam,form fixed by Burmy cloak at evolution,same,same,PERSISTENT,evolution result
+421,Cherrim,Flower Gift / sunlight battle form,same,same,VOLATILE,battle weather + ability
+422,Shellos,West/East form inherent; no normal form-change action,same,same,PERSISTENT,creation/encounter
+423,Gastrodon,West/East form inherent; inherited through evolution,same,same,PERSISTENT,creation/evolution
+479,Rotom,base form only (no appliance forms),5 appliance forms added; form change replaces appliance move,same appliance system,PERSISTENT,appliance event
+487,Giratina,Altered only,"Origin introduced; Distortion World forces Origin, Griseous Orb selects Origin outside",Origin via Griseous Orb; no Distortion World,PERSISTENT/CONTEXT,map context / held item
+492,Shaymin,Land only,Sky introduced; Gracidea eligibility + time/status rules,same core Sky-form rules,PERSISTENT_WITH_REVERSION,Gracidea / time / freeze / storage
+493,Arceus,Multitype + Plate-derived form/type,same,same,CONDITIONAL_STORED,held-item hold effect
+172,Pichu,normal only,normal only,Spiky-eared Pichu form added; special restrictions,PERSISTENT,HGSS event only
