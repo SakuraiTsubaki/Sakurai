@@ -1,0 +1,80 @@
+{
+  "scope": "GREEN 165 moves: numeric + directly representable effects/chances + generalized priority",
+  "baseline": "canonical main-series current values; game-specific Champions/Z-A overrides excluded",
+  "numeric_change_count": 64,
+  "effect_changes": [
+    {"move_id": 44, "move": "bite", "offset": "0x3975B", "old_effect": "0x1F", "new_effect": "0x25", "reason": "flinch chance 10% -> 30%"},
+    {"move_id": 59, "move": "blizzard", "offset": "0x397B5", "old_effect": "0x23", "new_effect": "0x05", "reason": "freeze chance 30% (JP Green) -> 10%"},
+    {"move_id": 67, "move": "low-kick", "offset": "0x397E5", "old_effect": "0x25", "new_effect": "0x00", "reason": "remove obsolete 30% flinch; weight-based power remains deferred"},
+    {"move_id": 81, "move": "string-shot", "offset": "0x39839", "old_effect": "0x14", "new_effect": "0x3C", "reason": "Speed -1 -> Speed -2"},
+    {"move_id": 87, "move": "thunder", "offset": "0x3985D", "old_effect": "0x06", "new_effect": "0x24", "reason": "paralysis chance 10% -> 30%"},
+    {"move_id": 126, "move": "fire-blast", "offset": "0x39947", "old_effect": "0x22", "new_effect": "0x04", "reason": "burn chance 30% -> 10%"},
+    {"move_id": 157, "move": "rock-slide", "offset": "0x39A01", "old_effect": "0x00", "new_effect": "0x25", "reason": "add 30% flinch"}
+  ],
+  "deferred": [
+    {"move_id": 16, "move": "gust", "reason": "Fly-target interaction requires effect extension"},
+    {"move_id": 38, "move": "double-edge", "reason": "modern recoil fraction requires recoil-engine semantics change"},
+    {"move_id": 40, "move": "poison-sting", "reason": "30% poison needs third poison probability; original 20% code is also used by Twineedle"},
+    {"move_id": 67, "move": "low-kick", "reason": "obsolete flinch removed; weight-based variable power still requires engine extension"},
+    {"move_id": 74, "move": "growth", "reason": "Attack + Sp. Atk effect depends on Special split"},
+    {"move_id": 124, "move": "sludge", "reason": "30% poison shares original 40% poison code with Smog; needs third poison probability"},
+    {"move_id": 127, "move": "waterfall", "reason": "20% flinch needs third flinch probability beyond original 10/30 codes"},
+    {"move_id": 130, "move": "skull-bash", "reason": "charge + Defense +1 compound effect requires extension"},
+    {"move_id": 143, "move": "sky-attack", "reason": "charge + 30% flinch/high-crit compound effect requires extension"},
+    {"move_id": 146, "move": "dizzy-punch", "reason": "20% confusion needs new probability encoding"},
+    {"move_id": 161, "move": "tri-attack", "reason": "20% split burn/freeze/paralysis requires new handler"}
+  ],
+  "implemented_summary": {
+    "numeric_fields": 64,
+    "direct_effect_code_changes": 7,
+    "shared_stat_down_chance_moves": 6,
+    "priority_moves": 6,
+    "priority_block_rewrite_bytes": 88
+  },
+  "revisions": {
+    "rev0": {
+      "source_sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+      "output_sha1": "df4a337ecd5997c9f1075952eb0d09bf6e305cd5",
+      "output_sha256": "5fa25958f7bd45182dc6738f003c4c38d27029c835acccc24230e4ae0b9c00fd",
+      "ips_sha1": "85d5a28e1bba0dde6412777c82879ce0fc598fe9",
+      "ips_sha256": "8d86611796d889a67cf5ec369dce258a3c8faf8452621c5815056b505a673802",
+      "ips_size": 523,
+      "total_changed_bytes": 155,
+      "global_checksum_before": "0xDDD5",
+      "global_checksum_after": "0xD570",
+      "header_checksum_valid": true,
+      "ips_roundtrip": true,
+      "priority_block_offset": "0x3C31C",
+      "priority_block_size": 88,
+      "rom_file": "green_rev0_modern_moves_phase1.gb",
+      "ips_file": "green_rev0_modern_moves_phase1.ips",
+      "cumulative_output_sha1": "0d26cecdd503af03aded88bdf759217f9648a4d6",
+      "cumulative_ips_sha256": "e039c8444132eaf7d708101f3007c0f1afce461cc2c111c5d35c42222bb0a885",
+      "cumulative_ips_size": 601,
+      "cumulative_rom_file": "green_rev0_modern_stats_and_moves_phase1.gb",
+      "cumulative_ips_file": "green_rev0_modern_stats_and_moves_phase1.ips"
+    },
+    "reva": {
+      "source_sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+      "output_sha1": "d2fd180de88c0489847e22cef0135d34144474ef",
+      "output_sha256": "0bfec7c81a0674d1620d7baf46e08f1c7d28e57391cb2c21a07b54af45c5939b",
+      "ips_sha1": "0240377bafc9c46b23f771e80a188486a610c0f8",
+      "ips_sha256": "52be427379c9390c9246dfdab58ffbbdaeeeb2e8734bc82e1a665b0f42ea1829",
+      "ips_size": 523,
+      "total_changed_bytes": 155,
+      "global_checksum_before": "0xF547",
+      "global_checksum_after": "0xECE3",
+      "header_checksum_valid": true,
+      "ips_roundtrip": true,
+      "priority_block_offset": "0x3C31E",
+      "priority_block_size": 88,
+      "rom_file": "green_reva_modern_moves_phase1.gb",
+      "ips_file": "green_reva_modern_moves_phase1.ips",
+      "cumulative_output_sha1": "aada9ecf66ffcbf93dcd9809658bf981c01cdd90",
+      "cumulative_ips_sha256": "44d2bba0d2b05ea4670a498659b9c1c272d7e34469a3d7a82444b463f2bfc39b",
+      "cumulative_ips_size": 601,
+      "cumulative_rom_file": "green_reva_modern_stats_and_moves_phase1.gb",
+      "cumulative_ips_file": "green_reva_modern_stats_and_moves_phase1.ips"
+    }
+  }
+}

@@ -1,0 +1,95 @@
+move_id,identifier,domain,status,rom_offset,old,new,notes
+13,razor-wind,accuracy,implemented,0x396A4,75,100,direct move-table field
+14,swords-dance,pp,implemented,0x396AB,30,20,direct move-table field
+16,gust,effect/effect_chance,deferred-engine-extension,,,current,Fly-target interaction requires effect extension
+17,wing-attack,power,implemented,0x396BA,35,60,direct move-table field
+18,whirlwind,priority,implemented-generalized-order,Rev0 0x3C31C / RevA 0x3C31E,legacy/hard-coded,-6,6-entry priority table; equal priority uses original speed/tie semantics
+19,fly,power,implemented,0x396C6,70,90,direct move-table field
+20,bind,accuracy,implemented,0x396CE,75,85,direct move-table field
+22,vine-whip,power,implemented,0x396D8,35,45,direct move-table field
+22,vine-whip,pp,implemented,0x396DB,10,25,direct move-table field
+26,jump-kick,power,implemented,0x396F0,70,100,direct move-table field
+26,jump-kick,pp,implemented,0x396F3,25,10,direct move-table field
+33,tackle,accuracy,implemented,0x3971C,95,100,direct move-table field
+33,tackle,power,implemented,0x3971A,35,40,direct move-table field
+35,wrap,accuracy,implemented,0x39728,85,90,direct move-table field
+37,thrash,power,implemented,0x39732,90,120,direct move-table field
+37,thrash,pp,implemented,0x39735,20,10,direct move-table field
+38,double-edge,effect/effect_chance,deferred-engine-extension,,,current,modern recoil fraction requires recoil-engine semantics change
+38,double-edge,power,implemented,0x39738,100,120,direct move-table field
+40,poison-sting,effect/effect_chance,deferred-engine-extension,,,current,30% poison needs third poison probability; original 20% code is also used by Twineedle
+42,pin-missile,accuracy,implemented,0x39752,85,95,direct move-table field
+42,pin-missile,power,implemented,0x39750,14,25,direct move-table field
+44,bite,effect_code,implemented,0x3975B,0x1F,0x25,flinch chance 10% -> 30%
+46,roar,priority,implemented-generalized-order,Rev0 0x3C31C / RevA 0x3C31E,legacy/hard-coded,-6,6-entry priority table; equal priority uses original speed/tie semantics
+50,disable,accuracy,implemented,0x39782,55,100,direct move-table field
+51,acid,effect_chance,implemented-global-handler,Rev0 0x3F8C8 / RevA 0x3F8CD,33.2%,10%,shared stat-lowering side-effect handler
+53,flamethrower,power,implemented,0x39792,95,90,direct move-table field
+56,hydro-pump,power,implemented,0x397A4,120,110,direct move-table field
+57,surf,power,implemented,0x397AA,95,90,direct move-table field
+58,ice-beam,power,implemented,0x397B0,95,90,direct move-table field
+59,blizzard,accuracy,implemented,0x397B8,90,70,direct move-table field
+59,blizzard,effect_code,implemented,0x397B5,0x23,0x05,freeze chance 30% (JP Green) -> 10%
+59,blizzard,power,implemented,0x397B6,120,110,direct move-table field
+61,bubble-beam,effect_chance,implemented-global-handler,Rev0 0x3F8C8 / RevA 0x3F8CD,33.2%,10%,shared stat-lowering side-effect handler
+62,aurora-beam,effect_chance,implemented-global-handler,Rev0 0x3F8C8 / RevA 0x3F8CD,33.2%,10%,shared stat-lowering side-effect handler
+66,submission,pp,implemented,0x397E3,25,20,direct move-table field
+67,low-kick,accuracy,implemented,0x397E8,90,100,direct move-table field
+67,low-kick,effect/effect_chance,deferred-engine-extension,,,current,obsolete flinch removed; weight-based variable power still requires engine extension
+67,low-kick,effect_code,implemented,0x397E5,0x25,0x00,remove obsolete 30% flinch; weight-based power remains deferred
+68,counter,priority,implemented-generalized-order,Rev0 0x3C31C / RevA 0x3C31E,legacy/hard-coded,-5,6-entry priority table; equal priority uses original speed/tie semantics
+71,absorb,pp,implemented,0x39801,20,25,direct move-table field
+72,mega-drain,pp,implemented,0x39807,10,15,direct move-table field
+74,growth,effect/effect_chance,deferred-engine-extension,,,current,Attack + Sp. Atk effect depends on Special split
+74,growth,pp,implemented,0x39813,40,20,direct move-table field
+80,petal-dance,power,implemented,0x39834,70,120,direct move-table field
+80,petal-dance,pp,implemented,0x39837,20,10,direct move-table field
+81,string-shot,effect_code,implemented,0x39839,0x14,0x3C,Speed -1 -> Speed -2
+83,fire-spin,accuracy,implemented,0x39848,70,85,direct move-table field
+83,fire-spin,power,implemented,0x39846,15,35,direct move-table field
+85,thunderbolt,power,implemented,0x39852,95,90,direct move-table field
+86,thunder-wave,accuracy,implemented,0x3985A,100,90,direct move-table field
+87,thunder,effect_code,implemented,0x3985D,0x06,0x24,paralysis chance 10% -> 30%
+87,thunder,power,implemented,0x3985E,120,110,direct move-table field
+88,rock-throw,accuracy,implemented,0x39866,65,90,direct move-table field
+91,dig,power,implemented,0x39876,100,80,direct move-table field
+92,toxic,accuracy,implemented,0x3987E,85,90,direct move-table field
+94,psychic,effect_chance,implemented-global-handler,Rev0 0x3F8C8 / RevA 0x3F8CD,33.2%,10%,shared stat-lowering side-effect handler
+98,quick-attack,priority,implemented-generalized-order,Rev0 0x3C31C / RevA 0x3C31E,legacy/hard-coded,1,6-entry priority table; equal priority uses original speed/tie semantics
+100,teleport,priority,implemented-generalized-order,Rev0 0x3C31C / RevA 0x3C31E,legacy/hard-coded,-6,6-entry priority table; equal priority uses original speed/tie semantics
+105,recover,pp,implemented,0x398CD,20,5,direct move-table field
+107,minimize,pp,implemented,0x398D9,20,10,direct move-table field
+112,barrier,pp,implemented,0x398F7,30,20,direct move-table field
+117,bide,priority,implemented-generalized-order,Rev0 0x3C31C / RevA 0x3C31E,legacy/hard-coded,1,6-entry priority table; equal priority uses original speed/tie semantics
+120,self-destruct,power,implemented,0x39924,130,200,direct move-table field
+122,lick,power,implemented,0x39930,20,30,direct move-table field
+123,smog,power,implemented,0x39936,20,30,direct move-table field
+124,sludge,effect/effect_chance,deferred-engine-extension,,,current,30% poison shares original 40% poison code with Smog; needs third poison probability
+126,fire-blast,effect_code,implemented,0x39947,0x22,0x04,burn chance 30% -> 10%
+126,fire-blast,power,implemented,0x39948,120,110,direct move-table field
+127,waterfall,effect/effect_chance,deferred-engine-extension,,,current,20% flinch needs third flinch probability beyond original 10/30 codes
+128,clamp,accuracy,implemented,0x39956,75,85,direct move-table field
+128,clamp,pp,implemented,0x39957,10,15,direct move-table field
+130,skull-bash,effect/effect_chance,deferred-engine-extension,,,current,charge + Defense +1 compound effect requires extension
+130,skull-bash,power,implemented,0x39960,100,130,direct move-table field
+130,skull-bash,pp,implemented,0x39963,15,10,direct move-table field
+132,constrict,effect_chance,implemented-global-handler,Rev0 0x3F8C8 / RevA 0x3F8CD,33.2%,10%,shared stat-lowering side-effect handler
+136,high-jump-kick,power,implemented,0x39984,85,130,direct move-table field
+136,high-jump-kick,pp,implemented,0x39987,20,10,direct move-table field
+137,glare,accuracy,implemented,0x3998C,75,100,direct move-table field
+139,poison-gas,accuracy,implemented,0x39998,55,90,direct move-table field
+141,leech-life,power,implemented,0x399A2,20,80,direct move-table field
+141,leech-life,pp,implemented,0x399A5,15,10,direct move-table field
+143,sky-attack,effect/effect_chance,deferred-engine-extension,,,current,charge + 30% flinch/high-crit compound effect requires extension
+145,bubble,effect_chance,implemented-global-handler,Rev0 0x3F8C8 / RevA 0x3F8CD,33.2%,10%,shared stat-lowering side-effect handler
+145,bubble,power,implemented,0x399BA,20,40,direct move-table field
+146,dizzy-punch,effect/effect_chance,deferred-engine-extension,,,current,20% confusion needs new probability encoding
+148,flash,accuracy,implemented,0x399CE,70,100,direct move-table field
+149,psywave,accuracy,implemented,0x399D4,80,100,direct move-table field
+151,acid-armor,pp,implemented,0x399E1,40,20,direct move-table field
+152,crabhammer,accuracy,implemented,0x399E6,85,90,direct move-table field
+152,crabhammer,power,implemented,0x399E4,90,100,direct move-table field
+153,explosion,power,implemented,0x399EA,170,250,direct move-table field
+157,rock-slide,effect_code,implemented,0x39A01,0x00,0x25,add 30% flinch
+161,tri-attack,effect/effect_chance,deferred-engine-extension,,,current,20% split burn/freeze/paralysis requires new handler
+165,struggle,pp,implemented,0x39A35,10,1,direct move-table field
