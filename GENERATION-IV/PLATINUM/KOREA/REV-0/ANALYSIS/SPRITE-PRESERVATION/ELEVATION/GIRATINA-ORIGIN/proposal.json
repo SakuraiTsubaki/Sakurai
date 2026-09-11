@@ -1,0 +1,31 @@
+{
+  "species": "Giratina Origin Forme",
+  "source_sprite": {
+    "front_bbox": [1, 1, 63, 63],
+    "back_bbox": [3, 9, 63, 63]
+  },
+  "gen3_candidate": {
+    "front": {
+      "size": "64x64",
+      "y_offset": 0,
+      "enemy_elevation": 6
+    },
+    "back": {
+      "size": "64x56",
+      "y_offset": 0,
+      "player_elevation": "not used by stock Emerald"
+    }
+  },
+  "rationale": [
+    "Origin front geometry is 64x64 with y_offset 0, matching Emerald Rayquaza's front geometry class.",
+    "Emerald Rayquaza uses enemy elevation 6.",
+    "Stock Emerald applies gEnemyMonElevation only to opponent-side battlers.",
+    "Back sprite should therefore retain its own composition rather than adding a new player-side elevation system.",
+    "This is a project mapping candidate based on target-engine behavior, not an official Generation IV numeric value."
+  ],
+  "platinum_height_o_observation": {
+    "origin_form_entries": [154, 155],
+    "raw_values": [0, 0],
+    "interpretation": "Platinum alternate-form sprite yOffset data for these entries is 0; do not reinterpret it directly as Gen III elevation."
+  }
+}
