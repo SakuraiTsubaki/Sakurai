@@ -1,0 +1,18 @@
+metric,value,note
+zone_headers,427,0x30 bytes each
+unique_zone_entities_ids_in_headers,427,exactly 0..426
+zone_entities_archive_members,428,member 427 is special 4-byte unreferenced entry
+header_unreferenced_zone_entities_members,1,ID 427
+zones_with_encounters,112,encounter indices cover 0..111 exactly once
+zones_without_encounters,315,"packed field is 0xFFFF, low 13 bits=0x1FFF"
+encounter_indices_unique,112,112 unique
+map_script_pair_rule_matches,427,all 427 zones
+script_archive_members,899,0..853 are 427 even/odd zone pairs; 854..898 are 45 global/special members
+interactables,662,Black/White entity archive identical
+npcs,2257,Black/White entity archive identical
+warps,886,Black/White entity archive identical
+triggers,373,Black/White entity archive identical
+entity_initialization_entries,296,tail section after fixed entities
+trigger_related_entries,72,second 6-byte tail section
+warps_to_special_0xFFFF,6,all other warp target zones resolve 0..426
+bw_differing_encounter_members,29,same 112-index topology; content differs in 29 members
