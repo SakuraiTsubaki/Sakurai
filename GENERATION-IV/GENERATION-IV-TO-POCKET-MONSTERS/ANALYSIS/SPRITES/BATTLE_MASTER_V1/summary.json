@@ -6,8 +6,6 @@
   "otherpoke_members_inventoried": 727,
   "conversion": "80x80 NCGR -> 64x64 preservation-v2 using source palette indices only; no AA/new colors",
   "dedupe": "global SHA-256 of 64x64 RGBA",
-  "package_zip_sha256": "53f44689a6b11eb789b40285a6be1f2687ce00ce7831219c9bdf874c42325252",
-  "package_zip_bytes": 40658149,
   "archive_hashes": [
     {"source_set":"DP_US","archive":"main","path":"poketool/pokegra/pokegra.narc","bytes":11778676,"members":2964,"sha256":"3320b89c6c84341784f58f9632dbe93b44ee34e0fe16d3a6b8673aed70a9adc2"},
     {"source_set":"DP_US","archive":"other","path":"poketool/pokegra/otherpoke.narc","bytes":890604,"members":213,"sha256":"cab7af2e4fef1878af6a7002eecc24c7a1c879166aaf5dfd61ebdc0bd4b92681"},
@@ -15,5 +13,7 @@
     {"source_set":"PT_KOR","archive":"other","path":"poketool/pokegra/pl_otherpoke.narc","bytes":1021324,"members":253,"sha256":"bcce60993746ec909b6d4eee51f8b04dc7176e637bc7f41572cb133a005a2ca5"},
     {"source_set":"HGSS_KOR","archive":"main","path":"a/0/0/4","bytes":11778676,"members":2964,"sha256":"e8ae001c0a342e947494b6a0f49a95cdb13f6016b83821a4865edc36ff064ac2"},
     {"source_set":"HGSS_KOR","archive":"other","path":"a/1/1/4","bytes":1047468,"members":261,"sha256":"032604ea022dd39504ea3548d78e3c2f74204649588aad48ef219b0c17bcfeb1"}
-  ]
+  ],
+  "elapsed_seconds": 23.35,
+  "package_contents": "24 RGBA atlas PNGs + logical/asset/atlas/archive/game/unused manifests + reproducible build script"
 }
