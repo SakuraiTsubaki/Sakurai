@@ -8,9 +8,11 @@ Status: **storage architecture fixed from uploaded-ROM inspection + decomp cross
 
 Uploaded Korean Gold/Silver and Japanese Crystal base-data tables contain only the 251 real species records. There is no generic persistent `form` byte in the Gen II boxed/party Pokémon structure.
 
-The original Gen II boxed structure stores species, item, moves, OT ID, experience, stat experience, DVs, PP, happiness, Pokérus, caught data, and level. There is no spare byte reserved for forms.
+The original Gen II boxed structure stores species, item, moves, OT ID, experience, stat experience, DVs, PP, happiness, Pokérus, caught data, and level. There is no spare byte inside the boxed-mon record reserved for forms.
 
 Original Unown form handling is therefore not a generic form field; its letter is derived from the Pokémon's DVs.
+
+The Gen II box container also stores a separate `BoxSpecies[]` list even though every boxed-mon record already begins with its own species byte. The party structure has a dedicated one-byte `Unused` field after status. These two facts provide a no-size-growth path for the first extension byte.
 
 ### Gen III
 
@@ -94,40 +96,53 @@ u8 gBattleMonForms[MAX_BATTLERS_COUNT];
 
 When a battler is created, resolve persistent form + dynamic rules into this runtime form.
 
-## 5. Gen II persistent storage — extension sidecar
+## 5. Gen II persistent storage — first extension byte without increasing mon size
 
-Gen II has no spare persistent form field and already requires ID extension for 649 species and Gen V moves. Therefore form state belongs in the same per-Pokémon sidecar used for expanded IDs.
+Gen II has no generic form field, but the original layout exposes two storage locations that can carry the same project extension byte depending on where the Pokémon lives:
 
-Use **3 sidecar bytes per stored Pokémon**:
+- **party:** `party_struct.Unused` (one byte)
+- **PC box:** repurpose the redundant per-slot `BoxSpecies[]` entry; the actual low 8 bits of species remain in each boxed-mon record's own `Species` field
 
-### Sidecar byte 0
+The original `BoxSpecies[]` list is therefore no longer treated as a second copy of species. Routines that previously scan it must be changed to read the boxed-mon record species and project extension byte explicitly, using box count instead of the old species-list terminator convention.
+
+### Extension byte 0
 
 - bits 0–1: species ID bits 8–9
 - bits 2–6: form ID bits 0–4
-- bit 7: ability selector bit 0
+- bit 7: reserved for the first per-Pokémon extension flag (candidate: ability selector bit 0)
 
-### Sidecar byte 1
-
-- bit 0: ability selector bit 1
-- bits 1–7: reserved for later verified Gen V per-mon state
-
-### Sidecar byte 2
-
-- bits 0–1: move slot 0 ID bits 8–9
-- bits 2–3: move slot 1 ID bits 8–9
-- bits 4–5: move slot 2 ID bits 8–9
-- bits 6–7: move slot 3 ID bits 8–9
-
-This keeps the original 32-byte Gen II boxed-mon structure intact while providing:
+This one byte is enough to provide, without growing the original boxed/party Pokémon structures:
 
 - 10-bit species ID (0–1023)
 - 5-bit form ID (0–31)
-- 2-bit ability selector (0–3)
-- four 10-bit move IDs
 
-The exact SRAM placement must be chosen per target ROM after its save-map/free-space audit. Japanese Crystal cannot be treated as equivalent to Korean Gold/Silver or international Crystal because the uploaded ROM headers declare different SRAM-size codes.
+The remaining Generation V per-mon expansion (move-ID high bits, full ability selector, nature/other verified state) is handled separately; it must not be conflated with the form layer until its storage audit is complete.
 
-## 6. Species-ID policy after OLD_UNOWN removal
+### Required Gen II hooks for extension byte 0
+
+- party ↔ box copy
+- box deposit / withdraw / release / move
+- active-box load/save
+- daycare transfer
+- battle initialization
+- link/trade serialization
+- Hall of Fame serialization or form reconstruction policy
+- any routine that scans `sBoxSpecies`
+
+The `sBoxSpecies` reference audit already identifies Bill's PC, temporary-mon handling, and Lucky Number logic as direct users that need conversion.
+
+## 6. SRAM differences across uploaded Gen II targets
+
+Uploaded ROM headers are not identical:
+
+- Korean Gold: MBC3+RTC+RAM+battery, RAM-size code `0x03`
+- Korean Silver: MBC3+RTC+RAM+battery, RAM-size code `0x03`
+- Japanese Crystal: MBC3+RTC+RAM+battery, RAM-size code `0x05`
+- international Crystal Rev A: MBC3+RTC+RAM+battery, RAM-size code `0x03`
+
+Therefore later sidecar storage beyond extension byte 0 must be audited per version. Japanese Crystal's mobile-era SRAM layout must not be assumed for Korean Gold/Silver or international Crystal.
+
+## 7. Species-ID policy after OLD_UNOWN removal
 
 Project canonical species IDs are National Dex IDs:
 
@@ -144,17 +159,18 @@ Legacy Gen III ROM data is translated during migration/rebuild:
 - old 252..276 (`OLD_UNOWN`) → discarded from canonical species tables
 - old runtime Unown-form pseudo IDs → species 201 + form
 
-## 7. Preservation rule
+## 8. Preservation rule
 
-The original ROMs remain read-only. The project keeps documentation of the original OLD_UNOWN slots and original form algorithms even though they are not retained as canonical species IDs.
+The original ROMs remain read-only. The project keeps documentation of the original OLD_UNOWN slots, duplicate Gen II box-species list, and original form algorithms even when those storage conventions are repurposed in the project runtime.
 
 `FORM_AUTO` is specifically retained so the original Gen II/III behavior can coexist with explicit Generation V-style form selection.
 
-## 8. Next binary implementation steps
+## 9. Next binary implementation steps
 
 1. Gen III: add `MON_DATA_FORM` accessor and migration logic without changing `sizeof(BoxPokemon)`.
 2. Gen III: add `gBattleMonForms[]` and route all form-dependent parameter lookup through `(species, form)`.
 3. Gen III: rebuild species-indexed tables to canonical National Dex ordering after removing OLD_UNOWN slots.
-4. Gen II: audit SRAM layout for Korean Gold/Silver, Japanese Crystal, and international Crystal separately.
-5. Gen II: allocate the 3-byte-per-mon sidecar and patch party/box copy, save/load, daycare, trade, Hall of Fame, and battle initialization paths.
-6. Route Gen V personal/form records using `(species, form)` rather than duplicate species IDs.
+4. Gen II: implement extension-byte-0 helpers for `party_struct.Unused` and repurposed `BoxSpecies[]` entries.
+5. Gen II: patch every `sBoxSpecies` consumer to use box count + boxed-mon species + extension byte.
+6. Gen II: audit storage for the remaining move-ID/ability/nature extension state separately per ROM family.
+7. Route Gen V personal/form records using `(species, form)` rather than duplicate species IDs.
