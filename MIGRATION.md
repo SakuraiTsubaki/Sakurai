@@ -1,16 +1,15 @@
-# Structure Migration
+# Repository Migration
 
-Repository migration is in progress from legacy ad-hoc paths to the canonical hierarchy documented in `STRUCTURE.md`.
+## Status
 
-## Completed
+Canonical migration is complete.
 
-- Root-level legacy project folders have been moved into generation/game paths.
-- Generation I and Generation II compatibility `MIGRATED` buckets have been unpacked into canonical GAME, LANGUAGE/REGION, REV, and WORK TYPE paths.
-- Legacy bundle names no longer occupy GAME level.
-- Old project-specific GitHub Actions are preserved under `.github/workflows-legacy/` and are inactive.
+The repository follows:
 
-## Remaining
+`GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
 
-Generation III through Generation V legacy compatibility buckets are being normalized next. Generation VI through IX currently contain no project data requiring migration.
+Legacy bundle names, locale aliases, revision aliases, and temporary `MIGRATED` compatibility buckets have been promoted into canonical paths. Where an old bundle cannot be truthfully reduced to one game, locale, or revision, its provenance label is retained below an allowed WORK TYPE such as `ANALYSIS`, `LOCALIZATION`, `DIFFS`, or `SOURCE` rather than being used as a structural level.
 
-Migration preserves existing blobs/trees wherever possible and does not introduce ROM binaries.
+`MIGRATED` is forbidden for new and existing canonical paths. The repository structural validator enforces this rule.
+
+Git history remains available for historical path recovery; migration changes the current tree, not past commits.
