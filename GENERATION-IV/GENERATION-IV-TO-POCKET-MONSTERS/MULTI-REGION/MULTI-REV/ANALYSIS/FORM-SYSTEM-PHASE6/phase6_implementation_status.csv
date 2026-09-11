@@ -1,0 +1,8 @@
+feature,DP,Pt,HGSS,implemented_in_phase6,remaining_dependency
+Rotom appliances,absent,verified,verified,rule + exact move replacement model,Gen3/Gen2 move-table expansion; form-change event/UI
+Giratina Origin,absent,verified (Distortion World + Griseous Orb),verified (Griseous Orb),context/item rule,target item-ID/hold-effect translation + map context hook
+Shaymin Sky,absent,verified,same system class,Gracidea eligibility + Land/Sky setters,night/freeze/storage/trade hooks + item action
+Arceus Multitype forms,present,verified,present,hold-effect -> form map,Plate item hold-effect mapping + battle type/Judgment hooks
+Deoxys forms,present,verified meteorites,present,documented; persistent form storage already supported,field meteorite scripts
+Burmy cloak,present,verified terrain mapping,present,terrain mapping manifest,target battle-terrain classifier + post-battle hook
+Spiky-eared Pichu,absent,absent,verified,form id + evolution block rule,event acquisition + all HGSS-only communication/facility restrictions
