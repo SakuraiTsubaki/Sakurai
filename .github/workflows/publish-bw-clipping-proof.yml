@@ -1,0 +1,86 @@
+name: Publish BW clipping proof image
+
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-bw-clipping-proof.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check pillow
+      - name: Build and commit proof sheet
+        shell: bash
+        run: |
+          mkdir -p GENERATION-V/BW/EUR/REV-UNKNOWN/SPRITE_ANALYSIS/proof
+          python - <<'PY'
+          from PIL import Image, ImageDraw
+          import urllib.request, pathlib
+
+          ROOT='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated'
+          names={643:'Reshiram',644:'Zekrom',646:'Kyurem'}
+          rows=[]
+
+          def checker(size, cell=8):
+              im=Image.new('RGBA',size,(238,238,238,255)); d=ImageDraw.Draw(im)
+              for y in range(0,size[1],cell):
+                  for x in range(0,size[0],cell):
+                      if ((x//cell)+(y//cell))&1:
+                          d.rectangle((x,y,x+cell-1,y+cell-1),fill=(210,210,210,255))
+              return im
+
+          def fit_panel(sprite, panel=(180,140)):
+              bg=checker(panel,10)
+              scale=max(1,min((panel[0]-12)//sprite.width,(panel[1]-12)//sprite.height))
+              z=sprite.resize((sprite.width*scale,sprite.height*scale),Image.Resampling.NEAREST)
+              bg.alpha_composite(z,((panel[0]-z.width)//2,(panel[1]-z.height)//2))
+              return bg
+
+          for dex in [643,644,646]:
+              for side,sub in [('front',''),('back','back/')]:
+                  url=f'{ROOT}/{sub}{dex}.gif'
+                  fn=pathlib.Path('/tmp')/f'{dex}_{side}.gif'
+                  urllib.request.urlretrieve(url,fn)
+                  im=Image.open(fn)
+                  best=None; best_width=-1; best_bbox=None; best_i=0
+                  for i in range(im.n_frames):
+                      im.seek(i)
+                      fr=im.convert('RGBA')
+                      b=fr.getchannel('A').getbbox()
+                      if not b: continue
+                      w=b[2]-b[0]
+                      if w>best_width:
+                          best_width=w; best=fr.copy(); best_bbox=b; best_i=i
+                  left=(best.width-96)//2; top=(best.height-96)//2
+                  crop=best.crop((left,top,left+96,top+96))
+                  rows.append((dex,names[dex],side,best,best_bbox,best_i,crop))
+
+          panel_w=180; panel_h=140; label_w=190; row_h=170
+          W=label_w+panel_w*2; H=42+row_h*len(rows)
+          sheet=Image.new('RGBA',(W,H),(255,255,255,255)); d=ImageDraw.Draw(sheet)
+          d.text((label_w+42,12),'Full widest frame',fill=(0,0,0,255))
+          d.text((label_w+panel_w+42,12),'Forced 96x96 crop',fill=(0,0,0,255))
+          for r,(dex,name,side,full,bbox,fi,crop) in enumerate(rows):
+              y=42+r*row_h
+              d.text((8,y+12),f'#{dex} {name} {side}',fill=(0,0,0,255))
+              d.text((8,y+34),f'GIF canvas {full.width}x{full.height}',fill=(0,0,0,255))
+              d.text((8,y+56),f'widest frame #{fi} bbox {bbox}',fill=(0,0,0,255))
+              sheet.alpha_composite(fit_panel(full,(panel_w,panel_h)),(label_w,y))
+              sheet.alpha_composite(fit_panel(crop,(panel_w,panel_h)),(label_w+panel_w,y))
+          out=pathlib.Path('GENERATION-V/BW/EUR/REV-UNKNOWN/SPRITE_ANALYSIS/proof/bw_clipping_proof_643_646.png')
+          sheet.save(out)
+          PY
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add GENERATION-V/BW/EUR/REV-UNKNOWN/SPRITE_ANALYSIS/proof/bw_clipping_proof_643_646.png
+          git commit -m 'Add BW clipping proof image' || exit 0
+          git push
