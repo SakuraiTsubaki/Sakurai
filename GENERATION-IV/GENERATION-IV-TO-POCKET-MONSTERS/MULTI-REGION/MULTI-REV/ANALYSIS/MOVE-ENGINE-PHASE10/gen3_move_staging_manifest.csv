@@ -1,0 +1,11 @@
+target,file,entries,stride,bytes,sha1,old_moves_0_354_bytes_0_8_preserved,padding_reuse,new_moves_source,status
+Ruby_JP,Ruby_JP_gBattleMoves_0_467_staging.bin,468,12,5616,cf520997c8206f9052510a1ff69eb81857058e54,YES,byte9 category; byte10-11 u16 effect,HGSS active a/0/1/1,STAGING_ONLY
+Ruby_EN_Rev2,Ruby_EN_Rev2_gBattleMoves_0_467_staging.bin,468,12,5616,cf520997c8206f9052510a1ff69eb81857058e54,YES,byte9 category; byte10-11 u16 effect,HGSS active a/0/1/1,STAGING_ONLY
+Sapphire_JP,Sapphire_JP_gBattleMoves_0_467_staging.bin,468,12,5616,cf520997c8206f9052510a1ff69eb81857058e54,YES,byte9 category; byte10-11 u16 effect,HGSS active a/0/1/1,STAGING_ONLY
+Sapphire_EN_Rev2,Sapphire_EN_Rev2_gBattleMoves_0_467_staging.bin,468,12,5616,cf520997c8206f9052510a1ff69eb81857058e54,YES,byte9 category; byte10-11 u16 effect,HGSS active a/0/1/1,STAGING_ONLY
+Emerald_JP,Emerald_JP_gBattleMoves_0_467_staging.bin,468,12,5616,cf520997c8206f9052510a1ff69eb81857058e54,YES,byte9 category; byte10-11 u16 effect,HGSS active a/0/1/1,STAGING_ONLY
+Emerald_EN,Emerald_EN_gBattleMoves_0_467_staging.bin,468,12,5616,cf520997c8206f9052510a1ff69eb81857058e54,YES,byte9 category; byte10-11 u16 effect,HGSS active a/0/1/1,STAGING_ONLY
+FireRed_JP_Rev1,FireRed_JP_Rev1_gBattleMoves_0_467_staging.bin,468,12,5616,073ec5e4406afef1965323264c8a6cc169ef22f9,YES,byte9 category; byte10-11 u16 effect,HGSS active a/0/1/1,STAGING_ONLY
+FireRed_EN_Rev1,FireRed_EN_Rev1_gBattleMoves_0_467_staging.bin,468,12,5616,073ec5e4406afef1965323264c8a6cc169ef22f9,YES,byte9 category; byte10-11 u16 effect,HGSS active a/0/1/1,STAGING_ONLY
+LeafGreen_JP,LeafGreen_JP_gBattleMoves_0_467_staging.bin,468,12,5616,073ec5e4406afef1965323264c8a6cc169ef22f9,YES,byte9 category; byte10-11 u16 effect,HGSS active a/0/1/1,STAGING_ONLY
+LeafGreen_EU_Rev1,LeafGreen_EU_Rev1_gBattleMoves_0_467_staging.bin,468,12,5616,073ec5e4406afef1965323264c8a6cc169ef22f9,YES,byte9 category; byte10-11 u16 effect,HGSS active a/0/1/1,STAGING_ONLY
