@@ -1,0 +1,22 @@
+{
+  "gen3_targets": 10,
+  "name_tables_located": 10,
+  "evolution_tables_located": 10,
+  "levelup_pointer_tables_located": 10,
+  "hgss_learnset_narc_path": "a/0/3/3",
+  "hgss_learnset_file_id": 162,
+  "hgss_evolution_narc_path": "a/0/3/4",
+  "hgss_evolution_file_id": 163,
+  "hgss_evolution_slots_per_species_on_disk": 7,
+  "retail_gen3_evolution_slots_per_species": 5,
+  "max_hgss_evolution_count": 7,
+  "species_requiring_7_evolution_slots": [133],
+  "gen4_evolution_methods": 27,
+  "retail_gen3_shared_method_ids": "0..15",
+  "new_engine_method_ids": "16..26",
+  "learnset_encoding_shared": "u16 (level<<9 | move), 0xFFFF terminator",
+  "gen4_moves_fit_existing_gen3_learnset_word": "YES; lower 9 bits permit IDs 0..511",
+  "new_species_names_387_493_status": "not inserted in this phase; language-specific encoding handled separately",
+  "learnset_diff_rows": 3600,
+  "evolution_diff_rows": 2590
+}
