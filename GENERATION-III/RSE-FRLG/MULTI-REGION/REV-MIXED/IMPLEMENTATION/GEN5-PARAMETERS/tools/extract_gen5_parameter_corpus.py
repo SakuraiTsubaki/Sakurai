@@ -132,8 +132,16 @@ def main() -> None:
 
         fixed = FIXED_RECORD_SIZES.get(role)
         bad_sizes = []
+        flat_sha1 = None
+        flat_size = None
         if fixed is not None:
             bad_sizes = [i for i, member in enumerate(members) if len(member) != fixed]
+            if not bad_sizes:
+                flat = b"".join(members)
+                flat_path = role_dir / "flat.bin"
+                flat_path.write_bytes(flat)
+                flat_sha1 = hashlib.sha1(flat).hexdigest()
+                flat_size = len(flat)
 
         manifest["sources"][role] = {
             "nitrofs_path": path,
@@ -142,6 +150,9 @@ def main() -> None:
             "member_sizes": sorted({len(m) for m in members}),
             "fixed_record_size_expected": fixed,
             "fixed_record_size_mismatches": bad_sizes,
+            "flat_binary": "flat.bin" if flat_sha1 else None,
+            "flat_binary_size": flat_size,
+            "flat_binary_sha1": flat_sha1,
         }
 
     (args.out_dir / "manifest.json").write_text(
