@@ -6,17 +6,25 @@ Scope: static and runtime-facing game parameters only. Sprite/graphics work is i
 
 ## 1. Source of truth
 
-BW/B2W2 keep Pokémon personal data in `a/0/1/6` (`personal.narc`). BW also uses:
+BW and B2W2 share several core NARC roles but **do not have identical filesystem placement for every system**.
 
+Common/core paths:
+
+- `a/0/1/6` — personal data
 - `a/0/1/8` — level-up moves
 - `a/0/1/9` — evolutions
-- `a/0/2/0` — child Pokémon data
+- `a/0/2/0` — child/base-breeding Pokémon data
 - `a/0/2/1` — move data
 - `a/0/2/4` — item data
-- `a/1/2/4` — egg moves
-- `a/1/2/7` — encounter tables
 
-The project rule is **preserve target-original data first**, then add Generation V data as a selectable/extended layer rather than destructively replacing the target tables.
+Version-family differences confirmed during survey:
+
+- **BW egg moves:** `a/1/2/3` (650 files in Black)
+- **B2W2 egg moves:** `a/1/2/4` (650 files in Black 2)
+- **BW encounters:** `a/1/2/6`
+- **B2W2 encounters:** `a/1/2/7`
+
+The project rule is **preserve target-original data first**, then add Generation V data as a selectable/extended layer rather than destructively replacing the target tables. BW and B2W2 data are retained as separate source profiles wherever they differ.
 
 ## 2. BW personal record (0x3C / 60 bytes)
 
@@ -45,9 +53,9 @@ The project rule is **preserve target-original data first**, then add Generation
 | 0x24 | 2 | height |
 | 0x26 | 2 | weight |
 | 0x28 | 0x10 | TM/HM compatibility |
-| 0x38 | 4 | special tutor compatibility in BW-family personal format |
+| 0x38 | 4 | BW-family trailing compatibility bitfield; semantic use tracked separately by version |
 
-**Implementation policy:** retain the raw 60-byte BW record as a canonical Generation V record instead of flattening it into a Gen II/III-only structure. Target-specific adapters translate IDs and expose fields to each engine.
+**Implementation policy:** retain the raw 60-byte BW record as a canonical Generation V record instead of flattening it into a Gen II/III-only structure. Target-specific adapters translate IDs and expose fields to each engine. B2W2 personal extensions/forms are surveyed separately instead of assuming the BW 60-byte record is the complete B2W2 schema.
 
 ## 3. Gen III integration
 
@@ -62,7 +70,8 @@ Keep native `SpeciesInfo` intact and add a `Gen5PersonalTable[650]` (index 0 + N
 Profiles:
 
 - `GEN3_ORIGINAL`
-- `GEN5_ORIGINAL`
+- `GEN5_BW_ORIGINAL`
+- `GEN5_B2W2_ORIGINAL`
 - `PROJECT_APPLIED`
 
 ### Fields needing Gen III extension
@@ -134,12 +143,12 @@ Do not overwrite base species data with one form. Use `(species, form)` → pers
 
 ## 6. Implementation order
 
-1. **Resident Gen V personal layer** — copy all 001–649 BW personal records into target-accessible storage.
-2. **Parameter accessor** — target-original / Gen-V-original / project-applied profiles.
+1. **Resident Gen V personal layer** — copy all 001–649 BW/B2W2 personal records into target-accessible storage.
+2. **Parameter accessor** — target-original / BW-original / B2W2-original / project-applied profiles.
 3. **Gen III first functional pass** — 649 species indexing, 16-bit base EXP, third held item, third ability, forms, expanded TM/HM.
 4. **Gen II ID layer** — 10-bit species + 10-bit moves without destructive save expansion.
 5. **Gen II parameter functions** — per-species friendship, modern EV yield, growth formulas, abilities, forms, held-item 3.
-6. **Level-up / egg moves / evolutions** from BW NARCs.
+6. **Level-up / egg moves / evolutions** from the correct BW/B2W2 NARCs.
 7. **Move table and effects** including physical/special/status category and Gen V effect semantics.
 8. **Item table and effects** including battle/field/evolution/form interactions.
 9. **Cross-system verification** — battle, breeding, evolution, save/load, PC, trade/link, Pokédex, trainer/wild data.
@@ -150,6 +159,6 @@ The project will **not stop at changing fields that already existed in Gen II/II
 
 ## Verification sources
 
-- Project Pokémon BW/B2W2 ROM research: `personal.narc` structure and NARC locations.
+- Project Pokémon BW/B2W2 ROM research: `personal.narc` structure and version-family NARC locations.
 - pret/pokefirered: `struct PokemonSubstruct0`, `BoxPokemon`, `BattlePokemon`, `SpeciesInfo`, `BattleMove`, `LevelUpMove`, `Evolution`.
 - pret/pokecrystal: base-data constants, party/box structure, growth-rate table, experience routines.
