@@ -1,0 +1,23 @@
+name: Test BW preservation-v2 kernel
+
+on:
+  push:
+    paths:
+      - 'GENERATION-V/BW/EUR/REV-UNKNOWN/SPRITE_ANALYSIS/BATTLE_MASTER_V1/**'
+      - '.github/workflows/test-bw-preservation-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy pillow
+      - name: Run preservation-v2 invariants
+        run: python GENERATION-V/BW/EUR/REV-UNKNOWN/SPRITE_ANALYSIS/BATTLE_MASTER_V1/test_preservation_v2_generalized.py
