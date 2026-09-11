@@ -1,0 +1,11 @@
+game,archive_role,path,range,count,status
+diamond,move_table,poketool/waza/waza_tbl.narc,468-470,3,confirmed-unreachable-by-normal-move-id
+diamond,move_scripts,battle/skill/waza_seq.narc,468-500,33,confirmed-unreachable-by-normal-move-id; each 4 bytes 24000000
+pearl,move_table,poketool/waza/waza_tbl.narc,468-470,3,confirmed-unreachable-by-normal-move-id
+pearl,move_scripts,battle/skill/waza_seq.narc,468-500,33,confirmed-unreachable-by-normal-move-id; each 4 bytes 24000000
+platinum,move_table,poketool/waza/pl_waza_tbl.narc,468-470,3,confirmed-unreachable-by-normal-move-id
+platinum,move_scripts,battle/skill/waza_seq.narc,468-500,33,confirmed-unreachable-by-normal-move-id; each 4 bytes 24000000
+heartgold,move_table,a/0/1/1,468-470,3,confirmed-unreachable-by-normal-move-id
+heartgold,move_scripts,a/0/0/0,468-500,33,confirmed-unreachable-by-normal-move-id; each 4 bytes 24000000
+soulsilver,move_table,a/0/1/1,468-470,3,confirmed-unreachable-by-normal-move-id
+soulsilver,move_scripts,a/0/0/0,468-500,33,confirmed-unreachable-by-normal-move-id; each 4 bytes 24000000
