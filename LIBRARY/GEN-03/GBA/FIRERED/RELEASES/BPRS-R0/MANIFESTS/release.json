@@ -1,0 +1,12 @@
+{
+  "release_id": "BPRS-R0",
+  "game": "FIRERED",
+  "platform": "GBA",
+  "game_code": "BPRS",
+  "header_version": 0,
+  "region": ["Spain"],
+  "language": ["Spanish"],
+  "canonical_reference_sha1": "ab8f6bfe0ccdaf41188cd015c8c74c314d02296a",
+  "identity_status": "verified-release-binding",
+  "raw_rom_in_git": false
+}

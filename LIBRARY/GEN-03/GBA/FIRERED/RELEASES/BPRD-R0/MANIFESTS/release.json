@@ -1,0 +1,12 @@
+{
+  "release_id": "BPRD-R0",
+  "game": "FIRERED",
+  "platform": "GBA",
+  "game_code": "BPRD",
+  "header_version": 0,
+  "region": ["Germany"],
+  "language": ["German"],
+  "canonical_reference_sha1": "18a3758ceeef2c77b315144be2c3910d6f1f69fe",
+  "identity_status": "verified-release-binding",
+  "raw_rom_in_git": false
+}

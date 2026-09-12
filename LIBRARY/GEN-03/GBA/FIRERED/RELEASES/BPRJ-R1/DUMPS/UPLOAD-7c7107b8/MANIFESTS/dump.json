@@ -1,0 +1,18 @@
+{
+  "dump_id": "UPLOAD-7c7107b8",
+  "release_id": "BPRJ-R1",
+  "filename": "Pocket Monsters - Fire Red (Japan) (Rev 1).gba",
+  "size": 16777216,
+  "sha1": "7c7107b87c3ccf6e3dbceb9cf80ceeffb25a1857",
+  "md5": "ff25067b591ba324cd44689a9ba8aa48",
+  "sha256": "cec5fc4dbe38cd8026bd6664a1a041d9dc91e8d4249bab04e7bde70c3cdf4e06",
+  "crc32": "bb640df7",
+  "header_title": "POKEMON FIRE",
+  "game_code": "BPRJ",
+  "header_version": 1,
+  "quality_status": "reference-match",
+  "canonical_reference_sha1": "7c7107b87c3ccf6e3dbceb9cf80ceeffb25a1857",
+  "provenance": "project-upload",
+  "verified_date": "2026-09-12",
+  "raw_rom_in_git": false
+}

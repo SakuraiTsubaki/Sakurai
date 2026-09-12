@@ -1,0 +1,12 @@
+{
+  "release_id": "BPRE-R1",
+  "game": "FIRERED",
+  "platform": "GBA",
+  "game_code": "BPRE",
+  "header_version": 1,
+  "region": ["USA", "Europe"],
+  "language": ["English"],
+  "canonical_reference_sha1": "dd5945db9b930750cb39d00c84da8571feebf417",
+  "identity_status": "verified-release-binding",
+  "raw_rom_in_git": false
+}

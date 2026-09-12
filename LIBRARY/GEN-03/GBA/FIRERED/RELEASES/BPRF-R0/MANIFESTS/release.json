@@ -1,0 +1,12 @@
+{
+  "release_id": "BPRF-R0",
+  "game": "FIRERED",
+  "platform": "GBA",
+  "game_code": "BPRF",
+  "header_version": 0,
+  "region": ["France"],
+  "language": ["French"],
+  "canonical_reference_sha1": "fc663907256f06a3a09e2d6b967bc9af4919f111",
+  "identity_status": "verified-release-binding",
+  "raw_rom_in_git": false
+}
