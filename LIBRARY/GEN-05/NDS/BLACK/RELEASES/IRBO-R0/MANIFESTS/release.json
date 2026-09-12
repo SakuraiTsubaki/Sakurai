@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "game_id": "BLACK",
+  "platform": "NDS",
+  "release_id": "IRBO-R0",
+  "game_code": "IRBO",
+  "header_version": 0,
+  "markets": ["US", "EU"],
+  "languages": ["en"],
+  "build_kind": "retail",
+  "observed_dump_ids": ["SWEETNDS-a68b3bed"],
+  "rom_binary_in_repository": false,
+  "notes": "Release identity is distinct from the supplied SweeTnDs dump quality classification."
+}
