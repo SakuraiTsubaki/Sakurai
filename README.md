@@ -1,21 +1,19 @@
 # Sakurai
 
-Pokémon research, reverse-engineering, census, comparison, integration-design, and verification repository.
+Pokémon ROM research, release/dump identity, reverse engineering, comparison, crosswalk, design, and verification repository.
 
-## Canonical path model: v4
+## Canonical path model: v5
 
-Active work is divided by responsibility rather than by one universal game/locale/revision chain:
+```text
+LIBRARY/GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/...
+PROJECTS/<PROJECT-ID>/...
+INFRA/...
+```
 
-- `LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/RELEASES/<RELEASE-ID>/...` — facts owned by one exact official software build
-- `.../DUMPS/<DUMP-ID>/...` — observations tied to one exact supplied/observed ROM or executable image
-- `LIBRARY/.../COMPARISONS/<COMPARISON-ID>/...` — relationships among official releases
-- `PROJECTS/<PROJECT-ID>/...` — modernization, ports, integrations, cross-generation work, and target-specific implementation specifications
-- `INFRA/...` — release registries, schemas, validators, migration maps, and repository-wide tooling
+`RELEASE` is the official build identity. `DUMP` is one exact observed image under that release. `HV` means the ROM/header version byte and is not silently equated with preservation-set revision labels.
 
-**RELEASE and DUMP are different identities.** A bad, incomplete, modified, or duplicate dump never becomes a fake official release.
+The paired `Tsubaki` repository uses the same generation/game/platform/package/release/dump/project/target identities but owns production assets, conversion indexes, patches, build inputs, and generated implementation resources.
 
-Legacy `GAMES/`, `GENERATION-*`, standalone `GEN-*`, `META/`, `MULTI`, and `REV-ALL` paths are migration sources only. New work must use v4.
+Legacy `GENERATION-*`, standalone `GEN-*`, `GAMES/`, v4 release paths, `_SHARED`, `MULTI`, `REV-ALL`, and similar pseudo-owner paths are migration inputs only.
 
-Sakurai and Tsubaki share the same release IDs, project IDs, and target IDs. See `STRUCTURE.md` and `MIGRATION.md` before routing new material.
-
-Original ROM/executable binaries are never stored in this repository.
+Original ROM/executable binaries are never committed.
