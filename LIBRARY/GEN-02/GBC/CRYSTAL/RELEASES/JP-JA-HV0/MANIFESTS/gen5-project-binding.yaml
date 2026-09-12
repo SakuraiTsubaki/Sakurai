@@ -1,0 +1,8 @@
+project_id: GEN5-TO-POCKET-MONSTERS
+role: target
+release_id: JP-JA-HV0
+platform: GBC
+header_title: PM_CRYSTAL
+header_version: 0
+size_bytes: 2097152
+sha1: 95127b901bbce2407daf43cce9f45d4c27ef635d

@@ -1,0 +1,8 @@
+project_id: GEN5-TO-POCKET-MONSTERS
+role: source
+release_id: IRAO-R0
+game_code: IRAO
+header_version: 0
+observed_dump: DUMPS/SWEETNDS-f94d4578
+sha1: f94d4578956487c09fee20809a591e858017769e
+status: supplied-dump-revalidation-required
