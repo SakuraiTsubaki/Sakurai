@@ -1,9 +1,13 @@
 {
+  "schema": "firered-kr-source-lock-v6",
   "project_id": "FIRERED-KR-LOCALIZATION",
-  "base_release_id": "BPRE-R0",
+  "identity_authority": "Sakurai",
+  "base_release_id": "BPRE-HV0",
+  "base_release_path": "LIBRARY/GEN-03/FIRERED/SOURCE/GBA/CART/BPRE-HV0",
   "base_dump_id": "UPLOAD-d3b80645",
+  "base_dump_path": "LIBRARY/GEN-03/FIRERED/SOURCE/GBA/CART/BPRE-HV0/DUMPS/UPLOAD-d3b80645",
   "base_dump_sha1": "d3b806453369b4b086c792eb3c05a02f00057f50",
   "canonical_release_sha1": "41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc",
   "base_dump_status": "reference-mismatch",
-  "note": "Existing glyph experiments are locked to the supplied dump until verified/rebased against the canonical BPRE-R0 release."
+  "note": "Existing glyph experiments remain locked to the supplied dump until verified or rebased against canonical BPRE-HV0."
 }

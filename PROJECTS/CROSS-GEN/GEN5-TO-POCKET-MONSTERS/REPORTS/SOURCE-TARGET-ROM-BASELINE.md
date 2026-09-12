@@ -34,12 +34,12 @@ Black 2 and White 2 are required by project scope but are intentionally not repr
 | Sapphire EN | `AXPE-R2` | 16 MiB | `89b45fb172e6b55d51fc0e61989775187f6fe63c` |
 | Emerald JP | `BPEJ-R0` | 16 MiB | `d7cf8f156ba9c455d164e1ea780a6bf1945465c2` |
 | Emerald EN | `BPEE-R0` | 16 MiB | `f3ae088181bf583e55daf962a92bb46f4f1d07b7` |
-| FireRed JP | `BPRJ-R1` | 16 MiB | `7c7107b87c3ccf6e3dbceb9cf80ceeffb25a1857` |
-| FireRed EN | `BPRE-R1` | 16 MiB | `c4d0119d9bcb36687f41a8f7ca72ab7af60558e4` |
+| FireRed JP | `BPRJ-HV1` | 16 MiB | `7c7107b87c3ccf6e3dbceb9cf80ceeffb25a1857` |
+| FireRed EN supplied dump | `BPRE-HV1` | 16 MiB | `c4d0119d9bcb36687f41a8f7ca72ab7af60558e4` |
 | LeafGreen JP | `BPGJ-R0` | 16 MiB | `5946f1b59e8d71cc61249661464d864185c92a5f` |
 | LeafGreen EN/EU | `BPGE-R1` | 16 MiB | `7862c67bdecbe21d1d69ce082ce34327e1c6ed5e` |
 
-All GBA build identities use the native four-character game code plus the header revision. Known save-library observations remain release-specific analysis, not path components.
+The FireRed English supplied dump is reference-mismatch and is not the canonical BPRE-HV1 preservation image. All GBA build identities use the native four-character game code plus header version in canonical v6 paths.
 
 ## Repository routing
 
@@ -53,4 +53,4 @@ Store only production-facing material: verified input locks, asset catalogs/fing
 
 ## Canonical ownership rule
 
-An observation about one original build belongs to `LIBRARY`. A fact about one exact supplied file belongs below that release's `DUMPS`. A relationship among releases belongs to `COMPARISONS`. Generation V -> target conversion logic belongs to `PROJECTS/GEN5-TO-POCKET-MONSTERS`.
+An observation about one original build belongs to `LIBRARY`. A fact about one exact supplied file belongs below that release's `DUMPS`. A relationship among releases belongs to `COMPARE`. Generation V -> target conversion logic belongs to `PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS`.
