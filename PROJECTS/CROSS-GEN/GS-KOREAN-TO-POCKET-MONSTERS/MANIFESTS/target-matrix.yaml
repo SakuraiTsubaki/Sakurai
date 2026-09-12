@@ -1,0 +1,34 @@
+schema: sakurai.cross-gen-target-matrix.v6
+project_id: GS-KOREAN-TO-POCKET-MONSTERS
+target_count: 23
+columns: [target_id, source_release_path, source_dump_id, source_language, mode]
+rows:
+- [KO-GEN01-BLUE-JP-JA-HV0, LIBRARY/GEN-01/BLUE/SOURCE/GB/CART/JP-JA-HV0, USER-UPLOAD-0da501e3, ja, new_korean_localization]
+- [KO-GEN01-BLUE-US-EU-EN-HV0, LIBRARY/GEN-01/BLUE/SOURCE/GB/CART/US-EU-EN-HV0, USER-UPLOAD-d7037c83, en, new_korean_localization]
+- [KO-GEN01-GREEN-JP-JA-HV0, LIBRARY/GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV0, USER-UPLOAD-82c0eef4, ja, new_korean_localization]
+- [KO-GEN01-GREEN-JP-JA-HV1, LIBRARY/GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV1, USER-UPLOAD-4b97cd44, ja, new_korean_localization]
+- [KO-GEN01-RED-JP-JA-HV0, LIBRARY/GEN-01/RED/SOURCE/GB/CART/JP-JA-HV0, USER-UPLOAD-0623ad12, ja, new_korean_localization]
+- [KO-GEN01-RED-JP-JA-HV1, LIBRARY/GEN-01/RED/SOURCE/GB/CART/JP-JA-HV1, USER-UPLOAD-ef74c79c, ja, new_korean_localization]
+- [KO-GEN01-RED-US-EU-EN-HV0, LIBRARY/GEN-01/RED/SOURCE/GB/CART/US-EU-EN-HV0, USER-UPLOAD-ea9bcae6, en, new_korean_localization]
+- [KO-GEN01-YELLOW-JP-JA-HV0, LIBRARY/GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV0, USER-UPLOAD-1fb6c264, ja, new_korean_localization]
+- [KO-GEN01-YELLOW-JP-JA-HV1, LIBRARY/GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV1, USER-UPLOAD-28e4b853, ja, new_korean_localization]
+- [KO-GEN01-YELLOW-JP-JA-HV2, LIBRARY/GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV2, USER-UPLOAD-91864ecd, ja, new_korean_localization]
+- [KO-GEN01-YELLOW-JP-JA-HV3, LIBRARY/GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV3, USER-UPLOAD-a40298a8, ja, new_korean_localization]
+- [KO-GEN01-YELLOW-US-EU-EN-HV0, LIBRARY/GEN-01/YELLOW/SOURCE/GB/CART/US-EU-EN-HV0, USER-UPLOAD-cc7d0326, en, new_korean_localization]
+- [KO-GEN02-CRYSTAL-JP-JA-HV0, LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/JP-JA-HV0, PROJECT-95127b90, ja, new_korean_localization]
+- [KO-GEN02-CRYSTAL-US-EU-EN-HV0, LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/US-EU-EN-HV0, PROJECT-f4cd194b, en, new_korean_localization]
+- [KO-GEN02-CRYSTAL-US-EU-EN-HV1, LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/US-EU-EN-HV1, PROJECT-f2f52230, en, new_korean_localization]
+- [KO-GEN02-GOLD-AAUJ-HV0, LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/AAUJ-HV0, PROJECT-8814f103, ja, new_korean_localization]
+- [KO-GEN02-GOLD-AAUJ-HV1, LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/AAUJ-HV1, PROJECT-a2224022, ja, new_korean_localization]
+- [KO-GEN02-GOLD-AAUK-HV0, LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/AAUK-HV0, UPLOAD-c0ff3999, ko, modernize_existing_official_korean]
+- [KO-GEN02-GOLD-AAUE-HV0, LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/AAUE-HV0, PROJECT-d8b8a360, en, new_korean_localization]
+- [KO-GEN02-SILVER-AAXJ-HV0, LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/AAXJ-HV0, PROJECT-fa8c5105, ja, new_korean_localization]
+- [KO-GEN02-SILVER-AAXJ-HV1, LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/AAXJ-HV1, PROJECT-a11d5ddc, ja, new_korean_localization]
+- [KO-GEN02-SILVER-AAXK-HV0, LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/AAXK-HV0, PROJECT-cb22d7e0, ko, modernize_existing_official_korean]
+- [KO-GEN02-SILVER-AAXE-HV0, LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/AAXE-HV0, PROJECT-49b163f7, en, new_korean_localization]
+policy:
+  target_language: ko
+  preserve_source_differences: true
+  latest_official_korean_names: true
+  current_korean_orthography: true
+  original_offsets_not_constraints: true

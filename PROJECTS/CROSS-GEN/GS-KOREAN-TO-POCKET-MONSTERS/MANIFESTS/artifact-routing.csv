@@ -1,0 +1,15 @@
+artifact_class,owner_repository,canonical_path_rule,notes
+official_release_fact,Sakurai,LIBRARY/GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/,Identity; ROM maps; pointers; text engine; release-level verified facts
+exact_dump_observation,Sakurai,.../<RELEASE-ID>/DUMPS/<DUMP-ID>/,Hashes; supplied filename; checksum and dump-specific observations
+same_game_comparison,Sakurai,LIBRARY/GEN-XX/<GAME-ID>/COMPARE/<COMPARISON-ID>/,Revision/language/version comparison within one game
+cross_game_comparison,Sakurai,LIBRARY/GEN-XX/COMPARE/<COMPARISON-ID>/,Gold/Silver Korean implementation equality and deltas
+cross_gen_project_research,Sakurai,PROJECTS/CROSS-GEN/GS-KOREAN-TO-POCKET-MONSTERS/,Source locks; translation crosswalks; design; audits; tools; verification
+release_owned_asset,Tsubaki,LIBRARY/GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/ASSETS/,Verified source font/graphics/UI/audio resource owned by that release
+release_asset_comparison,Tsubaki,LIBRARY/GEN-XX/COMPARE/<COMPARISON-ID>/CATALOG/,Hash equality/delta without moving release ownership
+project_source_recipe,Tsubaki,PROJECTS/CROSS-GEN/GS-KOREAN-TO-POCKET-MONSTERS/SOURCE/,Reproducible extraction recipes; never full ROMs
+target_asset,Tsubaki,PROJECTS/CROSS-GEN/GS-KOREAN-TO-POCKET-MONSTERS/ASSETS/<TARGET-ID>/,Project-owned derived assets
+normalized_asset,Tsubaki,PROJECTS/CROSS-GEN/GS-KOREAN-TO-POCKET-MONSTERS/NORMALIZED/<TARGET-ID>/,Canonical production intermediates
+converted_asset,Tsubaki,PROJECTS/CROSS-GEN/GS-KOREAN-TO-POCKET-MONSTERS/CONVERTED/<TARGET-ID>/,Target-format conversions
+insertion_data,Tsubaki,PROJECTS/CROSS-GEN/GS-KOREAN-TO-POCKET-MONSTERS/IMPLEMENTATION/<TARGET-ID>/,Relocated text; pointers; generated insertion data
+patch,Tsubaki,PROJECTS/CROSS-GEN/GS-KOREAN-TO-POCKET-MONSTERS/PATCHES/<TARGET-ID>/,Distributable patch only; never full ROM
+build,Tsubaki,PROJECTS/CROSS-GEN/GS-KOREAN-TO-POCKET-MONSTERS/BUILD/<TARGET-ID>/,Reproducible safe build inputs and metadata
