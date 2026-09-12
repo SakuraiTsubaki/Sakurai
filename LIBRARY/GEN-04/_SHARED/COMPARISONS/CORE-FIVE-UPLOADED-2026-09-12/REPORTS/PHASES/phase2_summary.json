@@ -1,0 +1,48 @@
+{
+  "diamond": {
+    "narc_archives": 149,
+    "total_members": 33953,
+    "resolved_or_path_named": 149,
+    "numeric_unresolved": 0,
+    "high_inference": 0
+  },
+  "pearl": {
+    "narc_archives": 149,
+    "total_members": 33953,
+    "resolved_or_path_named": 149,
+    "numeric_unresolved": 0,
+    "high_inference": 0
+  },
+  "platinum": {
+    "narc_archives": 215,
+    "total_members": 53505,
+    "resolved_or_path_named": 215,
+    "numeric_unresolved": 0,
+    "high_inference": 0
+  },
+  "heartgold": {
+    "narc_archives": 308,
+    "total_members": 56674,
+    "resolved_or_path_named": 110,
+    "numeric_unresolved": 198,
+    "high_inference": 2
+  },
+  "soulsilver": {
+    "narc_archives": 308,
+    "total_members": 56674,
+    "resolved_or_path_named": 110,
+    "numeric_unresolved": 198,
+    "high_inference": 2
+  },
+  "phase2_findings": {
+    "confirmed_unused_move_records": 180,
+    "move_table_tail_records": 15,
+    "move_script_dummy_records": 165,
+    "dp_personal_diff_species": 6,
+    "hgss_diff_members": 164,
+    "platinum_korean_resource_archives": 32,
+    "platinum_korean_resource_members": 2801,
+    "runtime_table_exception_rows": 88,
+    "platinum_parallel_legacy_archives_checked": 7
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": 4,
+  "comparison_id": "DIAMOND-ADAE-R5--PEARL-APAE-R5",
+  "generation": 4,
+  "platform": "NDS",
+  "members": [
+    {"game":"DIAMOND","release_id":"ADAE-R5","dump_id":"USER-UPLOAD-a46233d8"},
+    {"game":"PEARL","release_id":"APAE-R5","dump_id":"USER-UPLOAD-99083bf1"}
+  ],
+  "scope": "Diamond/Pearl USA English header-version 5 exact semantic and filesystem differences."
+}

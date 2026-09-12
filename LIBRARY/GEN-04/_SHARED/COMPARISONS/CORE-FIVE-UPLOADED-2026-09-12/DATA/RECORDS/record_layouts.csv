@@ -1,0 +1,15 @@
+system,family,record_size,description
+personal,all,44,base stats/types/catch/base exp/EV yields/held items/gender/hatch/friendship/growth/egg groups/abilities/safari flee/color+flip/TM-HM masks
+growth,all,404,101 u32 cumulative experience values (level 0..100); 8 tables
+evolution,all,44,"7 x {u16 method,u16 param,u16 target} + trailing u16"
+levelup_moves,all,variable,"u16 entries: level=raw>>9, move=raw&0x1FF; terminated by 0xFFFF"
+move,all,16,effect/category/power/type/accuracy/PP/effect chance/range/priority/flag bytes/contest type
+item,all,34,price/held effect/pluck/fling/natural gift/pocket/use functions/party-use bitfields and params
+trainer_header,all,20,mon data type/trainer class or type/sprite/party size/4 items/AI mask/battle type
+trainer_mon,DP,6|14|8|16,"base|moves|item|item+moves; u16 IV scale, level, species; no capsule"
+trainer_mon,Pt,8|16|10|18,DP-style u16 IV scale/level/packed species+form plus capsule/seal
+trainer_mon,HGSS,8|16|10|18,u8 difficulty + u8 gender/ability override + level + packed species/form + optional item/moves + capsule
+wild_encounter,DPPt,424,grass/swarm/day/night/radar/form rates/Unown table/Dual-slot/Surf/unused water/Old-Good-Super Rod
+wild_encounter,HGSS,196,walking/surf/rock-smash/rod rates; morning/day/night grass; Hoenn/Sinnoh Sound; water/fishing; swarms
+headbutt,HGSS,4 or 76+24*(regular_groups+secret_groups),empty header or 3x6 encounter slots + six XY coordinate pairs per logical tree group
+egg_moves,HGSS,4092 archive member,2046 u16; species marker=20000+species; following <=20000 values are move IDs; 65535 terminator
