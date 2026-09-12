@@ -1,0 +1,13 @@
+{
+  "schema": "sakurai.dump-identity.v5",
+  "dump_id": "USER-UPLOAD-47a7622f",
+  "release_id": "EU-FR-HV0",
+  "filename": "Pokemon - Version Rouge (France) (SGB Enhanced).gb",
+  "provenance": "user-upload",
+  "size_bytes": 1048576,
+  "sha1": "47a7622fa30e6402a3891fe65b3a930bf9bd7aec",
+  "sha256": "23766290f3b2347f815f1e8977c3b84047ed880cadda8c4f1a3595a633daa303",
+  "header_checksum_ok": true,
+  "global_checksum_ok": true,
+  "binary_committed": false
+}
