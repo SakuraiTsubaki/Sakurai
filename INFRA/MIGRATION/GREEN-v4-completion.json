@@ -1,0 +1,10 @@
+{
+  "schema":"migration.status.v1",
+  "scope":"GREEN",
+  "canonical_root":"LIBRARY/GEN-01/GB/GREEN",
+  "project_root":"PROJECTS/GREEN-MODERNIZATION",
+  "removed_legacy_root":"GAMES/GEN-01/GREEN",
+  "legacy_live_copy_policy":"removed; Git history is the archive",
+  "release_map":{"GB-JP-JA-REV-0":"JP-JA-HV0","GB-JP-JA-REV-A":"JP-JA-HV1"},
+  "status":"GREEN_PATH_MIGRATION_COMPLETE"
+}

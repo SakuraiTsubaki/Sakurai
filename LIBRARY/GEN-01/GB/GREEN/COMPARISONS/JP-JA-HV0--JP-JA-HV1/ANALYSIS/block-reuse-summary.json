@@ -1,0 +1,13 @@
+{
+  "schema": "rom.block-reuse.v1",
+  "block_size": 256,
+  "total_blocks": 2048,
+  "identical_blocks": 1193,
+  "different_blocks": 855,
+  "identical_bytes_at_block_granularity": 305408,
+  "different_bytes_at_block_granularity": 218880,
+  "actual_different_bytes": 46168,
+  "contiguous_diff_spans": 5436,
+  "only_fully_identical_bank": "1B",
+  "note": "Block identity is a coarse reuse hint only; asset boundaries must be verified before promotion to production assets."
+}
