@@ -1,0 +1,21 @@
+{
+  "release_id": "GBA-BPRI-REV-0",
+  "filename": "Pokemon - Versione Rosso Fuoco (Italy).gba",
+  "region": ["Italy"],
+  "language": "Italian",
+  "game_code": "BPRI",
+  "revision": 0,
+  "platform": "Game Boy Advance",
+  "size": 16777216,
+  "sha1": "66a9d415205321376b4318534c0dce5f69d28362",
+  "md5": "fce3c39e7ba452eddb2279b454b66416",
+  "sha256": "ad52b593ef0c7439e1409d3f0a1ec3ff865a494ca46c2184fe65573759838f3a",
+  "crc32": "73a72167",
+  "header_title": "POKEMON FIRE",
+  "maker_code": "01",
+  "unit_code": 0,
+  "device_type": 0,
+  "complement_check": 100,
+  "raw_rom_in_git": false,
+  "verified_date": "2026-09-12"
+}

@@ -1,0 +1,21 @@
+{
+  "release_id": "GBA-BPRS-REV-0",
+  "filename": "Pokemon - Edicion Rojo Fuego (Spain).gba",
+  "region": ["Spain"],
+  "language": "Spanish",
+  "game_code": "BPRS",
+  "revision": 0,
+  "platform": "Game Boy Advance",
+  "size": 16777216,
+  "sha1": "ab8f6bfe0ccdaf41188cd015c8c74c314d02296a",
+  "md5": "c629272c5e0111930a240623b6c239f0",
+  "sha256": "ab696c065639e4d73c3c3ed9d4fbf9c7fed593761f3b6746256ff82465596554",
+  "crc32": "9f08064e",
+  "header_title": "POKEMON FIRE",
+  "maker_code": "01",
+  "unit_code": 0,
+  "device_type": 0,
+  "complement_check": 90,
+  "raw_rom_in_git": false,
+  "verified_date": "2026-09-12"
+}
