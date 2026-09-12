@@ -1,0 +1,13 @@
+schema: sakurai.release-comparison.v4
+comparison_id: BLACK-IRBO-R0--WHITE-IRAO-R0
+generation: 5
+platform: NDS
+members:
+  - LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0
+  - LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0
+observed_dumps:
+  - LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0/DUMPS/SWEETNDS-a68b3bed
+  - LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0/DUMPS/SWEETNDS-f94d4578
+legacy_source_root: GENERATION-V/_SHARED/MULTI/REV-ALL/ANALYSIS/BW-EUR-REV-UNKNOWN/ROM-BASELINE-SWEETNDS
+migration_rule: pairwise-results-only-no-copied-single-release-facts
+verification_note: conclusions affected by TWL/DSi dump completeness remain provisional until clean-dump revalidation
