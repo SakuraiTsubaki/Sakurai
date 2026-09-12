@@ -10,9 +10,12 @@ PROJECT_RE = re.compile(r'^[a-z0-9][a-z0-9-]*$')
 
 STATIC_ROOTS = {
     'INFRA', 'CROSS-GEN', 'projects', '.github', '.git', '.gitignore', '.gitattributes',
-    'README.md', 'STRUCTURE.md', 'MIGRATION.md'
+    'README.md', 'STRUCTURE.md', 'STRUCTURE-V2.md', 'MIGRATION.md'
 }
-RETIRED_ROOTS = {'LIBRARY', 'PROJECTS', 'LEGACY'}
+# Existing migration-only roots are grandfathered until their dedicated cleanup PR.
+# They are not canonical destinations for new work.
+MIGRATION_ROOTS = {'LIBRARY', 'GENERATION-IV'}
+RETIRED_ROOTS = {'PROJECTS', 'LEGACY'}
 GAME_BRANCHES = {'SOURCE', 'TARGET', 'COMPARE', 'SHARED', 'REFERENCE'}
 GEN_BRANCHES = {'TARGET', 'COMPARE', 'SHARED', 'REFERENCE'}
 CROSS_BRANCHES = {'TARGET', 'COMPARE', 'SHARED', 'REFERENCE'}
@@ -56,6 +59,8 @@ def reject_banned(path, label):
 
 
 for entry in ROOT.iterdir():
+    if entry.name in MIGRATION_ROOTS:
+        continue
     if entry.name in RETIRED_ROOTS:
         errors.append(f'retired pre-v9 root exists: {entry.name}')
     elif GEN_RE.fullmatch(entry.name):
