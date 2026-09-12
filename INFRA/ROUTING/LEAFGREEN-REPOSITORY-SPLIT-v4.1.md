@@ -79,4 +79,4 @@ Legacy `GENERATION-*`, standalone `GEN-*`, `GAMES/...`, `MULTI`, `REV-ALL` and l
 
 ## ROM-derived bank evidence
 
-Every current image is exactly 256 × 64 KiB banks. The new `bank-variant-map.csv` records, for each bank number, how the seven releases group by identical SHA-1 content. This is research evidence in Sakurai; Tsubaki receives only the production-oriented reuse plan derived from it.
+Every current image is exactly 256 × 64 KiB banks. `bank-variant-distribution.json` stores the checked aggregate result, while `SHARED/TOOLS/bank_variant_map.py` reproducibly emits the complete per-bank release grouping from the local ROM set. This research evidence belongs in Sakurai; Tsubaki receives only production-oriented reuse summaries derived from it.
