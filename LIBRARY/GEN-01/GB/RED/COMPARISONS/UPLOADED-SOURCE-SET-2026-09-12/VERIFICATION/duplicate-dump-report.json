@@ -1,0 +1,14 @@
+{
+  "schema": "sakurai.duplicate-dump-report.v1",
+  "generated": "2026-09-12",
+  "release_id": "US-EU-EN-HV0",
+  "sha1": "ea9bcae617fdf159b045185467ae58b2e4a48b9a",
+  "sha256": "5ca7ba01642a3b27b0cc0b5349b52792795b62d3ed977e98a09390659af96b7b",
+  "byte_identical": true,
+  "observed_filenames": [
+    "Pokemon - Red Version (USA, Europe) (SGB Enhanced).gb",
+    "Pokemon - Red Version (USA, Europe) (SGB Enhanced) - 복사본.gb"
+  ],
+  "routing": "one RELEASE and one unique DUMP identity; preserve both observed filenames as provenance",
+  "rom_binary_committed": false
+}
