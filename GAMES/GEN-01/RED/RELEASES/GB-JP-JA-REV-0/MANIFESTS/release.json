@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "game_id": "RED",
+  "release_id": "GB-JP-JA-REV-0",
+  "platform": "GB",
+  "market": ["JP"],
+  "languages": ["ja"],
+  "source_filename": "Pocket Monsters - Aka (Japan) (SGB Enhanced).gb",
+  "rom_size_bytes": 524288,
+  "header_title": "POKEMON RED",
+  "header_revision": 0,
+  "sgb_enhanced": true,
+  "cartridge_type": "MBC1+RAM+BATTERY",
+  "md5": "912d4f77d118390a2e2c42b2016a19d4",
+  "sha1": "0623ad12f48c259447980d68bd85ddbf8204b2cd",
+  "sha256": "392ce450d708c8d127aaed7afc20001a48625bd83a5fa5325be82f5c0972ccfa",
+  "rom_binary_in_repository": false
+}
