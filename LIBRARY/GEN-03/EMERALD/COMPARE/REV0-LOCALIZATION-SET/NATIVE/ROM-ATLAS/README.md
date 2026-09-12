@@ -1,26 +1,29 @@
-# Pokémon Emerald ROM Atlas
+# Pokémon Emerald ROM Atlas — v6
 
-This atlas is derived from the six unique supplied Pokémon Emerald Rev 0 GBA images. Raw ROM bytes are not committed.
+This atlas is derived from the six unique supplied Pokémon Emerald header-version-0 GBA images. Raw ROM bytes are not committed.
 
-## Inputs
+## Canonical inputs
 
-- BPEJ-R0 / PROJECT-d7cf8f15
-- BPEE-R0 / PROJECT-f3ae0881 (two supplied filenames, byte-identical)
-- BPED-R0 / PROJECT-61c2eb2b
-- BPEF-R0 / PROJECT-ca666651
-- BPEI-R0 / PROJECT-1692db32
-- BPES-R0 / PROJECT-fe1558a3
+- `BPEJ-HV0` / `UPLOAD-d7cf8f15`
+- `BPEE-HV0` / `UPLOAD-f3ae0881` (two supplied filenames, byte-identical)
+- `BPED-HV0` / `UPLOAD-61c2eb2b`
+- `BPEF-HV0` / `UPLOAD-ca666651`
+- `BPEI-HV0` / `UPLOAD-1692db32`
+- `BPES-HV0` / `UPLOAD-fe1558a3`
 
-## Files
+## Evidence files
 
-- `bank64k-all.tsv` — all 256 64 KiB banks for all six releases. Columns include SHA-256, CRC32, Shannon entropy, zero/FF ratios, and aligned GBA-ROM-pointer counts.
-- `bank-equivalence.tsv` — same-offset bank equivalence classes across the six releases.
-- `lz77-bank-counts.tsv` — counts of structurally valid BIOS-LZ77 type-0x10 candidates per 64 KiB bank. Candidate status is structural only; semantic ownership (sprite/tilemap/etc.) requires later pointer/table analysis.
+- `bank-equivalence.tsv` — full 256-bank same-offset equivalence snapshot.
+- `same-offset-bank-equivalence-ranges.tsv` — compact contiguous range summary of those equivalence classes.
+- `lz77-bank-counts.tsv` — structurally valid BIOS-LZ77 type-0x10 candidate counts per 64 KiB bank.
+- `lz77-census-summary.tsv` — release-level structural compression census summary.
 
-## Routing rule
+The large evidence snapshots were originally generated before the repository adopted v6 IDs and intentionally retain their original `BPE*-R0` row labels as provenance. Resolve those labels through `../../IDENTITY/pre-v6-id-aliases.tsv`; they refer to the same observed ROM identities now named `BPE*-HV0`. New generated research must emit v6 IDs.
 
-Exact supplied-file observations belong under `RELEASES/<RELEASE-ID>/DUMPS/<DUMP-ID>/`. Cross-release tables derived from two or more dumps belong under `COMPARISONS/REV0-LOCALIZATION-SET/`. Production extraction/materialization belongs in Tsubaki under `PROJECTS/EMERALD-ROM-ASSET-PIPELINE/`.
+## Routing
+
+Exact dump observations belong under `LIBRARY/GEN-03/EMERALD/SOURCE/GBA/CART/<RELEASE-ID>/DUMPS/<DUMP-ID>/`. Cross-release evidence belongs under this `COMPARE/REV0-LOCALIZATION-SET` tree. Production extraction/materialization belongs in Tsubaki under `PROJECTS/GEN-03/EMERALD-ROM-ASSET-PIPELINE/`.
 
 ## Reproducibility
 
-The source hashes are locked in `INFRA/REGISTRY/ROM-SETS/EMERALD/source-set.tsv`. Re-run the repository GBA census and LZ77 scanner against a locally supplied ROM; do not commit ROM binaries.
+Source identities and hashes are locked in `INFRA/REGISTRIES/ROM-SETS/EMERALD/source-set.tsv`. `INFRA/TOOLING/GBA/rom_census.py` can regenerate exact per-bank hashes and structural LZ77 observations from a locally supplied ROM. Do not commit ROM binaries.
