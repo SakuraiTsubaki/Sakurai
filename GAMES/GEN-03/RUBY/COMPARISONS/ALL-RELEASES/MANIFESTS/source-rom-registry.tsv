@@ -1,0 +1,14 @@
+release_id	source_filename	size_bytes	crc32	sha1	game_code	software_version	build_kind
+GBA-JP-JA-AXVJ-REV-0	Pocket Monsters - Ruby (Japan).gba	8388608	cee9471a	5c5e546720300b99ae45d2aa35c646c8b8ff5c56	AXVJ	0	retail
+GBA-US-EN-AXVE-REV-0	Pokemon - Ruby Version (USA).gba	16777216	f0815ee7	f28b6ffc97847e94a6c21a63cacf633ee5c8df1e	AXVE	0	retail
+GBA-EU-EN-AXVE-REV-1	Pokemon - Ruby Version (Europe) (Rev 1).gba	16777216	61641576	610b96a9c9a7d03d2bafb655e7560ccff1a6d894	AXVE	1	retail
+GBA-US-EU-EN-AXVE-REV-2	Pokemon - Ruby Version (USA, Europe) (Rev 2).gba	16777216	aeac73e6	5b64eacf892920518db4ec664e62a086dd5f5bc8	AXVE	2	retail
+GBA-EU-DE-AXVD-REV-0	Pokemon - Rubin-Edition (Germany).gba	16777216	15e1e280	1c2a53332382e14dab8815e3a6dd81ad89534050	AXVD	0	retail
+GBA-EU-DE-AXVD-REV-0-DEBUG	Pokemon - Rubin-Edition (Germany) (Debug Version).gba	16777216	40686c47	ca5e3d415c4b47353a73a616878ba833f3648b7a	AXVD	0	debug
+GBA-EU-DE-AXVD-REV-1	Pokemon - Rubin-Edition (Germany) (Rev 1).gba	16777216	cae89464	424740be1fc67a5ddb954794443646e6aeee2c1b	AXVD	1	retail
+GBA-EU-FR-AXVF-REV-0	Pokemon - Version Rubis (France).gba	16777216	690fd310	a6ee94202bec0641c55d242757e84dc89336d4cb	AXVF	0	retail
+GBA-EU-FR-AXVF-REV-1	Pokemon - Version Rubis (France) (Rev 1).gba	16777216	9f981f72	ba888dfba231a231cbd60fe228e894b54fb1ed79	AXVF	1	retail
+GBA-EU-IT-AXVI-REV-0	Pokemon - Versione Rubino (Italy).gba	16777216	c18231a9	2b3134224392f58da00f802faa1bf4b5cf6270be	AXVI	0	retail
+GBA-EU-IT-AXVI-REV-1	Pokemon - Versione Rubino (Italy) (Rev 1).gba	16777216	9305e793	015a5d380afe316a2a6fcc561798ebff9dfb3009	AXVI	1	retail
+GBA-EU-ES-AXVS-REV-0	Pokemon - Edicion Rubi (Spain).gba	16777216	eb0729cf	1f49f7289253dcbfecbc4c5ba3e67aa0652ec83c	AXVS	0	retail
+GBA-EU-ES-AXVS-REV-1	Pokemon - Edicion Rubi (Spain) (Rev 1).gba	16777216	b980fff5	9ac73481d7f5d150a018309bba91d185ce99fb7c	AXVS	1	retail
