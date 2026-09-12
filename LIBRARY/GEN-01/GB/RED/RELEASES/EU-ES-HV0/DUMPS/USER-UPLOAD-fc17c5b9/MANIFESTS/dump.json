@@ -1,0 +1,14 @@
+{
+  "dump_id": "USER-UPLOAD-fc17c5b9",
+  "release_id": "EU-ES-HV0",
+  "provenance": "user-upload",
+  "observed_filenames": ["Pokemon - Edicion Roja (Spain) (SGB Enhanced).gb"],
+  "size_bytes": 1048576,
+  "sha1": "fc17c5b904d551b1b908054ccd1c493f755f832a",
+  "sha256": "a756cf7ad888aa46de4b9699a177a0edf1775e59eb6330014c6f5c139be9c45d",
+  "header_checksum_valid": true,
+  "global_checksum_valid": true,
+  "quality": "verified observed image",
+  "promotable_to_release_facts": true,
+  "rom_binary_committed": false
+}
