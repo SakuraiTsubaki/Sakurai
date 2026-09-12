@@ -1,8 +1,24 @@
 {
+  "dump_id": "SWEETNDS-a68b3bed",
+  "game_code": "IRBO",
+  "rom_version": 0,
+  "file_size": 268435456,
+  "rom_size_header": 205229568,
   "fat_entries": 484,
   "named_nitrofs_files": 247,
   "overlay9_entries": 237,
   "overlay7_entries": 0,
   "narc_files": 237,
-  "fnt_named_file_ids_minmax": [237, 483]
+  "directory_count": 31,
+  "fnt_named_file_ids_minmax": [237, 483],
+  "arm9_size": 456856,
+  "arm7_size": 167812,
+  "arm9_sha1": "b1d62c124b481f22040a36781ae3ed0f3c622379",
+  "arm7_sha1": "364259352fffdcd15b75c2d9e997d2ed0d877190",
+  "arm9_sha256": "39083786e4221a3df7e78fbae585394124108884d27196e4f9d0a673393ecce0",
+  "arm7_sha256": "fea30d7fb24ff1cf24306a5aff971593bab5ff7925d0d0fe49237b96ce6dbdae",
+  "rom_md5": "f45fd94bb761721e30bd3a0a4fde124a",
+  "rom_sha1": "a68b3bedf5c1e53556e41e59cdf396c20b331896",
+  "rom_sha256": "2e40416b8e8183d936084c7be0adeaab4fa3f786a68f90d7291ab77d340f0c1d",
+  "rom_binary_in_repository": false
 }
