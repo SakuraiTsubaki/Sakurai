@@ -1,0 +1,17 @@
+{
+  "schema": "silver-modernization.source-lock.v1",
+  "repository_layout_version": 6,
+  "project_path": "PROJECTS/GEN-02/SILVER-MODERNIZATION",
+  "canonical_library_root": "LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART",
+  "binary_policy": "source ROMs are local read-only and never committed",
+  "sources": [
+    {"release_id":"AAXJ-HV0","dump_id":"PROJECT-fa8c5105","sha1":"fa8c51059c1642faa570db56ef089f54d1d2011f","sha256":"0a532063a3ff5750a464582aa7bbee2b6d42e1a92a136d9f4590e373487b615c","size_bytes":1048576,"market":"JP","language":"ja","target_id":"AAXJ-MODERN"},
+    {"release_id":"AAXJ-HV1","dump_id":"PROJECT-a11d5ddc","sha1":"a11d5ddc26eb826086593f82370b15d16404d33e","sha256":"99e5267fbf5a7748d4f3b75ba1990cb5d91348339468607a04bfbc6081c62d71","size_bytes":1048576,"market":"JP","language":"ja","target_id":"AAXJ-MODERN"},
+    {"release_id":"AAXE-HV0","dump_id":"PROJECT-49b163f7","sha1":"49b163f7e57702bc939d642a18f591de55d92dae","sha256":"72b190859a59623cbef6c49d601f8de52c1d2331b4f08a8d2acc17274fc19a8c","size_bytes":2097152,"market":"US-EU","language":"en","target_id":"AAXE-MODERN"},
+    {"release_id":"AAXD-HV0","dump_id":"PROJECT-8ecc58d6","sha1":"8ecc58d621faaedf2a934bd2583d527220df7bb9","sha256":"c3d1fd0dec1d5fa9aa7f85275e79c52aa9175d191c63cbed7b406c306d946348","size_bytes":2097152,"market":"EU","language":"de","target_id":"AAXD-MODERN"},
+    {"release_id":"AAXF-HV0","dump_id":"PROJECT-a4a7e807","sha1":"a4a7e8079b7a53e4d9ef43382bbb1090b9d45d1a","sha256":"e120c4ddb0dc3e25b95c9c71b3ffd59ff57ce689cf4d79d04913ba59140c18c2","size_bytes":2097152,"market":"EU","language":"fr","target_id":"AAXF-MODERN"},
+    {"release_id":"AAXI-HV0","dump_id":"PROJECT-c9eca9d0","sha1":"c9eca9d0a837beb9137bb7d779e469c54e9f8d77","sha256":"04c442246d1ae0ed6bf5e072bb7e3d06376e584b953d6b14047b39e45fbb0cb4","size_bytes":2097152,"market":"EU","language":"it","target_id":"AAXI-MODERN"},
+    {"release_id":"AAXS-HV0","dump_id":"PROJECT-05bd978a","sha1":"05bd978ab2cb104b0aff3f696896e30885203a18","sha256":"6797010c052e8f9373ea2b9e855ec078b34fda12e5ccf742eb19bb5e8f6947c2","size_bytes":2097152,"market":"EU","language":"es","target_id":"AAXS-MODERN"},
+    {"release_id":"AAXK-HV0","dump_id":"PROJECT-cb22d7e0","sha1":"cb22d7e03a74dc3a563fde6be8626626b2b392e7","sha256":"ebbac63c0c4309c82dbb6723e7163369784f962b4fd3e2f486075307c3008a22","size_bytes":2097152,"market":"KR","language":"ko","target_id":"AAXK-MODERN"}
+  ]
+}
