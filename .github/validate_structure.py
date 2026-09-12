@@ -62,6 +62,9 @@ for p in ROOT.iterdir():
     if p.name in LEGACY_ROOT_NAMES or p.name.startswith('GENERATION-') or GEN_RE.fullmatch(p.name):
         warnings.append(f'legacy pre-v4 root pending migration: {p.name}')
         continue
+    if p.is_file() and p.suffix.lower() == '.md':
+        warnings.append(f'top-level metadata document pending INFRA/docs routing: {p.name}')
+        continue
     errors.append(f'non-canonical root entry: {p.name}')
 
 reject_pseudo_owners(LIBRARY, 'library')
