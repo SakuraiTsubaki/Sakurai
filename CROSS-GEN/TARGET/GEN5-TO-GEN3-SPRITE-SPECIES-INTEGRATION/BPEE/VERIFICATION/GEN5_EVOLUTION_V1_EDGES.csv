@@ -1,0 +1,137 @@
+source_nat,source_internal,bw_method,bw_param,target_nat,target_internal,status,note
+82,82,25,0,462,515,pending_dependency,pending_field_system: magnetic-field location condition needs mapped field locations
+108,108,21,205,463,516,active_hook,level-up while knowing existing Gen III move
+112,112,6,321,464,517,pending_dependency,pending_item_system: Gen IV/V held trade item is not yet a valid Emerald item
+114,114,21,246,465,518,active_hook,level-up while knowing existing Gen III move
+125,125,6,322,466,519,pending_dependency,pending_item_system: Gen IV/V held trade item is not yet a valid Emerald item
+126,126,6,323,467,520,pending_dependency,pending_item_system: Gen IV/V held trade item is not yet a valid Emerald item
+133,133,26,0,470,523,pending_dependency,pending_field_system: Moss Rock location condition needs mapped field location
+133,133,27,0,471,524,pending_dependency,pending_field_system: Ice Rock location condition needs mapped field location
+176,176,8,107,468,521,pending_dependency,pending_item_system: required Gen IV/V evolution stone is not yet a valid Emerald item
+190,190,21,458,424,477,pending_dependency,pending_move_system: required move ID is not yet implemented in Emerald
+193,193,21,246,469,522,active_hook,level-up while knowing existing Gen III move
+198,198,8,108,430,483,pending_dependency,pending_item_system: required Gen IV/V evolution stone is not yet a valid Emerald item
+200,200,8,108,429,482,pending_dependency,pending_item_system: required Gen IV/V evolution stone is not yet a valid Emerald item
+207,207,20,327,472,525,pending_dependency,pending_item_system: Razor Claw/Fang held/night condition requires new item
+215,215,20,326,461,514,pending_dependency,pending_item_system: Razor Claw/Fang held/night condition requires new item
+221,221,21,246,473,526,active_hook,level-up while knowing existing Gen III move
+233,233,6,324,474,527,pending_dependency,pending_item_system: Gen IV/V held trade item is not yet a valid Emerald item
+281,393,17,109,475,528,pending_dependency,pending_item_system: Dawn Stone + male condition requires new item
+299,320,25,0,476,529,pending_dependency,pending_field_system: magnetic-field location condition needs mapped field locations
+315,363,8,107,407,460,pending_dependency,pending_item_system: required Gen IV/V evolution stone is not yet a valid Emerald item
+356,362,6,325,477,530,pending_dependency,pending_item_system: Gen IV/V held trade item is not yet a valid Emerald item
+361,346,18,109,478,531,pending_dependency,pending_item_system: Dawn Stone + female condition requires new item
+387,440,4,18,388,441,active_table,Emerald native evolution method
+388,441,4,32,389,442,active_table,Emerald native evolution method
+390,443,4,14,391,444,active_table,Emerald native evolution method
+391,444,4,36,392,445,active_table,Emerald native evolution method
+393,446,4,16,394,447,active_table,Emerald native evolution method
+394,447,4,36,395,448,active_table,Emerald native evolution method
+396,449,4,14,397,450,active_table,Emerald native evolution method
+397,450,4,34,398,451,active_table,Emerald native evolution method
+399,452,4,15,400,453,active_table,Emerald native evolution method
+401,454,4,10,402,455,active_table,Emerald native evolution method
+403,456,4,15,404,457,active_table,Emerald native evolution method
+404,457,4,30,405,458,active_table,Emerald native evolution method
+406,459,2,0,315,363,active_table,Emerald native evolution method; uses Emerald RTC day/night policy in V1
+408,461,4,30,409,462,active_table,Emerald native evolution method
+410,463,4,30,411,464,active_table,Emerald native evolution method
+412,465,24,20,413,466,active_hook,level threshold plus gender check
+412,465,23,20,414,467,active_hook,level threshold plus gender check
+415,468,24,21,416,469,active_hook,level threshold plus gender check
+418,471,4,26,419,472,active_table,Emerald native evolution method
+420,473,4,25,421,474,active_table,Emerald native evolution method
+422,475,4,30,423,476,active_table,Emerald native evolution method
+425,478,4,28,426,479,active_table,Emerald native evolution method
+427,480,1,0,428,481,active_table,Emerald native evolution method
+431,484,4,38,432,485,active_table,Emerald native evolution method
+433,486,3,0,358,411,active_table,Emerald native evolution method; uses Emerald RTC day/night policy in V1
+434,487,4,34,435,488,active_table,Emerald native evolution method
+436,489,4,33,437,490,active_table,Emerald native evolution method
+438,491,21,102,185,185,active_hook,level-up while knowing existing Gen III move
+439,492,21,102,122,122,active_hook,level-up while knowing existing Gen III move
+440,493,19,110,113,113,pending_dependency,pending_item_system: Oval Stone held/day condition requires new item
+443,496,4,24,444,497,active_table,Emerald native evolution method
+444,497,4,48,445,498,active_table,Emerald native evolution method
+446,499,1,0,143,143,active_table,Emerald native evolution method
+447,500,2,0,448,501,active_table,Emerald native evolution method; uses Emerald RTC day/night policy in V1
+449,502,4,34,450,503,active_table,Emerald native evolution method
+451,504,4,40,452,505,active_table,Emerald native evolution method
+453,506,4,37,454,507,active_table,Emerald native evolution method
+456,509,4,31,457,510,active_table,Emerald native evolution method
+458,511,22,223,226,226,active_hook,level-up with required non-Egg species in player party
+459,512,4,40,460,513,active_table,Emerald native evolution method
+495,548,4,17,496,549,active_table,Emerald native evolution method
+496,549,4,36,497,550,active_table,Emerald native evolution method
+498,551,4,17,499,552,active_table,Emerald native evolution method
+499,552,4,36,500,553,active_table,Emerald native evolution method
+501,554,4,17,502,555,active_table,Emerald native evolution method
+502,555,4,36,503,556,active_table,Emerald native evolution method
+504,557,4,20,505,558,active_table,Emerald native evolution method
+506,559,4,16,507,560,active_table,Emerald native evolution method
+507,560,4,32,508,561,active_table,Emerald native evolution method
+509,562,4,20,510,563,active_table,Emerald native evolution method
+511,564,8,85,512,565,active_table,BW stone 85 mapped to existing Emerald stone item 98
+513,566,8,82,514,567,active_table,BW stone 82 mapped to existing Emerald stone item 95
+515,568,8,84,516,569,active_table,BW stone 84 mapped to existing Emerald stone item 97
+517,570,8,81,518,571,active_table,BW stone 81 mapped to existing Emerald stone item 94
+519,572,4,21,520,573,active_table,Emerald native evolution method
+520,573,4,32,521,574,active_table,Emerald native evolution method
+522,575,4,27,523,576,active_table,Emerald native evolution method
+524,577,4,25,525,578,active_table,Emerald native evolution method
+525,578,5,0,526,579,active_table,Emerald native evolution method
+527,580,1,0,528,581,active_table,Emerald native evolution method
+529,582,4,31,530,583,active_table,Emerald native evolution method
+532,585,4,25,533,586,active_table,Emerald native evolution method
+533,586,5,0,534,587,active_table,Emerald native evolution method
+535,588,4,25,536,589,active_table,Emerald native evolution method
+536,589,4,36,537,590,active_table,Emerald native evolution method
+540,593,4,20,541,594,active_table,Emerald native evolution method
+541,594,1,0,542,595,active_table,Emerald native evolution method
+543,596,4,22,544,597,active_table,Emerald native evolution method
+544,597,4,30,545,598,active_table,Emerald native evolution method
+546,599,8,80,547,600,active_table,BW stone 80 mapped to existing Emerald stone item 93
+548,601,8,80,549,602,active_table,BW stone 80 mapped to existing Emerald stone item 93
+551,604,4,29,552,605,active_table,Emerald native evolution method
+552,605,4,40,553,606,active_table,Emerald native evolution method
+554,607,4,35,555,608,active_table,Emerald native evolution method
+557,610,4,34,558,611,active_table,Emerald native evolution method
+559,612,4,39,560,613,active_table,Emerald native evolution method
+562,615,4,34,563,616,active_table,Emerald native evolution method
+564,617,4,37,565,618,active_table,Emerald native evolution method
+566,619,4,37,567,620,active_table,Emerald native evolution method
+568,621,4,36,569,622,active_table,Emerald native evolution method
+570,623,4,30,571,624,active_table,Emerald native evolution method
+572,625,8,107,573,626,pending_dependency,pending_item_system: required Gen IV/V evolution stone is not yet a valid Emerald item
+574,627,4,32,575,628,active_table,Emerald native evolution method
+575,628,4,41,576,629,active_table,Emerald native evolution method
+577,630,4,32,578,631,active_table,Emerald native evolution method
+578,631,4,41,579,632,active_table,Emerald native evolution method
+580,633,4,35,581,634,active_table,Emerald native evolution method
+582,635,4,35,583,636,active_table,Emerald native evolution method
+583,636,4,47,584,637,active_table,Emerald native evolution method
+585,638,4,34,586,639,active_table,Emerald native evolution method
+588,641,7,0,589,642,pending_dependency,pending_trade_context: trade-for-specific-species method needs trade partner adapter
+590,643,4,39,591,644,active_table,Emerald native evolution method
+592,645,4,40,593,646,active_table,Emerald native evolution method
+595,648,4,36,596,649,active_table,Emerald native evolution method
+597,650,4,40,598,651,active_table,Emerald native evolution method
+599,652,4,38,600,653,active_table,Emerald native evolution method
+600,653,4,49,601,654,active_table,Emerald native evolution method
+602,655,4,39,603,656,active_table,Emerald native evolution method
+603,656,8,83,604,657,active_table,BW stone 83 mapped to existing Emerald stone item 96
+605,658,4,42,606,659,active_table,Emerald native evolution method
+607,660,4,41,608,661,active_table,Emerald native evolution method
+608,661,8,108,609,662,pending_dependency,pending_item_system: required Gen IV/V evolution stone is not yet a valid Emerald item
+610,663,4,38,611,664,active_table,Emerald native evolution method
+611,664,4,48,612,665,active_table,Emerald native evolution method
+613,666,4,37,614,667,active_table,Emerald native evolution method
+616,669,7,0,617,670,pending_dependency,pending_trade_context: trade-for-specific-species method needs trade partner adapter
+619,672,4,50,620,673,active_table,Emerald native evolution method
+622,675,4,43,623,676,active_table,Emerald native evolution method
+624,677,4,52,625,678,active_table,Emerald native evolution method
+627,680,4,54,628,681,active_table,Emerald native evolution method
+629,682,4,54,630,683,active_table,Emerald native evolution method
+633,686,4,50,634,687,active_table,Emerald native evolution method
+634,687,4,64,635,688,active_table,Emerald native evolution method
+636,689,4,59,637,690,active_table,Emerald native evolution method
