@@ -1,9 +1,11 @@
 # YELLOW-MODERNIZATION routing
 
-Source truth: `LIBRARY/GEN-01/GB/YELLOW/` and `INFRA/REGISTRY/ROM-SETS/GEN-01-GB-YELLOW-2026-09-12.json`.
+Canonical source truth is `LIBRARY/GEN-01/YELLOW/` and `INFRA/REGISTRY/ROM-SETS/GEN-01-GB-YELLOW-2026-09-12.json`.
 
-Research/design in Sakurai belongs below this project only when it is transformation-specific. Facts about an original release stay in that release; facts comparing original releases stay in the Yellow comparison tree.
+Japanese source releases resolve through `SOURCE/GB/CART/`; the five CGB-flag `0x80` international releases resolve through `SOURCE/GBC/CART/`. Exact observed images use `USER-UPLOAD-<SHA1-8>` dump IDs.
 
-Production in Tsubaki uses the same `YELLOW-MODERNIZATION` project ID and target IDs. Current Korean production target is `KR-KO-MODERN`; it is not represented as an official Korean Yellow release.
+Original-release facts stay in `LIBRARY`; multi-release facts stay in `YELLOW/COMPARE`; transformation-specific research/design stays in this project. Production outputs belong in the paired Tsubaki project.
 
-No original ROM binary is committed.
+No official Korean Yellow release is fabricated. `KR-KO-MODERN` is a project target ID, not a source release identity.
+
+Original ROM binaries are read-only locally and never committed.
