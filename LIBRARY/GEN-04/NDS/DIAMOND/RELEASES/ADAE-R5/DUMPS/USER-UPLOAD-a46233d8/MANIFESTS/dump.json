@@ -1,0 +1,14 @@
+{
+  "schema_version": 4,
+  "dump_id": "USER-UPLOAD-a46233d8",
+  "release_id": "ADAE-R5",
+  "provenance": "user-upload",
+  "observed_filenames": ["Pokemon_Diamond_USA_NDS-LGC.nds"],
+  "size_bytes": 67108864,
+  "declared_rom_content_end": 61169344,
+  "hashes": {"md5":"02a1af2a677d101394b1d99164a8c249","sha1":"a46233d8b79a69ea87aa295a0efad5237d02841e","sha256":"e29bc6ebe431d7a6b238267b6b1521fec4a3bc14f2fa348798062f870c738454"},
+  "nds_header": {"game_code":"ADAE","header_version":5,"arm9":{"offset":16384,"size":1079076},"arm7":{"offset":3198976,"size":168732},"fnt":{"offset":3367936,"size":5503},"fat":{"offset":3373568,"size":2848},"arm9_overlay_table":{"offset":1095680,"size":2784}},
+  "quality": "verified observed image",
+  "promotable_to_release_facts": true,
+  "rom_binary_committed": false
+}

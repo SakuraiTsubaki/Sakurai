@@ -1,0 +1,14 @@
+{
+  "schema_version": 4,
+  "release_id": "APAE-R5",
+  "generation": 4,
+  "platform": "NDS",
+  "game": "PEARL",
+  "official_title": "Pokémon Pearl",
+  "game_code": "APAE",
+  "market": "US",
+  "language": "EN",
+  "header_version": 5,
+  "source_binary_committed": false,
+  "identity_rule": "One official NDS build identity; exact observed user file is recorded separately under DUMPS."
+}

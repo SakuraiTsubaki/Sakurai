@@ -1,0 +1,8 @@
+{
+  "scan_rule": "4-byte aligned 0x10 BIOS LZ77 header; structurally valid back-references",
+  "candidate_count": 4404,
+  "decompressed_size": {"min": 4, "max": 1048849, "median": 624.0, "sum": 8256925},
+  "compressed_span": {"min": 9, "max": 415984, "median": 243.0, "sum": 3039467},
+  "full_candidate_list_generated_by": "INFRA/TOOLS/GBA/rom_census.py",
+  "full_candidate_list_committed": false
+}

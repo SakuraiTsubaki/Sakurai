@@ -1,0 +1,14 @@
+{
+  "schema_version": 4,
+  "dump_id": "USER-UPLOAD-f811d9c7",
+  "release_id": "CPUK-R0",
+  "provenance": "user-upload",
+  "observed_filenames": ["포켓몬스터Pt 기라티나.nds"],
+  "size_bytes": 134217728,
+  "declared_rom_content_end": 102630460,
+  "hashes": {"md5":"e28b4ba15f1810ce26087a66cbb411ff","sha1":"f811d9c7ab5262f593012da794c2fa81dbcdbcc1","sha256":"51050f65776f402f86b8b2b2d3b84ab5bbe80dbec75129c86f8bd9b447f11d7b"},
+  "nds_header": {"game_code":"CPUK","header_version":0,"arm9":{"offset":16384,"size":1061624},"arm7":{"offset":4237312,"size":161788},"fnt":{"offset":4399104,"size":7427},"fat":{"offset":4406784,"size":3688},"arm9_overlay_table":{"offset":1078272,"size":3904}},
+  "quality": "verified observed image",
+  "promotable_to_release_facts": true,
+  "rom_binary_committed": false
+}
