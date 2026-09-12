@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "dump_id": "PROJECT-860e93f5",
+  "release_id": "AXPF-R1",
+  "source_filename": "Pokemon - Version Saphir (France) (Rev 1).gba",
+  "size_bytes": 16777216,
+  "crc32": "2ae49146",
+  "md5": "c59c79d8bfacd27a1c3fafda2bd801d0",
+  "sha1": "860e93f5ea44f4278132f6c1ee5650d07b852fd8",
+  "sha256": "476ef6e6534894d0646265a4db77fff84b10f04fde81f0730dd07b28f086fb04",
+  "provenance": "project-upload",
+  "local_hash_verified": true,
+  "gba_header_checksum_valid": true,
+  "binary_committed": false
+}
