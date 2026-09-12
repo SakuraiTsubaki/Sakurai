@@ -1,0 +1,11 @@
+{
+  "schema": "rby-english-relocalization-source-set-v4",
+  "project_id": "RBY-ENGLISH-RELOCALIZATION",
+  "source_count": 12,
+  "rules": {
+    "translation_origin": "Japanese Pocket Monsters ROM text only",
+    "implementation_reference": "Official English R/B/Y ROMs",
+    "green_independent_target": true,
+    "rom_binaries_in_git": false
+  }
+}
