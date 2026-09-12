@@ -1,0 +1,13 @@
+{
+  "bank_size": 65536,
+  "banks_per_rom": 256,
+  "releases": {
+    "BPGJ-R0": {"last_non_ff_offset": "0x00FDFFFE","trailing_ff_bytes": 131073,"used_prefix_bytes": 16646143,"banks_with_any_non_ff": 149},
+    "BPGD-R0": {"last_non_ff_offset": "0x00EB2337","trailing_ff_bytes": 1367240,"used_prefix_bytes": 15409976,"banks_with_any_non_ff": 142},
+    "BPGS-R0": {"last_non_ff_offset": "0x00EB2387","trailing_ff_bytes": 1367160,"used_prefix_bytes": 15410056,"banks_with_any_non_ff": 142},
+    "BPGE-R1": {"last_non_ff_offset": "0x00EB0E13","trailing_ff_bytes": 1372652,"used_prefix_bytes": 15404564,"banks_with_any_non_ff": 142},
+    "BPGE-R0": {"last_non_ff_offset": "0x00EB0E13","trailing_ff_bytes": 1372652,"used_prefix_bytes": 15404564,"banks_with_any_non_ff": 142},
+    "BPGF-R0": {"last_non_ff_offset": "0x00EB2317","trailing_ff_bytes": 1367272,"used_prefix_bytes": 15409944,"banks_with_any_non_ff": 141},
+    "BPGI-R0": {"last_non_ff_offset": "0x00EB244B","trailing_ff_bytes": 1366964,"used_prefix_bytes": 15410252,"banks_with_any_non_ff": 141}
+  }
+}

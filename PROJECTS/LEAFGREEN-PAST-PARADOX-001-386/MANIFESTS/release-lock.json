@@ -1,0 +1,1 @@
+{"schema":"sakurai.project-release-lock.v1","project_id":"LEAFGREEN-PAST-PARADOX-001-386","source_releases":["LIBRARY/GEN-03/GBA/LEAFGREEN/RELEASES/BPGE-R0","LIBRARY/GEN-03/GBA/LEAFGREEN/RELEASES/BPGJ-R0"],"implementation_targets":{"EN-USA":"BPGE-R0","JA-JP":"BPGJ-R0"},"raw_rom_in_git":false}
