@@ -1,0 +1,1 @@
+{"method":"mechanical long 00/FF run census","certified_free_space":false,"largest":[{"start":7023996,"end":13631488,"length":6607492,"byte":"FF"},{"start":15405124,"end":16777216,"length":1372092,"byte":"FF"},{"start":2444134,"end":2457402,"length":13268,"byte":"00"}],"policy":"pointer/compression/table/runtime verification required before allocation"}
