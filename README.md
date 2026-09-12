@@ -1,13 +1,19 @@
 # Sakurai
 
-Pokémon project analysis and census repository.
+Pokémon research, reverse-engineering, census, comparison, verification, and documentation repository.
 
-## Canonical hierarchy
+## Canonical path model: v3
 
-`GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
+All active game data lives under `GAMES/GEN-XX/<GAME-ID>/`.
 
-All active research output follows the canonical hierarchy. Cross-game material belongs under the generation's `_SHARED` game slot, with provenance preserved below an allowed work type.
+- `RELEASES/<RELEASE-ID>/<WORK-TYPE>/...` — one exact official build per immutable release ID
+- `COMPARISONS/<COMPARISON-ID>/<WORK-TYPE>/...` — relationships across releases
+- `PROJECTS/<PROJECT-ID>/COMMON/<WORK-TYPE>/...`
+- `PROJECTS/<PROJECT-ID>/TARGETS/<TARGET-ID>/<WORK-TYPE>/...`
+- `SHARED/<WORK-TYPE>/...` — genuinely release-independent material
 
-Temporary migration buckets such as `MIGRATED` are not permitted.
+Locale, region, platform, revision/update version, hashes, and provenance are release metadata rather than universal path levels.
 
-This repository stores analysis, census, comparison, verification, reports, manifests, scripts, tables, and other research outputs. ROM binaries and reusable asset files are not stored here.
+Pre-v3 trees are frozen under `META/MIGRATION-SNAPSHOTS/`. New work must not recreate `GENERATION-*` or standalone `GEN-*` roots.
+
+See `STRUCTURE.md` and `MIGRATION.md` before routing files. ROM binaries and copyrighted original game images are not stored here.
