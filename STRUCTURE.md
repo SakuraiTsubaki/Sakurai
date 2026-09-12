@@ -1,106 +1,139 @@
-# Repository Structure v2
+# Repository Structure v3
 
-## Why v2 exists
+## Core rule
 
-The old fixed path `GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE` mixed three different ownership concepts: official source ROM builds, derived/target localizations, and cross-build research. That forced ambiguous buckets such as `MULTI/REV-ALL` and could place a target locale in the same structural role as an official source release.
+The repository path is built around **immutable release identity**, not around language, region, revision, or work type as independent ownership layers.
 
-v2 separates those concepts before the work-type layer.
+Canonical prefix:
 
-## Canonical generation root
+`GAMES/GEN-XX/<GAME-ID>/`
 
-Use zero-padded numeric generation folders:
+A real ROM / executable / official build is one release unit. Region, language, revision, platform, cartridge flags, update version, hashes, and provenance are attributes of that release and are recorded in its manifest.
 
-`GEN-01`, `GEN-02`, ... `GEN-10`, `GEN-11`.
+Original ROM / executable binaries are never committed.
 
-This replaces Roman-numeral roots such as `GENERATION-I` and keeps lexical ordering correct as the project grows beyond Generation IX.
+## Why v3 replaces the old models
 
-## Canonical game root
+The legacy path
 
-`GEN-XX/<GAME>/`
+`GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
 
-GAME is a stable uppercase slug such as `RED`, `GREEN`, `BLUE`, `YELLOW`, `GOLD`, `SILVER`, `CRYSTAL`, `FIRERED`, `LEAFGREEN`, or `LEGENDS-Z-A`.
+made locale and revision look universal even though later platforms use patches, title versions, build IDs, multilingual releases, DLC, and other build identities. The v2 draft improved provenance separation but still duplicated release identity as `SOURCE/<RELEASE-ID>/<REV>`.
 
-`_SHARED` is allowed only for material genuinely owned by multiple games within one generation.
+v3 removes that duplication. **One canonical release ID identifies one exact official build.**
 
-## Four ownership branches
+## Root layout
 
-Every game is divided by provenance/scope before locale or revision:
+```text
+GAMES/
+  GEN-01/
+    GREEN/
+      RELEASES/
+      COMPARISONS/
+      PROJECTS/
+      SHARED/
+META/
+.github/
+README.md
+STRUCTURE.md
+MIGRATION.md
+```
 
-### SOURCE
+Generation folders are zero-padded: `GEN-01`, `GEN-02`, ... `GEN-10`, `GEN-11`, and onward.
 
-Official source builds only.
+`GAME-ID` is a stable uppercase machine slug. Human-facing official titles belong in metadata, not in the folder grammar.
 
-`GEN-XX/<GAME>/SOURCE/<RELEASE-ID>/<REV>/<WORK-TYPE>/...`
+`_SHARED` may be used as the game ID only for genuinely generation-wide material involving multiple games.
 
-`RELEASE-ID` describes the actual release/build identity, not a desired target language. Examples for Pokémon Red from the current source set:
+## RELEASES — exact official source builds
 
-- `JP-JA`
-- `US-EU-EN`
-- `EU-DE`
-- `EU-FR`
-- `EU-IT`
-- `EU-ES`
+```text
+GAMES/GEN-XX/<GAME-ID>/RELEASES/<RELEASE-ID>/<WORK-TYPE>/...
+```
 
-Use explicit revision labels such as `REV-0`, `REV-A`, `REV-1`.
+`RELEASE-ID` is a human-readable unique build identity. Recommended components are platform, market/region, language set, and build/revision identifier.
 
-Do not upload original ROM binaries. Store ROM identity, hashes, header data, bank maps, and provenance in `MANIFESTS` / research files.
+Examples for the uploaded Japanese Pokémon Green ROMs:
 
-### TARGET
+```text
+GAMES/GEN-01/GREEN/RELEASES/GB-JP-JA-REV-0/
+GAMES/GEN-01/GREEN/RELEASES/GB-JP-JA-REV-A/
+```
 
-Derived outputs, modernization targets, fan/localization targets, rebuilds, and ports that do not represent an official source build.
+Their SGB support is release metadata, not another path level. Likewise, hashes and Game Boy header version are recorded in `MANIFESTS/release.json`.
 
-`GEN-XX/<GAME>/TARGET/<TARGET-ID>/<BASE-ID>/<WORK-TYPE>/...`
+For later platforms, a release ID may use a software/update version instead of `REV-*`, for example `NSW-GLOBAL-MULTI-VER-4.0.0`. The folder grammar does not assume that every platform has cartridge-style revisions.
 
-Example: a Korean target derived from an English Red source belongs under `TARGET/KR-KO/...`, not under `SOURCE/KR-KO`.
+Duplicate dumps with identical verified content do not create another release tree. Record provenance/dump observations in the manifest.
 
-### COMPARE
+## COMPARISONS — relationships between releases
 
-Artifacts whose subject is inherently multi-source or multi-revision.
+```text
+GAMES/GEN-XX/<GAME-ID>/COMPARISONS/<COMPARISON-ID>/<WORK-TYPE>/...
+```
 
-`GEN-XX/<GAME>/COMPARE/<SCOPE>/<WORK-TYPE>/...`
+Use this whenever the subject inherently spans two or more releases. Do not create fake locale/revision owners such as `MULTI`, `REV-ALL`, or `ALL-REV`.
 
-Examples:
+Example:
 
-- `COMPARE/ALL-SOURCES/ANALYSIS/ROM-AUDIT/`
-- `COMPARE/JP-JA-REVISIONS/DIFFS/`
-- `COMPARE/LOCALIZATION-FAMILIES/DATA/`
+```text
+GAMES/GEN-01/GREEN/COMPARISONS/GB-JP-JA-REV-0--GB-JP-JA-REV-A/DIFFS/
+```
 
-This replaces the ambiguous `MULTI/REV-ALL` pattern.
+The exact member release IDs must also be recorded in comparison metadata.
 
-### SHARED
+## PROJECTS — derived work and modernization
 
-Game-wide material that is not owned by one source release or one target.
+```text
+GAMES/GEN-XX/<GAME-ID>/PROJECTS/<PROJECT-ID>/COMMON/<WORK-TYPE>/...
+GAMES/GEN-XX/<GAME-ID>/PROJECTS/<PROJECT-ID>/TARGETS/<TARGET-ID>/<WORK-TYPE>/...
+```
 
-`GEN-XX/<GAME>/SHARED/<SCOPE>/<WORK-TYPE>/...`
+A project may consume one or many official releases. `PROJECT-ID` describes the activity/product, such as `MODERNIZATION`, `LOCALIZATION-KO`, `ENGINE-EXPANSION`, or `SPRITE-UPGRADE`.
 
-Examples include common schemas, generic tools, engine-wide symbol conventions, and reusable test infrastructure.
+`COMMON` owns work shared by every target. `TARGETS` owns artifacts that differ by target build. Project manifests must state their exact base release IDs; a target is never represented as though it were an official source release.
+
+## SHARED — game-wide reusable material
+
+```text
+GAMES/GEN-XX/<GAME-ID>/SHARED/<WORK-TYPE>/...
+```
+
+Use only for material genuinely independent of one exact release: common schemas, generic tools, engine terminology, reusable test infrastructure, and equivalent game-wide resources.
+
+Do not move release-specific facts into `SHARED` merely to shorten a path.
+
+## Generation-wide and cross-generation work
+
+Generation-wide material uses:
+
+```text
+GAMES/GEN-XX/_SHARED/COMPARISONS/<ID>/<WORK-TYPE>/...
+GAMES/GEN-XX/_SHARED/PROJECTS/<ID>/COMMON/<WORK-TYPE>/...
+GAMES/GEN-XX/_SHARED/PROJECTS/<ID>/TARGETS/<TARGET-ID>/<WORK-TYPE>/...
+GAMES/GEN-XX/_SHARED/SHARED/<WORK-TYPE>/...
+```
+
+Repository-wide catalogs, schemas, release registries, and migration metadata belong under `META/`. Cross-generation research should use a clearly named repository-wide study under `META/STUDIES/` unless it becomes its own project repository.
 
 ## Sakurai work types
 
-Sakurai is the research / reverse-engineering / documentation repository. Canonical work types are:
+Sakurai is the research / reverse-engineering / documentation source of truth. Canonical work types are:
 
 `ANALYSIS`, `CENSUS`, `STRUCTURE`, `TEXT`, `DATA`, `DIFFS`, `TOOLS`, `TESTS`, `VERIFICATION`, `REPORTS`, `LOCALIZATION`, `DISASSEMBLY`, `MANIFESTS`, `MAPS`, `SYMBOLS`.
 
-## Pokémon Red source routing confirmed from the current ROM set
+Subdirectories below a work type are semantic subjects, not replicas of generation/game/release ownership levels.
 
-The current source set resolves to these canonical homes:
+## Repository pair contract
 
-- Japanese Rev 0 → `GEN-01/RED/SOURCE/JP-JA/REV-0/...`
-- Japanese Rev A → `GEN-01/RED/SOURCE/JP-JA/REV-A/...`
-- USA/Europe English Rev 0 → `GEN-01/RED/SOURCE/US-EU-EN/REV-0/...`
-- German Rev 0 → `GEN-01/RED/SOURCE/EU-DE/REV-0/...`
-- French Rev 0 → `GEN-01/RED/SOURCE/EU-FR/REV-0/...`
-- Italian Rev 0 → `GEN-01/RED/SOURCE/EU-IT/REV-0/...`
-- Spanish Rev 0 → `GEN-01/RED/SOURCE/EU-ES/REV-0/...`
+`Sakurai` and `Tsubaki` use the same canonical identity prefix:
 
-The duplicate English ROM is one source identity and must be recorded as a duplicate/provenance observation, never as a separate structural release.
+`GAMES/GEN-XX/<GAME-ID>/<BRANCH>/<IDENTITY>/...`
 
-## Repository-wide infrastructure
-
-The repository root may contain `.github`, `README.md`, `STRUCTURE.md`, `MIGRATION.md`, and `META/` in addition to canonical `GEN-XX` roots.
-
-`META/` is reserved for repository-wide catalogs, migration indexes, schemas, and validation metadata. Project artifacts still belong under `GEN-XX`.
+Sakurai owns research, release manifests, reverse engineering, source maps, specifications, and verification. Tsubaki owns production assets, patches, generated build artifacts, converters, and output manifests. The same `RELEASE-ID`, `COMPARISON-ID`, `PROJECT-ID`, and `TARGET-ID` must mean the same thing in both repositories.
 
 ## Migration rule
 
-Roman generation roots and the old five-level tree are legacy paths. During migration they may remain temporarily, but no new work should be added there. Current content must be moved to the narrowest truthful `SOURCE`, `TARGET`, `COMPARE`, or `SHARED` owner. Git history preserves old paths; do not keep duplicate live copies only for compatibility.
+`GENERATION-*` roots, standalone `GEN-*` roots, and the v1/v2 five-level or `SOURCE/<release>/<rev>` trees are legacy. They may remain temporarily during migration but receive no new project work.
+
+Move each file to the narrowest truthful v3 owner. Do not keep duplicate live copies to preserve an old pathname; Git history is the archive.
