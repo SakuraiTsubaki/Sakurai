@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "game_id": "WHITE",
+  "platform": "NDS",
+  "release_id": "IRAO-R0",
+  "game_code": "IRAO",
+  "header_version": 0,
+  "markets": ["US", "EU"],
+  "languages": ["en"],
+  "build_kind": "retail",
+  "observed_dump_ids": ["SWEETNDS-f94d4578"],
+  "rom_binary_in_repository": false,
+  "notes": "Release identity is distinct from the supplied SweeTnDs dump quality classification."
+}
