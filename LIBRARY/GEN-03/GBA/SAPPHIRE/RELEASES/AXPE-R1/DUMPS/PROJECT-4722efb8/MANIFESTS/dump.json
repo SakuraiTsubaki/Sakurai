@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "dump_id": "PROJECT-4722efb8",
+  "release_id": "AXPE-R1",
+  "source_filename": "Pokemon - Sapphire Version (Europe) (Rev 1).gba",
+  "size_bytes": 16777216,
+  "crc32": "bafedae5",
+  "md5": "3a32fd98b065283d09eeba1ce0542888",
+  "sha1": "4722efb8cd45772ca32555b98fd3b9719f8e60a9",
+  "sha256": "2f680a43e5c57aede4cb3b2cb04f7e15079efc122c88edaacfd6026db6e920ac",
+  "provenance": "project-upload",
+  "local_hash_verified": true,
+  "gba_header_checksum_valid": true,
+  "binary_committed": false
+}

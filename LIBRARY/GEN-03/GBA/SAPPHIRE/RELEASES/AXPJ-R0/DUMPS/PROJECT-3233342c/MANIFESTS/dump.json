@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "dump_id": "PROJECT-3233342c",
+  "release_id": "AXPJ-R0",
+  "source_filename": "Pocket Monsters - Sapphire (Japan).gba",
+  "size_bytes": 8388608,
+  "crc32": "fd1eeb78",
+  "md5": "5323f95f70f5d4f21bed6ec000332bda",
+  "sha1": "3233342c2f3087e6ffe6c1791cd5867db07df842",
+  "sha256": "6a5ff7656531ab41d1ea9cd8f2d045ab6228405b43f3ee09ea3ff5077c0f60c9",
+  "provenance": "project-upload",
+  "local_hash_verified": true,
+  "gba_header_checksum_valid": true,
+  "binary_committed": false
+}

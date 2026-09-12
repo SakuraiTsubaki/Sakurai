@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "dump_id": "PROJECT-73edf67b",
+  "release_id": "AXPI-R1",
+  "source_filename": "Pokemon - Versione Zaffiro (Italy) (Rev 1).gba",
+  "size_bytes": 16777216,
+  "crc32": "5efe4493",
+  "md5": "b075dcf2b63a992e10204b553800ff40",
+  "sha1": "73edf67b9b82ff12795622dca412733755d2c0fe",
+  "sha256": "e2f75b0ce7c55d5cbe6ec23eee5f2806101a02a00a13b3c4fdfe7f7d3e8b6898",
+  "provenance": "project-upload",
+  "local_hash_verified": true,
+  "gba_header_checksum_valid": true,
+  "binary_committed": false
+}

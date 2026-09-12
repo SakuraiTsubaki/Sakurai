@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "comparison_id": "SOURCE-SET-2026-09-12",
+  "game_id": "SAPPHIRE",
+  "platform": "GBA",
+  "release_ids": ["AXPJ-R0","AXPD-R1","AXPE-R0","AXPE-R1","AXPE-R2","AXPF-R0","AXPF-R1","AXPI-R0","AXPI-R1"],
+  "dump_ids": ["PROJECT-3233342c","PROJECT-7e6e034f","PROJECT-3ccbbd45","PROJECT-4722efb8","PROJECT-89b45fb1","PROJECT-c269b569","PROJECT-860e93f5","PROJECT-f729dd57","PROJECT-73edf67b"],
+  "rom_binaries_committed": false
+}

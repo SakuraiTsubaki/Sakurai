@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "game_id": "SAPPHIRE",
+  "platform": "GBA",
+  "release_id": "AXPI-R1",
+  "game_code": "AXPI",
+  "header_version": 1,
+  "markets": ["EU"],
+  "languages": ["it"],
+  "build_kind": "retail",
+  "observed_dump_ids": ["PROJECT-73edf67b"],
+  "rom_binary_in_repository": false
+}

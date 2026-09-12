@@ -1,0 +1,20 @@
+# Original game images / executables — never commit
+*.gba
+*.gbc
+*.gb
+*.nds
+*.3ds
+*.cia
+*.xci
+*.nsp
+*.sfc
+*.smc
+*.iso
+*.rvz
+*.wbfs
+
+# Local extraction/build scratch
+.local-roms/
+roms/
+ROMs/
+work-roms/
