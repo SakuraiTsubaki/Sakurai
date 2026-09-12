@@ -1,0 +1,1 @@
+{"schema":"gb-rom-bank-map-v5","release_id":"JP-JA-HV0","rom_size_bytes":524288,"bank_size_bytes":16384,"bank_count":32,"bank_id_format":"two-digit uppercase hex","bank_ranges":[{"first":"00","last":"1F"}],"source_sha256":"71a70e5f77c109177d21c998310ffe01a68e8cd2f41e72e7129093b890c7d3d1"}
