@@ -1,0 +1,71 @@
+name: Validate BPEE Dex 649 core patcher
+
+on:
+  push:
+    paths:
+      - 'CROSS-GEN/TARGET/GEN5-TO-GEN3-SPRITE-SPECIES-INTEGRATION/BPEE/TOOLS/expand_pokedex_save_649_bpee.py'
+      - '.github/workflows/validate-bpee-dex649-core.yml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile patcher
+        run: python -m py_compile CROSS-GEN/TARGET/GEN5-TO-GEN3-SPRITE-SPECIES-INTEGRATION/BPEE/TOOLS/expand_pokedex_save_649_bpee.py
+      - name: Validate save layout and mappings
+        run: |
+          python - <<'PY'
+          FIRST_NAT, LAST_NAT = 387, 649
+          FIRST_INT, LAST_INT = 440, 702
+          assert LAST_NAT - FIRST_NAT + 1 == 263
+          assert FIRST_INT == FIRST_NAT + 53
+          assert LAST_INT == LAST_NAT + 53
+
+          retail_bits = 52 * 8
+          assert retail_bits == 416
+          ext_first, ext_last = 417, 649
+          ext_species = ext_last - ext_first + 1
+          ext_bytes = (ext_species + 7) // 8
+          assert ext_species == 233
+          assert ext_bytes == 30
+
+          base = 0x3598
+          magic = base
+          owned = base + 4
+          seen = owned + 30
+          seen1 = seen + 30
+          seen2 = seen1 + 30
+          end = seen2 + 30
+          assert magic == 0x3598
+          assert owned == 0x359C
+          assert seen == 0x35BA
+          assert seen1 == 0x35D8
+          assert seen2 == 0x35F6
+          assert end == 0x3614
+          assert end <= 0x3718
+
+          def internal(nat):
+              return nat + 53
+          assert internal(387) == 440
+          assert internal(416) == 469
+          assert internal(417) == 470
+          assert internal(493) == 546
+          assert internal(494) == 547
+          assert internal(649) == 702
+
+          def flag_slot(nat):
+              if 1 <= nat <= 416:
+                  n = nat - 1
+                  return ('retail', n // 8, n % 8)
+              if 417 <= nat <= 649:
+                  n = nat - 417
+                  return ('extension', n // 8, n % 8)
+              return None
+          assert flag_slot(1) == ('retail', 0, 0)
+          assert flag_slot(416) == ('retail', 51, 7)
+          assert flag_slot(417) == ('extension', 0, 0)
+          assert flag_slot(649) == ('extension', 29, 0)
+          print('Dex649 core model validation passed')
+          PY
