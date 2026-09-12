@@ -1,0 +1,23 @@
+{
+  "release_id": "GBC-US-EU-EN-AAUE-REV-0",
+  "game_id": "GOLD",
+  "generation": 2,
+  "source_filename": "Pokemon - Gold Version (USA, Europe).gbc",
+  "internal_title": "POKEMON_GLD",
+  "header_code": "AAUE",
+  "header_version": 0,
+  "size_bytes": 2097152,
+  "banks_16k": 128,
+  "cgb_flag": "0x80",
+  "cartridge_type": "0x10",
+  "rom_size_code": "0x06",
+  "ram_size_code": "0x03",
+  "destination_code": "0x01",
+  "header_checksum": "0x4B",
+  "header_checksum_valid": true,
+  "global_checksum": "0x682D",
+  "global_checksum_valid": true,
+  "sha1": "d8b8a3600a465308c9953dfa04f0081c05bdcb94",
+  "sha256": "fb0016d27b1e5374e1ec9fcad60e6628d8646103b5313ca683417f52b97e7e4e",
+  "source_binary_committed": false
+}
