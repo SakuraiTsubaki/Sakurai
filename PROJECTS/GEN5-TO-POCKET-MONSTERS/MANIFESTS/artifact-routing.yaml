@@ -1,0 +1,67 @@
+schema: gen5-to-pocket-monsters.artifact-routing.v4
+project_id: GEN5-TO-POCKET-MONSTERS
+
+sakurai:
+  owns:
+    - release-and-dump-references
+    - reverse-engineering
+    - rom-structure-analysis
+    - crosswalk-tables
+    - comparison-results
+    - integration-design
+    - verification-evidence
+    - research-tools
+  roots:
+    library: LIBRARY
+    project: PROJECTS/GEN5-TO-POCKET-MONSTERS
+    infra: INFRA
+
+tsubaki:
+  owns:
+    - converted-assets
+    - insertion-ready-data
+    - generated-resource-indices
+    - production-converters
+    - patches
+    - build-inputs
+    - build-manifests
+  root: PROJECTS/GEN5-TO-POCKET-MONSTERS
+
+never_commit:
+  - original-rom-binaries
+  - full-byte-identical-rom-extractions
+  - unmodified-copyrighted-asset-dumps
+
+source_release_roots:
+  black: LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0
+  white: LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0
+  black2: unbound-required
+  white2: unbound-required
+
+target_set:
+  - GEN2-GOLD-KR-KO-HV0
+  - GEN2-SILVER-KR-KO-HV0
+  - GEN2-CRYSTAL-JP-JA-HV0
+  - GEN2-CRYSTAL-US-EU-EN-HV1
+  - GEN3-RUBY-AXVJ-R0
+  - GEN3-RUBY-AXVE-R2
+  - GEN3-SAPPHIRE-AXPJ-R0
+  - GEN3-SAPPHIRE-AXPE-R2
+  - GEN3-EMERALD-BPEJ-R0
+  - GEN3-EMERALD-BPEE-R0
+  - GEN3-FIRERED-BPRJ-R1
+  - GEN3-FIRERED-BPRE-R1
+  - GEN3-LEAFGREEN-BPGJ-R0
+  - GEN3-LEAFGREEN-BPGE-R1
+
+legacy_policy:
+  new_writes_forbidden:
+    - GENERATION-*
+    - GEN-*
+    - GAMES/*
+    - MULTI
+    - REV-ALL
+    - MISC
+    - OTHER
+    - GENERAL
+  migration_rule: classify-by-semantic-owner-before-moving
