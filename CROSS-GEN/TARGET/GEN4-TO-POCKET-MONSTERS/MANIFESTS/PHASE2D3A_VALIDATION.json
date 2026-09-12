@@ -1,0 +1,34 @@
+{
+  "phase": "PHASE2D3A_CASTFORM_FORECAST_COMPOSITE",
+  "status": "static-verified-no-emulator-boot",
+  "c3_source_bank_sha256": "40781da0489e410923f74533dcaf96bfaccefdedfaeb534175e93bd183613f05",
+  "castform_composite_bank_bytes": 5296,
+  "castform_composite_bank_sha256": "10c8d841dffe042590ab9dc712a43ab73a940fef8184d8b1176ea4851983495f",
+  "raw": {
+    "front_bytes": 8192,
+    "front_sha256": "6bccc5ba9cbcfd4cd0946b9ba41ec658c5054265508bca9c56735d75867e3bfe",
+    "back_bytes": 8192,
+    "back_sha256": "eafa142b8f17ca66e60a22f634217dcb908d68057ed94c2605ea4e85f7833a7b",
+    "normal_palette_bytes": 128,
+    "normal_palette_sha256": "504f39c49235641817926e8731bd0412116714302f05cccceeb1553c7393a397",
+    "shiny_palette_bytes": 128,
+    "shiny_palette_sha256": "e66e78ea9b96b9112e29bae763312e674e4ae834423c9384f90c0f966c1b33c8"
+  },
+  "source_equivalence": {
+    "castform_graphics_members_64_71_f0_equal_dp_pt_hgss": true,
+    "member_64_f1_equal_dp_pt_hgss": false,
+    "members_65_71_f1_equal_dp_pt_hgss": true,
+    "all_8_palettes_equal_dp_pt_hgss": true
+  },
+  "form_order": ["normal", "sunny", "rainy", "snowy"],
+  "front_coord_records": [
+    {"member":68,"size":52,"y_offset":20},
+    {"member":69,"size":69,"y_offset":14},
+    {"member":70,"size":69,"y_offset":14},
+    {"member":71,"size":70,"y_offset":13}
+  ],
+  "integration": "Expanded Castform front/back/normal/shiny table entries point to a Gen IV-derived four-form composite; Emerald animated-front uses the same composite exactly as vanilla Emerald Castform does. Dedicated Castform front-form coordinate arrays are replaced with converted Gen IV bounds. Forecast/gBattleMonForms code remains original.",
+  "target_count": 5,
+  "verification_errors": [],
+  "emulator_boot_test": false
+}
