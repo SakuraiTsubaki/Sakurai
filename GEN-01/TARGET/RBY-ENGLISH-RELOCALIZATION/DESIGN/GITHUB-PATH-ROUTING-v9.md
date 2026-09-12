@@ -11,7 +11,13 @@ Status: **canonical for this project** — 2026-09-13.
 ## Source ROM paths
 
 ```text
-GEN-01/<GAME>/SOURCE/GB/CART/<RELEASE-ID>/
+GEN-01/<GAME>/SOURCE/<PLATFORM-ID>/CART/<RELEASE-ID>/
+```
+
+Platform ID follows the actual release identity, not the project as a whole. Japanese Red/Green/Blue/Yellow and English Red/Blue are routed through `GB`. English Yellow `US-EU-EN-HV0` is routed through `GBC` because its ROM header has CGB flag `0x80`:
+
+```text
+GEN-01/YELLOW/SOURCE/GBC/CART/US-EU-EN-HV0/
 ```
 
 The 12 locked releases used by this project are: RED `JP-JA-HV0`, `JP-JA-HV1`, `US-EU-EN-HV0`; GREEN `JP-JA-HV0`, `JP-JA-HV1`; BLUE `JP-JA-HV0`, `US-EU-EN-HV0`; YELLOW `JP-JA-HV0`..`JP-JA-HV3`, `US-EU-EN-HV0`.
@@ -49,4 +55,4 @@ GEN-01/TARGET/RBY-ENGLISH-RELOCALIZATION/
   MANIFESTS/ INPUTS/ ASSETS/ NORMALIZED/ CONVERTED/ IMPLEMENTATION/ PATCHES/ BUILD/ CATALOG/ TOOLS/ REPORTS/ VERIFICATION/
 ```
 
-`SOURCE/` inside the target is deprecated for raw source ownership. Build-facing implementation source may live under `IMPLEMENTATION/`; official release data remains under each game's `SOURCE/`.
+`SOURCE/` inside the target is deprecated for raw source ownership. Build-facing implementation source lives under `IMPLEMENTATION/`; official release data remains under each game's `SOURCE/`.
