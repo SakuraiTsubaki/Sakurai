@@ -1,115 +1,142 @@
 # Repository Structure v9
 
-Status: **canonical** — 2026-09-13.
+Status: **canonical redesign proposal** — 2026-09-13.
 
-v9 keeps generation/game ownership from v8, but makes source-release evidence, dump observations, research products, and production assets unambiguous across the Sakurai/Tsubaki pair.
+Sakurai is the **reference and specification repository** for the RGBY → GSC Kanto restoration project. It answers **what is true in the source games and what the restored Kanto must preserve**. It does not own build outputs, extracted copyrighted assets, patches, or implementation binaries.
 
 ## 1. Canonical roots
 
 ```text
-GEN-XX/
-CROSS-GEN/
-INFRA/
+catalog/
+research/
+spec/
+schemas/
+docs/
 ```
 
-Root documentation and `.github/` metadata are allowed. `LIBRARY/`, `PROJECTS/`, `LEGACY/`, `GENERATION-*`, and other pre-canonical roots are migration-only and receive no new work.
+Generation is metadata and a research sub-axis, not the top-level ownership model. New canonical work must not be rooted under `GEN-01/`, `GEN-02/`, `CROSS-GEN/`, `LIBRARY/`, or `PROJECTS/`.
 
-## 2. Game ownership
+## 2. catalog — source identity
 
 ```text
-GEN-XX/<GAME-ID>/
-├── SOURCE/
-├── TARGET/
-├── COMPARE/
-├── SHARED/
-└── REFERENCE/
+catalog/
+└── roms/
+    ├── manifest.json
+    └── README.md
 ```
 
-Generation-level `COMPARE/` or `TARGET/` is used only when work intentionally spans multiple games in that generation. Cross-generation work belongs under `CROSS-GEN/`.
+The ROM catalog stores identifiers, filenames, cryptographic hashes, sizes, and header facts needed to identify local source images. **ROM binaries are never committed.**
 
-## 3. SOURCE identity grammar
+Stable logical ROM IDs are shared with Tsubaki. A logical ID identifies one exact source release/dump used by the project.
+
+## 3. research — observed facts
 
 ```text
-GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/
+research/
+├── gen1/
+│   └── kanto/
+│       ├── geography/
+│       ├── maps/
+│       ├── connections/
+│       ├── facilities/
+│       ├── dungeons/
+│       ├── events/
+│       └── version-differences/
+├── gen2/
+│   └── kanto/
+│       ├── geography/
+│       ├── maps/
+│       ├── connections/
+│       ├── facilities/
+│       ├── dungeons/
+│       ├── events/
+│       ├── systems/
+│       └── version-differences/
+└── comparisons/
+    └── kanto/
 ```
 
-Generation V examples:
+`research/` contains facts and measurements derived from legitimate local source analysis: dimensions, coordinates, connection graphs, event inventories, behavior notes, checksums, and comparison results. Large/raw copyrighted asset dumps stay local and are not repository content.
+
+## 4. spec — restoration contract
 
 ```text
-GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0/
-GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0/
+spec/
+└── kanto/
+    ├── README.md
+    ├── geography/
+    ├── connections/
+    ├── facilities/
+    ├── dungeons/
+    ├── events/
+    ├── trainers/
+    ├── encounters/
+    └── localization/
 ```
 
-`RELEASE-ID` identifies the release/build, never a specific dump file. Dump-specific evidence stays below the release.
+The project invariant is:
 
-### Sakurai release leaf
+> **Space and geography follow Generation I; era, engine, and systems follow Generation II.**
+
+The specification records the desired restored result without embedding implementation details from Tsubaki.
+
+## 5. schemas — shared machine contracts
 
 ```text
-<RELEASE-ID>/
-├── IDENTITY/
-├── DUMPS/<DUMP-ID>/
-│   ├── IDENTITY/
-│   ├── HEADER/
-│   ├── INDEXES/
-│   └── VERIFICATION/
-├── NATIVE/
-│   ├── HEADER/
-│   ├── INDEXES/
-│   ├── CODE/
-│   ├── TEXT/
-│   ├── MAPS/
-│   └── DOMAINS/
-├── ANALYSIS/
-├── SPEC/
-├── TOOLS/
-├── REPORTS/
-└── VERIFICATION/
+schemas/
+├── rom-manifest.schema.json
+├── map-observation.schema.json
+├── connection.schema.json
+└── event-inventory.schema.json
 ```
 
-Identity-independent parsers/schemas go under `SHARED`, not duplicated into every release.
+Schemas define portable data contracts. Tsubaki may consume them but Sakurai remains authoritative for the reference schema definitions.
 
-## 4. Sakurai responsibility
-
-Sakurai is authoritative for release identity, dump observation metadata, hashes, headers, section/file-system/overlay indexes, research, reverse-engineering, specifications, comparison reports, reproducible analysis tools, and verification evidence. ROM images are never stored here.
-
-## 5. TARGET grammar
+## 6. docs — architecture and decisions
 
 ```text
-GEN-XX/<GAME-ID>/TARGET/<TARGET-ID>/
-GEN-XX/TARGET/<TARGET-ID>/
-CROSS-GEN/TARGET/<TARGET-ID>/
+docs/
+├── architecture/
+│   ├── REPOSITORY_BOUNDARY.md
+│   └── MIGRATION_V9.md
+└── decisions/
 ```
 
-A target manifest must lock exact source `RELEASE-ID` values and exact `DUMP-ID` values when byte-exact reproduction matters.
+Architecture decisions belong here. Historical v8 paths remain in Git history and are migration inputs, not destinations for new work.
 
-## 6. COMPARE grammar
+## 7. Sakurai ↔ Tsubaki boundary
+
+Sakurai owns:
+
+- exact ROM identity catalog and checksums
+- observed Gen I / Gen II facts and comparisons
+- Kanto restoration requirements and acceptance criteria
+- canonical schemas and naming rules
+- verification expectations
+
+Tsubaki owns:
+
+- local-ROM scanners and extractors
+- normalization and conversion tools
+- implementation source
+- generated intermediate data
+- tests, builds, patches, and packaging
+
+The two repositories share stable logical IDs and schema versions. They do **not** mirror the same directory tree.
+
+## 8. Source-material rule
+
+Never commit original ROM images or bulk/raw extracted copyrighted graphics, audio, text, or map dumps. Store source images under Tsubaki's ignored local input directory and regenerate derived implementation inputs locally.
+
+## 9. Project-specific routing
 
 ```text
-GEN-XX/<GAME-ID>/COMPARE/<COMPARISON-ID>/
-GEN-XX/COMPARE/<COMPARISON-ID>/
-CROSS-GEN/COMPARE/<COMPARISON-ID>/
+catalog/roms/manifest.json
+research/gen1/kanto/maps/pallet-town/
+research/gen2/kanto/maps/pallet-town/
+research/comparisons/kanto/pallet-town/
+spec/kanto/geography/pallet-town/
+spec/kanto/events/pallet-town/
 ```
 
-Black/White source comparison:
-
-```text
-GEN-05/COMPARE/BLACK-IRBO-HV0--WHITE-IRAO-HV0/
-```
-
-## 7. SHARED and REFERENCE
-
-`SHARED` is limited to identity-independent reusable schemas, parsers, terminology maps, codecs, and common algorithms. Byte-identical release-owned artifacts remain release-owned; equality is recorded by hashes/catalogs.
-
-`REFERENCE` contains external/secondary material and never overrides direct observations from official software or a locally inspected source image.
-
-## 8. Pair invariant with Tsubaki
-
-Both repositories use identical generation, game, platform, package, release, dump, target, comparison, and reference/resource IDs. Sakurai owns **knowledge/evidence**; Tsubaki owns **production assets/implementation**.
-
-## 9. ROM exclusion invariant
-
-Never commit original, modified, rebuilt, decrypted, trimmed, padded, patched, or otherwise transformed ROM images. ROM-derived metadata, hashes, manifests, indexes, source code, scripts, patches, reports, and reproducibility data are project artifacts.
-
-## 10. Forbidden new canonical labels
-
-Outside migration/quarantine, do not introduce ambiguous owners such as `MULTI`, `ALL`, `REV-ALL`, `ALL-RELEASES`, `MULTI-REGION`, `MISC`, `OTHER`, `GENERAL`, `REV-UNKNOWN`, or `MIGRATED`. Unknown facts belong in manifests, not vague directory names.
+This makes the restored Kanto itself the stable domain while generation/version differences become evidence feeding the specification.
