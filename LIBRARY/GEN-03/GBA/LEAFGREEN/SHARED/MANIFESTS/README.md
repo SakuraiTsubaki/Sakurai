@@ -1,0 +1,1 @@
+LeafGreen v4 shared manifests define repository roles and release/dump identity only. Raw ROM images are excluded.
