@@ -1,9 +1,0 @@
-component,stock_behavior,project_action
-FRLG include/constants/items.h,ITEMS_COUNT 375,set to 389
-Emerald include/constants/items.h,ITEMS_COUNT after 375/376 originals,append 377..388; count 389
-FRLG src/item.c,itemId >= ITEMS_COUNT => ITEM_NONE,works after ITEMS_COUNT becomes 389
-FRLG src/data/item_icon_table.h,table sized ITEMS_COUNT+1; arrow at ITEMS_COUNT,add placeholders; move arrow to 389
-FRLG src/shop.c,uses ITEMS_COUNT as cancel/arrow icon,continues to work with arrow at 389
-FRLG src/item_menu_icons.c,itemId > ITEMS_COUNT => NONE,continues to work with expanded icon table
-Emerald item icon getter,bounds against ITEMS_COUNT,requires 389-sized table + arrow
-Bag/PC ItemSlot,u16 itemId,no ID-width change required
