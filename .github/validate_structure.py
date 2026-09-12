@@ -17,10 +17,11 @@ CANONICAL_ROOTS = {
 LEGACY_ROOT_NAMES = {'GAMES', 'META'}
 LIBRARY_BRANCHES = {'RELEASES', 'COMPARISONS', 'SHARED'}
 PROJECT_SECTIONS = {
-    'MANIFESTS', 'CROSSWALK', 'DESIGN', 'IMPLEMENTATION',
+    'MANIFESTS', 'CROSSWALK', 'DESIGN', 'IMPLEMENTATION', 'DIFFS',
     'VERIFICATION', 'TOOLS', 'REPORTS'
 }
 BANNED_CANONICAL_PARTS = {'MULTI', 'REV-ALL', 'ALL-RELEASES', 'MULTI-REGION'}
+IGNORED_METADATA_FILES = {'.gitkeep', 'README.md', 'ROUTING.md', 'STRUCTURE.md'}
 
 errors = []
 warnings = []
@@ -29,7 +30,7 @@ warnings = []
 def children(path):
     if not path.exists():
         return []
-    return [p for p in path.iterdir() if p.name not in {'.gitkeep', 'README.md'}]
+    return [p for p in path.iterdir() if p.name not in IGNORED_METADATA_FILES]
 
 
 def require_dirs(parent, label, matcher=None, allowed=None):
