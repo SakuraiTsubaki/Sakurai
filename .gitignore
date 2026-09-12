@@ -13,8 +13,17 @@
 *.rvz
 *.wbfs
 
-# Local extraction/build scratch
+# Emulator/save-state scratch
+*.sav
+*.srm
+*.state
+*.state*
+
+# Local ROM / extraction / build scratch
 .local-roms/
 roms/
 ROMs/
 work-roms/
+.work/
+.build-rom/
+.local-extract/
