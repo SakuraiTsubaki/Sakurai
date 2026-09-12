@@ -1,0 +1,2 @@
+version,file,size_bytes,crc32,md5,sha1,sha256,title,game_code,maker,unit_code,device_capacity,game_revision,rom_version,arm9_size,arm7_size,overlay9_count,fnt_dirs,named_files,fat_entries,ntr_used_size,total_used_size,arm9i_size,arm7i_size
+Black,Pokemon.Black.Version.EUR.NDS-SweeTnDs.nds,268435456,E2BEE619,f45fd94bb761721e30bd3a0a4fde124a,a68b3bedf5c1e53556e41e59cdf396c20b331896,2e40416b8e8183d936084c7be0adeaab4fa3f786a68f90d7291ab77d340f0c1d,POKEMON B,IRBO,01,0x02,0x0B,0x4003,0,456856,167812,237,31,247,484,205229568,205902848,77604,291064

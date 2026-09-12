@@ -1,0 +1,19 @@
+personal_index,base_species_id,form_number,form_label,hp,attack,defense,speed,sp_attack,sp_defense,type1_name,type2_name,ability1_id,ability2_id,hidden_ability_id
+650,386,1,Deoxys Attack Forme,50,180,20,150,180,20,Psychic,Psychic,46,0,0
+651,386,2,Deoxys Defense Forme,50,70,160,90,70,160,Psychic,Psychic,46,0,0
+652,386,3,Deoxys Speed Forme,50,95,90,180,95,90,Psychic,Psychic,46,0,0
+653,413,1,Wormadam Sandy Cloak,60,79,105,36,59,85,Bug,Ground,107,0,142
+654,413,2,Wormadam Trash Cloak,60,69,95,36,69,95,Bug,Steel,107,0,142
+655,492,1,Shaymin Sky Forme,100,103,75,127,120,75,Grass,Flying,32,0,0
+656,487,1,Giratina Origin Forme,150,120,100,90,120,100,Ghost,Dragon,26,0,26
+657,479,1,Rotom Heat,50,65,107,86,105,107,Electric,Fire,26,0,0
+658,479,2,Rotom Wash,50,65,107,86,105,107,Electric,Water,26,0,0
+659,479,3,Rotom Frost,50,65,107,86,105,107,Electric,Ice,26,0,0
+660,479,4,Rotom Fan,50,65,107,86,105,107,Electric,Flying,26,0,0
+661,479,5,Rotom Mow,50,65,107,86,105,107,Electric,Grass,26,0,0
+662,351,1,Castform Sunny Form,70,70,70,70,70,70,Fire,Fire,59,0,0
+663,351,2,Castform Rainy Form,70,70,70,70,70,70,Water,Water,59,0,0
+664,351,3,Castform Snowy Form,70,70,70,70,70,70,Ice,Ice,59,0,0
+665,550,1,Basculin Blue-Striped Form,70,92,65,98,80,55,Water,Water,69,91,104
+666,555,1,Darmanitan Zen Mode,105,30,105,55,140,105,Fire,Psychic,125,0,161
+667,648,1,Meloetta Pirouette Forme,100,128,90,128,77,77,Normal,Fighting,32,0,0

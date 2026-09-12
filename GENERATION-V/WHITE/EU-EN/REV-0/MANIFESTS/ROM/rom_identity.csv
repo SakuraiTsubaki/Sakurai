@@ -1,0 +1,2 @@
+version,file,size_bytes,crc32,md5,sha1,sha256,title,game_code,maker,unit_code,device_capacity,game_revision,rom_version,arm9_size,arm7_size,overlay9_count,fnt_dirs,named_files,fat_entries,ntr_used_size,total_used_size,arm9i_size,arm7i_size
+White,Pokemon.White.Version.EUR.NDS-SweeTnDs.nds,268435456,EDCD5161,8dfef9a099e1269af5c1fcf9d7736a11,f94d4578956487c09fee20809a591e858017769e,93e4f473ce9a0543bccf2e689ecd07ab4fcc39dd00fb4f194343cbd5e70e17ed,POKEMON W,IRAO,01,0x02,0x0B,0x4003,0,456868,167812,237,31,247,484,205231104,205902848,77596,291064

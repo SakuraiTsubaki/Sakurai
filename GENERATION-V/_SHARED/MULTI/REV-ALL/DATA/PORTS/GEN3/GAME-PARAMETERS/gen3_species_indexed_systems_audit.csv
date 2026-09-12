@@ -1,0 +1,23 @@
+component,kind,action,reason
+include/constants/species.h,ID constants,RENUMBER_AND_EXTEND,Remove OLD_UNOWN; canonical 001..649; EGG 650
+src/data/pokemon/species_info.h,species-indexed table,REBUILD,Use canonical 650x28 table; preserve original profile separately
+src/data/text/species_names.h,species-indexed table,REINDEX_AND_EXTEND,Names must follow canonical species IDs
+src/data/pokemon/level_up_learnset_pointers.h,species-indexed pointer table,REINDEX_AND_EXTEND,Gen5 level-up data later replaces/augments by profile
+src/data/pokemon/evolution.h,species-indexed table + species values,REINDEX_AND_REWRITE_VALUES,Index and targetSpecies both canonical; expand 5->7
+src/pokemon.c:sTMHMLearnsets,species-indexed table,REINDEX_AND_EXTEND,Then add Gen5 compatibility width/profile
+src/pokemon.c:NationalPokedexNumToSpecies,ID conversion routine,SIMPLIFY_AFTER_GATE,Canonical real species become National ID identity
+src/pokemon.c:SpeciesToNationalPokedexNum,ID conversion routine,SIMPLIFY_AFTER_GATE,Canonical real species become National ID identity
+src/pokemon.c:SpeciesToCryId,legacy-hole compensation,REWRITE,Must stop compensating for OLD_UNOWN hole
+src/data/pokemon/pokedex_orders.h,species-ID lists,REWRITE_VALUES,Remove OLD_UNOWN entries; extend through 649 as applicable
+src/data/pokemon_graphics/footprint_table.h,species-indexed graphics metadata,REINDEX_LATER,Index migration required; sprites/graphics remain paused
+src/data/pokemon_graphics/front_pic_coordinates.h,species-indexed graphics metadata,REINDEX_LATER,Index migration required; sprite work paused
+src/data/pokemon_graphics/back_pic_coordinates.h,species-indexed graphics metadata,REINDEX_LATER,Index migration required; sprite work paused
+src/pokemon_icon.c,species-indexed graphics table,REINDEX_LATER,Index migration required; graphics paused
+wild encounter data,embedded species IDs,REWRITE_VALUES,Every encounter species ID must be canonical
+trainer party data,embedded species IDs,REWRITE_VALUES,Every trainer species ID must be canonical
+daycare/breeding,species values + evo table scans,AUDIT_AND_REWRITE,Egg/baby/evolution references canonical
+Hall of Fame,persistent species IDs,SAVE_MIGRATION,Old saves contain legacy IDs; new saves canonical
+link/trade,serialized species IDs,VERSIONED_COMPAT,Canonical project protocol vs original Gen3 protocol translation
+Battle Tower/Trainer Tower,stored species IDs,REWRITE_AND_MIGRATE,Facility records use canonical IDs
+Easy Chat Pokémon groups,species ID lists,REWRITE_VALUES,Canonical IDs in list indices/values
+Pokédex seen/caught flags,National-indexed bitsets,KEEP_BASE_INDEXING_EXTEND,Already National-oriented but extend capacity to 649
