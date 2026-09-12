@@ -1,88 +1,106 @@
-# Repository Structure
+# Repository Structure v2
 
-## Canonical path
+## Why v2 exists
 
-`GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
+The old fixed path `GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE` mixed three different ownership concepts: official source ROM builds, derived/target localizations, and cross-build research. That forced ambiguous buckets such as `MULTI/REV-ALL` and could place a target locale in the same structural role as an official source release.
 
-This five-level ownership path is mandatory. It is not a wrapper around an older project path; it is the semantic home of the artifact.
+v2 separates those concepts before the work-type layer.
 
-## Root
+## Canonical generation root
 
-Allowed project roots are `GENERATION-I` through `GENERATION-IX`. Repository infrastructure may also use `.github`, `README.md`, `STRUCTURE.md`, `MIGRATION.md`, and `.git`.
+Use zero-padded numeric generation folders:
 
-## GAME
+`GEN-01`, `GEN-02`, ... `GEN-10`, `GEN-11`.
 
-GAME contains only one canonical single-game title or `_SHARED`.
+This replaces Roman-numeral roots such as `GENERATION-I` and keeps lexical ordering correct as the project grows beyond Generation IX.
 
-- Generation I: `RED`, `GREEN`, `BLUE`, `YELLOW`
-- Generation II: `GOLD`, `SILVER`, `CRYSTAL`
-- Generation III: `RUBY`, `SAPPHIRE`, `EMERALD`, `FIRERED`, `LEAFGREEN`
-- Generation IV: `DIAMOND`, `PEARL`, `PLATINUM`, `HEARTGOLD`, `SOULSILVER`
-- Generation V: `BLACK`, `WHITE`, `BLACK2`, `WHITE2`
-- Generation VI: `X`, `Y`, `OMEGARUBY`, `ALPHASAPPHIRE`
-- Generation VII: `SUN`, `MOON`, `ULTRASUN`, `ULTRAMOON`, `LETSGO-PIKACHU`, `LETSGO-EEVEE`
-- Generation VIII: `SWORD`, `SHIELD`, `BRILLIANTDIAMOND`, `SHININGPEARL`, `LEGENDS-ARCEUS`
-- Generation IX: `SCARLET`, `VIOLET`, `LEGENDS-Z-A`
+## Canonical game root
 
-`_SHARED` is used only when an artifact genuinely belongs to multiple games in the same generation. Synthetic bundle labels such as `RGBY`, `GSC`, `RSE-FRLG`, `DIAMOND-PEARL`, `DPPt-HGSS`, `BW`, and `BW-B2W2` are not GAME-level folders.
+`GEN-XX/<GAME>/`
 
-## LANGUAGE / REGION
+GAME is a stable uppercase slug such as `RED`, `GREEN`, `BLUE`, `YELLOW`, `GOLD`, `SILVER`, `CRYSTAL`, `FIRERED`, `LEAFGREEN`, or `LEGENDS-Z-A`.
 
-Canonical values are `JP-JA`, `KR-KO`, `US-EN`, `EU-EN`, `EU-DE`, `EU-FR`, `EU-IT`, `EU-ES`, and `MULTI`.
+`_SHARED` is allowed only for material genuinely owned by multiple games within one generation.
 
-Use `MULTI` only when the artifact intentionally spans more than one locale. Translation direction and old labels such as `USA`, `KOREA`, `KO-KR`, `MULTI-REGION`, or `JAPAN-TO-KOREAN` are provenance metadata, not structural folders.
+## Four ownership branches
 
-## REV
+Every game is divided by provenance/scope before locale or revision:
 
-Use explicit revision folders such as `REV-0`, `REV-A`, `REV-1`, `REV-5`, or `REV-ALL`. `REV-ALL` means an intentional cross-revision artifact; it must not be used merely because the original revision was unknown.
+### SOURCE
 
-Legacy labels such as `MULTI-REV`, `REV-COMMON`, `REV-MIXED`, and `REV-UNKNOWN` are not canonical revision folders.
+Official source builds only.
 
-## WORK TYPE — Sakurai
+`GEN-XX/<GAME>/SOURCE/<RELEASE-ID>/<REV>/<WORK-TYPE>/...`
 
-Allowed research work types are:
+`RELEASE-ID` describes the actual release/build identity, not a desired target language. Examples for Pokémon Red from the current source set:
 
-`ANALYSIS`, `CENSUS`, `STRUCTURE`, `TEXT`, `DATA`, `DIFFS`, `TOOLS`, `TESTS`, `VERIFICATION`, `REPORTS`, `LOCALIZATION`, `DISASSEMBLY`, `MANIFESTS`, `MAPS`, and `SYMBOLS`.
+- `JP-JA`
+- `US-EU-EN`
+- `EU-DE`
+- `EU-FR`
+- `EU-IT`
+- `EU-ES`
 
-Choose the work type from what the artifact is now, not where it came from. Examples:
+Use explicit revision labels such as `REV-0`, `REV-A`, `REV-1`.
 
-- ROM identity / hashes / source identity → `MANIFESTS`
-- filesystem, archive layouts, limits → `STRUCTURE`
-- decoded tables and normalized records → `DATA`
-- version/game comparisons → `DIFFS`
-- unused/dummy/bug census → `CENSUS`
-- phase summaries and narrative results → `REPORTS`
-- reproducibility/audit results → `VERIFICATION`
-- scripts used to inspect data → `TOOLS`
+Do not upload original ROM binaries. Store ROM identity, hashes, header data, bank maps, and provenance in `MANIFESTS` / research files.
 
-## No path replicas below WORK TYPE
+### TARGET
 
-Subfolders below WORK TYPE may describe a real subject, component, table, map, system, source relationship, or historical phase. They must **not recreate structural roles** already expressed by the canonical five levels.
+Derived outputs, modernization targets, fan/localization targets, rebuilds, and ports that do not represent an official source build.
 
-Forbidden below WORK TYPE:
+`GEN-XX/<GAME>/TARGET/<TARGET-ID>/<BASE-ID>/<WORK-TYPE>/...`
 
-- another locale/region layer (`USA`, `KOREA`, `KR-KO`, `MULTI-REGION`, etc.);
-- another revision layer (`REV-MIXED`, `MULTI-REV`, `REV-UNKNOWN`, etc.);
-- another work-type layer such as `.../ANALYSIS/.../ANALYSIS/...`;
-- an old complete project route such as `DPPt-HGSS/MULTI-REGION/REV-MIXED/ANALYSIS`;
-- `LEGACY-*` wrappers whose only purpose is to preserve an old pathname.
+Example: a Korean target derived from an English Red source belongs under `TARGET/KR-KO/...`, not under `SOURCE/KR-KO`.
 
-Historical provenance belongs in `MANIFESTS` or in file metadata/text. Git history is the authoritative record of old paths.
+### COMPARE
 
-A bundle name may appear below WORK TYPE only when it is a genuine subject name rather than a surrogate GAME layer; prefer explicit semantic names such as `HEARTGOLD-SOULSILVER`, `DIAMOND-PEARL`, `CROSS-GENERATION`, `MOVE-ENGINE`, or `FORM-SYSTEM`.
+Artifacts whose subject is inherently multi-source or multi-revision.
 
-## Phase naming
+`GEN-XX/<GAME>/COMPARE/<SCOPE>/<WORK-TYPE>/...`
 
-`PHASE-*` may be retained as a secondary historical subdivision when it helps trace an existing workflow, but artifacts must first be placed under their semantic WORK TYPE. Do not create a top-level phase tree that mixes reports, data, diffs, tools, and unused findings together.
+Examples:
 
-## Cross-generation work
+- `COMPARE/ALL-SOURCES/ANALYSIS/ROM-AUDIT/`
+- `COMPARE/JP-JA-REVISIONS/DIFFS/`
+- `COMPARE/LOCALIZATION-FAMILIES/DATA/`
 
-Keep source provenance in a manifest. Analysis of a relationship may live under `ANALYSIS/CROSS-GENERATION/<SUBJECT>`. Target implementation artifacts should otherwise be owned by their actual target game/generation rather than by a synthetic source bundle.
+This replaces the ambiguous `MULTI/REV-ALL` pattern.
+
+### SHARED
+
+Game-wide material that is not owned by one source release or one target.
+
+`GEN-XX/<GAME>/SHARED/<SCOPE>/<WORK-TYPE>/...`
+
+Examples include common schemas, generic tools, engine-wide symbol conventions, and reusable test infrastructure.
+
+## Sakurai work types
+
+Sakurai is the research / reverse-engineering / documentation repository. Canonical work types are:
+
+`ANALYSIS`, `CENSUS`, `STRUCTURE`, `TEXT`, `DATA`, `DIFFS`, `TOOLS`, `TESTS`, `VERIFICATION`, `REPORTS`, `LOCALIZATION`, `DISASSEMBLY`, `MANIFESTS`, `MAPS`, `SYMBOLS`.
+
+## Pokémon Red source routing confirmed from the current ROM set
+
+The current source set resolves to these canonical homes:
+
+- Japanese Rev 0 → `GEN-01/RED/SOURCE/JP-JA/REV-0/...`
+- Japanese Rev A → `GEN-01/RED/SOURCE/JP-JA/REV-A/...`
+- USA/Europe English Rev 0 → `GEN-01/RED/SOURCE/US-EU-EN/REV-0/...`
+- German Rev 0 → `GEN-01/RED/SOURCE/EU-DE/REV-0/...`
+- French Rev 0 → `GEN-01/RED/SOURCE/EU-FR/REV-0/...`
+- Italian Rev 0 → `GEN-01/RED/SOURCE/EU-IT/REV-0/...`
+- Spanish Rev 0 → `GEN-01/RED/SOURCE/EU-ES/REV-0/...`
+
+The duplicate English ROM is one source identity and must be recorded as a duplicate/provenance observation, never as a separate structural release.
+
+## Repository-wide infrastructure
+
+The repository root may contain `.github`, `README.md`, `STRUCTURE.md`, `MIGRATION.md`, and `META/` in addition to canonical `GEN-XX` roots.
+
+`META/` is reserved for repository-wide catalogs, migration indexes, schemas, and validation metadata. Project artifacts still belong under `GEN-XX`.
 
 ## Migration rule
 
-Migration must move the current tree into semantic canonical homes and remove the obsolete current paths. Do not preserve duplicate live copies solely to keep the old pathname. Old locations remain recoverable from Git history.
-
-## Legacy workflows
-
-Old project-specific GitHub Actions may remain under `.github/workflows-legacy/` and are intentionally inactive. Active validation enforces the canonical five-level path; generations that complete semantic normalization may additionally enable strict below-WORK-TYPE validation.
+Roman generation roots and the old five-level tree are legacy paths. During migration they may remain temporarily, but no new work should be added there. Current content must be moved to the narrowest truthful `SOURCE`, `TARGET`, `COMPARE`, or `SHARED` owner. Git history preserves old paths; do not keep duplicate live copies only for compatibility.
