@@ -144,12 +144,8 @@ def classify(name: str, parsed: dict[str, object]) -> tuple[str, str]:
     code = str(parsed["game_code"])
     if code in {"APAE", "ADAE", "CPUK", "IPGK", "IPKK"}:
         return "GEN-IV-OFFICIAL-RESEARCH-SOURCE", "read-only"
-    if parsed["platform"] == "GBA" and code.endswith("J"):
-        return "TARGET-CANDIDATE-JP", "read-only"
-    if parsed["platform"] == "GBA":
-        return "COMPARISON-SOURCE", "read-only"
-    if parsed["platform"] == "GBC":
-        return "COMPARISON-SOURCE", "read-only"
+    if parsed["platform"] in {"GBA", "GBC"}:
+        return "TARGET-POCKET-MONSTERS-OFFICIAL-SOURCE", "read-only"
     return "UNCLASSIFIED", "read-only"
 
 
@@ -176,7 +172,9 @@ def inspect(path: Path) -> dict[str, object]:
         "game": game,
         "language_region": language_region,
         "release_id": release_id,
-        "source_priority": "equal" if role == "GEN-IV-OFFICIAL-RESEARCH-SOURCE" else "not-applicable",
+        "project_side": "generation-iv-source" if role == "GEN-IV-OFFICIAL-RESEARCH-SOURCE" else "pocket-monsters-target",
+        "source_priority": "equal",
+        "implementation_status": "not-applicable" if role == "GEN-IV-OFFICIAL-RESEARCH-SOURCE" else "target-candidate-unselected",
         "coverage_status": "attached-and-header-verified",
         **parsed,
         **digests(data),
