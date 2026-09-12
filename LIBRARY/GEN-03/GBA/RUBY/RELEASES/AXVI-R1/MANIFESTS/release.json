@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "game_id": "RUBY",
+  "platform": "GBA",
+  "release_id": "AXVI-R1",
+  "game_code": "AXVI",
+  "header_version": 1,
+  "markets": ["EU"],
+  "languages": ["it"],
+  "build_kind": "retail",
+  "observed_dump_ids": ["PROJECT-015a5d38"],
+  "rom_binary_in_repository": false
+}
