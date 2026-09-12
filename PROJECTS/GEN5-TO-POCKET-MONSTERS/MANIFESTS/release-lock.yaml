@@ -1,16 +1,16 @@
-schema: sakurai.project-release-lock.v4
+schema: sakurai.project-release-lock.v5
 project_id: GEN5-TO-POCKET-MONSTERS
 lock_date: 2026-09-12
 registry: INFRA/REGISTRY/ROM-SETS/GEN5-TO-POCKET-MONSTERS-2026-09-12.yaml
 
 sources:
-  GEN5-BLACK-IRBO-R0:
-    release: LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0
-    observed_dump: LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0/DUMPS/SWEETNDS-a68b3bed
+  GEN5-BLACK-IRBO-HV0:
+    release: LIBRARY/GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0
+    observed_dump: LIBRARY/GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0/DUMPS/SWEETNDS-a68b3bed
     status: bound-supplied-dump-revalidation-required
-  GEN5-WHITE-IRAO-R0:
-    release: LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0
-    observed_dump: LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0/DUMPS/SWEETNDS-f94d4578
+  GEN5-WHITE-IRAO-HV0:
+    release: LIBRARY/GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0
+    observed_dump: LIBRARY/GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0/DUMPS/SWEETNDS-f94d4578
     status: bound-supplied-dump-revalidation-required
 
 required_unbound_sources:
@@ -19,45 +19,47 @@ required_unbound_sources:
   GEN5-WHITE2:
     status: required-not-currently-bound
 
+target_path_schema: v4-frozen-pending-source-specific-v5-migration
 targets:
   GEN2-GOLD-KR-KO-HV0:
-    release: LIBRARY/GEN-02/GBC/GOLD/RELEASES/KR-KO-HV0
+    legacy_release: LIBRARY/GEN-02/GBC/GOLD/RELEASES/KR-KO-HV0
   GEN2-SILVER-KR-KO-HV0:
-    release: LIBRARY/GEN-02/GBC/SILVER/RELEASES/KR-KO-HV0
+    legacy_release: LIBRARY/GEN-02/GBC/SILVER/RELEASES/KR-KO-HV0
   GEN2-CRYSTAL-JP-JA-HV0:
-    release: LIBRARY/GEN-02/GBC/CRYSTAL/RELEASES/JP-JA-HV0
+    legacy_release: LIBRARY/GEN-02/GBC/CRYSTAL/RELEASES/JP-JA-HV0
   GEN2-CRYSTAL-US-EU-EN-HV1:
-    release: LIBRARY/GEN-02/GBC/CRYSTAL/RELEASES/US-EU-EN-HV1
+    legacy_release: LIBRARY/GEN-02/GBC/CRYSTAL/RELEASES/US-EU-EN-HV1
   GEN3-RUBY-AXVJ-R0:
-    release: LIBRARY/GEN-03/GBA/RUBY/RELEASES/AXVJ-R0
+    legacy_release: LIBRARY/GEN-03/GBA/RUBY/RELEASES/AXVJ-R0
   GEN3-RUBY-AXVE-R2:
-    release: LIBRARY/GEN-03/GBA/RUBY/RELEASES/AXVE-R2
+    legacy_release: LIBRARY/GEN-03/GBA/RUBY/RELEASES/AXVE-R2
   GEN3-SAPPHIRE-AXPJ-R0:
-    release: LIBRARY/GEN-03/GBA/SAPPHIRE/RELEASES/AXPJ-R0
+    legacy_release: LIBRARY/GEN-03/GBA/SAPPHIRE/RELEASES/AXPJ-R0
   GEN3-SAPPHIRE-AXPE-R2:
-    release: LIBRARY/GEN-03/GBA/SAPPHIRE/RELEASES/AXPE-R2
+    legacy_release: LIBRARY/GEN-03/GBA/SAPPHIRE/RELEASES/AXPE-R2
   GEN3-EMERALD-BPEJ-R0:
-    release: LIBRARY/GEN-03/GBA/EMERALD/RELEASES/BPEJ-R0
+    legacy_release: LIBRARY/GEN-03/GBA/EMERALD/RELEASES/BPEJ-R0
   GEN3-EMERALD-BPEE-R0:
-    release: LIBRARY/GEN-03/GBA/EMERALD/RELEASES/BPEE-R0
+    legacy_release: LIBRARY/GEN-03/GBA/EMERALD/RELEASES/BPEE-R0
   GEN3-FIRERED-BPRJ-R1:
-    release: LIBRARY/GEN-03/GBA/FIRERED/RELEASES/BPRJ-R1
+    legacy_release: LIBRARY/GEN-03/GBA/FIRERED/RELEASES/BPRJ-R1
   GEN3-FIRERED-BPRE-R1:
-    release: LIBRARY/GEN-03/GBA/FIRERED/RELEASES/BPRE-R1
+    legacy_release: LIBRARY/GEN-03/GBA/FIRERED/RELEASES/BPRE-R1
   GEN3-LEAFGREEN-BPGJ-R0:
-    release: LIBRARY/GEN-03/GBA/LEAFGREEN/RELEASES/BPGJ-R0
+    legacy_release: LIBRARY/GEN-03/GBA/LEAFGREEN/RELEASES/BPGJ-R0
   GEN3-LEAFGREEN-BPGE-R1:
-    release: LIBRARY/GEN-03/GBA/LEAFGREEN/RELEASES/BPGE-R1
+    legacy_release: LIBRARY/GEN-03/GBA/LEAFGREEN/RELEASES/BPGE-R1
 
 implementation_contract:
-  shared_root: PROJECTS/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/_SHARED
+  common_root: PROJECTS/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/COMMON
   target_root_template: PROJECTS/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/{TARGET-ID}
   crosswalk_root: PROJECTS/GEN5-TO-POCKET-MONSTERS/CROSSWALK
   design_root: PROJECTS/GEN5-TO-POCKET-MONSTERS/DESIGN
   verification_root: PROJECTS/GEN5-TO-POCKET-MONSTERS/VERIFICATION
 
 rules:
-  - target-id-must-resolve-to-exactly-one-release
+  - source-id-must-resolve-to-exactly-one-v5-release
+  - target-legacy-paths-must-be-migrated-from-their-own-source-roms-before-v4-path-deletion
   - source-release-research-stays-in-library
   - project-specific-transformation-stays-in-projects
   - supplied-dump-limitations-must-propagate-to-verification
