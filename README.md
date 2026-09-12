@@ -1,19 +1,25 @@
 # Sakurai
 
-Pokémon research, reverse-engineering, census, comparison, verification, and documentation repository.
+Pokémon research, reverse-engineering, census, comparison, verification, localization, and documentation repository.
 
-## Canonical path model: v3
+## Canonical path model: v4
 
-All active game data lives under `GAMES/GEN-XX/<GAME-ID>/`.
+The repository separates **official release identity**, **exact observed dumps**, and **derived projects**.
 
-- `RELEASES/<RELEASE-ID>/<WORK-TYPE>/...` — one exact official build per immutable release ID
-- `COMPARISONS/<COMPARISON-ID>/<WORK-TYPE>/...` — relationships across releases
-- `PROJECTS/<PROJECT-ID>/COMMON/<WORK-TYPE>/...`
-- `PROJECTS/<PROJECT-ID>/TARGETS/<TARGET-ID>/<WORK-TYPE>/...`
-- `SHARED/<WORK-TYPE>/...` — genuinely release-independent material
+```text
+LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/RELEASES/<RELEASE-ID>/...
+LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/COMPARISONS/<COMPARISON-ID>/...
+LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/SHARED/...
+PROJECTS/<PROJECT-ID>/...
+INFRA/...
+```
 
-Locale, region, platform, revision/update version, hashes, and provenance are release metadata rather than universal path levels.
+- `LIBRARY` owns facts about original official releases and exact supplied/observed dumps.
+- `PROJECTS` owns localization, modernization, ports, integrations, rebuilds, patches, and project-specific verification.
+- `INFRA` owns repository-wide release registries, ROM-set catalogs, schemas, validators, migration maps, shared tooling, and CI support.
 
-Pre-v3 trees are frozen under `META/MIGRATION-SNAPSHOTS/`. New work must not recreate `GENERATION-*` or standalone `GEN-*` roots.
+For GB/GBC, release IDs use market/language plus the header version, for example `JP-JA-HV0`, `KR-KO-HV0`, and `US-EU-EN-HV1`. Exact uploaded files are tracked separately under `DUMPS/<DUMP-ID>` with hashes and provenance.
 
-See `STRUCTURE.md` and `MIGRATION.md` before routing files. ROM binaries and copyrighted original game images are not stored here.
+See `STRUCTURE.md` and `MIGRATION.md`. The current Generation I/II GS Korean project source set is registered under `INFRA/REGISTRY/ROM-SETS/`.
+
+Original ROM/executable binaries are never committed.
