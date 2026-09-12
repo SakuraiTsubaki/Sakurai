@@ -1,0 +1,22 @@
+schema: sakurai.cross-gen-project-release-lock.v6
+project_id: GS-KOREAN-TO-POCKET-MONSTERS
+canonical_project_path: PROJECTS/CROSS-GEN/GS-KOREAN-TO-POCKET-MONSTERS
+rom_set_registry: INFRA/REGISTRY/ROM-SETS/GS-KOREAN-POKEMON-GEN1-GEN2-2026-09-12.yaml
+source_matrix: PROJECTS/CROSS-GEN/GS-KOREAN-TO-POCKET-MONSTERS/MANIFESTS/source-matrix.yaml
+target_matrix: PROJECTS/CROSS-GEN/GS-KOREAN-TO-POCKET-MONSTERS/MANIFESTS/target-matrix.yaml
+source_release_count: 23
+implementation_references:
+- LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/AAUK-HV0
+- LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/AAXK-HV0
+translation_policy:
+  japanese_sources: translate_directly_from_each_japanese_release
+  english_sources: translate_directly_from_each_english_release
+  korean_gold_silver: technical_hangul_reference_and_independent_language_revision_targets
+  preserve_localization_differences: true
+  latest_official_korean_names: true
+  current_korean_orthography: true
+  existing_offsets_not_constraints: true
+forbidden_source_fabrication:
+- Korean official source release for Red, Green, Blue, Yellow or Crystal
+- Korean source identity inferred from a project target
+binary_policy: original_rom_binaries_never_committed

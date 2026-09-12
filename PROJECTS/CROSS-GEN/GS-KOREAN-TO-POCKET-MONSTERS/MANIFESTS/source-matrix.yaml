@@ -1,0 +1,32 @@
+schema: sakurai.cross-gen-source-matrix.v6
+project_id: GS-KOREAN-TO-POCKET-MONSTERS
+source_count: 23
+columns: [generation, game, platform, release_id, technical_id, market, language, hv, preservation, dump_id, sha1, cgb, sgb, role, filename]
+rows:
+- [GEN-01, BLUE, GB, JP-JA-HV0, null, JP, ja, 0, 'Rev 0', USER-UPLOAD-0da501e3, 0da501e3e5c51ab8fef55b092dcdd7e6b050e424, '0x00', '0x03', translation_source, 'Pocket Monsters - Ao (Japan) (SGB Enhanced).gb']
+- [GEN-01, BLUE, GB, US-EU-EN-HV0, null, US-EU, en, 0, 'Rev 0', USER-UPLOAD-d7037c83, d7037c83e1ae5b39bde3c30787637ba1d4c48ce2, '0x00', '0x03', translation_source, 'Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb']
+- [GEN-01, GREEN, GB, JP-JA-HV0, null, JP, ja, 0, 'Rev 0', USER-UPLOAD-82c0eef4, 82c0eef40a5e2423699d9fd8ba15dfaa8b51d196, '0x00', '0x03', translation_source, 'Pocket Monsters - Midori (Japan) (SGB Enhanced).gb']
+- [GEN-01, GREEN, GB, JP-JA-HV1, null, JP, ja, 1, 'Rev A', USER-UPLOAD-4b97cd44, 4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b, '0x00', '0x03', translation_source, 'Pocket Monsters - Midori (Japan) (Rev A) (SGB Enhanced).gb']
+- [GEN-01, RED, GB, JP-JA-HV0, null, JP, ja, 0, 'Rev 0', USER-UPLOAD-0623ad12, 0623ad12f48c259447980d68bd85ddbf8204b2cd, '0x00', '0x03', translation_source, 'Pocket Monsters - Aka (Japan) (SGB Enhanced).gb']
+- [GEN-01, RED, GB, JP-JA-HV1, null, JP, ja, 1, 'Rev A', USER-UPLOAD-ef74c79c, ef74c79cded14204ac79e77f4964d9cb25003120, '0x00', '0x03', translation_source, 'Pocket Monsters - Aka (Japan) (Rev A) (SGB Enhanced).gb']
+- [GEN-01, RED, GB, US-EU-EN-HV0, null, US-EU, en, 0, 'Rev 0', USER-UPLOAD-ea9bcae6, ea9bcae617fdf159b045185467ae58b2e4a48b9a, '0x00', '0x03', translation_source, 'Pokemon - Red Version (USA, Europe) (SGB Enhanced).gb']
+- [GEN-01, YELLOW, GB, JP-JA-HV0, null, JP, ja, 0, 'Rev 0A', USER-UPLOAD-1fb6c264, 1fb6c264e950d97ce3fd99b347e485b2150df4ff, '0x00', '0x03', translation_source, 'Pocket Monsters - Pikachu (Japan) (Rev 0A) (SGB Enhanced).gb']
+- [GEN-01, YELLOW, GB, JP-JA-HV1, null, JP, ja, 1, 'Rev B', USER-UPLOAD-28e4b853, 28e4b8531ea4ea1de5a396fccb0cfba51b06b149, '0x00', '0x03', translation_source, 'Pocket Monsters - Pikachu (Japan) (Rev B) (SGB Enhanced).gb']
+- [GEN-01, YELLOW, GB, JP-JA-HV2, null, JP, ja, 2, 'Rev C', USER-UPLOAD-91864ecd, 91864ecdf26d1c593bde4d9ed615520eb57d5e41, '0x00', '0x03', translation_source, 'Pocket Monsters - Pikachu (Japan) (Rev C) (SGB Enhanced).gb']
+- [GEN-01, YELLOW, GB, JP-JA-HV3, null, JP, ja, 3, 'Rev D', USER-UPLOAD-a40298a8, a40298a8123613ee60cd7aab204d788b8425976e, '0x00', '0x03', translation_source, 'Pocket Monsters - Pikachu (Japan) (Rev D) (SGB Enhanced).gb']
+- [GEN-01, YELLOW, GB, US-EU-EN-HV0, null, US-EU, en, 0, 'Rev 0', USER-UPLOAD-cc7d0326, cc7d03262ebfaf2f06772c1a480c7d9d5f4a38e1, '0x80', '0x03', translation_source, 'Pokemon - Yellow Version (USA, Europe).gbc']
+- [GEN-02, CRYSTAL, GBC, JP-JA-HV0, BXTJ, JP, ja, 0, 'Rev 0', PROJECT-95127b90, 95127b901bbce2407daf43cce9f45d4c27ef635d, '0xC0', '0x00', translation_source, 'Pocket Monsters - Crystal Version (Japan).gbc']
+- [GEN-02, CRYSTAL, GBC, US-EU-EN-HV0, BYTE, US-EU, en, 0, 'Rev 0', PROJECT-f4cd194b, f4cd194bdee0d04ca4eac29e09b8e4e9d818c133, '0xC0', '0x00', translation_source, 'Pokemon - Crystal Version (USA, Europe).gbc']
+- [GEN-02, CRYSTAL, GBC, US-EU-EN-HV1, BYTE, US-EU, en, 1, 'Rev A', PROJECT-f2f52230, f2f52230b536214ef7c9924f483392993e226cfb, '0xC0', '0x00', translation_source, 'Pokemon - Crystal Version (USA, Europe) (Rev A).gbc']
+- [GEN-02, GOLD, GBC, AAUJ-HV0, AAUJ, JP, ja, 0, 'Rev 0', PROJECT-8814f103, 8814f1039450a5d3684b1389f588ccd7ee7c3436, '0x80', '0x03', translation_source, 'Pocket Monsters Kin (Japan).gbc']
+- [GEN-02, GOLD, GBC, AAUJ-HV1, AAUJ, JP, ja, 1, 'Rev A', PROJECT-a2224022, a222402235d484ee8e39f3f31bae57cf13daf585, '0x80', '0x03', translation_source, 'Pocket Monsters Kin (Japan) (Rev A).gbc']
+- [GEN-02, GOLD, GBC, AAUK-HV0, AAUK, KR, ko, 0, 'Rev 0', UPLOAD-c0ff3999, c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65, '0xC0', '0x00', translation_source_and_hangul_implementation_reference, 'Pocket Monsters Geum (Korea).gbc']
+- [GEN-02, GOLD, GBC, AAUE-HV0, AAUE, US-EU, en, 0, 'Rev 0', PROJECT-d8b8a360, d8b8a3600a465308c9953dfa04f0081c05bdcb94, '0x80', '0x03', translation_source, 'Pokemon - Gold Version (USA, Europe).gbc']
+- [GEN-02, SILVER, GBC, AAXJ-HV0, AAXJ, JP, ja, 0, 'Rev 0', PROJECT-fa8c5105, fa8c51059c1642faa570db56ef089f54d1d2011f, '0x80', '0x03', translation_source, 'Pocket Monsters Gin (Japan).gbc']
+- [GEN-02, SILVER, GBC, AAXJ-HV1, AAXJ, JP, ja, 1, 'Rev A', PROJECT-a11d5ddc, a11d5ddc26eb826086593f82370b15d16404d33e, '0x80', '0x03', translation_source, 'Pocket Monsters Gin (Japan) (Rev A).gbc']
+- [GEN-02, SILVER, GBC, AAXK-HV0, AAXK, KR, ko, 0, 'Rev 0', PROJECT-cb22d7e0, cb22d7e03a74dc3a563fde6be8626626b2b392e7, '0xC0', '0x00', translation_source_and_hangul_implementation_reference, 'Pocket Monsters Eun (Korea).gbc']
+- [GEN-02, SILVER, GBC, AAXE-HV0, AAXE, US-EU, en, 0, 'Rev 0', PROJECT-49b163f7, 49b163f7e57702bc939d642a18f591de55d92dae, '0x80', '0x03', translation_source, 'Pokemon - Silver Version (USA, Europe).gbc']
+notes:
+- Canonical path = LIBRARY/{generation}/{game}/SOURCE/{platform}/CART/{release_id}.
+- English Yellow is GEN-01/GB; CGB 0x80 is compatibility metadata.
+- Crystal retains current library release keys while BXTJ/BYTE remain technical_id metadata.
