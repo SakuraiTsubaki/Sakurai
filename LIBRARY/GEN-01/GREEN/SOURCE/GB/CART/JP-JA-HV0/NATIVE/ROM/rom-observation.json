@@ -1,0 +1,34 @@
+{
+  "schema": "green.rom-observation.v1",
+  "release_id": "JP-JA-HV0",
+  "dump_id": "USER-UPLOAD-82c0eef4",
+  "source_filename": "Pocket Monsters - Midori (Japan) (SGB Enhanced).gb",
+  "size_bytes": 524288,
+  "hashes": {
+    "crc32": "baeacd2b",
+    "md5": "e30ffbab1f239f09b226477d84db1368",
+    "sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+    "sha256": "6576b4e0979e93d4a6fa02db893c294b7aeab3b841b1acc8658bc10b3554f33c"
+  },
+  "header": {
+    "entry_point": "00c35001",
+    "title_ascii": "POKEMON GREEN",
+    "new_licensee_code": "01",
+    "sgb_flag": "0x03",
+    "cartridge_type": "0x03",
+    "rom_size_code": "0x04",
+    "ram_size_code": "0x03",
+    "destination_code": "0x00",
+    "old_licensee_code": "0x33",
+    "header_version": 0,
+    "header_checksum": "0x9C",
+    "global_checksum": "0xDDD5"
+  },
+  "layout": {
+    "bank_size": 16384,
+    "bank_count": 32,
+    "whole_rom_entropy_bits_per_byte": 7.583543588
+  },
+  "verification": "PASS",
+  "rom_binary_committed": false
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "repository.migration.v6",
+  "scope": "GREEN",
+  "status": "GREEN_V6_MIGRATION_COMPLETE",
+  "canonical_source_roots": [
+    "LIBRARY/GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV0",
+    "LIBRARY/GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV1"
+  ],
+  "comparison_root": "LIBRARY/GEN-01/GREEN/COMPARE/JP-JA-HV0--JP-JA-HV1",
+  "reference_root": "LIBRARY/GEN-01/GREEN/REFERENCE/POKEGREEN-DISASSEMBLY",
+  "project_root": "PROJECTS/GEN-01/GREEN-MODERNIZATION",
+  "retired_live_roots": [
+    "LIBRARY/GEN-01/GB/GREEN",
+    "PROJECTS/GREEN-MODERNIZATION"
+  ],
+  "legacy_policy": "Pre-v6 copies may exist only under LEGACY/PRE-V6-2026-09-12 until equivalence verification; new work must use canonical v6 roots."
+}
