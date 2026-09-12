@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "dump_id": "PROJECT-9ac73481",
+  "release_id": "AXVS-R1",
+  "provenance": "project-upload",
+  "source_filename": "Pokemon - Edicion Rubi (Spain) (Rev 1).gba",
+  "size_bytes": 16777216,
+  "crc32": "b980fff5",
+  "md5": "61623a55ac0ff4cb97db7c9a78a477ad",
+  "sha1": "9ac73481d7f5d150a018309bba91d185ce99fb7c",
+  "sha256": "0db39958c19abcedc7670fb16fd3274a5b205df794eb7491bea0580aa752e095",
+  "local_hash_verified": true,
+  "binary_committed": false
+}
