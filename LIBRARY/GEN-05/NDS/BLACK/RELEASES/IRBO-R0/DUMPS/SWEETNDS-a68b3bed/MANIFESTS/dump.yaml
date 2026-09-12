@@ -1,0 +1,22 @@
+schema: sakurai.dump.v4
+dump_id: SWEETNDS-a68b3bed
+release_id: IRBO-R0
+observed_file: Pokemon.Black.Version.EUR.NDS-SweeTnDs.nds
+provenance: SweeTnDs
+size_bytes: 268435456
+crc32: E2BEE619
+md5: f45fd94bb761721e30bd3a0a4fde124a
+sha1: a68b3bedf5c1e53556e41e59cdf396c20b331896
+sha256: 2e40416b8e8183d936084c7be0adeaab4fa3f786a68f90d7291ab77d340f0c1d
+internal_title: POKEMON B
+game_code: IRBO
+header_version: 0
+unit_code: 0x02
+dsi_game_revision_field: 0x4003
+quality_status: bad-or-incomplete-external-preservation-classification
+promotion_status: dump-specific-observation
+restrictions:
+  - do-not-treat-as-verified-clean-full-preservation-dump
+  - twl-dsi-specific-conclusions-require-clean-dump-revalidation
+  - ntr-nitrofs-analysis-may-be-retained-with-provenance
+rom_binary_in_repository: false
