@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "game_id": "RUBY",
+  "platform": "GBA",
+  "release_id": "AXVD-R0-DEBUG",
+  "game_code": "AXVD",
+  "header_version": 0,
+  "markets": ["EU"],
+  "languages": ["de"],
+  "build_kind": "debug",
+  "native_identity_collision_with": "AXVD-R0",
+  "identity_disambiguator": "DEBUG",
+  "observed_dump_ids": ["PROJECT-ca5e3d41"],
+  "rom_binary_in_repository": false
+}
