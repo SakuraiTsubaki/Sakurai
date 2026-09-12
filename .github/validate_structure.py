@@ -3,68 +3,78 @@ import re
 import sys
 
 ROOT = Path('.')
-GAMES = ROOT / 'GAMES'
-GEN_RE = re.compile(r'^GEN-\d{2}$')
-LEGACY_GEN_RE = re.compile(r'^GENERATION-(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI)$')
-GAME_RE = re.compile(r'^(?:_SHARED|[A-Z0-9][A-Z0-9-]*)$')
-ID_RE = re.compile(r'^[A-Z0-9][A-Z0-9.-]*$')
-BRANCHES = {'RELEASES', 'COMPARISONS', 'PROJECTS', 'SHARED'}
-WORK_TYPES = {
-    'ANALYSIS','CENSUS','STRUCTURE','TEXT','DATA','DIFFS','TOOLS','TESTS',
-    'VERIFICATION','REPORTS','LOCALIZATION','DISASSEMBLY','MANIFESTS','MAPS','SYMBOLS'
-}
-INFRA = {'.github','.git','.gitignore','.gitattributes','README.md','STRUCTURE.md','MIGRATION.md','META','GAMES'}
-errors = []
+LIBRARY = ROOT / 'LIBRARY'
+PROJECTS = ROOT / 'PROJECTS'
 
-def children(p):
-    return [x for x in p.iterdir() if x.name != '.gitkeep'] if p.exists() else []
+GEN_RE = re.compile(r'^GEN-\d{2}$')
+SLUG_RE = re.compile(r'^(?:_SHARED|[A-Z0-9][A-Z0-9.-]*)$')
+PROJECT_RE = re.compile(r'^[A-Z0-9][A-Z0-9.-]*$')
+
+CANONICAL_ROOTS = {
+    'LIBRARY', 'PROJECTS', 'INFRA', '.github', '.git',
+    '.gitignore', '.gitattributes', 'README.md', 'STRUCTURE.md', 'MIGRATION.md'
+}
+LEGACY_ROOT_NAMES = {'GAMES', 'META'}
+LIBRARY_BRANCHES = {'RELEASES', 'COMPARISONS', 'SHARED'}
+PROJECT_SECTIONS = {
+    'MANIFESTS', 'CROSSWALK', 'DESIGN', 'IMPLEMENTATION',
+    'VERIFICATION', 'TOOLS', 'REPORTS'
+}
+
+errors = []
+warnings = []
+
+
+def children(path):
+    if not path.exists():
+        return []
+    return [p for p in path.iterdir() if p.name not in {'.gitkeep', 'README.md'}]
+
 
 def require_dirs(parent, label, matcher=None, allowed=None):
     out = []
     for p in children(parent):
-        valid = (allowed is None or p.name in allowed) and (matcher is None or matcher.fullmatch(p.name))
-        if not p.is_dir() or not valid:
+        valid_name = (allowed is None or p.name in allowed) and (matcher is None or matcher.fullmatch(p.name))
+        if not p.is_dir() or not valid_name:
             errors.append(f'invalid {label}: {p}')
-        else:
-            out.append(p)
+            continue
+        out.append(p)
     return out
 
-def require_work_types(parent, label):
-    require_dirs(parent, label, allowed=WORK_TYPES)
 
 for p in ROOT.iterdir():
-    if p.name in INFRA:
+    if p.name in CANONICAL_ROOTS:
         continue
-    if LEGACY_GEN_RE.fullmatch(p.name) or GEN_RE.fullmatch(p.name):
-        errors.append(f'legacy pre-v3 generation root is forbidden: {p.name}')
-    else:
-        errors.append(f'non-canonical root entry: {p.name}')
+    if p.name in LEGACY_ROOT_NAMES or p.name.startswith('GENERATION-') or GEN_RE.fullmatch(p.name):
+        warnings.append(f'legacy pre-v4 root pending migration: {p.name}')
+        continue
+    errors.append(f'non-canonical root entry: {p.name}')
 
-for gen in require_dirs(GAMES, 'generation', matcher=GEN_RE):
-    for game in require_dirs(gen, 'game id', matcher=GAME_RE):
-        for branch in require_dirs(game, 'ownership branch', allowed=BRANCHES):
-            if game.name == '_SHARED' and branch.name == 'RELEASES':
-                errors.append(f'generation-wide _SHARED cannot own RELEASES: {branch}')
-            elif branch.name == 'RELEASES':
-                for release in require_dirs(branch, 'release id', matcher=ID_RE):
-                    require_work_types(release, 'release work type')
-            elif branch.name == 'COMPARISONS':
-                for comparison in require_dirs(branch, 'comparison id', matcher=ID_RE):
-                    require_work_types(comparison, 'comparison work type')
-            elif branch.name == 'PROJECTS':
-                for project in require_dirs(branch, 'project id', matcher=ID_RE):
-                    for section in require_dirs(project, 'project section', allowed={'COMMON','TARGETS'}):
-                        if section.name == 'COMMON':
-                            require_work_types(section, 'project COMMON work type')
-                        else:
-                            for target in require_dirs(section, 'project target id', matcher=ID_RE):
-                                require_work_types(target, 'project target work type')
-            else:
-                require_work_types(branch, 'shared work type')
+# LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/{RELEASES,COMPARISONS,SHARED}
+for gen in require_dirs(LIBRARY, 'library generation', matcher=GEN_RE):
+    for platform in require_dirs(gen, 'platform', matcher=SLUG_RE):
+        for game in require_dirs(platform, 'game id', matcher=SLUG_RE):
+            branches = require_dirs(game, 'library ownership branch', allowed=LIBRARY_BRANCHES)
+            for branch in branches:
+                if game.name == '_SHARED' and branch.name == 'RELEASES':
+                    errors.append(f'_SHARED cannot own official RELEASES: {branch}')
+                    continue
+                if branch.name in {'RELEASES', 'COMPARISONS'}:
+                    require_dirs(branch, f'{branch.name.lower()} id', matcher=SLUG_RE)
+
+# PROJECTS/<PROJECT-ID>/<canonical project section>/...
+for project in require_dirs(PROJECTS, 'project id', matcher=PROJECT_RE):
+    require_dirs(project, 'project section', allowed=PROJECT_SECTIONS)
+
+if warnings:
+    print('Repository v4 migration warnings:')
+    for warning in warnings:
+        print(f' - {warning}')
 
 if errors:
-    print('Repository structure v3 validation failed:')
-    for e in errors:
-        print(f' - {e}')
+    print('Repository structure v4 validation failed:')
+    for error in errors:
+        print(f' - {error}')
     sys.exit(1)
-print('Repository structure v3 validation passed.')
+
+print('Repository structure v4 validation passed.')
