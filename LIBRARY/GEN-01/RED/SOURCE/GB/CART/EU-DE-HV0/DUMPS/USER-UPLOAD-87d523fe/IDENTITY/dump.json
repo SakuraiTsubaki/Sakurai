@@ -1,0 +1,13 @@
+{
+  "schema": "sakurai.dump-identity.v5",
+  "dump_id": "USER-UPLOAD-87d523fe",
+  "release_id": "EU-DE-HV0",
+  "filename": "Pokemon - Rote Edition (Germany) (SGB Enhanced).gb",
+  "provenance": "user-upload",
+  "size_bytes": 1048576,
+  "sha1": "87d523fe1a0c548db7c5477b451ddec1eb083c06",
+  "sha256": "9cd186b288dbcd52413d561ae449f1f700c32b45af56dbf849095d4a0c8637a6",
+  "header_checksum_ok": true,
+  "global_checksum_ok": true,
+  "binary_committed": false
+}

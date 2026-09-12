@@ -1,0 +1,14 @@
+{
+  "schema": "sakurai.dump-identity.v5",
+  "dump_id": "USER-UPLOAD-0623ad12",
+  "release_id": "JP-JA-HV0",
+  "filename": "Pocket Monsters - Aka (Japan) (SGB Enhanced).gb",
+  "provenance": "user-upload",
+  "size_bytes": 524288,
+  "sha1": "0623ad12f48c259447980d68bd85ddbf8204b2cd",
+  "sha256": "392ce450d708c8d127aaed7afc20001a48625bd83a5fa5325be82f5c0972ccfa",
+  "duplicate_observation": false,
+  "header_checksum_ok": true,
+  "global_checksum_ok": true,
+  "binary_committed": false
+}
