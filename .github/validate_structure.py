@@ -20,6 +20,7 @@ PROJECT_SECTIONS = {
     'MANIFESTS', 'CROSSWALK', 'DESIGN', 'IMPLEMENTATION',
     'VERIFICATION', 'TOOLS', 'REPORTS'
 }
+BANNED_CANONICAL_PARTS = {'MULTI', 'REV-ALL', 'ALL-RELEASES', 'MULTI-REGION'}
 
 errors = []
 warnings = []
@@ -42,6 +43,18 @@ def require_dirs(parent, label, matcher=None, allowed=None):
     return out
 
 
+def reject_pseudo_owners(root, label):
+    if not root.exists():
+        return
+    for p in root.rglob('*'):
+        if not p.is_dir():
+            continue
+        rel = p.relative_to(root)
+        bad = BANNED_CANONICAL_PARTS.intersection(rel.parts)
+        if bad:
+            errors.append(f'forbidden pseudo-owner in canonical {label} path: {p} ({sorted(bad)})')
+
+
 for p in ROOT.iterdir():
     if p.name in CANONICAL_ROOTS:
         continue
@@ -49,6 +62,9 @@ for p in ROOT.iterdir():
         warnings.append(f'legacy pre-v4 root pending migration: {p.name}')
         continue
     errors.append(f'non-canonical root entry: {p.name}')
+
+reject_pseudo_owners(LIBRARY, 'library')
+reject_pseudo_owners(PROJECTS, 'project')
 
 # LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/{RELEASES,COMPARISONS,SHARED}
 for gen in require_dirs(LIBRARY, 'library generation', matcher=GEN_RE):
@@ -67,14 +83,14 @@ for project in require_dirs(PROJECTS, 'project id', matcher=PROJECT_RE):
     require_dirs(project, 'project section', allowed=PROJECT_SECTIONS)
 
 if warnings:
-    print('Repository v4 migration warnings:')
+    print('Repository v4.1 migration warnings:')
     for warning in warnings:
         print(f' - {warning}')
 
 if errors:
-    print('Repository structure v4 validation failed:')
+    print('Repository structure v4.1 validation failed:')
     for error in errors:
         print(f' - {error}')
     sys.exit(1)
 
-print('Repository structure v4 validation passed.')
+print('Repository structure v4.1 validation passed.')
