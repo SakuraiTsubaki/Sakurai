@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "dump_id": "PROJECT-ba888dfb",
+  "release_id": "AXVF-R1",
+  "provenance": "project-upload",
+  "source_filename": "Pokemon - Version Rubis (France) (Rev 1).gba",
+  "size_bytes": 16777216,
+  "crc32": "9f981f72",
+  "md5": "c014449536d7d32e5b6a3b91d10c0fe9",
+  "sha1": "ba888dfba231a231cbd60fe228e894b54fb1ed79",
+  "sha256": "9678645ca67932a42c92b1d6bac118925a6be9f67135ae8fe7747df85cdabdd0",
+  "local_hash_verified": true,
+  "binary_committed": false
+}
