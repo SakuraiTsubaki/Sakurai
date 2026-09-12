@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "dump_id": "PROJECT-5b64eacf",
+  "release_id": "AXVE-R2",
+  "provenance": "project-upload",
+  "source_filename": "Pokemon - Ruby Version (USA, Europe) (Rev 2).gba",
+  "size_bytes": 16777216,
+  "crc32": "aeac73e6",
+  "md5": "3e1b2065b3837c14ffbd03fe205fdfd7",
+  "sha1": "5b64eacf892920518db4ec664e62a086dd5f5bc8",
+  "sha256": "0fdd36e92b75bed65d09df4635ab0b707b288c2bf1dc4c6e7a4a4f0eebe9d64c",
+  "local_hash_verified": true,
+  "binary_committed": false
+}
