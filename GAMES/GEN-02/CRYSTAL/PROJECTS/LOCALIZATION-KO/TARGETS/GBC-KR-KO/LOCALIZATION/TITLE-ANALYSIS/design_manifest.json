@@ -1,0 +1,13 @@
+{
+  "title": "포켓몬스터 크리스탈",
+  "treatment": "B",
+  "layout": "2x2: 크 리 / 스 탈",
+  "x_envelope": "same right-side footprint as GS Korean Gold/Silver",
+  "right_expansion": false,
+  "uses_additional_y": true,
+  "glyph_source": "GS Korean Hangul implementation",
+  "common_logo_source": "official Korean Gold/Silver title artwork",
+  "japanese_crystal_sha256": "136ada06cb68656b7de475fa4b278d37dbeff8f5257e7dfdf7f4a4aec19a90f3",
+  "rom_binary_included": false,
+  "runtime_validation": "pending"
+}

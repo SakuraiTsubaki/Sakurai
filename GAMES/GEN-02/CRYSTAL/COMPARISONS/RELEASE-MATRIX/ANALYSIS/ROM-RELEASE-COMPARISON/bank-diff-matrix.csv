@@ -1,0 +1,129 @@
+bank,semantic_label_en,JP0_diff_vs_EN0,JP0_same_as_EN0,EN0_diff_vs_EN0,EN0_same_as_EN0,EN1_diff_vs_EN0,EN1_same_as_EN0,ES0_diff_vs_EN0,ES0_same_as_EN0,DE0_diff_vs_EN0,DE0_same_as_EN0,FR0_diff_vs_EN0,FR0_same_as_EN0,IT0_diff_vs_EN0,IT0_same_as_EN0,all7_identical
+00,"ROM0: RST/interrupt vectors, Header, Home",13645,False,0,True,4,False,11860,False,11824,False,11770,False,11680,False,False
+01,bank1: link/OAM/map objects/intro/learn/math/items/NPC/events,8975,False,0,True,0,True,12903,False,12734,False,6268,False,12888,False,False
+02,bank2: player object/sine/predef/color,10497,False,0,True,0,True,147,False,154,False,164,False,154,False,False
+03,bank3: time/specials/HP/overworld/items/step/PC/item effects,15374,False,0,True,0,True,13998,False,6886,False,13506,False,14028,False,False
+04,bank4: pack/time/TMHM/naming/menu/events/party corrections,15141,False,0,True,0,True,14526,False,14166,False,13144,False,14189,False,False
+05,bank5: RTC/overworld/save/map setup/PC/mart/mom/daycare/breeding,15295,False,0,True,0,True,7938,False,7986,False,7955,False,7979,False,False
+06,Tileset Data 1,15024,False,0,True,0,True,68,False,80,False,76,False,40,False,False
+07,Roofs + Tileset Data 2 + Extra Songs 1,4,False,0,True,0,True,2,False,2,False,2,False,2,False,False
+08,Clock Reset + Tileset Data 3 + Egg Moves,15081,False,0,True,0,True,20,False,21,False,20,False,21,False,False
+09,bank9: menus/battle menu/trainer card/decorations/move effects,14427,False,0,True,0,True,7144,False,10857,False,10126,False,11563,False,False
+0A,bankA + Trainer Backpics,14383,False,0,True,0,True,14190,False,14135,False,13860,False,13983,False,False
+0B,bankB: trainer HUDs/class names/TMHM/start battle/etc,15832,False,0,True,0,True,11204,False,11185,False,11257,False,11236,False,False
+0C,Tileset Data 4,10899,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+0D,Effect Commands,8199,False,0,True,0,True,7149,False,7312,False,7123,False,7020,False,False
+0E,Enemy Trainers / battle AI trainer data,13503,False,0,True,0,True,7965,False,8445,False,8411,False,8236,False,False
+0F,Battle Core + effect command pointers,15597,False,0,True,0,True,5857,False,12507,False,13061,False,5825,False,False
+10,Pokédex + move data + evolution engine + Evolutions/Attacks,15565,False,0,True,9,False,13135,False,13109,False,12942,False,13070,False,False
+11,fruit trees/battle AI/Pokédex 2/mail,15575,False,0,True,2,False,1753,False,1759,False,1740,False,1755,False,False
+12,Crystal Features 1 / mobile / Celebi / main menu,13898,False,0,True,0,True,11018,False,10983,False,10931,False,10930,False,False
+13,map palettes/collision/save/link/stats/evolution movie/etc,10027,False,0,True,0,True,7616,False,7490,False,7418,False,7785,False,False
+14,party menu/events/types/stats/base stats/Pokémon names,15060,False,0,True,0,True,13333,False,14411,False,14058,False,15328,False,False
+15,Map Scripts 1,15765,False,0,True,0,True,12430,False,13936,False,13615,False,12873,False,False
+16,Map Scripts 2,15960,False,0,True,0,True,13627,False,15074,False,13688,False,13566,False,False
+17,Map Scripts 3,15701,False,0,True,0,True,11508,False,12666,False,11876,False,11912,False,False
+18,Map Scripts 4,15941,False,0,True,0,True,12415,False,12288,False,12299,False,12236,False,False
+19,Crystal Phone Text,15784,False,0,True,0,True,12517,False,13494,False,12588,False,12503,False,False
+1A,Map Scripts 5,15916,False,0,True,0,True,14339,False,14434,False,14451,False,14365,False,False
+1B,Map Scripts 6,15921,False,0,True,0,True,13221,False,14602,False,13195,False,13217,False,False
+1C,Map Scripts 7,15989,False,0,True,0,True,13076,False,14908,False,13456,False,13396,False,False
+1D,Map Scripts 8,15794,False,0,True,0,True,12452,False,13462,False,12469,False,12480,False,False
+1E,Map Scripts 9,15890,False,0,True,0,True,12875,False,14872,False,12982,False,13002,False,False
+1F,Map Scripts 10,15890,False,0,True,0,True,13239,False,14776,False,13313,False,13165,False,False
+20,player movement/engine flags/variables/battle text,7480,False,0,True,0,True,7674,False,7840,False,7347,False,7425,False,False
+21,printer + battle animation gfx + Hall of Fame,10350,False,0,True,0,True,7666,False,7639,False,7653,False,7652,False,False
+22,Crystal Features 2 / Kurt/player gfx/mobile/Unown walls/Battle Tower rules,14193,False,0,True,0,True,12771,False,12184,False,9927,False,12527,False,False
+23,timeofday palettes/battle transition/field moves/sprite anims/icons,303,False,0,True,0,True,100,False,80,False,92,False,82,False,False
+24,phone/RTC/Pokégear/fishing/slot machine,15561,False,0,True,0,True,13570,False,13781,False,13627,False,13535,False,False
+25,Maps + Events,6703,False,0,True,0,True,5153,False,5642,False,5445,False,5328,False,False
+26,Map Scripts 11,16000,False,0,True,0,True,14481,False,14583,False,14548,False,14414,False,False
+27,Map Scripts 12,16034,False,0,True,0,True,14481,False,14708,False,14507,False,14704,False,False
+28,Phone Scripts 1,10666,False,0,True,0,True,5116,False,5525,False,5130,False,4967,False,False
+29,Phone Text,14099,False,0,True,0,True,9308,False,9586,False,8974,False,8925,False,False
+2A,Map Blocks 1,6,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+2B,Map Blocks 2,14,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+2C,Map Blocks 3,122,False,0,True,0,True,54,False,58,False,45,False,51,False,False
+2D,Tileset Data 5,7799,False,0,True,0,True,34,False,40,False,38,False,20,False,False
+2E,map-name/hidden items/trees/radio/mail,8472,False,0,True,0,True,7144,False,7337,False,7253,False,7110,False,False
+2F,Phone Scripts 2 + trainer scripts,14376,False,0,True,0,True,8889,False,9373,False,9090,False,6507,False,False
+30,Sprites 1,0,True,0,True,0,True,0,True,0,True,0,True,0,True,True
+31,Sprites 2,0,True,0,True,0,True,0,True,0,True,0,True,0,True,True
+32,battle anim bg/effects + move animations ptr/The End,13875,False,0,True,0,True,172,False,207,False,175,False,189,False,False
+33,Move Animations + Extra Songs 2,15304,False,0,True,0,True,164,False,14950,False,15450,False,15167,False,False
+34,Pic Animations 1,397,False,0,True,0,True,20,False,20,False,20,False,20,False,False
+35,Pic Animations 2,1714,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+36,Font Inversed + Pic Animations 3,7088,False,0,True,0,True,236,False,210,False,210,False,236,False,False
+37,Tileset Data 6,0,True,0,True,0,True,0,True,0,True,0,True,0,True,True
+38,Unown/card flip/puzzle/memory/Bill PC,15938,False,0,True,0,True,13275,False,12440,False,13307,False,12603,False,False
+39,Copyright + options/splash/intro,15056,False,0,True,0,True,14204,False,14170,False,6009,False,14140,False,False
+3A,Audio + Songs 1,11,False,0,True,0,True,5,False,6,False,6,False,6,False,False
+3B,Songs 2,0,True,0,True,0,True,0,True,0,True,0,True,0,True,True
+3C,Songs 3 + SFX + cries,0,True,0,True,0,True,0,True,0,True,0,True,0,True,True
+3D,Songs 4,0,True,0,True,0,True,0,True,0,True,0,True,0,True,True
+3E,font/time capsule/name rater/new dex/Unown dex/Hidden Power,12037,False,0,True,8,False,1081,False,1055,False,1052,False,1065,False,False
+3F,tileset animations/NPC trade/mom phone,10077,False,0,True,0,True,121,False,142,False,140,False,118,False,False
+40,Mobile 40,8196,False,0,True,0,True,3603,False,4125,False,4117,False,4093,False,False
+41,DMA/emotes/warp/mystery gift/used move text/mobile/font,10004,False,0,True,0,True,9006,False,9017,False,7286,False,6897,False,False
+42,Mobile 42 + Intro Logo + Credits,10315,False,0,True,0,True,2300,False,2285,False,2205,False,2357,False,False
+43,Title,4073,False,0,True,0,True,135,False,145,False,127,False,172,False,False
+44,Mobile Adapter SDK,2,False,0,True,0,True,1,False,1,False,1,False,1,False,False
+45,Mobile Adapter SDK Mail + Mobile 45,1977,False,0,True,0,True,127,False,116,False,119,False,117,False,False
+46,Mobile 46,14920,False,0,True,0,True,6421,False,6709,False,6718,False,6694,False,False
+47,Battle Tower,13610,False,0,True,1,False,233,False,302,False,323,False,232,False,False
+48,Pic pointers + Pics 1,500,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+49,Unown pic pointers + Pics 2,90,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+4A,Trainer pic pointers + Pics 3,495,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+4B,Pics 4,0,True,0,True,0,True,0,True,0,True,0,True,0,True,True
+4C,Pics 5,0,True,0,True,0,True,0,True,0,True,0,True,0,True,True
+4D,Pics 6,597,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+4E,Pics 7,1703,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+4F,Pics 8,9934,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+50,Pics 9,10129,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+51,Pics 10,16153,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+52,Pics 11,6168,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+53,Pics 12,9278,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+54,Pics 13,8201,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+55,Pics 14,11915,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+56,Pics 15,9767,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+57,Pics 16,12886,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+58,Pics 17,15985,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+59,Pics 18,10132,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+5A,Pics 19,10132,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+5B,link trade/mobile + Pics 20,765,False,0,True,0,True,442,False,441,False,447,False,444,False,False
+5C,Mobile 5C + Pics 21,13322,False,0,True,546,False,9644,False,767,False,773,False,770,False,False
+5D,Crystal Phone Text 2 + Pics 22,15501,False,0,True,0,True,13097,False,14025,False,13151,False,13105,False,False
+5E,Battle HUD/Songs 5/Crystal SFX/Mobile 5E + Pics 23,141,False,0,True,0,True,32,False,32,False,34,False,30,False,False
+5F,Mobile 5F + Pics 24,10834,False,0,True,0,True,3518,False,7447,False,9500,False,10422,False,False
+60,Map Scripts 13 + Pokédex Entries 001-064,12425,False,0,True,0,True,11778,False,12325,False,11845,False,11895,False,False
+61,Map Scripts 14,8900,False,0,True,0,True,9198,False,9940,False,8939,False,9011,False,False
+62,Map Scripts 15,13592,False,0,True,0,True,13713,False,15168,False,13779,False,13748,False,False
+63,Map Scripts 16,12713,False,0,True,0,True,13016,False,14231,False,13202,False,13017,False,False
+64,Map Scripts 17,13189,False,0,True,0,True,13122,False,14656,False,13346,False,13339,False,False
+65,Map Scripts 18,13346,False,0,True,0,True,13054,False,14950,False,13061,False,13264,False,False
+66,Map Scripts 19,14444,False,0,True,0,True,14265,False,14316,False,14323,False,14193,False,False
+67,Map Scripts 20,13255,False,0,True,0,True,13454,False,15529,False,13286,False,13485,False,False
+68,Map Scripts 21,11859,False,0,True,0,True,11654,False,13413,False,11746,False,11726,False,False
+69,Map Scripts 22,12579,False,0,True,0,True,12437,False,14402,False,12562,False,12664,False,False
+6A,Map Scripts 23,13810,False,0,True,0,True,13815,False,14112,False,13738,False,13826,False,False
+6B,Map Scripts 24,9641,False,0,True,0,True,9594,False,10470,False,9569,False,9467,False,False
+6C,Phone Text 2 + Map Scripts 25,8213,False,0,True,0,True,9242,False,10424,False,9099,False,9406,False,False
+6D,Special Phone Text,13449,False,0,True,0,True,13417,False,13759,False,13361,False,13363,False,False
+6E,Pokédex Entries 065-128,6846,False,0,True,0,True,6901,False,6615,False,6563,False,6587,False,False
+6F,Text 1,7956,False,0,True,0,True,8217,False,8794,False,8024,False,8017,False,False
+70,Text 2,7572,False,0,True,0,True,7973,False,8626,False,7561,False,7557,False,False
+71,Text 3,8196,False,0,True,0,True,8518,False,8948,False,8150,False,8158,False,False
+72,Misc text: item names/move names/landmarks,11971,False,0,True,0,True,11819,False,11121,False,11521,False,11543,False,False
+73,Pokédex Entries 129-192,6931,False,0,True,0,True,6825,False,6665,False,6689,False,6697,False,False
+74,Pokédex Entries 193-251,6408,False,0,True,0,True,6200,False,6150,False,6185,False,6179,False,False
+75,UNMAPPED,0,True,0,True,0,True,8096,False,9324,False,8025,False,7964,False,False
+76,UNMAPPED,0,True,0,True,0,True,10090,False,10949,False,10314,False,8687,False,False
+77,Unown font/Print Party/Tileset Data 7/Pokégear GFX/European Mail,11135,False,0,True,0,True,11602,False,11329,False,11104,False,11389,False,False
+78,Debug Room (conditional) + Tileset Data 8,4096,False,0,True,0,True,844,False,856,False,812,False,844,False,False
+79,UNMAPPED,0,True,0,True,0,True,2262,False,2506,False,2366,False,2340,False,False
+7A,UNMAPPED,0,True,0,True,0,True,0,True,0,True,0,True,0,True,True
+7B,Battle Tower Text,3722,False,0,True,0,True,3682,False,4391,False,3710,False,3658,False,False
+7C,Battle Tower Trainer Data,2365,False,0,True,0,True,0,True,0,True,0,True,0,True,False
+7D,Mobile News Data,8836,False,0,True,0,True,11,False,11,False,11,False,11,False,False
+7E,Crystal Events / Battle Tower load + Odd Egg,11243,False,0,True,2,False,800,False,500,False,533,False,406,False,False
+7F,Stadium 2 checksums at $7DE0-$7FFF,438,False,0,True,12,False,351,False,350,False,346,False,346,False,False
