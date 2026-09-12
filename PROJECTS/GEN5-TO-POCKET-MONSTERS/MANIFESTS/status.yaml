@@ -1,0 +1,39 @@
+schema: sakurai.project-status.v4
+project_id: GEN5-TO-POCKET-MONSTERS
+updated: 2026-09-12
+path_architecture: v4
+
+source_scope:
+  required_games: [BLACK, WHITE, BLACK2, WHITE2]
+  bound_releases: 2
+  required_releases: 4
+  bound:
+    - GEN5-BLACK-IRBO-R0
+    - GEN5-WHITE-IRAO-R0
+  unbound_required:
+    - BLACK2
+    - WHITE2
+
+target_scope:
+  bound_releases: 14
+  generations: [2, 3]
+  games: [GOLD, SILVER, CRYSTAL, RUBY, SAPPHIRE, EMERALD, FIRERED, LEAFGREEN]
+
+migration:
+  legacy_new_writes: frozen
+  release_registry: created
+  project_release_lock: created
+  black_release_manifest: created
+  white_release_manifest: created
+  black_dump_manifest: created
+  white_dump_manifest: created
+  black_white_comparison_manifest: created
+  bulk_legacy_move: pending-semantic-path-equivalence
+  policy: classify-before-move
+
+verification_requirements:
+  - preserve-git-history
+  - no-rom-binaries
+  - no-blind-directory-renames
+  - validate-file-counts-and-references-before-removing-legacy-live-copies
+  - revalidate-bw-twl-dsi-conclusions-against-clean-full-dumps
