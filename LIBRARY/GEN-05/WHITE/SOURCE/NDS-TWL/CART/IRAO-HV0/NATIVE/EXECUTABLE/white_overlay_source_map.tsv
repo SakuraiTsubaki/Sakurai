@@ -1,0 +1,108 @@
+overlay_id	source_unit_count	embedded_source_units
+1	1	event_gtsnego.c
+2	1	event_wifibattlematch.c
+6	1	event_wificlub.c
+9	3	net_devwifi.c | dwc_rap.c | dwc_rapcommon.c
+10	36	event_ircbattle.c | musical_event.c | musical_dressup_sys.c | musical_stage_sys.c | musical_program.c | delivery_beacon.c | delivery_irc.c | script_sys.c | script_work.c | map_matrix.c | map_replace.c | event_poke_status.c | scrcmd_work.c | scrcmd_proc.c | scrcmd_sodateya.c | scrcmd_musical.c | field_encount_st.c | move_pokemon.c | scrcmd_network.c | event_shortcut_menu.c | event_field_proclink.c | eventdata_system.c | calender.c | game_beacon_search.c | game_beacon_accessor.c | symbol_map.c | ;event_research_radar.c | comm_player.c | fld_btl_inst_tool.c | field_g3d_map.c | report_event.c | namein_setup.c | fldmmdl.c | event_battle.c | trcard_sys.c | waza_oshie.c
+11	1	intrude_comm.c
+12	3	union_comm.c | union_main.c | colosseum.c
+14	3	net_devwireless.c | net_whpipe.c | wih.c
+16	1	dwc_raputil.c
+18	3	intrude_field.c | intrude_subdisp.c | event_comm_common.c
+19	3	union_oneself.c | union_msg.c | union_eff.c
+20	3	event_mapchange.c | field_wfbc_data_local.c | el_scoreboard.c
+21	97	fieldmap.c | field_buildmodel.c | field_g3d_mapper.c | field_camera.c | field_camera_anime.c | field_msgbg.c | field_wfbc.c | field_comm_actor.c | ctalkmsgwin.c | ircbattlemenu.c | fldmmdl_acmd.c | fldmmdl_blact.c | fldmmdl_g3dobj.c | field_rail_loader.c | field_fog.c | field_zonefog.c | field_light.c | field_subscreen.c | field_3dbg.c | weather.c | weather_task.c | fieldmap_ctrl_grid.c | field_player.c | field_player_core.c | field_player_grid.c | field_player_nogrid.c | fieldmap_ctrl_nogrid_work.c | fieldmap_ctrl_hybrid.c | field_ground_anime.c | field_menu.c | field_encount.c | effect_encount.c | fld_scenearea.c | fld_scenearea_loader.c | field_effect.c | fldeff_shadow.c | fldeff_kemuri.c | fldeff_grass.c | fldeff_namipoke.c | fldeff_encount.c | fldeff_iwakudaki.c | fldeff_fishing.c | event_trainer_eye.c | scrcmd_screeneffects.c | scrcmd_shop.c | scrcmd_proc_fld.c | scrcmd_encount.c | scrcmd_fld_battle.c | scrcmd_c03center.c | scrcmd_pokemon_fld.c | pdw_postman.c | field_rail.c | rail_attr.c | field_nogrid_mapper.c | fldeff_gyoe.c | fieldmap_func.c | fldeff_footmark.c | fldeff_reflect.c | field_place_name.c | place_name_letter.c | entrance_camera.c | fld_exp_obj.c | height_ex.c | field_player_grid_event.c | fld_particle.c | fld3d_ci.c | sodateya.c | fldeff_ripple.c | fldeff_splash.c | sound_obj.c | shortcut_menu.c | field_g3dobj.c | fieldmap_tcb_camera_zoom.c | field_task.c | field_task_manager.c | field_flash.c | fieldskill_mapeff.c | fld_wipe_3dobj.c | pleasure_boat.c | fldeff_d06denki.c | land_data_patch.c | fldeff_iaigiri.c | bsubway_scr.c | fld_trade.c | scrcmd_palpark.c | party_select_list.c | field_bbd_color.c | comm_entry_menu.c | enceff.c | fldeff_btrain.c | fldeff_hide.c | fldeff_bubble.c | trial_house.c | field_saveanime.c | event_game_manual.c | fld_vreq.c | field_palace_sys.c
+22	1	union_app.c
+23	1	oekaki.c
+29	1	c_gear.c
+30	1	no_gear.c
+31	1	union_subdisp.c
+32	1	beacon_view.c
+33	1	dowsing.c
+34	1	report.c
+35	1	c_gear_power_onoff.c
+48	2	field_gimmick_gate.c | gimmick_obj_elboard.c
+51	1	field_gimmick_d06.c
+52	1	field_gimmick_bsubway.c
+56	1	field_fk_sound_anime.c
+59	1	sp_poke_gimmick.c
+63	1	rail_slipdown.c
+67	5	ui_scene.c | touchbar.c | msgsearch.c | yesno_menu.c | frame_list.c
+70	1	itemmenu.c
+71	1	monolith_tool.c
+72	2	townmap.c | townmap_grh.c
+82	1	fld_faceup.c
+88	2	startmenu.c | save_control_intr.c
+91	6	pokelist.c | plist_plate.c | plist_message.c | plist_menu.c | plist_battle.c | plist_demo.c
+92	1	event_battle_return.c
+93	11	btl_server.c | btl_server_flow.c | btl_client.c | btl_net.c | btl_pokeparam.c | btl_calc.c | btlv_core.c | btlv_scu.c | btl_rec.c | btl_adapter.c | btl_field.c
+94	13	btlv_stage.c | btlv_field.c | btlv_camera.c | btlv_effect.c | btlv_effvm.c | btlv_mcss.c | btlv_clact.c | btlv_input.c | btlv_gauge.c | btlv_b_gauge.c | btlv_timer.c | btlv_bg.c | btlv_finger_cursor.c
+95	1	btlv_scd.c
+96	1	tr_ai.c
+97	1	vs_multi_list.c
+98	3	pdc.c | pdc_main.c | pdc_msg.c
+100	1	ircbattlematch.c
+101	3	compatible_irc_sys.c | irc_compatible.c | irc_appbar.c
+106	1	irc_ranking.c
+107	4	mb_parent_sys.c | mbp.c | mb_comm_sys.c | mb_util_msg.c
+110	9	pms_input_data.c | pms_input_view.c | pmsi_search.c | pmsiv_category.c | pmsiv_edit.c | pmsiv_menu.c | pms_input.c | pmsiv_wordwin.c | pms_select_graphic.c
+112	12	musical_shot_sys.c | mus_shot_photo.c | mus_shot_info.c | mus_item_draw.c | mus_item_data.c | mus_poke_draw.c | musical_mcss.c | musical_system.c | sta_act_obj.c | sta_act_light.c | sta_act_bg.c | sta_act_poke.c
+114	3	nhttp_rap.c | nhttp_rap_evilcheck.c | ghttpEncryption.c
+115	2	wifilogin_disp.c | wifilogin_message.c
+116	1	wifi_bsubway_graphic.c
+117	2	pokemontrade_demo_common.c | pokemontrade_ircdemo.c
+118	4	pokemontrade_demo_common.c | pokemontrade_demo_up.c | pokemontrade_demo_down.c | pokemontrade_demo_middle.c
+119	6	pokemontrade_proc.c | pokemontrade_nego.c | pokemontrade_mcss.c | pokemontrade_save.c | pokemontrade_3d.c | pokemontrade_2d.c
+120	2	gtsnego_disp.c | gtsnego_message.c
+121	5	mystery.c | mystery_graphic.c | mystery_util.c | mystery_album.c | mystery_net.c
+123	7	gsync_menu.c | gsync_message.c | gsync_download.c | gsync_disp.c | gsync_state.c | pdwacc_message.c | pdwacc_disp.c
+124	1	cg_help.c
+125	1	gds_rap.c
+127	6	wifi_2dchar.c | wf2dmap_map.c | wf2dmap_obj.c | wf2dmap_objdraw.c | wf2dmap_scrdraw.c | wf2dmap_cmdq.c
+131	6	p_status.c | p_sta_sub.c | p_sta_info.c | p_sta_ribbon.c | p_sta_skill.c | p_sta_oam.c
+132	8	hh.h | sta_acting.c | sta_act_effect.c | sta_act_audience.c | sta_act_button.c | sta_act_script.c | script_command.c | mus_comm_func.c
+133	2	dup_fitting.c | dup_fitting_item.c
+134	1	hi.h
+135	10	worldtrade.c | worldtrade_box.c | worldtrade_demo.c | worldtrade_deposit.c | worldtrade_enter.c | worldtrade_input.c | worldtrade_search.c | worldtrade_status.c | worldtrade_sublcd.c | worldtrade_adapter.c
+136	4	mailtool.c | mailsys.c | mailview.c | mb_seq.c
+137	3	guru2.c | guru2_comm.c | guru2_main.c
+168	1	mictest.c
+170	3	box2_main.c | box2_seq.c | box2_ui.c
+172	9	camera_system.c | draw_system.c | ctvt_camera.c | ctvt_comm.c | ctvt_talk.c | ctvt_mic.c | ctvt_draw.c | ctvt_call.c | comm_tvt_sys.c
+174	2	local_tvt_sys.c | local_tvt_chara.c
+175	1	wifibattlematch_net.c
+176	4	battle_championship_flow.c | livebattlematch_flow.c | digitalcardcheck.c | livebattlematch_irc.c
+177	3	wifibattlematch_graphic.c | wifibattlematch_view.c | wifibattlematch_util.c
+179	1	cdemo_main.c
+182	1	the_end_graphic.c
+183	1	br_codein.c
+186	10	br_proc_sys.c | br_btn.c | br_btn_data.c | br_res.c | br_graphic.c | br_util.c | br_fade.c | br_sidebar.c | br_net.c | br_pokesearch.c
+187	1	br_main.c
+188	1	battle_rec_tool.c
+194	4	namein_graphic.c | namein_data.c | nsbtx_to_clwk.c | prof_word.c
+195	4	shinka_demo.c | shinka_demo_graphic.c | shinka_demo_view.c | shinka_demo_effect.c
+196	1	b_app_tool.c
+197	1	b_bag_main.c
+198	2	b_plist_anm.c | b_plist_main.c
+199	1	wifibattlematch_sys.c
+203	6	demo3d.c | demo3d_graphic.c | demo3d_engine.c | demo3d_data.c | demo3d_cmdsys.c | demo3d_exp_c_cruiser.c
+204	6	intro_graphic.c | intro_cmd.c | intro_msg.c | intro_mcss.c | intro_g3d.c | intro_particle.c
+206	1	zukan_info.c
+207	2	zukan_toroku_graphic.c | zukan_nickname.c
+208	9	zukan_detail_procsys.c | zukan_detail_common.c | zukan_detail.c | zukan_detail_graphic.c | zknd_tbar.c | zukan_detail_touchbar.c | zukan_detail_headbar.c | zukan_detail_voice.c | zukan_detail_form.c
+210	1	zknsearch_main.c
+212	2	zukan.c | zukan_search_engine.c
+213	1	comm_btl_demo_graphic.c
+214	2	btl_rec_sel.c | btl_rec_sel_graphic.c
+215	2	egg_demo_graphic.c | egg_demo_view.c
+216	1	beacon_detail_gra.c
+217	11	research_top.c | research_list.c | research_graph.c | research_common.c | research_list_recovery.c | queue.c | bg_font.c | circle_graph.c | arrow.c | percentage.c | palette_anime.c
+218	2	un_select.c | un_select_graphic.c
+220	1	th_award_graphic.c
+221	2	chihou_zukan_award.c | chihou_zukan_award_graphic.c
+222	2	zenkoku_zukan_award.c | zenkoku_zukan_award_graphic.c
+223	2	psel.c | psel_graphic.c
+224	1	subway_map_graphic.c
+225	9	manual_graphic.c | manual_data.c | manual_common.c | manual_touchbar.c | manual_list.c | manual_top.c | manual_category.c | manual_title.c | manual_explain.c
+227	1	event_pdc_return.c
+228	1	save_outside.c
