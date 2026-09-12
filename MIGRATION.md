@@ -1,48 +1,79 @@
-# Repository Migration — v2
+# Repository Migration — v3
 
 ## Status
 
-v2 path migration is active.
+v3 is the canonical path model.
 
-The previous canonical model `GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE` is now legacy because it cannot distinguish official source releases, derived target builds, cross-release research, and game-wide shared material without ambiguous `MULTI/REV-ALL` buckets.
+The old five-level tree and the intermediate v2 `SOURCE/<release>/<rev>` model are migration sources only. New work must use v3.
 
-## New root
+## Canonical ownership
 
-Roman generation folders migrate to zero-padded numeric folders:
+```text
+GAMES/GEN-XX/<GAME-ID>/RELEASES/<RELEASE-ID>/<WORK-TYPE>/...
+GAMES/GEN-XX/<GAME-ID>/COMPARISONS/<COMPARISON-ID>/<WORK-TYPE>/...
+GAMES/GEN-XX/<GAME-ID>/PROJECTS/<PROJECT-ID>/COMMON/<WORK-TYPE>/...
+GAMES/GEN-XX/<GAME-ID>/PROJECTS/<PROJECT-ID>/TARGETS/<TARGET-ID>/<WORK-TYPE>/...
+GAMES/GEN-XX/<GAME-ID>/SHARED/<WORK-TYPE>/...
+```
 
-- `GENERATION-I` → `GEN-01`
-- `GENERATION-II` → `GEN-02`
-- ...
-- `GENERATION-IX` → `GEN-09`
-- future generations use `GEN-10`, `GEN-11`, etc.
+The source release is the immutable identity unit. Locale, language, platform, revision/update version, hashes, and provenance are release metadata rather than mandatory independent path levels.
 
-## New ownership routing
+## Pokémon Green source-ROM mapping
 
-Each game moves into one of four branches:
+Verified uploaded sources:
 
-- `SOURCE/<RELEASE-ID>/<REV>/<WORK-TYPE>` — official source builds only
-- `TARGET/<TARGET-ID>/<BASE-ID>/<WORK-TYPE>` — derived/localized/modernized targets
-- `COMPARE/<SCOPE>/<WORK-TYPE>` — inherently multi-source or multi-revision work
-- `SHARED/<SCOPE>/<WORK-TYPE>` — release-independent game-wide material
+```text
+Pocket Monsters - Midori (Japan) (SGB Enhanced).gb
+  -> GAMES/GEN-01/GREEN/RELEASES/GB-JP-JA-REV-0/
 
-## Pokémon Red first migration target
+Pocket Monsters - Midori (Japan) (Rev A) (SGB Enhanced).gb
+  -> GAMES/GEN-01/GREEN/RELEASES/GB-JP-JA-REV-A/
+```
 
-The uploaded/source-audited Red ROM set resolves to seven unique source identities:
+The two exact ROM identities are recorded in `MANIFESTS/release.json`. Raw ROM binaries remain outside GitHub.
 
-1. `SOURCE/JP-JA/REV-0`
-2. `SOURCE/JP-JA/REV-A`
-3. `SOURCE/US-EU-EN/REV-0`
-4. `SOURCE/EU-DE/REV-0`
-5. `SOURCE/EU-FR/REV-0`
-6. `SOURCE/EU-IT/REV-0`
-7. `SOURCE/EU-ES/REV-0`
+## Direct path mapping examples
 
-The second English file is byte-identical to the first and is provenance only, not an eighth source path.
+```text
+OLD
+GENERATION-I/GREEN/JP-JA/REV-0/ANALYSIS/ROM-INVENTORY/...
 
-Current `GENERATION-I/RED/MULTI/REV-ALL/ANALYSIS/ROM-AUDIT` maps to `GEN-01/RED/COMPARE/ALL-SOURCES/ANALYSIS/ROM-AUDIT`.
+V3
+GAMES/GEN-01/GREEN/RELEASES/GB-JP-JA-REV-0/ANALYSIS/ROM-INVENTORY/...
+```
 
-Current cross-ROM disassembly pipeline material maps to the appropriate `COMPARE/ALL-SOURCES/DISASSEMBLY`, `COMPARE/ALL-SOURCES/TOOLS`, `COMPARE/ALL-SOURCES/REPORTS`, or `COMPARE/ALL-SOURCES/MANIFESTS` owner instead of keeping nested work-type replicas.
+```text
+OLD
+GENERATION-I/GREEN/JP-JA/REV-A/ANALYSIS/ROM-INVENTORY/...
 
-## Migration behavior
+V3
+GAMES/GEN-01/GREEN/RELEASES/GB-JP-JA-REV-A/ANALYSIS/ROM-INVENTORY/...
+```
 
-Legacy `GENERATION-*` roots are temporarily tolerated by the validator and reported as migration warnings. New work must use v2 paths. Migration must move content rather than keep duplicate live copies. Git history remains the archive for old paths.
+Cross-revision material must not use `REV-ALL`:
+
+```text
+GAMES/GEN-01/GREEN/COMPARISONS/GB-JP-JA-REV-0--GB-JP-JA-REV-A/<WORK-TYPE>/...
+```
+
+Derived modernization work is project-owned:
+
+```text
+GAMES/GEN-01/GREEN/PROJECTS/MODERNIZATION/COMMON/<WORK-TYPE>/...
+GAMES/GEN-01/GREEN/PROJECTS/MODERNIZATION/TARGETS/<TARGET-ID>/<WORK-TYPE>/...
+```
+
+## Migration order
+
+1. Register exact source releases and manifests.
+2. Move release-specific research/assets under `RELEASES`.
+3. Move multi-release diffs and audits under `COMPARISONS`.
+4. Move derived modernization/localization/build work under `PROJECTS`.
+5. Move genuinely release-independent material under `SHARED`.
+6. Remove empty legacy trees after their files have moved and verification passes.
+
+Never create a duplicate live copy merely to preserve a legacy path. Git history preserves the previous location.
+
+## Repository pair
+
+Apply the same canonical IDs in `Sakurai` and `Tsubaki`. A release or project must not acquire a different identity simply because the repository contains a different artifact class.
