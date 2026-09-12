@@ -2,20 +2,20 @@
 
 Pokémon research, reverse-engineering, census, comparison, integration-design, and verification repository.
 
-## Canonical path model: v4
+## Canonical path model: v5
 
-Active work is divided by responsibility rather than by one universal game/locale/revision chain:
+New source research uses:
 
-- `LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/RELEASES/<RELEASE-ID>/...` — facts owned by one exact official software build
-- `.../DUMPS/<DUMP-ID>/...` — observations tied to one exact supplied/observed ROM or executable image
-- `LIBRARY/.../COMPARISONS/<COMPARISON-ID>/...` — relationships among official releases
-- `PROJECTS/<PROJECT-ID>/...` — modernization, ports, integrations, cross-generation work, and target-specific implementation specifications
-- `INFRA/...` — release registries, schemas, validators, migration maps, and repository-wide tooling
+`LIBRARY/GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/...`
 
-**RELEASE and DUMP are different identities.** A bad, incomplete, modified, or duplicate dump never becomes a fake official release.
+Exact supplied/observed images remain below `DUMPS/<DUMP-ID>/`; same-game comparisons use `<GAME-ID>/COMPARE/`; cross-game generation comparisons use `GEN-XX/COMPARE/`; derived modernization/port/integration work belongs under `PROJECTS/<PROJECT-ID>/`; repository-wide schemas and tooling belong under `INFRA/`.
 
-Legacy `GAMES/`, `GENERATION-*`, standalone `GEN-*`, `META/`, `MULTI`, and `REV-ALL` paths are migration sources only. New work must use v4.
+Release identity is technical first. Market/language are manifest metadata when a stronger native or release-specific technical key exists. For the supplied Silver ROMs, observed stable header tokens produce `AAXJ-HV0`, `AAXJ-HV1`, `AAXE-HV0`, `AAXD-HV0`, `AAXF-HV0`, `AAXI-HV0`, `AAXS-HV0`, and `AAXK-HV0`.
 
-Sakurai and Tsubaki share the same release IDs, project IDs, and target IDs. See `STRUCTURE.md` and `MIGRATION.md` before routing new material.
+**RELEASE and DUMP are different identities.** A modified, incomplete, bad, duplicate, or merely user-supplied image never becomes a fake official release.
+
+Legacy `GAMES/`, `GENERATION-*`, standalone `GEN-*`, and old v4 platform-first `LIBRARY/GEN-XX/<PLATFORM>/...` trees are migration inputs only. Git history is the archive; new live work uses v5.
+
+Sakurai is authoritative for identity, ROM/native structure research, semantic domain analysis, comparisons, design evidence, and verification. Tsubaki uses the same IDs for production assets and implementation outputs.
 
 Original ROM/executable binaries are never stored in this repository.

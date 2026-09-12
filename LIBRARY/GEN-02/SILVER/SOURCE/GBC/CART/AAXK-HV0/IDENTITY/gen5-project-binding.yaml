@@ -1,0 +1,11 @@
+project_id: GEN5-TO-POCKET-MONSTERS
+role: target
+generation: GEN-02
+game_id: SILVER
+platform_id: GBC
+package_kind: CART
+release_id: AAXK-HV0
+legacy_v4_release_id: KR-KO-HV0
+header_technical_token: AAXK
+header_version: 0
+sha1: cb22d7e03a74dc3a563fde6be8626626b2b392e7
