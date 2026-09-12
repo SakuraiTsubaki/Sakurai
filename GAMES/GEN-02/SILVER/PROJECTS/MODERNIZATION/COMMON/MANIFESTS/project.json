@@ -1,0 +1,26 @@
+{
+  "schema": "sakurai.project.v1",
+  "game": "SILVER",
+  "project_id": "MODERNIZATION",
+  "purpose": "Modernize Silver while preserving each official source release as an immutable reference identity.",
+  "source_release_ids": [
+    "GBC-JP-JA-AAXJ-REV-0",
+    "GBC-JP-JA-AAXJ-REV-A",
+    "GBC-US-EU-EN-AAXE-REV-0",
+    "GBC-EU-DE-AAXD-REV-0",
+    "GBC-EU-FR-AAXF-REV-0",
+    "GBC-EU-IT-AAXI-REV-0",
+    "GBC-EU-ES-AAXS-REV-0",
+    "GBC-KR-KO-AAXK-REV-0"
+  ],
+  "target_ids": [
+    "JP-JA-MODERN",
+    "US-EU-EN-MODERN",
+    "EU-DE-MODERN",
+    "EU-FR-MODERN",
+    "EU-IT-MODERN",
+    "EU-ES-MODERN",
+    "KR-KO-MODERN"
+  ],
+  "routing_rule": "Release-specific facts stay under RELEASES; cross-release facts stay under COMPARISONS; modernization rules shared by every output stay under PROJECTS/MODERNIZATION/COMMON; output-specific work stays under PROJECTS/MODERNIZATION/TARGETS/<TARGET-ID>."
+}
