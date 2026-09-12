@@ -1,0 +1,8 @@
+project_id: GEN5-TO-POCKET-MONSTERS
+role: target
+release_id: BPRJ-R1
+platform: GBA
+game_code: BPRJ
+header_version: 1
+size_bytes: 16777216
+sha1: 7c7107b87c3ccf6e3dbceb9cf80ceeffb25a1857

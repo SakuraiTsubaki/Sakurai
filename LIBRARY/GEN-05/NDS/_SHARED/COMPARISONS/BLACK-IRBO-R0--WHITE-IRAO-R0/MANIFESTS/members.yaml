@@ -1,0 +1,6 @@
+comparison_id: BLACK-IRBO-R0--WHITE-IRAO-R0
+members:
+  - LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0
+  - LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0
+scope: source-release-comparison
+project_consumers: [GEN5-TO-POCKET-MONSTERS]

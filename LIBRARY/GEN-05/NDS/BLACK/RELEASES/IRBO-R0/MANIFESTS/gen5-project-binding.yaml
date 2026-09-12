@@ -1,0 +1,8 @@
+project_id: GEN5-TO-POCKET-MONSTERS
+role: source
+release_id: IRBO-R0
+game_code: IRBO
+header_version: 0
+observed_dump: DUMPS/SWEETNDS-a68b3bed
+sha1: a68b3bedf5c1e53556e41e59cdf396c20b331896
+status: supplied-dump-revalidation-required

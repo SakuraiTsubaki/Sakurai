@@ -1,0 +1,8 @@
+project_id: GEN5-TO-POCKET-MONSTERS
+role: target
+release_id: BPRE-R1
+platform: GBA
+game_code: BPRE
+header_version: 1
+size_bytes: 16777216
+sha1: c4d0119d9bcb36687f41a8f7ca72ab7af60558e4

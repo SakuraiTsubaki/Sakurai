@@ -1,0 +1,17 @@
+class,area,issue_or_risk,games,evidence,test_or_fix
+Known-original,Battle,Acid Rain / residual field-effect corruption,Pt/HGSS,known,regression test + code fix
+Known-original,Battle,Fire Fang bypasses Wonder Guard,DP/Pt/HGSS,known,unit test move-effect dispatch
+Known-original,Battle AI,Post-KO switch-in AI scoring overflow,Pt,known,bounds/overflow test
+Known-original,Battle,Rage volatile-status clearing behavior,DP/Pt/HGSS,known,state-machine test
+Known-original,Forms,Form stats not consistently recalculated,Pt/HGSS,known,PC/item/form transition tests
+Known-original,Encounter,Sticky Hold/Suction Cups fishing handling,DPPt,known,encounter modifier tests
+Known-original,Save/PC,PC/save corruption/cloning edge cases,Gen IV,known/community,transactional save tests
+Known-original,Overworld,Tweaking/map-load boundary issues,DPPt,known,map streaming stress tests
+Expansion-risk,IDs,Species truncation from 10-bit trainer packing,Pt/HGSS,confirmed source structure,u16 migration + max-ID tests
+Expansion-risk,IDs,Ability truncation from u8 battle field,DP/Pt/HGSS,confirmed source structure,u16 migration + round-trip tests
+Expansion-risk,Forms,5-bit battle form overflow,HGSS source structure,confirmed source structure,widen + all-form serialization tests
+Expansion-risk,RAM,Loading expanded tables as monolithic arrays,all,design risk,streamed NARC/index cache
+Expansion-risk,Save,New fields break PK4/checksum/encryption compatibility,all,design risk,versioned SaveV2 + migration tests
+Expansion-risk,Scripts,Hard-coded species/move/item bounds in ARM9/overlays,all,design risk,static literal scan + symbol-level audit
+Expansion-risk,UI,3/4-digit IDs/names overflow windows,all,design risk,automated screenshot/layout tests
+Modern-mechanics,Battle,Mega/Z/Dynamax/Tera/terrain/weather ordering conflicts,all,future feature risk,event-priority engine + conformance suite

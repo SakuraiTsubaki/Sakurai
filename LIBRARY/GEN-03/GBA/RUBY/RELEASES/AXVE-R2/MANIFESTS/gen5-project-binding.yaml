@@ -1,0 +1,8 @@
+project_id: GEN5-TO-POCKET-MONSTERS
+role: target
+release_id: AXVE-R2
+platform: GBA
+game_code: AXVE
+header_version: 2
+size_bytes: 16777216
+sha1: 5b64eacf892920518db4ec664e62a086dd5f5bc8

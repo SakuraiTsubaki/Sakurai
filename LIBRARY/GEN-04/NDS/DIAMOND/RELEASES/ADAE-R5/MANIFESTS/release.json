@@ -1,0 +1,14 @@
+{
+  "schema_version": 4,
+  "release_id": "ADAE-R5",
+  "generation": 4,
+  "platform": "NDS",
+  "game": "DIAMOND",
+  "official_title": "Pokémon Diamond",
+  "game_code": "ADAE",
+  "market": "US",
+  "language": "EN",
+  "header_version": 5,
+  "source_binary_committed": false,
+  "identity_rule": "One official NDS build identity; exact observed user file is recorded separately under DUMPS."
+}

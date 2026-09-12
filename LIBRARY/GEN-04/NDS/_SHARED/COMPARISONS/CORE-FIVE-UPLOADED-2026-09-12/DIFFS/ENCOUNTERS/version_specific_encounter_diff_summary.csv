@@ -1,0 +1,5 @@
+comparison,rom_game,archive_a,archive_b,common_rows,changed_rows,changed_banks,species_field_changes,level_min_changes,level_max_changes,rate_changes
+Diamond-vs-Pearl encounter archives (stored in Diamond ROM),diamond,encounters_diamond,encounters_pearl,11529,127,24,127,0,0,0
+Diamond-vs-Pearl encounter archives (stored in Pearl ROM),pearl,encounters_diamond,encounters_pearl,11529,127,24,127,0,0,0
+HeartGold-vs-SoulSilver encounter archives (stored in HG ROM),heartgold,encounters_heartgold,encounters_soulsilver,9372,642,53,624,52,52,0
+HeartGold-vs-SoulSilver encounter archives (stored in SS ROM),soulsilver,encounters_heartgold,encounters_soulsilver,9372,642,53,624,52,52,0

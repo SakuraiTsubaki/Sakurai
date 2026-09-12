@@ -1,0 +1,15 @@
+{
+  "schema_version": 4,
+  "comparison_id": "CORE-FIVE-UPLOADED-2026-09-12",
+  "generation": 4,
+  "platform": "NDS",
+  "scope": "Cross-game baseline census of the five uploaded Generation IV retail images.",
+  "members": [
+    {"game":"DIAMOND","release_id":"ADAE-R5","dump_id":"USER-UPLOAD-a46233d8"},
+    {"game":"PEARL","release_id":"APAE-R5","dump_id":"USER-UPLOAD-99083bf1"},
+    {"game":"PLATINUM","release_id":"CPUK-R0","dump_id":"USER-UPLOAD-f811d9c7"},
+    {"game":"HEARTGOLD","release_id":"IPKK-R0","dump_id":"USER-UPLOAD-5834fb3a"},
+    {"game":"SOULSILVER","release_id":"IPGK-R0","dump_id":"USER-UPLOAD-0330e644"}
+  ],
+  "rom_binaries_committed": false
+}

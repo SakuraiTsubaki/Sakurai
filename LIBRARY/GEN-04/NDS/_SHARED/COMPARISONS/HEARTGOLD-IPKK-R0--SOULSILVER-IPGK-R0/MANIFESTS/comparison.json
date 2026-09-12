@@ -1,0 +1,11 @@
+{
+  "schema_version": 4,
+  "comparison_id": "HEARTGOLD-IPKK-R0--SOULSILVER-IPGK-R0",
+  "generation": 4,
+  "platform": "NDS",
+  "members": [
+    {"game":"HEARTGOLD","release_id":"IPKK-R0","dump_id":"USER-UPLOAD-5834fb3a"},
+    {"game":"SOULSILVER","release_id":"IPGK-R0","dump_id":"USER-UPLOAD-0330e644"}
+  ],
+  "scope": "HeartGold/SoulSilver Korean header-version 0 exact semantic and filesystem differences."
+}

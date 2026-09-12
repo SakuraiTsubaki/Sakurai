@@ -1,0 +1,20 @@
+{
+  "schema": "rby-english-relocalization-source-set-v4",
+  "project_id": "RBY-ENGLISH-RELOCALIZATION",
+  "source_count": 12,
+  "sources": [
+    {"game_id":"RED","library_release":"LIBRARY/GEN-01/GB/RED/RELEASES/JP-JA-HV0","release_id":"JP-JA-HV0","dump_id":"USER-UPLOAD-0623ad12","roles":["TRANSLATION-ORIGINAL","BUILD-BASE"],"sha256":"392ce450d708c8d127aaed7afc20001a48625bd83a5fa5325be82f5c0972ccfa","preservation_revision_label":"0"},
+    {"game_id":"RED","library_release":"LIBRARY/GEN-01/GB/RED/RELEASES/JP-JA-HV1","release_id":"JP-JA-HV1","dump_id":"USER-UPLOAD-ef74c79c","roles":["TRANSLATION-ORIGINAL","BUILD-BASE"],"sha256":"751abb1fb2b2d6b91dc631fa10ed36bd07f682cb5c3febe6c8f0e3dabc1fae1c","preservation_revision_label":"A"},
+    {"game_id":"GREEN","library_release":"LIBRARY/GEN-01/GB/GREEN/RELEASES/JP-JA-HV0","release_id":"JP-JA-HV0","dump_id":"USER-UPLOAD-82c0eef4","roles":["TRANSLATION-ORIGINAL","BUILD-BASE"],"sha256":"6576b4e0979e93d4a6fa02db893c294b7aeab3b841b1acc8658bc10b3554f33c","preservation_revision_label":"0"},
+    {"game_id":"GREEN","library_release":"LIBRARY/GEN-01/GB/GREEN/RELEASES/JP-JA-HV1","release_id":"JP-JA-HV1","dump_id":"USER-UPLOAD-4b97cd44","roles":["TRANSLATION-ORIGINAL","BUILD-BASE"],"sha256":"3f0dc460ca8d06be1c9ac96307c939c0ea7baa366b40c2f1f4ad63242b6c4816","preservation_revision_label":"A"},
+    {"game_id":"BLUE","library_release":"LIBRARY/GEN-01/GB/BLUE/RELEASES/JP-JA-HV0","release_id":"JP-JA-HV0","dump_id":"USER-UPLOAD-0da501e3","roles":["TRANSLATION-ORIGINAL","BUILD-BASE"],"sha256":"71a70e5f77c109177d21c998310ffe01a68e8cd2f41e72e7129093b890c7d3d1","preservation_revision_label":"0"},
+    {"game_id":"YELLOW","library_release":"LIBRARY/GEN-01/GB/YELLOW/RELEASES/JP-JA-HV0","release_id":"JP-JA-HV0","dump_id":"USER-UPLOAD-1fb6c264","roles":["TRANSLATION-ORIGINAL","BUILD-BASE"],"sha256":"09a083624c4f84ccae99165d4091e7c5403aaf9ae44329a9349b4d59b4095436","preservation_revision_label":"0A"},
+    {"game_id":"YELLOW","library_release":"LIBRARY/GEN-01/GB/YELLOW/RELEASES/JP-JA-HV1","release_id":"JP-JA-HV1","dump_id":"USER-UPLOAD-28e4b853","roles":["TRANSLATION-ORIGINAL","BUILD-BASE"],"sha256":"1acab20d1aa3e19c081abaac3e303c4cf3e582213937acbf25942b31c28aecfe","preservation_revision_label":"B"},
+    {"game_id":"YELLOW","library_release":"LIBRARY/GEN-01/GB/YELLOW/RELEASES/JP-JA-HV2","release_id":"JP-JA-HV2","dump_id":"USER-UPLOAD-91864ecd","roles":["TRANSLATION-ORIGINAL","BUILD-BASE"],"sha256":"2c67561f6b2de4ca3a1150f04dc736aead4bf7b5a98ce38196cef899a91be2fd","preservation_revision_label":"C"},
+    {"game_id":"YELLOW","library_release":"LIBRARY/GEN-01/GB/YELLOW/RELEASES/JP-JA-HV3","release_id":"JP-JA-HV3","dump_id":"USER-UPLOAD-a40298a8","roles":["TRANSLATION-ORIGINAL","BUILD-BASE"],"sha256":"1349408f328f633b33e059e654edabd19810530df9c883eda03a85d5bb10161a","preservation_revision_label":"D"},
+    {"game_id":"RED","library_release":"LIBRARY/GEN-01/GB/RED/RELEASES/US-EU-EN-HV0","release_id":"US-EU-EN-HV0","dump_id":"USER-UPLOAD-ea9bcae6","roles":["IMPLEMENTATION-REFERENCE"],"sha256":"5ca7ba01642a3b27b0cc0b5349b52792795b62d3ed977e98a09390659af96b7b","preservation_revision_label":"0"},
+    {"game_id":"BLUE","library_release":"LIBRARY/GEN-01/GB/BLUE/RELEASES/US-EU-EN-HV0","release_id":"US-EU-EN-HV0","dump_id":"USER-UPLOAD-d7037c83","roles":["IMPLEMENTATION-REFERENCE"],"sha256":"2a951313c2640e8c2cb21f25d1db019ae6245d9c7121f754fa61afd7bee6452d","preservation_revision_label":"0"},
+    {"game_id":"YELLOW","library_release":"LIBRARY/GEN-01/GB/YELLOW/RELEASES/US-EU-EN-HV0","release_id":"US-EU-EN-HV0","dump_id":"USER-UPLOAD-cc7d0326","roles":["IMPLEMENTATION-REFERENCE"],"sha256":"8cbaa499397e4f1a679c992ea9382a2dd7942ab398b48c19829c2d9529de47bf","preservation_revision_label":"0"}
+  ],
+  "rules": {"translation_origin":"Japanese Pocket Monsters ROM text only","implementation_reference":"Official English R/B/Y ROMs","green_independent_target":true,"rom_binaries_in_git":false}
+}

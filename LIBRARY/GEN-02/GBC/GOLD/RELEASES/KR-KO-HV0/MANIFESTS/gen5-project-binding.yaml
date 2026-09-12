@@ -1,0 +1,8 @@
+project_id: GEN5-TO-POCKET-MONSTERS
+role: target
+release_id: KR-KO-HV0
+platform: GBC
+header_title: POKEMON_GLDAAUK
+header_version: 0
+size_bytes: 2097152
+sha1: c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65

@@ -1,0 +1,14 @@
+{
+  "schema_version": 4,
+  "release_id": "IPKK-R0",
+  "generation": 4,
+  "platform": "NDS",
+  "game": "HEARTGOLD",
+  "official_title": "포켓몬스터 하트골드",
+  "game_code": "IPKK",
+  "market": "KR",
+  "language": "KO",
+  "header_version": 0,
+  "source_binary_committed": false,
+  "identity_rule": "One official NDS build identity; exact observed user file is recorded separately under DUMPS."
+}

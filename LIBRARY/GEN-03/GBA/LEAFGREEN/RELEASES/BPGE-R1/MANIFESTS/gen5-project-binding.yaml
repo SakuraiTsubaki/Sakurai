@@ -1,0 +1,8 @@
+project_id: GEN5-TO-POCKET-MONSTERS
+role: target
+release_id: BPGE-R1
+platform: GBA
+game_code: BPGE
+header_version: 1
+size_bytes: 16777216
+sha1: 7862c67bdecbe21d1d69ce082ce34327e1c6ed5e

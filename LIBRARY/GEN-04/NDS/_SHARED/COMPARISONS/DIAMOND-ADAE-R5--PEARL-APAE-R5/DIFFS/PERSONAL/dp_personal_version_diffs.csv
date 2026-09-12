@@ -1,0 +1,7 @@
+species_id,species,record_size,different_byte_offsets,diamond_item1_id,diamond_item1,diamond_item2_id,diamond_item2,pearl_item1_id,pearl_item1,pearl_item2_id,pearl_item2,normal_item1_rate,normal_item2_rate,compoundeyes_item1_rate,compoundeyes_item2_rate,status
+125,Electabuzz,44,0x0C 0x0D 0x0E 0x0F,322,Electirizer,0,None,0,None,322,Electirizer,50%,5%,60%,20%,confirmed-ROM-byte-difference
+126,Magmar,44,0x0C 0x0D 0x0E 0x0F,0,None,323,Magmarizer,323,Magmarizer,0,None,50%,5%,60%,20%,confirmed-ROM-byte-difference
+239,Elekid,44,0x0C 0x0D 0x0E 0x0F,322,Electirizer,0,None,0,None,322,Electirizer,50%,5%,60%,20%,confirmed-ROM-byte-difference
+240,Magby,44,0x0C 0x0D 0x0E 0x0F,0,None,323,Magmarizer,323,Magmarizer,0,None,50%,5%,60%,20%,confirmed-ROM-byte-difference
+466,Electivire,44,0x0C 0x0D 0x0E 0x0F,322,Electirizer,0,None,0,None,322,Electirizer,50%,5%,60%,20%,confirmed-ROM-byte-difference
+467,Magmortar,44,0x0C 0x0D 0x0E 0x0F,0,None,323,Magmarizer,323,Magmarizer,0,None,50%,5%,60%,20%,confirmed-ROM-byte-difference
