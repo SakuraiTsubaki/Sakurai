@@ -1,0 +1,95 @@
+{
+  "phase": "PHASE2D2B_RC2",
+  "status": "static-verified-no-emulator-boot",
+  "fixes": {
+    "same_picture_reload": "resolver accepts both signature+form and species+form scratch states",
+    "setter_refresh": "MON_DATA_GEN4_FORM 0x7F setter immediately refreshes signature+form scratch"
+  },
+  "form_field": "0x7F",
+  "form_bits": 5,
+  "runtime_sources": {
+    "0": "DP",
+    "1": "Platinum",
+    "2": "HGSS"
+  },
+  "form_lookup": {
+    "nonzero_records_total": 105,
+    "by_source": {
+      "DP": 30,
+      "Platinum": 37,
+      "HGSS": 38
+    },
+    "graphics_paths": 210,
+    "palette_paths": 210
+  },
+  "context_simulation": {
+    "species": 548,
+    "forms": 31,
+    "pids": 7,
+    "cases": 237832,
+    "errors": 0
+  },
+  "targets": [
+    {
+      "target": "RUBY_JP_REV0",
+      "source_sha256": "e911caa1ffbf8704cd45bbe064ade40e24efa50dfdce82adf4b2899b5f733852",
+      "candidate_sha256": "2853287162cf6184a00f68afec358bf8c5b88a7dd0fc5961731dda7e80e98256",
+      "rc2_sha256": "40a43aa5849fb586595f4fcc7e188f2b7259128e7da3c238a41c8547c6c1d965",
+      "patch_sha256": "f4fd0e387cd3db291a1cf3dd3254a82f7bb3cbb6fc7c21219ddadc66b87cdbc8",
+      "patch_bytes": 4603872,
+      "resolver_code_offset": "0xc63000",
+      "rc2_extension_offset": "0xc63500",
+      "rc2_metadata_offset": "0xc63700",
+      "patch_reapply_exact": true
+    },
+    {
+      "target": "SAPPHIRE_JP_REV0",
+      "source_sha256": "6a5ff7656531ab41d1ea9cd8f2d045ab6228405b43f3ee09ea3ff5077c0f60c9",
+      "candidate_sha256": "7f0f4b6cacbddf7c82a6f5b8deb3c5aa5d61f155ffc21f9768e3f475b6faec40",
+      "rc2_sha256": "671a07debc97f4ebd83d301f10bf1b3299994e5051fc320f1def3d13931c488a",
+      "patch_sha256": "391cbb8e2a785afc499ad9fa2d45227c5efb406533722bb94e4009089e8b0c13",
+      "patch_bytes": 4603872,
+      "resolver_code_offset": "0xc63000",
+      "rc2_extension_offset": "0xc63500",
+      "rc2_metadata_offset": "0xc63700",
+      "patch_reapply_exact": true
+    },
+    {
+      "target": "EMERALD_JP_REV0",
+      "source_sha256": "33f5610b9186b4add09fef68895deb00f552b997b3d133b5a961e5123506343c",
+      "candidate_sha256": "911aa87cff8647ded38b55bd4a1e74278af7dfa95d65b1e751800f265da3fc7f",
+      "rc2_sha256": "d99f0f9f23f14b0a28b29c451f2ca30958694def8cf59a7c6ef0541a3923b855",
+      "patch_sha256": "0826c6d293f820b27e4f808dcc60d51e9a44c02b965926a693f488839b9cdfa9",
+      "patch_bytes": 5284943,
+      "resolver_code_offset": "0x1509000",
+      "rc2_extension_offset": "0x1509500",
+      "rc2_metadata_offset": "0x1509700",
+      "patch_reapply_exact": true
+    },
+    {
+      "target": "FIRERED_JP_REV1",
+      "source_sha256": "cec5fc4dbe38cd8026bd6664a1a041d9dc91e8d4249bab04e7bde70c3cdf4e06",
+      "candidate_sha256": "68207d3db4765e2b9d882bce24512cede70843c2307a8f232e051fc859cc6758",
+      "rc2_sha256": "ae4067b0fc89032382f670deff4282e3d20df51c8ecb788e3e0b70fb97374bc9",
+      "patch_sha256": "756f82bc30c9b662886ebf467805c3984925bb07b7f2d0fcf913da327c8c1062",
+      "patch_bytes": 4604795,
+      "resolver_code_offset": "0x1463000",
+      "rc2_extension_offset": "0x1463500",
+      "rc2_metadata_offset": "0x1463700",
+      "patch_reapply_exact": true
+    },
+    {
+      "target": "LEAFGREEN_JP_REV0",
+      "source_sha256": "2957b392dc09fc8df45a660af5493368d7bd378d299862f4cc115998e9da0bf2",
+      "candidate_sha256": "1258aff5a9bb9b7c3b31fab6682be1879d7b69643d90db90f6110d24361bf523",
+      "rc2_sha256": "ba7c84a2d21d0513916cb20edac766830fa926c130a833fbee708c3cb8953c4d",
+      "patch_sha256": "92447abdf03db63c2bec098f08b0524c265ca3eed933efd3fb8343b8d6d347b4",
+      "patch_bytes": 4604795,
+      "resolver_code_offset": "0x1463000",
+      "rc2_extension_offset": "0x1463500",
+      "rc2_metadata_offset": "0x1463700",
+      "patch_reapply_exact": true
+    }
+  ],
+  "emulator_boot_test": false
+}
