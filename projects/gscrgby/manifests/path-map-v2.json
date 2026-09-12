@@ -1,0 +1,18 @@
+{
+  "schema": "gscrgby.path-map.v2",
+  "canonical_root": "projects/gscrgby",
+  "mappings": [
+    {"from": "GEN-01/RED", "to": "projects/gscrgby/sources/gen1/red"},
+    {"from": "GEN-01/GREEN", "to": "projects/gscrgby/sources/gen1/green"},
+    {"from": "GEN-01/BLUE", "to": "projects/gscrgby/sources/gen1/blue"},
+    {"from": "GEN-01/YELLOW", "to": "projects/gscrgby/sources/gen1/yellow"},
+    {"from": "GEN-01/COMPARE", "to": "projects/gscrgby/analysis/gen1-version-diffs"},
+    {"from": "GEN-01/TARGET", "to": "projects/gscrgby/engine/gen1"},
+    {"from": "GEN-02/GOLD", "to": "projects/gscrgby/sources/gen2/gold"},
+    {"from": "GEN-02/SILVER", "to": "projects/gscrgby/sources/gen2/silver"},
+    {"from": "GEN-02/CRYSTAL", "to": "projects/gscrgby/sources/gen2/crystal"},
+    {"from": "GEN-02/COMPARE", "to": "projects/gscrgby/analysis/gen2-version-diffs"},
+    {"from": "CROSS-GEN", "to": "projects/gscrgby/integration"}
+  ],
+  "policy": "Legacy paths are frozen for GSCRGBY. Migrate verified content into the canonical root, then delete duplicates only in a dedicated cleanup PR."
+}
