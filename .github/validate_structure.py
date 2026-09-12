@@ -8,6 +8,7 @@ PROJECTS = ROOT / 'PROJECTS'
 
 GEN_RE = re.compile(r'^GEN-\d{2}$')
 SLUG_RE = re.compile(r'^[A-Z0-9][A-Z0-9.-]*$')
+DUMP_RE = re.compile(r'^[A-Za-z0-9][A-Za-z0-9.-]*$')
 PROJECT_RE = SLUG_RE
 
 CANONICAL_ROOTS = {'LIBRARY','PROJECTS','INFRA','.github','.git','.gitignore','.gitattributes','README.md','STRUCTURE.md','MIGRATION.md'}
@@ -53,7 +54,7 @@ def validate_release(release):
     if 'IDENTITY' not in {p.name for p in sections}: errors.append(f'v5 source release missing IDENTITY: {release}')
     dumps=release/'DUMPS'
     if dumps.exists():
-        for dump in dirs_only(dumps,'dump id',matcher=SLUG_RE):
+        for dump in dirs_only(dumps,'dump id',matcher=DUMP_RE):
             dirs_only(dump,'dump section',allowed=DUMP_SECTIONS)
 
 def validate_source(source):
