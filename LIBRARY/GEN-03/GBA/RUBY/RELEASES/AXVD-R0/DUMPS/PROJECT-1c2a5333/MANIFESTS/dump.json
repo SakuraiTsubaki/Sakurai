@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "dump_id": "PROJECT-1c2a5333",
+  "release_id": "AXVD-R0",
+  "provenance": "project-upload",
+  "source_filename": "Pokemon - Rubin-Edition (Germany).gba",
+  "size_bytes": 16777216,
+  "crc32": "15e1e280",
+  "md5": "1af28ea547d4116dc752c93f7f694239",
+  "sha1": "1c2a53332382e14dab8815e3a6dd81ad89534050",
+  "sha256": "22b28a91be484178236d7f39d64210205698b417394913e089b47796c998fa75",
+  "local_hash_verified": true,
+  "binary_committed": false
+}
