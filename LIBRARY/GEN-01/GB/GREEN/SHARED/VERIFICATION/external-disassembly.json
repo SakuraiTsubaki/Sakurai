@@ -1,0 +1,10 @@
+{
+  "schema": "external-reference.v1",
+  "repository": "Narishma-gb/pokegreen",
+  "purpose": "Independent rebuild/reference structure for Japanese Pokemon Red/Green; never treated as a substitute for the uploaded ROMs.",
+  "verified_green_builds": [
+    {"release_id":"JP-JA-HV0","sha1":"82c0eef40a5e2423699d9fd8ba15dfaa8b51d196","reference_label":"Green Version (J) V1.0"},
+    {"release_id":"JP-JA-HV1","sha1":"4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b","reference_label":"Green Version (J) V1.1"}
+  ],
+  "policy": "Use labels and structure for cross-checking; promote a fact only after validation against the supplied ROM image."
+}
