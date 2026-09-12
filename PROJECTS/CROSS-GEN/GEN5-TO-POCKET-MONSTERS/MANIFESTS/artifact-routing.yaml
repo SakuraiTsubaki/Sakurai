@@ -1,36 +1,21 @@
-schema: gen5-to-pocket-monsters.artifact-routing.v5
+schema: gen5-to-pocket-monsters.artifact-routing.v6
 project_id: GEN5-TO-POCKET-MONSTERS
+project_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
 
 sakurai:
-  owns:
-    - release-and-dump-references
-    - reverse-engineering
-    - rom-structure-analysis
-    - crosswalk-tables
-    - comparison-results
-    - integration-design
-    - verification-evidence
-    - research-tools
+  owns: [release-and-dump-references, reverse-engineering, rom-structure-analysis, normalized-original-data, crosswalk-tables, comparison-results, integration-design, verification-evidence, research-tools]
   roots:
     library: LIBRARY
-    project: PROJECTS/GEN5-TO-POCKET-MONSTERS
+    project: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
     infra: INFRA
 
 tsubaki:
-  owns:
-    - converted-assets
-    - insertion-ready-data
-    - generated-resource-indices
-    - production-converters
-    - patches
-    - build-inputs
-    - build-manifests
-  root: PROJECTS/GEN5-TO-POCKET-MONSTERS
+  owns: [converted-assets, insertion-ready-data, generated-resource-indices, production-converters, patches, build-inputs, build-manifests]
+  root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
+  common: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/COMMON
+  target_template: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/{TARGET-ID}
 
-never_commit:
-  - original-rom-binaries
-  - full-byte-identical-rom-extractions
-  - unmodified-copyrighted-asset-dumps
+never_commit: [original-rom-binaries, full-byte-identical-rom-extractions, unmodified-copyrighted-bulk-asset-dumps]
 
 source_release_roots:
   black: LIBRARY/GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0
@@ -39,10 +24,10 @@ source_release_roots:
   white2: unbound-required
 
 target_set:
-  - GEN2-GOLD-KR-KO-HV0
+  - GEN2-GOLD-AAUK-HV0
   - GEN2-SILVER-AAXK-HV0
-  - GEN2-CRYSTAL-JP-JA-HV0
-  - GEN2-CRYSTAL-US-EU-EN-HV1
+  - GEN2-CRYSTAL-BXTJ-HV0
+  - GEN2-CRYSTAL-BYTE-HV1
   - GEN3-RUBY-AXVJ-HV0
   - GEN3-RUBY-AXVE-HV2
   - GEN3-SAPPHIRE-AXPJ-HV0
@@ -55,22 +40,10 @@ target_set:
   - GEN3-LEAFGREEN-BPGE-HV1
 
 identity_contract:
-  release_lock: PROJECTS/GEN5-TO-POCKET-MONSTERS/MANIFESTS/release-lock.yaml
-  silver_release: LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/AAXK-HV0
-  silver_dump: LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/AAXK-HV0/DUMPS/PROJECT-cb22d7e0
-  old_silver_alias: GEN2-SILVER-KR-KO-HV0
-  old_silver_alias_status: retired-do-not-write
+  registry: INFRA/REGISTRY/ROM-SETS/GEN5-TO-POCKET-MONSTERS-v6-2026-09-12.yaml
+  release_lock: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/MANIFESTS/release-lock.yaml
+  rule: strongest-verified-native-technical-token-plus-HV
 
 legacy_policy:
-  new_writes_forbidden:
-    - GENERATION-*
-    - standalone-GEN-*
-    - GAMES/*
-    - LIBRARY/GEN-XX/<PLATFORM>/<GAME>/RELEASES/*
-    - MULTI
-    - REV-ALL
-    - _SHARED
-    - MISC
-    - OTHER
-    - GENERAL
+  new_writes_forbidden: [GENERATION-*, PROJECTS/GEN-05/GEN5-TO-POCKET-MONSTERS, MULTI, REV-ALL, REV-UNKNOWN, _SHARED, MISC, OTHER, GENERAL, '*-R0', '*-R1', '*-R2']
   migration_rule: classify-by-semantic-owner-before-moving
