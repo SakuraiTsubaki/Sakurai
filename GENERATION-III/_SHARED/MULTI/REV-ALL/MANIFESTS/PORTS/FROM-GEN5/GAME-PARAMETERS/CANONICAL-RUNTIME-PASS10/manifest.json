@@ -1,0 +1,30 @@
+{
+  "source_rom": "Pokemon.Black.Version.EUR.NDS-SweeTnDs.nds",
+  "source_sha256": "2e40416b8e8183d936084c7be0adeaab4fa3f786a68f90d7291ab77d340f0c1d",
+  "canonical_species_real_range": [1, 649],
+  "egg_pseudo_species": 650,
+  "gen4_species_count": 107,
+  "gen5_species_count": 156,
+  "levelup": {
+    "source": "a/0/1/8",
+    "members_in_narc": 668,
+    "members_used": 650,
+    "blob_bytes": 40428,
+    "entry_format": "u16 move, u8 level, u8 aux; FFFFFFFF terminator"
+  },
+  "evolution": {
+    "source": "a/0/1/9",
+    "members_in_narc": 668,
+    "members_used": 650,
+    "record_bytes": 42,
+    "entries_per_species": 7,
+    "entry_format": "u16 method, u16 param, u16 target"
+  },
+  "tmhm": {
+    "source": "a/0/1/6",
+    "offset_range": "0x28..0x37",
+    "bytes_per_species": 16,
+    "blob_bytes": 10400
+  },
+  "runtime_gate": "still disabled until species-ID consumers/save/link are converted"
+}

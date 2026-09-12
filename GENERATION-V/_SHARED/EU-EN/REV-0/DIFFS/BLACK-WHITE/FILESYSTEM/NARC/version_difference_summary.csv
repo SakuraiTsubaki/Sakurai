@@ -1,0 +1,8 @@
+scope,id_or_path,black_white_relation,semantic_status,notes
+NitroFS,a/0/2/6,different,high,title/version assets
+NitroFS,a/0/8/6,different,unknown,semantic role unresolved
+NitroFS,a/1/2/6,different,confirmed,wild encounter data; 112 records
+NitroFS,a/1/7/8,different,high_inferred,649 x 249-byte per-species data; 26 internal entries differ; exact fields pending
+NitroFS,a/2/3/1,different,confirmed_structure,73-member archive; 2 internal entries differ; semantic role unresolved
+Overlay9,ALL,180_of_237_different,structure_only,semantic code diff pending; do not equate every byte difference with gameplay divergence
+Overlay9,21,different,high,contains documented BW gameplay tables including Pokemart inventory data

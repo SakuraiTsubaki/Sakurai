@@ -1,0 +1,38 @@
+{
+  "profile": "GEN5_BW / PROJECT_APPLIED",
+  "pre_species": 290,
+  "primary_target": 291,
+  "secondary_species": 292,
+  "conditions": {
+    "successful_nincada_to_ninjask": true,
+    "empty_party_slot": true,
+    "ordinary_poke_ball_required": true,
+    "ordinary_poke_ball_consumed": true
+  },
+  "source_snapshot": "pre-evolution Nincada, captured before species/move changes",
+  "inherit": [
+    "personality",
+    "OT/TID/SID",
+    "IVs",
+    "EVs",
+    "experience/level",
+    "pre-evolution moves and PP",
+    "origin/met data",
+    "Pokerus"
+  ],
+  "override": [
+    "species=292",
+    "default Shedinja name",
+    "held item=None",
+    "ball=ordinary Poke Ball",
+    "markings/status/mail cleared",
+    "ribbons cleared following cast-off behavior",
+    "form=0",
+    "ability slot=0 (Wonder Guard from BW personal)"
+  ],
+  "bw_direct_evidence": {
+    "nincada_evolutions": [[14,20,291],[15,20,292]],
+    "shedinja_stats": [1,90,45,40,30,30],
+    "shedinja_abilities": [25,0,25]
+  }
+}
