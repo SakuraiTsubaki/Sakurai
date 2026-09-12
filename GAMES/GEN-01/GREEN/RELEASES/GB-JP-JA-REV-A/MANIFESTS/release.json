@@ -1,0 +1,36 @@
+{
+  "schema_version": 3,
+  "release_id": "GB-JP-JA-REV-A",
+  "generation": 1,
+  "game_id": "GREEN",
+  "official_title_ja": "ポケットモンスター 緑",
+  "platform": "GAME_BOY",
+  "market": "JP",
+  "languages": ["ja"],
+  "revision_label": "REV-A",
+  "source_filename": "Pocket Monsters - Midori (Japan) (Rev A) (SGB Enhanced).gb",
+  "source_binary_committed": false,
+  "rom": {
+    "size_bytes": 524288,
+    "banks_16k": 32,
+    "header_title": "POKEMON GREEN",
+    "header_version": 1,
+    "sgb_flag": 3,
+    "sgb_enhanced": true,
+    "cgb_flag": 0,
+    "cartridge_type": 3,
+    "rom_size_code": 4,
+    "ram_size_code": 3,
+    "destination_code": 0,
+    "old_licensee_code": 51,
+    "header_checksum": "9b",
+    "global_checksum": "f547"
+  },
+  "hashes": {
+    "crc32": "37ae8dc4",
+    "md5": "16ddd8897092936fbc0e286c6a6b23a2",
+    "sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+    "sha256": "3f0dc460ca8d06be1c9ac96307c939c0ea7baa366b40c2f1f4ad63242b6c4816"
+  },
+  "identity_rule": "This manifest identifies one exact immutable source ROM. SGB capability and revision are metadata of this release; raw ROM bytes are not stored in GitHub."
+}
