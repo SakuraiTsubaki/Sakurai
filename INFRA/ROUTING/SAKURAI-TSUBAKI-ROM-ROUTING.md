@@ -1,99 +1,44 @@
-# Sakurai / Tsubaki ROM artifact routing contract
+# Sakurai / Tsubaki ROM artifact routing contract — v6
 
-Canonical path architecture: v4.
+Canonical repository architecture: v6.
 
-## Sakurai = source of truth for what the ROM is
+## Sakurai: original/source truth
 
-Route here when the artifact answers **what exists in the original build, where it is, how it behaves, or how releases differ**.
+Sakurai owns facts that answer what an original release is, where data lives, how it behaves, and how official releases differ.
 
-### Original release ownership
+Canonical release root:
+`LIBRARY/GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/`
 
-`LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/RELEASES/<RELEASE-ID>/`
+Release-owned sections include `IDENTITY`, `DUMPS`, `NATIVE`, `DOMAINS`, `TOOLS`, `REPORTS`, and `VERIFICATION`. Exact supplied-file observations remain dump-scoped until promoted by verification.
 
-Use the following domains:
+Same-game comparisons belong under `LIBRARY/GEN-XX/<GAME-ID>/COMPARE/`; cross-game factual comparisons belong under `LIBRARY/GEN-XX/COMPARE/`.
 
-- `MANIFESTS` — release identity, exact observed dump bindings, hashes, provenance
-- `ANALYSIS` — reverse-engineering findings and semantic interpretation
-- `STRUCTURE` — ROM layout, banks, sections, NitroFS/NARC/file-system structure, pointer topology
-- `DATA` — normalized original tables and parameter catalogs
-- `TEXT` — text indexes, encodings, pointer maps, message catalogs
-- `DISASSEMBLY` / `SYMBOLS` — code maps, symbols, functions, references
-- `MAPS` / `EVENTS` — original map/event/script structures
-- `GRAPHICS` / `AUDIO` — structural catalogs, format analysis, dimensions, frame/palette/audio metadata, content hashes; not bulk redistributed raw assets by default
-- `TOOLS` — extraction/audit/rebuild verification tools
-- `VERIFICATION` — lossless round-trip tests, checksums, behavior checks
+Generation-scoped project research belongs under `PROJECTS/GEN-XX/<PROJECT-ID>/`. Projects whose source and implementation targets span generations belong under `PROJECTS/CROSS-GEN/<PROJECT-ID>/`.
 
-### Comparisons
+For Generation V → ポケットモンスター the canonical Sakurai project root is:
+`PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/`.
 
-`LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/COMPARISONS/<COMPARISON-ID>/`
+## Tsubaki: production/build truth
 
-Only derived relationships belong here: revision diffs, Black/White differences, dedup matrices, localization deltas, normalized equivalence maps.
+Tsubaki owns transformed/generated insertion resources, production converters, target-local data, patches, build layouts and build manifests. It mirrors Sakurai release/dump IDs but does not duplicate research ownership.
 
-### Cross-generation project research
+For Generation V → ポケットモンスター the canonical Tsubaki root is also:
+`PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/`.
 
-`PROJECTS/GEN5-TO-POCKET-MONSTERS/`
+Cross-target production resources use `IMPLEMENTATION/COMMON/`; target-specific resources use `IMPLEMENTATION/<TARGET-ID>/`.
 
-Sakurai owns:
+## Identity and payload rules
 
-- `MANIFESTS`
-- `CROSSWALK`
-- `DESIGN`
-- `VERIFICATION`
-- research-side `TOOLS`
-- `REPORTS`
+Use the strongest verified native technical release identifier, with header/software version represented independently. A release identity and an observed dump identity are never interchangeable. Filename region tags are metadata, not ownership keys.
 
-A port/conversion specification is project-owned even when it was discovered while studying one source generation.
-
-## Tsubaki = source of truth for what we build from the ROM
-
-Route here when the artifact is directly consumed by production or build steps.
-
-Canonical project root:
-
-`PROJECTS/GEN5-TO-POCKET-MONSTERS/`
-
-### Shared implementation
-
-`IMPLEMENTATION/_SHARED/`
-
-Use for source-normalized conversion rules, shared transformed resources, generated cross-target tables, common converters, and common build metadata.
-
-### Target implementation
-
-`IMPLEMENTATION/<TARGET-ID>/`
-
-Each target owns its own:
-
-- `MANIFESTS`
-- `SPRITES`
-- `GRAPHICS`
-- `PALETTES`
-- `FONTS`
-- `ICONS`
-- `TILESETS`
-- `UI`
-- `AUDIO`
-- `DATA`
-- `CONVERTED`
-- `PATCHES`
-- `BUILD`
-- production-side `TOOLS`
-- verification output needed by the build
-
-Every target manifest resolves to exactly one original release in Sakurai's canonical library.
-
-## ROM-derived payload rule
-
-Original ROM binaries are never committed to either repository.
-
-Exact supplied files are represented by hash/provenance manifests. Bulk unmodified copyrighted graphics/audio extracted from ROMs are not the default Git payload; they should be reproducibly extracted locally from the locked input and only transformed/project-facing outputs, fingerprints, indexes, converters, patches, and manifests are committed unless a specific asset has a separate redistribution basis.
+Original ROM binaries are never committed. Bulk unmodified copyrighted ROM extractions are not the default Git payload; reproduce them locally from locked inputs and commit fingerprints, indexes, converters, transformed project assets, patches and manifests.
 
 ## Decision test
 
-- "What is this byte/table/archive/function in the original ROM?" -> Sakurai.
-- "How do two official releases differ?" -> Sakurai.
-- "How should Gen V behavior map onto the target engine?" -> Sakurai project `CROSSWALK` / `DESIGN`.
-- "What exact converted sprite/table/patch/build input will be inserted?" -> Tsubaki.
-- "What file can regenerate that converted asset from the user's local ROM?" -> Tsubaki production `TOOLS`, with original structure references pointing back to Sakurai.
+- Original byte/table/archive/function/release fact → Sakurai `LIBRARY`.
+- Relationship among original releases → Sakurai `COMPARE`.
+- Source-to-target semantics or integration design → Sakurai project `CROSSWALK` / `DESIGN`.
+- Converted sprite/table/patch/build input → Tsubaki.
+- Tool whose primary purpose is producing insertion/build artifacts → Tsubaki `TOOLS`, referencing Sakurai identities.
 
-Never duplicate an artifact just to make both repositories look symmetrical. Mirror identity, not payload responsibility.
+Do not create new canonical work in `GENERATION-*`, old flat project roots, `_SHARED`, `MULTI`, `REV-ALL`, `REV-UNKNOWN`, `MISC`, `OTHER`, `GENERAL`, or obsolete `R0/R1/R2` compatibility target aliases. Historical records remain in `LEGACY` or Git history.
