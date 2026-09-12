@@ -1,0 +1,16 @@
+{
+  "schema": "comparison-manifest-v1",
+  "game_id": "CRYSTAL",
+  "comparison_id": "RELEASE-MATRIX",
+  "members": [
+    "GBC-JP-JA-BXTJ-REV-0",
+    "GBC-US-EU-EN-BYTE-REV-0",
+    "GBC-US-EU-EN-BYTE-REV-A",
+    "GBC-EU-DE-BYTD-REV-0",
+    "GBC-EU-FR-BYTF-REV-0",
+    "GBC-EU-IT-BYTI-REV-0",
+    "GBC-EU-ES-BYTS-REV-0"
+  ],
+  "purpose": "Cross-release and cross-revision ROM structure, bank, localization, and semantic comparison.",
+  "legacy_source": "GENERATION-II/CRYSTAL/MULTI/REV-ALL"
+}
