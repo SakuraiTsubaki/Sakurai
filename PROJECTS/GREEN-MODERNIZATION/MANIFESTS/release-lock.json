@@ -1,0 +1,9 @@
+{
+  "schema":"project.release-lock.v4",
+  "project_id":"GREEN-MODERNIZATION",
+  "source_releases":[
+    {"library":"LIBRARY/GEN-01/GB/GREEN/RELEASES/JP-JA-HV0","sha1":"82c0eef40a5e2423699d9fd8ba15dfaa8b51d196"},
+    {"library":"LIBRARY/GEN-01/GB/GREEN/RELEASES/JP-JA-HV1","sha1":"4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b"}
+  ],
+  "policy":{"preserve_original_roms_read_only":true,"commit_original_rom_binaries":false,"separate_target_outputs":true,"both_revisions_supported":true}
+}

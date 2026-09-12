@@ -1,0 +1,11 @@
+{
+  "schema":"sakurai.dump.v4",
+  "dump_id":"UPLOADED-82c0eef4",
+  "release_id":"JP-JA-HV0",
+  "source_filename":"Pocket Monsters - Midori (Japan) (SGB Enhanced).gb",
+  "size_bytes":524288,
+  "hashes":{"md5":"e30ffbab1f239f09b226477d84db1368","sha1":"82c0eef40a5e2423699d9fd8ba15dfaa8b51d196","sha256":"6576b4e0979e93d4a6fa02db893c294b7aeab3b841b1acc8658bc10b3554f33c"},
+  "quality":"verified-match-to-known-build",
+  "promotion_to_release_facts":true,
+  "rom_binary_committed":false
+}
