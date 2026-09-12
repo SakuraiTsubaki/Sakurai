@@ -1,0 +1,10 @@
+{
+  "schema":"sakurai.nds-header-observation.v9","generation":"GEN-04","game":"SOULSILVER","release_id":"IPGK-HV0","dump_id":"UPLOAD-0330e644","locale":"KR-KO",
+  "title":"POKEMON SS","game_code":"IPGK","maker_code":"01","unit_code":0,"header_version":0,"rom_size":134217728,
+  "arm9":{"rom_offset":16384,"entry_address":33556480,"ram_address":33554432,"size":765208},
+  "arm7":{"rom_offset":3111424,"entry_address":37224448,"ram_address":37224448,"size":161496},
+  "fnt":{"offset":3273216,"size":2884,"directory_count":46,"named_file_count":382},
+  "fat":{"offset":3276288,"size":4088,"entry_count":511},
+  "overlay9":{"offset":781824,"size":4128},"banner_offset":3280384,"used_rom_size":124639804,"header_size":16384,
+  "hashes":{"md5":"4e36e0c8c693d7cf52753f8601db5bbf","sha1":"0330e6449306606114a92bdbb3f9d3d51d392b96","sha256":"8e1c82d2f718fa404f0b13df1666c70cdfaa75cb67e0adcbdcfb6c002f4d8b55"},"rom_binary_committed":false
+}
