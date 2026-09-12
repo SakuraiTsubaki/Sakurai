@@ -1,0 +1,7 @@
+{
+  "schema":"firered.dump-analysis-summary.v1","release_id":"BPRJ-R1","dump_id":"UPLOAD-7c7107b8","filename":"Pocket Monsters - Fire Red (Japan) (Rev 1).gba","sha1":"7c7107b87c3ccf6e3dbceb9cf80ceeffb25a1857","size":16777216,"scope":"exact supplied dump only","raw_rom_committed":false,
+  "chunk64k":{"count":256,"catalog_sha256":"c50143e88249bd2095c83f0c20926da0b8e23d71301d09567f5260793758e892"},
+  "pointer_heuristic":{"total":63953,"top_blocks":[[58,2861],[54,2426],[0,1845],[61,1787],[25,1602]]},
+  "gba_lz10_heuristic":{"candidate_count":4217,"decompressed_bytes_total":4654972,"aligned_pointer_references_to_candidate_starts":4281,"top_candidate_blocks":[[216,418],[192,273],[194,226],[193,219],[217,177]],"top_pointer_reference_blocks":[[216,565],[217,276],[192,252],[194,246],[193,205]]},
+  "filler_run_candidates":{"count":137,"largest":[["0x006C32B4","0x00C00000",5492044,"0xFF"],["0x00D95DC4","0x00F00000",1483324,"0xFF"],["0x00F3F3E4","0x01000000",789532,"0xFF"]],"warning":"candidate only; not certified free space"}
+}

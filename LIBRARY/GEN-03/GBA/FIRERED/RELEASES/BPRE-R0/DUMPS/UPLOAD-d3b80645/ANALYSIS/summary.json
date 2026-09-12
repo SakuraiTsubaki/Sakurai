@@ -1,0 +1,7 @@
+{
+  "schema":"firered.dump-analysis-summary.v1","release_id":"BPRE-R0","dump_id":"UPLOAD-d3b80645","filename":"Pokemon - Fire Red Version (USA).gba","sha1":"d3b806453369b4b086c792eb3c05a02f00057f50","size":16777216,"scope":"exact supplied dump only; reference-mismatch","raw_rom_committed":false,
+  "chunk64k":{"count":256,"catalog_sha256":"a7e5c7aafb4199b5454663742b48c81fd5c287947c39f195f6eecaeda30a7908"},
+  "pointer_heuristic":{"total":63771,"top_blocks":[[62,2633],[58,2416],[22,2290],[35,2249],[65,1930]]},
+  "gba_lz10_heuristic":{"candidate_count":4209,"decompressed_bytes_total":5229263,"aligned_pointer_references_to_candidate_starts":4265,"top_candidate_blocks":[[232,419],[208,273],[210,226],[209,219],[233,205]],"top_pointer_reference_blocks":[[232,566],[233,313],[208,256],[210,247],[209,205]]},
+  "filler_run_candidates":{"count":170,"largest":[["0x0071A23C","0x00D00000",6184388,"0xFF"],["0x00EB0B20","0x00FFFFFE",1373406,"0xFF"],["0x00355888","0x00359588",15616,"0x00"]],"warning":"candidate only; not certified free space"}
+}

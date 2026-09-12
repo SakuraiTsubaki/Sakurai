@@ -1,0 +1,7 @@
+{
+  "schema":"firered.dump-analysis-summary.v1","release_id":"BPRD-R0","dump_id":"UPLOAD-18a3758c","filename":"Pokemon - Feuerrote Edition (Germany).gba","sha1":"18a3758ceeef2c77b315144be2c3910d6f1f69fe","size":16777216,"scope":"exact supplied dump only","raw_rom_committed":false,
+  "chunk64k":{"count":256,"catalog_sha256":"864ee7ba57262f0f2b56a4ff75dfd2e6643ac66f28cb6a30961bca068a035984"},
+  "pointer_heuristic":{"total":63463,"top_blocks":[[62,2585],[58,2377],[22,2259],[35,2252],[65,1942]]},
+  "gba_lz10_heuristic":{"candidate_count":4193,"decompressed_bytes_total":4781718,"aligned_pointer_references_to_candidate_starts":4284,"top_candidate_blocks":[[232,417],[208,273],[210,226],[209,219],[233,206]],"top_pointer_reference_blocks":[[232,565],[233,314],[208,256],[210,247],[209,205]]},
+  "filler_run_candidates":{"count":170,"largest":[["0x00718C40","0x00D00000",6190016,"0xFF"],["0x00EB218C","0x01000000",1367668,"0xFF"],["0x0035574C","0x0035944C",15616,"0x00"]],"warning":"candidate only; not certified free space"}
+}

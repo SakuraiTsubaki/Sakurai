@@ -8,6 +8,8 @@ Proof-of-concept for rendering genuine GS Korean Hangul glyph pixels through the
 
 ## Base
 
+- Release: `BPRE-R0`
+- Dump: `UPLOAD-d3b80645`
 - ROM: `Pokemon - Fire Red Version (USA).gba`
 - Game code: `BPRE`
 - Revision: `0`
@@ -15,6 +17,7 @@ Proof-of-concept for rendering genuine GS Korean Hangul glyph pixels through the
 - SHA-1: `d3b806453369b4b086c792eb3c05a02f00057f50`
 - SHA-256: `b59a65bb439b7dfdf2ffbbe5102be03de2501a71f5e081eec1c76f9d2ef3ba00`
 - Header checksum: `0x68`, valid
+- Dump status: `reference-mismatch`; all byte offsets below are dump-scoped until rebased/verified against the canonical BPRE-R0 release.
 
 ## Test
 
@@ -33,7 +36,7 @@ FireRed path:
 
 - Existing `FONT_NORMAL_COPY_1` renderer
 - `JPN` extended control code enables Japanese glyph addressing
-- Japanese tall font base in the USA Rev 0 ROM: `0x1FB300`
+- Japanese tall font base in the supplied USA Rev 0 dump: `0x1FB300`
 - Tall glyph dimensions: 8×16
 - The four Japanese tall-font slots above are replaced by converted GS Korean 8×16 1bpp glyph masks.
 
@@ -43,13 +46,11 @@ Text payload:
 
 This means `FONT_NORMAL_COPY_1`, `JPN`, glyphs `01 02 03 04`, then end-of-string.
 
-The payload replaces the beginning of all three USA Rev 0 copies of `Press START to open the MENU!` at:
+The payload replaces the beginning of all three supplied-dump copies of `Press START to open the MENU!` at:
 
 - `0x18EA66`
 - `0x1B1CCE`
 - `0x1B1D5F`
-
-This makes the proof-of-concept easy to reach from the existing Pallet Town / Oak's Lab trainer-tip text paths.
 
 ## Output validation
 
@@ -60,14 +61,10 @@ Local generated test ROM:
 - Size unchanged: `16,777,216` bytes
 - GBA header checksum remains valid: `0x68`
 - GS 1bpp → FireRed packed-font → decoded mask round-trip: exact for all four test glyphs
-- IPS reapplication to the exact base ROM reproduces the output ROM byte-for-byte
-
-## GS Korean source-asset status
-
-The Tsubaki asset `GENERATION-II/POCKET-MONSTERS-GOLD-SILVER/KOREA/REV-COMMON/FONT/hangul_font_11tables.1bpp.gz` currently has the expected Git blob size/SHA but its gzip stream terminates before the advertised 45,056-byte uncompressed payload. A 34,595-byte prefix can be inflated. This test uses only glyphs wholly contained in that recovered prefix; no missing bytes are fabricated.
+- IPS reapplication to the exact base dump reproduces the output ROM byte-for-byte
 
 ## Interpretation
 
-This v0.1 ROM proves glyph-format conversion and use of FireRed's existing 8×16 renderer. It is **not** yet the final Korean text engine: there is no FireRed-wide 2-byte/extended Hangul decoder, line-breaking system, Korean naming input, SRAM string migration, or complete 2,353-glyph installation yet.
+This v0.1 proves glyph-format conversion and use of FireRed's existing 8×16 renderer on the exact supplied dump. It is not yet the final Korean text engine: there is no FireRed-wide 2-byte/extended Hangul decoder, line-breaking system, Korean naming input, SRAM string migration, or complete 2,353-glyph installation yet.
 
-The distributable patch/reproduction script belongs in Tsubaki. ROM binaries remain local and are never committed.
+Research evidence belongs in Sakurai. Distributable patches, generated build inputs and production reproduction artifacts belong in Tsubaki. ROM binaries remain local and are never committed.
