@@ -1,87 +1,162 @@
-# Repository Migration — v4
+# Repository Migration — v5
 
 ## Status
 
-v4 is canonical. Legacy `GENERATION-*`, standalone `GEN-*`, `GAMES/`, `MULTI`, `REV-ALL`, `ALL`, and `MULTI-REGION` paths are migration inputs only and receive no new work.
+v5 is canonical. No new work may be written to legacy `GENERATION-*`, standalone `GEN-*`, `GAMES/`, v4 `LIBRARY/GEN-XX/<PLATFORM>/<GAME>/RELEASES/...`, `_SHARED`, `MULTI`, `REV-ALL`, `ALL`, `MULTI-REGION`, `MISC`, `OTHER`, `GENERAL`, or `REV-UNKNOWN` paths.
 
-## Canonical ownership
+Canonical source ownership:
 
 ```text
-LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/RELEASES/<RELEASE-ID>/...
-LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/COMPARISONS/<COMPARISON-ID>/...
-LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/SHARED/...
-PROJECTS/<PROJECT-ID>/...
-INFRA/...
+LIBRARY/GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/...
 ```
 
-Exact supplied ROM images are dump observations below a release:
+Same-game comparisons:
 
 ```text
-LIBRARY/.../RELEASES/<RELEASE-ID>/DUMPS/<DUMP-ID>/...
+LIBRARY/GEN-XX/<GAME-ID>/COMPARE/<COMPARISON-ID>/...
+```
+
+Cross-game generation comparisons:
+
+```text
+LIBRARY/GEN-XX/COMPARE/<COMPARISON-ID>/...
+```
+
+Derived work:
+
+```text
+PROJECTS/<PROJECT-ID>/...
 ```
 
 ## Classification before moving
 
-- Official release fact -> `LIBRARY/.../RELEASES/`
-- Exact dump/file observation -> `.../DUMPS/`
-- Cross-release relationship -> `LIBRARY/.../COMPARISONS/`
-- Port/integration/modernization/localization/rebuild -> `PROJECTS/`
-- Repository-wide registry/schema/validator/migration data -> `INFRA/`
+Every legacy file is classified by meaning before relocation:
 
-Do not infer ownership from a legacy directory name; classify each artifact by what it actually describes.
+- official source-release fact -> `SOURCE/<PLATFORM>/<PACKAGE>/<RELEASE>/`
+- exact supplied/observed dump fact -> `.../<RELEASE>/DUMPS/<DUMP-ID>/`
+- native ROM structure research -> `.../<RELEASE>/NATIVE/`
+- normalized game-domain research -> `.../<RELEASE>/DOMAINS/`
+- same-game release relationship -> `<GAME>/COMPARE/`
+- cross-game relationship -> `GEN-XX/COMPARE/`
+- truly identity-independent material -> `SHARED/`
+- external/secondary material -> `REFERENCE/`
+- port/integration/modernization/localization/rebuild -> `PROJECTS/`
+- repository-wide schema/registry/validator -> `INFRA/`
 
-## Generation V -> Pocket Monsters
+Do not bulk-rename mixed legacy trees.
 
-The old BW baseline owner:
+## Generation V current source migration
+
+v4 Black:
 
 ```text
-GENERATION-V/_SHARED/MULTI/REV-ALL/ANALYSIS/BW-EUR-REV-UNKNOWN/ROM-BASELINE-SWEETNDS/
+LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0/
 ```
 
-splits into:
+becomes:
 
 ```text
-LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0/DUMPS/SWEETNDS-a68b3bed/
-LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0/DUMPS/SWEETNDS-f94d4578/
+LIBRARY/GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0/
+```
+
+v4 White:
+
+```text
+LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0/
+```
+
+becomes:
+
+```text
+LIBRARY/GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0/
+```
+
+Dump IDs are preserved:
+
+```text
+SWEETNDS-a68b3bed
+SWEETNDS-f94d4578
+```
+
+The old comparison:
+
+```text
 LIBRARY/GEN-05/NDS/_SHARED/COMPARISONS/BLACK-IRBO-R0--WHITE-IRAO-R0/
 ```
 
-Generation V-owned integration work formerly hidden below `GENERATION-V/...` moves to:
+becomes:
 
 ```text
-PROJECTS/GEN5-TO-POCKET-MONSTERS/CROSSWALK/...
-PROJECTS/GEN5-TO-POCKET-MONSTERS/DESIGN/...
-PROJECTS/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/_SHARED/...
-PROJECTS/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/<TARGET-ID>/...
-PROJECTS/GEN5-TO-POCKET-MONSTERS/VERIFICATION/...
+LIBRARY/GEN-05/COMPARE/BLACK-IRBO-HV0--WHITE-IRAO-HV0/
 ```
 
-Pure facts about original target ROMs remain in their own `LIBRARY/.../RELEASES/...` trees and are referenced by the project.
+No `_SHARED` pseudo-game remains.
 
-## Cross-generation dispatch rule
+## Native-vs-domain split
 
-A cross-generation artifact belongs to the project that actually owns the transformation, not to whichever source/target generation folder happened to contain the legacy file.
+ROM-physical observations must be separated from semantic interpretation during migration.
+
+Examples:
 
 ```text
-Generation V -> Pocket Monsters work -> PROJECTS/GEN5-TO-POCKET-MONSTERS/...
-Generation IV -> Pocket Monsters work -> PROJECTS/GEN4-TO-POCKET-MONSTERS/...
+header fields / ARM binaries / overlays / FNT / FAT / NitroFS / NARC path maps
+-> NATIVE/
+
+Pokemon / moves / maps / trainers / text / events / graphics meaning / unused content / bugs
+-> DOMAINS/
 ```
 
-A Gen IV import/conversion artifact found under a Gen III legacy target tree remains Gen IV-project work. Shared target ROMs do not merge project identities.
+A raw path such as `a/0/2/6` stays a native identifier even when research associates it with a semantic role. `DOMAINS` links back to the raw path; it does not rename away the source identity.
+
+## SweeTnDs safety rule
+
+The current Black/White SweeTnDs images are dump observations with an external bad/incomplete preservation classification. During migration:
+
+1. preserve exact hashes and provenance;
+2. keep TWL/DSi-sensitive conclusions dump-scoped;
+3. promote only conclusions verified to be safe at release level;
+4. revalidate TWL-specific structure against a verified full clean dump when available;
+5. never create a fake release merely to represent a bad dump.
+
+## Dedup rule
+
+Black/White contain both heavy sharing and heavy executable divergence. Identical files stay owned by their releases and are recorded as equal in comparison indexes. Do not physically relocate them into `SHARED` just because their hashes match.
+
+`SHARED` is for identity-independent schemas/tools/terminology, not a dumping ground for duplicate assets.
+
+## Project migration
+
+Cross-generation work remains project-owned:
+
+```text
+PROJECTS/GEN5-TO-POCKET-MONSTERS/
+├── MANIFESTS/
+├── CROSSWALK/
+├── DESIGN/
+├── IMPLEMENTATION/
+├── PATCHES/
+├── BUILD/
+├── TOOLS/
+├── REPORTS/
+└── VERIFICATION/
+```
+
+Project release locks must be rewritten to the new v5 canonical source paths before old live paths are deleted.
 
 ## Migration order
 
-1. Freeze legacy paths for new writes.
-2. Register all supplied releases and dump observations in `INFRA/REGISTRY/`.
-3. Lock each project's sources/targets in its own `MANIFESTS/release-lock.yaml`.
-4. Build an old-path -> v4-owner equivalence manifest.
-5. Migrate exact single-release material first.
-6. Split pseudo-release trees (`MULTI`, `REV-ALL`) into comparisons or projects by semantics.
-7. Move cross-generation work to its correct project root, splitting shared and target-specific implementation.
-8. Verify hashes, file counts, references, and target bases.
-9. Remove obsolete live copies only after equivalence checks pass; Git history is the archive.
-10. Make CI/path validators reject new legacy paths.
+1. Freeze all legacy and v4 source paths for new writes.
+2. Register v5 release identities and dump identities.
+3. Create v5 Generation V Black/White source roots.
+4. Copy identity and dump manifests first; verify all hashes.
+5. Split ROM-native material into `NATIVE` and semantic research into `DOMAINS`.
+6. Move Black/White relationship material to generation-level `COMPARE`.
+7. Rewrite project release locks and internal references.
+8. Migrate remaining generations using the same platform/package/release grammar.
+9. Verify file counts, hashes, links, and project target bindings.
+10. Add CI/path validation for v5 and reject new legacy names.
+11. Remove obsolete live copies only after equivalence checks pass; Git history remains the archive.
 
-## Safety invariant
+## Non-destructive invariant
 
-Do not blindly rename whole legacy directories. They frequently mix release facts, comparisons, dump observations, and project outputs. Every migrated file needs one truthful v4 owner.
+A redesign is not permission to destroy provenance. Until the equivalence check for a legacy tree passes, keep it frozen and readable. Delete only redundant live copies after the v5 owner and references are verified.
