@@ -1,0 +1,41 @@
+{
+  "source": {
+    "dump_id": "SWEETNDS-f94d4578",
+    "sha1": "f94d4578956487c09fee20809a591e858017769e",
+    "rom_binary_committed": false
+  },
+  "counts": {
+    "fat_entries": 484,
+    "named_nitrofs_files": 247,
+    "arm9_overlays": 237,
+    "narc_archives": 237,
+    "narc_members": 54054,
+    "system_text_members": 288,
+    "story_field_text_members": 472,
+    "decoded_text_members_total": 760,
+    "decoded_strings_total": 56700,
+    "decoded_nonempty_strings": 52419,
+    "zones": 427,
+    "entity_members": 428,
+    "script_members": 899,
+    "interactables": 662,
+    "npcs": 2257,
+    "warps": 886,
+    "triggers": 373,
+    "initialization_script_refs": 296,
+    "trigger_related_entries": 72,
+    "encounter_members": 112
+  },
+  "assertions": {
+    "white_sha1_verified": true,
+    "zone_main_script_formula_all_427": true,
+    "zone_init_script_formula_all_427": true,
+    "zone_id_identity_all_427": true,
+    "encounter_ids_0_through_111_each_referenced_once": true,
+    "zone_main_event_pointer_tables_valid_all_427": true,
+    "zone_initialization_metadata_mirror_all_427": true,
+    "entity_tail_parse_valid_all_428": true,
+    "global_special_pointer_members_valid": 44,
+    "global_special_nonpointer_members": [865]
+  }
+}
