@@ -2,7 +2,7 @@ schema: sakurai.project-release-lock.v6
 project_id: GEN5-TO-POCKET-MONSTERS
 project_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
 lock_date: 2026-09-12
-registry: INFRA/REGISTRY/ROM-SETS/GEN5-TO-POCKET-MONSTERS-2026-09-12.yaml
+registry: INFRA/REGISTRY/ROM-SETS/GEN5-TO-POCKET-MONSTERS-v6-2026-09-12.yaml
 
 sources:
   GEN5-BLACK-IRBO-HV0:
@@ -13,7 +13,6 @@ sources:
     release: LIBRARY/GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0
     observed_dump: LIBRARY/GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0/DUMPS/SWEETNDS-f94d4578
     status: bound-supplied-dump-revalidation-required
-
 required_unbound_sources:
   GEN5-BLACK2: {status: required-not-currently-bound}
   GEN5-WHITE2: {status: required-not-currently-bound}
@@ -67,7 +66,6 @@ implementation_contract:
   sakurai_design_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/DESIGN
   sakurai_verification_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/VERIFICATION
   tsubaki_project_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
-
 rules:
   - source-and-target-ids-must-resolve-to-exactly-one-canonical-release
   - target-id-uses-strongest-verified-native-technical-token-plus-HV
