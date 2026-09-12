@@ -1,0 +1,39 @@
+{
+  "schema": "comparison.source-matrix.v1",
+  "comparison_id": "RBY-ENGLISH-TO-GREEN",
+  "target": "GEN-01/GREEN/TARGET/RBY-ENGLISH-TO-GREEN",
+  "upstream_english_system_target": "GEN-01/TARGET/RBY-ENGLISH-RELOCALIZATION",
+  "chains": [
+    {
+      "name": "green-red",
+      "path": [
+        "GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV0|JP-JA-HV1",
+        "GEN-01/RED/SOURCE/GB/CART/JP-JA-HV0|JP-JA-HV1",
+        "GEN-01/RED/SOURCE/GB/CART/US-EU-EN-HV0"
+      ]
+    },
+    {
+      "name": "green-blue",
+      "path": [
+        "GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV0|JP-JA-HV1",
+        "GEN-01/BLUE/SOURCE/GB/CART/JP-JA-HV0",
+        "GEN-01/BLUE/SOURCE/GB/CART/US-EU-EN-HV0"
+      ]
+    },
+    {
+      "name": "green-yellow",
+      "path": [
+        "GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV0|JP-JA-HV1",
+        "GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV0|JP-JA-HV1|JP-JA-HV2|JP-JA-HV3",
+        "GEN-01/YELLOW/SOURCE/GBC/CART/US-EU-EN-HV0"
+      ]
+    }
+  ],
+  "rules": [
+    "Green Japanese is the translation/content authority.",
+    "R/B/Y English are official localization/system references, not replacement content ROMs.",
+    "Official English wording may be reused only when it matches the Green source meaning and context.",
+    "New or Green-specific translations must be marked as such.",
+    "Revision identities must not be mixed silently."
+  ]
+}
