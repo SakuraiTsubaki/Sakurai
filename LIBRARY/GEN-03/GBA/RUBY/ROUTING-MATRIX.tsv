@@ -1,0 +1,20 @@
+artifact_class	state	canonical_repo	canonical_scope	path_template	promotion_or_note
+release identity and header metadata	VERIFIED-RELEASE	Sakurai	RELEASE	LIBRARY/GEN-03/GBA/RUBY/RELEASES/<RELEASE-ID>/MANIFESTS/	authoritative identity
+exact supplied filename + hashes + provenance	OBSERVED	Sakurai	DUMP	LIBRARY/GEN-03/GBA/RUBY/RELEASES/<RELEASE-ID>/DUMPS/<DUMP-ID>/MANIFESTS/	never store ROM binary
+ROM layout / offsets / fill regions / pointers	OBSERVED or VERIFIED-RELEASE	Sakurai	DUMP then RELEASE	.../DUMPS/<DUMP-ID>/ANALYSIS/ then .../ANALYSIS/	promote after release-level verification
+bank fingerprints / binary structural deltas	CROSS-RELEASE	Sakurai	COMPARISON	LIBRARY/GEN-03/GBA/RUBY/COMPARISONS/<COMPARISON-ID>/ANALYSIS/	factual comparison
+compression candidate index	CROSS-RELEASE	Sakurai	COMPARISON	LIBRARY/GEN-03/GBA/RUBY/COMPARISONS/<COMPARISON-ID>/ANALYSIS/COMPRESSION/	candidate status until decoded/validated
+disassembly / symbols / semantic labels	VERIFIED-RELEASE or CROSS-RELEASE	Sakurai	RELEASE or COMPARISON	.../DISASSEMBLY/ and .../SYMBOLS/	research source of truth
+text/data/map/event decoded meaning	VERIFIED-RELEASE	Sakurai	RELEASE	.../TEXT/ .../DATA/ .../MAPS/ .../EVENTS/	meaning/specification owner
+raw extracted sprite/graphics/audio bytes	EXTRACTED	Tsubaki	DUMP	LIBRARY/GEN-03/GBA/RUBY/RELEASES/<RELEASE-ID>/DUMPS/<DUMP-ID>/<ASSET-DOMAIN>/	remain dump-specific until verified
+verified original-release production asset	VERIFIED-RELEASE	Tsubaki	RELEASE	LIBRARY/GEN-03/GBA/RUBY/RELEASES/<RELEASE-ID>/<ASSET-DOMAIN>/	requires promotion evidence
+palette/font/icon/tileset/UI/title assets	EXTRACTED or VERIFIED-RELEASE	Tsubaki	DUMP then RELEASE	.../DUMPS/<DUMP-ID>/<ASSET-DOMAIN>/ then .../<ASSET-DOMAIN>/	same promotion rule
+asset hashes / equivalence / dedup groups	CROSS-RELEASE	Tsubaki	COMPARISON	LIBRARY/GEN-03/GBA/RUBY/COMPARISONS/<COMPARISON-ID>/<ASSET-DOMAIN>/DEDUP/	production dedup owner
+converted or normalized original asset	VERIFIED-RELEASE	Tsubaki	RELEASE	.../CONVERTED/	must retain provenance to source asset
+modernized data specification	DERIVED	Sakurai	PROJECT	PROJECTS/<PROJECT-ID>/DESIGN/ or CROSSWALK/	not source-library content
+modernized/converted production asset	DERIVED	Tsubaki	PROJECT	PROJECTS/<PROJECT-ID>/CONVERTED/	project-owned
+implementation source/build input	DERIVED	Tsubaki	PROJECT	PROJECTS/<PROJECT-ID>/IMPLEMENTATION/ or SOURCE/	project-owned
+patch	DERIVED	Tsubaki	PROJECT	PROJECTS/<PROJECT-ID>/PATCHES/	no full copyrighted ROM image
+build output	DERIVED	Tsubaki	PROJECT	PROJECTS/<PROJECT-ID>/BUILD/	policy-compliant generated output only
+research verification evidence	OBSERVED or VERIFIED-RELEASE	Sakurai	matching scope	.../VERIFICATION/	research authority
+production verification evidence	EXTRACTED or DERIVED	Tsubaki	matching scope	.../VERIFICATION/	asset/build authority

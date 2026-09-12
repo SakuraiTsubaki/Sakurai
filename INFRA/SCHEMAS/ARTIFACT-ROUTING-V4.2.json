@@ -1,0 +1,28 @@
+{
+  "schema_version": "4.2",
+  "base_identity_schema": "IDENTITY-SPINE-V4",
+  "status": "canonical-clarification",
+  "identity_shared_between_repositories": [
+    "GENERATION", "PLATFORM", "GAME-ID", "RELEASE-ID", "DUMP-ID", "COMPARISON-ID", "PROJECT-ID", "TARGET-ID"
+  ],
+  "repositories": {
+    "SakuraiTsubaki/Sakurai": {
+      "role": "evidence-meaning-reproducibility",
+      "library_release_domains": ["MANIFESTS", "DUMPS/*/MANIFESTS", "ANALYSIS", "STRUCTURE", "DATA", "TEXT", "MAPS", "EVENTS", "DISASSEMBLY", "SYMBOLS", "TOOLS", "TESTS", "VERIFICATION", "REPORTS"],
+      "project_domains": ["MANIFESTS", "CROSSWALK", "DESIGN", "TOOLS", "TESTS", "VERIFICATION", "REPORTS"]
+    },
+    "SakuraiTsubaki/Tsubaki": {
+      "role": "production-assets-implementation",
+      "library_release_domains": ["MANIFESTS(binding-mirror)", "DUMPS/*/<ASSET-DOMAIN>", "SPRITES", "GRAPHICS", "PALETTES", "FONTS", "ICONS", "TILESETS", "UI", "AUDIO", "TITLE", "CONVERTED", "TOOLS", "VERIFICATION"],
+      "project_domains": ["MANIFESTS(binding-mirror)", "SOURCE", "CONVERTED", "IMPLEMENTATION", "PATCHES", "BUILD", "TOOLS", "VERIFICATION"]
+    }
+  },
+  "artifact_states": ["OBSERVED", "EXTRACTED", "VERIFIED-RELEASE", "CROSS-RELEASE", "DERIVED"],
+  "promotion_rules": {
+    "OBSERVED_to_EXTRACTED": "decode or extract from an exact DUMP without asserting release-wide identity",
+    "EXTRACTED_to_VERIFIED-RELEASE": "requires evidence that the asset is representative of the canonical release",
+    "to_CROSS-RELEASE": "requires two or more canonical release or dump identities",
+    "to_DERIVED": "any modernization, localization, integration, expansion, patch or build output belongs under PROJECTS"
+  },
+  "binary_policy": "original ROM/executable binaries are never committed"
+}
