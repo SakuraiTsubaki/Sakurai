@@ -3,82 +3,76 @@ import re
 import sys
 
 ROOT = Path('.')
-GENERATIONS = {
-    'GENERATION-I': {'RED','GREEN','BLUE','YELLOW'},
-    'GENERATION-II': {'GOLD','SILVER','CRYSTAL'},
-    'GENERATION-III': {'RUBY','SAPPHIRE','EMERALD','FIRERED','LEAFGREEN'},
-    'GENERATION-IV': {'DIAMOND','PEARL','PLATINUM','HEARTGOLD','SOULSILVER'},
-    'GENERATION-V': {'BLACK','WHITE','BLACK2','WHITE2'},
-    'GENERATION-VI': {'X','Y','OMEGARUBY','ALPHASAPPHIRE'},
-    'GENERATION-VII': {'SUN','MOON','ULTRASUN','ULTRAMOON','LETSGO-PIKACHU','LETSGO-EEVEE'},
-    'GENERATION-VIII': {'SWORD','SHIELD','BRILLIANTDIAMOND','SHININGPEARL','LEGENDS-ARCEUS'},
-    'GENERATION-IX': {'SCARLET','VIOLET','LEGENDS-Z-A'},
+GEN_RE = re.compile(r'^GEN-\d{2}$')
+LEGACY_GEN_RE = re.compile(r'^GENERATION-(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI)$')
+GAME_RE = re.compile(r'^(?:_SHARED|[A-Z0-9][A-Z0-9-]*)$')
+ID_RE = re.compile(r'^[A-Z0-9][A-Z0-9-]*$')
+REV_RE = re.compile(r'^REV-(?:[A-Z]|\d+)$')
+BRANCHES = {'SOURCE', 'TARGET', 'COMPARE', 'SHARED'}
+WORK_TYPES = {
+    'ANALYSIS','CENSUS','STRUCTURE','TEXT','DATA','DIFFS','TOOLS','TESTS',
+    'VERIFICATION','REPORTS','LOCALIZATION','DISASSEMBLY','MANIFESTS','MAPS','SYMBOLS'
 }
-LOCALES = {'JP-JA','KR-KO','US-EN','EU-EN','EU-DE','EU-FR','EU-IT','EU-ES','MULTI'}
-WORK_TYPES = {'ANALYSIS','CENSUS','STRUCTURE','TEXT','DATA','DIFFS','TOOLS','TESTS','VERIFICATION','REPORTS','LOCALIZATION','DISASSEMBLY','MANIFESTS','MAPS','SYMBOLS'}
-ROOT_ALLOWED = set(GENERATIONS) | {'.github','README.md','STRUCTURE.md','MIGRATION.md','.git'}
-REV_RE = re.compile(r'^REV-(?:ALL|[A-Z]|\d+)$')
-
-# Generation IV has completed the second-stage semantic normalization.  Other
-# generations can be added here as their old below-WORK-TYPE replicas are
-# dismantled.
-STRICT_SEMANTIC_GENERATIONS = {'GENERATION-IV'}
-LEGACY_ROLE_DIRS = {
-    'USA', 'KOREA', 'KO-KR', 'MULTI-REGION', 'MULTI-REV', 'REV-MIXED',
-    'REV-UNKNOWN', 'REV-COMMON', 'ALL-REVISIONS', 'ALL', 'MIGRATED',
-}
-ALL_GAME_NAMES = set().union(*GENERATIONS.values()) | {'_SHARED'}
+INFRA = {'.github','README.md','STRUCTURE.md','MIGRATION.md','META','.git'}
 
 errors = []
-for p in ROOT.iterdir():
-    if p.name not in ROOT_ALLOWED:
-        errors.append(f'non-canonical root entry: {p.name}')
+warnings = []
 
-for gen, games in GENERATIONS.items():
-    gp = ROOT / gen
-    if not gp.exists():
-        errors.append(f'missing generation root: {gen}')
+
+def children(p):
+    return [x for x in p.iterdir() if x.name != '.gitkeep']
+
+
+def require_dirs(parent, label, matcher=None, allowed=None):
+    out = []
+    for p in children(parent):
+        valid_name = (allowed is None or p.name in allowed) and (matcher is None or matcher.fullmatch(p.name))
+        if not p.is_dir() or not valid_name:
+            errors.append(f'invalid {label}: {p}')
+            continue
+        out.append(p)
+    return out
+
+
+for p in ROOT.iterdir():
+    if p.name in INFRA or GEN_RE.fullmatch(p.name):
         continue
-    for game in gp.iterdir():
-        if game.name == '.gitkeep':
-            continue
-        if not game.is_dir() or game.name not in games | {'_SHARED'}:
-            errors.append(f'invalid GAME path: {game}')
-            continue
-        for locale in game.iterdir():
-            if locale.name == '.gitkeep':
-                continue
-            if not locale.is_dir() or locale.name not in LOCALES:
-                errors.append(f'invalid LANGUAGE/REGION path: {locale}')
-                continue
-            for rev in locale.iterdir():
-                if rev.name == '.gitkeep':
-                    continue
-                if not rev.is_dir() or not REV_RE.fullmatch(rev.name):
-                    errors.append(f'invalid REV path: {rev}')
-                    continue
-                for work in rev.iterdir():
-                    if work.name == '.gitkeep':
-                        continue
-                    if not work.is_dir() or work.name not in WORK_TYPES:
-                        errors.append(f'invalid WORK TYPE path: {work}')
-                        continue
-                    if gen not in STRICT_SEMANTIC_GENERATIONS:
-                        continue
-                    for nested in work.rglob('*'):
-                        if not nested.is_dir():
-                            continue
-                        name = nested.name
-                        if name in WORK_TYPES:
-                            errors.append(f'repeated WORK TYPE below canonical WORK TYPE: {nested}')
-                        if name in LOCALES or name in ALL_GAME_NAMES or REV_RE.fullmatch(name):
-                            errors.append(f'repeated structural role below WORK TYPE: {nested}')
-                        if name in LEGACY_ROLE_DIRS or name.startswith('LEGACY-'):
-                            errors.append(f'legacy structural replica below WORK TYPE: {nested}')
+    if LEGACY_GEN_RE.fullmatch(p.name):
+        warnings.append(f'legacy generation root pending migration: {p.name}')
+        continue
+    errors.append(f'non-canonical root entry: {p.name}')
+
+for gen in [p for p in ROOT.iterdir() if p.is_dir() and GEN_RE.fullmatch(p.name)]:
+    games = require_dirs(gen, 'GAME path', matcher=GAME_RE)
+    for game in games:
+        branches = require_dirs(game, 'ownership branch', allowed=BRANCHES)
+        for branch in branches:
+            if branch.name == 'SOURCE':
+                releases = require_dirs(branch, 'SOURCE release id', matcher=ID_RE)
+                for release in releases:
+                    revs = require_dirs(release, 'SOURCE revision', matcher=REV_RE)
+                    for rev in revs:
+                        require_dirs(rev, 'SOURCE work type', allowed=WORK_TYPES)
+            elif branch.name == 'TARGET':
+                targets = require_dirs(branch, 'TARGET id', matcher=ID_RE)
+                for target in targets:
+                    bases = require_dirs(target, 'TARGET base id', matcher=ID_RE)
+                    for base in bases:
+                        require_dirs(base, 'TARGET work type', allowed=WORK_TYPES)
+            else:  # COMPARE / SHARED
+                scopes = require_dirs(branch, f'{branch.name} scope', matcher=ID_RE)
+                for scope in scopes:
+                    require_dirs(scope, f'{branch.name} work type', allowed=WORK_TYPES)
+
+if warnings:
+    print('Repository structure migration warnings:')
+    for w in warnings:
+        print(f' - {w}')
 
 if errors:
     print('Repository structure validation failed:')
     for e in errors:
         print(f' - {e}')
     sys.exit(1)
-print('Repository structure validation passed.')
+
+print('Repository structure v2 validation passed.')
