@@ -1,19 +1,19 @@
 {
-  "schema": "rom-set-registry-v4",
-  "id": "GEN4-TO-POCKET-MONSTERS-2026-09-12",
-  "project_id": "GEN4-TO-POCKET-MONSTERS",
-  "sources": [
-    {"role":"SOURCE","generation":"GEN-04","platform":"NDS","game":"DIAMOND","release_id":"ADAE-R5","dump_id":"LGC-a46233d8","library_path":"LIBRARY/GEN-04/NDS/DIAMOND/RELEASES/ADAE-R5","sha1":"a46233d8b79a69ea87aa295a0efad5237d02841e","locale":"US-EN"},
-    {"role":"SOURCE","generation":"GEN-04","platform":"NDS","game":"PEARL","release_id":"APAE-R5","dump_id":"LGC-99083bf1","library_path":"LIBRARY/GEN-04/NDS/PEARL/RELEASES/APAE-R5","sha1":"99083bf15ec7c6b81b4ba241ee10abd9e80999ac","locale":"US-EN"},
-    {"role":"SOURCE","generation":"GEN-04","platform":"NDS","game":"PLATINUM","release_id":"CPUK-R0","dump_id":"UPLOAD-f811d9c7","library_path":"LIBRARY/GEN-04/NDS/PLATINUM/RELEASES/CPUK-R0","sha1":"f811d9c7ab5262f593012da794c2fa81dbcdbcc1","locale":"KR-KO"},
-    {"role":"SOURCE","generation":"GEN-04","platform":"NDS","game":"HEARTGOLD","release_id":"IPKK-R0","dump_id":"UPLOAD-5834fb3a","library_path":"LIBRARY/GEN-04/NDS/HEARTGOLD/RELEASES/IPKK-R0","sha1":"5834fb3a2d751c48501d47d6a56898d7af6ccf9e","locale":"KR-KO"},
-    {"role":"SOURCE","generation":"GEN-04","platform":"NDS","game":"SOULSILVER","release_id":"IPGK-R0","dump_id":"UPLOAD-0330e644","library_path":"LIBRARY/GEN-04/NDS/SOULSILVER/RELEASES/IPGK-R0","sha1":"0330e6449306606114a92bdbb3f9d3d51d392b96","locale":"KR-KO"}
+  "schema":"rom-set-registry-v5",
+  "id":"GEN4-TO-POCKET-MONSTERS-2026-09-12",
+  "project_id":"GEN4-TO-POCKET-MONSTERS",
+  "sources":[
+    {"game":"DIAMOND","platform":"NDS-NTR","package_kind":"CART","release_id":"ADAE-HV5","dump_id":"LGC-a46233d8","path":"LIBRARY/GEN-04/DIAMOND/SOURCE/NDS-NTR/CART/ADAE-HV5","sha1":"a46233d8b79a69ea87aa295a0efad5237d02841e"},
+    {"game":"PEARL","platform":"NDS-NTR","package_kind":"CART","release_id":"APAE-HV5","dump_id":"LGC-99083bf1","path":"LIBRARY/GEN-04/PEARL/SOURCE/NDS-NTR/CART/APAE-HV5","sha1":"99083bf15ec7c6b81b4ba241ee10abd9e80999ac"},
+    {"game":"PLATINUM","platform":"NDS-NTR","package_kind":"CART","release_id":"CPUK-HV0","dump_id":"UPLOAD-f811d9c7","path":"LIBRARY/GEN-04/PLATINUM/SOURCE/NDS-NTR/CART/CPUK-HV0","sha1":"f811d9c7ab5262f593012da794c2fa81dbcdbcc1"},
+    {"game":"HEARTGOLD","platform":"NDS-NTR","package_kind":"CART","release_id":"IPKK-HV0","dump_id":"UPLOAD-5834fb3a","path":"LIBRARY/GEN-04/HEARTGOLD/SOURCE/NDS-NTR/CART/IPKK-HV0","sha1":"5834fb3a2d751c48501d47d6a56898d7af6ccf9e"},
+    {"game":"SOULSILVER","platform":"NDS-NTR","package_kind":"CART","release_id":"IPGK-HV0","dump_id":"UPLOAD-0330e644","path":"LIBRARY/GEN-04/SOULSILVER/SOURCE/NDS-NTR/CART/IPGK-HV0","sha1":"0330e6449306606114a92bdbb3f9d3d51d392b96"}
   ],
-  "targets": [
-    {"role":"TARGET","generation":"GEN-03","platform":"GBA","game":"RUBY","release_id":"AXVJ-R0","dump_id":"UPLOAD-5c5e5467","library_path":"LIBRARY/GEN-03/GBA/RUBY/RELEASES/AXVJ-R0","sha1":"5c5e546720300b99ae45d2aa35c646c8b8ff5c56","locale":"JP-JA"},
-    {"role":"TARGET","generation":"GEN-03","platform":"GBA","game":"SAPPHIRE","release_id":"AXPJ-R0","dump_id":"UPLOAD-3233342c","library_path":"LIBRARY/GEN-03/GBA/SAPPHIRE/RELEASES/AXPJ-R0","sha1":"3233342c2f3087e6ffe6c1791cd5867db07df842","locale":"JP-JA"},
-    {"role":"TARGET","generation":"GEN-03","platform":"GBA","game":"EMERALD","release_id":"BPEJ-R0","dump_id":"UPLOAD-d7cf8f15","library_path":"LIBRARY/GEN-03/GBA/EMERALD/RELEASES/BPEJ-R0","sha1":"d7cf8f156ba9c455d164e1ea780a6bf1945465c2","locale":"JP-JA"},
-    {"role":"TARGET","generation":"GEN-03","platform":"GBA","game":"FIRERED","release_id":"BPRJ-R1","dump_id":"UPLOAD-7c7107b8","library_path":"LIBRARY/GEN-03/GBA/FIRERED/RELEASES/BPRJ-R1","sha1":"7c7107b87c3ccf6e3dbceb9cf80ceeffb25a1857","locale":"JP-JA"},
-    {"role":"TARGET","generation":"GEN-03","platform":"GBA","game":"LEAFGREEN","release_id":"BPGJ-R0","dump_id":"UPLOAD-5946f1b5","library_path":"LIBRARY/GEN-03/GBA/LEAFGREEN/RELEASES/BPGJ-R0","sha1":"5946f1b59e8d71cc61249661464d864185c92a5f","locale":"JP-JA"}
+  "targets":[
+    {"game":"RUBY","platform":"GBA","package_kind":"CART","release_id":"AXVJ-HV0","dump_id":"UPLOAD-5c5e5467","path":"LIBRARY/GEN-03/RUBY/SOURCE/GBA/CART/AXVJ-HV0","sha1":"5c5e546720300b99ae45d2aa35c646c8b8ff5c56"},
+    {"game":"SAPPHIRE","platform":"GBA","package_kind":"CART","release_id":"AXPJ-HV0","dump_id":"UPLOAD-3233342c","path":"LIBRARY/GEN-03/SAPPHIRE/SOURCE/GBA/CART/AXPJ-HV0","sha1":"3233342c2f3087e6ffe6c1791cd5867db07df842"},
+    {"game":"EMERALD","platform":"GBA","package_kind":"CART","release_id":"BPEJ-HV0","dump_id":"UPLOAD-d7cf8f15","path":"LIBRARY/GEN-03/EMERALD/SOURCE/GBA/CART/BPEJ-HV0","sha1":"d7cf8f156ba9c455d164e1ea780a6bf1945465c2"},
+    {"game":"FIRERED","platform":"GBA","package_kind":"CART","release_id":"BPRJ-HV1","dump_id":"UPLOAD-7c7107b8","path":"LIBRARY/GEN-03/FIRERED/SOURCE/GBA/CART/BPRJ-HV1","sha1":"7c7107b87c3ccf6e3dbceb9cf80ceeffb25a1857"},
+    {"game":"LEAFGREEN","platform":"GBA","package_kind":"CART","release_id":"BPGJ-HV0","dump_id":"UPLOAD-5946f1b5","path":"LIBRARY/GEN-03/LEAFGREEN/SOURCE/GBA/CART/BPGJ-HV0","sha1":"5946f1b59e8d71cc61249661464d864185c92a5f"}
   ]
 }
