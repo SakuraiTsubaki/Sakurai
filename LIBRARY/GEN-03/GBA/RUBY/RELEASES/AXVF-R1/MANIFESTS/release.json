@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "game_id": "RUBY",
+  "platform": "GBA",
+  "release_id": "AXVF-R1",
+  "game_code": "AXVF",
+  "header_version": 1,
+  "markets": ["EU"],
+  "languages": ["fr"],
+  "build_kind": "retail",
+  "observed_dump_ids": ["PROJECT-ba888dfb"],
+  "rom_binary_in_repository": false
+}
