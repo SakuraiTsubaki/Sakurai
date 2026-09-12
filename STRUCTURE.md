@@ -1,10 +1,10 @@
-# Repository Structure v2
+# Repository Structure v2 — Source-ROM Ownership Model
 
 ## Why v2 exists
 
-The old fixed path `GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE` mixed three different ownership concepts: official source ROM builds, derived/target localizations, and cross-build research. That forced ambiguous buckets such as `MULTI/REV-ALL` and could place a target locale in the same structural role as an official source release.
+The old fixed path `GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE` mixed three different ownership concepts: official source ROM builds, derived/target localizations, and cross-build research. That could make a target locale look like an official source release and forced shared English binaries into artificial regional buckets.
 
-v2 separates those concepts before the work-type layer.
+V2 separates provenance before the work-type layer.
 
 ## Canonical generation root
 
@@ -12,7 +12,7 @@ Use zero-padded numeric generation folders:
 
 `GEN-01`, `GEN-02`, ... `GEN-10`, `GEN-11`.
 
-This replaces Roman-numeral roots such as `GENERATION-I` and keeps lexical ordering correct as the project grows beyond Generation IX.
+Roman-numeral roots such as `GENERATION-I` are legacy. Numeric roots sort correctly and remain future-proof beyond Generation IX.
 
 ## Canonical game root
 
@@ -24,76 +24,74 @@ GAME is a stable uppercase slug such as `RED`, `GREEN`, `BLUE`, `YELLOW`, `GOLD`
 
 ## Four ownership branches
 
-Every game is divided by provenance/scope before locale or revision:
-
 ### SOURCE
 
-Official source builds only.
+Official source builds only:
 
 `GEN-XX/<GAME>/SOURCE/<RELEASE-ID>/<REV>/<WORK-TYPE>/...`
 
-`RELEASE-ID` describes the actual release/build identity, not a desired target language. Examples for Pokémon Red from the current source set:
+`RELEASE-ID` describes the actual release/build identity, not a desired target language. Examples include `JP-JA`, `KR-KO`, `US-EU-EN`, `EU-DE`, `EU-FR`, `EU-IT`, and `EU-ES`.
 
-- `JP-JA`
-- `US-EU-EN`
-- `EU-DE`
-- `EU-FR`
-- `EU-IT`
-- `EU-ES`
+Revision labels preserve the verified release label. Valid examples include `REV-0`, `REV-A`, `REV-0A`, `REV-B`, `REV-C`, `REV-D`, numeric revisions, and `REV-ALL` where an aggregate is intentional. When the Game Boy header revision byte differs from the human release label, record both in the manifest.
 
-Use explicit revision labels such as `REV-0`, `REV-A`, `REV-1`.
-
-Do not upload original ROM binaries. Store ROM identity, hashes, header data, bank maps, and provenance in `MANIFESTS` / research files.
+Original ROM binaries are never uploaded. Store identity, hashes, header data, bank maps, provenance, decoded data, disassembly, tests, and tools only.
 
 ### TARGET
 
-Derived outputs, modernization targets, fan/localization targets, rebuilds, and ports that do not represent an official source build.
+Derived outputs, modernization targets, translations, rebuilds, and ports:
 
 `GEN-XX/<GAME>/TARGET/<TARGET-ID>/<BASE-ID>/<WORK-TYPE>/...`
 
-Example: a Korean target derived from an English Red source belongs under `TARGET/KR-KO/...`, not under `SOURCE/KR-KO`.
+`TARGET-ID` identifies the produced target, such as `KR-KO`.
+
+`BASE-ID` identifies the actual source lineage and revision, for example:
+
+- `JP-JA-REV-0`
+- `JP-JA-REV-A`
+- `US-EU-EN-REV-0`
+- `US-EU-EN-REV-A`
+
+A Korean Crystal output therefore belongs under `TARGET/KR-KO/<BASE-ID>/...`; it must not create `SOURCE/KR-KO` unless an actual Korean Crystal source ROM exists.
+
+Additional technical/reference ROMs that are not the owning base ROM belong in provenance manifests. For this project, Korean Gold/Silver can be implementation references for Hangul while a Japanese or English ROM remains the owning base source.
 
 ### COMPARE
 
-Artifacts whose subject is inherently multi-source or multi-revision.
+Artifacts whose subject is inherently multi-source or multi-revision:
 
 `GEN-XX/<GAME>/COMPARE/<SCOPE>/<WORK-TYPE>/...`
 
 Examples:
 
-- `COMPARE/ALL-SOURCES/ANALYSIS/ROM-AUDIT/`
-- `COMPARE/JP-JA-REVISIONS/DIFFS/`
-- `COMPARE/LOCALIZATION-FAMILIES/DATA/`
+- `COMPARE/ALL-SOURCES/ANALYSIS/...`
+- `COMPARE/JP-JA-REVISIONS/DIFFS/...`
+- `COMPARE/LOCALIZATION-FAMILIES/DATA/...`
 
-This replaces the ambiguous `MULTI/REV-ALL` pattern.
+This replaces ambiguous `MULTI/REV-ALL` ownership where the artifact is truly comparative.
 
 ### SHARED
 
-Game-wide material that is not owned by one source release or one target.
+Game-wide material that is not owned by one source release or target:
 
 `GEN-XX/<GAME>/SHARED/<SCOPE>/<WORK-TYPE>/...`
 
-Examples include common schemas, generic tools, engine-wide symbol conventions, and reusable test infrastructure.
+Use this for common schemas, generic tools, engine-wide symbol conventions, reusable tests, and other release-independent material.
 
 ## Sakurai work types
 
-Sakurai is the research / reverse-engineering / documentation repository. Canonical work types are:
-
 `ANALYSIS`, `CENSUS`, `STRUCTURE`, `TEXT`, `DATA`, `DIFFS`, `TOOLS`, `TESTS`, `VERIFICATION`, `REPORTS`, `LOCALIZATION`, `DISASSEMBLY`, `MANIFESTS`, `MAPS`, `SYMBOLS`.
 
-## Pokémon Red source routing confirmed from the current ROM set
+## Verified Gen I / Gen II source set
 
-The current source set resolves to these canonical homes:
+The 23 supplied ROMs are mapped one-by-one in `META/SOURCE-ROM-CATALOG.md`.
 
-- Japanese Rev 0 → `GEN-01/RED/SOURCE/JP-JA/REV-0/...`
-- Japanese Rev A → `GEN-01/RED/SOURCE/JP-JA/REV-A/...`
-- USA/Europe English Rev 0 → `GEN-01/RED/SOURCE/US-EU-EN/REV-0/...`
-- German Rev 0 → `GEN-01/RED/SOURCE/EU-DE/REV-0/...`
-- French Rev 0 → `GEN-01/RED/SOURCE/EU-FR/REV-0/...`
-- Italian Rev 0 → `GEN-01/RED/SOURCE/EU-IT/REV-0/...`
-- Spanish Rev 0 → `GEN-01/RED/SOURCE/EU-ES/REV-0/...`
+Important routing facts established by that catalog:
 
-The duplicate English ROM is one source identity and must be recorded as a duplicate/provenance observation, never as a separate structural release.
+- Shared USA/Europe English binaries use `US-EU-EN` as one source identity.
+- Actual Korean source ROMs in the supplied set are Gold and Silver only.
+- There is no Korean Crystal source ROM in the supplied set.
+- Japanese Yellow has four supplied source revisions: `REV-0A`, `REV-B`, `REV-C`, and `REV-D`.
+- Gold/Silver Japanese revisions and English Crystal revisions are kept distinct rather than collapsed into a generic revision bucket.
 
 ## Repository-wide infrastructure
 
