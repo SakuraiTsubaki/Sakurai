@@ -1,0 +1,12 @@
+{
+  "schema":"sakurai.nds-header-observation.v9",
+  "generation":"GEN-04","game":"DIAMOND","release_id":"ADAE-HV5","dump_id":"LGC-a46233d8","locale":"US-EN",
+  "title":"POKEMON D","game_code":"ADAE","maker_code":"01","unit_code":0,"header_version":5,"rom_size":67108864,
+  "arm9":{"rom_offset":16384,"entry_address":33556480,"ram_address":33554432,"size":1079076},
+  "arm7":{"rom_offset":3198976,"entry_address":37224448,"ram_address":37224448,"size":168732},
+  "fnt":{"offset":3367936,"size":5503,"directory_count":69,"named_file_count":269},
+  "fat":{"offset":3373568,"size":2848,"entry_count":356},
+  "overlay9":{"offset":1095680,"size":2784},"banner_offset":3376640,"used_rom_size":61169344,"header_size":16384,
+  "hashes":{"md5":"02a1af2a677d101394b1d99164a8c249","sha1":"a46233d8b79a69ea87aa295a0efad5237d02841e","sha256":"e29bc6ebe431d7a6b238267b6b1521fec4a3bc14f2fa348798062f870c738454"},
+  "rom_binary_committed":false
+}
