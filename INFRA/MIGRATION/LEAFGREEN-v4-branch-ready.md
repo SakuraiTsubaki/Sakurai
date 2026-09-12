@@ -1,1 +1,0 @@
-LeafGreen v4 source-library migration branch prepared on 2026-09-12. Canonical details live in INFRA/MIGRATION/LEAFGREEN-v4.md.
