@@ -19,6 +19,16 @@ WORK_TYPES = {'ANALYSIS','CENSUS','STRUCTURE','TEXT','DATA','DIFFS','TOOLS','TES
 ROOT_ALLOWED = set(GENERATIONS) | {'.github','README.md','STRUCTURE.md','MIGRATION.md','.git'}
 REV_RE = re.compile(r'^REV-(?:ALL|[A-Z]|\d+)$')
 
+# Generation IV has completed the second-stage semantic normalization.  Other
+# generations can be added here as their old below-WORK-TYPE replicas are
+# dismantled.
+STRICT_SEMANTIC_GENERATIONS = {'GENERATION-IV'}
+LEGACY_ROLE_DIRS = {
+    'USA', 'KOREA', 'KO-KR', 'MULTI-REGION', 'MULTI-REV', 'REV-MIXED',
+    'REV-UNKNOWN', 'REV-COMMON', 'ALL-REVISIONS', 'ALL', 'MIGRATED',
+}
+ALL_GAME_NAMES = set().union(*GENERATIONS.values()) | {'_SHARED'}
+
 errors = []
 for p in ROOT.iterdir():
     if p.name not in ROOT_ALLOWED:
@@ -52,6 +62,19 @@ for gen, games in GENERATIONS.items():
                         continue
                     if not work.is_dir() or work.name not in WORK_TYPES:
                         errors.append(f'invalid WORK TYPE path: {work}')
+                        continue
+                    if gen not in STRICT_SEMANTIC_GENERATIONS:
+                        continue
+                    for nested in work.rglob('*'):
+                        if not nested.is_dir():
+                            continue
+                        name = nested.name
+                        if name in WORK_TYPES:
+                            errors.append(f'repeated WORK TYPE below canonical WORK TYPE: {nested}')
+                        if name in LOCALES or name in ALL_GAME_NAMES or REV_RE.fullmatch(name):
+                            errors.append(f'repeated structural role below WORK TYPE: {nested}')
+                        if name in LEGACY_ROLE_DIRS or name.startswith('LEGACY-'):
+                            errors.append(f'legacy structural replica below WORK TYPE: {nested}')
 
 if errors:
     print('Repository structure validation failed:')
