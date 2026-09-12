@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "dump_id": "PROJECT-ca5e3d41",
+  "release_id": "AXVD-R0-DEBUG",
+  "provenance": "project-upload",
+  "source_filename": "Pokemon - Rubin-Edition (Germany) (Debug Version).gba",
+  "size_bytes": 16777216,
+  "crc32": "40686c47",
+  "md5": "a93c24b102f9ffbd5676e18f2e4cb33c",
+  "sha1": "ca5e3d415c4b47353a73a616878ba833f3648b7a",
+  "sha256": "548e9db988d387f8876a0aa40ea1ecb6f1110a8a550413e1861c9656fff7427a",
+  "local_hash_verified": true,
+  "binary_committed": false
+}
