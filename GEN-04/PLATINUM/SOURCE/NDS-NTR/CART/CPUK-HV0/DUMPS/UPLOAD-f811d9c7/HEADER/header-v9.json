@@ -1,0 +1,10 @@
+{
+  "schema":"sakurai.nds-header-observation.v9","generation":"GEN-04","game":"PLATINUM","release_id":"CPUK-HV0","dump_id":"UPLOAD-f811d9c7","locale":"KR-KO",
+  "title":"POKEMON PL","game_code":"CPUK","maker_code":"01","unit_code":0,"header_version":0,"rom_size":134217728,
+  "arm9":{"rom_offset":16384,"entry_address":33556480,"ram_address":33554432,"size":1061624},
+  "arm7":{"rom_offset":4237312,"entry_address":37224448,"ram_address":37224448,"size":161788},
+  "fnt":{"offset":4399104,"size":7427,"directory_count":105,"named_file_count":339},
+  "fat":{"offset":4406784,"size":3688,"entry_count":461},
+  "overlay9":{"offset":1078272,"size":3904},"banner_offset":4410880,"used_rom_size":102630460,"header_size":16384,
+  "hashes":{"md5":"e28b4ba15f1810ce26087a66cbb411ff","sha1":"f811d9c7ab5262f593012da794c2fa81dbcdbcc1","sha256":"51050f65776f402f86b8b2b2d3b84ab5bbe80dbec75129c86f8bd9b447f11d7b"},"rom_binary_committed":false
+}
