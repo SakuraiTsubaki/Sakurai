@@ -1,25 +1,25 @@
-schema: gen5-to-pocket-monsters.artifact-routing.v6
+schema: gen5-to-pocket-monsters.artifact-routing.v7
 project_id: GEN5-TO-POCKET-MONSTERS
-project_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
+project_root: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS
 
 sakurai:
   owns: [release-and-dump-references, reverse-engineering, rom-structure-analysis, normalized-original-data, crosswalk-tables, comparison-results, integration-design, verification-evidence, research-tools]
   roots:
-    library: LIBRARY
-    project: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
+    generations: GEN-XX
+    project: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS
     infra: INFRA
 
 tsubaki:
   owns: [converted-assets, insertion-ready-data, generated-resource-indices, production-converters, patches, build-inputs, build-manifests]
-  root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
-  common: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/COMMON
-  target_template: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/{TARGET-ID}
+  root: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS
+  common: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/COMMON
+  target_template: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/{TARGET-ID}
 
-never_commit: [original-rom-binaries, full-byte-identical-rom-extractions, unmodified-copyrighted-bulk-asset-dumps]
+never_commit: [original-rom-binaries, modified-rom-binaries, rebuilt-rom-binaries]
 
 source_release_roots:
-  black: LIBRARY/GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0
-  white: LIBRARY/GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0
+  black: GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0
+  white: GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0
   black2: unbound-required
   white2: unbound-required
 
@@ -40,10 +40,10 @@ target_set:
   - GEN3-LEAFGREEN-BPGE-HV1
 
 identity_contract:
-  registry: INFRA/REGISTRY/ROM-SETS/GEN5-TO-POCKET-MONSTERS-v6-2026-09-12.yaml
-  release_lock: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/MANIFESTS/release-lock.yaml
+  registry: INFRA/REGISTRY/ROM-SETS/GEN5-TO-POCKET-MONSTERS-v9-2026-09-13.yaml
+  release_lock: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS/MANIFESTS/release-lock.yaml
   rule: strongest-verified-native-technical-token-plus-HV
 
 legacy_policy:
-  new_writes_forbidden: [GENERATION-*, PROJECTS/GEN-05/GEN5-TO-POCKET-MONSTERS, MULTI, REV-ALL, REV-UNKNOWN, _SHARED, MISC, OTHER, GENERAL, '*-R0', '*-R1', '*-R2']
+  new_writes_forbidden: [LIBRARY, PROJECTS, GENERATION-*, MULTI, REV-ALL, REV-UNKNOWN, _SHARED, MISC, OTHER, GENERAL]
   migration_rule: classify-by-semantic-owner-before-moving
