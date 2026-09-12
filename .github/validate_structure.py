@@ -3,115 +3,116 @@ import re
 import sys
 
 ROOT = Path('.')
-LIBRARY = ROOT / 'LIBRARY'
-PROJECTS = ROOT / 'PROJECTS'
-LEGACY = ROOT / 'LEGACY'
-
+QUARANTINE = ROOT / 'INFRA' / 'QUARANTINE'
 GEN_RE = re.compile(r'^GEN-\d{2}$')
 SLUG_RE = re.compile(r'^[A-Z0-9][A-Z0-9.-]*$')
 
-CANONICAL_ROOTS = {
-    'LIBRARY', 'PROJECTS', 'INFRA', 'LEGACY', '.github', '.git',
-    '.gitignore', '.gitattributes', 'README.md', 'STRUCTURE.md', 'MIGRATION.md'
+STATIC_ROOTS = {
+    'INFRA', 'CROSS-GEN', '.github', '.git', '.gitignore', '.gitattributes',
+    'README.md', 'STRUCTURE.md', 'MIGRATION.md'
 }
-GEN_BRANCHES = {'COMPARE', 'SHARED', 'REFERENCE'}
-GAME_BRANCHES = {'SOURCE', 'COMPARE', 'SHARED', 'REFERENCE'}
-LEGACY_PLATFORM_ROOTS = {
-    'GB', 'GBC', 'GBA', 'NDS', 'NDS-NTR', 'NDS-TWL', '3DS',
-    'GCN', 'WII', 'WIIU', 'SWITCH', 'SWITCH2'
+RETIRED_ROOTS = {'LIBRARY', 'PROJECTS', 'LEGACY'}
+GAME_BRANCHES = {'SOURCE', 'TARGET', 'COMPARE', 'SHARED', 'REFERENCE'}
+GEN_BRANCHES = {'TARGET', 'COMPARE', 'SHARED', 'REFERENCE'}
+CROSS_BRANCHES = {'TARGET', 'COMPARE', 'SHARED', 'REFERENCE'}
+BANNED = {
+    'MULTI', 'REV-ALL', 'ALL', 'ALL-RELEASES', 'MULTI-REGION', '_SHARED',
+    'MISC', 'OTHER', 'GENERAL', 'REV-UNKNOWN', 'MIGRATED'
 }
-BANNED_CANONICAL_PARTS = {
-    'MULTI', 'REV-ALL', 'ALL', 'ALL-RELEASES', 'MULTI-REGION',
-    '_SHARED', 'MISC', 'OTHER', 'GENERAL', 'REV-UNKNOWN', 'MIGRATED'
-}
-IGNORED_METADATA_FILES = {
-    '.gitkeep', 'README.md', 'ROUTING.md', 'STRUCTURE.md', 'PROJECT.yaml', 'project.yaml'
-}
-
+IGNORE = {'.gitkeep', 'README.md', 'ROUTING.md', 'STRUCTURE.md', 'MANIFEST.yaml', 'manifest.yaml', 'PROJECT.yaml', 'project.yaml'}
 errors = []
 
 
 def children(path):
     if not path.exists():
         return []
-    return [p for p in path.iterdir() if p.name not in IGNORED_METADATA_FILES]
+    return [p for p in path.iterdir() if p.name not in IGNORE]
 
 
-def require_dirs(parent, label, matcher=SLUG_RE):
-    out = []
-    for p in children(parent):
-        if not p.is_dir() or (matcher and not matcher.fullmatch(p.name)):
+def is_quarantine(path):
+    try:
+        path.relative_to(QUARANTINE)
+        return True
+    except ValueError:
+        return False
+
+
+def check_slug_dirs(path, label):
+    for p in children(path):
+        if not p.is_dir() or not SLUG_RE.fullmatch(p.name) or p.name in BANNED:
             errors.append(f'invalid {label}: {p}')
-            continue
-        out.append(p)
-    return out
 
 
-def reject_banned(root, label):
-    if not root.exists():
+def reject_banned(path, label):
+    if not path.exists():
         return
-    for p in root.rglob('*'):
-        if LEGACY in p.parents or p == LEGACY:
+    for p in path.rglob('*'):
+        if is_quarantine(p):
             continue
-        rel = p.relative_to(root)
-        bad = BANNED_CANONICAL_PARTS.intersection(rel.parts)
+        bad = BANNED.intersection(p.relative_to(path).parts)
         if bad:
-            errors.append(f'forbidden v6 label in {label}: {p} ({sorted(bad)})')
+            errors.append(f'forbidden label in {label}: {p} ({sorted(bad)})')
 
 
-for p in ROOT.iterdir():
-    if p.name not in CANONICAL_ROOTS:
-        errors.append(f'non-canonical v6 root entry: {p.name}')
+for entry in ROOT.iterdir():
+    if entry.name in RETIRED_ROOTS:
+        errors.append(f'retired pre-v8 root exists: {entry.name}')
+    elif GEN_RE.fullmatch(entry.name):
+        if not entry.is_dir():
+            errors.append(f'generation root is not a directory: {entry}')
+    elif entry.name not in STATIC_ROOTS:
+        errors.append(f'non-canonical v8 root entry: {entry.name}')
 
-for gen in require_dirs(LIBRARY, 'library generation', matcher=GEN_RE):
+for gen in [p for p in ROOT.iterdir() if p.is_dir() and GEN_RE.fullmatch(p.name)]:
     for node in children(gen):
         if not node.is_dir():
             errors.append(f'invalid generation child: {node}')
             continue
-        if node.name in LEGACY_PLATFORM_ROOTS:
-            errors.append(f'platform-first pre-v6 subtree must be under LEGACY: {node}')
-            continue
+
         if node.name in GEN_BRANCHES:
-            if node.name in {'COMPARE', 'REFERENCE'}:
-                require_dirs(node, f'generation {node.name.lower()} id')
-            reject_banned(node, f'generation {node.name.lower()}')
-            continue
-        if not SLUG_RE.fullmatch(node.name) or node.name in BANNED_CANONICAL_PARTS:
-            errors.append(f'invalid v6 game id: {node}')
+            if node.name in {'TARGET', 'COMPARE', 'REFERENCE'}:
+                check_slug_dirs(node, f'generation {node.name.lower()} id')
+            reject_banned(node, f'{gen.name}/{node.name}')
             continue
 
-        game = node
-        for branch in children(game):
+        if not SLUG_RE.fullmatch(node.name) or node.name in BANNED:
+            errors.append(f'invalid game id: {node}')
+            continue
+
+        for branch in children(node):
             if not branch.is_dir() or branch.name not in GAME_BRANCHES:
-                errors.append(f'invalid v6 game branch: {branch}')
+                errors.append(f'invalid game branch: {branch}')
                 continue
+
             if branch.name == 'SOURCE':
-                for platform in require_dirs(branch, 'source platform'):
-                    for package in require_dirs(platform, 'package kind'):
-                        for release in require_dirs(package, 'release id'):
-                            reject_banned(release, 'source release')
-            elif branch.name in {'COMPARE', 'REFERENCE'}:
-                require_dirs(branch, f'{branch.name.lower()} id')
-                reject_banned(branch, branch.name.lower())
-            else:
-                reject_banned(branch, 'shared')
+                for platform in children(branch):
+                    if not platform.is_dir() or not SLUG_RE.fullmatch(platform.name):
+                        errors.append(f'invalid platform id: {platform}')
+                        continue
+                    for package in children(platform):
+                        if not package.is_dir() or not SLUG_RE.fullmatch(package.name):
+                            errors.append(f'invalid package kind: {package}')
+                            continue
+                        check_slug_dirs(package, 'release id')
+            elif branch.name in {'TARGET', 'COMPARE', 'REFERENCE'}:
+                check_slug_dirs(branch, f'{branch.name.lower()} id')
 
-if PROJECTS.exists():
-    for scope in children(PROJECTS):
-        if not scope.is_dir() or not (GEN_RE.fullmatch(scope.name) or scope.name == 'CROSS-GEN'):
-            errors.append(f'invalid v6 project scope: {scope}')
+            reject_banned(branch, str(branch))
+
+cross = ROOT / 'CROSS-GEN'
+if cross.exists():
+    for branch in children(cross):
+        if not branch.is_dir() or branch.name not in CROSS_BRANCHES:
+            errors.append(f'invalid CROSS-GEN branch: {branch}')
             continue
-        for project in require_dirs(scope, 'project id'):
-            reject_banned(project, 'project')
-
-reject_banned(LIBRARY, 'library')
-reject_banned(PROJECTS, 'projects')
-reject_banned(ROOT / 'INFRA', 'infra')
+        if branch.name in {'TARGET', 'COMPARE', 'REFERENCE'}:
+            check_slug_dirs(branch, f'cross-generation {branch.name.lower()} id')
+        reject_banned(branch, str(branch))
 
 if errors:
-    print('Repository structure v6 validation failed:')
-    for error in errors:
-        print(f' - {error}')
+    print('Repository structure v8 validation failed:')
+    for e in errors:
+        print(f' - {e}')
     sys.exit(1)
 
-print('Repository structure v6 validation passed.')
+print('Repository structure v8 validation passed.')
