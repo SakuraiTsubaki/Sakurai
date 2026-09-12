@@ -1,19 +1,21 @@
 # Sakurai
 
-Pokémon research, reverse-engineering, census, comparison, verification, and documentation repository.
+Pokémon research, reverse-engineering, census, comparison, integration-design, and verification repository.
 
-## Canonical path model: v3
+## Canonical path model: v4
 
-All active game data lives under `GAMES/GEN-XX/<GAME-ID>/`.
+Active work is divided by responsibility rather than by one universal game/locale/revision chain:
 
-- `RELEASES/<RELEASE-ID>/<WORK-TYPE>/...` — one exact official build per immutable release ID
-- `COMPARISONS/<COMPARISON-ID>/<WORK-TYPE>/...` — relationships across releases
-- `PROJECTS/<PROJECT-ID>/COMMON/<WORK-TYPE>/...`
-- `PROJECTS/<PROJECT-ID>/TARGETS/<TARGET-ID>/<WORK-TYPE>/...`
-- `SHARED/<WORK-TYPE>/...` — genuinely release-independent material
+- `LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/RELEASES/<RELEASE-ID>/...` — facts owned by one exact official software build
+- `.../DUMPS/<DUMP-ID>/...` — observations tied to one exact supplied/observed ROM or executable image
+- `LIBRARY/.../COMPARISONS/<COMPARISON-ID>/...` — relationships among official releases
+- `PROJECTS/<PROJECT-ID>/...` — modernization, ports, integrations, cross-generation work, and target-specific implementation specifications
+- `INFRA/...` — release registries, schemas, validators, migration maps, and repository-wide tooling
 
-Locale, region, platform, revision/update version, hashes, and provenance are release metadata rather than universal path levels.
+**RELEASE and DUMP are different identities.** A bad, incomplete, modified, or duplicate dump never becomes a fake official release.
 
-Pre-v3 trees are frozen under `META/MIGRATION-SNAPSHOTS/`. New work must not recreate `GENERATION-*` or standalone `GEN-*` roots.
+Legacy `GAMES/`, `GENERATION-*`, standalone `GEN-*`, `META/`, `MULTI`, and `REV-ALL` paths are migration sources only. New work must use v4.
 
-See `STRUCTURE.md` and `MIGRATION.md` before routing files. ROM binaries and copyrighted original game images are not stored here.
+Sakurai and Tsubaki share the same release IDs, project IDs, and target IDs. See `STRUCTURE.md` and `MIGRATION.md` before routing new material.
+
+Original ROM/executable binaries are never stored in this repository.
