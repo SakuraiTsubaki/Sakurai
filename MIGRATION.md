@@ -1,53 +1,39 @@
-# Repository Migration — v9
+# Repository Migration — v10
 
 Status: **active cutover** — 2026-09-13.
 
-v9 is a path/ownership normalization. Existing unique data is preserved; ROM images remain excluded.
+The canonical migration specification is [`INFRA/ARCHITECTURE/MIGRATION-V10.md`](INFRA/ARCHITECTURE/MIGRATION-V10.md). v10 supersedes v9 for all new paths while preserving verified legacy data until it has been mapped and checked.
 
-## Canonical root mapping
-
-```text
-LIBRARY/GEN-XX/...                      → GEN-XX/...
-GENERATION-XX/...                       → GEN-XX/...
-PROJECTS/GEN-XX/<single-game-project>   → GEN-XX/<GAME-ID>/TARGET/<TARGET-ID>/...
-PROJECTS/GEN-XX/<multi-game-project>    → GEN-XX/TARGET/<TARGET-ID>/...
-PROJECTS/CROSS-GEN/<project>            → CROSS-GEN/TARGET/<TARGET-ID>/...
-LEGACY/...                              → INFRA/QUARANTINE/PRE-V9/LEGACY/...
-```
-
-## Generation V cutover applied first
+## Ownership mapping
 
 ```text
-GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0/
-GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0/
-GEN-05/COMPARE/BLACK-IRBO-HV0--WHITE-IRAO-HV0/
+GEN-XX/<GAME>/SOURCE/<PLATFORM>/<PACKAGE>/<RELEASE>/...
+  → GEN-XX/<GAME>/RELEASES/<PLATFORM>/<PACKAGE>/<RELEASE>/...
+
+GEN-XX/<GAME>/TARGET/<TARGET-ID>/...
+  → GEN-XX/<GAME>/PROJECTS/<PROJECT-ID>/...
+
+GEN-XX/<GAME>/COMPARE/<ID>/...
+  → GEN-XX/<GAME>/COMPARES/<ID>/...
+
+GEN-XX/<GAME>/REFERENCE/<ID>/...
+  → GEN-XX/<GAME>/REFERENCES/<ID>/...
 ```
 
-The inspected local images are dump observations only:
-
-```text
-Black: SWEETNDS-a68b3bed
-White: SWEETNDS-f94d4578
-```
-
-They do not alter release IDs, and the `.nds` files remain local/uncommitted.
-
-## Cross-repository reference repair
-
-Tsubaki manifests must reference canonical Sakurai paths without retired `LIBRARY/` prefixes:
-
-```text
-Sakurai:GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0/IDENTITY/release.yaml
-Sakurai:GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0/IDENTITY/release.yaml
-```
+Generation-level and cross-generation work follows the same pluralized v10 vocabulary.
 
 ## Cutover rules
 
-1. Preserve exact blob contents when a change is path-only.
-2. Never create a new release identity from a dump hash.
-3. Keep clean-reference identity and observed-dump identity separate.
-4. Do not promote dump-bound extracted data to release-level verified assets until provenance/clean-reference checks pass.
-5. Keep one semantic owner per artifact; duplicates are tracked through hashes/catalogs.
-6. New work uses v9 paths immediately.
-7. Old roots are read-only until migrated, then removed when no unique content remains.
-8. No ROM image is committed at any stage.
+1. Stop creating new v9 `SOURCE`, `TARGET`, `COMPARE`, and `REFERENCE` paths.
+2. Register observed ROM images under `RELEASES/.../DUMPS/<DUMP-ID>` without committing ROM bytes.
+3. Keep conceptual release identity separate from exact dump identity.
+4. Map each legacy subtree to a v10 coordinate before moving or recreating content.
+5. Preserve exact blobs for path-only migrations and verify provenance before deduplication.
+6. Repair internal and cross-repository references to v10 coordinates.
+7. Quarantine unresolved unique leftovers only when necessary; do not use quarantine as a new ownership model.
+8. Remove duplicate legacy copies only after verification; Git history remains the archive.
+9. Never commit an original, modified, rebuilt, patched, trimmed, padded, decrypted, or otherwise playable ROM image.
+
+## Initial v10 ROM corpus
+
+The 2026-09-13 baseline registers **25 locally observed Gen I–III ROM images**. Sakurai stores the observation registry and verification metadata. Tsubaki stores the corresponding production/extraction queue. Both sides use identical release IDs, dump IDs, SHA-256 values, and semantic coordinates.
