@@ -1,0 +1,14 @@
+{
+  "phase":"PHASE2D3B0_CHERRIM_BATTLE_GROUNDWORK",
+  "status":"asset-and-rule-groundwork-not-runtime-active",
+  "bank_bytes":10176,
+  "bank_sha256":"22df0bbd4ffd87206483d76b364cfe81f5bf1ae513e1b328ba102bc352241f70",
+  "logical_records":30,
+  "unique_payloads":19,
+  "c3_graphics_members":[92,93,94,95],
+  "palette_members":{"DP":[166,167,168,169],"PT":[190,191,192,193],"HGSS":[190,191,192,193]},
+  "source_difference_summary":{"dp_vs_pt_hgss_graphics":"different for multiple f0/f1 payloads","pt_vs_hgss_graphics":"identical for compared Cherrim members","dp_vs_hgss_palettes":"identical","platinum_palettes":"distinct from DP/HGSS"},
+  "rule":{"persistent_form":"Overcast only outside battle; Sunshine must not be persisted as stable individual form","battle_forms":{"0":"Overcast","1":"Sunshine"},"weather":"Sunshine under effective sunny weather; revert when sun absent or suppressed by Cloud Nine/Air Lock","flower_gift_dependency":true},
+  "runtime_rule_hook_active":false,
+  "emulator_boot_test":false
+}
