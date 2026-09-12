@@ -1,0 +1,10 @@
+{
+  "schema":"sakurai.nds-header-observation.v9","generation":"GEN-04","game":"HEARTGOLD","release_id":"IPKK-HV0","dump_id":"UPLOAD-5834fb3a","locale":"KR-KO",
+  "title":"POKEMON HG","game_code":"IPKK","maker_code":"01","unit_code":0,"header_version":0,"rom_size":134217728,
+  "arm9":{"rom_offset":16384,"entry_address":33556480,"ram_address":33554432,"size":765204},
+  "arm7":{"rom_offset":3111424,"entry_address":37224448,"ram_address":37224448,"size":161496},
+  "fnt":{"offset":3273216,"size":2884,"directory_count":46,"named_file_count":382},
+  "fat":{"offset":3276288,"size":4088,"entry_count":511},
+  "overlay9":{"offset":781824,"size":4128},"banner_offset":3280384,"used_rom_size":124639804,"header_size":16384,
+  "hashes":{"md5":"81de94bae7a9033fe077cc885addcfe4","sha1":"5834fb3a2d751c48501d47d6a56898d7af6ccf9e","sha256":"659f20ca1d4f43b8b675d3c47217bb875a4f14c62438b08fa42f60467e2bed43"},"rom_binary_committed":false
+}
