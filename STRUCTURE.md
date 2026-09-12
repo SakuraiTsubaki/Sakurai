@@ -1,8 +1,8 @@
-# Repository Structure v8
+# Repository Structure v9
 
-Status: **canonical redesign candidate** — 2026-09-12.
+Status: **canonical redesign candidate** — 2026-09-13.
 
-v8 replaces the detached top-level `LIBRARY/` + `PROJECTS/` ownership model with generation/game ownership.
+v9 keeps generation/game ownership from v8, but makes the Sakurai/Tsubaki split explicit at every target leaf and defines one ROM-ingest rule for both repositories.
 
 ## 1. Canonical roots
 
@@ -12,144 +12,144 @@ CROSS-GEN/
 INFRA/
 ```
 
-Root documentation and `.github` metadata are also allowed. Top-level `LIBRARY/`, `PROJECTS/`, and `LEGACY/` are retired after cutover.
+Root documentation and `.github` metadata are allowed. Historical roots such as `GENERATION-*`, `LIBRARY/`, `PROJECTS/`, and `LEGACY/` are non-canonical and must migrate or remain read-only under quarantine.
 
-## 2. Game ownership
+## 2. Pair roles
 
-Every game may own exactly these semantic branches:
+The repository pair shares the same IDs and semantic owner, but not the same payload.
 
-```text
-GEN-XX/<GAME-ID>/
-├── SOURCE/
-├── TARGET/
-├── COMPARE/
-├── SHARED/
-└── REFERENCE/
-```
+- **Sakurai**: identity, provenance, research, specifications, mappings, reference metadata, and verification criteria/evidence.
+- **Tsubaki**: production tooling, conversion logic, implementation, patch payloads, build recipes, generated manifests/reports, and reproducible build outputs that are safe to redistribute.
+- **Local-only**: original ROM images, complete patched ROM images, and substantial extracted proprietary game content.
 
-A branch is created only when content exists; empty placeholders are not required.
+A private repository is not used as a substitute for a local ROM vault.
 
-## 3. SOURCE grammar
+## 3. Source release ownership
 
 ```text
 GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/
 ```
 
-The order is fixed:
+`RELEASE-ID` is the registered official release/build identity. Language, region, revision, build, and version are manifest fields and appear in the ID only when needed for uniqueness.
 
-```text
-generation → game → source → platform → package/distribution → technical release identity
-```
-
-`RELEASE-ID` is the registered official release/build identity. Do **not** create extra `LANGUAGE`, `REGION`, `REV`, `BUILD`, or `VERSION` folders when those facts are already encoded by the registered release identity or manifest. They remain explicit manifest fields and may be part of the release ID where required for uniqueness.
-
-Typical Sakurai release leaf:
+Typical Sakurai source leaf:
 
 ```text
 <RELEASE-ID>/
 ├── IDENTITY/
-├── DUMPS/<DUMP-ID>/
-├── NATIVE/
+├── MANIFESTS/
+├── DUMPS/<DUMP-ID>/          # hashes/metadata/observations, never ROM bytes
 ├── DOMAINS/
 ├── TEXT/
 ├── CODE/
 ├── MAPS/
-├── TOOLS/
-├── REPORTS/
+├── RESEARCH/
+├── REFERENCE/
 └── VERIFICATION/
 ```
 
-An exact dump observation never creates a fake release. Modified/bad/trimmed/overdumped/incomplete images remain dump observations under the correct release or an explicit unresolved identity record.
+## 4. Target ownership
 
-## 4. TARGET grammar
-
-Single-game derived work belongs with its owner game:
+Single-game target:
 
 ```text
 GEN-XX/<GAME-ID>/TARGET/<TARGET-ID>/
 ```
 
-Only targets that intentionally span multiple games in one generation use:
+Same-generation multi-game target:
 
 ```text
 GEN-XX/TARGET/<TARGET-ID>/
 ```
 
-Targets spanning generations use:
+Cross-generation target:
 
 ```text
 CROSS-GEN/TARGET/<TARGET-ID>/
 ```
 
-A target manifest locks exact source release IDs and dump IDs when required. A derived project never masquerades as `SOURCE`.
+A target that consumes Gen I and produces Gen II-compatible work is therefore `CROSS-GEN`, even when its geographic scope is only Kanto.
+
+Typical **Sakurai** target leaf:
+
+```text
+<TARGET-ID>/
+├── README.md
+├── MANIFESTS/
+├── SPEC/
+├── MAPPING/
+├── RESEARCH/
+├── REFERENCE/
+└── VERIFICATION/
+```
+
+Implementation code, patch payloads, staging assets, and build products belong in the matching Tsubaki target, not here.
 
 ## 5. COMPARE / SHARED / REFERENCE
 
-Same-game comparisons:
+Same-game comparison:
 
 ```text
 GEN-XX/<GAME-ID>/COMPARE/<COMPARISON-ID>/
 ```
 
-Same-generation cross-game comparisons:
+Same-generation cross-game comparison:
 
 ```text
 GEN-XX/COMPARE/<COMPARISON-ID>/
 ```
 
-Cross-generation comparisons:
+Cross-generation comparison:
 
 ```text
 CROSS-GEN/COMPARE/<COMPARISON-ID>/
 ```
 
-`SHARED` is only for genuinely identity-independent reusable schemas, parsers, terminology maps, or equivalent resources. Byte-identical release-owned artifacts remain under each release and equality is recorded by hashes/catalogs.
+`SHARED` is only for identity-independent reusable schemas, terminology maps, parsers, or equivalent resources. Release-owned facts remain with their semantic owner.
 
-`REFERENCE` contains external or secondary sources and never overrides facts observed from official software.
+## 6. Infrastructure
 
-## 6. CROSS-GEN
-
-```text
-CROSS-GEN/
-├── TARGET/
-├── COMPARE/
-├── SHARED/
-└── REFERENCE/
-```
-
-No game-local source release is stored here.
-
-## 7. INFRA and quarantine
-
-Repository-wide architecture, registries, schemas, validators, migration maps, and generic tooling belong under `INFRA/`.
-
-Pre-v8 unique or not-yet-semantic-migrated material may remain read-only under:
+Repository-wide registries, schemas, validators, routing rules, and migration maps belong under `INFRA/`.
 
 ```text
-INFRA/QUARANTINE/PRE-V8/
+INFRA/
+├── REGISTRY/
+├── SCHEMAS/
+├── ROUTING/
+├── VALIDATION/
+├── MIGRATION/
+└── QUARANTINE/PRE-V9/
 ```
 
-Quarantine is never a destination for new work. Git history is the permanent archive.
+Quarantine is read-only and receives no new production work.
 
-## 8. Repository pair invariant
+## 7. ROM-ingest invariant
 
-Sakurai and Tsubaki use identical values for:
+Original images are never committed. The tracked handoff is:
 
-- generation ID
-- game ID
-- platform ID
-- package kind
-- release ID
-- dump ID
-- target ID
-- comparison ID
-- reference/resource ID
+```text
+local ROM
+  → identity/hash verification
+  → Sakurai manifest/spec/mapping
+  → Tsubaki extractor/converter/implementation
+  → redistributable patch + verification report
+```
 
-Sakurai owns identity/research/specification/verification. Tsubaki owns verified production assets/conversions/implementation/patch/build outputs.
+See `INFRA/ROUTING/ROM-INGEST.md`.
+
+## 8. Registered cross-generation target
+
+The current project is registered as:
+
+```text
+CROSS-GEN/TARGET/RGBY-KANTO-TO-GSC/
+```
+
+This ID is identical in Sakurai and Tsubaki.
 
 ## 9. Forbidden canonical labels
 
-Outside quarantine, new canonical paths must not introduce ambiguous ownership labels such as:
+Outside quarantine, do not create ambiguous owner IDs such as:
 
 ```text
 MULTI
@@ -165,15 +165,4 @@ REV-UNKNOWN
 MIGRATED
 ```
 
-Unknown facts are manifest state, not directory identities.
-
-## 10. Routing examples
-
-```text
-GEN-01/GREEN/TARGET/GREEN-MODERNIZATION/
-GEN-02/SILVER/TARGET/SILVER-MODERNIZATION/
-GEN-03/FIRERED/TARGET/FIRERED-MODERNIZATION/
-GEN-03/LEAFGREEN/TARGET/LEAFGREEN-PAST-PARADOX-001-386/
-GEN-01/TARGET/RBY-ENGLISH-RELOCALIZATION/
-CROSS-GEN/TARGET/<CROSS-GENERATION-PROJECT>/
-```
+Unknown facts are manifest state, not directory identity.
