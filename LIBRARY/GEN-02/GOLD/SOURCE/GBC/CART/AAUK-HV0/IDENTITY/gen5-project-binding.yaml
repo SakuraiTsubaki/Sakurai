@@ -1,0 +1,8 @@
+schema: sakurai.project-binding.v6
+project_id: GEN5-TO-POCKET-MONSTERS
+project_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
+role: target
+target_id: GEN2-GOLD-AAUK-HV0
+release_id: AAUK-HV0
+dump_id: UPLOAD-c0ff3999
+sha1: c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65

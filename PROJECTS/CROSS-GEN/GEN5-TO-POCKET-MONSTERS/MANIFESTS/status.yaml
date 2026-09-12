@@ -1,15 +1,17 @@
-schema: sakurai.project-status.v4
+schema: sakurai.project-status.v6
 project_id: GEN5-TO-POCKET-MONSTERS
+project_class: CROSS-GEN
+canonical_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
 updated: 2026-09-12
-path_architecture: v4
+path_architecture: v6
 
 source_scope:
   required_games: [BLACK, WHITE, BLACK2, WHITE2]
   bound_releases: 2
   required_releases: 4
   bound:
-    - GEN5-BLACK-IRBO-R0
-    - GEN5-WHITE-IRAO-R0
+    - GEN5-BLACK-IRBO-HV0
+    - GEN5-WHITE-IRAO-HV0
   unbound_required:
     - BLACK2
     - WHITE2
@@ -18,22 +20,22 @@ target_scope:
   bound_releases: 14
   generations: [2, 3]
   games: [GOLD, SILVER, CRYSTAL, RUBY, SAPPHIRE, EMERALD, FIRERED, LEAFGREEN]
+  gen2_technical_ids:
+    - GEN2-GOLD-AAUK-HV0
+    - GEN2-SILVER-AAXK-HV0
+    - GEN2-CRYSTAL-BXTJ-HV0
+    - GEN2-CRYSTAL-BYTE-HV1
 
 migration:
-  legacy_new_writes: frozen
-  release_registry: created
-  project_release_lock: created
-  black_release_manifest: created
-  white_release_manifest: created
-  black_dump_manifest: created
-  white_dump_manifest: created
-  black_white_comparison_manifest: created
-  bulk_legacy_move: pending-semantic-path-equivalence
+  pre_v6_new_writes: forbidden
+  project_cross_gen_rekey: complete
+  gen2_technical_release_rekey: in-progress
+  bulk_legacy_semantic_migration: in-progress
   policy: classify-before-move
 
 verification_requirements:
   - preserve-git-history
   - no-rom-binaries
   - no-blind-directory-renames
-  - validate-file-counts-and-references-before-removing-legacy-live-copies
+  - validate-file-counts-content-hashes-and-references-before-removing-legacy-copies
   - revalidate-bw-twl-dsi-conclusions-against-clean-full-dumps

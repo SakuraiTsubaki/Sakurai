@@ -1,0 +1,8 @@
+schema: sakurai.project-binding.v6
+project_id: GEN5-TO-POCKET-MONSTERS
+project_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
+role: target
+target_id: GEN2-CRYSTAL-BXTJ-HV0
+release_id: BXTJ-HV0
+dump_id: UPLOAD-95127b90
+sha1: 95127b901bbce2407daf43cce9f45d4c27ef635d

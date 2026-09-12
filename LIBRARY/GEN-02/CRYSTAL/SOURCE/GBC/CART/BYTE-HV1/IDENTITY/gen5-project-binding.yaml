@@ -1,0 +1,8 @@
+schema: sakurai.project-binding.v6
+project_id: GEN5-TO-POCKET-MONSTERS
+project_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
+role: target
+target_id: GEN2-CRYSTAL-BYTE-HV1
+release_id: BYTE-HV1
+dump_id: UPLOAD-f2f52230
+sha1: f2f52230b536214ef7c9924f483392993e226cfb

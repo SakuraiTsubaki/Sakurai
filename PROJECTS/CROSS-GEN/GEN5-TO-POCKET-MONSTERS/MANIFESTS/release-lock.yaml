@@ -1,5 +1,6 @@
-schema: sakurai.project-release-lock.v5
+schema: sakurai.project-release-lock.v6
 project_id: GEN5-TO-POCKET-MONSTERS
+project_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
 lock_date: 2026-09-12
 registry: INFRA/REGISTRY/ROM-SETS/GEN5-TO-POCKET-MONSTERS-2026-09-12.yaml
 
@@ -14,24 +15,22 @@ sources:
     status: bound-supplied-dump-revalidation-required
 
 required_unbound_sources:
-  GEN5-BLACK2:
-    status: required-not-currently-bound
-  GEN5-WHITE2:
-    status: required-not-currently-bound
+  GEN5-BLACK2: {status: required-not-currently-bound}
+  GEN5-WHITE2: {status: required-not-currently-bound}
 
 targets:
-  GEN2-GOLD-KR-KO-HV0:
-    release: LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/KR-KO-HV0
-    observed_dump: LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/KR-KO-HV0/DUMPS/UPLOAD-c0ff3999
+  GEN2-GOLD-AAUK-HV0:
+    release: LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/AAUK-HV0
+    observed_dump: LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/AAUK-HV0/DUMPS/UPLOAD-c0ff3999
   GEN2-SILVER-AAXK-HV0:
     release: LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/AAXK-HV0
     observed_dump: LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/AAXK-HV0/DUMPS/PROJECT-cb22d7e0
-  GEN2-CRYSTAL-JP-JA-HV0:
-    release: LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/JP-JA-HV0
-    observed_dump: LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/JP-JA-HV0/DUMPS/UPLOAD-95127b90
-  GEN2-CRYSTAL-US-EU-EN-HV1:
-    release: LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/US-EU-EN-HV1
-    observed_dump: LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/US-EU-EN-HV1/DUMPS/UPLOAD-f2f52230
+  GEN2-CRYSTAL-BXTJ-HV0:
+    release: LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/BXTJ-HV0
+    observed_dump: LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/BXTJ-HV0/DUMPS/UPLOAD-95127b90
+  GEN2-CRYSTAL-BYTE-HV1:
+    release: LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/BYTE-HV1
+    observed_dump: LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/BYTE-HV1/DUMPS/UPLOAD-f2f52230
   GEN3-RUBY-AXVJ-HV0:
     release: LIBRARY/GEN-03/RUBY/SOURCE/GBA/CART/AXVJ-HV0
     observed_dump: LIBRARY/GEN-03/RUBY/SOURCE/GBA/CART/AXVJ-HV0/DUMPS/UPLOAD-5c5e5467
@@ -64,15 +63,14 @@ targets:
     observed_dump: LIBRARY/GEN-03/LEAFGREEN/SOURCE/GBA/CART/BPGE-HV1/DUMPS/UPLOAD-7862c67b
 
 implementation_contract:
-  common_root: PROJECTS/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/COMMON
-  target_root_template: PROJECTS/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/{TARGET-ID}
-  crosswalk_root: PROJECTS/GEN5-TO-POCKET-MONSTERS/CROSSWALK
-  design_root: PROJECTS/GEN5-TO-POCKET-MONSTERS/DESIGN
-  verification_root: PROJECTS/GEN5-TO-POCKET-MONSTERS/VERIFICATION
+  sakurai_crosswalk_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/CROSSWALK
+  sakurai_design_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/DESIGN
+  sakurai_verification_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/VERIFICATION
+  tsubaki_project_root: PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS
 
 rules:
-  - source-and-target-ids-must-resolve-to-exactly-one-v5-release
-  - target-id-uses-release-id-with-HV-semantics
+  - source-and-target-ids-must-resolve-to-exactly-one-canonical-release
+  - target-id-uses-strongest-verified-native-technical-token-plus-HV
   - source-release-research-stays-in-library
   - project-specific-transformation-stays-in-projects
   - supplied-dump-limitations-must-propagate-to-verification
