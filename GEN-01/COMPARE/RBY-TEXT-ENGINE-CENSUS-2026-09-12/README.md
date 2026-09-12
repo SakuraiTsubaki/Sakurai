@@ -1,6 +1,6 @@
-# RBY text-engine census — v6
+# RBY text-engine census — canonical comparison
 
-ROM-derived cross-game discovery dataset for all 12 source/reference builds used by `PROJECTS/GEN-01/RBY-ENGLISH-RELOCALIZATION`.
+ROM-derived cross-game discovery dataset for all 12 source/reference builds used by `GEN-01/TARGET/RBY-ENGLISH-RELOCALIZATION`.
 
 ## Contents
 
