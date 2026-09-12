@@ -7,7 +7,10 @@ GEN_RE = re.compile(r'^GEN-\d{2}$')
 LEGACY_GEN_RE = re.compile(r'^GENERATION-(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI)$')
 GAME_RE = re.compile(r'^(?:_SHARED|[A-Z0-9][A-Z0-9-]*)$')
 ID_RE = re.compile(r'^[A-Z0-9][A-Z0-9-]*$')
-REV_RE = re.compile(r'^REV-(?:[A-Z]|\d+)$')
+# Supports exact source labels used by the verified ROM set: REV-0, REV-A,
+# REV-0A, REV-B/C/D, numeric revisions, and aggregate REV-ALL.
+REV_RE = re.compile(r'^REV-(?:ALL|\d+[A-Z]?|[A-Z]+\d*)$')
+BASE_ID_RE = re.compile(r'^[A-Z0-9][A-Z0-9-]*-REV-(?:ALL|\d+[A-Z]?|[A-Z]+\d*)$')
 BRANCHES = {'SOURCE', 'TARGET', 'COMPARE', 'SHARED'}
 WORK_TYPES = {
     'ANALYSIS','CENSUS','STRUCTURE','TEXT','DATA','DIFFS','TOOLS','TESTS',
@@ -56,7 +59,7 @@ for gen in [p for p in ROOT.iterdir() if p.is_dir() and GEN_RE.fullmatch(p.name)
             elif branch.name == 'TARGET':
                 targets = require_dirs(branch, 'TARGET id', matcher=ID_RE)
                 for target in targets:
-                    bases = require_dirs(target, 'TARGET base id', matcher=ID_RE)
+                    bases = require_dirs(target, 'TARGET base id', matcher=BASE_ID_RE)
                     for base in bases:
                         require_dirs(base, 'TARGET work type', allowed=WORK_TYPES)
             else:  # COMPARE / SHARED
