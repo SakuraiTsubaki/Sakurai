@@ -1,0 +1,35 @@
+schema_version: 1
+comparison_id: SOURCE-SET-2026-09-12
+game: RUBY
+platform: GBA
+purpose: full comparative survey of the 13 source ROM files supplied to the project on or before 2026-09-12
+release_members:
+  - AXVJ-R0
+  - AXVE-R0
+  - AXVE-R1
+  - AXVE-R2
+  - AXVD-R0
+  - AXVD-R0-DEBUG
+  - AXVD-R1
+  - AXVF-R0
+  - AXVF-R1
+  - AXVI-R0
+  - AXVI-R1
+  - AXVS-R0
+  - AXVS-R1
+dump_members:
+  - PROJECT-5c5e5467
+  - PROJECT-f28b6ffc
+  - PROJECT-610b96a9
+  - PROJECT-5b64eacf
+  - PROJECT-1c2a5333
+  - PROJECT-ca5e3d41
+  - PROJECT-424740be
+  - PROJECT-a6ee9420
+  - PROJECT-ba888dfb
+  - PROJECT-2b313422
+  - PROJECT-015a5d38
+  - PROJECT-1f49f728
+  - PROJECT-9ac73481
+raw_rom_binaries_in_repository: false
+registry: INFRA/REGISTRY/ROM-SETS/RUBY/source-set.tsv
