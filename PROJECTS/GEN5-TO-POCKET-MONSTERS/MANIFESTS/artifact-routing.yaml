@@ -1,4 +1,4 @@
-schema: gen5-to-pocket-monsters.artifact-routing.v4
+schema: gen5-to-pocket-monsters.artifact-routing.v5
 project_id: GEN5-TO-POCKET-MONSTERS
 
 sakurai:
@@ -33,34 +33,43 @@ never_commit:
   - unmodified-copyrighted-asset-dumps
 
 source_release_roots:
-  black: LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0
-  white: LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0
+  black: LIBRARY/GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0
+  white: LIBRARY/GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0
   black2: unbound-required
   white2: unbound-required
 
 target_set:
   - GEN2-GOLD-KR-KO-HV0
-  - GEN2-SILVER-KR-KO-HV0
+  - GEN2-SILVER-AAXK-HV0
   - GEN2-CRYSTAL-JP-JA-HV0
   - GEN2-CRYSTAL-US-EU-EN-HV1
-  - GEN3-RUBY-AXVJ-R0
-  - GEN3-RUBY-AXVE-R2
-  - GEN3-SAPPHIRE-AXPJ-R0
-  - GEN3-SAPPHIRE-AXPE-R2
-  - GEN3-EMERALD-BPEJ-R0
-  - GEN3-EMERALD-BPEE-R0
-  - GEN3-FIRERED-BPRJ-R1
-  - GEN3-FIRERED-BPRE-R1
-  - GEN3-LEAFGREEN-BPGJ-R0
-  - GEN3-LEAFGREEN-BPGE-R1
+  - GEN3-RUBY-AXVJ-HV0
+  - GEN3-RUBY-AXVE-HV2
+  - GEN3-SAPPHIRE-AXPJ-HV0
+  - GEN3-SAPPHIRE-AXPE-HV2
+  - GEN3-EMERALD-BPEJ-HV0
+  - GEN3-EMERALD-BPEE-HV0
+  - GEN3-FIRERED-BPRJ-HV1
+  - GEN3-FIRERED-BPRE-HV1
+  - GEN3-LEAFGREEN-BPGJ-HV0
+  - GEN3-LEAFGREEN-BPGE-HV1
+
+identity_contract:
+  release_lock: PROJECTS/GEN5-TO-POCKET-MONSTERS/MANIFESTS/release-lock.yaml
+  silver_release: LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/AAXK-HV0
+  silver_dump: LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/AAXK-HV0/DUMPS/PROJECT-cb22d7e0
+  old_silver_alias: GEN2-SILVER-KR-KO-HV0
+  old_silver_alias_status: retired-do-not-write
 
 legacy_policy:
   new_writes_forbidden:
     - GENERATION-*
-    - GEN-*
+    - standalone-GEN-*
     - GAMES/*
+    - LIBRARY/GEN-XX/<PLATFORM>/<GAME>/RELEASES/*
     - MULTI
     - REV-ALL
+    - _SHARED
     - MISC
     - OTHER
     - GENERAL
