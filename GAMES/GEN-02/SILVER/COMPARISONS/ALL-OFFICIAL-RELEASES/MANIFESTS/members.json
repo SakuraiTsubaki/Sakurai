@@ -1,0 +1,27 @@
+{
+  "schema": "sakurai.comparison.v1",
+  "game": "SILVER",
+  "comparison_id": "ALL-OFFICIAL-RELEASES",
+  "release_ids": [
+    "GBC-JP-JA-AAXJ-REV-0",
+    "GBC-JP-JA-AAXJ-REV-A",
+    "GBC-US-EU-EN-AAXE-REV-0",
+    "GBC-EU-DE-AAXD-REV-0",
+    "GBC-EU-FR-AAXF-REV-0",
+    "GBC-EU-IT-AAXI-REV-0",
+    "GBC-EU-ES-AAXS-REV-0",
+    "GBC-KR-KO-AAXK-REV-0"
+  ],
+  "technical_profiles": {
+    "JP-1M-SGB": ["GBC-JP-JA-AAXJ-REV-0", "GBC-JP-JA-AAXJ-REV-A"],
+    "WESTERN-2M-SGB": ["GBC-US-EU-EN-AAXE-REV-0", "GBC-EU-DE-AAXD-REV-0", "GBC-EU-FR-AAXF-REV-0", "GBC-EU-IT-AAXI-REV-0", "GBC-EU-ES-AAXS-REV-0"],
+    "KR-2M-CGBONLY": ["GBC-KR-KO-AAXK-REV-0"]
+  },
+  "verified_observations": {
+    "all_header_checksums_valid": true,
+    "all_global_checksums_valid": true,
+    "jp_rev0_vs_reva_exact_16k_banks": "48/64",
+    "western_exact_16k_banks_common_to_all_five": "47/128"
+  },
+  "note": "Technical profiles describe ROM layout and hardware flags only; they are not claims of source-code ancestry."
+}
