@@ -1,0 +1,6 @@
+{
+  "nitrofs": {"same": 242, "different": 5, "only_black": 0, "only_white": 0},
+  "overlay9": {"same": 57, "different": 180, "only_black": 0, "only_white": 0},
+  "fat": {"same": 299, "different": 185, "only_black": 0, "only_white": 0},
+  "narc": {"same": 232, "different": 5, "only_black": 0, "only_white": 0}
+}

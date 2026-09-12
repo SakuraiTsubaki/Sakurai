@@ -1,0 +1,55 @@
+schema: sakurai.path-spec.v6
+status: canonical
+effective_date: 2026-09-12
+roots:
+  library: LIBRARY
+  projects: PROJECTS
+  infra: INFRA
+  legacy: LEGACY/PRE-V6-2026-09-12
+source_path_template: LIBRARY/{GENERATION}/{GAME_ID}/SOURCE/{PLATFORM_ID}/{PACKAGE_KIND}/{RELEASE_ID}
+same_game_compare_template: LIBRARY/{GENERATION}/{GAME_ID}/COMPARE/{COMPARISON_ID}
+cross_game_compare_template: LIBRARY/{GENERATION}/COMPARE/{COMPARISON_ID}
+project_generation_template: PROJECTS/{GENERATION}/{PROJECT_ID}
+project_cross_generation_template: PROJECTS/CROSS-GEN/{PROJECT_ID}
+release_leaf:
+  - IDENTITY
+  - DUMPS
+  - NATIVE
+  - DOMAINS
+  - TOOLS
+  - REPORTS
+  - VERIFICATION
+repository_role: research-reverse-engineering-verification
+release_identity_rules:
+  gba_nds_twl: '{GAME_CODE}-HV{HEADER_VERSION}'
+  gb_gbc: strongest-verifiable-market-language-header-version-identity
+  later_platforms: strongest-native-title-build-id-plus-software-version
+current_gen5_bindings:
+  black:
+    release_path: LIBRARY/GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0
+    dump_id: SWEETNDS-a68b3bed
+  white:
+    release_path: LIBRARY/GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0
+    dump_id: SWEETNDS-f94d4578
+  comparison_path: LIBRARY/GEN-05/COMPARE/BLACK-IRBO-HV0--WHITE-IRAO-HV0
+principles:
+  - release-identity-and-dump-identity-are-separate
+  - physical-native-layout-and-semantic-domains-are-separate
+  - native-rom-paths-are-never-renamed-from-guesswork
+  - equal-source-files-remain-release-owned
+  - equality-and-deltas-live-in-compare
+  - derived-work-lives-in-projects
+  - external-reference-never-overrides-source-rom-facts
+  - original-rom-binaries-are-never-committed
+forbidden_canonical_segments:
+  - MULTI
+  - REV-ALL
+  - ALL
+  - ALL-RELEASES
+  - MULTI-REGION
+  - _SHARED
+  - MISC
+  - OTHER
+  - GENERAL
+  - REV-UNKNOWN
+  - MIGRATED
