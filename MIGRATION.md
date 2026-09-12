@@ -1,30 +1,46 @@
-# Repository Migration
+# Repository Migration — V1 → Source-ROM Path V2
 
-## Canonical model
+## Why V1 is being replaced
 
-The repository follows:
+V1 used:
 
 `GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
 
-Git history is the archive for old paths. The current tree must not keep a second live copy solely to preserve a legacy pathname.
+That model mixed three different concepts in one axis: actual source ROM release, target/output locale, and cross-source work. It also forced shared USA/Europe English binaries into artificial `US-EN` versus `EU-EN` choices.
 
-## Semantic normalization
+## V2 ownership model
 
-The first canonical migration promoted generation/game/locale/revision/work-type ownership but retained some complete legacy routes below WORK TYPE. Those nested replicas are now considered non-canonical.
+Generation roots use zero-padded numeric IDs: `GEN-01`, `GEN-02`, ...
 
-Generation IV has completed second-stage semantic normalization:
+Each game has four ownership branches:
 
-- legacy bundle/region/revision/work-type replicas were dismantled;
-- single-game material was returned to the actual game/locale/revision owner;
-- multi-game comparisons were placed under `_SHARED` with the narrowest truthful locale/revision scope;
-- mixed Phase 1–3 buckets were split by semantic work type;
-- cross-generation studies were normalized under `ANALYSIS/CROSS-GENERATION`;
-- old path provenance is preserved in Git history and manifests rather than duplicate live directories.
+- `SOURCE/<RELEASE-ID>/<REV>/<WORK-TYPE>`
+- `TARGET/<TARGET-ID>/<BASE-ID>/<WORK-TYPE>`
+- `COMPARE/<SCOPE>/<WORK-TYPE>`
+- `SHARED/<SCOPE>/<WORK-TYPE>`
 
-See `GENERATION-IV/_SHARED/MULTI/REV-ALL/MANIFESTS/PATH-DESIGN.md` for the Generation IV routing rules.
+Examples:
 
-## Validation
+- `GEN-01/RED/SOURCE/JP-JA/REV-A/MANIFESTS/...`
+- `GEN-01/RED/SOURCE/US-EU-EN/REV-0/TEXT/...`
+- `GEN-01/RED/TARGET/KR-KO/JP-JA-REV-0/LOCALIZATION/...`
+- `GEN-02/CRYSTAL/TARGET/KR-KO/US-EU-EN-REV-A/TEXT/...`
 
-`MIGRATED` is forbidden. Generation IV additionally uses strict below-WORK-TYPE validation so locale, revision, work-type and legacy wrapper roles cannot be recreated inside the subject tree.
+## Source identity rules
 
-Other generations retain the canonical five-level ownership model and can be added to strict semantic validation as their remaining legacy subtrees are normalized.
+1. `SOURCE` means an actual official source build exists.
+2. `TARGET` means a derived build/output; target locale is not proof of an official source ROM.
+3. `US-EU-EN` is a single release ID for the supplied shared USA/Europe English ROMs.
+4. The supplied Korean source ROMs are Gold and Silver only; Korean Crystal must therefore be routed under `TARGET/KR-KO`, not `SOURCE/KR-KO`.
+5. Japanese Yellow keeps exact source labels `REV-0A`, `REV-B`, `REV-C`, `REV-D`; the header revision byte is metadata, not the directory name.
+6. `BASE-ID` must identify the source lineage, for example `JP-JA-REV-0`, `JP-JA-REV-A`, or `US-EU-EN-REV-0`.
+7. Cross-release/revision artifacts belong in `COMPARE`; release-independent game-wide infrastructure belongs in `SHARED`.
+8. Extra technical references, such as Korean Gold/Silver being used to implement Hangul in another game's target, belong in provenance manifests rather than pretending to be that game's source ROM.
+
+## Migration policy
+
+Roman `GENERATION-*` roots are legacy and may remain temporarily while files are moved. New work must use V2. Existing artifacts are moved to the narrowest truthful V2 owner; duplicate live copies are not kept solely for old paths. Git history preserves historical locations.
+
+The verified 23-ROM mapping is recorded in `META/SOURCE-ROM-CATALOG.md`.
+
+ROM binaries are never committed.
