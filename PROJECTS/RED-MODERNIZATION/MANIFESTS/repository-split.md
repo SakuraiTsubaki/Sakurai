@@ -1,18 +1,22 @@
 # RED-MODERNIZATION repository split
 
-Canonical pair contract for the RED project.
+Canonical v5 pair contract for the RED project.
 
 ## Sakurai owns
 
-- official release and exact dump identity
-- hashes, cartridge/header observations, bank structure and comparisons
+- official RELEASE and exact DUMP identity
+- hashes, cartridge/header observations and native bank structure
 - text/data/maps/events/disassembly/symbol research
-- bug, glitch, unused/dummy and verification reports
-- modernization crosswalks, design decisions, source/target locks and test evidence
+- bug, glitch, unused/dummy research and verification evidence
+- modernization crosswalks, design decisions, release locks and test evidence
 
 Canonical source root:
 
-`LIBRARY/GEN-01/GB/RED/`
+`LIBRARY/GEN-01/RED/SOURCE/GB/CART/`
+
+Canonical same-game comparison root:
+
+`LIBRARY/GEN-01/RED/COMPARE/`
 
 Canonical project root:
 
@@ -20,10 +24,15 @@ Canonical project root:
 
 ## Tsubaki owns
 
-- production graphics, sprites, palettes, fonts, icons, tilesets, UI and audio
+- release-provenanced extracted/normalized production resources
+- graphics, sprites, palettes, fonts, icons, tilesets, UI and audio
 - converted and modernized assets
 - target-specific implementation inputs/outputs
-- patches, build tooling and generated build artifacts that are appropriate to publish
+- patches, build tooling and publishable generated artifacts
+
+Canonical source root:
+
+`LIBRARY/GEN-01/RED/SOURCE/GB/CART/`
 
 Canonical project root:
 
@@ -31,7 +40,7 @@ Canonical project root:
 
 ## Shared identity
 
-The repositories must use the same RELEASE-ID, COMPARISON-ID, PROJECT-ID and TARGET-ID. Repository responsibility changes; identity never does.
+Both repositories use identical `GEN-01`, `RED`, `GB`, `CART`, RELEASE-ID, DUMP-ID, COMPARISON-ID, PROJECT-ID and TARGET-ID values. Responsibility changes; identity never does.
 
 ## ROM boundary
 

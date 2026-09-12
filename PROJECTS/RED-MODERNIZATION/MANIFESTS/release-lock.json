@@ -1,17 +1,19 @@
 {
-  "schema": "sakurai.project-release-lock.v1",
+  "schema": "sakurai.project-release-lock.v2",
   "project_id": "RED-MODERNIZATION",
   "generated": "2026-09-12",
-  "library_root": "LIBRARY/GEN-01/GB/RED",
+  "library_root": "LIBRARY/GEN-01/RED",
+  "source_root": "LIBRARY/GEN-01/RED/SOURCE/GB/CART",
   "source_releases": [
-    {"id":"JP-JA-HV0","sha1":"0623ad12f48c259447980d68bd85ddbf8204b2cd"},
-    {"id":"JP-JA-HV1","sha1":"ef74c79cded14204ac79e77f4964d9cb25003120"},
-    {"id":"US-EU-EN-HV0","sha1":"ea9bcae617fdf159b045185467ae58b2e4a48b9a"},
-    {"id":"EU-DE-HV0","sha1":"87d523fe1a0c548db7c5477b451ddec1eb083c06"},
-    {"id":"EU-FR-HV0","sha1":"47a7622fa30e6402a3891fe65b3a930bf9bd7aec"},
-    {"id":"EU-IT-HV0","sha1":"65b97cf8f2f1cff711a6d08c6c894c8ce65ce522"},
-    {"id":"EU-ES-HV0","sha1":"fc17c5b904d551b1b908054ccd1c493f755f832a"}
+    {"id":"JP-JA-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/JP-JA-HV0","sha1":"0623ad12f48c259447980d68bd85ddbf8204b2cd"},
+    {"id":"JP-JA-HV1","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/JP-JA-HV1","sha1":"ef74c79cded14204ac79e77f4964d9cb25003120"},
+    {"id":"US-EU-EN-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/US-EU-EN-HV0","sha1":"ea9bcae617fdf159b045185467ae58b2e4a48b9a"},
+    {"id":"EU-DE-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/EU-DE-HV0","sha1":"87d523fe1a0c548db7c5477b451ddec1eb083c06"},
+    {"id":"EU-FR-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/EU-FR-HV0","sha1":"47a7622fa30e6402a3891fe65b3a930bf9bd7aec"},
+    {"id":"EU-IT-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/EU-IT-HV0","sha1":"65b97cf8f2f1cff711a6d08c6c894c8ce65ce522"},
+    {"id":"EU-ES-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/EU-ES-HV0","sha1":"fc17c5b904d551b1b908054ccd1c493f755f832a"}
   ],
+  "comparison_root": "LIBRARY/GEN-01/RED/COMPARE",
   "targets": [
     {
       "target_id": "KR-KO-MODERN",
@@ -20,6 +22,7 @@
     }
   ],
   "pair_contract": {
+    "identity_model": "v5",
     "research_authority": "Sakurai",
     "production_authority": "Tsubaki",
     "release_ids_must_match": true,

@@ -1,0 +1,20 @@
+{
+  "schema": "sakurai.release-identity.v5",
+  "generation": "GEN-01",
+  "game_id": "RED",
+  "platform_id": "GB",
+  "package_kind": "CART",
+  "release_id": "US-EU-EN-HV0",
+  "market": "US-EU",
+  "language": "EN",
+  "header_version": 0,
+  "title": "POKEMON RED",
+  "size_bytes": 1048576,
+  "banks_16k": 64,
+  "cartridge_type": "0x13",
+  "sha1": "ea9bcae617fdf159b045185467ae58b2e4a48b9a",
+  "sha256": "5ca7ba01642a3b27b0cc0b5349b52792795b62d3ed977e98a09390659af96b7b",
+  "header_checksum_ok": true,
+  "global_checksum_ok": true,
+  "rom_binary_committed": false
+}

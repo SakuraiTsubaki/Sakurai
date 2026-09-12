@@ -1,84 +1,21 @@
 {
-  "schema": "sakurai.rom-set-registry.v1.1",
+  "schema": "sakurai.rom-set-registry.v2",
   "id": "GEN-01-GB-RED-2026-09-12",
-  "library_root": "LIBRARY/GEN-01/GB/RED",
+  "library_root": "LIBRARY/GEN-01/RED",
+  "source_root": "LIBRARY/GEN-01/RED/SOURCE/GB/CART",
+  "comparison_root": "LIBRARY/GEN-01/RED/COMPARE",
   "project_root": "PROJECTS/RED-MODERNIZATION",
   "uploaded_files": 8,
   "unique_byte_images": 7,
   "releases": [
-    {
-      "id": "JP-JA-HV0",
-      "size_bytes": 524288,
-      "banks_16k": 32,
-      "cartridge_type": "0x03",
-      "header_version": 0,
-      "sha1": "0623ad12f48c259447980d68bd85ddbf8204b2cd",
-      "sha256": "392ce450d708c8d127aaed7afc20001a48625bd83a5fa5325be82f5c0972ccfa"
-    },
-    {
-      "id": "JP-JA-HV1",
-      "size_bytes": 524288,
-      "banks_16k": 32,
-      "cartridge_type": "0x03",
-      "header_version": 1,
-      "sha1": "ef74c79cded14204ac79e77f4964d9cb25003120",
-      "sha256": "751abb1fb2b2d6b91dc631fa10ed36bd07f682cb5c3febe6c8f0e3dabc1fae1c"
-    },
-    {
-      "id": "US-EU-EN-HV0",
-      "size_bytes": 1048576,
-      "banks_16k": 64,
-      "cartridge_type": "0x13",
-      "header_version": 0,
-      "sha1": "ea9bcae617fdf159b045185467ae58b2e4a48b9a",
-      "sha256": "5ca7ba01642a3b27b0cc0b5349b52792795b62d3ed977e98a09390659af96b7b",
-      "observed_filenames": [
-        "Pokemon - Red Version (USA, Europe) (SGB Enhanced).gb",
-        "Pokemon - Red Version (USA, Europe) (SGB Enhanced) - 복사본.gb"
-      ]
-    },
-    {
-      "id": "EU-DE-HV0",
-      "size_bytes": 1048576,
-      "banks_16k": 64,
-      "cartridge_type": "0x1B",
-      "header_version": 0,
-      "sha1": "87d523fe1a0c548db7c5477b451ddec1eb083c06",
-      "sha256": "9cd186b288dbcd52413d561ae449f1f700c32b45af56dbf849095d4a0c8637a6"
-    },
-    {
-      "id": "EU-FR-HV0",
-      "size_bytes": 1048576,
-      "banks_16k": 64,
-      "cartridge_type": "0x1B",
-      "header_version": 0,
-      "sha1": "47a7622fa30e6402a3891fe65b3a930bf9bd7aec",
-      "sha256": "23766290f3b2347f815f1e8977c3b84047ed880cadda8c4f1a3595a633daa303"
-    },
-    {
-      "id": "EU-IT-HV0",
-      "size_bytes": 1048576,
-      "banks_16k": 64,
-      "cartridge_type": "0x1B",
-      "header_version": 0,
-      "sha1": "65b97cf8f2f1cff711a6d08c6c894c8ce65ce522",
-      "sha256": "e805d00b0002156d38b96efd57c823b0db3a3ef4cd32f98bd9bb4779bda3dd5b"
-    },
-    {
-      "id": "EU-ES-HV0",
-      "size_bytes": 1048576,
-      "banks_16k": 64,
-      "cartridge_type": "0x1B",
-      "header_version": 0,
-      "sha1": "fc17c5b904d551b1b908054ccd1c493f755f832a",
-      "sha256": "a756cf7ad888aa46de4b9699a177a0edf1775e59eb6330014c6f5c139be9c45d"
-    }
+    {"id":"JP-JA-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/JP-JA-HV0","size_bytes":524288,"banks_16k":32,"cartridge_type":"0x03","header_version":0,"sha1":"0623ad12f48c259447980d68bd85ddbf8204b2cd","sha256":"392ce450d708c8d127aaed7afc20001a48625bd83a5fa5325be82f5c0972ccfa"},
+    {"id":"JP-JA-HV1","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/JP-JA-HV1","size_bytes":524288,"banks_16k":32,"cartridge_type":"0x03","header_version":1,"sha1":"ef74c79cded14204ac79e77f4964d9cb25003120","sha256":"751abb1fb2b2d6b91dc631fa10ed36bd07f682cb5c3febe6c8f0e3dabc1fae1c"},
+    {"id":"US-EU-EN-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/US-EU-EN-HV0","size_bytes":1048576,"banks_16k":64,"cartridge_type":"0x13","header_version":0,"sha1":"ea9bcae617fdf159b045185467ae58b2e4a48b9a","sha256":"5ca7ba01642a3b27b0cc0b5349b52792795b62d3ed977e98a09390659af96b7b","observed_filenames":["Pokemon - Red Version (USA, Europe) (SGB Enhanced).gb","Pokemon - Red Version (USA, Europe) (SGB Enhanced) - 복사본.gb"]},
+    {"id":"EU-DE-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/EU-DE-HV0","size_bytes":1048576,"banks_16k":64,"cartridge_type":"0x1B","header_version":0,"sha1":"87d523fe1a0c548db7c5477b451ddec1eb083c06","sha256":"9cd186b288dbcd52413d561ae449f1f700c32b45af56dbf849095d4a0c8637a6"},
+    {"id":"EU-FR-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/EU-FR-HV0","size_bytes":1048576,"banks_16k":64,"cartridge_type":"0x1B","header_version":0,"sha1":"47a7622fa30e6402a3891fe65b3a930bf9bd7aec","sha256":"23766290f3b2347f815f1e8977c3b84047ed880cadda8c4f1a3595a633daa303"},
+    {"id":"EU-IT-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/EU-IT-HV0","size_bytes":1048576,"banks_16k":64,"cartridge_type":"0x1B","header_version":0,"sha1":"65b97cf8f2f1cff711a6d08c6c894c8ce65ce522","sha256":"e805d00b0002156d38b96efd57c823b0db3a3ef4cd32f98bd9bb4779bda3dd5b"},
+    {"id":"EU-ES-HV0","path":"LIBRARY/GEN-01/RED/SOURCE/GB/CART/EU-ES-HV0","size_bytes":1048576,"banks_16k":64,"cartridge_type":"0x1B","header_version":0,"sha1":"fc17c5b904d551b1b908054ccd1c493f755f832a","sha256":"a756cf7ad888aa46de4b9699a177a0edf1775e59eb6330014c6f5c139be9c45d"}
   ],
-  "verification": {
-    "all_header_checksums_pass": true,
-    "all_global_checksums_pass": true,
-    "international_zero_bank_range": "2D-3F",
-    "international_zero_bytes_per_release": 311296
-  },
+  "verification": {"all_header_checksums_pass":true,"all_global_checksums_pass":true,"international_zero_bank_range":"2D-3F","international_zero_bytes_per_release":311296},
   "rom_binaries_committed": false
 }
