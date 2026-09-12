@@ -1,0 +1,45 @@
+schema: repository.path.v9
+status: canonical
+date: 2026-09-13
+roots:
+  - GEN-XX
+  - CROSS-GEN
+  - INFRA
+game_branches:
+  - SOURCE
+  - TARGET
+  - COMPARE
+  - SHARED
+  - REFERENCE
+source_grammar: GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>
+identities:
+  release_id: official release/build identity
+  dump_id: exact observed image identity; never replaces release_id
+pair_invariants:
+  - generation_id
+  - game_id
+  - platform_id
+  - package_kind
+  - release_id
+  - dump_id
+  - target_id
+  - comparison_id
+rom_policy:
+  commit_rom_images: false
+  commit_metadata_hashes_indexes_scripts_patches_reports: true
+retired_roots:
+  - LIBRARY
+  - PROJECTS
+  - LEGACY
+  - GENERATION-XX
+forbidden_new_semantic_labels:
+  - MULTI
+  - ALL
+  - REV-ALL
+  - ALL-RELEASES
+  - MULTI-REGION
+  - MISC
+  - OTHER
+  - GENERAL
+  - REV-UNKNOWN
+  - MIGRATED
