@@ -1,0 +1,53 @@
+{
+  "schema": "gscrgby.rom-routing.v1",
+  "project": "GSCRGBY Kanto reverse-port",
+  "engine_target": {
+    "generation": 1,
+    "status": "multi-reference until implementation base is locked",
+    "roms": [
+      "Pocket Monsters - Aka (Japan) (Rev A) (SGB Enhanced).gb",
+      "Pocket Monsters - Ao (Japan) (SGB Enhanced).gb",
+      "Pocket Monsters - Midori (Japan) (Rev A) (SGB Enhanced).gb",
+      "Pocket Monsters - Pikachu (Japan) (Rev D) (SGB Enhanced).gb",
+      "Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb",
+      "Pokemon - Red Version (USA, Europe) (SGB Enhanced).gb",
+      "Pokemon - Yellow Version - Special Pikachu Edition (USA, Europe) (GBC,SGB Enhanced).gb"
+    ]
+  },
+  "kanto_source": {
+    "generation": 2,
+    "roms": [
+      "Pocket Monsters - Crystal Version (Japan).gbc",
+      "Pocket Monsters Eun (Korea).gbc",
+      "Pocket Monsters Geum (Korea).gbc",
+      "Pocket Monsters Gin (Japan) (Rev A).gbc",
+      "Pocket Monsters Kin (Japan) (Rev A).gbc",
+      "Pokemon - Crystal Version (USA, Europe) (Rev A).gbc",
+      "Pokemon - Gold Version (USA, Europe).gbc",
+      "Pokemon - Silver Version (USA, Europe).gbc"
+    ]
+  },
+  "repository_policy": {
+    "Sakurai": [
+      "portable source",
+      "conversion tools",
+      "patches",
+      "tests",
+      "public manifests",
+      "design docs"
+    ],
+    "Tsubaki": [
+      "reverse-engineering notes",
+      "bank maps",
+      "offset research",
+      "extraction reports",
+      "private experiments"
+    ],
+    "never_commit": [
+      "*.gb",
+      "*.gbc",
+      "full ROM dumps",
+      "build outputs containing unmodified ROM data"
+    ]
+  }
+}
