@@ -1,0 +1,14 @@
+rom_key,file,core_end,strong_seeds,candidate_recursive_code_halfwords,candidate_recursive_code_bytes,cfg_edges,distinct_bl_targets,return_sites,indirect_transfer_sites
+AXVJ_v0_JPN,Pocket Monsters - Ruby (Japan).gba,0x00660000,5410,489543,979086,55019,4391,435,9416
+AXVS_v1_ESP,Pokemon - Edicion Rubi (Spain) (Rev 1).gba,0x006B1FC8,5443,846121,1692242,85689,4758,804,9619
+AXVS_v0_ESP,Pokemon - Edicion Rubi (Spain).gba,0x006B1FC8,5443,846121,1692242,85689,4758,804,9619
+AXVD_v0_DEU_DEBUG,Pokemon - Rubin-Edition (Germany) (Debug Version).gba,0x006DF850,5928,1787151,3574302,209753,6519,2799,10866
+AXVD_v1_DEU,Pokemon - Rubin-Edition (Germany) (Rev 1).gba,0x006B1FC8,5442,1665107,3330214,195801,6058,2759,10077
+AXVD_v0_DEU,Pokemon - Rubin-Edition (Germany).gba,0x006B1FC8,5442,1665107,3330214,195801,6058,2759,10077
+AXVE_v1_EUR,Pokemon - Ruby Version (Europe) (Rev 1).gba,0x006B1FC8,5445,1685242,3370484,167325,6096,2949,10108
+AXVE_v0_USA,Pokemon - Ruby Version (USA).gba,0x006B1FC8,5446,1677391,3354782,167197,6099,2952,10107
+AXVE_v2_USA_EUR,"Pokemon - Ruby Version (USA, Europe) (Rev 2).gba",0x006B1FC8,5445,1685242,3370484,167325,6096,2949,10108
+AXVF_v1_FRA,Pokemon - Version Rubis (France) (Rev 1).gba,0x006B1FC8,5443,1671465,3342930,170665,6114,3295,10089
+AXVF_v0_FRA,Pokemon - Version Rubis (France).gba,0x006B1FC8,5443,1671465,3342930,170665,6114,3295,10089
+AXVI_v1_ITA,Pokemon - Versione Rubino (Italy) (Rev 1).gba,0x006B1FC8,5442,1681367,3362734,173798,6090,3155,10080
+AXVI_v0_ITA,Pokemon - Versione Rubino (Italy).gba,0x006B1FC8,5442,1681367,3362734,173798,6090,3155,10080
