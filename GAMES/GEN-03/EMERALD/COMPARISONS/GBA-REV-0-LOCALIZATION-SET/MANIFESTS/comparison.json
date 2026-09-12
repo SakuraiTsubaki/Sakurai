@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "game_id": "EMERALD",
+  "comparison_id": "GBA-REV-0-LOCALIZATION-SET",
+  "members": [
+    "GBA-JP-JA-BPEJ-REV-0",
+    "GBA-US-EU-EN-BPEE-REV-0",
+    "GBA-EU-DE-BPED-REV-0",
+    "GBA-EU-FR-BPEF-REV-0",
+    "GBA-EU-IT-BPEI-REV-0",
+    "GBA-EU-ES-BPES-REV-0"
+  ],
+  "purpose": "Cross-release bank census, disassembly boundary evidence, and localization-family comparison for the supplied Emerald Rev 0 source set.",
+  "legacy_source_path": "GENERATION-III/EMERALD/MULTI/REV-ALL"
+}

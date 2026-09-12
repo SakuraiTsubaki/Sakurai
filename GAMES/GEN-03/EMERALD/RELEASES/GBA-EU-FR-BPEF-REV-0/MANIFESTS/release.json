@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "game_id": "EMERALD",
+  "release_id": "GBA-EU-FR-BPEF-REV-0",
+  "platform": "GBA",
+  "market": "EU",
+  "languages": ["fr"],
+  "header_title": "POKEMON EMER",
+  "game_code": "BPEF",
+  "maker_code": "01",
+  "software_version": 0,
+  "header_checksum": "71",
+  "rom_size": 16777216,
+  "crc32": "a3fdccb1",
+  "md5": "2c00e335288a96650e34785b5e2a7588",
+  "sha1": "ca666651374d89ca439007bed54d839eb7bd14d0",
+  "sha256": "e79b40e6189550b4870b06918a5c59e04d3a2e1d7c92718aeda92181201f51e4",
+  "supplied_filenames": ["Pokemon - Version Emeraude (France).gba"],
+  "rom_binary_committed": false
+}

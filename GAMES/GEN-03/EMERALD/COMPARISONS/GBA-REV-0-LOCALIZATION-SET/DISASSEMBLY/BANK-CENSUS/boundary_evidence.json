@@ -1,0 +1,66 @@
+{
+  "anchors": {
+    "main_entry_common": "0x0003A4",
+    "main_last_function_start": {
+      "EN": "0x1DB620",
+      "JP": "0x1DAB78",
+      "FR": "0x1DB27C",
+      "DE": "0x1DB178",
+      "IT": "0x1DB168",
+      "ES": "0x1DB280"
+    },
+    "library_GameCubeMultiBoot_Hash": {
+      "JP": "0x28D2F8",
+      "EN": "0x2DED70",
+      "FR": "0x2E7D44",
+      "DE": "0x2F4AB0",
+      "IT": "0x2DFCFC",
+      "ES": "0x2E64FC"
+    },
+    "strcpy_anchor": {
+      "JP": "0x297E1C",
+      "EN": "0x2E94E4",
+      "FR": "0x2F24B8",
+      "DE": "0x2FF224",
+      "IT": "0x2EA470",
+      "ES": "0x2F0C70"
+    },
+    "signature_sha256": {
+      "western_last_main_28": "4de8c1b1cbaa149daef94bb4b655bd3845795ae0b506640badc110876fae29cf",
+      "library_start_256": "f20467ced6a88602fa56aaba527649bdce9fbdb302e924e563483a3d6978dac6",
+      "strcpy_64": "c29e1327214d89d80de82ad372f3c4f398646dad983d8830bc1f0d064bdc7fe9"
+    }
+  },
+  "regions": {
+    "JP": [
+      {"kind": "ARM_STARTUP", "start": "0x000204", "end_exclusive": "0x0003A4"},
+      {"kind": "THUMB_MAIN", "start": "0x0003A4", "end_exclusive": "0x1DABA4"},
+      {"kind": "LIBRARY_CODE", "start": "0x28D2F8", "end_exclusive": "0x29BDA0"}
+    ],
+    "EN": [
+      {"kind": "ARM_STARTUP", "start": "0x000204", "end_exclusive": "0x0003A4"},
+      {"kind": "THUMB_MAIN", "start": "0x0003A4", "end_exclusive": "0x1DB674"},
+      {"kind": "LIBRARY_CODE", "start": "0x2DED70", "end_exclusive": "0x2E952E"}
+    ],
+    "FR": [
+      {"kind": "ARM_STARTUP", "start": "0x000204", "end_exclusive": "0x0003A4"},
+      {"kind": "THUMB_MAIN", "start": "0x0003A4", "end_exclusive": "0x1DB2D0"},
+      {"kind": "LIBRARY_CODE", "start": "0x2E7D44", "end_exclusive": "0x2F2502"}
+    ],
+    "DE": [
+      {"kind": "ARM_STARTUP", "start": "0x000204", "end_exclusive": "0x0003A4"},
+      {"kind": "THUMB_MAIN", "start": "0x0003A4", "end_exclusive": "0x1DB1CC"},
+      {"kind": "LIBRARY_CODE", "start": "0x2F4AB0", "end_exclusive": "0x2FF26E"}
+    ],
+    "IT": [
+      {"kind": "ARM_STARTUP", "start": "0x000204", "end_exclusive": "0x0003A4"},
+      {"kind": "THUMB_MAIN", "start": "0x0003A4", "end_exclusive": "0x1DB1BC"},
+      {"kind": "LIBRARY_CODE", "start": "0x2DFCFC", "end_exclusive": "0x2EA4BA"}
+    ],
+    "ES": [
+      {"kind": "ARM_STARTUP", "start": "0x000204", "end_exclusive": "0x0003A4"},
+      {"kind": "THUMB_MAIN", "start": "0x0003A4", "end_exclusive": "0x1DB2D4"},
+      {"kind": "LIBRARY_CODE", "start": "0x2E64FC", "end_exclusive": "0x2F0CBA"}
+    ]
+  }
+}
