@@ -1,30 +1,48 @@
-# Repository Migration
+# Repository Migration — v2
 
-## Canonical model
+## Status
 
-The repository follows:
+v2 path migration is active.
 
-`GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
+The previous canonical model `GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE` is now legacy because it cannot distinguish official source releases, derived target builds, cross-release research, and game-wide shared material without ambiguous `MULTI/REV-ALL` buckets.
 
-Git history is the archive for old paths. The current tree must not keep a second live copy solely to preserve a legacy pathname.
+## New root
 
-## Semantic normalization
+Roman generation folders migrate to zero-padded numeric folders:
 
-The first canonical migration promoted generation/game/locale/revision/work-type ownership but retained some complete legacy routes below WORK TYPE. Those nested replicas are now considered non-canonical.
+- `GENERATION-I` → `GEN-01`
+- `GENERATION-II` → `GEN-02`
+- ...
+- `GENERATION-IX` → `GEN-09`
+- future generations use `GEN-10`, `GEN-11`, etc.
 
-Generation IV has completed second-stage semantic normalization:
+## New ownership routing
 
-- legacy bundle/region/revision/work-type replicas were dismantled;
-- single-game material was returned to the actual game/locale/revision owner;
-- multi-game comparisons were placed under `_SHARED` with the narrowest truthful locale/revision scope;
-- mixed Phase 1–3 buckets were split by semantic work type;
-- cross-generation studies were normalized under `ANALYSIS/CROSS-GENERATION`;
-- old path provenance is preserved in Git history and manifests rather than duplicate live directories.
+Each game moves into one of four branches:
 
-See `GENERATION-IV/_SHARED/MULTI/REV-ALL/MANIFESTS/PATH-DESIGN.md` for the Generation IV routing rules.
+- `SOURCE/<RELEASE-ID>/<REV>/<WORK-TYPE>` — official source builds only
+- `TARGET/<TARGET-ID>/<BASE-ID>/<WORK-TYPE>` — derived/localized/modernized targets
+- `COMPARE/<SCOPE>/<WORK-TYPE>` — inherently multi-source or multi-revision work
+- `SHARED/<SCOPE>/<WORK-TYPE>` — release-independent game-wide material
 
-## Validation
+## Pokémon Red first migration target
 
-`MIGRATED` is forbidden. Generation IV additionally uses strict below-WORK-TYPE validation so locale, revision, work-type and legacy wrapper roles cannot be recreated inside the subject tree.
+The uploaded/source-audited Red ROM set resolves to seven unique source identities:
 
-Other generations retain the canonical five-level ownership model and can be added to strict semantic validation as their remaining legacy subtrees are normalized.
+1. `SOURCE/JP-JA/REV-0`
+2. `SOURCE/JP-JA/REV-A`
+3. `SOURCE/US-EU-EN/REV-0`
+4. `SOURCE/EU-DE/REV-0`
+5. `SOURCE/EU-FR/REV-0`
+6. `SOURCE/EU-IT/REV-0`
+7. `SOURCE/EU-ES/REV-0`
+
+The second English file is byte-identical to the first and is provenance only, not an eighth source path.
+
+Current `GENERATION-I/RED/MULTI/REV-ALL/ANALYSIS/ROM-AUDIT` maps to `GEN-01/RED/COMPARE/ALL-SOURCES/ANALYSIS/ROM-AUDIT`.
+
+Current cross-ROM disassembly pipeline material maps to the appropriate `COMPARE/ALL-SOURCES/DISASSEMBLY`, `COMPARE/ALL-SOURCES/TOOLS`, `COMPARE/ALL-SOURCES/REPORTS`, or `COMPARE/ALL-SOURCES/MANIFESTS` owner instead of keeping nested work-type replicas.
+
+## Migration behavior
+
+Legacy `GENERATION-*` roots are temporarily tolerated by the validator and reported as migration warnings. New work must use v2 paths. Migration must move content rather than keep duplicate live copies. Git history remains the archive for old paths.
