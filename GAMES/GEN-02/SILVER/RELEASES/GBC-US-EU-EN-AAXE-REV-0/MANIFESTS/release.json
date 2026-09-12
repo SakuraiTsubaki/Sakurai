@@ -1,0 +1,28 @@
+{
+  "schema": "sakurai.release.v1",
+  "game": "SILVER",
+  "release_id": "GBC-US-EU-EN-AAXE-REV-0",
+  "official_build": true,
+  "rom_binary_committed": false,
+  "source_filename": "Pokemon - Silver Version (USA, Europe).gbc",
+  "size_bytes": 2097152,
+  "bank_size_bytes": 16384,
+  "bank_count": 128,
+  "sha1": "49b163f7e57702bc939d642a18f591de55d92dae",
+  "md5": "2ac166169354e84d0e2d7cf4cb40b312",
+  "technical_profile": "WESTERN-2M-SGB",
+  "header": {
+    "title_raw": "POKEMON_SLVAAXE",
+    "cgb_flag": "0x80",
+    "sgb_flag": "0x03",
+    "cartridge_type": "0x10",
+    "rom_size_code": "0x06",
+    "ram_size_code": "0x03",
+    "destination_code": "0x01",
+    "version_byte": 0,
+    "header_checksum": "0x2A",
+    "global_checksum": "0x0DAE",
+    "header_checksum_valid": true,
+    "global_checksum_valid": true
+  }
+}
