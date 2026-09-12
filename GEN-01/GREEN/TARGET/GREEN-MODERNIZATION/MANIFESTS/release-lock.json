@@ -1,19 +1,24 @@
 {
-  "schema": "project.release-lock.v6",
+  "schema": "project.release-lock.v9",
   "project_id": "GREEN-MODERNIZATION",
+  "status": "legacy-target-id",
+  "superseded_for_english_localization_by": "GEN-01/GREEN/TARGET/RBY-ENGLISH-TO-GREEN",
   "source_releases": [
     {
-      "library": "LIBRARY/GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV0",
+      "release_ref": "GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV0",
+      "dump_id": "USER-UPLOAD-82c0eef4",
       "sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196"
     },
     {
-      "library": "LIBRARY/GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV1",
+      "release_ref": "GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV1",
+      "dump_id": "USER-UPLOAD-4b97cd44",
       "sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b"
     }
   ],
   "policy": {
     "preserve_original_roms_read_only": true,
-    "commit_original_rom_binaries": false,
+    "commit_rom_binaries": false,
+    "commit_all_other_project_outputs": true,
     "separate_target_outputs": true,
     "both_revisions_supported": true
   }
