@@ -1,0 +1,23 @@
+{
+  "item_name_slots": 256,
+  "named_item_slots": 164,
+  "tm_hm_slots": 57,
+  "unused_or_internal_slots": 35,
+  "unchanged": 141,
+  "changed_total": 115,
+  "spacing_normalization": 95,
+  "generation_successor_name": 10,
+  "renamed_or_spelling": 9,
+  "new_translation": 1,
+  "current_data_consensus": 147,
+  "current_data_single_mirror": 0,
+  "legacy_or_editorial_without_current_mirror": 17,
+  "direct_official_source_verified": 0,
+  "all_final_names_encodable": true,
+  "old_table_bytes_with_terminators": 2465,
+  "new_table_bytes_with_terminators": 2340,
+  "table_byte_delta": -125,
+  "max_latest_name_encoded_bytes": 16,
+  "source_disagreements": 0,
+  "rom_output_written": false
+}

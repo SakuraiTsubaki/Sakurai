@@ -1,0 +1,25 @@
+{
+  "warning": "PKHeX and PokeAPI are secondary localization-data mirrors, not first-party Pokémon publications.",
+  "policy": "Consensus supports implementation planning. Direct first-party verification remains a separate status.",
+  "source_accessed_date": "2026-09-12",
+  "pkhex": {
+    "url": "https://github.com/kwsch/PKHeX/tree/master/PKHeX.Core/Resources/text/items",
+    "commit": "77dcd3a7895bceaafbbff12d25bdf77c1acd8ca5",
+    "english_sha256": "ced422707941cb377098c7b82fa6e0a1cc1d93fe27e8f43915952dd1b3313831",
+    "korean_sha256": "239fd93ac06c0d92416a2535d0ff29e0b93f263a88bb7baed26d3562636e099d"
+  },
+  "pokeapi": {
+    "url": "https://github.com/PokeAPI/pokeapi/tree/master/data/v2/csv",
+    "commit": "8fe210b21c9abbe73de93670f3d5a346c80a3625",
+    "items_sha256": "f08cd6dc30b447cb91cbe9232c79052e8521f32f6105bb1489b5bfabf4ca3241",
+    "item_names_sha256": "7b1b4fe6edf7946110050a5dddabf62c3a1dc3e1616099c4ae97abcb5ebd0f97",
+    "korean_language_id": 3,
+    "english_language_id": 9
+  },
+  "gen2_semantics": {
+    "url": "https://github.com/pret/pokegold/blob/master/data/items/names.asm",
+    "commit": "656583c939d30f920a316177311a502dd222b57c",
+    "names_asm_sha256": "dd1e0ab01bea6872342104f04e7260b99ab50c83957ae6a44bf79febe69af2ec",
+    "authority_note": "Used only to identify Gen II slot semantics; Korean ROM bytes remain primary."
+  }
+}
