@@ -1,62 +1,41 @@
-# Repository Migration — v6
+# Repository Migration — v7
 
-Status: **active canonical migration**, started 2026-09-12.
+Status: **canonical cutover**, 2026-09-12.
 
-v6 is a path-ownership redesign, not a content rewrite. Existing Git objects are reused wherever possible; original ROM binaries remain outside GitHub.
+v7 is a path-ownership redesign. File payloads are not rewritten merely to move them; existing Git tree/blob objects are reused wherever possible. Original ROM/executable binaries remain outside GitHub.
 
-## Completed in the v6 cutover
-
-1. `LIBRARY`, `PROJECTS`, `INFRA`, and `LEGACY` are the only data roots.
-2. Flat `PROJECTS/<PROJECT-ID>` is retired in favor of `PROJECTS/GEN-XX/<PROJECT-ID>` or `PROJECTS/CROSS-GEN/<PROJECT-ID>`.
-3. Pre-v6 top-level roots and platform-first library remnants are quarantined under `LEGACY/PRE-V6-2026-09-12/`.
-4. New writes to legacy names are rejected by CI.
-5. v5 release/dump identity rules remain valid and are not renumbered merely for migration.
-
-## Canonical source path
+## v6 → v7 mapping
 
 ```text
-LIBRARY/GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/
+LIBRARY/GEN-XX/...                    → GEN-XX/...
+PROJECTS/GEN-XX/<PROJECT-ID>/...      → GEN-XX/TARGET/<PROJECT-ID>/...
+PROJECTS/CROSS-GEN/<PROJECT-ID>/...   → CROSS-GEN/TARGET/<PROJECT-ID>/...
+LEGACY/...                            → INFRA/QUARANTINE/PRE-V7/V6-LEGACY/...
 ```
 
-Exact dumps stay below the release:
+The v6 `SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>` identity grammar is retained inside each game. This cutover changes ownership placement, not the meaning of release IDs or dump IDs.
+
+## Canonical v7 roots
 
 ```text
-.../<RELEASE-ID>/DUMPS/<DUMP-ID>/
+GEN-XX/
+CROSS-GEN/    # optional; created only when required
+INFRA/
 ```
 
-## Canonical project path
+`LIBRARY`, `PROJECTS`, and `LEGACY` are retired as top-level roots.
 
-```text
-PROJECTS/GEN-XX/<PROJECT-ID>/
-PROJECTS/CROSS-GEN/<PROJECT-ID>/
-```
+## Migration invariants
 
-Generation is determined by the project's target/source scope, not by a guessed filename. Cross-generation projects use `CROSS-GEN`; `MULTI` is forbidden.
+1. Preserve blob bytes when only the pathname changes.
+2. Keep exactly one live canonical owner for each artifact.
+3. Do not promote a project target into `SOURCE`.
+4. Do not convert region/language/revision labels into fake release identities.
+5. Preserve exact release/dump identity and provenance.
+6. Quarantined pre-v7 material receives no new work.
+7. Remove quarantine copies only after equivalence/ownership verification; Git history remains permanent.
+8. ROM/executable binaries remain excluded.
 
-## Legacy quarantine
+## Repository-pair rule
 
-```text
-LEGACY/PRE-V6-2026-09-12/
-```
-
-This tree is read-only. It may contain older root layouts and platform-first v4/v5 remnants while equivalence is being checked. It is not a valid destination for new analysis, assets, builds, or project outputs.
-
-## Migration order
-
-1. Freeze pre-v6 paths.
-2. Quarantine old live roots without changing blob contents.
-3. Group projects by generation.
-4. Keep already-canonical game-first v5 source trees live.
-5. Classify each quarantined subtree by owner: release, dump, comparison, reference, shared, project, or infra.
-6. Re-home files into v6 canonical owners using the existing release/dump/project IDs.
-7. Rewrite internal path references and release locks.
-8. Verify file counts, blob hashes, provenance links, and target bindings.
-9. Remove verified redundant quarantine copies from `LEGACY`; Git history remains available permanently.
-
-## Non-destructive invariant
-
-No pre-v6 tree is discarded merely because its path is obsolete. A legacy subtree leaves `LEGACY` only after its canonical owner is established and equivalence is verified.
-
-## Forbidden new canonical labels
-
-`MULTI`, `REV-ALL`, `ALL`, `ALL-RELEASES`, `MULTI-REGION`, `_SHARED`, `MISC`, `OTHER`, `GENERAL`, `REV-UNKNOWN`, and `MIGRATED` are forbidden outside `LEGACY` historical content.
+Sakurai and Tsubaki cut over together and retain identical generation/game/platform/package/release/dump/target/comparison identifiers. Sakurai remains authoritative for research and identity; Tsubaki remains authoritative for production assets and implementations.

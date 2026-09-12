@@ -1,42 +1,46 @@
-# Sakurai ↔ Tsubaki Repository Pair Contract v4.1
+# Sakurai ↔ Tsubaki Repository Pair Contract v7
 
-Status: canonical for all new work.
+Status: **canonical for all new work** as of 2026-09-12.
 
 ## Canonical roots
 
-Only these roots receive new project content:
-
-- `LIBRARY/` — artifacts owned by an official release or a relationship between official releases.
-- `PROJECTS/` — derived localization, modernization, port, integration, build, patch, and target work.
-- `INFRA/` — shared schemas, registries, validators, migration maps, and repository-wide tooling.
-- `.github/` and repository documentation.
-
-`GAMES/`, `META/`, `GENERATION-*`, and standalone `GEN-*` roots are migration-only. New work must not be added there. A legacy root is deleted once every non-placeholder artifact under it has one canonical owner. Placeholder-only roots should be removed immediately.
-
-## Identity hierarchy
+New work is written only to generation-first owners:
 
 ```text
-LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/
-├── RELEASES/<RELEASE-ID>/
-│   ├── MANIFESTS/
-│   └── DUMPS/<DUMP-ID>/...
-├── COMPARISONS/<COMPARISON-ID>/...
-└── SHARED/...
+GEN-XX/
+CROSS-GEN/
+INFRA/
 ```
 
-- `RELEASE-ID` identifies the official software/build.
-- `DUMP-ID` identifies an exact observed file and its provenance/hash state.
-- A bad, modified, overdumped, trimmed, incomplete, or otherwise non-canonical dump never creates a fake release.
-- `COMPARISONS` owns relationships among releases of one game. Generation-wide comparisons use the reserved `_SHARED` game scope.
-- `SHARED` is only for release-independent material.
+The former top-level `LIBRARY/`, `PROJECTS/`, and `LEGACY/` roots are retired. Pre-v7 quarantine, when still required, lives only under `INFRA/QUARANTINE/PRE-V7/` and receives no new work.
 
-## Project hierarchy
+## Official source identity
 
 ```text
-PROJECTS/<PROJECT-ID>/
+GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/
 ```
 
-Project IDs and target IDs must resolve to canonical release identities through manifests/release locks. A project-produced localization must never masquerade as an official release.
+- `RELEASE-ID` identifies the official software/build identity.
+- `DUMP-ID` identifies an exact observed image under that release.
+- Bad/modified/trimmed/overdumped/incomplete observations never create fake releases.
+- Platform, package, market, language, revision, product/title ID, hashes, and provenance are explicit manifest fields.
+
+## Derived targets
+
+```text
+GEN-XX/TARGET/<TARGET-ID>/
+CROSS-GEN/TARGET/<TARGET-ID>/
+```
+
+Target IDs must resolve to exact source release/dump locks through manifests. A project-produced localization, modernization, port, integration, or rebuild must never masquerade as an official `SOURCE` release.
+
+## Relationships
+
+- same-game relation → `GEN-XX/<GAME-ID>/COMPARE/<COMPARISON-ID>/`
+- same-generation cross-game relation → `GEN-XX/COMPARE/<COMPARISON-ID>/`
+- cross-generation relation → `CROSS-GEN/COMPARE/<COMPARISON-ID>/`
+- identity-independent reusable material → matching `SHARED/`
+- external/secondary material → matching `REFERENCE/`
 
 ## Repository responsibility
 
@@ -45,41 +49,35 @@ Project IDs and target IDs must resolve to canonical release identities through 
 Source of truth for:
 
 - release and dump identity;
-- manifests, hashes, provenance, registries;
-- analysis, census, structure, data and text research;
-- maps/events research;
-- disassembly, symbols and reverse engineering;
-- reproducible research tools, tests and verification;
-- reports, crosswalks and technical design specifications.
+- hashes, provenance, registries and manifests;
+- ROM/native structure, banks, pointers, tables, code and symbols;
+- text/data/event/map/system research;
+- comparisons, crosswalks and technical design;
+- reproducible research tools, tests, citations and verification evidence.
 
 ### Tsubaki
 
 Source of truth for:
 
-- sprites, graphics, palettes, fonts, icons and tilesets;
-- UI, title graphics and audio production assets;
-- intentionally extracted and identified source assets;
-- converted resources and format-normalized assets;
-- patches, build inputs and generated implementation outputs;
-- production tooling and production-side verification.
+- verified extracted source assets;
+- sprites, graphics, palettes, fonts, icons, tilesets, UI and audio production resources;
+- normalized and converted resources;
+- implementation inputs and generated implementation artifacts;
+- patches, build recipes/results, catalogs and production-side verification.
 
-The same release ID, dump ID, project ID and target ID mean the same thing in both repositories.
+The same `GEN-XX`, `GAME-ID`, `PLATFORM-ID`, `PACKAGE-KIND`, `RELEASE-ID`, `DUMP-ID`, `TARGET-ID`, `COMPARISON-ID`, reference ID, and shared-resource ID mean the same thing in both repositories.
 
 ## ROM-derived artifact rule
 
-Original ROM/executable binaries are never committed. Arbitrary raw banks or unclassified ROM chunks are also not production assets.
+Original ROM/executable binaries are never committed. Arbitrary unclassified raw banks/chunks are not production assets.
 
-ROM-derived material is routed as follows:
-
-1. identity/hash/header/structure fact → Sakurai;
-2. decoded table or reverse-engineering result → Sakurai;
-3. cross-release comparison/deduplication evidence → Sakurai;
-4. intentionally bounded source asset whose identity is verified → Tsubaki `LIBRARY`;
-5. converted/project-produced asset → Tsubaki `PROJECTS`;
-6. patch/build product → Tsubaki `PROJECTS`.
-
-A bank survey may identify candidate asset ranges, but Tsubaki extraction requires per-asset boundary and format verification first.
+1. identity/hash/header/native-structure fact → Sakurai `SOURCE`;
+2. decoded table/reverse-engineering result → Sakurai `SOURCE`;
+3. relationship/deduplication evidence → Sakurai `COMPARE`;
+4. bounded verified source asset → Tsubaki `SOURCE`;
+5. target-produced/converted asset → Tsubaki `TARGET`;
+6. patch/build product → Tsubaki `TARGET`.
 
 ## Migration invariant
 
-Every live artifact has exactly one semantic owner. Do not retain duplicate live copies solely to preserve an obsolete path; Git history is the archive. Migration must preserve blob bytes when an artifact is only being re-homed.
+Every live artifact has exactly one semantic owner. Path-only migration preserves blob bytes. Duplicate live copies are not retained merely to preserve obsolete paths; Git history is the permanent archive.
