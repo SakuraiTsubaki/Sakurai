@@ -1,6 +1,6 @@
-# RBY ROM census — v5 canonical comparison
+# RBY ROM census — v6 canonical comparison
 
-Cross-game ROM-derived census for the 12 exact source dumps consumed by `PROJECTS/RBY-ENGLISH-RELOCALIZATION`.
+Cross-game ROM-derived census for the 12 exact source dumps consumed by `PROJECTS/GEN-01/RBY-ENGLISH-RELOCALIZATION`.
 
 - `bank-fingerprints.csv.gz`: 608 16 KiB bank fingerprints.
 - `shared-bank-groups.csv.gz`: 81 exact-hash bank groups across releases.

@@ -1,6 +1,7 @@
 {
-  "schema":"rby-english-relocalization-source-set-v5",
+  "schema":"rby-english-relocalization-source-set-v6",
   "project_id":"RBY-ENGLISH-RELOCALIZATION",
+  "project_path":"PROJECTS/GEN-01/RBY-ENGLISH-RELOCALIZATION",
   "source_count":12,
   "platform_id":"GB",
   "package_kind":"CART",
