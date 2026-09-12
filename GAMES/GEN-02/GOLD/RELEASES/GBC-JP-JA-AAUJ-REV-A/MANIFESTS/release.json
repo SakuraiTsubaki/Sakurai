@@ -1,0 +1,23 @@
+{
+  "release_id": "GBC-JP-JA-AAUJ-REV-A",
+  "game_id": "GOLD",
+  "generation": 2,
+  "source_filename": "Pocket Monsters Kin (Japan) (Rev A).gbc",
+  "internal_title": "POKEMON_GLD",
+  "header_code": "AAUJ",
+  "header_version": 1,
+  "size_bytes": 1048576,
+  "banks_16k": 64,
+  "cgb_flag": "0x80",
+  "cartridge_type": "0x10",
+  "rom_size_code": "0x05",
+  "ram_size_code": "0x03",
+  "destination_code": "0x00",
+  "header_checksum": "0x47",
+  "header_checksum_valid": true,
+  "global_checksum": "0x8460",
+  "global_checksum_valid": true,
+  "sha1": "a222402235d484ee8e39f3f31bae57cf13daf585",
+  "sha256": "27a07a1d3faf9c6a0b1b60d5e88ee3a4159a751a47b4c46ab09f1202d52bac3e",
+  "source_binary_committed": false
+}
