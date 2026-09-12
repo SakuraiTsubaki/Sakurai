@@ -1,44 +1,53 @@
-# Repository Migration — v8
+# Repository Migration — v9
 
-Status: **cutover design**, 2026-09-12.
+Status: **active cutover** — 2026-09-13.
 
-v8 is a semantic ownership migration, not a content rewrite. Path-only moves reuse existing Git tree/blob objects wherever possible.
+v9 is a path/ownership normalization. Existing unique data is preserved; ROM images remain excluded.
 
-## Root mapping
-
-```text
-LIBRARY/GEN-XX/...                    → GEN-XX/...
-PROJECTS/GEN-XX/<SINGLE-GAME-PROJECT> → GEN-XX/<GAME-ID>/TARGET/<TARGET-ID>/...
-PROJECTS/GEN-XX/<MULTI-GAME-PROJECT>  → GEN-XX/TARGET/<TARGET-ID>/...
-PROJECTS/CROSS-GEN/<PROJECT-ID>/...   → CROSS-GEN/TARGET/<TARGET-ID>/...
-LEGACY/...                            → INFRA/QUARANTINE/PRE-V8/LEGACY/...
-```
-
-## Current explicit project ownership map
+## Canonical root mapping
 
 ```text
-GEN-01/GREEN-MODERNIZATION                 → GEN-01/GREEN/TARGET/GREEN-MODERNIZATION
-GEN-01/RED-MODERNIZATION                   → GEN-01/RED/TARGET/RED-MODERNIZATION
-GEN-01/YELLOW-MODERNIZATION                → GEN-01/YELLOW/TARGET/YELLOW-MODERNIZATION
-GEN-01/RBY-ENGLISH-RELOCALIZATION          → GEN-01/TARGET/RBY-ENGLISH-RELOCALIZATION
-GEN-02/CRYSTAL-LOCALIZATION-KO             → GEN-02/CRYSTAL/TARGET/CRYSTAL-LOCALIZATION-KO
-GEN-02/SILVER-MODERNIZATION                → GEN-02/SILVER/TARGET/SILVER-MODERNIZATION
-GEN-03/FIRERED-KR-LOCALIZATION             → GEN-03/FIRERED/TARGET/FIRERED-KR-LOCALIZATION
-GEN-03/FIRERED-MODERNIZATION               → GEN-03/FIRERED/TARGET/FIRERED-MODERNIZATION
-GEN-03/LEAFGREEN-MODERNIZATION             → GEN-03/LEAFGREEN/TARGET/LEAFGREEN-MODERNIZATION
-GEN-03/LEAFGREEN-PAST-PARADOX-001-386      → GEN-03/LEAFGREEN/TARGET/LEAFGREEN-PAST-PARADOX-001-386
+LIBRARY/GEN-XX/...                      → GEN-XX/...
+GENERATION-XX/...                       → GEN-XX/...
+PROJECTS/GEN-XX/<single-game-project>   → GEN-XX/<GAME-ID>/TARGET/<TARGET-ID>/...
+PROJECTS/GEN-XX/<multi-game-project>    → GEN-XX/TARGET/<TARGET-ID>/...
+PROJECTS/CROSS-GEN/<project>            → CROSS-GEN/TARGET/<TARGET-ID>/...
+LEGACY/...                              → INFRA/QUARANTINE/PRE-V9/LEGACY/...
 ```
 
-Other projects are mapped only after their semantic owner is unambiguous.
+## Generation V cutover applied first
 
-## Invariants
+```text
+GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0/
+GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0/
+GEN-05/COMPARE/BLACK-IRBO-HV0--WHITE-IRAO-HV0/
+```
 
-1. Original ROM/executable binaries remain excluded.
-2. `SOURCE` release identity and dump identity are preserved.
-3. Path-only migration preserves blob bytes.
-4. One live semantic owner per artifact.
-5. Single-game target work stays with the game.
-6. Generation-level `TARGET` is reserved for intentional multi-game scope.
-7. `CROSS-GEN` is reserved for intentional cross-generation scope.
-8. Quarantine receives no new work.
-9. No force update of `main` during cutover.
+The inspected local images are dump observations only:
+
+```text
+Black: SWEETNDS-a68b3bed
+White: SWEETNDS-f94d4578
+```
+
+They do not alter release IDs, and the `.nds` files remain local/uncommitted.
+
+## Cross-repository reference repair
+
+Tsubaki manifests must reference canonical Sakurai paths without retired `LIBRARY/` prefixes:
+
+```text
+Sakurai:GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0/IDENTITY/release.yaml
+Sakurai:GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0/IDENTITY/release.yaml
+```
+
+## Cutover rules
+
+1. Preserve exact blob contents when a change is path-only.
+2. Never create a new release identity from a dump hash.
+3. Keep clean-reference identity and observed-dump identity separate.
+4. Do not promote dump-bound extracted data to release-level verified assets until provenance/clean-reference checks pass.
+5. Keep one semantic owner per artifact; duplicates are tracked through hashes/catalogs.
+6. New work uses v9 paths immediately.
+7. Old roots are read-only until migrated, then removed when no unique content remains.
+8. No ROM image is committed at any stage.
