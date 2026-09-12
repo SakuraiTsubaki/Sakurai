@@ -174,7 +174,7 @@ def inspect(path: Path) -> dict[str, object]:
         "release_id": release_id,
         "project_side": "generation-iv-source" if role == "GEN-IV-OFFICIAL-RESEARCH-SOURCE" else "pocket-monsters-target",
         "source_priority": "equal",
-        "implementation_status": "not-applicable" if role == "GEN-IV-OFFICIAL-RESEARCH-SOURCE" else "target-candidate-unselected",
+        "implementation_status": "not-applicable" if role == "GEN-IV-OFFICIAL-RESEARCH-SOURCE" else "target-scope-confirmed",
         "coverage_status": "attached-and-header-verified",
         **parsed,
         **digests(data),
