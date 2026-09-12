@@ -1,0 +1,3 @@
+{
+  "schema":"rom-content-summary-v6","release_id":"BPEJ-HV0","dump_id":"UPLOAD-d7cf8f15","game":"EMERALD","locale":"JP-JA","size":16777216,"sha1":"d7cf8f156ba9c455d164e1ea780a6bf1945465c2","header_checksum_valid":true,"padding_candidates":23,"validated_lz77_candidates":4609,"note":"Padding and LZ77 counts are candidate observations, not safe-allocation certification."
+}

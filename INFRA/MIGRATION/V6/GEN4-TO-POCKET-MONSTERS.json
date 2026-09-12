@@ -1,0 +1,9 @@
+{
+  "schema": "repository.migration.v6",
+  "project_id": "GEN4-TO-POCKET-MONSTERS",
+  "canonical_project_root": "PROJECTS/CROSS-GEN/GEN4-TO-POCKET-MONSTERS",
+  "retired_project_root": "PROJECTS/GEN-04/GEN4-TO-POCKET-MONSTERS",
+  "registry_root": "INFRA/REGISTRIES/ROM-SETS",
+  "reason": "Generation IV sources are transformed for Generation III Japanese targets, so project ownership is cross-generation.",
+  "rom_binaries_committed": false
+}

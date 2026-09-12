@@ -1,0 +1,6 @@
+{
+  "schema":"rom-content-summary-v6",
+  "release_id":"CPUK-HV0","dump_id":"UPLOAD-f811d9c7","game":"PLATINUM","locale":"KR-KO","size":134217728,"sha1":"f811d9c7ab5262f593012da794c2fa81dbcdbcc1",
+  "fat_entries":461,"fnt_directories":105,"named_nitrofs_files":339,"named_narc_files":215,"asset_candidates":259,
+  "note":"Direct observation from supplied ROM bytes; ROM binary is not committed."
+}
