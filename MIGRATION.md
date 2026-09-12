@@ -46,7 +46,7 @@ LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0/DUMPS/SWEETNDS-f94d4578/
 LIBRARY/GEN-05/NDS/_SHARED/COMPARISONS/BLACK-IRBO-R0--WHITE-IRAO-R0/
 ```
 
-Cross-generation work formerly hidden under a source generation moves to:
+Generation V-owned integration work formerly hidden below `GENERATION-V/...` moves to:
 
 ```text
 PROJECTS/GEN5-TO-POCKET-MONSTERS/CROSSWALK/...
@@ -58,15 +58,26 @@ PROJECTS/GEN5-TO-POCKET-MONSTERS/VERIFICATION/...
 
 Pure facts about original target ROMs remain in their own `LIBRARY/.../RELEASES/...` trees and are referenced by the project.
 
+## Cross-generation dispatch rule
+
+A cross-generation artifact belongs to the project that actually owns the transformation, not to whichever source/target generation folder happened to contain the legacy file.
+
+```text
+Generation V -> Pocket Monsters work -> PROJECTS/GEN5-TO-POCKET-MONSTERS/...
+Generation IV -> Pocket Monsters work -> PROJECTS/GEN4-TO-POCKET-MONSTERS/...
+```
+
+A Gen IV import/conversion artifact found under a Gen III legacy target tree remains Gen IV-project work. Shared target ROMs do not merge project identities.
+
 ## Migration order
 
 1. Freeze legacy paths for new writes.
 2. Register all supplied releases and dump observations in `INFRA/REGISTRY/`.
-3. Lock project sources/targets in `PROJECTS/GEN5-TO-POCKET-MONSTERS/MANIFESTS/release-lock.yaml`.
+3. Lock each project's sources/targets in its own `MANIFESTS/release-lock.yaml`.
 4. Build an old-path -> v4-owner equivalence manifest.
 5. Migrate exact single-release material first.
 6. Split pseudo-release trees (`MULTI`, `REV-ALL`) into comparisons or projects by semantics.
-7. Move cross-generation work to the project root, splitting shared and target-specific implementation.
+7. Move cross-generation work to its correct project root, splitting shared and target-specific implementation.
 8. Verify hashes, file counts, references, and target bases.
 9. Remove obsolete live copies only after equivalence checks pass; Git history is the archive.
 10. Make CI/path validators reject new legacy paths.
