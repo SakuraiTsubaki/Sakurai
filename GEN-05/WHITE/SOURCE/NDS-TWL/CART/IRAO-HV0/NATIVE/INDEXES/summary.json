@@ -1,8 +1,24 @@
 {
+  "dump_id": "SWEETNDS-f94d4578",
+  "game_code": "IRAO",
+  "rom_version": 0,
+  "file_size": 268435456,
+  "rom_size_header": 205231104,
   "fat_entries": 484,
   "named_nitrofs_files": 247,
   "overlay9_entries": 237,
   "overlay7_entries": 0,
   "narc_files": 237,
-  "fnt_named_file_ids_minmax": [237, 483]
+  "directory_count": 31,
+  "fnt_named_file_ids_minmax": [237, 483],
+  "arm9_size": 456868,
+  "arm7_size": 167812,
+  "arm9_sha1": "f78a4be9d78c3b501b8171e18e362acd5dad28cc",
+  "arm7_sha1": "364259352fffdcd15b75c2d9e997d2ed0d877190",
+  "arm9_sha256": "4d2fffd55c538fa50b02dbc589d82baefcfdb059d3d5fe1f0c90f0eb5fc4018e",
+  "arm7_sha256": "fea30d7fb24ff1cf24306a5aff971593bab5ff7925d0d0fe49237b96ce6dbdae",
+  "rom_md5": "8dfef9a099e1269af5c1fcf9d7736a11",
+  "rom_sha1": "f94d4578956487c09fee20809a591e858017769e",
+  "rom_sha256": "93e4f473ce9a0543bccf2e689ecd07ab4fcc39dd00fb4f194343cbd5e70e17ed",
+  "rom_binary_in_repository": false
 }
