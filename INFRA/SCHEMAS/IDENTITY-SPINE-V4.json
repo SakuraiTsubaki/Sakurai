@@ -1,0 +1,31 @@
+{
+  "schema_version": 4,
+  "status": "canonical",
+  "canonical_roots": ["LIBRARY", "PROJECTS", "INFRA"],
+  "library_path": "LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>",
+  "library_branches": ["RELEASES", "COMPARISONS", "SHARED"],
+  "release_path": "LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/RELEASES/<RELEASE-ID>",
+  "dump_path": "LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/RELEASES/<RELEASE-ID>/DUMPS/<DUMP-ID>",
+  "comparison_path": "LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/COMPARISONS/<COMPARISON-ID>",
+  "project_path": "PROJECTS/<PROJECT-ID>",
+  "release_id_grammar": {
+    "GBA_NDS_TWL": "<GAME-CODE>-R<HEADER-VERSION>",
+    "GB_GBC": "<MARKET>-<LANGUAGE>-HV<HEADER-VERSION>",
+    "LATER_PLATFORMS": "strongest native title/build identifier + official software/update version"
+  },
+  "dump_id_grammar": "<PROVENANCE>-<SHA1-PREFIX>",
+  "identity_rules": {
+    "release": "one exact official software/build identity",
+    "dump": "one exact observed or supplied ROM/executable image",
+    "comparison": "relationship spanning two or more canonical releases/scopes",
+    "project": "derived transformation/integration/modernization/port ownership",
+    "target": "project-local target resolving to one canonical release in a release lock"
+  },
+  "forbidden_new_pseudo_owners": ["MULTI", "REV-ALL", "ALL", "MULTI-REGION"],
+  "legacy_roots": ["GAMES", "GENERATION-*", "GEN-*", "META"],
+  "pair_contract": {
+    "repositories": ["SakuraiTsubaki/Sakurai", "SakuraiTsubaki/Tsubaki"],
+    "shared_ids": ["RELEASE-ID", "DUMP-ID semantics", "COMPARISON-ID", "PROJECT-ID", "TARGET-ID"],
+    "rule": "artifact responsibility may differ by repository; identity must not"
+  }
+}
