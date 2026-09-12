@@ -1,0 +1,68 @@
+{
+  "schema": "leafgreen.repository-artifact-ownership.v1",
+  "canonical_game_root": "LIBRARY/GEN-03/GBA/LEAFGREEN",
+  "raw_rom_policy": "external-read-only-never-commit",
+  "release_ids": [
+    "BPGJ-R0",
+    "BPGE-R0",
+    "BPGE-R1",
+    "BPGD-R0",
+    "BPGF-R0",
+    "BPGI-R0",
+    "BPGS-R0"
+  ],
+  "sakurai": {
+    "authoritative_for": [
+      "release-and-dump-identity",
+      "hashes-and-header-verification",
+      "bank-and-byte-level-census",
+      "reverse-engineering",
+      "disassembly-and-symbols",
+      "pointer-and-structure-maps",
+      "text-and-data-decoding",
+      "cross-release-diffs",
+      "bug-glitch-unused-research",
+      "design-specifications",
+      "verification-evidence",
+      "reproducible-analysis-tools"
+    ],
+    "roots": [
+      "LIBRARY/GEN-03/GBA/LEAFGREEN/RELEASES",
+      "LIBRARY/GEN-03/GBA/LEAFGREEN/COMPARISONS",
+      "LIBRARY/GEN-03/GBA/LEAFGREEN/SHARED",
+      "PROJECTS/<PROJECT-ID>",
+      "INFRA"
+    ]
+  },
+  "tsubaki": {
+    "authoritative_for": [
+      "redistributable-production-assets",
+      "asset-deduplication-indices",
+      "converted-assets",
+      "production-palettes-fonts-icons-tilesets-ui-audio",
+      "build-inputs",
+      "patches",
+      "generated-implementation-resources",
+      "asset-conversion-and-build-tools"
+    ],
+    "roots": [
+      "LIBRARY/GEN-03/GBA/LEAFGREEN/RELEASES",
+      "LIBRARY/GEN-03/GBA/LEAFGREEN/COMPARISONS",
+      "LIBRARY/GEN-03/GBA/LEAFGREEN/SHARED",
+      "PROJECTS/<PROJECT-ID>",
+      "INFRA"
+    ]
+  },
+  "routing_rules": [
+    {"artifact": "exact observed ROM file", "repository": "none", "path": "external read-only source"},
+    {"artifact": "ROM hash/header/provenance", "repository": "Sakurai", "path": "RELEASES/<RID>/DUMPS/<DID>/MANIFESTS"},
+    {"artifact": "bank/pointer/structure census", "repository": "Sakurai", "path": "RELEASES or COMPARISONS"},
+    {"artifact": "disassembly/symbol/research note", "repository": "Sakurai", "path": "RELEASES/<RID>/DISASSEMBLY|SYMBOLS|ANALYSIS"},
+    {"artifact": "raw extracted copyrighted payload", "repository": "none-by-default", "path": "local workspace only unless redistribution status permits"},
+    {"artifact": "hash/dedup index for assets", "repository": "Tsubaki", "path": "COMPARISONS/<CID>/CONVERTED"},
+    {"artifact": "redistributable converted/created asset", "repository": "Tsubaki", "path": "RELEASES/<RID>/<ASSET-DOMAIN> or PROJECTS/<PID>"},
+    {"artifact": "patch/build product", "repository": "Tsubaki", "path": "PROJECTS/<PID>/PATCHES|BUILD"},
+    {"artifact": "project source/release lock and design", "repository": "Sakurai", "path": "PROJECTS/<PID>/MANIFESTS|DESIGN"},
+    {"artifact": "project implementation asset/build input", "repository": "Tsubaki", "path": "PROJECTS/<PID>/IMPLEMENTATION|SOURCE|CONVERTED"}
+  ]
+}
