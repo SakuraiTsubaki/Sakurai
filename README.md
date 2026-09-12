@@ -1,13 +1,19 @@
 # Sakurai
 
-Pokémon project analysis and census repository.
+Pokémon project analysis, research, census, verification, and source-ROM provenance repository.
 
-## Canonical hierarchy
+## Canonical hierarchy — V2
 
-`GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
+Source artifacts:
 
-All active research output follows the canonical hierarchy. Cross-game material belongs under the generation's `_SHARED` game slot, with provenance preserved below an allowed work type.
+`GENERATION / GAME / SOURCE-RELEASE / SOURCE-REV / SOURCE / WORK-TYPE`
 
-Temporary migration buckets such as `MIGRATED` are not permitted.
+Project outputs:
 
-This repository stores analysis, census, comparison, verification, reports, manifests, scripts, tables, and other research outputs. ROM binaries and reusable asset files are not stored here.
+`GENERATION / GAME / SOURCE-RELEASE / SOURCE-REV / PROJECTS / PROJECT-ID / TARGET / WORK-TYPE`
+
+The actual source ROM release always owns the path. Target languages and modification goals never masquerade as source releases.
+
+See `STRUCTURE.md` for the full rules and `SOURCE-ROM-CATALOG.md` for the currently verified Gen I/II source set.
+
+ROM binaries are never stored here.
