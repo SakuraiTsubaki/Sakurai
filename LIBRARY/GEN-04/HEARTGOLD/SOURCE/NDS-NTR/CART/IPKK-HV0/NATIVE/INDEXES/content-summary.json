@@ -1,0 +1,6 @@
+{
+  "schema":"rom-content-summary-v6",
+  "release_id":"IPKK-HV0","dump_id":"UPLOAD-5834fb3a","game":"HEARTGOLD","locale":"KR-KO","size":134217728,"sha1":"5834fb3a2d751c48501d47d6a56898d7af6ccf9e",
+  "fat_entries":511,"fnt_directories":46,"named_nitrofs_files":382,"named_narc_files":308,"asset_candidates":346,
+  "note":"Direct observation from supplied ROM bytes; ROM binary is not committed."
+}
