@@ -1,0 +1,28 @@
+{
+  "schema": "sakurai.release.v1",
+  "game": "SILVER",
+  "release_id": "GBC-EU-ES-AAXS-REV-0",
+  "official_build": true,
+  "rom_binary_committed": false,
+  "source_filename": "Pokemon - Edicion Plata (Spain).gbc",
+  "size_bytes": 2097152,
+  "bank_size_bytes": 16384,
+  "bank_count": 128,
+  "sha1": "05bd978ab2cb104b0aff3f696896e30885203a18",
+  "md5": "2d83fb454dd5687a802425c501854dc2",
+  "technical_profile": "WESTERN-2M-SGB",
+  "header": {
+    "title_raw": "POKEMON_SLVAAXS",
+    "cgb_flag": "0x80",
+    "sgb_flag": "0x03",
+    "cartridge_type": "0x10",
+    "rom_size_code": "0x06",
+    "ram_size_code": "0x03",
+    "destination_code": "0x01",
+    "version_byte": 0,
+    "header_checksum": "0x1C",
+    "global_checksum": "0x064B",
+    "header_checksum_valid": true,
+    "global_checksum_valid": true
+  }
+}
