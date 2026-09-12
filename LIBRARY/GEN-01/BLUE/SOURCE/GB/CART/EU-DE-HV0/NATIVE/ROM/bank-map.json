@@ -1,0 +1,1 @@
+{"schema":"gb-rom-bank-map-v5","release_id":"EU-DE-HV0","rom_size_bytes":1048576,"bank_size_bytes":16384,"bank_count":64,"bank_id_format":"two-digit uppercase hex","bank_ranges":[{"first":"00","last":"3F"}],"source_sha256":"2cfec2223090dc9f544aa36c99c48801be5018757a1366b88d8f40739541458e"}
