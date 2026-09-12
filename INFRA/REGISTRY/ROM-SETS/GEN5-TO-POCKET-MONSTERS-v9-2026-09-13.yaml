@@ -1,0 +1,32 @@
+schema: sakurai.rom-set.v9
+registry_date: 2026-09-13
+project_id: GEN5-TO-POCKET-MONSTERS
+project_root: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS
+binary_policy: rom-binaries-never-committed
+
+sources:
+  - {id: GEN5-BLACK-IRBO-HV0, game: BLACK, generation: 5, platform: NDS-TWL, release: GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0, dump: SWEETNDS-a68b3bed, filename: 'Pokemon.Black.Version.EUR.NDS-SweeTnDs.nds', sha1: a68b3bedf5c1e53556e41e59cdf396c20b331896, sha256: 2e40416b8e8183d936084c7be0adeaab4fa3f786a68f90d7291ab77d340f0c1d, quality: supplied-reference-revalidation-required}
+  - {id: GEN5-WHITE-IRAO-HV0, game: WHITE, generation: 5, platform: NDS-TWL, release: GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0, dump: SWEETNDS-f94d4578, filename: 'Pokemon.White.Version.EUR.NDS-SweeTnDs.nds', sha1: f94d4578956487c09fee20809a591e858017769e, sha256: 93e4f473ce9a0543bccf2e689ecd07ab4fcc39dd00fb4f194343cbd5e70e17ed, quality: supplied-reference-revalidation-required}
+required_unbound_sources: [BLACK2, WHITE2]
+
+targets:
+  - {id: GEN2-GOLD-AAUK-HV0, game: GOLD, generation: 2, platform: GBC, release: GEN-02/GOLD/SOURCE/GBC/CART/AAUK-HV0, dump: UPLOAD-c0ff3999, filename: 'Pocket Monsters Geum (Korea).gbc', sha1: c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65}
+  - {id: GEN2-SILVER-AAXK-HV0, game: SILVER, generation: 2, platform: GBC, release: GEN-02/SILVER/SOURCE/GBC/CART/AAXK-HV0, dump: PROJECT-cb22d7e0, filename: 'Pocket Monsters Eun (Korea).gbc', sha1: cb22d7e03a74dc3a563fde6be8626626b2b392e7}
+  - {id: GEN2-CRYSTAL-BXTJ-HV0, game: CRYSTAL, generation: 2, platform: GBC, release: GEN-02/CRYSTAL/SOURCE/GBC/CART/BXTJ-HV0, dump: UPLOAD-95127b90, filename: 'Pocket Monsters - Crystal Version (Japan).gbc', sha1: 95127b901bbce2407daf43cce9f45d4c27ef635d}
+  - {id: GEN2-CRYSTAL-BYTE-HV1, game: CRYSTAL, generation: 2, platform: GBC, release: GEN-02/CRYSTAL/SOURCE/GBC/CART/BYTE-HV1, dump: UPLOAD-f2f52230, filename: 'Pokemon - Crystal Version (USA, Europe) (Rev A).gbc', sha1: f2f52230b536214ef7c9924f483392993e226cfb}
+  - {id: GEN3-RUBY-AXVJ-HV0, game: RUBY, generation: 3, platform: GBA, release: GEN-03/RUBY/SOURCE/GBA/CART/AXVJ-HV0, dump: UPLOAD-5c5e5467, filename: 'Pocket Monsters - Ruby (Japan).gba', sha1: 5c5e546720300b99ae45d2aa35c646c8b8ff5c56}
+  - {id: GEN3-RUBY-AXVE-HV2, game: RUBY, generation: 3, platform: GBA, release: GEN-03/RUBY/SOURCE/GBA/CART/AXVE-HV2, dump: UPLOAD-5b64eacf, filename: 'Pokemon - Ruby Version (USA, Europe) (Rev 2).gba', sha1: 5b64eacf892920518db4ec664e62a086dd5f5bc8}
+  - {id: GEN3-SAPPHIRE-AXPJ-HV0, game: SAPPHIRE, generation: 3, platform: GBA, release: GEN-03/SAPPHIRE/SOURCE/GBA/CART/AXPJ-HV0, dump: UPLOAD-3233342c, filename: 'Pocket Monsters - Sapphire (Japan).gba', sha1: 3233342c2f3087e6ffe6c1791cd5867db07df842}
+  - {id: GEN3-SAPPHIRE-AXPE-HV2, game: SAPPHIRE, generation: 3, platform: GBA, release: GEN-03/SAPPHIRE/SOURCE/GBA/CART/AXPE-HV2, dump: UPLOAD-89b45fb1, filename: 'Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba', sha1: 89b45fb172e6b55d51fc0e61989775187f6fe63c}
+  - {id: GEN3-EMERALD-BPEJ-HV0, game: EMERALD, generation: 3, platform: GBA, release: GEN-03/EMERALD/SOURCE/GBA/CART/BPEJ-HV0, dump: UPLOAD-d7cf8f15, filename: 'Pocket Monsters - Emerald (Japan).gba', sha1: d7cf8f156ba9c455d164e1ea780a6bf1945465c2}
+  - {id: GEN3-EMERALD-BPEE-HV0, game: EMERALD, generation: 3, platform: GBA, release: GEN-03/EMERALD/SOURCE/GBA/CART/BPEE-HV0, dump: UPLOAD-f3ae0881, filename: 'Pokemon - Emerald Version (USA, Europe).gba', sha1: f3ae088181bf583e55daf962a92bb46f4f1d07b7}
+  - {id: GEN3-FIRERED-BPRJ-HV1, game: FIRERED, generation: 3, platform: GBA, release: GEN-03/FIRERED/SOURCE/GBA/CART/BPRJ-HV1, dump: UPLOAD-7c7107b8, filename: 'Pocket Monsters - Fire Red (Japan) (Rev 1).gba', sha1: 7c7107b87c3ccf6e3dbceb9cf80ceeffb25a1857}
+  - {id: GEN3-FIRERED-BPRE-HV1, game: FIRERED, generation: 3, platform: GBA, release: GEN-03/FIRERED/SOURCE/GBA/CART/BPRE-HV1, dump: UPLOAD-c4d0119d, filename: 'Pokemon - Fire Red Version (USA, Europe) (Rev 1).gba', sha1: c4d0119d9bcb36687f41a8f7ca72ab7af60558e4}
+  - {id: GEN3-LEAFGREEN-BPGJ-HV0, game: LEAFGREEN, generation: 3, platform: GBA, release: GEN-03/LEAFGREEN/SOURCE/GBA/CART/BPGJ-HV0, dump: UPLOAD-5946f1b5, filename: 'Pocket Monsters - Leaf Green (Japan).gba', sha1: 5946f1b59e8d71cc61249661464d864185c92a5f}
+  - {id: GEN3-LEAFGREEN-BPGE-HV1, game: LEAFGREEN, generation: 3, platform: GBA, release: GEN-03/LEAFGREEN/SOURCE/GBA/CART/BPGE-HV1, dump: UPLOAD-7862c67b, filename: 'Pokemon - Leaf Green Version (Europe) (Rev 1).gba', sha1: 7862c67bdecbe21d1d69ce082ce34327e1c6ed5e}
+
+rules:
+  - strongest-verified-native-release-id-wins
+  - filenames-are-metadata-not-identity
+  - release-and-dump-identities-are-distinct
+  - original-and-modified-rom-binaries-never-enter-git
