@@ -1,0 +1,27 @@
+schema: sakurai.rom-observation.v9
+artifact_id: GS-KOREAN-HANGUL-FONT-BANKS-78-7A
+release_id: AAUK-HV0
+game_id: GOLD
+platform_id: GBC
+package_kind: CART
+rom_sha1: c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65
+dump_id: UPLOAD-c0ff3999
+observation:
+  source_banks:
+    - "0x78"
+    - "0x79"
+    - "0x7A"
+  source_offset: "0x1E0000"
+  size_bytes: 49152
+  payload_sha1: 6e986d357a31a3fb5114c459a8e1f20163544eea
+  format: "8x16 1bpp glyph stream"
+  bytes_per_glyph: 16
+  glyph_slots: 3072
+payload_committed: false
+production_catalog: "Tsubaki:GEN-02/GOLD/SOURCE/GBC/CART/AAUK-HV0/CATALOG/FONTS/GS-KOREAN-HANGUL-8X16/manifest.json"
+provenance:
+  migrated_from: "Tsubaki:GEN-02/GOLD/SOURCE/GBC/CART/AAUK-HV0/ASSETS/FONTS/GS-KOREAN-HANGUL-8X16/manifest.json"
+  upstream_disassembly: "SakuraiTsubaki/pokegold-kr@801b8bf5dc38d1aac121a68ce61bc707afe08e0c"
+notes:
+  - "This file records ROM observation/analysis only; no ROM or extracted binary payload is committed."
+  - "Character naming/encoding claims from secondary references remain reference material until independently verified against official software."
