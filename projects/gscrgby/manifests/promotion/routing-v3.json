@@ -1,0 +1,56 @@
+{
+  "schema": "gscrgby.promotion-routing.v3",
+  "public_root": "projects/gscrgby",
+  "private_root": "SakuraiTsubaki/Tsubaki/workspaces/gscrgby",
+  "legacy_policy": "freeze-new-gscrgby-work",
+  "routes": [
+    {
+      "private": "reference/roms",
+      "public": "manifests/roms",
+      "output": "fingerprints-and-source-locks-only"
+    },
+    {
+      "private": "reference/layouts",
+      "public": "sources/<generation>/<game>/formats",
+      "output": "validated-format-and-layout-descriptors"
+    },
+    {
+      "private": "extraction/<generation>/<game>",
+      "public": "sources/<generation>/<game>",
+      "output": "normalized-portable-source-descriptors"
+    },
+    {
+      "private": "analysis/version-diffs",
+      "public": "sources/<generation>/<game>",
+      "output": "validated-version-difference-data"
+    },
+    {
+      "private": "analysis/kanto",
+      "public": "integration",
+      "output": "validated-cross-generation-integration-data"
+    },
+    {
+      "private": "analysis/localization",
+      "public": "integration/localization",
+      "output": "validated-localization-data"
+    },
+    {
+      "private": "experiments",
+      "public": null,
+      "output": "no-automatic-promotion"
+    }
+  ],
+  "promotion_requirements": [
+    "reproducible input identity",
+    "documented or scripted transform",
+    "stable output schema",
+    "validation result"
+  ],
+  "rom_policy": {
+    "allow_rom_images": false,
+    "allow_full_rom_dumps": false,
+    "allow_build_outputs_with_unmodified_rom_bytes": false,
+    "allow_fingerprints": true,
+    "allow_delta_patches": true
+  }
+}

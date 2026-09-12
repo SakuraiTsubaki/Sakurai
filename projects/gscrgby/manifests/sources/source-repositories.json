@@ -1,0 +1,28 @@
+{
+  "schema": "gscrgby.source-repositories.v1",
+  "sources": [
+    {
+      "repository": "SakuraiTsubaki/pokegold-kr",
+      "ref": "master",
+      "locked_commit": "801b8bf5dc38d1aac121a68ce61bc707afe08e0c",
+      "role": "reference-disassembly-korean-gold-silver",
+      "games": ["gold", "silver"],
+      "promoted_material_policy": "project-specific validated descriptors/tools only; do not vendor the full disassembly",
+      "roms": [
+        {
+          "game": "gold",
+          "release_id": "AAUK-HV0",
+          "sha1": "c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65",
+          "sha256": "9c273e86e6120c6a038160ccb0153b8b20425b84fc08a496281c1d1bcac492f6"
+        },
+        {
+          "game": "silver",
+          "release_id": "AAXK-HV0",
+          "sha1": "cb22d7e03a74dc3a563fde6be8626626b2b392e7",
+          "sha256": "ebbac63c0c4309c82dbb6723e7163369784f962b4fd3e2f486075307c3008a22"
+        }
+      ]
+    }
+  ],
+  "rom_images_committed": false
+}
