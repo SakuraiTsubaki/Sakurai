@@ -1,0 +1,55 @@
+schema: sakurai.path-migration.v4
+project_id: GEN5-TO-POCKET-MONSTERS
+created: 2026-09-12
+policy: semantic-split-not-blind-rename
+
+mappings:
+  - legacy_root: GENERATION-V/_SHARED/MULTI/REV-ALL/ANALYSIS/BW-EUR-REV-UNKNOWN/ROM-BASELINE-SWEETNDS
+    action: split
+    reason: mixed-black-white-dump-and-comparison-owner
+    destinations:
+      - LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0/DUMPS/SWEETNDS-a68b3bed
+      - LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0/DUMPS/SWEETNDS-f94d4578
+      - LIBRARY/GEN-05/NDS/_SHARED/COMPARISONS/BLACK-IRBO-R0--WHITE-IRAO-R0
+    status: identities-created-content-migration-pending
+
+  - legacy_root: GENERATION-V/_SHARED/MULTI/REV-ALL/ANALYSIS/BW-EUR-REV-MIXED/GAME-PARAMETERS/CANONICAL-RUNTIME-PASS10
+    action: reclassify-project
+    reason: generation-v-source-data-applied-to-older-target-runtime-parameters
+    destination: PROJECTS/GEN5-TO-POCKET-MONSTERS/CROSSWALK/POKEMON/PARAMETERS/CANONICAL-RUNTIME-PASS10
+    status: pending-file-level-review
+
+  - legacy_root: GENERATION-V/_SHARED/MULTI/REV-ALL/ANALYSIS/BW-MULTI-REGION/PARAMETER-PORT
+    action: reclassify-project
+    reason: source-to-target-parameter-port-is-transformation-not-release-fact
+    destination: PROJECTS/GEN5-TO-POCKET-MONSTERS/CROSSWALK/POKEMON/PARAMETERS/DIRECT-PARAMETER-PORT
+    status: pending-file-level-review
+
+  - legacy_path: GENERATION-V/_SHARED/MULTI/REV-ALL/ANALYSIS/BW-B2W2/STATUS-SCREEN/GEN1-5_INTEGRATION_SPEC.md
+    action: reclassify-project
+    reason: integration-specification-not-original-release-fact
+    destination: PROJECTS/GEN5-TO-POCKET-MONSTERS/DESIGN/UI/STATUS-SCREEN/GEN1-5_INTEGRATION_SPEC.md
+    status: pending-move
+
+  - legacy_scope: GENERATION-V/_SHARED/MULTI/REV-ALL/ANALYSIS/BW-B2W2/STATUS-SCREEN
+    action: classify-per-file
+    reason: original-ui-research-and-derived-integration-design-may-be-mixed
+    destination_rules:
+      original_release_fact: LIBRARY/GEN-05/NDS/<GAME>/RELEASES/<RELEASE-ID>/UI
+      cross_release_comparison: LIBRARY/GEN-05/NDS/_SHARED/COMPARISONS/<COMPARISON-ID>/UI
+      integration_design: PROJECTS/GEN5-TO-POCKET-MONSTERS/DESIGN/UI/STATUS-SCREEN
+    status: blocked-on-b2w2-release-binding-for-original-source-facts
+
+cross_project_guard:
+  - rule: generation-iv-owned-conversion-work-must-not-be-moved-into-gen5-project
+  - example_source: GENERATION-IV/_SHARED/MULTI/REV-ALL/ANALYSIS/CROSS-GENERATION
+    destination_project: PROJECTS/GEN4-TO-POCKET-MONSTERS
+  - rule: shared-target-rom-does-not-imply-shared-project-ownership
+
+verification_before_deleting_legacy:
+  - source-and-destination-file-count-accounted-for
+  - hashes-preserved-for-unchanged-files
+  - internal-path-references-updated
+  - project-release-lock-targets-resolve
+  - no-release-fact-left-only-in-project-tree
+  - no-derived-port-left-only-in-library-tree
