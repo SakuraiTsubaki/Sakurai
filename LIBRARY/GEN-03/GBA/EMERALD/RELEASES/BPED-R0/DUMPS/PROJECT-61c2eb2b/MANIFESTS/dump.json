@@ -1,0 +1,5 @@
+{
+  "schema_version":1,"release_id":"BPED-R0","dump_id":"PROJECT-61c2eb2b","observed_filenames":["Pokemon - Smaragd-Edition (Germany).gba"],"size_bytes":16777216,
+  "hashes":{"crc32":"34c9df89","md5":"f793a854654b467211fc32c4062cb183","sha1":"61c2eb2b380b1a75f0c94b767a2d4c26cd7ce4e3","sha256":"7c599c56849efeebeb93bd71f714932ae4cdf980db51c9c1016b4431057f71d4"},
+  "header":{"title":"POKEMON EMER","game_code":"BPED","maker_code":"01","unit_code":0,"device_type":0,"software_version":0,"stored_checksum":"73","calculated_checksum":"73","checksum_valid":true},"provenance":"project-supplied","quality_status":"unclassified","rom_binary_committed":false
+}

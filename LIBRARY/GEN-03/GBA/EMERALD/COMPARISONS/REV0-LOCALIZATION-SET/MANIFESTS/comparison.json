@@ -1,0 +1,7 @@
+{
+  "schema_version":1,
+  "comparison_id":"REV0-LOCALIZATION-SET",
+  "members":["BPEJ-R0","BPEE-R0","BPED-R0","BPEF-R0","BPEI-R0","BPES-R0"],
+  "purpose":"same-generation Emerald Rev 0 localization/release comparison",
+  "dump_binding":"project-supplied dumps listed in INFRA/REGISTRY/ROM-SETS/EMERALD/source-set.tsv"
+}
