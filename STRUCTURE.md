@@ -1,139 +1,303 @@
-# Repository Structure v3
+# Repository Structure v4
+
+Status: **canonical**. This replaces the v3 `GAMES/...` model before large-scale migration begins.
 
 ## Core rule
 
-The repository path is built around **immutable release identity**, not around language, region, revision, or work type as independent ownership layers.
+The repository has two different kinds of identity and they must never be collapsed:
 
-Canonical prefix:
+1. **RELEASE** — the official software/build identity being studied.
+2. **DUMP** — the exact ROM/executable image actually supplied or observed, with its own hash, provenance, and quality status.
 
-`GAMES/GEN-XX/<GAME-ID>/`
+A project is a third concern: it consumes one or more releases and produces derived work. Cross-generation projects therefore live outside any one game's tree.
 
-A real ROM / executable / official build is one release unit. Region, language, revision, platform, cartridge flags, update version, hashes, and provenance are attributes of that release and are recorded in its manifest.
+Original ROM/executable binaries are never committed.
 
-Original ROM / executable binaries are never committed.
+## Why v4 is required
 
-## Why v3 replaces the old models
+The currently supplied project ROMs expose three weaknesses in v3:
 
-The legacy path
+- Generation V Black/White are supplied as SweeTnDs-era images whose internal game codes identify real BW releases, while the exact supplied dumps are separately classified as non-canonical/bad or incomplete. Release identity and dump identity are therefore not the same thing.
+- `Generation V -> Pocket Monsters` consumes Generation V sources and targets multiple Generation II/III builds. A cross-generation many-to-many project cannot truthfully be owned by one `GAMES/GEN-XX/<GAME>/PROJECTS` path.
+- Platform-native identity differs. GBA/NDS have useful game codes; GB/GBC do not provide the same universal four-character game-code model. One release-ID grammar must allow platform-specific native identity rather than inventing pseudo-codes.
 
-`GENERATION → GAME → LANGUAGE/REGION → REV → WORK TYPE`
-
-made locale and revision look universal even though later platforms use patches, title versions, build IDs, multilingual releases, DLC, and other build identities. The v2 draft improved provenance separation but still duplicated release identity as `SOURCE/<RELEASE-ID>/<REV>`.
-
-v3 removes that duplication. **One canonical release ID identifies one exact official build.**
-
-## Root layout
+## Canonical roots
 
 ```text
-GAMES/
-  GEN-01/
-    GREEN/
-      RELEASES/
-      COMPARISONS/
-      PROJECTS/
-      SHARED/
-META/
+LIBRARY/
+PROJECTS/
+INFRA/
 .github/
 README.md
 STRUCTURE.md
 MIGRATION.md
 ```
 
-Generation folders are zero-padded: `GEN-01`, `GEN-02`, ... `GEN-10`, `GEN-11`, and onward.
+- `LIBRARY` = facts and permissible assets owned by original official releases.
+- `PROJECTS` = transformations, ports, integrations, modernization, patches, and project-specific verification.
+- `INFRA` = repository-wide release registries, schemas, validators, migration maps, shared tooling, and CI support.
 
-`GAME-ID` is a stable uppercase machine slug. Human-facing official titles belong in metadata, not in the folder grammar.
+Legacy roots such as `GENERATION-*`, standalone `GEN-*`, `GAMES/`, `MULTI`, and `REV-ALL` are migration sources only.
 
-`_SHARED` may be used as the game ID only for genuinely generation-wide material involving multiple games.
+# 1. LIBRARY
 
-## RELEASES — exact official source builds
-
-```text
-GAMES/GEN-XX/<GAME-ID>/RELEASES/<RELEASE-ID>/<WORK-TYPE>/...
-```
-
-`RELEASE-ID` is a human-readable unique build identity. Recommended components are platform, market/region, language set, and build/revision identifier.
-
-Examples for the uploaded Japanese Pokémon Green ROMs:
+Canonical game root:
 
 ```text
-GAMES/GEN-01/GREEN/RELEASES/GB-JP-JA-REV-0/
-GAMES/GEN-01/GREEN/RELEASES/GB-JP-JA-REV-A/
+LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/
+├── RELEASES/
+├── COMPARISONS/
+└── SHARED/
 ```
-
-Their SGB support is release metadata, not another path level. Likewise, hashes and Game Boy header version are recorded in `MANIFESTS/release.json`.
-
-For later platforms, a release ID may use a software/update version instead of `REV-*`, for example `NSW-GLOBAL-MULTI-VER-4.0.0`. The folder grammar does not assume that every platform has cartridge-style revisions.
-
-Duplicate dumps with identical verified content do not create another release tree. Record provenance/dump observations in the manifest.
-
-## COMPARISONS — relationships between releases
-
-```text
-GAMES/GEN-XX/<GAME-ID>/COMPARISONS/<COMPARISON-ID>/<WORK-TYPE>/...
-```
-
-Use this whenever the subject inherently spans two or more releases. Do not create fake locale/revision owners such as `MULTI`, `REV-ALL`, or `ALL-REV`.
 
 Example:
 
 ```text
-GAMES/GEN-01/GREEN/COMPARISONS/GB-JP-JA-REV-0--GB-JP-JA-REV-A/DIFFS/
+LIBRARY/GEN-03/GBA/RUBY/
+LIBRARY/GEN-05/NDS/BLACK/
+LIBRARY/GEN-02/GBC/CRYSTAL/
 ```
 
-The exact member release IDs must also be recorded in comparison metadata.
-
-## PROJECTS — derived work and modernization
+## RELEASES
 
 ```text
-GAMES/GEN-XX/<GAME-ID>/PROJECTS/<PROJECT-ID>/COMMON/<WORK-TYPE>/...
-GAMES/GEN-XX/<GAME-ID>/PROJECTS/<PROJECT-ID>/TARGETS/<TARGET-ID>/<WORK-TYPE>/...
+LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/RELEASES/<RELEASE-ID>/
+├── MANIFESTS/
+├── DUMPS/
+├── ANALYSIS/
+├── STRUCTURE/
+├── DATA/
+├── TEXT/
+├── GRAPHICS/
+├── AUDIO/
+├── MAPS/
+├── EVENTS/
+├── DISASSEMBLY/
+├── SYMBOLS/
+├── TOOLS/
+└── VERIFICATION/
 ```
 
-A project may consume one or many official releases. `PROJECT-ID` describes the activity/product, such as `MODERNIZATION`, `LOCALIZATION-KO`, `ENGINE-EXPANSION`, or `SPRITE-UPGRADE`.
+A release path represents one official software build, not one filename from a dump set.
 
-`COMMON` owns work shared by every target. `TARGETS` owns artifacts that differ by target build. Project manifests must state their exact base release IDs; a target is never represented as though it were an official source release.
+### Release-ID grammar
 
-## SHARED — game-wide reusable material
+Release IDs are unique **within one game root** and use the strongest platform-native identity available.
+
+For GBA and NDS/TWL:
 
 ```text
-GAMES/GEN-XX/<GAME-ID>/SHARED/<WORK-TYPE>/...
+<GAME-CODE>-R<HEADER-VERSION>
 ```
 
-Use only for material genuinely independent of one exact release: common schemas, generic tools, engine terminology, reusable test infrastructure, and equivalent game-wide resources.
-
-Do not move release-specific facts into `SHARED` merely to shorten a path.
-
-## Generation-wide and cross-generation work
-
-Generation-wide material uses:
+Examples:
 
 ```text
-GAMES/GEN-XX/_SHARED/COMPARISONS/<ID>/<WORK-TYPE>/...
-GAMES/GEN-XX/_SHARED/PROJECTS/<ID>/COMMON/<WORK-TYPE>/...
-GAMES/GEN-XX/_SHARED/PROJECTS/<ID>/TARGETS/<TARGET-ID>/<WORK-TYPE>/...
-GAMES/GEN-XX/_SHARED/SHARED/<WORK-TYPE>/...
+AXVJ-R0   # Ruby Japan
+AXVE-R2   # Ruby English USA/Europe Rev 2
+BPRJ-R1   # FireRed Japan Rev 1
+IRBO-R0   # Black English O-code USA/Europe
+IRAO-R0   # White English O-code USA/Europe
 ```
 
-Repository-wide catalogs, schemas, release registries, and migration metadata belong under `META/`. Cross-generation research should use a clearly named repository-wide study under `META/STUDIES/` unless it becomes its own project repository.
+For GB/GBC, where the same four-character game-code scheme does not exist:
 
-## Sakurai work types
+```text
+<MARKET>-<LANGUAGE>-HV<HEADER-VERSION>
+```
 
-Sakurai is the research / reverse-engineering / documentation source of truth. Canonical work types are:
+Examples:
 
-`ANALYSIS`, `CENSUS`, `STRUCTURE`, `TEXT`, `DATA`, `DIFFS`, `TOOLS`, `TESTS`, `VERIFICATION`, `REPORTS`, `LOCALIZATION`, `DISASSEMBLY`, `MANIFESTS`, `MAPS`, `SYMBOLS`.
+```text
+KR-KO-HV0       # Gold/Silver Korean build within the corresponding game root
+JP-JA-HV0       # Crystal Japan
+US-EU-EN-HV1    # Crystal English USA/Europe header version 1 / Rev A
+```
 
-Subdirectories below a work type are semantic subjects, not replicas of generation/game/release ownership levels.
+If a future platform provides a stronger native title/build identifier, use that native identifier plus the official software/update version. Do not force cartridge-style `REV-*` onto platforms that do not use it.
 
-## Repository pair contract
+Locale, language set, product code, title ID, cartridge flags, revision labels used by preservation sets, and all hashes remain explicit manifest fields even when some are also encoded in the human-readable release ID.
 
-`Sakurai` and `Tsubaki` use the same canonical identity prefix:
+## DUMPS
 
-`GAMES/GEN-XX/<GAME-ID>/<BRANCH>/<IDENTITY>/...`
+Exact observed files are children of a release:
 
-Sakurai owns research, release manifests, reverse engineering, source maps, specifications, and verification. Tsubaki owns production assets, patches, generated build artifacts, converters, and output manifests. The same `RELEASE-ID`, `COMPARISON-ID`, `PROJECT-ID`, and `TARGET-ID` must mean the same thing in both repositories.
+```text
+.../RELEASES/<RELEASE-ID>/DUMPS/<DUMP-ID>/
+```
 
-## Migration rule
+Recommended dump ID:
 
-`GENERATION-*` roots, standalone `GEN-*` roots, and the v1/v2 five-level or `SOURCE/<release>/<rev>` trees are legacy. They may remain temporarily during migration but receive no new project work.
+```text
+<PROVENANCE>-<SHA1-PREFIX>
+```
 
-Move each file to the narrowest truthful v3 owner. Do not keep duplicate live copies to preserve an old pathname; Git history is the archive.
+Example:
+
+```text
+LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0/DUMPS/SWEETNDS-a68b3bed/
+LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0/DUMPS/SWEETNDS-f94d4578/
+```
+
+`DUMPS/<DUMP-ID>/MANIFESTS/dump.yaml` records the original supplied filename, complete hashes, source/provenance, preservation classification, header observations, and whether conclusions may be promoted to release-level facts.
+
+A bad, trimmed, incomplete, overdumped, or otherwise non-canonical image never creates a fake official release. It remains a dump observation attached to the real release identity when that binding is supportable.
+
+## COMPARISONS
+
+```text
+LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/COMPARISONS/<COMPARISON-ID>/...
+```
+
+Use this for relationships between two or more releases of the same game. Generation-wide comparisons use the reserved game scope `_SHARED`:
+
+```text
+LIBRARY/GEN-05/NDS/_SHARED/COMPARISONS/BLACK-IRBO-R0--WHITE-IRAO-R0/...
+LIBRARY/GEN-02/GBC/_SHARED/COMPARISONS/GSC-JP-EN-KR/...
+```
+
+`MULTI`, `REV-ALL`, `ALL`, `MULTI-REGION`, and similar pseudo-release owners are forbidden in new canonical paths.
+
+## SHARED
+
+```text
+LIBRARY/GEN-XX/<PLATFORM>/<GAME-ID>/SHARED/...
+```
+
+Use only for material that is genuinely independent of one exact release, such as a game-wide schema, generic parser, or terminology map. Release-specific facts must stay with their release.
+
+# 2. PROJECTS
+
+Cross-release and cross-generation transformations live here:
+
+```text
+PROJECTS/<PROJECT-ID>/
+├── MANIFESTS/
+├── CROSSWALK/
+├── DESIGN/
+├── IMPLEMENTATION/
+├── VERIFICATION/
+├── TOOLS/
+└── REPORTS/
+```
+
+For the current project:
+
+```text
+PROJECTS/GEN5-TO-POCKET-MONSTERS/
+```
+
+### MANIFESTS
+
+Project manifests reference canonical library releases; they do not duplicate the original research tree.
+
+```text
+MANIFESTS/
+├── source-set.yaml
+├── target-set.yaml
+├── release-lock.yaml
+├── provenance.yaml
+└── status.yaml
+```
+
+### CROSSWALK
+
+Domain-by-domain Generation V -> target mapping:
+
+```text
+POKEMON/
+FORMS/
+TYPES/
+ABILITIES/
+MOVES/
+ITEMS/
+EVOLUTION/
+BATTLE/
+ENCOUNTERS/
+TRAINERS/
+NPC/
+MAPS/
+EVENTS/
+TEXT/
+GRAPHICS/
+ANIMATION/
+AUDIO/
+UI/
+SAVE/
+COMMUNICATION/
+TIME-DATE-SEASONS/
+UNUSED/
+```
+
+### DESIGN
+
+```text
+ENGINE/
+DATA-MODEL/
+ROM-EXPANSION/
+POINTERS/
+SAVE-EXPANSION/
+GRAPHICS-CONVERSION/
+AUDIO-CONVERSION/
+SCRIPTING/
+COMPATIBILITY/
+```
+
+### IMPLEMENTATION
+
+```text
+IMPLEMENTATION/
+├── _SHARED/
+└── <TARGET-ID>/
+```
+
+`TARGET-ID` is project-local but must resolve unambiguously to one canonical release in `MANIFESTS/release-lock.yaml`.
+
+# 3. Current release bindings
+
+The currently supplied Generation V sources bind to:
+
+```text
+LIBRARY/GEN-05/NDS/BLACK/RELEASES/IRBO-R0/
+LIBRARY/GEN-05/NDS/WHITE/RELEASES/IRAO-R0/
+```
+
+The supplied SweeTnDs files are dump observations under those releases, not the canonical releases themselves.
+
+The currently supplied target baseline set spans:
+
+```text
+GEN-02/GBC: GOLD, SILVER, CRYSTAL
+GEN-03/GBA: RUBY, SAPPHIRE, EMERALD, FIRERED, LEAFGREEN
+```
+
+Exact release IDs and hashes are locked in `INFRA/REGISTRY/ROM-SETS/` and in the project release lock.
+
+Black 2 / White 2 remain required by the Generation V project scope, but no release path is fabricated until an actual official-build identity is bound to a supplied/verified source. Missing required inputs are tracked in project status metadata rather than represented by fake ROM folders.
+
+# 4. Sakurai ownership
+
+Sakurai is the research, reverse-engineering, documentation, and verification source of truth. Typical domains include:
+
+`ANALYSIS`, `CENSUS`, `STRUCTURE`, `DATA`, `TEXT`, `DISASSEMBLY`, `SYMBOLS`, `MAPS`, `EVENTS`, `LOCALIZATION`, `TOOLS`, `TESTS`, `VERIFICATION`, `REPORTS`, `MANIFESTS`.
+
+# 5. Repository pair contract
+
+Sakurai and Tsubaki use identical `LIBRARY` release IDs, project IDs, and target IDs.
+
+- Sakurai owns identity manifests, research, crosswalks, design specifications, scripts, and verification evidence.
+- Tsubaki owns production assets, converted resources, build inputs, patches, and generated implementation artifacts.
+
+A file's repository is determined by artifact responsibility; its release/project identity must not change between repositories.
+
+# 6. Migration invariant
+
+Every migrated artifact must have exactly one truthful owner:
+
+- original-release fact -> `LIBRARY/.../RELEASES`
+- exact supplied-file observation -> `LIBRARY/.../RELEASES/.../DUMPS`
+- release relationship -> `LIBRARY/.../COMPARISONS`
+- derived port/integration/modernization -> `PROJECTS/...`
+- repository-wide schema/registry/migration tool -> `INFRA/...`
+
+Do not keep duplicate live copies solely to preserve old paths. Git history is the archive.
