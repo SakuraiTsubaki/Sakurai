@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "game_id": "RUBY",
+  "platform": "GBA",
+  "release_id": "AXVJ-R0",
+  "game_code": "AXVJ",
+  "header_version": 0,
+  "markets": ["JP"],
+  "languages": ["ja"],
+  "build_kind": "retail",
+  "observed_dump_ids": ["PROJECT-5c5e5467"],
+  "rom_binary_in_repository": false
+}
