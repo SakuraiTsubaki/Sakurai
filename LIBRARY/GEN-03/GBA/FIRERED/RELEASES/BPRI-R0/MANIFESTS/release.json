@@ -1,0 +1,12 @@
+{
+  "release_id": "BPRI-R0",
+  "game": "FIRERED",
+  "platform": "GBA",
+  "game_code": "BPRI",
+  "header_version": 0,
+  "region": ["Italy"],
+  "language": ["Italian"],
+  "canonical_reference_sha1": "66a9d415205321376b4318534c0dce5f69d28362",
+  "identity_status": "verified-release-binding",
+  "raw_rom_in_git": false
+}

@@ -1,0 +1,18 @@
+{
+  "dump_id": "UPLOAD-c4d0119d",
+  "release_id": "BPRE-R1",
+  "filename": "Pokemon - Fire Red Version (USA, Europe) (Rev 1).gba",
+  "size": 16777216,
+  "sha1": "c4d0119d9bcb36687f41a8f7ca72ab7af60558e4",
+  "md5": "84cea5f7a46531213c7a27bc3d72de95",
+  "sha256": "6d306e01ba04907efaa0611a32fee3b440a1e8ac8b4e0acdd223dc9281afa170",
+  "crc32": "29a4cddf",
+  "header_title": "POKEMON FIRE",
+  "game_code": "BPRE",
+  "header_version": 1,
+  "quality_status": "reference-mismatch",
+  "canonical_reference_sha1": "dd5945db9b930750cb39d00c84da8571feebf417",
+  "provenance": "project-upload",
+  "verified_date": "2026-09-12",
+  "raw_rom_in_git": false
+}

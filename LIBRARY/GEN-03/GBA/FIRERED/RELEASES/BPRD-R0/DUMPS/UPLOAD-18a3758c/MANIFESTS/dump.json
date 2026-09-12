@@ -1,0 +1,18 @@
+{
+  "dump_id": "UPLOAD-18a3758c",
+  "release_id": "BPRD-R0",
+  "filename": "Pokemon - Feuerrote Edition (Germany).gba",
+  "size": 16777216,
+  "sha1": "18a3758ceeef2c77b315144be2c3910d6f1f69fe",
+  "md5": "6648a0484a56097ca75d6af87ebce225",
+  "sha256": "eed4fb0242bcbb6e0b0b80b197b47e3aec99ef4c5562cc45bae50ae86b970507",
+  "crc32": "1a81eedf",
+  "header_title": "POKEMON FIRE",
+  "game_code": "BPRD",
+  "header_version": 0,
+  "quality_status": "reference-match",
+  "canonical_reference_sha1": "18a3758ceeef2c77b315144be2c3910d6f1f69fe",
+  "provenance": "project-upload",
+  "verified_date": "2026-09-12",
+  "raw_rom_in_git": false
+}

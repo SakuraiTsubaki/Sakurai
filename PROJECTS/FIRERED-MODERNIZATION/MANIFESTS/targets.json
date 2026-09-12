@@ -1,0 +1,18 @@
+{
+  "project_id": "FIRERED-MODERNIZATION",
+  "targets": [
+    {
+      "target_id": "BPRJ-R1",
+      "release_path": "LIBRARY/GEN-03/GBA/FIRERED/RELEASES/BPRJ-R1",
+      "observed_base_dump": "UPLOAD-7c7107b8",
+      "dump_status": "reference-match"
+    },
+    {
+      "target_id": "BPRE-R1",
+      "release_path": "LIBRARY/GEN-03/GBA/FIRERED/RELEASES/BPRE-R1",
+      "observed_base_dump": "UPLOAD-c4d0119d",
+      "dump_status": "reference-mismatch",
+      "compatibility_note": "Existing binary patch must not be assumed compatible with canonical BPRE-R1 until rebased/verified."
+    }
+  ]
+}

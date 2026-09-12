@@ -1,0 +1,18 @@
+{
+  "dump_id": "UPLOAD-fc663907",
+  "release_id": "BPRF-R0",
+  "filename": "Pokemon - Version Rouge Feu (France).gba",
+  "size": 16777216,
+  "sha1": "fc663907256f06a3a09e2d6b967bc9af4919f111",
+  "md5": "b8663b80eef5a1e9b41b683aa1234902",
+  "sha256": "245866842349cedbe2a034c6d20438d26d18b627b3d0909d7cb795fc87d7675a",
+  "crc32": "5dc668f6",
+  "header_title": "POKEMON FIRE",
+  "game_code": "BPRF",
+  "header_version": 0,
+  "quality_status": "reference-match",
+  "canonical_reference_sha1": "fc663907256f06a3a09e2d6b967bc9af4919f111",
+  "provenance": "project-upload",
+  "verified_date": "2026-09-12",
+  "raw_rom_in_git": false
+}

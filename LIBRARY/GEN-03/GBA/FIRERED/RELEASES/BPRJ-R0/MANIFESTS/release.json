@@ -1,0 +1,12 @@
+{
+  "release_id": "BPRJ-R0",
+  "game": "FIRERED",
+  "platform": "GBA",
+  "game_code": "BPRJ",
+  "header_version": 0,
+  "region": ["Japan"],
+  "language": ["Japanese"],
+  "canonical_reference_sha1": "04139887b6cd8f53269aca098295b006ddba6cfe",
+  "identity_status": "verified-release-binding",
+  "raw_rom_in_git": false
+}
