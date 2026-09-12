@@ -26,6 +26,10 @@ v8 is game-ownership-first. A single-game project is stored with its game instea
 
 Sakurai owns identity, ROM/native structure, code, pointers, tables, text/data/event/map/system research, comparisons, crosswalks, technical specifications, citations, and verification evidence.
 
-Original ROM/executable binaries are never committed.
+## GitHub upload policy
+
+Only complete ROM binaries are excluded from GitHub. This includes original ROM images and modified/rebuilt ROM images.
+
+All other project outputs are committed to GitHub under their truthful owner, including analysis, documentation, source code, scripts, tools, CSV/JSON/YAML/Markdown, manifests, hashes, comparison tables, logs, test and verification results, patches, build/reproduction metadata, extraction indexes, and other non-ROM artifacts.
 
 See `STRUCTURE.md` and `MIGRATION.md`.
