@@ -18,12 +18,15 @@ The supplied English ROMs directly contain the expected 0x50 terminator/control-
 
 The rendered-character/control layer is separate from the text-command stream. The command dispatcher uses opcodes 0x00–0x17 plus TX_END=0x50. TX_FAR=0x17 is especially important for relocation: it carries a banked pointer and the processor temporarily changes the loaded ROM bank before recursively processing the target command stream. This mechanism is relevant when moving translated English text away from original Japanese offsets.
 
-## Routing decision
+## Routing decision — v9
 
-- Raw/cross-ROM scan evidence belongs to `LIBRARY/GEN-01/COMPARE/RBY-TEXT-ENGINE-CENSUS-2026-09-12/` in Sakurai.
-- Project interpretation/specification belongs to `PROJECTS/GEN-01/RBY-ENGLISH-RELOCALIZATION/ANALYSIS` and `DESIGN` in Sakurai.
-- Build-facing charmap/command manifests belong to `PROJECTS/GEN-01/RBY-ENGLISH-RELOCALIZATION/SOURCE/ENGLISH-TEXT-IMPLEMENTATION/` in Tsubaki.
-- Existing font/HUD/Pokédex/town-map exact bytes remain owned by their English source releases under Tsubaki `LIBRARY`, not duplicated into the project.
+- Raw/cross-ROM scan evidence belongs to `GEN-01/COMPARE/RBY-TEXT-ENGINE-CENSUS-2026-09-12/` in Sakurai.
+- Official source-release observations belong to `GEN-01/<GAME>/SOURCE/GB/CART/<RELEASE-ID>/` in Sakurai.
+- Project interpretation/specification belongs to `GEN-01/TARGET/RBY-ENGLISH-RELOCALIZATION/ANALYSIS` and `DESIGN` in Sakurai.
+- Build-facing charmap/command manifests belong to `GEN-01/TARGET/RBY-ENGLISH-RELOCALIZATION/IMPLEMENTATION/ENGLISH-TEXT/` in Tsubaki.
+- Production source locks belong to `GEN-01/TARGET/RBY-ENGLISH-RELOCALIZATION/IMPLEMENTATION/SOURCE-LOCK/` in Tsubaki.
+- Existing font/HUD/Pokédex/town-map exact bytes remain owned by their English source releases under `GEN-01/<GAME>/SOURCE/GB/CART/<RELEASE-ID>/` in Tsubaki; they are not duplicated into the target.
+- No new work uses the retired `LIBRARY/` or `PROJECTS/` prefixes.
 
 ## Next technical slice
 
