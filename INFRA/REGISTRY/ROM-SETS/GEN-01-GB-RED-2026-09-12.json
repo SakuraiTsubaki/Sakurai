@@ -1,0 +1,17 @@
+{
+  "schema": "sakurai.rom-set-registry.v1",
+  "id": "GEN-01-GB-RED-2026-09-12",
+  "library_root": "LIBRARY/GEN-01/GB/RED",
+  "release_ids": {
+    "JP-JA-HV0": "0623ad12f48c259447980d68bd85ddbf8204b2cd",
+    "JP-JA-HV1": "ef74c79cded14204ac79e77f4964d9cb25003120",
+    "US-EU-EN-HV0": "ea9bcae617fdf159b045185467ae58b2e4a48b9a",
+    "EU-DE-HV0": "87d523fe1a0c548db7c5477b451ddec1eb083c06",
+    "EU-FR-HV0": "47a7622fa30e6402a3891fe65b3a930bf9bd7aec",
+    "EU-IT-HV0": "65b97cf8f2f1cff711a6d08c6c894c8ce65ce522",
+    "EU-ES-HV0": "fc17c5b904d551b1b908054ccd1c493f755f832a"
+  },
+  "uploaded_files": 8,
+  "unique_byte_images": 7,
+  "rom_binaries_committed": false
+}
