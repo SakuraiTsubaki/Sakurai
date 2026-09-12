@@ -1,0 +1,29 @@
+{
+  "schema": "sakurai.rom-source-set.v1",
+  "generated": "2026-09-12",
+  "platform": "GB",
+  "generation": "GEN-01",
+  "game": "RED",
+  "uploaded_file_count": 8,
+  "unique_release_count": 7,
+  "release_ids": [
+    "JP-JA-HV0",
+    "JP-JA-HV1",
+    "US-EU-EN-HV0",
+    "EU-DE-HV0",
+    "EU-FR-HV0",
+    "EU-IT-HV0",
+    "EU-ES-HV0"
+  ],
+  "duplicate_observations": [
+    {
+      "release_id": "US-EU-EN-HV0",
+      "sha1": "ea9bcae617fdf159b045185467ae58b2e4a48b9a",
+      "observed_filenames": [
+        "Pokemon - Red Version (USA, Europe) (SGB Enhanced).gb",
+        "Pokemon - Red Version (USA, Europe) (SGB Enhanced) - 복사본.gb"
+      ]
+    }
+  ],
+  "rom_binaries_committed": false
+}
