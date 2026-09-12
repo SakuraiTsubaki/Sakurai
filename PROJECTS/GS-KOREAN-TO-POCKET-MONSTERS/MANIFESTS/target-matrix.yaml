@@ -1,120 +1,121 @@
-schema: sakurai.gs-korean-target-matrix.v1
+schema: sakurai.gs-korean-target-matrix.v2
 project_id: GS-KOREAN-TO-POCKET-MONSTERS
+repository_structure_version: v5
 target_count: 23
 target_id_grammar: KR-<GENXX>-<PLATFORM>-<GAME>-<SOURCE-RELEASE-ID>
 targets:
 - target_id: KR-GEN01-GB-RED-JP-JA-HV1
-  source_release: LIBRARY/GEN-01/GB/RED/RELEASES/JP-JA-HV1
+  source_release: LIBRARY/GEN-01/RED/SOURCE/GB/CART/JP-JA-HV1
   source_dump_id: PROJECTUPLOAD-ef74c79c
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN01-GB-RED-JP-JA-HV0
-  source_release: LIBRARY/GEN-01/GB/RED/RELEASES/JP-JA-HV0
+  source_release: LIBRARY/GEN-01/RED/SOURCE/GB/CART/JP-JA-HV0
   source_dump_id: PROJECTUPLOAD-0623ad12
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN01-GB-BLUE-JP-JA-HV0
-  source_release: LIBRARY/GEN-01/GB/BLUE/RELEASES/JP-JA-HV0
+  source_release: LIBRARY/GEN-01/BLUE/SOURCE/GB/CART/JP-JA-HV0
   source_dump_id: PROJECTUPLOAD-0da501e3
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN02-GBC-CRYSTAL-JP-JA-HV0
-  source_release: LIBRARY/GEN-02/GBC/CRYSTAL/RELEASES/JP-JA-HV0
+  source_release: LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/JP-JA-HV0
   source_dump_id: PROJECTUPLOAD-95127b90
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN01-GB-GREEN-JP-JA-HV1
-  source_release: LIBRARY/GEN-01/GB/GREEN/RELEASES/JP-JA-HV1
+  source_release: LIBRARY/GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV1
   source_dump_id: PROJECTUPLOAD-4b97cd44
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN01-GB-GREEN-JP-JA-HV0
-  source_release: LIBRARY/GEN-01/GB/GREEN/RELEASES/JP-JA-HV0
+  source_release: LIBRARY/GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV0
   source_dump_id: PROJECTUPLOAD-82c0eef4
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN01-GB-YELLOW-JP-JA-HV0
-  source_release: LIBRARY/GEN-01/GB/YELLOW/RELEASES/JP-JA-HV0
+  source_release: LIBRARY/GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV0
   source_dump_id: PROJECTUPLOAD-1fb6c264
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN01-GB-YELLOW-JP-JA-HV1
-  source_release: LIBRARY/GEN-01/GB/YELLOW/RELEASES/JP-JA-HV1
+  source_release: LIBRARY/GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV1
   source_dump_id: PROJECTUPLOAD-28e4b853
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN01-GB-YELLOW-JP-JA-HV2
-  source_release: LIBRARY/GEN-01/GB/YELLOW/RELEASES/JP-JA-HV2
+  source_release: LIBRARY/GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV2
   source_dump_id: PROJECTUPLOAD-91864ecd
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN01-GB-YELLOW-JP-JA-HV3
-  source_release: LIBRARY/GEN-01/GB/YELLOW/RELEASES/JP-JA-HV3
+  source_release: LIBRARY/GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV3
   source_dump_id: PROJECTUPLOAD-a40298a8
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN02-GBC-SILVER-KR-KO-HV0
-  source_release: LIBRARY/GEN-02/GBC/SILVER/RELEASES/KR-KO-HV0
+  source_release: LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/KR-KO-HV0
   source_dump_id: PROJECTUPLOAD-cb22d7e0
   target_language: KR-KO
   mode: modernize_existing_official_korean
 - target_id: KR-GEN02-GBC-GOLD-KR-KO-HV0
-  source_release: LIBRARY/GEN-02/GBC/GOLD/RELEASES/KR-KO-HV0
+  source_release: LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/KR-KO-HV0
   source_dump_id: PROJECTUPLOAD-c0ff3999
   target_language: KR-KO
   mode: modernize_existing_official_korean
 - target_id: KR-GEN02-GBC-SILVER-JP-JA-HV1
-  source_release: LIBRARY/GEN-02/GBC/SILVER/RELEASES/JP-JA-HV1
+  source_release: LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/JP-JA-HV1
   source_dump_id: PROJECTUPLOAD-a11d5ddc
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN02-GBC-SILVER-JP-JA-HV0
-  source_release: LIBRARY/GEN-02/GBC/SILVER/RELEASES/JP-JA-HV0
+  source_release: LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/JP-JA-HV0
   source_dump_id: PROJECTUPLOAD-fa8c5105
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN02-GBC-GOLD-JP-JA-HV1
-  source_release: LIBRARY/GEN-02/GBC/GOLD/RELEASES/JP-JA-HV1
+  source_release: LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/JP-JA-HV1
   source_dump_id: PROJECTUPLOAD-a2224022
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN02-GBC-GOLD-JP-JA-HV0
-  source_release: LIBRARY/GEN-02/GBC/GOLD/RELEASES/JP-JA-HV0
+  source_release: LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/JP-JA-HV0
   source_dump_id: PROJECTUPLOAD-8814f103
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN01-GB-BLUE-US-EU-EN-HV0
-  source_release: LIBRARY/GEN-01/GB/BLUE/RELEASES/US-EU-EN-HV0
+  source_release: LIBRARY/GEN-01/BLUE/SOURCE/GB/CART/US-EU-EN-HV0
   source_dump_id: PROJECTUPLOAD-d7037c83
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN02-GBC-CRYSTAL-US-EU-EN-HV1
-  source_release: LIBRARY/GEN-02/GBC/CRYSTAL/RELEASES/US-EU-EN-HV1
+  source_release: LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/US-EU-EN-HV1
   source_dump_id: PROJECTUPLOAD-f2f52230
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN02-GBC-CRYSTAL-US-EU-EN-HV0
-  source_release: LIBRARY/GEN-02/GBC/CRYSTAL/RELEASES/US-EU-EN-HV0
+  source_release: LIBRARY/GEN-02/CRYSTAL/SOURCE/GBC/CART/US-EU-EN-HV0
   source_dump_id: PROJECTUPLOAD-f4cd194b
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN02-GBC-GOLD-US-EU-EN-HV0
-  source_release: LIBRARY/GEN-02/GBC/GOLD/RELEASES/US-EU-EN-HV0
+  source_release: LIBRARY/GEN-02/GOLD/SOURCE/GBC/CART/US-EU-EN-HV0
   source_dump_id: PROJECTUPLOAD-d8b8a360
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN01-GB-RED-US-EU-EN-HV0
-  source_release: LIBRARY/GEN-01/GB/RED/RELEASES/US-EU-EN-HV0
+  source_release: LIBRARY/GEN-01/RED/SOURCE/GB/CART/US-EU-EN-HV0
   source_dump_id: PROJECTUPLOAD-ea9bcae6
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN02-GBC-SILVER-US-EU-EN-HV0
-  source_release: LIBRARY/GEN-02/GBC/SILVER/RELEASES/US-EU-EN-HV0
+  source_release: LIBRARY/GEN-02/SILVER/SOURCE/GBC/CART/US-EU-EN-HV0
   source_dump_id: PROJECTUPLOAD-49b163f7
   target_language: KR-KO
   mode: new_korean_localization
 - target_id: KR-GEN01-GB-YELLOW-US-EU-EN-HV0
-  source_release: LIBRARY/GEN-01/GB/YELLOW/RELEASES/US-EU-EN-HV0
+  source_release: LIBRARY/GEN-01/YELLOW/SOURCE/GB/CART/US-EU-EN-HV0
   source_dump_id: PROJECTUPLOAD-cc7d0326
   target_language: KR-KO
   mode: new_korean_localization
