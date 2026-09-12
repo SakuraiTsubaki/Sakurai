@@ -1,0 +1,25 @@
+{
+  "schema": "gs-korean-modernization.source-lock.v9",
+  "target_id": "GS-KOREAN-MODERNIZATION",
+  "scope": "same-generation-multi-game",
+  "sources": [
+    {
+      "game_id": "GOLD",
+      "release_id": "AAUK-HV0",
+      "release_path": "GEN-02/GOLD/SOURCE/GBC/CART/AAUK-HV0",
+      "dump_id": "UPLOAD-c0ff3999",
+      "sha1": "c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65",
+      "sha256": "9c273e86e6120c6a038160ccb0153b8b20425b84fc08a496281c1d1bcac492f6"
+    },
+    {
+      "game_id": "SILVER",
+      "release_id": "AAXK-HV0",
+      "release_path": "GEN-02/SILVER/SOURCE/GBC/CART/AAXK-HV0",
+      "dump_id": "PROJECT-cb22d7e0",
+      "sha1": "cb22d7e03a74dc3a563fde6be8626626b2b392e7",
+      "md5": "f5e14b069eaddee42735572bd23f7ef8"
+    }
+  ],
+  "source_mutability": "read-only",
+  "rom_binary_policy": "Original and modified ROM images are never committed to GitHub."
+}
