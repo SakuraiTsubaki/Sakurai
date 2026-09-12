@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "game_id": "RED",
+  "release_id": "GB-EU-ES-REV-0",
+  "platform": "GB",
+  "market": ["EU"],
+  "languages": ["es"],
+  "source_filename": "Pokemon - Edicion Roja (Spain) (SGB Enhanced).gb",
+  "rom_size_bytes": 1048576,
+  "header_title": "POKEMON RED",
+  "header_revision": 0,
+  "sgb_enhanced": true,
+  "cartridge_type": "MBC5+RAM+BATTERY",
+  "md5": "463c241c8721ab1d1da17c91de9f8a32",
+  "sha1": "fc17c5b904d551b1b908054ccd1c493f755f832a",
+  "sha256": "a756cf7ad888aa46de4b9699a177a0edf1775e59eb6330014c6f5c139be9c45d",
+  "rom_binary_in_repository": false
+}
