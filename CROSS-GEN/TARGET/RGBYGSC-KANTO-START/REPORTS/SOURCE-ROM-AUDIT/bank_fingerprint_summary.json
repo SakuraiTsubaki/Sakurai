@@ -1,0 +1,10 @@
+{
+  "schema":"rgbgsc-kanto-start-bank-fingerprint-summary-v1",
+  "bank_size":16384,
+  "file_observations":16,
+  "unique_dump_locks":15,
+  "bank_observations":1312,
+  "cross_release_shared_hash_groups":235,
+  "reproducible_with":"CROSS-GEN/TARGET/RGBYGSC-KANTO-START/TOOLS/audit_gb_gbc_sources.py",
+  "note":"Counts were produced from the supplied local ROM images; ROM byte slices are not committed."
+}
