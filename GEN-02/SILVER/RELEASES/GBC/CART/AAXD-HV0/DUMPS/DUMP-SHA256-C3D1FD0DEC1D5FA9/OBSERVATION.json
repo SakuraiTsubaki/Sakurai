@@ -1,0 +1,26 @@
+{
+  "schema": "pokemon.dump-observation.v11",
+  "dump_id": "DUMP-SHA256-C3D1FD0DEC1D5FA9",
+  "release_id": "AAXD-HV0",
+  "provenance": "user-upload",
+  "observed_filename": "Pokemon - Silberne Edition (Germany).gbc",
+  "size_bytes": 2097152,
+  "bank_size_bytes": 16384,
+  "bank_count": 128,
+  "hashes": {
+    "crc32": "96c9db95",
+    "md5": "f1f013cd591bc4ea77305bbc9f8cbb3c",
+    "sha1": "8ecc58d621faaedf2a934bd2583d527220df7bb9",
+    "sha256": "c3d1fd0dec1d5fa9aa7f85275e79c52aa9175d191c63cbed7b406c306d946348"
+  },
+  "checksums": {
+    "header_stored": "0x2B",
+    "header_calculated": "0x2B",
+    "header_valid": true,
+    "global_stored": "0xCD6E",
+    "global_calculated": "0xCD6E",
+    "global_valid": true,
+    "nintendo_logo_valid": true
+  },
+  "rom_binary_committed": false
+}

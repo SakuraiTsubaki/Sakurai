@@ -1,50 +1,40 @@
-# Sakurai ↔ Tsubaki Repository Pair Contract v8
+# Sakurai ↔ Tsubaki Repository Pair Contract v11
 
-Status: **canonical redesign candidate**, 2026-09-12.
+Status: **canonical** — 2026-09-13.
 
-## Shared identity grammar
+## Shared coordinate grammar
 
 ```text
-GEN-XX/<GAME-ID>/SOURCE/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/
-GEN-XX/<GAME-ID>/TARGET/<TARGET-ID>/
-GEN-XX/<GAME-ID>/COMPARE/<COMPARISON-ID>/
-GEN-XX/<GAME-ID>/SHARED/
-GEN-XX/<GAME-ID>/REFERENCE/<REFERENCE-ID>/
+GEN-XX/<GAME-ID>/RELEASES/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/
+GEN-XX/<GAME-ID>/PROJECTS/<PROJECT-ID>/
+GEN-XX/<GAME-ID>/COMPARES/<COMPARE-ID>/
+GEN-XX/<GAME-ID>/REFERENCES/<REFERENCE-ID>/
+GEN-XX/<GAME-ID>/SHARED/<ARTIFACT-CLASS>/
+GEN-XX/PROJECTS/<PROJECT-ID>/
+GEN-XX/COMPARES/<COMPARE-ID>/
+CROSS-GEN/PROJECTS/<PROJECT-ID>/
+CROSS-GEN/COMPARES/<COMPARE-ID>/
+INFRA/
 ```
 
-Same-generation multi-game work may use `GEN-XX/TARGET|COMPARE|SHARED|REFERENCE`. Cross-generation work uses `CROSS-GEN/TARGET|COMPARE|SHARED|REFERENCE`.
+Exact dump observations are nested under a release as `DUMPS/DUMP-SHA256-<FIRST-16-UPPERCASE>/`. Both repositories use identical generation, game, release, dump, project, comparison, reference, and shared-resource identifiers.
 
-Both repositories use identical generation, game, platform, package, release, dump, target, comparison, reference, and resource identifiers.
+## Tsubaki
 
-## Sakurai responsibility
+Tsubaki is the **complete non-ROM project superset**. Every newly generated non-ROM project artifact belongs in Tsubaki when that project is tracked there: identity, provenance, hashes, analyses, reports, tables, schemas, tools, extracted assets, normalized/converted assets, translation data, implementation data, patches, build recipes/logs, and verification evidence.
 
-- release/dump identity, hashes and provenance
-- ROM/native structure, banks, pointers, tables, code and symbols
-- text/data/event/map/system research
-- comparisons and crosswalks
-- technical design/specification
-- reproducible research tooling
-- citations and verification evidence
+## Sakurai
 
-## Tsubaki responsibility
+Sakurai is the research/control subset. It stores identity and provenance, hashes, analyses, reverse engineering, tables, comparisons, reports, schemas/specifications, research tools, and verification evidence. Production-only assets and build products do not need to be duplicated into Sakurai.
 
-- verified extracted source assets
-- sprites, graphics, palettes, fonts, icons, tilesets, UI and audio production resources
-- normalized and converted resources
-- implementation inputs and generated implementation artifacts
-- patches, build recipes/results and production catalogs
-- production-side verification
+## Pair invariant
 
-## Routing invariant
+Anything committed to Sakurai for an actively paired project must also be eligible and expected to exist in Tsubaki at the same semantic coordinate. A task is incomplete if a new research artifact exists only in Sakurai while Tsubaki tracks the project.
 
-1. official release fact → game `SOURCE`
-2. exact observed dump → release `DUMPS/<DUMP-ID>`
-3. single-game derived work → game `TARGET/<TARGET-ID>`
-4. same-generation multi-game derived work → generation `TARGET/<TARGET-ID>`
-5. cross-generation derived work → `CROSS-GEN/TARGET/<TARGET-ID>`
-6. comparisons follow the same scope rule
-7. reusable identity-independent material → matching `SHARED`
-8. external secondary material → matching `REFERENCE`
-9. repository-wide rule/tool/schema → `INFRA`
+## ROM exclusion
 
-Original ROM/executable binaries are never committed. Path-only migration preserves blob bytes. Every live artifact has exactly one semantic owner; Git history is the archive.
+Never commit original, modified, rebuilt, or otherwise playable ROM images. Do not evade this rule by committing a lossless bank/chunk decomposition whose practical purpose is reconstructing the ROM. Hashes, manifests, patches, discrete extracted assets, translation/implementation data, build recipes, analysis tables, and verification evidence are allowed.
+
+## Legacy paths
+
+`SOURCE`, `TARGET`, `COMPARE`, and `REFERENCE` ownership branches from v9 and older are migration inputs only. New work uses `RELEASES`, `PROJECTS`, `COMPARES`, `REFERENCES`, and `SHARED`.

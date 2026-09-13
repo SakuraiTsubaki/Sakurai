@@ -1,0 +1,11 @@
+{
+  "schema": "green.revision-comparison.v1",
+  "comparison_id": "JP-JA-HV0--JP-JA-HV1",
+  "rom_size_bytes_each": 524288,
+  "differing_bytes": 46168,
+  "continuous_diff_spans": 5436,
+  "whole_banks_identical": 1,
+  "blocks_0x100_total": 2048,
+  "blocks_0x100_identical": 1193,
+  "blocks_0x100_different": 855
+}

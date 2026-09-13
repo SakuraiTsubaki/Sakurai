@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "game_id": "RED",
+  "comparison_id": "VERIFIED-SOURCE-SET-2026-09-12",
+  "purpose": "Cross-release audit and reverse-engineering baseline for the verified Pokémon Red source ROM set.",
+  "member_release_ids": [
+    "GB-JP-JA-REV-0",
+    "GB-JP-JA-REV-A",
+    "GB-US-EU-EN-REV-0",
+    "GB-EU-DE-REV-0",
+    "GB-EU-FR-REV-0",
+    "GB-EU-IT-REV-0",
+    "GB-EU-ES-REV-0"
+  ],
+  "duplicate_observations": [
+    {
+      "filename": "Pokemon - Red Version (USA, Europe) (SGB Enhanced) - 복사본.gb",
+      "same_as_release_id": "GB-US-EU-EN-REV-0",
+      "sha1": "ea9bcae617fdf159b045185467ae58b2e4a48b9a"
+    }
+  ],
+  "rom_binaries_in_repository": false
+}

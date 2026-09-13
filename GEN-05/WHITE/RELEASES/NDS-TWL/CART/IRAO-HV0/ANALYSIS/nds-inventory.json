@@ -1,0 +1,14 @@
+{
+  "schema": "gen5.nds-inventory.v1",
+  "source_dump": "DUMP-SHA256-93E4F473CE9A0543",
+  "rom_size": 268435456,
+  "sha1": "f94d4578956487c09fee20809a591e858017769e",
+  "sha256": "93e4f473ce9a0543bccf2e689ecd07ab4fcc39dd00fb4f194343cbd5e70e17ed",
+  "internal_title": "POKEMON W", "game_code": "IRAO", "maker_code": "01", "unit_code": 2, "rom_version": 0,
+  "arm9_offset": 16384, "arm9_entry": 33572864, "arm9_ram": 33570816, "arm9_size": 456868,
+  "arm7_offset": 2915840, "arm7_entry": 37224448, "arm7_ram": 37224448, "arm7_size": 167812,
+  "fnt_offset": 3083776, "fnt_size": 1040, "fat_offset": 3085312, "fat_size": 3872,
+  "ov9_offset": 473600, "ov9_size": 7584, "ov7_offset": 0, "ov7_size": 0,
+  "banner_offset": 3089408, "used_rom_size": 205231104, "header_size": 16384,
+  "counts": {"fat_entries": 484, "named_nitrofs_files": 247, "overlay9_entries": 237, "overlay7_entries": 0, "narc_files": 237, "fnt_named_file_ids_minmax": [237, 483]}
+}

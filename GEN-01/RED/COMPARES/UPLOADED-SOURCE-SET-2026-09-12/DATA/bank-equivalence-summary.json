@@ -1,0 +1,40 @@
+{
+  "schema": "sakurai.gb-bank-equivalence-summary.v1",
+  "generated": "2026-09-12",
+  "game_id": "RED",
+  "bank_size_bytes": 16384,
+  "total_bank_instances": 384,
+  "distinct_bank_hashes": 284,
+  "release_bank_counts": {
+    "JP-JA-HV0": 32,
+    "JP-JA-HV1": 32,
+    "US-EU-EN-HV0": 64,
+    "EU-DE-HV0": 64,
+    "EU-FR-HV0": 64,
+    "EU-IT-HV0": 64,
+    "EU-ES-HV0": 64
+  },
+  "cross_release_equivalence_groups": [
+    {
+      "kind": "same-index-identical-bank",
+      "bank_hex": "1B",
+      "release_ids": ["JP-JA-HV0","JP-JA-HV1","US-EU-EN-HV0","EU-DE-HV0","EU-FR-HV0","EU-IT-HV0","EU-ES-HV0"],
+      "member_count": 7,
+      "distinct_releases": 7
+    },
+    {
+      "kind": "zero-filled-bank-payload",
+      "bank_range": "2D-3F",
+      "release_ids": ["US-EU-EN-HV0","EU-DE-HV0","EU-FR-HV0","EU-IT-HV0","EU-ES-HV0"],
+      "member_count": 95,
+      "distinct_releases": 5,
+      "bytes_per_release": 311296
+    }
+  ],
+  "notes": [
+    "The two uploaded English filenames are byte-identical and are represented by one release/dump identity.",
+    "Japanese Rev0 and RevA share only one whole 16 KiB bank at the same index: bank 1B.",
+    "Each international pair shares 20 whole banks at the same index: bank 1B plus zero-filled banks 2D-3F."
+  ],
+  "raw_rom_payloads_committed": false
+}

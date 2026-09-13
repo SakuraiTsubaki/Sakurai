@@ -1,1 +1,1 @@
-{"schema":"sakurai.release.v10","release_id":"JP-JA-HV3","generation":"GEN-01","game_id":"YELLOW","platform_id":"GB","package_kind":"CART","market":"JP","language":"ja","header_version":3,"technical_id":null,"rom_binary_committed":false}
+{"schema_version":1,"generation":"GEN-01","game_id":"YELLOW","platform":"GB","package_kind":"CART","release_id":"JP-JA-HV3","market_language":"JP-JA","header_version":3,"observed_dump_ids":["DUMP-SHA256-1349408F328F633B"],"rom_binary_in_repository":false}

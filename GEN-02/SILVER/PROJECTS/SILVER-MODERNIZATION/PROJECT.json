@@ -1,0 +1,48 @@
+{
+  "schema": "pokemon.project.v11",
+  "project_id": "SILVER-MODERNIZATION",
+  "game_id": "SILVER",
+  "input_pins": [
+    {
+      "release_id": "AAXS-HV0",
+      "dump_id": "DUMP-SHA256-6797010C052E8F93",
+      "sha256": "6797010c052e8f9373ea2b9e855ec078b34fda12e5ccf742eb19bb5e8f6947c2"
+    },
+    {
+      "release_id": "AAXI-HV0",
+      "dump_id": "DUMP-SHA256-04C442246D1AE0ED",
+      "sha256": "04c442246d1ae0ed6bf5e072bb7e3d06376e584b953d6b14047b39e45fbb0cb4"
+    },
+    {
+      "release_id": "AAXE-HV0",
+      "dump_id": "DUMP-SHA256-72B190859A59623C",
+      "sha256": "72b190859a59623cbef6c49d601f8de52c1d2331b4f08a8d2acc17274fc19a8c"
+    },
+    {
+      "release_id": "AAXJ-HV0",
+      "dump_id": "DUMP-SHA256-0A532063A3FF5750",
+      "sha256": "0a532063a3ff5750a464582aa7bbee2b6d42e1a92a136d9f4590e373487b615c"
+    },
+    {
+      "release_id": "AAXJ-HV1",
+      "dump_id": "DUMP-SHA256-99E5267FBF5A7748",
+      "sha256": "99e5267fbf5a7748d4f3b75ba1990cb5d91348339468607a04bfbc6081c62d71"
+    },
+    {
+      "release_id": "AAXD-HV0",
+      "dump_id": "DUMP-SHA256-C3D1FD0DEC1D5FA9",
+      "sha256": "c3d1fd0dec1d5fa9aa7f85275e79c52aa9175d191c63cbed7b406c306d946348"
+    },
+    {
+      "release_id": "AAXK-HV0",
+      "dump_id": "DUMP-SHA256-EBBAC63C0C4309C8",
+      "sha256": "ebbac63c0c4309c82dbb6723e7163369784f962b4fd3e2f486075307c3008a22"
+    },
+    {
+      "release_id": "AAXF-HV0",
+      "dump_id": "DUMP-SHA256-E120C4DDB0DC3E25",
+      "sha256": "e120c4ddb0dc3e25b95c9c71b3ffd59ff57ce689cf4d79d04913ba59140c18c2"
+    }
+  ],
+  "rom_binary_committed": false
+}

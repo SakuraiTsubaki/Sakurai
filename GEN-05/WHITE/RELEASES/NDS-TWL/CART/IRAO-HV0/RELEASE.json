@@ -1,0 +1,13 @@
+{
+  "schema": "release-v11",
+  "generation": "GEN-05",
+  "game": "WHITE",
+  "platform": "NDS-TWL",
+  "package_kind": "CART",
+  "release_id": "IRAO-HV0",
+  "observed_game_code": "IRAO",
+  "observed_header_version": 0,
+  "release_status": "observed_from_supplied_dump",
+  "region_language_claim_from_filename": "EUR",
+  "note": "Region/language label comes from supplied filename and is not used as the release identity key."
+}

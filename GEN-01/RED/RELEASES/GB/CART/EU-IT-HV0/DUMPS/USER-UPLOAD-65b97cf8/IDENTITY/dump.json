@@ -1,0 +1,13 @@
+{
+  "schema": "sakurai.dump-identity.v5",
+  "dump_id": "USER-UPLOAD-65b97cf8",
+  "release_id": "EU-IT-HV0",
+  "filename": "Pokemon - Versione Rossa (Italy) (SGB Enhanced).gb",
+  "provenance": "user-upload",
+  "size_bytes": 1048576,
+  "sha1": "65b97cf8f2f1cff711a6d08c6c894c8ce65ce522",
+  "sha256": "e805d00b0002156d38b96efd57c823b0db3a3ef4cd32f98bd9bb4779bda3dd5b",
+  "header_checksum_ok": true,
+  "global_checksum_ok": true,
+  "binary_committed": false
+}

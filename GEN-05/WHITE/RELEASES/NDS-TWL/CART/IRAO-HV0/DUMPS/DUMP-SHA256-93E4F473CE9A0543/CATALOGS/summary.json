@@ -1,0 +1,10 @@
+{
+  "release_id": "IRAO-HV0",
+  "dump_id": "DUMP-SHA256-93E4F473CE9A0543",
+  "nitrofs_file_count": 484,
+  "named_file_count": 247,
+  "directory_count": 31,
+  "arm9_overlay_count": 237,
+  "used_rom_size": 205231104,
+  "container_size": 268435456
+}

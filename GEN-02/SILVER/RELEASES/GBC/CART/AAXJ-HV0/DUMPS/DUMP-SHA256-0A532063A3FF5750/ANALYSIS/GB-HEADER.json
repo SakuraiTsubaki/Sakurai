@@ -1,0 +1,15 @@
+{
+  "schema": "pokemon.gb-header-analysis.v1",
+  "dump_id": "DUMP-SHA256-0A532063A3FF5750",
+  "internal_title": "POKEMON_SLVAAXJ",
+  "technical_id": "AAXJ",
+  "cgb_flag": "0x80",
+  "new_licensee_code": "01",
+  "sgb_flag": "0x03",
+  "cartridge_type": "0x10",
+  "rom_size_code": "0x05",
+  "ram_size_code": "0x03",
+  "destination_code": "0x00",
+  "old_licensee_code": "0x33",
+  "header_version": 0
+}

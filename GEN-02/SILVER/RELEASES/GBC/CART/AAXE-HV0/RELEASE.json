@@ -1,1 +1,14 @@
-{"schema":"sakurai.release.v10","release_id":"AAXE-HV0","generation":"GEN-02","game_id":"SILVER","platform_id":"GBC","package_kind":"CART","market":"US-EU","language":"en","header_version":0,"technical_id":"AAXE","rom_binary_committed":false}
+{
+  "schema": "pokemon.release.v11",
+  "release_id": "AAXE-HV0",
+  "generation": "GEN-02",
+  "game_id": "SILVER",
+  "platform_id": "GBC",
+  "package_kind": "CART",
+  "technical_id": "AAXE",
+  "market": "US-EU",
+  "language": "en",
+  "title": "Pokémon Silver Version",
+  "header_version": 0,
+  "rom_binary_committed": false
+}
