@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "game_id": "LEAFGREEN",
+  "migration_date": "2026-09-13",
+  "repository_role": "research-control-subset",
+  "from_layout": "legacy SOURCE/TARGET/COMPARE",
+  "to_layout": "v11 RELEASES/PROJECTS/COMPARES/SHARED",
+  "status": "migrated",
+  "legacy_roots_removed": ["SOURCE", "TARGET", "COMPARE"],
+  "legacy_tree_preservation": "SHARED/LEGACY/PRE-V11",
+  "rom_binaries_migrated": false
+}
