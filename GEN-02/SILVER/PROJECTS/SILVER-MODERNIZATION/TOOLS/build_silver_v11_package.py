@@ -206,7 +206,7 @@ def main() -> None:
     compare = Path("GEN-02/SILVER/COMPARES/SUPPLIED-8-DUMP-CORPUS")
     compare_manifest = {
         "schema": "pokemon.compare.v11", "compare_id": "SUPPLIED-8-DUMP-CORPUS",
-        "release_count": 7, "dump_count": 8,
+        "release_count": len({rom["release_id"] for rom in roms}), "dump_count": len(roms),
         "release_ids": sorted({rom["release_id"] for rom in roms}),
         "dump_ids": [rom["dump_id"] for rom in roms], "rom_binary_committed": False,
     }
