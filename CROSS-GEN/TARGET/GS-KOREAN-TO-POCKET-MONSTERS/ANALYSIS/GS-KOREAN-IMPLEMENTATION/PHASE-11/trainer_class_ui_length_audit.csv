@@ -1,0 +1,68 @@
+class_id_decimal,internal_class_id,final_korean,display_tiles,encoded_bytes,within_observed_original_tile_max,within_observed_original_byte_max
+1,FALKNER,체육관 관장,6,11,True,True
+2,WHITNEY,체육관 관장,6,11,True,True
+3,BUGSY,체육관 관장,6,11,True,True
+4,MORTY,체육관 관장,6,11,True,True
+5,PRYCE,체육관 관장,6,11,True,True
+6,JASMINE,체육관 관장,6,11,True,True
+7,CHUCK,체육관 관장,6,11,True,True
+8,CLAIR,체육관 관장,6,11,True,True
+9,RIVAL1,라이벌,3,6,True,True
+10,POKEMON_PROF,포켓몬 박사,6,11,True,True
+11,WILL,사천왕,3,6,True,True
+12,CAL,포켓몬 트레이너,8,15,True,True
+13,BRUNO,사천왕,3,6,True,True
+14,KAREN,사천왕,3,6,True,True
+15,KOGA,사천왕,3,6,True,True
+16,CHAMPION,챔피언,3,6,True,True
+17,BROCK,체육관 관장,6,11,True,True
+18,MISTY,체육관 관장,6,11,True,True
+19,LT_SURGE,체육관 관장,6,11,True,True
+20,SCIENTIST,연구원,3,6,True,True
+21,ERIKA,체육관 관장,6,11,True,True
+22,YOUNGSTER,반바지 꼬마,6,11,True,True
+23,SCHOOLBOY,학원 끝난 아이,8,14,True,True
+24,BIRD_KEEPER,새 조련사,5,9,True,True
+25,LASS,짧은 치마,5,9,True,True
+26,JANINE,체육관 관장,6,11,True,True
+27,COOLTRAINERM,엘리트 트레이너,8,15,True,True
+28,COOLTRAINERF,엘리트 트레이너,8,15,True,True
+29,BEAUTY,아가씨,3,6,True,True
+30,POKEMANIAC,포켓몬 매니아,7,13,True,True
+31,GRUNTM,로켓단 조무래기,8,15,True,True
+32,GENTLEMAN,신사,2,4,True,True
+33,SKIER,스키어,3,6,True,True
+34,TEACHER,선생님,3,6,True,True
+35,SABRINA,체육관 관장,6,11,True,True
+36,BUG_CATCHER,곤충채집소년,6,12,True,True
+37,FISHER,낚시꾼,3,6,True,True
+38,SWIMMERM,수영팬티소년,6,12,True,True
+39,SWIMMERF,비키니 아가씨,7,13,True,True
+40,SAILOR,선원,2,4,True,True
+41,SUPER_NERD,이과계의 남자,7,13,True,True
+42,RIVAL2,라이벌,3,6,True,True
+43,GUITARIST,기타리스트,5,10,True,True
+44,HIKER,등산가,3,6,True,True
+45,BIKER,폭주족,3,6,True,True
+46,BLAINE,체육관 관장,6,11,True,True
+47,BURGLAR,불난집 전문털이범,9,17,True,True
+48,FIREBREATHER,불놀이꾼,4,8,True,True
+49,JUGGLER,저글러,3,6,True,True
+50,BLACKBELT_T,태권왕,3,6,True,True
+51,EXECUTIVEM,로켓단 간부,6,11,True,True
+52,PSYCHIC_T,초능력자,4,8,True,True
+53,PICNICKER,피크닉걸,4,8,True,True
+54,CAMPER,캠프보이,4,8,True,True
+55,EXECUTIVEF,로켓단 간부,6,11,True,True
+56,SAGE,수행자,3,6,True,True
+57,MEDIUM,무당,2,4,True,True
+58,BOARDER,보더,2,4,True,True
+59,POKEFANM,애호가클럽,5,10,True,True
+60,KIMONO_GIRL,전통 무용수,6,11,True,True
+61,TWINS,쌍둥이,3,6,True,True
+62,POKEFANF,애호가클럽,5,10,True,True
+63,RED,포켓몬 트레이너,8,15,True,True
+64,BLUE,체육관 관장,6,11,True,True
+65,OFFICER,경찰관,3,6,True,True
+66,GRUNTF,로켓단 조무래기,8,15,True,True
+67,MYSTICALMAN_COMPAT_SLOT,수수께끼의 청년,8,15,True,True
