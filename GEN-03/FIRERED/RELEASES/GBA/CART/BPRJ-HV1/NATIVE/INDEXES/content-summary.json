@@ -1,0 +1,3 @@
+{
+  "schema":"rom-content-summary-v6","release_id":"BPRJ-HV1","dump_id":"UPLOAD-7c7107b8","game":"FIRERED","locale":"JP-JA","size":16777216,"sha1":"7c7107b87c3ccf6e3dbceb9cf80ceeffb25a1857","header_checksum_valid":true,"padding_candidates":12,"validated_lz77_candidates":3897,"note":"Padding and LZ77 counts are candidate observations, not safe-allocation certification."
+}
