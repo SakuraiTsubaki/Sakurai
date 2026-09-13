@@ -1,0 +1,26 @@
+{
+  "game": "Pokemon FireRed",
+  "game_code": "BPRE",
+  "language_region": "ENGLISH-USA-EUROPE",
+  "revision": 1,
+  "rom_size": 16777216,
+  "cleanup": {
+    "offset_start": "0x00FFFFFE",
+    "offset_end": "0x00FFFFFF",
+    "before_hex": "0018",
+    "after_hex": "FFFF",
+    "bytes_changed": 2,
+    "all_other_bytes_unchanged": true
+  },
+  "before": {
+    "crc32": "29A4CDDF",
+    "md5": "84CEA5F7A46531213C7A27BC3D72DE95",
+    "sha1": "C4D0119D9BCB36687F41A8F7CA72AB7AF60558E4"
+  },
+  "after": {
+    "crc32": "84EE4776",
+    "md5": "51901A6E40661B3914AA333C802E24E8",
+    "sha1": "DD5945DB9B930750CB39D00C84DA8571FEEBF417"
+  },
+  "rom_binary_committed": false
+}
