@@ -1,16 +1,18 @@
 {
-  "schema": "gsc-kanto-to-rgby.upstream-locks.v1",
+  "schema": "gsc-kanto-to-rgby.upstream-locks.v11",
   "project_id": "GSC-KANTO-TO-RGBY",
   "sources": [
     {
+      "source_project": "Tsubaki:GEN-02/PROJECTS/POKEGOLD-KR",
+      "implementation_root": "Tsubaki:GEN-02/PROJECTS/POKEGOLD-KR/IMPLEMENTATION",
       "repository": "SakuraiTsubaki/pokegold-kr",
       "ref": "master",
       "commit": "801b8bf5dc38d1aac121a68ce61bc707afe08e0c",
+      "tree": "fe50ec090dbf514da2aaa80f331ceedbb30f3197",
       "games": ["GOLD", "SILVER"],
-      "Tsubaki_destination": "CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/UPSTREAM/GEN-02/POKEGOLD-KR",
-      "Tsubaki_mirror_policy": "all tracked files except full ROM images",
-      "excluded_rom_globs": ["*.gb", "*.gbc"],
-      "Sakurai_policy": "reference exact lock and publish validated knowledge/control artifacts"
+      "tracked_non_rom_files": 4126,
+      "tracked_rom_files_excluded": 0,
+      "storage_policy": "single canonical complete non-ROM implementation tree in Tsubaki; cross-generation projects reference it instead of duplicating it"
     }
   ]
 }
