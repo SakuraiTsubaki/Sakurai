@@ -5,6 +5,7 @@ import sys
 ROOT = Path('.')
 GEN_RE = re.compile(r'^GEN-\d{2}$')
 SLUG_RE = re.compile(r'^[A-Z0-9][A-Z0-9.-]*$')
+ID_RE = re.compile(r'^[A-Z0-9][A-Z0-9._-]*$')
 DUMP_RE = re.compile(r'^DUMP-SHA256-[0-9A-F]{16}$')
 LOWER_ID_RE = re.compile(r'^[a-z0-9][a-z0-9-]*$')
 
@@ -44,28 +45,43 @@ def valid_slug(name):
     return bool(SLUG_RE.fullmatch(name)) and name not in BANNED_IDS
 
 
+def valid_id(name):
+    return bool(ID_RE.fullmatch(name)) and name not in BANNED_IDS
+
+
 def check_id_dirs(path, label):
     for p in children(path):
-        if not p.is_dir() or not valid_slug(p.name):
+        if p.is_file() and p.name.endswith('.json'):
+            continue
+        if not p.is_dir() or not valid_id(p.name):
             errors.append(f'invalid {label}: {p}')
 
 
 def check_releases(path):
     for platform in children(path):
+        if platform.is_file() and platform.name.endswith('.json'):
+            continue
         if not platform.is_dir() or not valid_slug(platform.name):
             errors.append(f'invalid platform id: {platform}')
             continue
         for package in children(platform):
+            if package.is_file() and package.name.endswith('.json'):
+                continue
             if not package.is_dir() or not valid_slug(package.name):
                 errors.append(f'invalid package kind: {package}')
                 continue
             for release in children(package):
+                # Release catalogs/indexes may live next to release directories.
+                if release.is_file() and release.suffix.lower() in {'.json', '.yaml', '.yml', '.md'}:
+                    continue
                 if not release.is_dir() or not valid_slug(release.name):
                     errors.append(f'invalid release id: {release}')
                     continue
                 dumps = release / 'DUMPS'
                 if dumps.exists():
                     for dump in children(dumps):
+                        if dump.is_file() and dump.name.endswith('.json'):
+                            continue
                         if not dump.is_dir() or not DUMP_RE.fullmatch(dump.name):
                             errors.append(f'invalid dump id: {dump}')
 
@@ -112,6 +128,9 @@ for gen in [p for p in ROOT.iterdir() if p.is_dir() and GEN_RE.fullmatch(p.name)
             continue
 
         for branch in children(node):
+            # Migration notes are metadata at the game coordinate, not branches.
+            if branch.is_file() and branch.name.startswith('MIGRATION') and branch.suffix.lower() == '.md':
+                continue
             if not branch.is_dir():
                 errors.append(f'invalid game branch: {branch}')
                 continue
