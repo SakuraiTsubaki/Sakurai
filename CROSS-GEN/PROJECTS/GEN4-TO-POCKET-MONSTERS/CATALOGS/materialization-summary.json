@@ -1,0 +1,15 @@
+{
+  "schema":"materialization-summary.v11",
+  "project_id":"GEN4-TO-POCKET-MONSTERS",
+  "input_count":19,
+  "policy":"ROM image files are the only excluded artifact class.",
+  "nds_sources":[
+    {"game":"DIAMOND","release_id":"ADAE-HV5","dump_id":"DUMP-SHA256-E29BC6EBE431D7A6","fat_files":356,"named_files":269,"overlays":87,"narc":149,"nitrofs_payload_bytes":59788500},
+    {"game":"PEARL","release_id":"APAE-HV5","dump_id":"DUMP-SHA256-2DCC471033D1757E","fat_files":356,"named_files":269,"overlays":87,"narc":149,"nitrofs_payload_bytes":59788500},
+    {"game":"PLATINUM","release_id":"CPUK-HV0","dump_id":"DUMP-SHA256-51050F65776F402F","fat_files":461,"named_files":339,"overlays":122,"narc":215,"nitrofs_payload_bytes":101236448},
+    {"game":"HEARTGOLD","release_id":"IPKK-HV0","dump_id":"DUMP-SHA256-659F20CA1D4F43B8","fat_files":511,"named_files":382,"overlays":129,"narc":308,"nitrofs_payload_bytes":123544613},
+    {"game":"SOULSILVER","release_id":"IPGK-HV0","dump_id":"DUMP-SHA256-8E1C82D2F718FA40","fat_files":511,"named_files":382,"overlays":129,"narc":308,"nitrofs_payload_bytes":123544693}
+  ],
+  "target_units":{"gba_roms":10,"gbc_roms":4,"gba_bank_size":65536,"gbc_bank_size":16384},
+  "tsubaki_superset_requirement":true
+}
