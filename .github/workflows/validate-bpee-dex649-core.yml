@@ -3,7 +3,7 @@ name: Validate BPEE Dex 649 core patcher
 on:
   push:
     paths:
-      - 'CROSS-GEN/TARGET/GEN5-TO-GEN3-SPRITE-SPECIES-INTEGRATION/BPEE/TOOLS/expand_pokedex_save_649_bpee.py'
+      - 'CROSS-GEN/PROJECTS/GEN5-TO-GEN3-SPRITE-SPECIES-INTEGRATION/BPEE/TOOLS/expand_pokedex_save_649_bpee.py'
       - '.github/workflows/validate-bpee-dex649-core.yml'
   workflow_dispatch:
 
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Compile patcher
-        run: python -m py_compile CROSS-GEN/TARGET/GEN5-TO-GEN3-SPRITE-SPECIES-INTEGRATION/BPEE/TOOLS/expand_pokedex_save_649_bpee.py
+        run: python -m py_compile CROSS-GEN/PROJECTS/GEN5-TO-GEN3-SPRITE-SPECIES-INTEGRATION/BPEE/TOOLS/expand_pokedex_save_649_bpee.py
       - name: Validate save layout and mappings
         run: |
           python - <<'PY'
