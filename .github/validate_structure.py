@@ -20,7 +20,7 @@ RETIRED_ROOTS = {'PROJECTS', 'LEGACY'}
 CANONICAL_GAME_BRANCHES = {'RELEASES', 'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED'}
 CANONICAL_GEN_BRANCHES = {'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED'}
 CANONICAL_CROSS_BRANCHES = {'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED'}
-LEGACY_GAME_BRANCHES = {'SOURCE', 'TARGET', 'COMPARE', 'REFERENCE'}
+LEGACY_GAME_BRANCHES = {'SOURCE', 'TARGET', 'COMPARE', 'REFERENCE', 'KNOWLEDGE', 'VERIFY'}
 LEGACY_GEN_BRANCHES = {'TARGET', 'COMPARE', 'REFERENCE'}
 LEGACY_CROSS_BRANCHES = {'TARGET', 'COMPARE', 'REFERENCE'}
 
@@ -71,7 +71,6 @@ def check_releases(path):
                 errors.append(f'invalid package kind: {package}')
                 continue
             for release in children(package):
-                # Release catalogs/indexes may live next to release directories.
                 if release.is_file() and release.suffix.lower() in {'.json', '.yaml', '.yml', '.md'}:
                     continue
                 if not release.is_dir() or not valid_slug(release.name):
@@ -128,7 +127,6 @@ for gen in [p for p in ROOT.iterdir() if p.is_dir() and GEN_RE.fullmatch(p.name)
             continue
 
         for branch in children(node):
-            # Migration notes are metadata at the game coordinate, not branches.
             if branch.is_file() and branch.name.startswith('MIGRATION') and branch.suffix.lower() == '.md':
                 continue
             if not branch.is_dir():
