@@ -1,0 +1,16 @@
+{
+  "schema": "gsc-kanto-to-rgby.upstream-locks.v1",
+  "project_id": "GSC-KANTO-TO-RGBY",
+  "sources": [
+    {
+      "repository": "SakuraiTsubaki/pokegold-kr",
+      "ref": "master",
+      "commit": "801b8bf5dc38d1aac121a68ce61bc707afe08e0c",
+      "games": ["GOLD", "SILVER"],
+      "Tsubaki_destination": "CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/UPSTREAM/GEN-02/POKEGOLD-KR",
+      "Tsubaki_mirror_policy": "all tracked files except full ROM images",
+      "excluded_rom_globs": ["*.gb", "*.gbc"],
+      "Sakurai_policy": "reference exact lock and publish validated knowledge/control artifacts"
+    }
+  ]
+}
