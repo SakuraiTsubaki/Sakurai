@@ -1,0 +1,21 @@
+{
+  "schema": "sakurai.project-input-set.v1",
+  "project_id": "RED-MODERNIZATION",
+  "generation": "GEN-01",
+  "source_game": "RED",
+  "source_platform": "GB",
+  "package_kind": "CART",
+  "comparison_id": "UPLOADED-SOURCE-SET-2026-09-12",
+  "uploaded_file_count": 8,
+  "unique_dump_count": 7,
+  "inputs": [
+    {"release_id":"JP-JA-HV0","dump_id":"USER-UPLOAD-0623ad12","banks_16k":32},
+    {"release_id":"JP-JA-HV1","dump_id":"USER-UPLOAD-ef74c79c","banks_16k":32},
+    {"release_id":"US-EU-EN-HV0","dump_id":"USER-UPLOAD-ea9bcae6","banks_16k":64,"observed_file_count":2},
+    {"release_id":"EU-DE-HV0","dump_id":"USER-UPLOAD-87d523fe","banks_16k":64},
+    {"release_id":"EU-FR-HV0","dump_id":"USER-UPLOAD-47a7622f","banks_16k":64},
+    {"release_id":"EU-IT-HV0","dump_id":"USER-UPLOAD-65b97cf8","banks_16k":64},
+    {"release_id":"EU-ES-HV0","dump_id":"USER-UPLOAD-fc17c5b9","banks_16k":64}
+  ],
+  "rom_binary_policy": "read-only local originals; no ROM binaries in GitHub"
+}

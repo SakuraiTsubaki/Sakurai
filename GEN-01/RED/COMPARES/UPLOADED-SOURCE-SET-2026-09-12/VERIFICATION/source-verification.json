@@ -1,0 +1,27 @@
+{
+  "schema": "sakurai.gb-source-verification.v1",
+  "game": "RED",
+  "generated": "2026-09-12",
+  "uploaded_file_count": 8,
+  "unique_byte_images": 7,
+  "duplicate_groups": [
+    {
+      "sha1": "ea9bcae617fdf159b045185467ae58b2e4a48b9a",
+      "release_id": "US-EU-EN-HV0",
+      "filenames": [
+        "Pokemon - Red Version (USA, Europe) (SGB Enhanced).gb",
+        "Pokemon - Red Version (USA, Europe) (SGB Enhanced) - 복사본.gb"
+      ]
+    }
+  ],
+  "bank_summary": {
+    "JP-JA-HV0": {"banks": 32, "zero_banks": []},
+    "JP-JA-HV1": {"banks": 32, "zero_banks": []},
+    "US-EU-EN-HV0": {"banks": 64, "zero_banks": ["2D","2E","2F","30","31","32","33","34","35","36","37","38","39","3A","3B","3C","3D","3E","3F"]},
+    "EU-DE-HV0": {"banks": 64, "zero_banks": ["2D","2E","2F","30","31","32","33","34","35","36","37","38","39","3A","3B","3C","3D","3E","3F"]},
+    "EU-FR-HV0": {"banks": 64, "zero_banks": ["2D","2E","2F","30","31","32","33","34","35","36","37","38","39","3A","3B","3C","3D","3E","3F"]},
+    "EU-IT-HV0": {"banks": 64, "zero_banks": ["2D","2E","2F","30","31","32","33","34","35","36","37","38","39","3A","3B","3C","3D","3E","3F"]},
+    "EU-ES-HV0": {"banks": 64, "zero_banks": ["2D","2E","2F","30","31","32","33","34","35","36","37","38","39","3A","3B","3C","3D","3E","3F"]}
+  },
+  "invariant": "ROM binaries and byte-exact whole-ROM/whole-bank payload archives are not committed; hashes, derived structure, reproducible tools and semantic annotations are publishable."
+}

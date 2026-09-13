@@ -1,0 +1,9 @@
+{
+  "jp_red_rev0": "Narishma-gb/pokegreen exact SHA-1 match; Japanese Red V1.0",
+  "jp_red_revA": "Narishma-gb/pokegreen exact SHA-1 match; Japanese Red V1.1",
+  "en_red": "pret/pokered exact SHA-1 match",
+  "de_red": "einstein95/pokered-de exact MD5 match",
+  "fr_red": "einstein95/pokered-fr exact SHA-1 match",
+  "es_red": "einstein95/pokered-es exact SHA-1 match",
+  "it_red": "No exact complete public split-disassembly baseline located in this pass; derive from sibling European builds and direct analysis."
+}

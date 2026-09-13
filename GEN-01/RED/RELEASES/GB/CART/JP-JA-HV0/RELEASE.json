@@ -1,1 +1,1 @@
-{"schema_version":1,"generation":"GEN-01","game_id":"RED","platform":"GB","package_kind":"CART","release_id":"JP-JA-HV0","market_language":"JP-JA","header_version":0,"observed_dump_ids":["DUMP-SHA256-392CE450D708C8D1"],"rom_binary_in_repository":false}
+{"schema":"pokemon.release.v11","release_id":"JP-JA-HV0","generation":"GEN-01","game_id":"RED","platform_id":"GB","package_kind":"CART","market":"JP","language":"ja","header_version":0,"technical_id":null,"rom_binary_committed":false}
