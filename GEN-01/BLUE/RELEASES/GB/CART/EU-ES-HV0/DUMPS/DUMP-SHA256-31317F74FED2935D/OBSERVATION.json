@@ -1,0 +1,17 @@
+{
+  "schema": "sakurai.dump-observation.v10",
+  "dump_id": "DUMP-SHA256-31317F74FED2935D",
+  "release_id": "EU-ES-HV0",
+  "provenance": "user-upload",
+  "observed_filename": "Pokemon - Edicion Azul (Spain) (SGB Enhanced).gb",
+  "size_bytes": 1048576,
+  "md5": "6e7663f908334724548a66fc9c386002",
+  "sha1": "7715e7b133e8634df48918b9138374110212a108",
+  "sha256": "31317f74fed2935dfc5fbb6ada766cf8515949c85c6c6e8d32d0f752b85b8f9e",
+  "cgb_flag": "0x00",
+  "sgb_flag": "0x03",
+  "header_checksum_valid": true,
+  "global_checksum_valid": true,
+  "legacy_dump_id": "USER-UPLOAD-7715e7b1",
+  "rom_binary_committed": false
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "sakurai.dump-observation.v10",
+  "dump_id": "DUMP-SHA256-E197C7535135A516",
+  "release_id": "EU-IT-HV0",
+  "provenance": "user-upload",
+  "observed_filename": "Pokemon - Versione Blu (Italy) (SGB Enhanced).gb",
+  "size_bytes": 1048576,
+  "md5": "ebe0742b472b3e80a9c6749f06181073",
+  "sha1": "f69ed1a1332f04c24c7db899a09019bb045fa8b3",
+  "sha256": "e197c7535135a516fe9bf92cf7821c9f72926bf90fce3a2a5742d1b0b6a0564b",
+  "cgb_flag": "0x00",
+  "sgb_flag": "0x03",
+  "header_checksum_valid": true,
+  "global_checksum_valid": true,
+  "legacy_dump_id": "USER-UPLOAD-f69ed1a1",
+  "rom_binary_committed": false
+}
