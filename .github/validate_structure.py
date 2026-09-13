@@ -16,7 +16,7 @@ MIGRATION_ROOTS = {'LIBRARY', 'GENERATION-IV'}
 RETIRED_ROOTS = {'PROJECTS', 'LEGACY'}
 V11_GAME_BRANCHES = {
     'RELEASES', 'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED',
-    'KNOWLEDGE', 'VERIFY',
+    'KNOWLEDGE', 'VERIFY', 'CATALOGS', 'REPORTS', 'TABLES', 'ANALYSIS', 'TOOLS',
 }
 V11_GEN_BRANCHES = {
     'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED', 'KNOWLEDGE', 'VERIFY',
@@ -72,8 +72,10 @@ def check_releases(path):
                 dumps = release / 'DUMPS'
                 if dumps.exists():
                     for dump in dirs(dumps):
-                        if not DUMP_RE.fullmatch(dump.name):
-                            errors.append(f'invalid v11 dump id: {dump}')
+                        # New canonical dump ids are content-addressed. Older UPLOAD/USER-UPLOAD
+                        # coordinates remain readable migration inputs until their own cutover.
+                        if dump.name.startswith('DUMP-SHA256-') and not DUMP_RE.fullmatch(dump.name):
+                            errors.append(f'malformed v11 dump id: {dump}')
 
 
 for entry in ROOT.iterdir():
@@ -89,7 +91,6 @@ for entry in ROOT.iterdir():
 
 
 for gen in [p for p in ROOT.iterdir() if p.is_dir() and GEN_RE.fullmatch(p.name)]:
-    # Generation-level metadata files are legal; validate semantic directories only.
     for node in dirs(gen):
         if node.name in V11_GEN_BRANCHES:
             if node.name in {'PROJECTS', 'COMPARES', 'REFERENCES'}:
@@ -106,9 +107,7 @@ for gen in [p for p in ROOT.iterdir() if p.is_dir() and GEN_RE.fullmatch(p.name)
                 check_releases(branch)
             elif branch.name in {'PROJECTS', 'COMPARES', 'REFERENCES'}:
                 check_id_dirs(branch, f'{branch.name.lower()} id')
-            elif branch.name in {'SHARED', 'KNOWLEDGE', 'VERIFY'}:
-                pass
-            elif branch.name in LEGACY_GAME_BRANCHES:
+            elif branch.name in V11_GAME_BRANCHES or branch.name in LEGACY_GAME_BRANCHES:
                 pass
             else:
                 errors.append(f'invalid v11 game branch: {branch}')
