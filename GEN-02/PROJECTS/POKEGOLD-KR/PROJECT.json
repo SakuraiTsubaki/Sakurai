@@ -1,0 +1,11 @@
+{
+  "schema": "sakurai.project.v11",
+  "project_id": "POKEGOLD-KR",
+  "coordinate": "GEN-02/PROJECTS/POKEGOLD-KR",
+  "scope": ["GOLD", "SILVER"],
+  "repository_role": "research/control subset",
+  "upstream_repository": "SakuraiTsubaki/pokegold-kr",
+  "upstream_commit": "801b8bf5dc38d1aac121a68ce61bc707afe08e0c",
+  "upstream_tree": "fe50ec090dbf514da2aaa80f331ceedbb30f3197",
+  "tsubaki_superset_coordinate": "GEN-02/PROJECTS/POKEGOLD-KR"
+}

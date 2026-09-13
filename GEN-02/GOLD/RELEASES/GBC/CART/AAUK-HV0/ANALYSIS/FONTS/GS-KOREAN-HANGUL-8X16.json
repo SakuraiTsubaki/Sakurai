@@ -1,0 +1,16 @@
+{
+  "schema": "gen2.korean-font-analysis.v11",
+  "artifact_id": "GS-KOREAN-HANGUL-8X16",
+  "game": "GOLD",
+  "release_id": "AAUK-HV0",
+  "dump_id": "DUMP-SHA256-9C273E86E6120C6A",
+  "rom_sha1": "c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65",
+  "source_banks": ["0x78", "0x79", "0x7A"],
+  "source_offset": "0x1E0000",
+  "size_bytes": 49152,
+  "asset_sha1": "6e986d357a31a3fb5114c459a8e1f20163544eea",
+  "format": "8x16 1bpp glyph stream",
+  "bytes_per_glyph": 16,
+  "glyph_slots": 3072,
+  "upstream": "SakuraiTsubaki/pokegold-kr@801b8bf5dc38d1aac121a68ce61bc707afe08e0c"
+}

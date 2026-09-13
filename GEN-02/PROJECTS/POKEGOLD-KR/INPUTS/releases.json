@@ -1,0 +1,20 @@
+{
+  "schema": "project.inputs.v11",
+  "project_id": "POKEGOLD-KR",
+  "releases": [
+    {
+      "game": "GOLD",
+      "coordinate": "GEN-02/GOLD/RELEASES/GBC/CART/AAUK-HV0",
+      "release_id": "AAUK-HV0",
+      "dump_id": "DUMP-SHA256-9C273E86E6120C6A",
+      "rom_sha1": "c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65"
+    },
+    {
+      "game": "SILVER",
+      "coordinate": "GEN-02/SILVER/RELEASES/GBC/CART/AAXK-HV0",
+      "release_id": "AAXK-HV0",
+      "dump_id": "DUMP-SHA256-EBBAC63C0C4309C8",
+      "rom_sha1": "cb22d7e03a74dc3a563fde6be8626626b2b392e7"
+    }
+  ]
+}

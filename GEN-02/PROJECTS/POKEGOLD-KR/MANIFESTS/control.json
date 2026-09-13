@@ -1,0 +1,13 @@
+{
+  "schema": "project.control.v11",
+  "project_id": "POKEGOLD-KR",
+  "coordinate": "GEN-02/PROJECTS/POKEGOLD-KR",
+  "upstream_repository": "SakuraiTsubaki/pokegold-kr",
+  "upstream_commit": "801b8bf5dc38d1aac121a68ce61bc707afe08e0c",
+  "upstream_tree": "fe50ec090dbf514da2aaa80f331ceedbb30f3197",
+  "repository_inclusion": {
+    "Tsubaki": "all non-ROM project artifacts",
+    "Sakurai": "research/control subset"
+  },
+  "rom_policy": "exclude original, modified, and playable ROM images; do not exclude ordinary binary assets"
+}
