@@ -3,131 +3,138 @@ import re
 import sys
 
 ROOT = Path('.')
-QUARANTINE = ROOT / 'INFRA' / 'QUARANTINE'
 GEN_RE = re.compile(r'^GEN-\d{2}$')
-SLUG_RE = re.compile(r'^[A-Z0-9][A-Z0-9.-]*$')
-PROJECT_RE = re.compile(r'^[a-z0-9][a-z0-9-]*$')
+SLUG_RE = re.compile(r'^[A-Z0-9][A-Z0-9._-]*$')
+DUMP_RE = re.compile(r'^DUMP-SHA256-[0-9A-F]{16}$')
 
 STATIC_ROOTS = {
-    'INFRA', 'CROSS-GEN', 'projects', '.github', '.git', '.gitignore', '.gitattributes',
-    'README.md', 'STRUCTURE.md', 'STRUCTURE-V2.md', 'MIGRATION.md'
+    'INFRA', 'CROSS-GEN', '.github', '.git', '.gitignore', '.gitattributes',
+    'README.md', 'STRUCTURE.md', 'STRUCTURE-V2.md', 'MIGRATION.md',
+    'projects', 'workspaces',
 }
-# Existing migration-only roots are grandfathered until their dedicated cleanup PR.
-# They are not canonical destinations for new work.
 MIGRATION_ROOTS = {'LIBRARY', 'GENERATION-IV'}
 RETIRED_ROOTS = {'PROJECTS', 'LEGACY'}
-GAME_BRANCHES = {'SOURCE', 'TARGET', 'COMPARE', 'SHARED', 'REFERENCE'}
-GEN_BRANCHES = {'TARGET', 'COMPARE', 'SHARED', 'REFERENCE'}
-CROSS_BRANCHES = {'TARGET', 'COMPARE', 'SHARED', 'REFERENCE'}
-BANNED = {
+V11_GAME_BRANCHES = {
+    'RELEASES', 'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED',
+    'KNOWLEDGE', 'VERIFY', 'CATALOGS', 'REPORTS', 'TABLES', 'ANALYSIS', 'TOOLS',
+}
+V11_GEN_BRANCHES = {
+    'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED', 'KNOWLEDGE', 'VERIFY',
+}
+V11_CROSS_BRANCHES = {
+    'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED', 'KNOWLEDGE', 'VERIFY',
+}
+LEGACY_GAME_BRANCHES = {'SOURCE', 'TARGET', 'COMPARE', 'REFERENCE'}
+LEGACY_GEN_BRANCHES = {'TARGET', 'COMPARE', 'REFERENCE'}
+LEGACY_CROSS_BRANCHES = {'TARGET', 'COMPARE', 'REFERENCE'}
+BANNED_IDS = {
     'MULTI', 'REV-ALL', 'ALL', 'ALL-RELEASES', 'MULTI-REGION', '_SHARED',
     'MISC', 'OTHER', 'GENERAL', 'REV-UNKNOWN', 'MIGRATED'
 }
-IGNORE = {'.gitkeep', 'README.md', 'ROUTING.md', 'STRUCTURE.md', 'MANIFEST.yaml', 'manifest.yaml', 'PROJECT.yaml', 'project.yaml'}
+ROM_SUFFIXES = {'.gb', '.gbc', '.gba', '.nds', '.3ds', '.cia', '.xci', '.nsp'}
 errors = []
 
 
-def children(path):
+def visible_children(path):
     if not path.exists():
         return []
-    return [p for p in path.iterdir() if p.name not in IGNORE]
+    return list(path.iterdir())
 
 
-def is_quarantine(path):
-    try:
-        path.relative_to(QUARANTINE)
-        return True
-    except ValueError:
-        return False
+def dirs(path):
+    return [p for p in visible_children(path) if p.is_dir()]
 
 
-def check_slug_dirs(path, label):
-    for p in children(path):
-        if not p.is_dir() or not SLUG_RE.fullmatch(p.name) or p.name in BANNED:
+def valid_slug(name):
+    return bool(SLUG_RE.fullmatch(name)) and name not in BANNED_IDS
+
+
+def check_id_dirs(path, label):
+    for p in dirs(path):
+        if not valid_slug(p.name):
             errors.append(f'invalid {label}: {p}')
 
 
-def reject_banned(path, label):
-    if not path.exists():
-        return
-    for p in path.rglob('*'):
-        if is_quarantine(p):
+def check_releases(path):
+    # Metadata files such as INDEX.json are legal alongside coordinate directories.
+    for platform in dirs(path):
+        if not valid_slug(platform.name):
+            errors.append(f'invalid platform id: {platform}')
             continue
-        bad = BANNED.intersection(p.relative_to(path).parts)
-        if bad:
-            errors.append(f'forbidden label in {label}: {p} ({sorted(bad)})')
+        for package in dirs(platform):
+            if not valid_slug(package.name):
+                errors.append(f'invalid package kind: {package}')
+                continue
+            for release in dirs(package):
+                if not valid_slug(release.name):
+                    errors.append(f'invalid release id: {release}')
+                    continue
+                dumps = release / 'DUMPS'
+                if dumps.exists():
+                    for dump in dirs(dumps):
+                        # New canonical dump ids are content-addressed. Older UPLOAD/USER-UPLOAD
+                        # coordinates remain readable migration inputs until their own cutover.
+                        if dump.name.startswith('DUMP-SHA256-') and not DUMP_RE.fullmatch(dump.name):
+                            errors.append(f'malformed v11 dump id: {dump}')
 
 
 for entry in ROOT.iterdir():
     if entry.name in MIGRATION_ROOTS:
         continue
     if entry.name in RETIRED_ROOTS:
-        errors.append(f'retired pre-v9 root exists: {entry.name}')
+        errors.append(f'retired root exists: {entry.name}')
     elif GEN_RE.fullmatch(entry.name):
         if not entry.is_dir():
             errors.append(f'generation root is not a directory: {entry}')
     elif entry.name not in STATIC_ROOTS:
-        errors.append(f'non-canonical v9 root entry: {entry.name}')
+        errors.append(f'non-canonical v11 root entry: {entry.name}')
 
-projects = ROOT / 'projects'
-if projects.exists():
-    if not projects.is_dir():
-        errors.append('projects root is not a directory')
-    else:
-        for project in children(projects):
-            if not project.is_dir() or not PROJECT_RE.fullmatch(project.name):
-                errors.append(f'invalid project id: {project}')
 
 for gen in [p for p in ROOT.iterdir() if p.is_dir() and GEN_RE.fullmatch(p.name)]:
-    for node in children(gen):
-        if not node.is_dir():
-            errors.append(f'invalid generation child: {node}')
+    for node in dirs(gen):
+        if node.name in V11_GEN_BRANCHES:
+            if node.name in {'PROJECTS', 'COMPARES', 'REFERENCES'}:
+                check_id_dirs(node, f'generation {node.name.lower()} id')
             continue
-
-        if node.name in GEN_BRANCHES:
-            if node.name in {'TARGET', 'COMPARE', 'REFERENCE'}:
-                check_slug_dirs(node, f'generation {node.name.lower()} id')
-            reject_banned(node, f'{gen.name}/{node.name}')
+        if node.name in LEGACY_GEN_BRANCHES:
             continue
-
-        if not SLUG_RE.fullmatch(node.name) or node.name in BANNED:
+        if not valid_slug(node.name):
             errors.append(f'invalid game id: {node}')
             continue
 
-        for branch in children(node):
-            if not branch.is_dir() or branch.name not in GAME_BRANCHES:
-                errors.append(f'invalid game branch: {branch}')
-                continue
+        for branch in dirs(node):
+            if branch.name == 'RELEASES':
+                check_releases(branch)
+            elif branch.name in {'PROJECTS', 'COMPARES', 'REFERENCES'}:
+                check_id_dirs(branch, f'{branch.name.lower()} id')
+            elif branch.name in V11_GAME_BRANCHES or branch.name in LEGACY_GAME_BRANCHES:
+                pass
+            else:
+                errors.append(f'invalid v11 game branch: {branch}')
 
-            if branch.name == 'SOURCE':
-                for platform in children(branch):
-                    if not platform.is_dir() or not SLUG_RE.fullmatch(platform.name):
-                        errors.append(f'invalid platform id: {platform}')
-                        continue
-                    for package in children(platform):
-                        if not package.is_dir() or not SLUG_RE.fullmatch(package.name):
-                            errors.append(f'invalid package kind: {package}')
-                            continue
-                        check_slug_dirs(package, 'release id')
-            elif branch.name in {'TARGET', 'COMPARE', 'REFERENCE'}:
-                check_slug_dirs(branch, f'{branch.name.lower()} id')
-
-            reject_banned(branch, str(branch))
 
 cross = ROOT / 'CROSS-GEN'
 if cross.exists():
-    for branch in children(cross):
-        if not branch.is_dir() or branch.name not in CROSS_BRANCHES:
-            errors.append(f'invalid CROSS-GEN branch: {branch}')
-            continue
-        if branch.name in {'TARGET', 'COMPARE', 'REFERENCE'}:
-            check_slug_dirs(branch, f'cross-generation {branch.name.lower()} id')
-        reject_banned(branch, str(branch))
+    for branch in dirs(cross):
+        if branch.name in V11_CROSS_BRANCHES:
+            if branch.name in {'PROJECTS', 'COMPARES', 'REFERENCES'}:
+                check_id_dirs(branch, f'cross-generation {branch.name.lower()} id')
+        elif branch.name in LEGACY_CROSS_BRANCHES:
+            pass
+        else:
+            errors.append(f'invalid v11 CROSS-GEN branch: {branch}')
+
+
+# Full playable ROM images are prohibited. Generic/discrete binary assets are allowed.
+for p in ROOT.rglob('*'):
+    if p.is_file() and p.suffix.lower() in ROM_SUFFIXES:
+        errors.append(f'ROM image extension is forbidden: {p}')
+
 
 if errors:
-    print('Repository structure v9 validation failed:')
+    print('Repository structure v11 validation failed:')
     for e in errors:
         print(f' - {e}')
     sys.exit(1)
 
-print('Repository structure v9 validation passed.')
+print('Repository structure v11 validation passed.')
