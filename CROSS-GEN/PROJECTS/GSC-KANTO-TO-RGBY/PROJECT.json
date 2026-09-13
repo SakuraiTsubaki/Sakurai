@@ -21,12 +21,14 @@
       "sha256": "ebbac63c0c4309c82dbb6723e7163369784f962b4fd3e2f486075307c3008a22"
     }
   ],
-  "upstream_sources": [
+  "source_projects": [
     {
+      "coordinate": "Tsubaki:GEN-02/PROJECTS/POKEGOLD-KR",
+      "implementation_root": "Tsubaki:GEN-02/PROJECTS/POKEGOLD-KR/IMPLEMENTATION",
       "repository": "SakuraiTsubaki/pokegold-kr",
       "commit": "801b8bf5dc38d1aac121a68ce61bc707afe08e0c",
-      "Tsubaki_policy": "complete tracked non-ROM mirror",
-      "Sakurai_policy": "curated identity, research, schema, report, and verification projection"
+      "tree": "fe50ec090dbf514da2aaa80f331ceedbb30f3197",
+      "tracked_non_rom_files": 4126
     }
   ]
 }

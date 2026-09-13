@@ -2,6 +2,7 @@
   "schema": "gsc-kanto-to-rgby.path-migration.v11",
   "project_id": "GSC-KANTO-TO-RGBY",
   "canonical": "CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY",
+  "shared_gen2_source": "Tsubaki:GEN-02/PROJECTS/POKEGOLD-KR",
   "legacy_roots": [
     {"repository": "SakuraiTsubaki/Sakurai", "path": "projects/gscrgby", "status": "migration-only"},
     {"repository": "SakuraiTsubaki/Tsubaki", "path": "workspaces/gscrgby", "status": "migration-only"}
@@ -15,7 +16,7 @@
     {"legacy": "workspaces/gscrgby/analysis", "canonical": "Tsubaki:CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/ANALYSIS"},
     {"legacy": "workspaces/gscrgby/experiments", "canonical": "Tsubaki:CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/EXPERIMENTS"},
     {"legacy": "workspaces/gscrgby/tools", "canonical": "Tsubaki:CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/TOOLS"},
-    {"legacy": "pokegold-kr tracked tree", "canonical": "Tsubaki:CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/UPSTREAM/GEN-02/POKEGOLD-KR", "filter": "exclude ROM images only"}
+    {"legacy": "SakuraiTsubaki/pokegold-kr tracked tree", "canonical": "Tsubaki:GEN-02/PROJECTS/POKEGOLD-KR/IMPLEMENTATION", "filter": "exclude playable whole-ROM images only"}
   ],
   "deletion_policy": "retire legacy duplicates only after path-equivalence verification"
 }
