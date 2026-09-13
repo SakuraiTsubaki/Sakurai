@@ -1,1 +1,26 @@
-{"schema":"sakurai.dump-observation.v11","dump_id":"DUMP-SHA256-6797010C052E8F93","release_id":"AAXS-HV0","provenance":"user-upload","observed_filename":"Pokemon - Edicion Plata (Spain).gbc","size_bytes":2097152,"sha1":"05bd978ab2cb104b0aff3f696896e30885203a18","sha256":"6797010c052e8f9373ea2b9e855ec078b34fda12e5ccf742eb19bb5e8f6947c2","md5":"2d83fb454dd5687a802425c501854dc2","bank_size_bytes":16384,"bank_count":128,"header":{"title":"POKEMON_SLV","technical_id":"AAXS","cgb_flag":"0x80","sgb_flag":"0x03","cartridge_type":"0x10","rom_size_code":"0x06","ram_size_code":"0x03","destination_code":1,"header_version":0,"header_checksum":{"stored":"0x1C","computed":"0x1C","valid":true},"global_checksum":{"stored":"0x064B","computed":"0x064B","valid":true}},"rom_binary_committed":false}
+{
+  "schema": "pokemon.dump-observation.v11",
+  "dump_id": "DUMP-SHA256-6797010C052E8F93",
+  "release_id": "AAXS-HV0",
+  "provenance": "user-upload",
+  "observed_filename": "Pokemon - Edicion Plata (Spain).gbc",
+  "size_bytes": 2097152,
+  "bank_size_bytes": 16384,
+  "bank_count": 128,
+  "hashes": {
+    "crc32": "1d9faac5",
+    "md5": "2d83fb454dd5687a802425c501854dc2",
+    "sha1": "05bd978ab2cb104b0aff3f696896e30885203a18",
+    "sha256": "6797010c052e8f9373ea2b9e855ec078b34fda12e5ccf742eb19bb5e8f6947c2"
+  },
+  "checksums": {
+    "header_stored": "0x1C",
+    "header_calculated": "0x1C",
+    "header_valid": true,
+    "global_stored": "0x064B",
+    "global_calculated": "0x064B",
+    "global_valid": true,
+    "nintendo_logo_valid": true
+  },
+  "rom_binary_committed": false
+}

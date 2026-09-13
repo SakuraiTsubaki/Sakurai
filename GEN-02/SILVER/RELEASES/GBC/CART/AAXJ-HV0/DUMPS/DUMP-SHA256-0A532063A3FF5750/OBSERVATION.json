@@ -1,1 +1,26 @@
-{"schema":"sakurai.dump-observation.v11","dump_id":"DUMP-SHA256-0A532063A3FF5750","release_id":"AAXJ-HV0","provenance":"user-upload","observed_filename":"Pocket Monsters Gin (Japan).gbc","size_bytes":1048576,"sha1":"fa8c51059c1642faa570db56ef089f54d1d2011f","sha256":"0a532063a3ff5750a464582aa7bbee2b6d42e1a92a136d9f4590e373487b615c","md5":"1abb25d01dbeb20f104e44364f56fe03","bank_size_bytes":16384,"bank_count":64,"header":{"title":"POKEMON_SLV","technical_id":"AAXJ","cgb_flag":"0x80","sgb_flag":"0x03","cartridge_type":"0x10","rom_size_code":"0x05","ram_size_code":"0x03","destination_code":0,"header_version":0,"header_checksum":{"stored":"0x27","computed":"0x27","valid":true},"global_checksum":{"stored":"0x7691","computed":"0x7691","valid":true}},"rom_binary_committed":false}
+{
+  "schema": "pokemon.dump-observation.v11",
+  "dump_id": "DUMP-SHA256-0A532063A3FF5750",
+  "release_id": "AAXJ-HV0",
+  "provenance": "user-upload",
+  "observed_filename": "Pocket Monsters Gin (Japan).gbc",
+  "size_bytes": 1048576,
+  "bank_size_bytes": 16384,
+  "bank_count": 64,
+  "hashes": {
+    "crc32": "be1b928a",
+    "md5": "1abb25d01dbeb20f104e44364f56fe03",
+    "sha1": "fa8c51059c1642faa570db56ef089f54d1d2011f",
+    "sha256": "0a532063a3ff5750a464582aa7bbee2b6d42e1a92a136d9f4590e373487b615c"
+  },
+  "checksums": {
+    "header_stored": "0x27",
+    "header_calculated": "0x27",
+    "header_valid": true,
+    "global_stored": "0x7691",
+    "global_calculated": "0x7691",
+    "global_valid": true,
+    "nintendo_logo_valid": true
+  },
+  "rom_binary_committed": false
+}

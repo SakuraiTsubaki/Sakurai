@@ -1,0 +1,15 @@
+{
+  "schema": "pokemon.gb-header-analysis.v1",
+  "dump_id": "DUMP-SHA256-C3D1FD0DEC1D5FA9",
+  "internal_title": "POKEMON_SLVAAXD",
+  "technical_id": "AAXD",
+  "cgb_flag": "0x80",
+  "new_licensee_code": "01",
+  "sgb_flag": "0x03",
+  "cartridge_type": "0x10",
+  "rom_size_code": "0x06",
+  "ram_size_code": "0x03",
+  "destination_code": "0x01",
+  "old_licensee_code": "0x33",
+  "header_version": 0
+}

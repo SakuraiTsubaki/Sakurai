@@ -1,18 +1,14 @@
 # Sakurai
 
-Pokémon source identity, reverse engineering, comparison, localization research, technical design, and verification repository.
+Curated Pokémon release identity, provenance, reverse engineering, comparison,
+localization research, technical specifications, and verification.
 
-## Canonical architecture: v11
+The canonical architecture is **v11**. Sakurai is the knowledge/control subset;
+Tsubaki is the complete non-ROM superset. Shared artifacts use identical
+semantic coordinates.
 
-```text
-GEN-XX/<GAME-ID>/RELEASES/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/
-└── DUMPS/<DUMP-ID>/
-```
+Only complete original or modified/playable ROM images are excluded. All other
+eligible work products are tracked.
 
-Sakurai is the **curated knowledge/control subset**: release and exact-dump identity, provenance, hashes, headers/indexes, catalogs, research, reverse engineering, mappings, reports, specifications, analysis tools, and verification evidence.
-
-Tsubaki uses the same semantic coordinates and is the **complete non-ROM superset**. Every eligible project artifact that is not an original or modified/playable ROM image is mirrored or retained there as appropriate.
-
-For the current Gen V direct-ROM cutover, canonical coordinates begin at `GEN-05/BLACK/RELEASES/NDS-TWL/CART/IRBO-HV0/` and `GEN-05/WHITE/RELEASES/NDS-TWL/CART/IRAO-HV0/`.
-
-See `STRUCTURE.md` and `INFRA/ARCHITECTURE/V11.md`.
+See [`STRUCTURE.md`](STRUCTURE.md) and
+[`INFRA/ARCHITECTURE/V11.md`](INFRA/ARCHITECTURE/V11.md).

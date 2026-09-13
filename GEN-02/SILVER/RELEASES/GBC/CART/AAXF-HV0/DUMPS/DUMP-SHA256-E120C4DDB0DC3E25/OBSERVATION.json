@@ -1,1 +1,26 @@
-{"schema":"sakurai.dump-observation.v11","dump_id":"DUMP-SHA256-E120C4DDB0DC3E25","release_id":"AAXF-HV0","provenance":"user-upload","observed_filename":"Pokemon - Version Argent (France).gbc","size_bytes":2097152,"sha1":"a4a7e8079b7a53e4d9ef43382bbb1090b9d45d1a","sha256":"e120c4ddb0dc3e25b95c9c71b3ffd59ff57ce689cf4d79d04913ba59140c18c2","md5":"72448fe75f534f70cd90469da95ef76f","bank_size_bytes":16384,"bank_count":128,"header":{"title":"POKEMON_SLV","technical_id":"AAXF","cgb_flag":"0x80","sgb_flag":"0x03","cartridge_type":"0x10","rom_size_code":"0x06","ram_size_code":"0x03","destination_code":1,"header_version":0,"header_checksum":{"stored":"0x29","computed":"0x29","valid":true},"global_checksum":{"stored":"0xFB8C","computed":"0xFB8C","valid":true}},"rom_binary_committed":false}
+{
+  "schema": "pokemon.dump-observation.v11",
+  "dump_id": "DUMP-SHA256-E120C4DDB0DC3E25",
+  "release_id": "AAXF-HV0",
+  "provenance": "user-upload",
+  "observed_filename": "Pokemon - Version Argent (France).gbc",
+  "size_bytes": 2097152,
+  "bank_size_bytes": 16384,
+  "bank_count": 128,
+  "hashes": {
+    "crc32": "e0c216ea",
+    "md5": "72448fe75f534f70cd90469da95ef76f",
+    "sha1": "a4a7e8079b7a53e4d9ef43382bbb1090b9d45d1a",
+    "sha256": "e120c4ddb0dc3e25b95c9c71b3ffd59ff57ce689cf4d79d04913ba59140c18c2"
+  },
+  "checksums": {
+    "header_stored": "0x29",
+    "header_calculated": "0x29",
+    "header_valid": true,
+    "global_stored": "0xFB8C",
+    "global_calculated": "0xFB8C",
+    "global_valid": true,
+    "nintendo_logo_valid": true
+  },
+  "rom_binary_committed": false
+}
