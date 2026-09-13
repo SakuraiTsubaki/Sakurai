@@ -1,23 +1,30 @@
-# Migration to Repository Architecture v11
+# Migration to v11
 
 Status: active — 2026-09-13.
 
-## Required changes from v10
+## Objective
 
-1. Keep the v10 release-centric coordinate model and content-addressed dump IDs.
-2. Retire the exclusive repository split. Tsubaki now receives **all non-ROM artifacts**, including analyses/tables/reports also stored in Sakurai.
-3. Move active project work from legacy `GEN-01/TARGET/...` or root-like `TARGET/...` paths to `GEN-01/PROJECTS/<PROJECT-ID>/...`.
-4. Move legacy `SOURCE/...` release material into `RELEASES/<PLATFORM>/CART/<RELEASE-ID>/...`.
-5. Move legacy `COMPARE/...` work into `COMPARES/...`.
-6. Preserve history: old paths may remain temporarily as read-only migration inputs, but new commits must target v11 paths.
-7. Never migrate a ROM binary. Replace it with identity/provenance/hash observations and reproducible patch/build metadata.
+Eliminate the ambiguity where Sakurai held deep ROM-derived analysis while Tsubaki held only a thin catalog/manifest subset. Under v11, Tsubaki is the complete non-ROM superset and Sakurai is the curated knowledge subset.
 
-## RBY cutover
-
-The RBY English relocalization project moves to:
+## Path mapping
 
 ```text
-GEN-01/PROJECTS/RBY-ENGLISH-RELOCALIZATION/
+legacy: GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0/...
+new:    GEN-05/BLACK/RELEASES/NDS-TWL/CART/IRBO-HV0/...
+
+legacy: GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0/...
+legacy: LIBRARY/GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0/...
+new:    GEN-05/WHITE/RELEASES/NDS-TWL/CART/IRAO-HV0/...
 ```
 
-Existing non-ROM implementation, translation, patch, tool, report, and verification artifacts are preserved by reattaching their existing Git objects under the canonical project coordinate where possible; this avoids rewriting binary assets and retains byte identity.
+Exact dump-specific observations move under `DUMPS/DUMP-SHA256-.../`. Release-wide facts remain at the release root.
+
+## Repository migration
+
+1. Materialize release/dump identity in Sakurai.
+2. Mirror those knowledge artifacts to Tsubaki.
+3. Put every additional non-ROM extraction/asset/build artifact in Tsubaki at the same coordinate.
+4. Verify hashes/counts against the source ROM locally.
+5. Mark old SOURCE/LIBRARY locations migration-only; delete them only after content equivalence is verified.
+
+No ROM binary is uploaded during migration.
