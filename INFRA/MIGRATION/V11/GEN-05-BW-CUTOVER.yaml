@@ -1,0 +1,19 @@
+schema: repository-migration.v11
+migration_id: GEN-05-BW-V11-CUTOVER
+date: 2026-09-13
+canonical:
+  black: GEN-05/BLACK/RELEASES/NDS-TWL/CART/IRBO-HV0
+  white: GEN-05/WHITE/RELEASES/NDS-TWL/CART/IRAO-HV0
+  compare: GEN-05/COMPARES/BLACK-IRBO-HV0--WHITE-IRAO-HV0
+  project: CROSS-GEN/PROJECTS/GEN5-TO-POCKET-MONSTERS
+legacy_inputs:
+  - {from: GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0, to: GEN-05/BLACK/RELEASES/NDS-TWL/CART/IRBO-HV0}
+  - {from: GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0, to: GEN-05/WHITE/RELEASES/NDS-TWL/CART/IRAO-HV0}
+  - {from: GEN-05/COMPARE/BLACK-IRBO-HV0--WHITE-IRAO-HV0, to: GEN-05/COMPARES/BLACK-IRBO-HV0--WHITE-IRAO-HV0}
+  - {from: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS, to: CROSS-GEN/PROJECTS/GEN5-TO-POCKET-MONSTERS}
+policy:
+  canonical_new_writes_only: true
+  legacy_paths: read-only-compatibility-until-content-audit
+  tsubaki_role: complete-non-rom-superset
+  sakurai_role: research-control-subset
+  rom_images: never-commit
