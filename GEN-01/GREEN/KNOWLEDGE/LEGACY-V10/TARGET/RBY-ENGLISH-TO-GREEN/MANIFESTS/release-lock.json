@@ -1,0 +1,43 @@
+{
+  "schema": "project.release-lock.v9",
+  "project_id": "RBY-ENGLISH-TO-GREEN",
+  "target_game_id": "GREEN",
+  "direction": "RBY-ENGLISH-TO-GREEN",
+  "upstream_english_system_target": "GEN-01/TARGET/RBY-ENGLISH-RELOCALIZATION",
+  "build_bases": [
+    {
+      "release_ref": "GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV0",
+      "dump_id": "USER-UPLOAD-82c0eef4",
+      "sha1": "82c0eef40a5e2423699d9fd8ba15dfaa8b51d196",
+      "role": "GREEN-JP-ORIGINAL"
+    },
+    {
+      "release_ref": "GEN-01/GREEN/SOURCE/GB/CART/JP-JA-HV1",
+      "dump_id": "USER-UPLOAD-4b97cd44",
+      "sha1": "4b97cd44aa3f0dd290bfe7b3ac17b7bd8270897b",
+      "role": "GREEN-JP-ORIGINAL"
+    }
+  ],
+  "official_english_system_references": [
+    "GEN-01/RED/SOURCE/GB/CART/US-EU-EN-HV0",
+    "GEN-01/BLUE/SOURCE/GB/CART/US-EU-EN-HV0",
+    "GEN-01/YELLOW/SOURCE/GBC/CART/US-EU-EN-HV0"
+  ],
+  "japanese_correspondence_references": [
+    "GEN-01/RED/SOURCE/GB/CART/JP-JA-HV0",
+    "GEN-01/RED/SOURCE/GB/CART/JP-JA-HV1",
+    "GEN-01/BLUE/SOURCE/GB/CART/JP-JA-HV0",
+    "GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV0",
+    "GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV1",
+    "GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV2",
+    "GEN-01/YELLOW/SOURCE/GB/CART/JP-JA-HV3"
+  ],
+  "policy": {
+    "green_content_is_authoritative": true,
+    "rby_english_is_localization_and_system_reference": true,
+    "compare_all_red_blue_yellow_english": true,
+    "preserve_original_roms_read_only": true,
+    "commit_rom_binaries": false,
+    "commit_all_other_project_outputs": true
+  }
+}
