@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 import argparse,csv,hashlib,json,struct,collections
 from pathlib import Path
-RELEASES={
-'DIAMOND':('ADAE-HV5','US','en'),'PEARL':('APAE-HV5','US','en'),
-'PLATINUM':('CPUK-HV0','KR','ko'),'HEARTGOLD':('IPKK-HV0','KR','ko'),
-'SOULSILVER':('IPGK-HV0','KR','ko')}
+RELEASES={'DIAMOND':('ADAE-HV5','US','en'),'PEARL':('APAE-HV5','US','en'),'PLATINUM':('CPUK-HV0','KR','ko'),'HEARTGOLD':('IPKK-HV0','KR','ko'),'SOULSILVER':('IPGK-HV0','KR','ko')}
 def u16(b,o): return struct.unpack_from('<H',b,o)[0]
 def u32(b,o): return struct.unpack_from('<I',b,o)[0]
 def kind(data):
@@ -52,15 +49,13 @@ def narc_layout(data):
   st,en=u32(data,ep),u32(data,ep+4); ep+=8; b=data[base+st:base+en]
   out.append({'member_index':i,'start':st,'end':en,'size':len(b),'kind':kind(b)})
  return out
-def write_csv(path,rows,fields=None):
+def write_csv(path,rows):
  if not rows:return
- fields=fields or list(rows[0]);
  with open(path,'w',newline='',encoding='utf-8') as f:
-  w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(rows)
+  w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
 def process(game,path,out):
  release,market,language=RELEASES[game]; rom=Path(path).read_bytes(); sha256=hashlib.sha256(rom).hexdigest(); dump='DUMP-SHA256-'+sha256[:16].upper(); gd=out/game; gd.mkdir(parents=True,exist_ok=True)
- fnt_off,fnt_size=u32(rom,0x40),u32(rom,0x44); fat_off,fat_size=u32(rom,0x48),u32(rom,0x4c); paths,dcount=parse_fnt(rom,fnt_off,fnt_size)
- ov9_off,ov9_size=u32(rom,0x50),u32(rom,0x54); ov7_off,ov7_size=u32(rom,0x58),u32(rom,0x5c)
+ fnt_off,fnt_size=u32(rom,0x40),u32(rom,0x44); fat_off,fat_size=u32(rom,0x48),u32(rom,0x4c); paths,dcount=parse_fnt(rom,fnt_off,fnt_size); ov9_off,ov9_size=u32(rom,0x50),u32(rom,0x54); ov7_off,ov7_size=u32(rom,0x58),u32(rom,0x5c)
  fat=[]; narcs=[]; layouts=[]; types=collections.Counter()
  for fid in range(fat_size//8):
   st,en=u32(rom,fat_off+fid*8),u32(rom,fat_off+fid*8+4); b=rom[st:en]; k=kind(b); types[k]+=1
@@ -69,16 +64,13 @@ def process(game,path,out):
    ms=narc_layout(b); narcs.append({'file_id':fid,'path':row['path'],'size':len(b),'member_count':len(ms),'sha1':row['sha1']})
    for m in ms: layouts.append({'archive_file_id':fid,**m})
  ovs={'arm9':overlays(rom,ov9_off,ov9_size),'arm7':overlays(rom,ov7_off,ov7_size)}
- header={'schema':'sakurai.nds-census.v10','game_id':game,'release_id':release,'dump_id':dump,'market':market,'language':language,'rom_size':len(rom),'title':rom[:12].decode('ascii','replace').rstrip('\0'),'game_code':rom[12:16].decode('ascii','replace'),'maker_code':rom[16:18].decode('ascii','replace'),'unit_code':rom[18],'device_capacity':rom[20],'header_version':rom[30],'fnt':{'offset':fnt_off,'size':fnt_size,'directory_count':dcount,'named_file_count':len(paths)},'fat':{'offset':fat_off,'size':fat_size,'entry_count':fat_size//8},'overlay9':{'offset':ov9_off,'size':ov9_size,'count':len(ovs['arm9'])},'overlay7':{'offset':ov7_off,'size':ov7_size,'count':len(ovs['arm7'])},'narc_count':len(narcs),'narc_member_count':len(layouts),'file_kind_counts':dict(types),'hashes':{'sha1':hashlib.sha1(rom).hexdigest(),'sha256':sha256},'rom_binary_committed':False}
- (gd/'header.json').write_text(json.dumps(header,ensure_ascii=False,indent=2)+'\n'); (gd/'fnt-map.json').write_text(json.dumps({'directory_count':dcount,'paths':paths},ensure_ascii=False,indent=2)+'\n'); (gd/'overlays.json').write_text(json.dumps(ovs,ensure_ascii=False,indent=2)+'\n')
- write_csv(gd/'fat-files.csv',fat); write_csv(gd/'narc-archives.csv',narcs); write_csv(gd/'narc-layout.csv',layouts)
- return header,fat
+ header={'schema':'sakurai.nds-census.v11','game_id':game,'release_id':release,'dump_id':dump,'market':market,'language':language,'rom_size':len(rom),'title':rom[:12].decode('ascii','replace').rstrip('\0'),'game_code':rom[12:16].decode('ascii','replace'),'maker_code':rom[16:18].decode('ascii','replace'),'unit_code':rom[18],'device_capacity':rom[20],'header_version':rom[30],'fnt':{'offset':fnt_off,'size':fnt_size,'directory_count':dcount,'named_file_count':len(paths)},'fat':{'offset':fat_off,'size':fat_size,'entry_count':fat_size//8},'overlay9':{'offset':ov9_off,'size':ov9_size,'count':len(ovs['arm9'])},'overlay7':{'offset':ov7_off,'size':ov7_size,'count':len(ovs['arm7'])},'narc_count':len(narcs),'narc_member_count':len(layouts),'file_kind_counts':dict(types),'hashes':{'sha1':hashlib.sha1(rom).hexdigest(),'sha256':sha256},'rom_binary_committed':False}
+ (gd/'header.json').write_text(json.dumps(header,ensure_ascii=False,indent=2)+'\n'); (gd/'fnt-map.json').write_text(json.dumps({'directory_count':dcount,'paths':paths},ensure_ascii=False,indent=2)+'\n'); (gd/'overlays.json').write_text(json.dumps(ovs,ensure_ascii=False,indent=2)+'\n'); write_csv(gd/'fat-files.csv',fat); write_csv(gd/'narc-archives.csv',narcs); write_csv(gd/'narc-layout.csv',layouts); return header,fat
 def main():
  ap=argparse.ArgumentParser(); ap.add_argument('--out',required=True); ap.add_argument('inputs',nargs='+',help='GAME=/path/to/source.nds'); a=ap.parse_args(); out=Path(a.out);out.mkdir(parents=True,exist_ok=True); allfiles=[]; summaries={}
  for item in a.inputs:
   game,path=item.split('=',1); game=game.upper(); h,f=process(game,path,out); summaries[game]=h; allfiles.extend((game,r) for r in f)
  by=collections.defaultdict(list)
- for g,r in allfiles: by[r['sha1']].append({'game':g,'file_id':r['file_id'],'path':r['path'],'size':r['size'],'kind':r['kind']})
- groups=[{'sha1':s,'occurrences':v} for s,v in by.items() if len({x['game'] for x in v})>1]
- (out/'cross-game-identical-files.json').write_text(json.dumps(groups,ensure_ascii=False,indent=2)+'\n'); (out/'summary.json').write_text(json.dumps({'schema':'gen4.core-five-census.v10','games':summaries,'cross_game_identical_hash_groups':len(groups)},ensure_ascii=False,indent=2)+'\n')
+ for g,r in allfiles:by[r['sha1']].append({'game':g,'file_id':r['file_id'],'path':r['path'],'size':r['size'],'kind':r['kind']})
+ groups=[{'sha1':s,'occurrences':v} for s,v in by.items() if len({x['game'] for x in v})>1]; (out/'cross-game-identical-files.json').write_text(json.dumps(groups,ensure_ascii=False,indent=2)+'\n'); (out/'summary.json').write_text(json.dumps({'schema':'gen4.core-five-census.v11','games':summaries,'cross_game_identical_hash_groups':len(groups)},ensure_ascii=False,indent=2)+'\n')
 if __name__=='__main__':main()
