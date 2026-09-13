@@ -2,12 +2,23 @@
 
 Pokémon source identity, reverse engineering, comparison, localization research, technical design, and verification repository.
 
-## Canonical architecture: v11
+## Canonical architecture: v12
 
-New work uses `GEN-XX/<GAME-ID>/RELEASES|PROJECTS|COMPARES|REFERENCES|SHARED`, plus generation-level and `CROSS-GEN` coordinates when ownership is genuinely broader than one game. Exact observed ROM images are registered by content-addressed dump IDs under `RELEASES/.../DUMPS/`; ROM bytes are never committed.
+Current work lives only under:
 
-Sakurai is the research/control subset. It contains identity, provenance, hashes, analysis, reverse engineering, tables, reports, schemas, research tools, citations, and verification evidence.
+```text
+GEN-XX/<GAME-ID>/RELEASES|PROJECTS|COMPARES|REFERENCES|SHARED
+GEN-XX/PROJECTS|COMPARES|REFERENCES|SHARED
+CROSS-GEN/PROJECTS|COMPARES|REFERENCES|SHARED
+INFRA/
+```
 
-Tsubaki is the complete non-ROM superset. Every new Sakurai project artifact is also committed to Tsubaki at the same semantic coordinate whenever practical. Production-only assets and build products can remain Tsubaki-only.
+Transitional `LIBRARY`, lowercase `projects`, `workspaces`, `SOURCE`, `TARGET`, `COMPARE`, and `REFERENCE` paths are not valid live coordinates. Historical trees are preserved only under `INFRA/MIGRATION/` and in Git history.
 
-See [STRUCTURE.md](STRUCTURE.md), [INFRA/ARCHITECTURE/V11.md](INFRA/ARCHITECTURE/V11.md), and [MIGRATION.md](MIGRATION.md).
+Sakurai is the curated research/control subset. It owns release/dump identity, provenance, hashes, analysis, reverse engineering, comparison, localization research, tables, schemas, reports, research tooling, citations, and verification evidence.
+
+Tsubaki is the complete non-ROM superset and uses the same semantic IDs and coordinates.
+
+**Only complete playable ROM image files are excluded from GitHub.**
+
+See [STRUCTURE.md](STRUCTURE.md) and [MIGRATION.md](MIGRATION.md).
