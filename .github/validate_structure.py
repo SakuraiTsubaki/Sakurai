@@ -7,26 +7,19 @@ GEN_RE = re.compile(r'^GEN-\d{2}$')
 SLUG_RE = re.compile(r'^[A-Z0-9][A-Z0-9._-]*$')
 DUMP_RE = re.compile(r'^DUMP-SHA256-[0-9A-F]{16}$')
 
-STATIC_ROOTS = {
-    'INFRA', 'CROSS-GEN', '.github', '.git', '.gitignore', '.gitattributes',
-    'README.md', 'STRUCTURE.md', 'STRUCTURE-V2.md', 'MIGRATION.md',
-    'projects', 'workspaces',
+ROOT_ALLOWED = {
+    '.github', '.git', '.gitignore', '.gitattributes',
+    'README.md', 'STRUCTURE.md', 'MIGRATION.md',
+    'INFRA', 'CROSS-GEN',
 }
-MIGRATION_ROOTS = {'LIBRARY', 'GENERATION-IV'}
-RETIRED_ROOTS = {'PROJECTS', 'LEGACY'}
-V11_GAME_BRANCHES = {
+GEN_BRANCHES = {'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED', 'KNOWLEDGE', 'VERIFY'}
+GAME_BRANCHES = {
     'RELEASES', 'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED',
     'KNOWLEDGE', 'VERIFY', 'CATALOGS', 'REPORTS', 'TABLES', 'ANALYSIS', 'TOOLS',
 }
-V11_GEN_BRANCHES = {
-    'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED', 'KNOWLEDGE', 'VERIFY',
-}
-V11_CROSS_BRANCHES = {
-    'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED', 'KNOWLEDGE', 'VERIFY',
-}
-LEGACY_GAME_BRANCHES = {'SOURCE', 'TARGET', 'COMPARE', 'REFERENCE'}
-LEGACY_GEN_BRANCHES = {'TARGET', 'COMPARE', 'REFERENCE'}
-LEGACY_CROSS_BRANCHES = {'TARGET', 'COMPARE', 'REFERENCE'}
+CROSS_BRANCHES = {'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED', 'KNOWLEDGE', 'VERIFY'}
+RETIRED_ROOTS = {'LIBRARY', 'projects', 'workspaces', 'PROJECTS', 'LEGACY', 'STRUCTURE-V2.md'}
+RETIRED_BRANCHES = {'SOURCE', 'TARGET', 'COMPARE', 'REFERENCE'}
 BANNED_IDS = {
     'MULTI', 'REV-ALL', 'ALL', 'ALL-RELEASES', 'MULTI-REGION', '_SHARED',
     'MISC', 'OTHER', 'GENERAL', 'REV-UNKNOWN', 'MIGRATED'
@@ -35,14 +28,10 @@ ROM_SUFFIXES = {'.gb', '.gbc', '.gba', '.nds', '.3ds', '.cia', '.xci', '.nsp'}
 errors = []
 
 
-def visible_children(path):
+def dirs(path):
     if not path.exists():
         return []
-    return list(path.iterdir())
-
-
-def dirs(path):
-    return [p for p in visible_children(path) if p.is_dir()]
+    return [p for p in path.iterdir() if p.is_dir()]
 
 
 def valid_slug(name):
@@ -56,7 +45,6 @@ def check_id_dirs(path, label):
 
 
 def check_releases(path):
-    # Metadata files such as INDEX.json are legal alongside coordinate directories.
     for platform in dirs(path):
         if not valid_slug(platform.name):
             errors.append(f'invalid platform id: {platform}')
@@ -72,69 +60,69 @@ def check_releases(path):
                 dumps = release / 'DUMPS'
                 if dumps.exists():
                     for dump in dirs(dumps):
-                        # New canonical dump ids are content-addressed. Older UPLOAD/USER-UPLOAD
-                        # coordinates remain readable migration inputs until their own cutover.
+                        # Canonical v12 IDs are content-addressed. Historical dump IDs already
+                        # inside a release remain readable until their identity migration lands.
                         if dump.name.startswith('DUMP-SHA256-') and not DUMP_RE.fullmatch(dump.name):
-                            errors.append(f'malformed v11 dump id: {dump}')
+                            errors.append(f'malformed dump id: {dump}')
 
 
 for entry in ROOT.iterdir():
-    if entry.name in MIGRATION_ROOTS:
-        continue
-    if entry.name in RETIRED_ROOTS:
-        errors.append(f'retired root exists: {entry.name}')
-    elif GEN_RE.fullmatch(entry.name):
+    if GEN_RE.fullmatch(entry.name):
         if not entry.is_dir():
             errors.append(f'generation root is not a directory: {entry}')
-    elif entry.name not in STATIC_ROOTS:
-        errors.append(f'non-canonical v11 root entry: {entry.name}')
+        continue
+    if entry.name in RETIRED_ROOTS:
+        errors.append(f'retired v12 root exists: {entry.name}')
+    elif entry.name not in ROOT_ALLOWED:
+        errors.append(f'non-canonical v12 root entry: {entry.name}')
 
 
 for gen in [p for p in ROOT.iterdir() if p.is_dir() and GEN_RE.fullmatch(p.name)]:
     for node in dirs(gen):
-        if node.name in V11_GEN_BRANCHES:
+        if node.name in RETIRED_BRANCHES:
+            errors.append(f'retired generation branch exists: {node}')
+            continue
+        if node.name in GEN_BRANCHES:
             if node.name in {'PROJECTS', 'COMPARES', 'REFERENCES'}:
                 check_id_dirs(node, f'generation {node.name.lower()} id')
-            continue
-        if node.name in LEGACY_GEN_BRANCHES:
             continue
         if not valid_slug(node.name):
             errors.append(f'invalid game id: {node}')
             continue
-
         for branch in dirs(node):
-            if branch.name == 'RELEASES':
+            if branch.name in RETIRED_BRANCHES:
+                errors.append(f'retired game branch exists: {branch}')
+            elif branch.name == 'RELEASES':
                 check_releases(branch)
             elif branch.name in {'PROJECTS', 'COMPARES', 'REFERENCES'}:
                 check_id_dirs(branch, f'{branch.name.lower()} id')
-            elif branch.name in V11_GAME_BRANCHES or branch.name in LEGACY_GAME_BRANCHES:
-                pass
-            else:
-                errors.append(f'invalid v11 game branch: {branch}')
+            elif branch.name not in GAME_BRANCHES:
+                errors.append(f'invalid v12 game branch: {branch}')
 
 
 cross = ROOT / 'CROSS-GEN'
 if cross.exists():
     for branch in dirs(cross):
-        if branch.name in V11_CROSS_BRANCHES:
+        if branch.name in RETIRED_BRANCHES:
+            errors.append(f'retired CROSS-GEN branch exists: {branch}')
+        elif branch.name in CROSS_BRANCHES:
             if branch.name in {'PROJECTS', 'COMPARES', 'REFERENCES'}:
                 check_id_dirs(branch, f'cross-generation {branch.name.lower()} id')
-        elif branch.name in LEGACY_CROSS_BRANCHES:
-            pass
         else:
-            errors.append(f'invalid v11 CROSS-GEN branch: {branch}')
+            errors.append(f'invalid v12 CROSS-GEN branch: {branch}')
 
 
-# Full playable ROM images are prohibited. Generic/discrete binary assets are allowed.
+# Only complete playable ROM image formats are prohibited. Other binary assets are allowed.
+# Historical path evidence under INFRA/MIGRATION contains trees/metadata, not committed ROM images.
 for p in ROOT.rglob('*'):
     if p.is_file() and p.suffix.lower() in ROM_SUFFIXES:
         errors.append(f'ROM image extension is forbidden: {p}')
 
 
 if errors:
-    print('Repository structure v11 validation failed:')
-    for e in errors:
-        print(f' - {e}')
+    print('Repository structure v12 validation failed:')
+    for error in errors:
+        print(f' - {error}')
     sys.exit(1)
 
-print('Repository structure v11 validation passed.')
+print('Repository structure v12 validation passed.')

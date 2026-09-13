@@ -1,0 +1,49 @@
+schema: gen5-to-pocket-monsters.artifact-routing.v7
+project_id: GEN5-TO-POCKET-MONSTERS
+project_root: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS
+
+sakurai:
+  owns: [release-and-dump-references, reverse-engineering, rom-structure-analysis, normalized-original-data, crosswalk-tables, comparison-results, integration-design, verification-evidence, research-tools]
+  roots:
+    generations: GEN-XX
+    project: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS
+    infra: INFRA
+
+tsubaki:
+  owns: [converted-assets, insertion-ready-data, generated-resource-indices, production-converters, patches, build-inputs, build-manifests]
+  root: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS
+  common: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/COMMON
+  target_template: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS/IMPLEMENTATION/{TARGET-ID}
+
+never_commit: [original-rom-binaries, modified-rom-binaries, rebuilt-rom-binaries]
+
+source_release_roots:
+  black: GEN-05/BLACK/SOURCE/NDS-TWL/CART/IRBO-HV0
+  white: GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0
+  black2: unbound-required
+  white2: unbound-required
+
+target_set:
+  - GEN2-GOLD-AAUK-HV0
+  - GEN2-SILVER-AAXK-HV0
+  - GEN2-CRYSTAL-BXTJ-HV0
+  - GEN2-CRYSTAL-BYTE-HV1
+  - GEN3-RUBY-AXVJ-HV0
+  - GEN3-RUBY-AXVE-HV2
+  - GEN3-SAPPHIRE-AXPJ-HV0
+  - GEN3-SAPPHIRE-AXPE-HV2
+  - GEN3-EMERALD-BPEJ-HV0
+  - GEN3-EMERALD-BPEE-HV0
+  - GEN3-FIRERED-BPRJ-HV1
+  - GEN3-FIRERED-BPRE-HV1
+  - GEN3-LEAFGREEN-BPGJ-HV0
+  - GEN3-LEAFGREEN-BPGE-HV1
+
+identity_contract:
+  registry: INFRA/REGISTRY/ROM-SETS/GEN5-TO-POCKET-MONSTERS-v9-2026-09-13.yaml
+  release_lock: CROSS-GEN/TARGET/GEN5-TO-POCKET-MONSTERS/MANIFESTS/release-lock.yaml
+  rule: strongest-verified-native-technical-token-plus-HV
+
+legacy_policy:
+  new_writes_forbidden: [LIBRARY, PROJECTS, GENERATION-*, MULTI, REV-ALL, REV-UNKNOWN, _SHARED, MISC, OTHER, GENERAL]
+  migration_rule: classify-by-semantic-owner-before-moving

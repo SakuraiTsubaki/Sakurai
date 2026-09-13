@@ -1,0 +1,10 @@
+rom,Pocket Monsters - Pikachu (Japan) (Rev 0A) (SGB Enhanced).gb,Pocket Monsters - Pikachu (Japan) (Rev B) (SGB Enhanced).gb,Pocket Monsters - Pikachu (Japan) (Rev C) (SGB Enhanced).gb,Pocket Monsters - Pikachu (Japan) (Rev D) (SGB Enhanced).gb,"Pokemon - Yellow Version (USA, Europe).gbc",Pokemon - Version Jaune (France).gbc,Pokemon - Gelbe Edition (Germany).gbc,Pokemon - Versione Gialla (Italy).gbc,Pokemon - Edicion Amarilla (Spain).gbc
+Pocket Monsters - Pikachu (Japan) (Rev 0A) (SGB Enhanced).gb,64,3,3,3,2,2,2,2,2
+Pocket Monsters - Pikachu (Japan) (Rev B) (SGB Enhanced).gb,3,64,4,3,2,2,2,2,2
+Pocket Monsters - Pikachu (Japan) (Rev C) (SGB Enhanced).gb,3,4,64,3,2,2,2,2,2
+Pocket Monsters - Pikachu (Japan) (Rev D) (SGB Enhanced).gb,3,3,3,64,16,16,16,16,16
+"Pokemon - Yellow Version (USA, Europe).gbc",2,2,2,16,64,17,17,18,17
+Pokemon - Version Jaune (France).gbc,2,2,2,16,17,64,17,17,17
+Pokemon - Gelbe Edition (Germany).gbc,2,2,2,16,17,17,64,17,17
+Pokemon - Versione Gialla (Italy).gbc,2,2,2,16,18,17,17,64,17
+Pokemon - Edicion Amarilla (Spain).gbc,2,2,2,16,17,17,17,17,64

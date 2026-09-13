@@ -1,0 +1,18 @@
+{
+  "schema": "gs-korean-source-comparison.v9",
+  "comparison_id": "GOLD-AAUK-HV0--SILVER-AAXK-HV0",
+  "sources": ["AAUK-HV0", "AAXK-HV0"],
+  "verified_equal": [
+    {
+      "scope": "bank-6C-name-payload",
+      "records": 830,
+      "status": "verified-equal"
+    },
+    {
+      "scope": "banks-78-7A-korean-character-table-structure",
+      "table_count": 11,
+      "status": "verified-equal"
+    }
+  ],
+  "interpretation": "Equality evidence does not merge the two source releases; each release remains independently owned under SOURCE."
+}

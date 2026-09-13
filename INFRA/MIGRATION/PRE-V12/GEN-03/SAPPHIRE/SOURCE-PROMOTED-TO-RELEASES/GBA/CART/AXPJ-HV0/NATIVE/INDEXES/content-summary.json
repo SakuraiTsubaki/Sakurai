@@ -1,0 +1,3 @@
+{
+  "schema":"rom-content-summary-v6","release_id":"AXPJ-HV0","dump_id":"UPLOAD-3233342c","game":"SAPPHIRE","locale":"JP-JA","size":8388608,"sha1":"3233342c2f3087e6ffe6c1791cd5867db07df842","header_checksum_valid":true,"padding_candidates":3,"validated_lz77_candidates":3184,"note":"Padding and LZ77 counts are candidate observations, not safe-allocation certification."
+}

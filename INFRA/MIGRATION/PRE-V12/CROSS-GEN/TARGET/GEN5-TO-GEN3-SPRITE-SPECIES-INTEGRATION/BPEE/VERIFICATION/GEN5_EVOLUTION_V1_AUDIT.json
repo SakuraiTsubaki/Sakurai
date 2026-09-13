@@ -1,0 +1,32 @@
+{
+  "output_rom": "Pokemon_-_Emerald_Version_(USA,_Europe)_GEN5_387_649_DEX649_BANKED_UI_EVOLUTION_V1.gba",
+  "sha1": "c90e3e7504ff9b6a71c21283cf6d525c320b2f07",
+  "sha256": "36cdd266ec52cc87d8445d582d2d62f40d3d74fee66c9109d39b4de48f379e05",
+  "hook_binary_sha1": "e8575d248343b47ba30e294f8ba035e3e6b3a171",
+  "hook_rebuild_byte_identical": true,
+  "full_rom_rebuild_byte_identical": true,
+  "static_validation": {"passed": 38, "total": 38},
+  "edge_counts": {"total": 136, "pending_dependency": 23, "active_hook": 10, "active_table": 103},
+  "active_edges_total": 113,
+  "pending_edges_total": 23,
+  "species_id_mapping": {
+    "source": "input ROM expanded internal->National table",
+    "offset": "0x10f25fc",
+    "policy": "invert actual target table; skip old/reserved aliases for National 387-649",
+    "samples": {"252":277,"290":301,"351":385,"358":411,"386":410,"387":440,"649":702}
+  },
+  "binary_diff": {"changed_bytes": 28854, "unexpected_changed_bytes": 0, "broken_30byte_pointer_refs_first_16MiB": 0},
+  "representative_edges": [
+    {"source_nat":387,"source_internal":440,"method":4,"param":18,"target_nat":388,"target_internal":441,"status":"active_table"},
+    {"source_nat":406,"source_internal":459,"method":2,"param":0,"target_nat":315,"target_internal":363,"status":"active_table"},
+    {"source_nat":433,"source_internal":486,"method":3,"param":0,"target_nat":358,"target_internal":411,"status":"active_table"},
+    {"source_nat":458,"source_internal":511,"method":22,"param":223,"target_nat":226,"target_internal":226,"status":"active_hook"},
+    {"source_nat":603,"source_internal":656,"method":8,"param":83,"target_nat":604,"target_internal":657,"status":"active_table"}
+  ],
+  "runtime_emulator_tested": false,
+  "notes": [
+    "Earlier Evolution V1 build using National+25 for Hoenn-era internal IDs is superseded and must not be used.",
+    "Retail BPEE Evolution ABI is 8 bytes per slot / 40 bytes per species in this ROM; the earlier 30-byte-stride table is superseded.",
+    "Friendship day/night currently follows Emerald RTC semantics; exact Generation V time/season behavior remains a later integration phase."
+  ]
+}

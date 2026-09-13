@@ -1,0 +1,64 @@
+{
+  "output_rom": "Pokemon_-_Emerald_Version_(USA,_Europe)_GEN5_387_649_DEX649_BANKED_UI.gba",
+  "sha1": "ccff6ab32f5f139d8346366fd5a169e5ddaa533f",
+  "sha256": "d215b5e311eb664f9a4f659fc7895010cbb9e12c7b4fce1cc885e90f9dfa0cf4",
+  "static_validation": {
+    "passed": 29,
+    "total": 29,
+    "checks": [
+      {"name":"output_size_32MiB","pass":true,"detail":33554432},
+      {"name":"create_list_stub_exact","pass":true,"detail":"004b1847d05e8009"},
+      {"name":"input_stub_exact","pass":true,"detail":"004b18479c5f8009"},
+      {"name":"hook_blob_exact","pass":true,"detail":492},
+      {"name":"create_list_arm_in_rom","pass":true,"detail":"0x9805ed0"},
+      {"name":"input_arm_in_hook_blob","pass":true,"detail":"0x9805f9c"},
+      {"name":"hook_literal_view_ptr","pass":true,"detail":"0x2039b4c"},
+      {"name":"hook_literal_getset_arm","pass":true,"detail":"0x9805c3c"},
+      {"name":"hook_literal_list_cont_thumb","pass":true,"detail":"0x80bc8df"},
+      {"name":"hook_literal_gmain_newkeys","pass":true,"detail":"0x30022ee"},
+      {"name":"hook_literal_handler_cont_thumb","pass":true,"detail":"0x80bc101"},
+      {"name":"hook_literal_create_list_thumb","pass":true,"detail":"0x80bc8d5"},
+      {"name":"hook_literal_clear_sprites_thumb","pass":true,"detail":"0x80bda41"},
+      {"name":"hook_literal_create_sprites_thumb","pass":true,"detail":"0x80bd2b5"},
+      {"name":"hook_literal_play_se_thumb","pass":true,"detail":"0x80a37a5"},
+      {"name":"hook_literal_bank_state_offset","pass":true,"detail":"0x642"},
+      {"name":"hook_literal_list_count_offset","pass":true,"detail":"0x60c"},
+      {"name":"hook_literal_selected_offset","pass":true,"detail":"0x60e"},
+      {"name":"hook_literal_dex_mode_offset","pass":true,"detail":"0x612"},
+      {"name":"hook_literal_dex_order_offset","pass":true,"detail":"0x616"},
+      {"name":"hook_literal_pokeball_rotation_offset","pass":true,"detail":"0x62c"},
+      {"name":"hook_literal_bank_b_count","pass":true,"detail":"0x107"},
+      {"name":"hook_literal_bank_b_first_nat","pass":true,"detail":"0x183"},
+      {"name":"hook_literal_bank_b_end_exclusive","pass":true,"detail":"0x28a"},
+      {"name":"hook_literal_physical_list_slots","pass":true,"detail":"0x183"},
+      {"name":"core_getset_stub_preserved","pass":true,"detail":"004b18473c5c8009"},
+      {"name":"core_count_stub_preserved","pass":true,"detail":"004b18472c5e8009"},
+      {"name":"core_nat_to_species_stub_preserved","pass":true,"detail":"004b1847705e8009"},
+      {"name":"route101_turtwig_smoke_slot_preserved","pass":true,"detail":"0202b801"}
+    ]
+  },
+  "binary_diff_vs_dex649_core": {
+    "changed_byte_count": 491,
+    "allowed_regions": [
+      "0xBC0F8-0xBC0FF Task_HandlePokedexInput entry",
+      "0xBC8D4-0xBC8DB CreatePokedexList entry",
+      "0x1805ED0-0x18060BB injected ARM code"
+    ],
+    "unintended_changes": 0
+  },
+  "bank_contract": {
+    "Bank A": "L -> National #001-386; vanilla list builder",
+    "Bank B": "R -> National #387-649; 263 numerical slots, unseen names/sprites hidden",
+    "state": "PokedexView filler[0] at +0x642; zeroed on every fresh Pokedex open"
+  },
+  "reproducibility": {
+    "hook_sha1_original": "0c3bb2619691f6452fe8424ecfa156a572a40ee3",
+    "hook_sha1_rebuild": "0c3bb2619691f6452fe8424ecfa156a572a40ee3",
+    "rom_sha1_original": "ccff6ab32f5f139d8346366fd5a169e5ddaa533f",
+    "rom_sha1_rebuild": "ccff6ab32f5f139d8346366fd5a169e5ddaa533f",
+    "hook_byte_identical": true,
+    "rom_byte_identical": true
+  },
+  "runtime_tested_in_emulator": false,
+  "runtime_test_reason": "No compatible GBA emulator is installed in the current execution environment."
+}

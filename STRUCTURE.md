@@ -1,8 +1,24 @@
-# Repository Structure v11
+# Repository Structure v12
 
 Status: **canonical** — 2026-09-13.
 
-## Canonical coordinates
+v12 makes the live tree match the ownership model. Transitional v2–v11 path families are no longer valid live coordinates.
+
+## Canonical live root
+
+```text
+.github/
+GEN-XX/
+CROSS-GEN/
+INFRA/
+README.md
+STRUCTURE.md
+MIGRATION.md
+```
+
+Repository metadata files such as `.gitignore` and `.gitattributes` may also exist at root.
+
+## Generation/game coordinates
 
 ```text
 GEN-XX/<GAME-ID>/RELEASES/<PLATFORM-ID>/<PACKAGE-KIND>/<RELEASE-ID>/
@@ -10,28 +26,71 @@ GEN-XX/<GAME-ID>/PROJECTS/<PROJECT-ID>/
 GEN-XX/<GAME-ID>/COMPARES/<COMPARE-ID>/
 GEN-XX/<GAME-ID>/REFERENCES/<REFERENCE-ID>/
 GEN-XX/<GAME-ID>/SHARED/
-GEN-XX/PROJECTS|COMPARES|REFERENCES|SHARED/
-CROSS-GEN/PROJECTS|COMPARES|REFERENCES|SHARED/
-INFRA/
 ```
 
-Exact dump observations use
-`DUMPS/DUMP-SHA256-<FIRST-16-UPPERCASE>/` and record the full hash in
-`OBSERVATION.json`. Artifact-class directories are created only when populated.
+Research/verification domains may also live directly below a game when they genuinely belong to that game:
 
-## Repository invariant
+```text
+KNOWLEDGE/
+VERIFY/
+CATALOGS/
+REPORTS/
+TABLES/
+ANALYSIS/
+TOOLS/
+```
 
-- **Tsubaki** is the complete archive/production superset of every eligible project-produced non-ROM artifact.
-- **Sakurai** is the curated knowledge/control subset.
-- Shared semantic coordinates and IDs are identical in both repositories.
-- Therefore `Sakurai ⊆ Tsubaki`, except repository-specific metadata.
+Generation-wide ownership uses:
 
-## ROM exclusion
+```text
+GEN-XX/PROJECTS/<PROJECT-ID>/
+GEN-XX/COMPARES/<COMPARE-ID>/
+GEN-XX/REFERENCES/<REFERENCE-ID>/
+GEN-XX/SHARED/
+```
 
-Original, modified, rebuilt, or otherwise playable ROM images are never
-committed and must not be disguised as lossless banks or chunks. Hashes,
-manifests, scripts, source, discrete extracted assets, patches, build metadata,
-and verification results are tracked.
+Cross-generation ownership uses:
 
-See [`INFRA/ARCHITECTURE/V11.md`](INFRA/ARCHITECTURE/V11.md). Retired
-`SOURCE`, `TARGET`, `COMPARE`, and `REFERENCE` roots are migration-only.
+```text
+CROSS-GEN/PROJECTS/<PROJECT-ID>/
+CROSS-GEN/COMPARES/<COMPARE-ID>/
+CROSS-GEN/REFERENCES/<REFERENCE-ID>/
+CROSS-GEN/SHARED/
+```
+
+## Release and dump identity
+
+Official release identity is represented by the `RELEASES` coordinate. Exact observed images are registered below that release as:
+
+```text
+DUMPS/DUMP-SHA256-<FIRST-16-UPPERCASE>/
+```
+
+The complete digest and observation metadata belong in the dump manifest. ROM image bytes themselves are never committed.
+
+## Repository-pair invariant
+
+- **Sakurai** is the curated research/control subset: identity, provenance, analysis, reverse engineering, comparisons, localization research, schemas, technical design, reports, research tooling, citations, and verification evidence.
+- **Tsubaki** is the complete non-ROM superset. Every eligible Sakurai project artifact is also eligible for Tsubaki at the same semantic coordinate; production assets and implementation outputs may exist only in Tsubaki.
+- Shared generation, game, release, dump, project, comparison, reference, and target IDs must match between repositories.
+
+## Retired live paths
+
+The following are forbidden in the live ownership tree:
+
+```text
+LIBRARY/
+projects/
+workspaces/
+STRUCTURE-V2.md
+SOURCE/
+TARGET/
+COMPARE/
+REFERENCE/
+```
+
+Historical copies may exist only below `INFRA/MIGRATION/` and remain read-only migration evidence.
+
+## ROM policy
+
+Only complete playable ROM image files are excluded from GitHub. Source, analysis, documentation, scripts, patches, manifests, hashes, logs, tests, extracted/reconstructed graphics, sprites, PNGs, tiles, maps, text, fonts, audio, tables, binary non-ROM assets, build metadata, reproducible intermediates, and other project artifacts belong in the appropriate repository.
