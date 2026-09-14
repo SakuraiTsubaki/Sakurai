@@ -8,8 +8,8 @@ SLUG_RE = re.compile(r'^[A-Z0-9][A-Z0-9._-]*$')
 DUMP_RE = re.compile(r'^DUMP-SHA256-[0-9A-F]{16}$')
 
 ROOT_ALLOWED = {
-    '.github', '.git', '.gitignore', '.gitattributes',
-    'README.md', 'STRUCTURE.md',
+    '.github', '.git', '.gitignore', '.gitattributes', '.editorconfig',
+    'README.md', 'STRUCTURE.md', 'CONTRIBUTING.md',
     'INFRA', 'CROSS-GEN',
 }
 GEN_BRANCHES = {'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED', 'KNOWLEDGE', 'VERIFY'}

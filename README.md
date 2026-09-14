@@ -1,8 +1,18 @@
 # Sakurai
 
+![Status](https://img.shields.io/badge/status-canonical_v12-active-success)
+![Project](https://img.shields.io/badge/project-research_control-blue)
+![ROMs](https://img.shields.io/badge/ROM_binaries-not_included-success)
+
 Pokémon source identity, reverse engineering, comparison, localization research, technical design, and verification repository.
 
-## Canonical architecture: v12
+## 🎯 Role
+
+Sakurai is the **curated research/control subset** of the repository pair. It owns release and dump identity, provenance, hashes, reverse-engineering analysis, comparisons, localization research, tables, schemas, reports, research tooling, citations, and verification evidence.
+
+Tsubaki is the complete eligible non-ROM superset. Both repositories use the same semantic generation, game, release, dump, comparison, reference, project, and target coordinates.
+
+## 🗂️ Canonical architecture: v12
 
 Current work lives only under:
 
@@ -17,10 +27,31 @@ A project has one live owner path. Project-specific analysis, comparisons, repor
 
 Version updates modify the current tree directly. If a path changes, unique work is merged into the new canonical path and the old live path is removed in the same update. Git commits, tags, and pull requests are the history; no separate migration/history tree is required.
 
-Sakurai is the curated research/control subset. It owns release/dump identity, provenance, hashes, analysis, reverse engineering, comparison, localization research, tables, schemas, reports, research tooling, citations, and verification evidence.
+## 📌 Repository policy
 
-Tsubaki is the complete non-ROM superset and uses the same semantic IDs and coordinates.
+- Sakurai stores curated research/control material rather than every eligible project artifact.
+- Verified identity and provenance should be represented with stable semantic IDs and hashes.
+- Hypotheses must be distinguished from observed, reproduced, or matched evidence.
+- Complete playable ROM image files are not committed.
+- Repository-wide documentation and standards live under `INFRA/DOCS/`.
+- Shared manifest conventions and reusable examples live under `INFRA/MANIFESTS/`.
+
+## 📚 Documentation
+
+| Document | Purpose |
+| --- | --- |
+| [Documentation Hub](INFRA/DOCS/README.md) | Central entry point for repository-wide documentation |
+| [Project Status](INFRA/DOCS/PROJECT_STATUS.md) | Current canonical-architecture and curation status |
+| [Roadmap](INFRA/DOCS/ROADMAP.md) | Long-term repository and verification priorities |
+| [Version Coordinates](INFRA/DOCS/VERSIONS.md) | Release, platform, package, revision, and dump identity rules |
+| [Research Guide](INFRA/DOCS/RESEARCH_GUIDE.md) | Evidence, citations, uncertainty, and reproducibility |
+| [Verification](INFRA/DOCS/VERIFICATION.md) | Unverified, Observed, Reproduced, and Matched criteria |
+| [Repository Structure](INFRA/DOCS/REPOSITORY_STRUCTURE.md) | How documentation fits the canonical v12 tree |
+| [Project Standards](INFRA/DOCS/PROJECT_STANDARDS.md) | Naming, provenance, ownership, and repository-wide conventions |
+| [Asset Workflow](INFRA/DOCS/ASSET_WORKFLOW.md) | Curated asset/evidence handling and deduplication |
+| [Repository Pairing](INFRA/DOCS/PAIRING.md) | Sakurai ↔ Tsubaki synchronization rules |
+| [Manifest Guide](INFRA/MANIFESTS/README.md) | Shared manifest fields and reusable example |
+| [Contributing](CONTRIBUTING.md) | Contribution and pull-request expectations |
+| [Canonical Structure](STRUCTURE.md) | Authoritative v12 path architecture |
 
 **Only complete playable ROM image files are excluded from GitHub.**
-
-See [STRUCTURE.md](STRUCTURE.md).

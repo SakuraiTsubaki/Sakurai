@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "kind": "research-asset",
+  "semantic_coordinate": "TBD",
+  "owner_path": "TBD",
+  "category": "TBD",
+  "target": {
+    "generation": "TBD",
+    "game_id": "TBD",
+    "platform_id": null,
+    "package_kind": null,
+    "release_id": null,
+    "region": null,
+    "language": null,
+    "revision": null,
+    "dump_id": null
+  },
+  "source": {
+    "provenance": "TBD",
+    "repository_revision": null,
+    "path": null,
+    "symbol": null,
+    "address": null,
+    "offset": null,
+    "range": null
+  },
+  "representation": {
+    "repository_path": "TBD",
+    "format": "TBD",
+    "size_bytes": null,
+    "sha256": null
+  },
+  "generation": {
+    "tool": null,
+    "command": null
+  },
+  "verification": "Unverified",
+  "shared_with": [],
+  "pairing": {
+    "repository_role": "Sakurai-curated-control",
+    "tsubaki_path": null
+  },
+  "notes": "Replace placeholders only with verified information."
+}
