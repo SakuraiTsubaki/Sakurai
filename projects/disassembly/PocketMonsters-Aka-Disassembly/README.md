@@ -53,6 +53,40 @@ Eight ROM files were supplied for analysis. The additional English copy is byte-
 
 Source inventory and header verification are complete for all 7 unique builds. **Bank 00 reconstruction is active.**
 
+Recovered so far:
+
+- common reset/interrupt vectors and cartridge entry point
+- build-specific VBlank/Timer/Serial targets
+- Japanese RST `$38` behavior and revision-specific `$0068-$00FF` residual data
+- western `$0061-$00FF` High Home routines (`DisableLCD`, `EnableLCD`, sprite clearing/hiding, copy helpers)
+- build-specific `_Start` code at `$0150`
+- Japanese V1.0/V1.1 `$0153-$01C3` early Home routines
+- Japanese V1.0/V1.1 `$01C4-$028B` collision-tile tables, reproduced exactly from structured source
+- Japanese V1.0/V1.1 `$028C-$0358` banked copy and VBlank video-copy helpers
+- Japanese `$0359-$03D1` interruption, tile-area, BG transfer, and screen-clear helpers with revision-dependent call targets preserved
+- Japanese `$03D2-$04C8` text-box renderer, string-control dispatcher, and dakuten/handakuten kana conversion core
+- Japanese `$04C9-$0773` name/control-token expansion, paragraph/scroll logic, `TextCommandProcessor`, sound/cry text commands, and complete text-command jump table
+- Japanese `$0774-$09D9` BG-map addressing, row/column redraw, VBlank copy engines, overworld water/flower tile animation, embedded flower tiles, and `SoftReset`
+- Japanese `$09DA-$0B3B` `Init`, VRAM/audio reset, full VBlank interrupt body, audio dispatch, play-time bank call, and `DelayFrame`
+- Japanese `$0B3C-$0BA6` DMG palette load/fade routines and `FadePal1` through `FadePal8`
+- Japanese Serial/link engine from `$0BA7` through the byte immediately before `Timer`: V1.0 `$0D99`, V1.1 `$0D87`
+- Japanese Timer/audio dispatcher through the end of `PlaySound`: V1.0 `$0D9A-$0EBC`, V1.1 `$0D88-$0EAA`
+- Japanese `UpdateSprites` trampoline, all Bank 00 mart inventory scripts, common overworld sign/item text, and `PickUpItemText`: V1.0 `$0EBD-$0FCD`, V1.1 `$0EAB-$0FBB`
+- Japanese sprite compression/decompression engine, bitstream/RLE decoder, differential decode tables, chunk merge modes, and buffer helpers: V1.0 `$0FCE-$136A`, V1.1 `$0FBC-$1358`
+- Japanese `ResetPlayerSpriteData` and `FadeOutAudio`: V1.0 `$136B-$13F0`, V1.1 `$1359-$13DE`
+- Japanese `DisplayTextID` map/NPC text-script dispatcher and common dialogue handlers: V1.0 `$13F1-$15DD`, V1.1 `$13DF-$15CB`
+- Japanese `DisplayStartMenu` dispatcher: V1.0 `$15DE-$168F`, V1.1 `$15CC-$167D`
+- Japanese `CountSetBits`: V1.0 `$1690-$16A6`, V1.1 `$167E-$1694`
+- Japanese money/inventory wrappers: V1.0 `$16A7-$16F6`, V1.1 `$1695-$16E4`
+- Japanese `DisplayListMenuID` list-menu setup/selection/scroll core: V1.0 `$16F7-$1869`, V1.1 `$16E5-$1857`
+- Japanese `DisplayChooseQuantityMenu` quantity/price selector: V1.0 `$186A-$194B`, V1.1 `$1858-$1939`
+- Japanese `ExitListMenu`, `PrintListMenuEntries`, and embedded `やめる` label: V1.0 `$194C-$1AAA`, V1.1 `$193A-$1A98`
+- Japanese Pokémon/item/TM/HM/move name helpers: V1.0 `$1AAB-$1B85`, V1.1 `$1A99-$1B73`
+
+The Japanese reconstruction is now structured continuously from `$0150` through the name helpers: **V1.0 through `$1B85` and V1.1 through `$1B73`** (with the cartridge header region handled separately), plus the verified reset/vector and residual ranges before it.
+
+The next Bank 00 routine is `ReloadMapData` at V1.0 `$1B86` / V1.1 `$1B74`.
+
 See `analysis/bank00/` for verified offsets, revision differences, and range hashes. The active source is linked from `home.asm`.
 
 ## 📚 Documentation
@@ -68,3 +102,4 @@ See `analysis/bank00/` for verified offsets, revision differences, and range has
 | [Verification](docs/VERIFICATION.md) | Evidence levels and matching criteria |
 | [Asset Workflow](docs/ASSET_WORKFLOW.md) | Graphics, sprites, deduplication, manifests, and review batches |
 | [Manifest Guide](manifests/README.md) | Manifest conventions and reusable asset-manifest example |
+| [Contributing](CONTRIBUTING.md) | Contribution and pull-request guidance |
