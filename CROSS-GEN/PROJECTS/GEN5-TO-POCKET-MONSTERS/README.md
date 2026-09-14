@@ -1,17 +1,20 @@
 # Generation V → ポケットモンスター
 
-This directory is the single project-facing entry point for this project.
+This directory is the single live home for the Generation V → ポケットモンスター project in Sakurai.
 
-## Project work
+## Canonical project tree
 
-- `GEN-05/` — complete current Generation V research/release work tree, mirrored losslessly from repository-root `GEN-05/` by reusing the same Git tree object.
+- `BLACK/` — Pokémon Black research, release evidence, extraction and analysis.
+- `WHITE/` — Pokémon White research, release evidence, extraction and analysis.
+- `COMPARES/` — Black/White and Generation V comparison work.
+- `SHARED/` — shared Generation V tools and common research assets.
 - `CROSSWALK/` — Generation V → target correspondence tables.
-- `DESIGN/` — engine/data-model/integration design.
+- `DESIGN/` — engine, data-model and integration design.
 - `MANIFESTS/` — project locks, provenance, routing and status.
 - `REPORTS/` — project reports and audits.
 - `TOOLS/` — project research and validation tools.
 - `VERIFICATION/` — regression and port verification evidence.
 
-The repository-root `GEN-05/` remains preserved for generation-wide ownership and reuse by other projects. This project root must nevertheless remain a complete, discoverable view: whenever Generation V work belonging to this project changes, the project-facing `GEN-05/` tree is refreshed in the same update.
+There is no separate live repository-root `GEN-05/` tree and no nested project `GEN-05/` mirror. Current project work must be placed directly under this project root so the whole project is discoverable from one location.
 
-Complete playable ROM images are excluded from GitHub. All other project artifacts are eligible for version control.
+Complete playable ROM images are excluded from GitHub. All other project artifacts are version-controlled here under their functional folders.
