@@ -13,7 +13,9 @@ CROSS-GEN/PROJECTS|COMPARES|REFERENCES|SHARED
 INFRA/
 ```
 
-Transitional `LIBRARY`, lowercase `projects`, `workspaces`, `SOURCE`, `TARGET`, `COMPARE`, and `REFERENCE` paths are not valid live coordinates. Historical trees are preserved only under `INFRA/MIGRATION/` and in Git history.
+A project has one live owner path. Project-specific analysis, comparisons, reports, tools, manifests, verification material, design, inputs, and other work products stay under that project root instead of being split across historical or version-specific trees.
+
+Version updates modify the current tree directly. If a path changes, unique work is merged into the new canonical path and the old live path is removed in the same update. Git commits, tags, and pull requests are the history; no separate migration/history tree is required.
 
 Sakurai is the curated research/control subset. It owns release/dump identity, provenance, hashes, analysis, reverse engineering, comparison, localization research, tables, schemas, reports, research tooling, citations, and verification evidence.
 
@@ -21,4 +23,4 @@ Tsubaki is the complete non-ROM superset and uses the same semantic IDs and coor
 
 **Only complete playable ROM image files are excluded from GitHub.**
 
-See [STRUCTURE.md](STRUCTURE.md) and [MIGRATION.md](MIGRATION.md).
+See [STRUCTURE.md](STRUCTURE.md).
