@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "owner": "SakuraiTsubaki",
+  "aggregation_model": "Disassembly + Decompilation -> Sakurai + Tsubaki",
+  "counts": {
+    "disassembly": 12,
+    "decompilation": 34,
+    "total": 46
+  },
+  "targets": {
+    "Sakurai": {
+      "projection": "curated research/control",
+      "rom_images": "excluded"
+    },
+    "Tsubaki": {
+      "projection": "complete eligible non-ROM production/archive",
+      "rom_images": "excluded"
+    }
+  },
+  "families": {
+    "disassembly": {
+      "status": "active",
+      "generations": {
+        "1": [
+          "PocketMonsters-Aka-Disassembly",
+          "PocketMonsters-Midori-Disassembly",
+          "PocketMonsters-Ao-Disassembly",
+          "PocketMonsters-Pikachu-Disassembly"
+        ],
+        "2": [
+          "PocketMonsters-Kin-Disassembly",
+          "PocketMonsters-Gin-Disassembly",
+          "PocketMonsters-Crystal-Disassembly"
+        ],
+        "3": [
+          "PocketMonsters-Ruby-Disassembly",
+          "PocketMonsters-Sapphire-Disassembly",
+          "PocketMonsters-Emerald-Disassembly",
+          "PocketMonsters-FireRed-Disassembly",
+          "PocketMonsters-LeafGreen-Disassembly"
+        ]
+      }
+    },
+    "decompilation": {
+      "status": "active",
+      "generations": {
+        "3": [
+          "PocketMonsters-Ruby-Decompilation",
+          "PocketMonsters-Sapphire-Decompilation",
+          "PocketMonsters-Emerald-Decompilation",
+          "PocketMonsters-FireRed-Decompilation",
+          "PocketMonsters-LeafGreen-Decompilation"
+        ],
+        "4": [
+          "PocketMonsters-Diamond-Decompilation",
+          "PocketMonsters-Pearl-Decompilation",
+          "PocketMonsters-Platinum-Decompilation",
+          "PocketMonsters-HeartGold-Decompilation",
+          "PocketMonsters-SoulSilver-Decompilation"
+        ],
+        "5": [
+          "PocketMonsters-Black-Decompilation",
+          "PocketMonsters-White-Decompilation",
+          "PocketMonsters-Black2-Decompilation",
+          "PocketMonsters-White2-Decompilation"
+        ],
+        "6": [
+          "PocketMonsters-X-Decompilation",
+          "PocketMonsters-Y-Decompilation",
+          "PocketMonsters-OmegaRuby-Decompilation",
+          "PocketMonsters-AlphaSapphire-Decompilation"
+        ],
+        "7": [
+          "PocketMonsters-Sun-Decompilation",
+          "PocketMonsters-Moon-Decompilation",
+          "PocketMonsters-UltraSun-Decompilation",
+          "PocketMonsters-UltraMoon-Decompilation",
+          "PocketMonsters-LetsGoPikachu-Decompilation",
+          "PocketMonsters-LetsGoEevee-Decompilation"
+        ],
+        "8": [
+          "PocketMonsters-Sword-Decompilation",
+          "PocketMonsters-Shield-Decompilation",
+          "PocketMonsters-BrilliantDiamond-Decompilation",
+          "PocketMonsters-ShiningPearl-Decompilation",
+          "PokemonLegends-Arceus-Decompilation"
+        ],
+        "9": [
+          "PocketMonsters-Scarlet-Decompilation",
+          "PocketMonsters-Violet-Decompilation",
+          "PokemonLegends-Z-A-Decompilation"
+        ],
+        "10": [
+          "PocketMonsters-Winds-Decompilation",
+          "PocketMonsters-Waves-Decompilation"
+        ]
+      },
+      "notes": {
+        "10": "planned/cautious target repositories; do not infer unverified platform or build details"
+      }
+    }
+  }
+}
