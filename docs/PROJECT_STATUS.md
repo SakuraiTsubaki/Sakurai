@@ -1,18 +1,33 @@
 # Project Status
 
-**Current repository stage:** Decompilation-aligned operating tree — active migration
+**Current repository stage:** Combined Disassembly + Decompilation aggregation tree — active migration
 
-Sakurai now uses root-level `docs/` and `manifests/` as its repository-wide operating layer, matching the convention used by the Decompilation series. The older V12 architecture is no longer the repository-wide canonical model.
+Sakurai is now defined as the curated research/control projection of a **46-repository upstream corpus**:
 
-Generation, cross-generation, and remaining infrastructure content are being simplified separately without deleting unique research material.
+- 12 Disassembly repositories
+- 34 Decompilation repositories
+
+The canonical aggregate namespaces now exist:
+
+- `projects/disassembly/`
+- `projects/decompilation/`
+- `shared/`
+- `derived/`
+- `docs/`
+- `manifests/`
+
+`manifests/upstream-repositories.json` is the authoritative source-repository registry. The older V-numbered architecture is retired.
+
+Existing `GEN-*`, `CROSS-GEN`, and remaining `INFRA` material is migration input. It is being mapped into the aggregate tree only after upstream or genuine shared/derived ownership is identified.
 
 ## Current priorities
 
-- Keep the root operating layer consistent with the Decompilation repository family.
-- Maintain stable target identity, provenance, hashes, research, comparisons, and verification evidence.
-- Preserve region/language/revision differences rather than flattening them.
-- Keep Sakurai and Tsubaki semantic coordinates aligned.
-- Move legacy routing metadata only when its new owner is clear.
+- Map existing Sakurai material to exact upstream repositories.
+- Import/aggregate research-control material from both source families without losing provenance.
+- Preserve target, region, language, revision, and build differences.
+- Deduplicate only after equivalence is verified.
+- Keep Sakurai and Tsubaki aggregate coordinates aligned.
+- Move genuine cross-repository material to `shared/` or `derived/` instead of hiding it under legacy routing trees.
 - Reject complete playable ROM images from Git.
 
 ## Verification levels
@@ -22,4 +37,4 @@ Generation, cross-generation, and remaining infrastructure content are being sim
 - **Reproduced** — recreated with documented steps or tooling.
 - **Matched** — exact expected identity, bytes, hash, or behavior confirmed for the declared scope.
 
-Update this file whenever the repository-wide operating model or major migration state changes.
+Update this file whenever upstream coverage or aggregate migration state changes.
