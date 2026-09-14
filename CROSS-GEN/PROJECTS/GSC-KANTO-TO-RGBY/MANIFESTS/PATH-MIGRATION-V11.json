@@ -4,7 +4,9 @@
   "canonical": "CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY",
   "legacy_roots": [
     {"repository": "SakuraiTsubaki/Sakurai", "path": "projects/gscrgby", "status": "migration-only"},
-    {"repository": "SakuraiTsubaki/Tsubaki", "path": "workspaces/gscrgby", "status": "migration-only"}
+    {"repository": "SakuraiTsubaki/Tsubaki", "path": "workspaces/gscrgby", "status": "migration-only"},
+    {"repository": "SakuraiTsubaki/Sakurai", "path": "CROSS-GEN/PROJECTS/RGBYGSC-KANTO-START", "status": "retired-after-v12-consolidation"},
+    {"repository": "SakuraiTsubaki/Tsubaki", "path": "CROSS-GEN/PROJECTS/RGBYGSC-KANTO-START", "status": "retired-after-v12-consolidation"}
   ],
   "routes": [
     {"legacy": "projects/gscrgby/manifests", "canonical": "CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/MANIFESTS"},
@@ -15,7 +17,8 @@
     {"legacy": "workspaces/gscrgby/analysis", "canonical": "Tsubaki:CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/ANALYSIS"},
     {"legacy": "workspaces/gscrgby/experiments", "canonical": "Tsubaki:CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/EXPERIMENTS"},
     {"legacy": "workspaces/gscrgby/tools", "canonical": "Tsubaki:CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/TOOLS"},
-    {"legacy": "pokegold-kr tracked tree", "canonical": "Tsubaki:CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/UPSTREAM/GEN-02/POKEGOLD-KR", "filter": "exclude ROM images only"}
+    {"legacy": "pokegold-kr tracked tree", "canonical": "Tsubaki:CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/UPSTREAM/GEN-02/POKEGOLD-KR", "filter": "exclude ROM images only"},
+    {"legacy": "CROSS-GEN/PROJECTS/RGBYGSC-KANTO-START", "canonical": "CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY", "policy": "merge eligible live artifacts; preserve conflicting v10 root identity files under MIGRATION/RGBYGSC-KANTO-START"}
   ],
   "deletion_policy": "retire legacy duplicates only after path-equivalence verification"
 }
