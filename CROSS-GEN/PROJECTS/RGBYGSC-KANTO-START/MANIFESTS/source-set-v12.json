@@ -1,0 +1,27 @@
+{
+  "schema":"rgbgsc-kanto-start-source-set-v12",
+  "layout_version":12,
+  "project_id":"RGBYGSC-KANTO-START",
+  "display_name":"RGBY カントー地方 -> GSC",
+  "project_path":"CROSS-GEN/PROJECTS/RGBYGSC-KANTO-START",
+  "engine_anchor":{"generation":"GEN-02","game_id":"SILVER","platform_id":"GBC","package_kind":"CART","release_id":"AAXK-HV0","dump_id":"DUMP-SHA256-EBBAC63C0C4309C8","sha256":"ebbac63c0c4309c82dbb6723e7163369784f962b4fd3e2f486075307c3008a22","language":"ko"},
+  "policy":{"preserve_all_source_content":true,"shrink_maps":false,"delete_events":false,"rom_binaries_committed":false},
+  "sources":[
+    {"generation":"GEN-01","game_id":"RED","platform_id":"GB","package_kind":"CART","release_id":"JP-JA-HV1","dump_id":"DUMP-SHA256-751ABB1FB2B2D6B9","sha256":"751abb1fb2b2d6b91dc631fa10ed36bd07f682cb5c3febe6c8f0e3dabc1fae1c","size":524288,"language":"ja"},
+    {"generation":"GEN-01","game_id":"RED","platform_id":"GB","package_kind":"CART","release_id":"US-EU-EN-HV0","dump_id":"DUMP-SHA256-5CA7BA01642A3B27","sha256":"5ca7ba01642a3b27b0cc0b5349b52792795b62d3ed977e98a09390659af96b7b","size":1048576,"language":"en"},
+    {"generation":"GEN-01","game_id":"GREEN","platform_id":"GB","package_kind":"CART","release_id":"JP-JA-HV1","dump_id":"DUMP-SHA256-3F0DC460CA8D06BE","sha256":"3f0dc460ca8d06be1c9ac96307c939c0ea7baa366b40c2f1f4ad63242b6c4816","size":524288,"language":"ja"},
+    {"generation":"GEN-01","game_id":"BLUE","platform_id":"GB","package_kind":"CART","release_id":"JP-JA-HV0","dump_id":"DUMP-SHA256-71A70E5F77C10917","sha256":"71a70e5f77c109177d21c998310ffe01a68e8cd2f41e72e7129093b890c7d3d1","size":524288,"language":"ja"},
+    {"generation":"GEN-01","game_id":"BLUE","platform_id":"GB","package_kind":"CART","release_id":"US-EU-EN-HV0","dump_id":"DUMP-SHA256-2A951313C2640E8C","sha256":"2a951313c2640e8c2cb21f25d1db019ae6245d9c7121f754fa61afd7bee6452d","size":1048576,"language":"en"},
+    {"generation":"GEN-01","game_id":"YELLOW","platform_id":"GB","package_kind":"CART","release_id":"JP-JA-HV3","dump_id":"DUMP-SHA256-1349408F328F633B","sha256":"1349408f328f633b33e059e654edabd19810530df9c883eda03a85d5bb10161a","size":1048576,"language":"ja"},
+    {"generation":"GEN-01","game_id":"YELLOW","platform_id":"GB","package_kind":"CART","release_id":"US-EU-EN-HV0","dump_id":"DUMP-SHA256-8CBAA499397E4F1A","sha256":"8cbaa499397e4f1a679c992ea9382a2dd7942ab398b48c19829c2d9529de47bf","size":1048576,"language":"en"},
+    {"generation":"GEN-02","game_id":"GOLD","platform_id":"GBC","package_kind":"CART","release_id":"AAUJ-HV1","dump_id":"DUMP-SHA256-27A07A1D3FAF9C6A","sha256":"27a07a1d3faf9c6a0b1b60d5e88ee3a4159a751a47b4c46ab09f1202d52bac3e","size":1048576,"language":"ja"},
+    {"generation":"GEN-02","game_id":"GOLD","platform_id":"GBC","package_kind":"CART","release_id":"AAUE-HV0","dump_id":"DUMP-SHA256-FB0016D27B1E5374","sha256":"fb0016d27b1e5374e1ec9fcad60e6628d8646103b5313ca683417f52b97e7e4e","size":2097152,"language":"en"},
+    {"generation":"GEN-02","game_id":"GOLD","platform_id":"GBC","package_kind":"CART","release_id":"AAUK-HV0","dump_id":"DUMP-SHA256-9C273E86E6120C6A","sha256":"9c273e86e6120c6a038160ccb0153b8b20425b84fc08a496281c1d1bcac492f6","size":2097152,"language":"ko"},
+    {"generation":"GEN-02","game_id":"SILVER","platform_id":"GBC","package_kind":"CART","release_id":"AAXJ-HV1","dump_id":"DUMP-SHA256-99E5267FBF5A7748","sha256":"99e5267fbf5a7748d4f3b75ba1990cb5d91348339468607a04bfbc6081c62d71","size":1048576,"language":"ja"},
+    {"generation":"GEN-02","game_id":"SILVER","platform_id":"GBC","package_kind":"CART","release_id":"AAXE-HV0","dump_id":"DUMP-SHA256-72B190859A59623C","sha256":"72b190859a59623cbef6c49d601f8de52c1d2331b4f08a8d2acc17274fc19a8c","size":2097152,"language":"en"},
+    {"generation":"GEN-02","game_id":"SILVER","platform_id":"GBC","package_kind":"CART","release_id":"AAXK-HV0","dump_id":"DUMP-SHA256-EBBAC63C0C4309C8","sha256":"ebbac63c0c4309c82dbb6723e7163369784f962b4fd3e2f486075307c3008a22","size":2097152,"language":"ko"},
+    {"generation":"GEN-02","game_id":"CRYSTAL","platform_id":"GBC","package_kind":"CART","release_id":"JP-JA-HV0","dump_id":"DUMP-SHA256-136ADA06CB68656B","sha256":"136ada06cb68656b7de475fa4b278d37dbeff8f5257e7dfdf7f4a4aec19a90f3","size":2097152,"language":"ja"},
+    {"generation":"GEN-02","game_id":"CRYSTAL","platform_id":"GBC","package_kind":"CART","release_id":"US-EU-EN-HV1","dump_id":"DUMP-SHA256-FDCC3C8C43813CF8","sha256":"fdcc3c8c43813cf8731fc037d2a6d191bac75439c34b24ba1c27526e6acdc8a2","size":2097152,"language":"en"}
+  ],
+  "observations":{"file_count":16,"unique_dump_count":15,"duplicate_note":"The two supplied English Yellow filenames are byte-identical and map to DUMP-SHA256-8CBAA499397E4F1A."}
+}

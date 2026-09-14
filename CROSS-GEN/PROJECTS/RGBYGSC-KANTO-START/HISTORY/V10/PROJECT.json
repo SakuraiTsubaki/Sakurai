@@ -1,16 +1,11 @@
 {
-  "schema":"rgbgsc-kanto-start-project-v12",
-  "layout_version":12,
+  "schema":"rgbgsc-kanto-start-project-v10",
+  "layout_version":10,
   "project_id":"RGBYGSC-KANTO-START",
-  "display_name":"RGBY カントー地方 -> GSC",
   "project_path":"CROSS-GEN/PROJECTS/RGBYGSC-KANTO-START",
   "repository_role":"knowledge-control-plane",
   "runtime_anchor":{"generation":"GEN-02","game_id":"SILVER","platform_id":"GBC","package_kind":"CART","release_id":"AAXK-HV0","dump_id":"DUMP-SHA256-EBBAC63C0C4309C8","sha256":"ebbac63c0c4309c82dbb6723e7163369784f962b4fd3e2f486075307c3008a22"},
-  "source_manifest":"MANIFESTS/source-set-v12.json",
-  "work_index":"WORK-INDEX.md",
-  "migration_record":"MIGRATION.md",
-  "localization_policy":"SPEC/LOCALIZATION-KR.md",
   "source_scope":{"generations":["GEN-01","GEN-02"],"games":["RED","GREEN","BLUE","YELLOW","GOLD","SILVER","CRYSTAL"],"unique_dump_count":15,"file_observation_count":16},
-  "invariants":{"generation_ii_engine":true,"starts_in_kanto":true,"preserve_all_confirmed_source_events":true,"shrink_maps":false,"delete_content_to_save_space":false,"time_day_content_access_gating":false,"rom_binaries_committed":false,"project_work_discoverable_from_project_root":true},
+  "invariants":{"generation_ii_engine":true,"starts_in_kanto":true,"preserve_all_confirmed_source_events":true,"shrink_maps":false,"delete_content_to_save_space":false,"time_day_content_access_gating":false,"rom_binaries_committed":false},
   "production_counterpart":"SakuraiTsubaki/Tsubaki:CROSS-GEN/PROJECTS/RGBYGSC-KANTO-START"
 }
