@@ -1,0 +1,43 @@
+{
+  "rom_size": 16777216,
+  "block_size": 4096,
+  "block_count": 4096,
+  "baseline_order": [
+    "jp_rev0",
+    "jp_rev1",
+    "us_rev0",
+    "us_rev1",
+    "fr",
+    "de",
+    "it",
+    "es"
+  ],
+  "range_count": 65,
+  "all_baselines_identical_ranges": [
+    {
+      "start": 7450624,
+      "end_exclusive": 12582912,
+      "size": 5132288
+    },
+    {
+      "start": 15413248,
+      "end_exclusive": 15728640,
+      "size": 315392
+    },
+    {
+      "start": 16646144,
+      "end_exclusive": 16777216,
+      "size": 131072
+    }
+  ],
+  "last_non_ff": {
+    "jp_rev0": 16646142,
+    "jp_rev1": 15987683,
+    "us_rev0": 15403807,
+    "us_rev1": 15403807,
+    "fr": 15409567,
+    "de": 15409547,
+    "it": 15409899,
+    "es": 15409819
+  }
+}
