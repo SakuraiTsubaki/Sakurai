@@ -1,0 +1,29 @@
+name: Sync Gen III research migration branch with main
+
+on:
+  push:
+    branches:
+      - migration/gen3-disassembly-v12
+    paths:
+      - .github/workflows/sync-gen3-migration-with-main.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: migration/gen3-disassembly-v12
+          fetch-depth: 0
+      - name: Merge latest main without discarding either side
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git merge --no-edit origin/main
+          git push origin HEAD:migration/gen3-disassembly-v12
