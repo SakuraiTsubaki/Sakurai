@@ -1,29 +1,28 @@
-# Generation V → ポケットモンスター — project structure v6
+# Generation V → ポケットモンスター — canonical structure
 
-Canonical project root: `PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/`.
+Canonical project root:
 
-This project is cross-generation and many-to-many: Generation V source material is integrated into Generation II and Generation III targets. Official source/release facts live only in `LIBRARY`; transformation logic lives here.
+`CROSS-GEN/PROJECTS/GEN5-TO-POCKET-MONSTERS/`
 
-## Sakurai research sections
+This is the only live Sakurai location for work belonging to this project. Generation V source research and the cross-generation integration work are not split into separate live trees.
 
-- `MANIFESTS/` — source/target locks, provenance, status, routing.
-- `INPUTS/` — project-facing references to locked source/dump identities.
-- `CROSSWALK/` — Generation V → target correspondence tables by domain.
-- `ANALYSIS/` — project-specific compatibility and delta analysis.
-- `DESIGN/` — engine/data-model/compatibility design.
-- `DIFFS/` — derived source-vs-target deltas.
-- `TOOLS/` — research-only parsers, validators, report generators.
+## Direct project sections
+
+- `BLACK/` — Pokémon Black release research, extraction, native data and analysis.
+- `WHITE/` — Pokémon White release research, extraction, native data and analysis.
+- `COMPARES/` — version, region, language and revision comparisons.
+- `SHARED/` — shared Generation V research data and tools.
+- `CROSSWALK/` — Generation V → target correspondence tables.
+- `DESIGN/` — engine, data-model and compatibility design.
+- `MANIFESTS/` — source/target locks, provenance, status and routing.
 - `REPORTS/` — human-readable audits and phase reports.
+- `TOOLS/` — parsers, validators and report generators.
 - `VERIFICATION/` — regression evidence and source-vs-port validation.
 
-## ROM ownership
+## Single-location rule
 
-Original ROM binaries never enter Git. Exact observed-file facts belong under `LIBRARY/.../SOURCE/.../<RELEASE-ID>/DUMPS/<DUMP-ID>/`; release identity and native facts belong under the matching release.
+Do not recreate repository-root `GEN-05/`, nested `GEN-05/`, or migration/legacy duplicates for current project work. When the project is updated, the changed artifact is updated directly in this canonical tree.
 
-## Production ownership
+## ROM policy
 
-Converted assets, insertion-ready data, patches and build products belong in `SakuraiTsubaki/Tsubaki/PROJECTS/CROSS-GEN/GEN5-TO-POCKET-MONSTERS/` and use the same release, dump and target IDs.
-
-## No new legacy paths
-
-Do not create new project work under `PROJECTS/GEN-05/GEN5-TO-POCKET-MONSTERS`, `GENERATION-*`, `_SHARED`, `MULTI`, `REV-ALL`, `REV-UNKNOWN`, `MISC`, `OTHER`, or `GENERAL`. Pre-v6 material belongs only in `LEGACY/PRE-V6-2026-09-12/` until equivalence migration is complete.
+Complete playable ROM images are not committed. Every other project artifact may be committed under its actual functional folder in this canonical project tree.
