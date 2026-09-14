@@ -1,0 +1,7 @@
+{
+  "schema":"gen4-rom-content-census-v6","project_id":"GEN4-TO-POCKET-MONSTERS",
+  "nds":{"source_releases":5,"named_nitrofs_files_total":1641,"named_narc_files_total":1129,"asset_candidates_total":1329},
+  "gba":{"target_releases":5,"validated_lz77_candidates_total":18762,"padding_candidates_total":53},
+  "method":{"nds":"FNT/FAT traversal, file SHA-1, magic detection and NARC member parsing","gba":"header checksum, >=4096-byte 00/FF run scan with aligned ROM-pointer references, 4-byte-aligned LZ77 format validation"},
+  "safety":"Padding runs and LZ77 streams are observations only; semantic identity and safe allocation require pointer/code/data/runtime verification."
+}
