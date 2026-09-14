@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "audit_id": "gen1-aka-reaudit",
+  "upstream_family": "disassembly",
+  "upstream_repository": "PocketMonsters-Aka-Disassembly",
+  "projection": "sakurai",
+  "status": "in-progress",
+  "entries": [
+    {
+      "legacy_path": "projects/disassembly/PocketMonsters-Aka-Disassembly/COMPARES/SUPPLIED-SOURCE-SET-20260913",
+      "source_family": "multiple",
+      "source_repository": null,
+      "kind": "comparison",
+      "tree_sha": "825aef698ff29e993f4cdb3920edd3bd6d783e12",
+      "destination": "derived/generation-01/red/comparisons/SUPPLIED-SOURCE-SET-20260913",
+      "evidence": "routing manifest enumerates multiple release/dump identities and exists as a supplied source-set comparison, not as direct upstream repository content",
+      "dedup_status": "not-applicable",
+      "verification": "Observed"
+    },
+    {
+      "legacy_path": "projects/disassembly/PocketMonsters-Aka-Disassembly/COMPARES/UPLOADED-SOURCE-SET-2026-09-12",
+      "source_family": "multiple",
+      "source_repository": null,
+      "kind": "comparison",
+      "tree_sha": "5101ae16239caaa45f2a29b0619a84c792036252",
+      "destination": "derived/generation-01/red/comparisons/UPLOADED-SOURCE-SET-2026-09-12",
+      "evidence": "source-set manifest records seven releases and duplicate observations; this is a multi-release derived comparison set",
+      "dedup_status": "not-applicable",
+      "verification": "Observed"
+    },
+    {
+      "legacy_path": "projects/disassembly/PocketMonsters-Aka-Disassembly/PROJECTS/RED-MODERNIZATION",
+      "source_family": "multiple",
+      "source_repository": null,
+      "kind": "derived-project",
+      "tree_sha": "152a45b29547037f274e9d86d59f431096e08a2d",
+      "destination": "derived/generation-01/red/projects/RED-MODERNIZATION",
+      "evidence": "project input manifest references seven release inputs and a comparison set; it is not a mirror of one upstream repository",
+      "dedup_status": "not-applicable",
+      "verification": "Observed"
+    },
+    {
+      "legacy_path": "projects/disassembly/PocketMonsters-Aka-Disassembly/RELEASES",
+      "kind": "release-identity",
+      "destination": null,
+      "verification": "Unverified",
+      "notes": "pending finer-grained audit"
+    },
+    {
+      "legacy_path": "projects/disassembly/PocketMonsters-Aka-Disassembly/SHARED/TOOLS",
+      "kind": "tools",
+      "destination": null,
+      "verification": "Unverified",
+      "notes": "pending provenance and sharing audit"
+    }
+  ]
+}
