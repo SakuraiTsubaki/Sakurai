@@ -21,22 +21,27 @@ Sakurai is intentionally selective. It does not need to mirror every production 
 
 | Sakurai | Tsubaki |
 | --- | --- |
-| Curated research/control subset | Complete eligible non-ROM superset |
-| Identity, provenance, analysis, verification | Source, assets, tools, outputs, intermediates, plus eligible Sakurai material |
-| Keeps evidence needed to support claims | Keeps the full non-ROM production/archive record |
-| May reference a Tsubaki artifact instead of duplicating it when appropriate | Preserves eligible project artifacts even when they are binary or intermediate |
+| Curated research/control record | Complete eligible non-ROM production/archive record |
+| Identity, provenance, analysis, verification | Source, assets, tools, outputs, intermediates, plus eligible supporting research |
+| Keeps evidence needed to support claims | Keeps the full non-ROM artifact set needed to inspect, reproduce, or continue work |
 
-Shared semantic coordinates should identify the same generation, game, release, dump, project, comparison, reference, and target in both repositories.
+Shared semantic coordinates should identify the same generation, game, release, revision, project, comparison, reference, and target in both repositories.
 
 ## Repository-wide entry points
 
 - `README.md` — repository landing page
-- `STRUCTURE.md` — current canonical path architecture
-- `INFRA/DOCS/README.md` — documentation hub
-- `INFRA/MANIFESTS/README.md` — manifest conventions
+- `docs/README.md` — documentation hub
+- `docs/REPOSITORY_STRUCTURE.md` — current repository-wide tree conventions
+- `manifests/README.md` — reusable manifest conventions
 - `CONTRIBUTING.md` — contribution rules
 - `.github/` — validation, issue templates, pull-request template, and CI
 
+## Tree policy
+
+The repository-wide operating layout follows the Decompilation repository family: documentation and reusable manifests are first-class root directories. Historical V12 routing is not the canonical model for new organization work.
+
+Generation and cross-generation content will be simplified incrementally so unique research is preserved while redundant routing layers are removed.
+
 ## Core principle
 
-A claim in Sakurai should be traceable to evidence. Unknown or inferred information should remain explicitly marked as such until verification improves it.
+A claim in Sakurai should be traceable to evidence. Unknown or inferred information should remain explicitly marked until verification improves it.

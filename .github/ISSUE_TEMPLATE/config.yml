@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Repository documentation
-    url: https://github.com/SakuraiTsubaki/Sakurai/blob/main/INFRA/DOCS/README.md
+    url: https://github.com/SakuraiTsubaki/Sakurai/blob/main/docs/README.md
     about: Review the repository-wide documentation and standards before opening an issue.

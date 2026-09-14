@@ -1,21 +1,46 @@
 # Repository Structure
 
-`/STRUCTURE.md` is the authoritative canonical architecture. This document explains where the Decompilation-style operating layer lives without changing that model.
+Sakurai's repository-wide operating tree follows the same convention used by the Decompilation series.
 
 ```text
 README.md
-STRUCTURE.md
 CONTRIBUTING.md
 .editorconfig
 .gitattributes
+.gitignore
 .github/
-GEN-XX/
-CROSS-GEN/
-INFRA/
-├── DOCS/          repository-wide documentation hub
-└── MANIFESTS/     repository-wide manifest conventions/examples
+docs/
+├── README.md
+├── PROJECT_STATUS.md
+├── ROADMAP.md
+├── VERSIONS.md
+├── RESEARCH_GUIDE.md
+├── VERIFICATION.md
+├── REPOSITORY_OVERVIEW.md
+├── REPOSITORY_STRUCTURE.md
+├── PROJECT_STANDARDS.md
+├── ASSET_WORKFLOW.md
+├── WORKFLOW.md
+└── PAIRING.md
+manifests/
+├── README.md
+└── example.asset-manifest.json
+
+GEN-XX/       generation-scoped research/project material
+CROSS-GEN/    cross-generation research/project material
+INFRA/        remaining infrastructure material pending simplification
 ```
 
-Project/release/comparison/reference material must continue to live at its truthful canonical owner path under the v12 model. `INFRA/DOCS` and `INFRA/MANIFESTS` are repository-wide operating metadata, not alternate project ownership roots.
+## Rules
 
-Do not create empty directory trees solely for symmetry with other repositories.
+- `docs/` is the repository-wide documentation root.
+- `manifests/` is the repository-wide reusable manifest root.
+- Do not recreate `INFRA/DOCS` or `INFRA/MANIFESTS`.
+- The historical V12 routing model is not authoritative for new tree work.
+- Existing generation and cross-generation content should be moved only when its new owner is clear; preserve unique material during migration.
+- Do not create empty directory trees solely for symmetry.
+- Complete playable ROM image files are not committed.
+
+## Migration direction
+
+The next tree passes should simplify `GEN-XX/`, `CROSS-GEN/`, and `INFRA/` by following actual ownership and content, using the Decompilation repositories as the structural reference rather than inventing another versioned architecture.

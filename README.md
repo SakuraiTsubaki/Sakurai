@@ -1,6 +1,6 @@
 # Sakurai
 
-![Status](https://img.shields.io/badge/status-canonical_v12-active-success)
+![Status](https://img.shields.io/badge/status-active-success)
 ![Project](https://img.shields.io/badge/project-research_control-blue)
 ![ROMs](https://img.shields.io/badge/ROM_binaries-not_included-success)
 
@@ -8,9 +8,9 @@ Pokémon source identity, reverse engineering, comparison, localization research
 
 ## 🎯 Role
 
-Sakurai is the **curated research/control subset** of the repository pair. It owns release and dump identity, provenance, hashes, reverse-engineering analysis, comparisons, localization research, tables, schemas, reports, research tooling, citations, and verification evidence.
+Sakurai is the **curated research/control repository** of the Sakurai ↔ Tsubaki pair. It owns release and dump identity, provenance, hashes, reverse-engineering analysis, comparisons, localization research, tables, schemas, reports, research tooling, citations, and verification evidence.
 
-Tsubaki is the complete eligible non-ROM superset. Both repositories use the same semantic generation, game, release, dump, comparison, reference, project, and target coordinates.
+Tsubaki is the complete eligible non-ROM production/archive repository. Shared semantic coordinates should identify the same targets in both repositories.
 
 ## 🌸 Repository pair
 
@@ -19,7 +19,7 @@ Tsubaki is the complete eligible non-ROM superset. Both repositories use the sam
 | Primary role | Curated research / control | Complete eligible non-ROM production / archive |
 | Identity & provenance | Primary record | Mirrored when relevant to artifacts |
 | Research & comparisons | Curated findings and evidence | Eligible working copies and supporting outputs |
-| Source / implementation | Only when needed for research/control | Full eligible project material |
+| Source / implementation | When needed for research/control | Full eligible project material |
 | Graphics / sprites / PNG | Curated evidence when useful | Full eligible source and human-viewable assets |
 | Audio / maps / text / data | Curated research/control material | Full eligible project artifacts |
 | Build / extraction outputs | Reproducibility evidence as needed | Eligible outputs and intermediates retained |
@@ -30,43 +30,49 @@ Tsubaki is the complete eligible non-ROM superset. Both repositories use the sam
 
 ## 🧭 Repository overview
 
-Sakurai is where project claims are identified, sourced, compared, and verified. It keeps the evidence and control layer needed to explain *what a target is*, *where a fact came from*, *how variants differ*, and *how a result was verified*.
+- Start with [Repository Overview](docs/REPOSITORY_OVERVIEW.md).
+- Follow [Repository Workflow](docs/WORKFLOW.md) for the standard research/control flow.
+- Use [Documentation Hub](docs/README.md) for the complete documentation index.
+- Use [Manifest Guide](manifests/README.md) for reusable provenance and inventory records.
 
-- Start with [Repository Overview](INFRA/DOCS/REPOSITORY_OVERVIEW.md) for the repository's role.
-- Follow [Repository Workflow](INFRA/DOCS/WORKFLOW.md) for the standard research/control flow.
-- Use [Documentation Hub](INFRA/DOCS/README.md) for the complete documentation index.
-- Use [Manifest Guide](INFRA/MANIFESTS/README.md) for reusable provenance/asset records.
+## 🗂️ Repository structure
 
-## 🗂️ Canonical architecture: v12
-
-Current work lives only under:
+The repository-wide operating layer follows the same convention used by the Decompilation series:
 
 ```text
-GEN-XX/<GAME-ID>/RELEASES|PROJECTS|COMPARES|REFERENCES|SHARED
-GEN-XX/PROJECTS|COMPARES|REFERENCES|SHARED
-CROSS-GEN/PROJECTS|COMPARES|REFERENCES|SHARED
-INFRA/
+README.md
+CONTRIBUTING.md
+.editorconfig
+.gitattributes
+.gitignore
+.github/
+docs/
+manifests/
+
+GEN-XX/       project/research material grouped by generation
+CROSS-GEN/    cross-generation work
+INFRA/        remaining infrastructure material pending content-by-content cleanup
 ```
 
-A project has one live owner path. Project-specific analysis, comparisons, reports, tools, manifests, verification material, design, inputs, and other work products stay under that project root instead of being split across historical or version-specific trees.
+`docs/` and `manifests/` are first-class root directories. They are not nested under `INFRA/`.
 
-Version updates modify the current tree directly. If a path changes, unique work is merged into the new canonical path and the old live path is removed in the same update. Git commits, tags, and pull requests are the history; no separate migration/history tree is required.
+The generation, cross-generation, and infrastructure content trees are being simplified separately. Their historical V12 layout is **not** the repository-wide canonical model.
 
 ## 🔬 Working flow
 
 ```text
-Target / owner identity
-        ↓
+Target identity
+      ↓
 Provenance + evidence
-        ↓
+      ↓
 Research / comparison
-        ↓
+      ↓
 Reproducibility checks
-        ↓
+      ↓
 Verification level
-        ↓
+      ↓
 Curated control record
-        ↕
+      ↕
 Tsubaki production/archive artifacts
 ```
 
@@ -75,30 +81,30 @@ Unknown or inferred information remains explicitly marked until stronger evidenc
 ## 📌 Repository policy
 
 - Sakurai stores curated research/control material rather than every eligible project artifact.
-- Verified identity and provenance should be represented with stable semantic IDs and hashes.
+- Verified identity and provenance should use stable identifiers and hashes where practical.
 - Hypotheses must be distinguished from observed, reproduced, or matched evidence.
 - Complete playable ROM image files are not committed.
-- Repository-wide documentation and standards live under `INFRA/DOCS/`.
-- Shared manifest conventions and reusable examples live under `INFRA/MANIFESTS/`.
+- Repository-wide documentation and standards live under `docs/`.
+- Shared manifest conventions and reusable examples live under `manifests/`.
+- Do not recreate `INFRA/DOCS` or `INFRA/MANIFESTS`.
 
 ## 📚 Documentation
 
 | Document | Purpose |
 | --- | --- |
-| [Documentation Hub](INFRA/DOCS/README.md) | Central entry point for repository-wide documentation |
-| [Repository Overview](INFRA/DOCS/REPOSITORY_OVERVIEW.md) | What Sakurai owns and how it differs from Tsubaki |
-| [Repository Workflow](INFRA/DOCS/WORKFLOW.md) | Standard evidence → research → verification flow |
-| [Project Status](INFRA/DOCS/PROJECT_STATUS.md) | Current canonical-architecture and curation status |
-| [Roadmap](INFRA/DOCS/ROADMAP.md) | Long-term repository and verification priorities |
-| [Version Coordinates](INFRA/DOCS/VERSIONS.md) | Release, platform, package, revision, and dump identity rules |
-| [Research Guide](INFRA/DOCS/RESEARCH_GUIDE.md) | Evidence, citations, uncertainty, and reproducibility |
-| [Verification](INFRA/DOCS/VERIFICATION.md) | Unverified, Observed, Reproduced, and Matched criteria |
-| [Repository Structure](INFRA/DOCS/REPOSITORY_STRUCTURE.md) | How documentation fits the current canonical tree |
-| [Project Standards](INFRA/DOCS/PROJECT_STANDARDS.md) | Naming, provenance, ownership, and repository-wide conventions |
-| [Asset Workflow](INFRA/DOCS/ASSET_WORKFLOW.md) | Curated asset/evidence handling and deduplication |
-| [Repository Pairing](INFRA/DOCS/PAIRING.md) | Sakurai ↔ Tsubaki synchronization rules |
-| [Manifest Guide](INFRA/MANIFESTS/README.md) | Shared manifest fields and reusable example |
+| [Documentation Hub](docs/README.md) | Central entry point for repository-wide documentation |
+| [Repository Overview](docs/REPOSITORY_OVERVIEW.md) | What Sakurai owns and how it differs from Tsubaki |
+| [Repository Workflow](docs/WORKFLOW.md) | Standard evidence → research → verification flow |
+| [Project Status](docs/PROJECT_STATUS.md) | Current repository and migration status |
+| [Roadmap](docs/ROADMAP.md) | Long-term repository and verification priorities |
+| [Version Coordinates](docs/VERSIONS.md) | Release, platform, revision, and identity rules |
+| [Research Guide](docs/RESEARCH_GUIDE.md) | Evidence, citations, uncertainty, and reproducibility |
+| [Verification](docs/VERIFICATION.md) | Unverified, Observed, Reproduced, and Matched criteria |
+| [Repository Structure](docs/REPOSITORY_STRUCTURE.md) | Current repository-wide tree conventions |
+| [Project Standards](docs/PROJECT_STANDARDS.md) | Naming, provenance, ownership, and repository-wide conventions |
+| [Asset Workflow](docs/ASSET_WORKFLOW.md) | Curated asset/evidence handling and deduplication |
+| [Repository Pairing](docs/PAIRING.md) | Sakurai ↔ Tsubaki synchronization rules |
+| [Manifest Guide](manifests/README.md) | Shared manifest fields and reusable example |
 | [Contributing](CONTRIBUTING.md) | Contribution and pull-request expectations |
-| [Canonical Structure](STRUCTURE.md) | Current path architecture |
 
 **Only complete playable ROM image files are excluded from GitHub.**
