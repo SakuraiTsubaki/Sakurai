@@ -1,0 +1,21 @@
+{
+  "bank_hex": "0x6C",
+  "cpu_start": "0x49A1",
+  "cpu_end_exclusive": "0x4C4A",
+  "file_start": "0x1B09A1",
+  "file_end_exclusive": "0x1B0C4A",
+  "record_count": 67,
+  "terminator_hex": "0x50",
+  "original_region_bytes": 681,
+  "original_region_sha256": "be849107e39cb65222a0aaab29baef6bf4dca84f7eb7959681ccc9571a0b2b57",
+  "gold_silver_region_identical": true,
+  "phase2_roundtrip_exact": true,
+  "next_table_cpu_address": "0x4C4A",
+  "next_table_preserved": true,
+  "new_logical_table_bytes": 707,
+  "new_table_byte_delta": 26,
+  "fits_original_region_without_relocation": false,
+  "rom_written": false,
+  "gold_rom_sha256": "9c273e86e6120c6a038160ccb0153b8b20425b84fc08a496281c1d1bcac492f6",
+  "silver_rom_sha256": "ebbac63c0c4309c82dbb6723e7163369784f962b4fd3e2f486075307c3008a22"
+}

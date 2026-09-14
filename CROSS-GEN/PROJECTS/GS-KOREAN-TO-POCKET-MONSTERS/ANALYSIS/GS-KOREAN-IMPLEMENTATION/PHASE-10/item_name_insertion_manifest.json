@@ -1,0 +1,28 @@
+{
+  "schema": "tsubaki.gs-korean-item-name-region.v1",
+  "status": "CANDIDATE_NOT_FINAL",
+  "payload": "item_name_region_candidate.bin",
+  "payload_sha256": "0a3c5e5579bc7185d39bb9c60a26b9b45ebe8cf1d1c5e1f8e8b3e7acfbc1889f",
+  "payload_size_bytes": 2465,
+  "target_bank_hex": "0x6C",
+  "target_cpu_range": [
+    "0x4000",
+    "0x49A1"
+  ],
+  "target_bank_offset_range": [
+    "0x0000",
+    "0x09A1"
+  ],
+  "replacement_method": "replace complete fixed item-name region",
+  "encoded_table_bytes": 2340,
+  "zero_padding_bytes": 125,
+  "pointer_edits_required": false,
+  "source_rom_sha1_allowlist": [
+    "c0ff3999e1093e1af59ef3eea3f1bfd7c1f18a65",
+    "cb22d7e03a74dc3a563fde6be8626626b2b392e7"
+  ],
+  "prohibitions": [
+    "do not distribute a ROM",
+    "do not apply before terminology approval"
+  ]
+}

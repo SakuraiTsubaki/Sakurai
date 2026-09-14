@@ -1,0 +1,82 @@
+[
+  {
+    "version": "KOREAN_GOLD",
+    "symbol": "NamesPointers",
+    "bank_hex": "0x00",
+    "cpu_address_hex": "0x35C3",
+    "file_offset_hex": "0x0035C3",
+    "length_bytes": 24,
+    "sha256": "edb763e4e9dc0e59a3a6913b95e0189e628233dd444361041df97dbfa9de6a32",
+    "verified": true
+  },
+  {
+    "version": "KOREAN_GOLD",
+    "symbol": "GetName",
+    "bank_hex": "0x00",
+    "cpu_address_hex": "0x35DB",
+    "file_offset_hex": "0x0035DB",
+    "length_bytes": 78,
+    "sha256": "715734c23cf21952bca626c050fdbf0e9397fa4d720c9f4779a831bb8e33d849",
+    "verified": true
+  },
+  {
+    "version": "KOREAN_GOLD",
+    "symbol": "GetNthString",
+    "bank_hex": "0x00",
+    "cpu_address_hex": "0x3629",
+    "file_offset_hex": "0x003629",
+    "length_bytes": 15,
+    "sha256": "06a85ac548b66a6278f66f2da26ad59c360885d7a81c58c0a953c72bf7f7bc32",
+    "verified": true
+  },
+  {
+    "version": "KOREAN_GOLD",
+    "symbol": "GetMoveName",
+    "bank_hex": "0x00",
+    "cpu_address_hex": "0x3726",
+    "file_offset_hex": "0x003726",
+    "length_bytes": 20,
+    "sha256": "7a31353c103997db4c3926f6041c041830f711ac396a6af00399d31563a8e786",
+    "verified": true
+  },
+  {
+    "version": "KOREAN_SILVER",
+    "symbol": "NamesPointers",
+    "bank_hex": "0x00",
+    "cpu_address_hex": "0x35C3",
+    "file_offset_hex": "0x0035C3",
+    "length_bytes": 24,
+    "sha256": "edb763e4e9dc0e59a3a6913b95e0189e628233dd444361041df97dbfa9de6a32",
+    "verified": true
+  },
+  {
+    "version": "KOREAN_SILVER",
+    "symbol": "GetName",
+    "bank_hex": "0x00",
+    "cpu_address_hex": "0x35DB",
+    "file_offset_hex": "0x0035DB",
+    "length_bytes": 78,
+    "sha256": "715734c23cf21952bca626c050fdbf0e9397fa4d720c9f4779a831bb8e33d849",
+    "verified": true
+  },
+  {
+    "version": "KOREAN_SILVER",
+    "symbol": "GetNthString",
+    "bank_hex": "0x00",
+    "cpu_address_hex": "0x3629",
+    "file_offset_hex": "0x003629",
+    "length_bytes": 15,
+    "sha256": "06a85ac548b66a6278f66f2da26ad59c360885d7a81c58c0a953c72bf7f7bc32",
+    "verified": true
+  },
+  {
+    "version": "KOREAN_SILVER",
+    "symbol": "GetMoveName",
+    "bank_hex": "0x00",
+    "cpu_address_hex": "0x3726",
+    "file_offset_hex": "0x003726",
+    "length_bytes": 20,
+    "sha256": "7a31353c103997db4c3926f6041c041830f711ac396a6af00399d31563a8e786",
+    "verified": true
+  }
+]

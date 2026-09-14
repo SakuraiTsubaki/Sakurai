@@ -1,0 +1,15 @@
+{
+  "operation": "DEFERRED_INTEGRATED_INSERTION",
+  "write_rom_now": false,
+  "payload": "item_name_region_candidate.bin",
+  "method": "replace Bank 0x6C:0x4000-0x49A1 with the fixed-size candidate payload",
+  "pointer_edits_required": false,
+  "reason": "The item table becomes 125 bytes shorter, and the fixed region is zero-padded so the trainer table remains at 0x49A1.",
+  "runtime_tests_required": [
+    "pack item, ball and key-item pockets",
+    "mart buy and sell lists",
+    "battle item messages",
+    "held-item and party/status displays",
+    "TM/HM dynamic name branch"
+  ]
+}

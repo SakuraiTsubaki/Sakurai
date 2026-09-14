@@ -1,0 +1,605 @@
+[
+  {
+    "class_id_decimal": 1,
+    "internal_class_id": "FALKNER",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 2,
+    "internal_class_id": "WHITNEY",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 3,
+    "internal_class_id": "BUGSY",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 4,
+    "internal_class_id": "MORTY",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 5,
+    "internal_class_id": "PRYCE",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 6,
+    "internal_class_id": "JASMINE",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 7,
+    "internal_class_id": "CHUCK",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 8,
+    "internal_class_id": "CLAIR",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 9,
+    "internal_class_id": "RIVAL1",
+    "final_korean": "라이벌",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 10,
+    "internal_class_id": "POKEMON_PROF",
+    "final_korean": "포켓몬 박사",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 11,
+    "internal_class_id": "WILL",
+    "final_korean": "사천왕",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 12,
+    "internal_class_id": "CAL",
+    "final_korean": "포켓몬 트레이너",
+    "display_tiles": 8,
+    "encoded_bytes": 15,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 13,
+    "internal_class_id": "BRUNO",
+    "final_korean": "사천왕",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 14,
+    "internal_class_id": "KAREN",
+    "final_korean": "사천왕",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 15,
+    "internal_class_id": "KOGA",
+    "final_korean": "사천왕",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 16,
+    "internal_class_id": "CHAMPION",
+    "final_korean": "챔피언",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 17,
+    "internal_class_id": "BROCK",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 18,
+    "internal_class_id": "MISTY",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 19,
+    "internal_class_id": "LT_SURGE",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 20,
+    "internal_class_id": "SCIENTIST",
+    "final_korean": "연구원",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 21,
+    "internal_class_id": "ERIKA",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 22,
+    "internal_class_id": "YOUNGSTER",
+    "final_korean": "반바지 꼬마",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 23,
+    "internal_class_id": "SCHOOLBOY",
+    "final_korean": "학원 끝난 아이",
+    "display_tiles": 8,
+    "encoded_bytes": 14,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 24,
+    "internal_class_id": "BIRD_KEEPER",
+    "final_korean": "새 조련사",
+    "display_tiles": 5,
+    "encoded_bytes": 9,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 25,
+    "internal_class_id": "LASS",
+    "final_korean": "짧은 치마",
+    "display_tiles": 5,
+    "encoded_bytes": 9,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 26,
+    "internal_class_id": "JANINE",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 27,
+    "internal_class_id": "COOLTRAINERM",
+    "final_korean": "엘리트 트레이너",
+    "display_tiles": 8,
+    "encoded_bytes": 15,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 28,
+    "internal_class_id": "COOLTRAINERF",
+    "final_korean": "엘리트 트레이너",
+    "display_tiles": 8,
+    "encoded_bytes": 15,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 29,
+    "internal_class_id": "BEAUTY",
+    "final_korean": "아가씨",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 30,
+    "internal_class_id": "POKEMANIAC",
+    "final_korean": "포켓몬 매니아",
+    "display_tiles": 7,
+    "encoded_bytes": 13,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 31,
+    "internal_class_id": "GRUNTM",
+    "final_korean": "로켓단 조무래기",
+    "display_tiles": 8,
+    "encoded_bytes": 15,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 32,
+    "internal_class_id": "GENTLEMAN",
+    "final_korean": "신사",
+    "display_tiles": 2,
+    "encoded_bytes": 4,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 33,
+    "internal_class_id": "SKIER",
+    "final_korean": "스키어",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 34,
+    "internal_class_id": "TEACHER",
+    "final_korean": "선생님",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 35,
+    "internal_class_id": "SABRINA",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 36,
+    "internal_class_id": "BUG_CATCHER",
+    "final_korean": "곤충채집소년",
+    "display_tiles": 6,
+    "encoded_bytes": 12,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 37,
+    "internal_class_id": "FISHER",
+    "final_korean": "낚시꾼",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 38,
+    "internal_class_id": "SWIMMERM",
+    "final_korean": "수영팬티소년",
+    "display_tiles": 6,
+    "encoded_bytes": 12,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 39,
+    "internal_class_id": "SWIMMERF",
+    "final_korean": "비키니 아가씨",
+    "display_tiles": 7,
+    "encoded_bytes": 13,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 40,
+    "internal_class_id": "SAILOR",
+    "final_korean": "선원",
+    "display_tiles": 2,
+    "encoded_bytes": 4,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 41,
+    "internal_class_id": "SUPER_NERD",
+    "final_korean": "이과계의 남자",
+    "display_tiles": 7,
+    "encoded_bytes": 13,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 42,
+    "internal_class_id": "RIVAL2",
+    "final_korean": "라이벌",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 43,
+    "internal_class_id": "GUITARIST",
+    "final_korean": "기타리스트",
+    "display_tiles": 5,
+    "encoded_bytes": 10,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 44,
+    "internal_class_id": "HIKER",
+    "final_korean": "등산가",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 45,
+    "internal_class_id": "BIKER",
+    "final_korean": "폭주족",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 46,
+    "internal_class_id": "BLAINE",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 47,
+    "internal_class_id": "BURGLAR",
+    "final_korean": "불난집 전문털이범",
+    "display_tiles": 9,
+    "encoded_bytes": 17,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 48,
+    "internal_class_id": "FIREBREATHER",
+    "final_korean": "불놀이꾼",
+    "display_tiles": 4,
+    "encoded_bytes": 8,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 49,
+    "internal_class_id": "JUGGLER",
+    "final_korean": "저글러",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 50,
+    "internal_class_id": "BLACKBELT_T",
+    "final_korean": "태권왕",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 51,
+    "internal_class_id": "EXECUTIVEM",
+    "final_korean": "로켓단 간부",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 52,
+    "internal_class_id": "PSYCHIC_T",
+    "final_korean": "초능력자",
+    "display_tiles": 4,
+    "encoded_bytes": 8,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 53,
+    "internal_class_id": "PICNICKER",
+    "final_korean": "피크닉걸",
+    "display_tiles": 4,
+    "encoded_bytes": 8,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 54,
+    "internal_class_id": "CAMPER",
+    "final_korean": "캠프보이",
+    "display_tiles": 4,
+    "encoded_bytes": 8,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 55,
+    "internal_class_id": "EXECUTIVEF",
+    "final_korean": "로켓단 간부",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 56,
+    "internal_class_id": "SAGE",
+    "final_korean": "수행자",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 57,
+    "internal_class_id": "MEDIUM",
+    "final_korean": "무당",
+    "display_tiles": 2,
+    "encoded_bytes": 4,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 58,
+    "internal_class_id": "BOARDER",
+    "final_korean": "보더",
+    "display_tiles": 2,
+    "encoded_bytes": 4,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 59,
+    "internal_class_id": "POKEFANM",
+    "final_korean": "애호가클럽",
+    "display_tiles": 5,
+    "encoded_bytes": 10,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 60,
+    "internal_class_id": "KIMONO_GIRL",
+    "final_korean": "전통 무용수",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 61,
+    "internal_class_id": "TWINS",
+    "final_korean": "쌍둥이",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 62,
+    "internal_class_id": "POKEFANF",
+    "final_korean": "애호가클럽",
+    "display_tiles": 5,
+    "encoded_bytes": 10,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 63,
+    "internal_class_id": "RED",
+    "final_korean": "포켓몬 트레이너",
+    "display_tiles": 8,
+    "encoded_bytes": 15,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 64,
+    "internal_class_id": "BLUE",
+    "final_korean": "체육관 관장",
+    "display_tiles": 6,
+    "encoded_bytes": 11,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 65,
+    "internal_class_id": "OFFICER",
+    "final_korean": "경찰관",
+    "display_tiles": 3,
+    "encoded_bytes": 6,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 66,
+    "internal_class_id": "GRUNTF",
+    "final_korean": "로켓단 조무래기",
+    "display_tiles": 8,
+    "encoded_bytes": 15,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  },
+  {
+    "class_id_decimal": 67,
+    "internal_class_id": "MYSTICALMAN_COMPAT_SLOT",
+    "final_korean": "수수께끼의 청년",
+    "display_tiles": 8,
+    "encoded_bytes": 15,
+    "within_observed_original_tile_max": true,
+    "within_observed_original_byte_max": true
+  }
+]
