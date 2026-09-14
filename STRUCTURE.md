@@ -58,6 +58,16 @@ CROSS-GEN/REFERENCES/<REFERENCE-ID>/
 CROSS-GEN/SHARED/
 ```
 
+## Generation V → ポケットモンスター single-home override
+
+All live work for `GEN5-TO-POCKET-MONSTERS` is stored directly under:
+
+```text
+CROSS-GEN/PROJECTS/GEN5-TO-POCKET-MONSTERS/
+```
+
+This includes its `BLACK/`, `WHITE/`, `COMPARES/`, `SHARED/`, project analysis, tools, manifests, reports, crosswalks, design and verification work. Do not recreate a repository-root `GEN-05/` tree or a nested project `GEN-05/` mirror for this project. Version upgrades move/merge the current work into this single live root instead of retaining duplicate historical/current trees.
+
 ## Release and dump identity
 
 Official release identity is represented by the `RELEASES` coordinate. Exact observed images are registered below that release as:
@@ -89,7 +99,7 @@ COMPARE/
 REFERENCE/
 ```
 
-Historical copies may exist only below `INFRA/MIGRATION/` and remain read-only migration evidence.
+Historical copies may exist only below `INFRA/MIGRATION/` and remain read-only migration evidence. The Generation V → ポケットモンスター single-home override above does not retain duplicate current project trees for historical purposes.
 
 ## ROM policy
 
