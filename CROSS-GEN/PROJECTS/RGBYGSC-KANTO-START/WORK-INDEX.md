@@ -6,6 +6,32 @@ Canonical project home:
 
 `CROSS-GEN/PROJECTS/RGBYGSC-KANTO-START/`
 
+## Actual Kanto work — start here
+
+The concrete Kanto-start phase work is inside this project root at:
+
+`GEN2-KANTO-START/GOLD-KR/`
+
+Key carried-forward work includes:
+
+- `GEN2-KANTO-START/GOLD-KR/analysis/` — bootstrap, Oak's Lab RGB starters, Pallet RGBY fidelity analysis
+- `GEN2-KANTO-START/GOLD-KR/phase04/` — Pallet starter gate
+- `GEN2-KANTO-START/GOLD-KR/phase05/` — Oak early-game branch
+- `GEN2-KANTO-START/GOLD-KR/phase06/` — Pallet full-survey baseline and block diff
+- `GEN2-KANTO-START/GOLD-KR/phase07/` — internal tileset capacity
+- `GEN2-KANTO-START/GOLD-KR/phase08/` — RGBY → Gen II collision conversion
+- `GEN2-KANTO-START/GOLD-KR/phase09/` — integrated tileset allocation
+- `GEN2-KANTO-START/GOLD-KR/phase10/` — integrated tileset substrate
+- `GEN2-KANTO-START/GOLD-KR/phase11/` — RGBY Pallet intro activation
+- `GEN2-KANTO-START/GOLD-KR/phase12/` — RGBY Pallet fidelity
+- later phase directories in the same `GOLD-KR/` tree, including palette/profile and regression work
+
+The current Tsubaki production/runtime workspace is at the matching project coordinate, with Korean Silver work exposed at:
+
+`SakuraiTsubaki/Tsubaki:CROSS-GEN/PROJECTS/RGBYGSC-KANTO-START/IMPLEMENTATION/SILVER-KR/`
+
+`GSC-KANTO-TO-RGBY/` is the **opposite-direction project** and is not the owner of this work.
+
 ## Current v12 control/research work
 
 - Project identity and rules: `PROJECT.json`
@@ -34,12 +60,12 @@ The former live v10 metadata is explicitly snapshotted under `HISTORY/V10/`. The
 
 ## Production counterpart
 
-All production/data-plane work is at the exact same relative coordinate in Tsubaki:
+All production/data-plane work belongs at the exact same project coordinate in Tsubaki:
 
 `SakuraiTsubaki/Tsubaki:CROSS-GEN/PROJECTS/RGBYGSC-KANTO-START/`
 
-Tsubaki contains the generated ROM catalogs and runtime-anchor tables and is the home for future semantic assets, conversions, implementation, patches, builds and production verification.
+Tsubaki contains the generated ROM catalogs, runtime-anchor tables, implementation assets, build metadata and production verification.
 
 ## Finding rule
 
-A project-owned artifact must not exist **only** under `INFRA/MIGRATION/`, a retired `TARGET` path, or a release coordinate. Source release identity may remain under `GEN-XX/<GAME>/RELEASES/...`; project-specific work derived from those inputs must be discoverable from this project root.
+A project-owned artifact must not exist **only** under `INFRA/MIGRATION/`, a retired `TARGET` path, a reverse-direction project, or a release coordinate. Source release identity may remain under `GEN-XX/<GAME>/RELEASES/...`; project-specific work derived from those inputs must be discoverable from this project root.
