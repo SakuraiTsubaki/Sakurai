@@ -1,0 +1,40 @@
+schema: sakurai.dump.v5
+dump_id: SWEETNDS-f94d4578
+release_id: IRAO-HV0
+observed_file: Pokemon.White.Version.EUR.NDS-SweeTnDs.nds
+provenance: SweeTnDs
+size_bytes: 268435456
+hashes:
+  crc32: EDCD5161
+  md5: 8dfef9a099e1269af5c1fcf9d7736a11
+  sha1: f94d4578956487c09fee20809a591e858017769e
+  sha256: 93e4f473ce9a0543bccf2e689ecd07ab4fcc39dd00fb4f194343cbd5e70e17ed
+header_observation:
+  internal_title: POKEMON W
+  game_code: IRAO
+  maker_code: '01'
+  unit_code: 0x02
+  rom_version: 0
+  dsi_game_revision_field: 0x4003
+  arm9_size: 456868
+  arm7_size: 167812
+  fnt_size: 1040
+  fat_size: 3872
+  arm9_overlay_table_size: 7584
+  arm9i_size: 77596
+  arm7i_size: 291064
+  title_id: '000300004952414F'
+structure_observation:
+  fat_entries: 484
+  arm9_overlays: 237
+  nitrofs_files: 247
+  narc_containers: 237
+  embedded_child_srl_files: 2
+quality:
+  external_preservation_classification: bad-or-incomplete
+  promotion_status: dump-specific-observation
+restrictions:
+  - do-not-treat-as-verified-clean-full-preservation-dump
+  - twl-dsi-specific-conclusions-require-clean-dump-revalidation
+  - ntr-nitrofs-analysis-may-be-retained-with-provenance
+rom_binary_in_repository: false

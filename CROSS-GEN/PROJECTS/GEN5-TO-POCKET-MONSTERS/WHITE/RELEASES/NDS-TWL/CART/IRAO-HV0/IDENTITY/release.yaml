@@ -1,0 +1,19 @@
+schema: sakurai.release.v6
+generation: GEN-05
+game_id: WHITE
+source_kind: official-retail-release
+platform_id: NDS-TWL
+package_kind: CART
+release_id: IRAO-HV0
+native_identity:
+  internal_title: POKEMON W
+  game_code: IRAO
+  maker_code: '01'
+  unit_code: 0x02
+  header_version: 0
+canonical_path: LIBRARY/GEN-05/WHITE/SOURCE/NDS-TWL/CART/IRAO-HV0
+observed_dumps:
+  - SWEETNDS-f94d4578
+verification:
+  header_identity: verified-directly-from-supplied-rom
+  rom_binary_in_repository: false

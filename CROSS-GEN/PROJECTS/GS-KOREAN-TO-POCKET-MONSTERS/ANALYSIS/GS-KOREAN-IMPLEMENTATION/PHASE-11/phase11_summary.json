@@ -1,0 +1,22 @@
+{
+  "trainer_class_slots": 67,
+  "gold_silver_class_ids": 66,
+  "trailing_crystal_compatibility_strings": 1,
+  "changed_total": 18,
+  "unchanged_total": 49,
+  "orthography_or_current_name_changes": 13,
+  "role_restorations": 4,
+  "editorial_modernizations": 1,
+  "all_final_names_encodable": true,
+  "max_original_display_tiles": 9,
+  "max_final_display_tiles": 9,
+  "all_within_observed_original_tile_max": true,
+  "original_table_bytes": 681,
+  "final_logical_table_bytes": 707,
+  "table_byte_delta": 26,
+  "fits_original_region_without_relocation": false,
+  "gold_silver_original_table_identical": true,
+  "direct_first_party_source_verified_rows": 0,
+  "rom_output_written": false,
+  "next_phase": "Build relocated/fixed-region candidate and verify lookup/UI behavior."
+}

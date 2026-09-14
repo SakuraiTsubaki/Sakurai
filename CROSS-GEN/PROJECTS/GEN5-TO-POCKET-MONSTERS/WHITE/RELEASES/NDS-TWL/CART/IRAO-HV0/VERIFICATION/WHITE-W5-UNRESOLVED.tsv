@@ -1,0 +1,8 @@
+area	status	remaining
+ARM9/overlays	structurally inventoried	symbol/function-level disassembly and runtime call graph
+NARC members	all members hashed/classified	semantic decode for every non-core graphics/3D/UI/archive
+scripts	427 main event pointer containers + 427 byte-identical initialization-metadata mirrors + 45 global/special members classified	full BW1 opcode disassembly/CFG and command-level cross references; global non-pointer member(s) require semantic decode
+entity tails	all 428 tails structurally decoded; 427 zone tails proven byte-identical to paired odd script members	runtime semantics of unknown fields/type codes
+item records	all 627 raw records preserved + leading known fields	field-by-field runtime validation
+text	all 760 text members decoded into indexed strings	semantic bank naming and script/text cross reference
+graphics/audio	container/member signatures+hashes complete	format-level render/extraction and usage reference graph

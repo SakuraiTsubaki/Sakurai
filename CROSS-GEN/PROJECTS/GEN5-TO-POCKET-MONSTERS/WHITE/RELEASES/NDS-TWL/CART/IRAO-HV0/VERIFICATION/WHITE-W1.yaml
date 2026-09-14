@@ -1,0 +1,21 @@
+schema: sakurai.verification.v6
+release_id: IRAO-HV0
+dump_id: SWEETNDS-f94d4578
+phase: WHITE-W1-DIRECT-ROM-STRUCTURE
+status: passed
+checks:
+  rom_readable: true
+  size_bytes: 268435456
+  sha1: f94d4578956487c09fee20809a591e858017769e
+  game_code: IRAO
+  header_version: 0
+  fat_entries: 484
+  fnt_directories: 31
+  arm9_overlay_records: 237
+  named_nitrofs_files: 247
+  narc_containers: 237
+  narc_members_total: 54054
+  rom_binary_committed: false
+notes:
+  - Counts and hashes recomputed directly from supplied ROM.
+  - Semantic roles preserve confidence states; unresolved roles are not guessed.
