@@ -1,11 +1,13 @@
 # Documentation Hub
 
-This directory is the repository-wide documentation portal for Sakurai. It follows the same root-level documentation convention used by the Decompilation repositories.
+This directory is the repository-wide documentation portal for Sakurai, the curated research/control projection of the combined Disassembly + Decompilation corpus.
 
 ## Quick links
 
 | Document | Purpose |
 | --- | --- |
+| [Aggregation Model](AGGREGATION_MODEL.md) | How 12 Disassembly + 34 Decompilation repositories become Sakurai + Tsubaki |
+| [Repository Structure](REPOSITORY_STRUCTURE.md) | Aggregate tree and migration rules |
 | [Repository Overview](REPOSITORY_OVERVIEW.md) | What Sakurai owns and how it differs from Tsubaki |
 | [Repository Workflow](WORKFLOW.md) | Standard identity → evidence → research → verification flow |
 | [Project Status](PROJECT_STATUS.md) | Current repository-wide status |
@@ -13,31 +15,32 @@ This directory is the repository-wide documentation portal for Sakurai. It follo
 | [Version Coordinates](VERSIONS.md) | Release/version identity conventions |
 | [Research Guide](RESEARCH_GUIDE.md) | Evidence and research workflow |
 | [Verification](VERIFICATION.md) | Evidence levels and matching criteria |
-| [Repository Structure](REPOSITORY_STRUCTURE.md) | Current repository tree conventions |
 | [Project Standards](PROJECT_STANDARDS.md) | Naming, ownership, provenance, and data rules |
 | [Asset Workflow](ASSET_WORKFLOW.md) | Curated evidence/asset workflow |
 | [Repository Pairing](PAIRING.md) | Sakurai ↔ Tsubaki relationship |
 | [Manifest Guide](../manifests/README.md) | Reusable manifest conventions |
+| [Upstream Registry](../manifests/upstream-repositories.json) | Authoritative 46-repository source list |
 | [Contributing](../CONTRIBUTING.md) | Contribution expectations |
 
-## Working flow
+## Aggregate flow
 
-1. Identify the exact target or owner coordinate.
-2. Capture provenance and evidence before interpretation.
-3. Keep hypotheses separate from observed findings.
-4. Analyze, compare, normalize, and document the research result.
-5. Reproduce or match the result when practical.
-6. Assign the appropriate verification level.
-7. Pair eligible production/archive artifacts with Tsubaki.
-8. Update manifests, status, and roadmap as evidence improves.
+1. Identify the exact upstream family and repository.
+2. Identify the exact target/version/revision represented by the material.
+3. Capture provenance and evidence before interpretation.
+4. Keep hypotheses separate from observed findings.
+5. Normalize only when semantics are truly shared across repositories.
+6. Reproduce or match the result when practical.
+7. Assign the appropriate verification level.
+8. Place the curated result under the matching `projects/disassembly/` or `projects/decompilation/` namespace, or use `shared/` / `derived/` only when those ownership rules genuinely apply.
+9. Pair eligible production/archive artifacts with Tsubaki.
 
 ## Navigation rules
 
+- Use `AGGREGATION_MODEL.md` first when deciding how source repositories feed Sakurai and Tsubaki.
+- Use `REPOSITORY_STRUCTURE.md` for destination paths.
 - Use `REPOSITORY_OVERVIEW.md` when deciding whether material belongs in Sakurai or Tsubaki.
-- Use `WORKFLOW.md` for the default repository-wide process.
 - Use `PROJECT_STANDARDS.md` for naming, provenance, ownership, and deduplication rules.
 - Use `RESEARCH_GUIDE.md` and `VERIFICATION.md` before promoting a claim from hypothesis to verified finding.
-- Use `PAIRING.md` when the same semantic coordinate exists in both repositories.
-- Use `../manifests/` for repository-wide reusable manifest conventions.
+- Use `PAIRING.md` when the same semantic material exists in both aggregate repositories.
 
-Do not create empty directory trees merely for appearance. Preserve and extend actual verified work.
+Do not invent a replacement V-numbered architecture. The upstream registry plus the aggregate model are the source of truth.
