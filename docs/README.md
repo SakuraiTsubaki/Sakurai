@@ -7,6 +7,7 @@ This directory is the repository-wide documentation portal for Sakurai, the cura
 | Document | Purpose |
 | --- | --- |
 | [Aggregation Model](AGGREGATION_MODEL.md) | How 12 Disassembly + 34 Decompilation repositories become Sakurai + Tsubaki |
+| [Migration Audit](MIGRATION_AUDIT.md) | File/subdirectory-level classification rules for rebuilding the legacy tree safely |
 | [Repository Structure](REPOSITORY_STRUCTURE.md) | Aggregate tree and migration rules |
 | [Repository Overview](REPOSITORY_OVERVIEW.md) | What Sakurai owns and how it differs from Tsubaki |
 | [Repository Workflow](WORKFLOW.md) | Standard identity → evidence → research → verification flow |
@@ -24,23 +25,25 @@ This directory is the repository-wide documentation portal for Sakurai, the cura
 
 ## Aggregate flow
 
-1. Identify the exact upstream family and repository.
-2. Identify the exact target/version/revision represented by the material.
-3. Capture provenance and evidence before interpretation.
-4. Keep hypotheses separate from observed findings.
-5. Normalize only when semantics are truly shared across repositories.
-6. Reproduce or match the result when practical.
-7. Assign the appropriate verification level.
-8. Place the curated result under the matching `projects/disassembly/` or `projects/decompilation/` namespace, or use `shared/` / `derived/` only when those ownership rules genuinely apply.
-9. Pair eligible production/archive artifacts with Tsubaki.
+1. Audit each legacy file or coherent subdirectory before relocation; do not treat a whole game tree as one owner automatically.
+2. Identify the exact upstream family and repository when possible.
+3. Identify the exact target/version/revision represented by the material.
+4. Capture provenance and evidence before interpretation.
+5. Keep hypotheses separate from observed findings.
+6. Normalize only when semantics are truly shared across repositories.
+7. Reproduce or match the result when practical.
+8. Assign the appropriate verification level.
+9. Place the curated result under the matching `projects/disassembly/` or `projects/decompilation/` namespace, or use `shared/` / `derived/` only when those ownership rules genuinely apply.
+10. Pair eligible production/archive artifacts with Tsubaki.
 
 ## Navigation rules
 
 - Use `AGGREGATION_MODEL.md` first when deciding how source repositories feed Sakurai and Tsubaki.
+- Use `MIGRATION_AUDIT.md` before moving legacy material.
 - Use `REPOSITORY_STRUCTURE.md` for destination paths.
 - Use `REPOSITORY_OVERVIEW.md` when deciding whether material belongs in Sakurai or Tsubaki.
 - Use `PROJECT_STANDARDS.md` for naming, provenance, ownership, and deduplication rules.
 - Use `RESEARCH_GUIDE.md` and `VERIFICATION.md` before promoting a claim from hypothesis to verified finding.
 - Use `PAIRING.md` when the same semantic material exists in both aggregate repositories.
 
-Do not invent a replacement V-numbered architecture. The upstream registry plus the aggregate model are the source of truth.
+Do not invent a replacement V-numbered architecture. The upstream registry plus the aggregate model and granular migration audit are the source of truth.
