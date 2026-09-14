@@ -41,17 +41,25 @@
     },
     {
       "legacy_path": "projects/disassembly/PocketMonsters-Aka-Disassembly/RELEASES",
+      "source_family": "multiple",
+      "source_repository": null,
       "kind": "release-identity",
-      "destination": null,
-      "verification": "Unverified",
-      "notes": "pending finer-grained audit"
+      "tree_sha": "66f2642455784bc5aaf90caa9c108b408f1c8222",
+      "destination": "derived/generation-01/red/releases",
+      "evidence": "the tree records multiple regional/language/revision release and dump identities for Pokémon Red rather than files sourced from one upstream repository",
+      "dedup_status": "not-applicable",
+      "verification": "Observed"
     },
     {
-      "legacy_path": "projects/disassembly/PocketMonsters-Aka-Disassembly/SHARED/TOOLS",
-      "kind": "tools",
-      "destination": null,
-      "verification": "Unverified",
-      "notes": "pending provenance and sharing audit"
+      "legacy_path": "projects/disassembly/PocketMonsters-Aka-Disassembly/SHARED/TOOLS/SOURCE-INVENTORY",
+      "source_family": "multiple",
+      "source_repository": null,
+      "kind": "tool",
+      "tree_sha": "942f67720bb14ebc0d01c5421bbddac98fe85944",
+      "destination": "derived/generation-01/red/tools/SOURCE-INVENTORY",
+      "evidence": "README identifies the tool as a Pokémon Red source inventory utility that reads multiple local ROM inputs, fingerprints banks, validates checksums, and reports duplicates",
+      "dedup_status": "not-applicable",
+      "verification": "Observed"
     }
   ]
 }
