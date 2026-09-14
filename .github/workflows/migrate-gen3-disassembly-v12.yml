@@ -1,0 +1,100 @@
+name: Migrate Gen III disassembly research into v12
+
+on:
+  push:
+    branches:
+      - migration/gen3-disassembly-v12
+    paths:
+      - .github/workflows/migrate-gen3-disassembly-v12.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out migration branch
+        uses: actions/checkout@v4
+        with:
+          ref: migration/gen3-disassembly-v12
+          fetch-depth: 0
+
+      - name: Import curated Gen III disassembly research/control subset
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          tmp="$(mktemp -d)"
+          trap 'rm -rf "$tmp"' EXIT
+
+          migrate_one() {
+            game="$1"
+            repo="$2"
+            project="$3"
+            src="$tmp/$game"
+            dst="GEN-03/$game/PROJECTS/$project"
+
+            git clone --depth 1 "https://github.com/SakuraiTsubaki/$repo.git" "$src"
+            source_sha="$(git -C "$src" rev-parse HEAD)"
+
+            rm -rf "$dst"
+            mkdir -p "$dst"
+
+            # Sakurai owns the curated research/control subset.
+            for f in README.md LICENSE LICENSE.md COPYING CHANGELOG.md; do
+              [[ -f "$src/$f" ]] && cp -a "$src/$f" "$dst/"
+            done
+            for d in docs analysis analyses reports manifests symbols tools tests verify verification tables schemas research; do
+              [[ -d "$src/$d" ]] && cp -a "$src/$d" "$dst/"
+            done
+
+            # Research/config files at repository root are also retained.
+            find "$src" -maxdepth 1 -type f \( \
+              -name '*.md' -o -name '*.json' -o -name '*.csv' -o \
+              -name '*.yml' -o -name '*.yaml' -o -name '*.toml' -o \
+              -name '*.txt' \
+            \) -exec cp -a {} "$dst/" \;
+
+            cat > "$dst/MIGRATION-SOURCE.md" <<EOF
+          # v12 migration source
+
+          - Source repository: \`SakuraiTsubaki/$repo\`
+          - Source branch: \`main\`
+          - Source commit: \`$source_sha\`
+          - Canonical destination: \`$dst/\`
+          - Repository role: curated research/control subset. Complete non-ROM project artifacts are owned by Tsubaki at the same semantic coordinate.
+          EOF
+
+            # Defensive ROM exclusion.
+            find "$dst" -type f \( \
+              -iname '*.gb' -o -iname '*.gbc' -o -iname '*.gba' -o \
+              -iname '*.nds' -o -iname '*.3ds' -o -iname '*.cia' -o \
+              -iname '*.xci' -o -iname '*.nsp' -o -iname '*.sfc' -o \
+              -iname '*.smc' -o -iname '*.iso' -o -iname '*.rvz' -o \
+              -iname '*.wbfs' \
+            \) -delete
+          }
+
+          migrate_one RUBY       PocketMonsters-Ruby-Disassembly       RUBY-DISASSEMBLY
+          migrate_one SAPPHIRE   PocketMonsters-Sapphire-Disassembly   SAPPHIRE-DISASSEMBLY
+          migrate_one EMERALD    PocketMonsters-Emerald-Disassembly    EMERALD-DISASSEMBLY
+          migrate_one FIRERED    PocketMonsters-FireRed-Disassembly    FIRERED-DISASSEMBLY
+          migrate_one LEAFGREEN  PocketMonsters-LeafGreen-Disassembly  LEAFGREEN-DISASSEMBLY
+
+          git add GEN-03/RUBY/PROJECTS/RUBY-DISASSEMBLY \
+                  GEN-03/SAPPHIRE/PROJECTS/SAPPHIRE-DISASSEMBLY \
+                  GEN-03/EMERALD/PROJECTS/EMERALD-DISASSEMBLY \
+                  GEN-03/FIRERED/PROJECTS/FIRERED-DISASSEMBLY \
+                  GEN-03/LEAFGREEN/PROJECTS/LEAFGREEN-DISASSEMBLY
+
+          if git diff --cached --quiet; then
+            echo "Nothing to migrate."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Migrate Gen III disassembly research into v12 canonical tree"
+          git push origin HEAD:migration/gen3-disassembly-v12
