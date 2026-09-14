@@ -1,6 +1,6 @@
 # Repository Structure v12
 
-Status: **canonical** — 2026-09-13.
+Status: **canonical** — 2026-09-13; project-closure repair 2026-09-14.
 
 v12 makes the live tree match the ownership model. Transitional v2–v11 path families are no longer valid live coordinates.
 
@@ -58,15 +58,15 @@ CROSS-GEN/REFERENCES/<REFERENCE-ID>/
 CROSS-GEN/SHARED/
 ```
 
-## Generation V → ポケットモンスター single-home override
+## Project closure invariant
 
-All live work for `GEN5-TO-POCKET-MONSTERS` is stored directly under:
+A live artifact with exactly one project owner **must live below that project's canonical `PROJECTS/<PROJECT-ID>/` root**. Analysis, comparisons, reports, tables, tools, manifests, verification evidence, design material, inputs, build metadata, implementation material, patches, assets, and other project-owned outputs are part of that project closure and must move with the project during every repository migration.
 
-```text
-CROSS-GEN/PROJECTS/GEN5-TO-POCKET-MONSTERS/
-```
+Game-, generation-, and cross-generation-level `COMPARES`, `ANALYSIS`, `REPORTS`, `TABLES`, `TOOLS`, `KNOWLEDGE`, and similar domains are reserved for genuinely shared or scope-level material. They must not be used merely to split one project's work by artifact type.
 
-This includes its `BLACK/`, `WHITE/`, `COMPARES/`, `SHARED/`, project analysis, tools, manifests, reports, crosswalks, design and verification work. Do not recreate a repository-root `GEN-05/` tree or a nested project `GEN-05/` mirror for this project. Version upgrades move/merge the current work into this single live root instead of retaining duplicate historical/current trees.
+A migration is not complete merely because the old copy exists below `INFRA/MIGRATION/`. Every still-active project must have a live canonical owner containing its complete eligible closure. Historical migration trees remain evidence only.
+
+Canonical live project coordinates and legacy-to-live ownership mappings are indexed at `INFRA/PROJECTS/INDEX.md` and `INFRA/PROJECTS/MIGRATION-MAP.json`.
 
 ## Release and dump identity
 
@@ -99,7 +99,7 @@ COMPARE/
 REFERENCE/
 ```
 
-Historical copies may exist only below `INFRA/MIGRATION/` and remain read-only migration evidence. The Generation V → ポケットモンスター single-home override above does not retain duplicate current project trees for historical purposes.
+Historical copies may exist only below `INFRA/MIGRATION/` and remain read-only migration evidence.
 
 ## ROM policy
 
