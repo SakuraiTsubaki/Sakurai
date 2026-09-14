@@ -1,0 +1,18 @@
+file,target_id,game_code,software_version,family,function,file_offset,runtime_address,size,sha256
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,ApplyAffineAnimFrameRelativeAndUpdateMatrix,0x00001DFC,0x08001DFC,152,db6a0a3a07162fb4b4540eb99a309d6534955c1c63762e518080d2f47c991fae
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,ConvertScaleParam,0x00001E94,0x08001E94,24,f08f8b7fc80869dda17f6bf744ca1e4d06a7adfafc3a76800e409c1c3a927105
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,GetAffineAnimFrame,0x00001EAC,0x08001EAC,108,c8e50d5d51ddb30cfb53000cccf505cde70c60de47e7bacf4ac3eacb1f868318
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,ApplyAffineAnimFrame,0x00001F18,0x08001F18,64,59e932b8800e22f44a88a66592e58fc698b24e4563c8a557a5fab484dbbbf9a1
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,StartSpriteAnim,0x00001F58,0x08001F58,24,46b89df7230833df61fe6128b972a8a2e2c6fdcc35782bb66a0d5f5c04d93164
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,StartSpriteAnimIfDifferent,0x00001F70,0x08001F70,28,358c3ad09cd452c66f6f6adf4c69bca7038c6714b03d2ff0b6b2b298b95165f6
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,SeekSpriteAnim,0x00001F8C,0x08001F8C,124,7be27f3c3e2ed70427767378b2d9ec4fb2e44706d706e480214ccaacb6008f0f
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,StartSpriteAffineAnim,0x00002008,0x08002008,44,4c6ac7bdbb34e0b3b6484aeacf8400013183e101a66f59194e9c84ca9da575e2
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,StartSpriteAffineAnimIfDifferent,0x00002034,0x08002034,52,6dd8ff47633b4721397d2e0b830695d4865c44732c0101f5eccf84e661bce73b
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,ChangeSpriteAffineAnim,0x00002068,0x08002068,56,3849bcc2182e3691c82db90152ac0853148470755d7e3d47070edb1e7b42c928
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,ChangeSpriteAffineAnimIfDifferent,0x000020A0,0x080020A0,52,110cf3803363f66f7b892ce6b9cdba439964671997f43415a915e74e2db6ed39
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,SetSpriteSheetFrameTileNum,0x000020D4,0x080020D4,88,f0e001b3d7737d0e8208be8d62a957a90ff1c029d2918f1509979dd023a555ed
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,ResetAffineAnimData,0x0000212C,0x0800212C,52,7007d82cfdd58e7bc565ef5f84aa366d84ebc6023ef86611138a9270feb5664e
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,AllocOamMatrix,0x00002160,0x08002160,56,afa948544dc831af2b207c1d7c44ac2669e05116e71227099254d851c1c560d0
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,FreeOamMatrix,0x00002198,0x08002198,64,b17e141ad4295f864f71f6d5600eecab17e87d0d790de7ca022599f15c350ba7
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,InitSpriteAffineAnim,0x000021D8,0x080021D8,80,832715bcee1dfee75ab23cdf07b23a3860d49e40f4104e1180432393d944bc3b
+"Pokemon - Sapphire Version (USA, Europe) (Rev 2).gba",USA-EUR-AXPE-v2,AXPE,2,axpe,SetOamMatrixRotationScaling,0x00002228,0x08002228,128,69f4338bbbfe8d116c6c3c662ab366eae2e9e9cf1ad38e17d7230ad0ac1d9ddf

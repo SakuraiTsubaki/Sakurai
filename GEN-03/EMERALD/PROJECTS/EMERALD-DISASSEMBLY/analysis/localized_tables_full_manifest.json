@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "archive": "analysis/localized_tables_full.tar.xz",
+  "archive_sha1": "8efa8dbc1668ce1e766d78ec7d2c10235c6f062c",
+  "archive_format": "deterministic POSIX tar compressed with xz",
+  "release_count": 6,
+  "ability_records_per_release": 78,
+  "item_records_per_release": 377,
+  "releases": ["JPN", "ENG_USA_EUR", "FRA", "DEU", "ITA", "ESP"],
+  "contents": {
+    "abilities": "abilities/<RELEASE>.csv",
+    "items": "items/<RELEASE>.csv"
+  },
+  "ability_columns": ["ability_id", "name", "name_raw_hex", "description_rom_offset", "description", "description_raw_hex"],
+  "item_columns": ["slot_id", "name", "name_raw_hex", "description_rom_offset", "description", "description_raw_hex", "field_use_func", "battle_use_func"]
+}

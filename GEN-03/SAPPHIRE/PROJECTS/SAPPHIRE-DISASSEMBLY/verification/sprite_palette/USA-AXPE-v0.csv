@@ -1,0 +1,9 @@
+file,target_id,game_code,software_version,family,function,file_offset,runtime_address,size,sha256
+Pokemon - Sapphire Version (USA).gba,USA-AXPE-v0,AXPE,0,axpe,FreeAllSpritePalettes,0x000025C8,0x080025C8,56,7c46aaf8dc95ae227f20af40e66b614a919db4ebc4e7031464c28adfe103a856
+Pokemon - Sapphire Version (USA).gba,USA-AXPE-v0,AXPE,0,axpe,LoadSpritePalette,0x00002600,0x08002600,76,aa0fb947cd91aeeaa4a334244a3bc67b944bcedabc96f3fb448fc7d541c41156
+Pokemon - Sapphire Version (USA).gba,USA-AXPE-v0,AXPE,0,axpe,LoadSpritePalettes,0x0000264C,0x0800264C,44,dd5cd801873565d68cd5fd0555c44d926a58e862b1309d9b242b900dcf71a1e4
+Pokemon - Sapphire Version (USA).gba,USA-AXPE-v0,AXPE,0,axpe,DoLoadSpritePalette,0x00002678,0x08002678,24,8dd448fa212c747aabc29ac5e2f4cc9186d26809a7f2cffd76fc1e22cd5231c6
+Pokemon - Sapphire Version (USA).gba,USA-AXPE-v0,AXPE,0,axpe,AllocSpritePalette,0x00002690,0x08002690,48,2275e88a87c6ef480641ed1aea6a376b1283531803d604a25b67bbdc8a80305e
+Pokemon - Sapphire Version (USA).gba,USA-AXPE-v0,AXPE,0,axpe,IndexOfSpritePaletteTag,0x000026C0,0x080026C0,56,07019a3fb24f35d200ac42db4bd8db226f7004557108830aec1997855e7acf09
+Pokemon - Sapphire Version (USA).gba,USA-AXPE-v0,AXPE,0,axpe,GetSpritePaletteTagByPaletteNum,0x000026F8,0x080026F8,16,0122f8423d200c9b348d5507da393b9daa0294ecf49771c251da71117e971ccd
+Pokemon - Sapphire Version (USA).gba,USA-AXPE-v0,AXPE,0,axpe,FreeSpritePaletteByTag,0x00002708,0x08002708,40,3d077d509c38845fb27b3db7507dc3ec9622c2ef9d5932a398c8b4192e68b2de

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "entry_points": {
+    "germany_debug_rev0": {"game_code":"AXVD","software_version":0,"header_checksum_valid":true,"entry_word":"0xEA00007F","entry_target_file_offset":"0x00000204","entry_target_rom_address":"0x08000204"},
+    "english_rev2": {"game_code":"AXVE","software_version":2,"header_checksum_valid":true,"entry_word":"0xEA000032","entry_target_file_offset":"0x000000D0","entry_target_rom_address":"0x080000D0"},
+    "spain_rev1": {"game_code":"AXVS","software_version":1,"header_checksum_valid":true,"entry_word":"0xEA00007F","entry_target_file_offset":"0x00000204","entry_target_rom_address":"0x08000204"},
+    "spain_rev0": {"game_code":"AXVS","software_version":0,"header_checksum_valid":true,"entry_word":"0xEA00007F","entry_target_file_offset":"0x00000204","entry_target_rom_address":"0x08000204"},
+    "english_rev0": {"game_code":"AXVE","software_version":0,"header_checksum_valid":true,"entry_word":"0xEA000032","entry_target_file_offset":"0x000000D0","entry_target_rom_address":"0x080000D0"},
+    "france_rev1": {"game_code":"AXVF","software_version":1,"header_checksum_valid":true,"entry_word":"0xEA00007F","entry_target_file_offset":"0x00000204","entry_target_rom_address":"0x08000204"},
+    "english_rev1": {"game_code":"AXVE","software_version":1,"header_checksum_valid":true,"entry_word":"0xEA000032","entry_target_file_offset":"0x000000D0","entry_target_rom_address":"0x080000D0"},
+    "italy_rev1": {"game_code":"AXVI","software_version":1,"header_checksum_valid":true,"entry_word":"0xEA00007F","entry_target_file_offset":"0x00000204","entry_target_rom_address":"0x08000204"},
+    "france_rev0": {"game_code":"AXVF","software_version":0,"header_checksum_valid":true,"entry_word":"0xEA00007F","entry_target_file_offset":"0x00000204","entry_target_rom_address":"0x08000204"},
+    "japan_rev0": {"game_code":"AXVJ","software_version":0,"header_checksum_valid":true,"entry_word":"0xEA000032","entry_target_file_offset":"0x000000D0","entry_target_rom_address":"0x080000D0"},
+    "germany_rev1": {"game_code":"AXVD","software_version":1,"header_checksum_valid":true,"entry_word":"0xEA00007F","entry_target_file_offset":"0x00000204","entry_target_rom_address":"0x08000204"},
+    "germany_rev0": {"game_code":"AXVD","software_version":0,"header_checksum_valid":true,"entry_word":"0xEA00007F","entry_target_file_offset":"0x00000204","entry_target_rom_address":"0x08000204"},
+    "italy_rev0": {"game_code":"AXVI","software_version":0,"header_checksum_valid":true,"entry_word":"0xEA00007F","entry_target_file_offset":"0x00000204","entry_target_rom_address":"0x08000204"}
+  },
+  "layout_anchors": {
+    "japan_rev0": {"largest_filler_runs":[{"start":"0x655178","end":"0x67D000","size":163464,"byte":"0xFF"},{"start":"0x22CADE","end":"0x22FEB2","size":13268,"byte":"0x00"}]},
+    "english_rev0": {"largest_filler_runs":[{"start":"0x6B09F8","end":"0xD00000","size":6616584,"byte":"0xFF"},{"start":"0xEAE244","end":"0x1000000","size":1383868,"byte":"0xFF"}]},
+    "english_rev2": {"largest_filler_runs":[{"start":"0x6B0A0C","end":"0xD00000","size":6616564,"byte":"0xFF"},{"start":"0xEAE244","end":"0x1000000","size":1383868,"byte":"0xFF"}]},
+    "germany_debug_rev0": {"largest_filler_runs":[{"start":"0x6DF850","end":"0xD00000","size":6424496,"byte":"0xFF"},{"start":"0xEB0F58","end":"0x1000000","size":1372328,"byte":"0xFF"}]}
+  },
+  "revision_comparisons": {
+    "english_rev0__to__english_rev1": {"different_bytes":5744535,"different_runs":419998,"first_difference":"0xBC","last_difference_end":"0xEA7823","changed_64k_block_count":109},
+    "english_rev1__to__english_rev2": {"different_bytes":4,"different_runs":3,"changes":[{"offset":"0xBC","old":"0x01","new":"0x02"},{"offset":"0xBD","old":"0x40","new":"0x3F"},{"offset":"0x919B","old":"0xDD","new":"0xDB"},{"offset":"0x91BF","old":"0xDC","new":"0xDA"}],"thumb_conditional_changes":[{"old":{"offset":"0x919A","halfword":"0xDD11","condition":"LE","target_offset":"0x91C0"},"new":{"offset":"0x919A","halfword":"0xDB11","condition":"LT","target_offset":"0x91C0"}},{"old":{"offset":"0x91BE","halfword":"0xDCED","condition":"GT","target_offset":"0x919C"},"new":{"offset":"0x91BE","halfword":"0xDAED","condition":"GE","target_offset":"0x919C"}}]},
+    "germany_rev0__to__germany_rev1": {"different_bytes":4,"different_runs":3,"changes":[{"offset":"0xBC","old":"0x00","new":"0x01"},{"offset":"0xBD","old":"0x42","new":"0x41"},{"offset":"0x9367","old":"0xDD","new":"0xDB"},{"offset":"0x938B","old":"0xDC","new":"0xDA"}],"thumb_conditional_changes":[{"old":{"offset":"0x9366","halfword":"0xDD11","condition":"LE","target_offset":"0x938C"},"new":{"offset":"0x9366","halfword":"0xDB11","condition":"LT","target_offset":"0x938C"}},{"old":{"offset":"0x938A","halfword":"0xDCED","condition":"GT","target_offset":"0x9368"},"new":{"offset":"0x938A","halfword":"0xDAED","condition":"GE","target_offset":"0x9368"}}]},
+    "france_rev0__to__france_rev1": {"different_bytes":4,"different_runs":3,"changes":[{"offset":"0xBC","old":"0x00","new":"0x01"},{"offset":"0xBD","old":"0x40","new":"0x3F"},{"offset":"0x9367","old":"0xDD","new":"0xDB"},{"offset":"0x938B","old":"0xDC","new":"0xDA"}]},
+    "italy_rev0__to__italy_rev1": {"different_bytes":4,"different_runs":3,"changes":[{"offset":"0xBC","old":"0x00","new":"0x01"},{"offset":"0xBD","old":"0x3D","new":"0x3C"},{"offset":"0x9367","old":"0xDD","new":"0xDB"},{"offset":"0x938B","old":"0xDC","new":"0xDA"}]},
+    "spain_rev0__to__spain_rev1": {"different_bytes":4,"different_runs":3,"changes":[{"offset":"0xBC","old":"0x00","new":"0x01"},{"offset":"0xBD","old":"0x33","new":"0x32"},{"offset":"0x9367","old":"0xDD","new":"0xDB"},{"offset":"0x938B","old":"0xDC","new":"0xDA"}]},
+    "germany_rev0__to__germany_debug_rev0": {"different_bytes":6751723,"different_runs":263540,"first_difference":"0x128","last_difference_end":"0x6DF850","changed_64k_block_count":110}
+  }
+}
