@@ -12,6 +12,22 @@ Sakurai is the **curated research/control subset** of the repository pair. It ow
 
 Tsubaki is the complete eligible non-ROM superset. Both repositories use the same semantic generation, game, release, dump, comparison, reference, project, and target coordinates.
 
+## 🌸 Repository pair
+
+| Area | Sakurai | Tsubaki |
+| --- | --- | --- |
+| Primary role | Curated research / control | Complete eligible non-ROM production / archive |
+| Identity & provenance | Primary record | Mirrored when relevant to artifacts |
+| Research & comparisons | Curated findings and evidence | Eligible working copies and supporting outputs |
+| Source / implementation | Only when needed for research/control | Full eligible project material |
+| Graphics / sprites / PNG | Curated evidence when useful | Full eligible source and human-viewable assets |
+| Audio / maps / text / data | Curated research/control material | Full eligible project artifacts |
+| Build / extraction outputs | Reproducibility evidence as needed | Eligible outputs and intermediates retained |
+| Manifests / hashes | Identity, provenance, verification | Artifact, provenance, generation, verification |
+| Complete playable ROM images | Never committed | Never committed |
+
+**Rule of thumb:** if the question is *“What is this, where did it come from, and how do we know?”*, Sakurai owns the control record. If the question is *“What project material should be preserved so the work can be inspected, reproduced, or continued?”*, Tsubaki owns the complete eligible non-ROM artifact set.
+
 ## 🧭 Repository overview
 
 Sakurai is where project claims are identified, sourced, compared, and verified. It keeps the evidence and control layer needed to explain *what a target is*, *where a fact came from*, *how variants differ*, and *how a result was verified*.
