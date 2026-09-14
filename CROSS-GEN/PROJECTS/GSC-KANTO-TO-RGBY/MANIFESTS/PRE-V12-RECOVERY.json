@@ -1,0 +1,22 @@
+{
+  "schema": "gsc-kanto-to-rgby.pre-v12-recovery.v1",
+  "canonical_root": "CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY",
+  "recovered_on": "2026-09-14",
+  "source_roots": [
+    "INFRA/MIGRATION/PRE-V12/ROOT/projects/gscrgby"
+  ],
+  "status": "current artifacts promoted; migration copies retained as immutable historical evidence",
+  "policy": {
+    "current_work_in_migration": false,
+    "delete_historical_evidence": false,
+    "rom_images_committed": false
+  },
+  "destinations": [
+    "TOOLS/",
+    "ANALYSIS/",
+    "INPUTS/",
+    "MANIFESTS/",
+    "SPEC/",
+    "SESSION-INDEX.md"
+  ]
+}
