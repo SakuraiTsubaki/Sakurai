@@ -1,0 +1,24 @@
+schema: sakurai.release.v5
+generation: GEN-05
+game_id: WHITE
+source_kind: official-retail-release
+platform_id: NDS-TWL
+package_kind: CART
+release_id: IRAO-HV0
+native_identity:
+  internal_title: POKEMON W
+  game_code: IRAO
+  maker_code: '01'
+  unit_code: 0x02
+  rom_version: 0
+  title_id: '000300004952414F'
+external_identity:
+  serial: TWL-IRAO-EUSA
+  language: en
+  markets:
+    - USA
+    - Europe
+verification:
+  identity_binding: verified-from-supplied-header-plus-external-crosscheck
+  clean_full_dump_status: required-for-twl-specific-release-promotion
+  rom_binary_in_repository: false
