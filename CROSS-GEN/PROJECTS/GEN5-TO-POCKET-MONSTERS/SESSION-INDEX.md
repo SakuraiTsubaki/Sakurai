@@ -16,7 +16,7 @@
 | 롬 글리프 / 텍스트 분석 | `WHITE/RELEASES/NDS-TWL/CART/IRAO-HV0/DOMAINS/text/` 및 W5 보고서 | BW1 text archive/bank 구조 및 검증된 text-bank 자료 |
 | 스프라이트 픽셀 분석 / 이미지 업로드 원칙 | Tsubaki `CROSS-GEN/PROJECTS/GEN5-TO-POCKET-MONSTERS/TOOLS/SPRITES/` | 생산·변환·이미지 자산 쪽은 Tsubaki가 정규 소유. 스프라이트 작업 시 사람이 확인 가능한 이미지도 포함 |
 | 디스어셈블리 / 완전 해체 | `WHITE/.../NATIVE/`, `DOMAINS/`, `TOOLS/`, `REPORTS/` | 현재는 재현 가능한 구조적 deconstruction까지. ARM9/overlay 함수·심볼 수준 완전 disassembly는 W5에서 명시한 후속 미완료 층 |
-| 경로 재설계 / GitHub 업로드 원칙 | `README.md`, `STRUCTURE.md`, `INFRA/MIGRATION/verify_gen5_promotion.py` | PRE-V12에만 작업물이 남는 상태를 실패로 판정하도록 검증 장치 추가 |
+| 경로 재설계 / GitHub 업로드 원칙 | `README.md`, `STRUCTURE.md`, `.github/validate_structure.py` | 프로젝트는 현재 정규 경로 하나만 사용. 버전 변경 시 같은 트리를 직접 갱신하고 옛 경로·별도 이력 트리는 만들지 않음 |
 
 ## White deep-deconstruction quick path
 

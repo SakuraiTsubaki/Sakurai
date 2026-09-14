@@ -1,8 +1,8 @@
 # Repository Structure v12
 
-Status: **canonical** — 2026-09-13; project-closure repair 2026-09-14.
+Status: **canonical** — 2026-09-14.
 
-v12 makes the live tree match the ownership model. Transitional v2–v11 path families are no longer valid live coordinates.
+The live repository represents the current structure only.
 
 ## Canonical live root
 
@@ -13,7 +13,6 @@ CROSS-GEN/
 INFRA/
 README.md
 STRUCTURE.md
-MIGRATION.md
 ```
 
 Repository metadata files such as `.gitignore` and `.gitattributes` may also exist at root.
@@ -58,17 +57,19 @@ CROSS-GEN/REFERENCES/<REFERENCE-ID>/
 CROSS-GEN/SHARED/
 ```
 
-## Project closure invariant
+## Single-owner project rule
 
-A live artifact with exactly one project owner **must live below that project's canonical `PROJECTS/<PROJECT-ID>/` root**. Analysis, comparisons, reports, tables, tools, manifests, verification evidence, design material, inputs, build metadata, implementation material, patches, assets, and other project-owned outputs are part of that project closure and must move with the project during every repository migration.
+A live artifact with exactly one project owner must live below that project's canonical `PROJECTS/<PROJECT-ID>/` root. Project-specific analysis, comparisons, reports, tables, tools, manifests, verification evidence, design material, inputs, build metadata, implementation material, patches, assets, and other outputs move together with the project.
 
-Game-, generation-, and cross-generation-level `COMPARES`, `ANALYSIS`, `REPORTS`, `TABLES`, `TOOLS`, `KNOWLEDGE`, and similar domains are reserved for genuinely shared or scope-level material. They must not be used merely to split one project's work by artifact type.
+Game-, generation-, and cross-generation-level domains are reserved for material genuinely shared by multiple projects or owned by that scope itself.
 
-A migration is not complete merely because the old copy exists below `INFRA/MIGRATION/`. Every still-active project must have a live canonical owner containing its complete eligible closure. Historical migration trees remain evidence only.
+## Version update rule
 
-Canonical live project coordinates and legacy-to-live ownership mappings are indexed at `INFRA/PROJECTS/INDEX.md` and `INFRA/PROJECTS/MIGRATION-MAP.json`.
+Version changes update the current tree directly. If a canonical path changes, merge all unique current work into the new path and remove the old live path in the same change. Do not create parallel `MIGRATION`, `LEGACY`, `PRE-V*`, snapshot, redirect, quarantine, or version-history trees. Git commits, tags, and pull requests are the history and recovery mechanism.
 
-## Generation V → ポケットモンスター single-home override
+Canonical live project coordinates are indexed at `INFRA/PROJECTS/INDEX.md`.
+
+## Generation V → ポケットモンスター
 
 All live work for `GEN5-TO-POCKET-MONSTERS` is stored directly under:
 
@@ -76,7 +77,7 @@ All live work for `GEN5-TO-POCKET-MONSTERS` is stored directly under:
 CROSS-GEN/PROJECTS/GEN5-TO-POCKET-MONSTERS/
 ```
 
-This includes its `BLACK/`, `WHITE/`, `COMPARES/`, `SHARED/`, project analysis, tools, manifests, reports, crosswalks, design and verification work. Do not recreate a repository-root `GEN-05/` tree or a nested project `GEN-05/` mirror for this project. Version upgrades move/merge the current work into this single live root instead of retaining duplicate historical/current trees.
+This includes `BLACK/`, `WHITE/`, `COMPARES/`, `SHARED/`, project analysis, tools, manifests, reports, crosswalks, design, and verification work. Do not recreate a repository-root `GEN-05/` tree or a nested project `GEN-05/` mirror.
 
 ## Release and dump identity
 
@@ -107,9 +108,9 @@ SOURCE/
 TARGET/
 COMPARE/
 REFERENCE/
+MIGRATION.md
+INFRA/MIGRATION/
 ```
-
-Historical copies may exist only below `INFRA/MIGRATION/` and remain read-only migration evidence. The Generation V → ポケットモンスター single-home override above does not retain duplicate current project trees for historical purposes.
 
 ## ROM policy
 

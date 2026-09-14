@@ -1,6 +1,6 @@
 # Canonical Project Index
 
-Status: **v12 project-closure repair — 2026-09-14**.
+Status: **current live project index — 2026-09-14**.
 
 Open a project's canonical root first. Project-owned analysis, comparisons, reports, tools, manifests, verification material, and other work products belong below that root. Scope-level folders outside a project are only for material genuinely shared by multiple projects or owned by the game/generation itself.
 
@@ -20,10 +20,8 @@ Open a project's canonical root first. Project-owned analysis, comparisons, repo
 | GSC Kanto to RGBY | `CROSS-GEN/PROJECTS/GSC-KANTO-TO-RGBY/` |
 | RGBY/GSC Kanto start | `CROSS-GEN/PROJECTS/RGBYGSC-KANTO-START/` |
 
-## Historical project mapping
-
-`GEN-02/TARGET/GS-KOREAN-MODERNIZATION/` was not lost: its live project-owned foundation is `CROSS-GEN/PROJECTS/GS-KOREAN-TO-POCKET-MONSTERS/GS-KOREAN-FOUNDATION/`. Other pre-v12 `TARGET` coordinates map directly to the corresponding canonical project root; see `MIGRATION-MAP.json`.
-
 ## Shared scope examples
 
-Game/release comparisons such as FireRed revision comparisons remain under `GEN-03/FIRERED/COMPARES/` because both FireRed projects can consume them. Generation-wide Gold/Silver comparisons remain under `GEN-02/COMPARES/`. Historical evidence remains under `INFRA/MIGRATION/` and is not a live project destination.
+Game/release comparisons such as FireRed revision comparisons remain under `GEN-03/FIRERED/COMPARES/` because multiple FireRed projects can consume them. Generation-wide Gold/Silver comparisons remain under `GEN-02/COMPARES/`.
+
+Past path names are not part of the live index. Use Git history when an older layout needs to be inspected.

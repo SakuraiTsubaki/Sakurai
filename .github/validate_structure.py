@@ -9,7 +9,7 @@ DUMP_RE = re.compile(r'^DUMP-SHA256-[0-9A-F]{16}$')
 
 ROOT_ALLOWED = {
     '.github', '.git', '.gitignore', '.gitattributes',
-    'README.md', 'STRUCTURE.md', 'MIGRATION.md',
+    'README.md', 'STRUCTURE.md',
     'INFRA', 'CROSS-GEN',
 }
 GEN_BRANCHES = {'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED', 'KNOWLEDGE', 'VERIFY'}
@@ -18,7 +18,7 @@ GAME_BRANCHES = {
     'KNOWLEDGE', 'VERIFY', 'CATALOGS', 'REPORTS', 'TABLES', 'ANALYSIS', 'TOOLS',
 }
 CROSS_BRANCHES = {'PROJECTS', 'COMPARES', 'REFERENCES', 'SHARED', 'KNOWLEDGE', 'VERIFY'}
-RETIRED_ROOTS = {'LIBRARY', 'projects', 'workspaces', 'PROJECTS', 'LEGACY', 'STRUCTURE-V2.md'}
+RETIRED_ROOTS = {'LIBRARY', 'projects', 'workspaces', 'PROJECTS', 'LEGACY', 'STRUCTURE-V2.md', 'MIGRATION.md'}
 RETIRED_BRANCHES = {'SOURCE', 'TARGET', 'COMPARE', 'REFERENCE'}
 BANNED_IDS = {
     'MULTI', 'REV-ALL', 'ALL', 'ALL-RELEASES', 'MULTI-REGION', '_SHARED',
@@ -60,8 +60,6 @@ def check_releases(path):
                 dumps = release / 'DUMPS'
                 if dumps.exists():
                     for dump in dirs(dumps):
-                        # Canonical v12 IDs are content-addressed. Historical dump IDs already
-                        # inside a release remain readable until their identity migration lands.
                         if dump.name.startswith('DUMP-SHA256-') and not DUMP_RE.fullmatch(dump.name):
                             errors.append(f'malformed dump id: {dump}')
 
@@ -72,10 +70,12 @@ for entry in ROOT.iterdir():
             errors.append(f'generation root is not a directory: {entry}')
         continue
     if entry.name in RETIRED_ROOTS:
-        errors.append(f'retired v12 root exists: {entry.name}')
+        errors.append(f'retired root exists: {entry.name}')
     elif entry.name not in ROOT_ALLOWED:
-        errors.append(f'non-canonical v12 root entry: {entry.name}')
+        errors.append(f'non-canonical root entry: {entry.name}')
 
+if (ROOT / 'INFRA' / 'MIGRATION').exists():
+    errors.append('retired migration tree exists: INFRA/MIGRATION')
 
 for gen in [p for p in ROOT.iterdir() if p.is_dir() and GEN_RE.fullmatch(p.name)]:
     for node in dirs(gen):
@@ -97,8 +97,7 @@ for gen in [p for p in ROOT.iterdir() if p.is_dir() and GEN_RE.fullmatch(p.name)
             elif branch.name in {'PROJECTS', 'COMPARES', 'REFERENCES'}:
                 check_id_dirs(branch, f'{branch.name.lower()} id')
             elif branch.name not in GAME_BRANCHES:
-                errors.append(f'invalid v12 game branch: {branch}')
-
+                errors.append(f'invalid game branch: {branch}')
 
 cross = ROOT / 'CROSS-GEN'
 if cross.exists():
@@ -109,20 +108,16 @@ if cross.exists():
             if branch.name in {'PROJECTS', 'COMPARES', 'REFERENCES'}:
                 check_id_dirs(branch, f'cross-generation {branch.name.lower()} id')
         else:
-            errors.append(f'invalid v12 CROSS-GEN branch: {branch}')
+            errors.append(f'invalid CROSS-GEN branch: {branch}')
 
-
-# Only complete playable ROM image formats are prohibited. Other binary assets are allowed.
-# Historical path evidence under INFRA/MIGRATION contains trees/metadata, not committed ROM images.
 for p in ROOT.rglob('*'):
     if p.is_file() and p.suffix.lower() in ROM_SUFFIXES:
         errors.append(f'ROM image extension is forbidden: {p}')
 
-
 if errors:
-    print('Repository structure v12 validation failed:')
+    print('Repository structure validation failed:')
     for error in errors:
         print(f' - {error}')
     sys.exit(1)
 
-print('Repository structure v12 validation passed.')
+print('Repository structure validation passed.')
