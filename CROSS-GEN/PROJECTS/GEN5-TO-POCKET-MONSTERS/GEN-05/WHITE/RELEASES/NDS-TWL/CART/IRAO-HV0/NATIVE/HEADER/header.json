@@ -1,0 +1,41 @@
+{
+  "observed_file": "Pokemon.White.Version.EUR.NDS-SweeTnDs.nds",
+  "size_bytes": 268435456,
+  "hashes": {
+    "md5": "8dfef9a099e1269af5c1fcf9d7736a11",
+    "sha1": "f94d4578956487c09fee20809a591e858017769e",
+    "sha256": "93e4f473ce9a0543bccf2e689ecd07ab4fcc39dd00fb4f194343cbd5e70e17ed"
+  },
+  "header": {
+    "internal_title": "POKEMON W",
+    "game_code": "IRAO",
+    "maker_code": "01",
+    "unit_code": 2,
+    "device_type": 0,
+    "device_capacity_code": 11,
+    "rom_version": 0,
+    "autostart": 0,
+    "arm9_rom_offset": 16384,
+    "arm9_entry_address": 33572864,
+    "arm9_ram_address": 33570816,
+    "arm9_size": 456868,
+    "arm7_rom_offset": 2915840,
+    "arm7_entry_address": 37224448,
+    "arm7_ram_address": 37224448,
+    "arm7_size": 167812,
+    "fnt_offset": 3083776,
+    "fnt_size": 1040,
+    "fat_offset": 3085312,
+    "fat_size": 3872,
+    "arm9_overlay_offset": 473600,
+    "arm9_overlay_size": 7584,
+    "arm7_overlay_offset": 0,
+    "arm7_overlay_size": 0,
+    "banner_offset": 3089408,
+    "secure_area_crc16": 13001,
+    "rom_size_header": 205231104,
+    "header_size": 16384,
+    "header_crc16": 63167,
+    "device_capacity_bytes": 268435456
+  }
+}

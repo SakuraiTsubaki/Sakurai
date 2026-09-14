@@ -1,0 +1,21 @@
+schema: sakurai.dump.v6
+dump_id: SWEETNDS-f94d4578
+release_id: IRAO-HV0
+observed_file: Pokemon.White.Version.EUR.NDS-SweeTnDs.nds
+provenance_label: SweeTnDs
+size_bytes: 268435456
+hashes:
+  md5: 8dfef9a099e1269af5c1fcf9d7736a11
+  sha1: f94d4578956487c09fee20809a591e858017769e
+  sha256: 93e4f473ce9a0543bccf2e689ecd07ab4fcc39dd00fb4f194343cbd5e70e17ed
+header:
+  internal_title: POKEMON W
+  game_code: IRAO
+  maker_code: '01'
+  unit_code: 0x02
+  header_version: 0
+policy:
+  original_rom_read_only: true
+  rom_binary_committed: false
+verification:
+  status: direct-revalidated-2026-09-13

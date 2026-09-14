@@ -1,0 +1,19 @@
+member	semantic_role	expected_strings	archive	actual_strings	status	sha256	sample
+53	item_descriptions	627	a/0/0/2	627	direct-content-verified	d16a4c5e6dc52d601bb91a910e95fa71b109f98f9c3f390a438e443815b6b551	???
+54	item_names	627	a/0/0/2	627	direct-content-verified	890fa29f58d650460e8736df782397a92d61eb367d6c99e640d89c8091534652	None
+70	pokemon_species_names	652	a/0/0/2	652	direct-content-verified	f303af0746aea178efc037e6062bda0e127c9abdc2552b3839ca58542b55e632	―――――
+89	location_map_names	117	a/0/0/2	117	direct-content-verified	05794ce4ddb89120b46080a40f1379c2e50e9d691a79e0510ecf702e229b80c0	map/location name bank
+182	ability_names	165	a/0/0/2	165	direct-content-verified	e8901a06bb42988cc7e96a68be62cf354d01a15f600e902d0dab6a6fd3440ae8	--
+190	trainer_names	616	a/0/0/2	616	direct-content-verified	abd5eedd846c1d855f6425fb4ce26d72fb90754fc6b13f4e65658dd678e581f0	--
+191	trainer_class_names	105	a/0/0/2	105	direct-content-verified	9fddddf8e27ceea9e5b0df05b1bcbce558ebdb442a8f9e6efb214cf7748c62c0	trainer class bank
+199	type_names	17	a/0/0/2	17	direct-content-verified	1104a7b5e5c54074559f7b4b996d127c6d8201796cc261db5ad1649aa50d6f8c	Normal
+202	move_descriptions	560	a/0/0/2	560	direct-content-verified	819265342bbd0a3b865469ae40da21ea8ee0f4b7f188f96413db9cf6af8e3926	move description bank
+203	move_names	560	a/0/0/2	560	direct-content-verified	a4a985567ab30176114539eca77c0855cf108ba4e7c7e9281e60a03f93224f40	-----
+279	item_names_article_variant		a/0/0/2	627	direct-content-verified	37d41e6f365b830c9f136e943cdc84ffe22375a6ceee25c6799d3f601feaf8f6	article variant
+280	item_names_plural_variant		a/0/0/2	627	direct-content-verified	19c2f5b5d76e5c9649b0f1169c8f5f3023facb62cb8caf0da2d3bdee7d6a327f	plural variant
+281	pokemon_species_names_article_variant		a/0/0/2	652	direct-content-verified	b753aa2102777e38c0ee7e941afa75463afbb183c0e23b50905057a85b15533d	article variant
+283	trainer_class_names_article_variant		a/0/0/2	105	direct-content-verified	951247502aa937417a78adf42c86c35362f01f692a9fe541e5171c8352683c4b	article variant
+284	pokemon_species_names_uppercase	652	a/0/0/2	652	direct-content-verified	65a76e6dea414ca794e6cd0edf9ebdf66118bad4b845ca585ca8e9a6537696f5	BULBASAUR
+285	ability_names_uppercase	165	a/0/0/2	165	direct-content-verified	cd668fab5c13b2a573850cfd5b1a91aeff84532e9381700829f50217b8293eb9	STENCH
+286	move_names_uppercase	560	a/0/0/2	560	direct-content-verified	7a2841c053348dda1e79339090530a3a3d7cbb0ca211a1e2ee2e351982a35354	POUND
+287	type_names_uppercase	17	a/0/0/2	17	direct-content-verified	c07a45ef2fb23d1a73f6afcec3795843e558f917f24a95504db5fb264ccf93d1	NORMAL
