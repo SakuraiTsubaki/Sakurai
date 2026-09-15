@@ -19,22 +19,22 @@
     "gba_per_title": "tools/gba_baseline.py in each GBA decompilation repository"
   },
   "core_titles": {
-    "Pokemon Ruby": {"platform": "GBA", "status": "phase_1_active", "repository": "SakuraiTsubaki/PocketMonsters-Ruby-Decompilation", "tracker": "../../../../../RUBY/ALL/ALL/DECOMPILATION/START.json"},
-    "Pokemon Sapphire": {"platform": "GBA", "status": "phase_1_active", "repository": "SakuraiTsubaki/PocketMonsters-Sapphire-Decompilation", "tracker": "../../../../../SAPPHIRE/ALL/ALL/DECOMPILATION/START.json"},
-    "Pokemon Emerald": {"platform": "GBA", "status": "phase_1_active", "repository": "SakuraiTsubaki/PocketMonsters-Emerald-Decompilation", "tracker": "../../../../../EMERALD/ALL/ALL/DECOMPILATION/START.json"},
-    "Pokemon FireRed": {"platform": "GBA", "status": "phase_1_active", "repository": "SakuraiTsubaki/PocketMonsters-FireRed-Decompilation", "tracker": "../../../../../FIRERED/ALL/ALL/DECOMPILATION/START.json"},
-    "Pokemon LeafGreen": {"platform": "GBA", "status": "phase_1_active", "repository": "SakuraiTsubaki/PocketMonsters-LeafGreen-Decompilation", "tracker": "../../../../../LEAFGREEN/ALL/ALL/DECOMPILATION/START.json"},
-    "Pokemon Colosseum": {"platform": "GameCube", "status": "phase_1_active_source_media_required", "tracker": "../../../../../COLOSSEUM/ALL/ALL/DECOMPILATION/START.json"},
-    "Pokemon XD: Gale of Darkness": {"platform": "GameCube", "status": "phase_1_active_source_media_required", "tracker": "../../../../../XD_GALE_OF_DARKNESS/ALL/ALL/DECOMPILATION/START.json"},
-    "Pokemon Box Ruby & Sapphire": {"platform": "GameCube", "status": "phase_1_active_source_media_required", "tracker": "../../../../../POKEMON_BOX_RS/ALL/ALL/DECOMPILATION/START.json"}
+    "Pokemon Ruby": {"platform": "GBA", "status": "phase_1_active", "repository": "SakuraiTsubaki/PocketMonsters-Ruby-Decompilation", "tracker": "../../../../RUBY/ALL/ALL/DECOMPILATION/START.json"},
+    "Pokemon Sapphire": {"platform": "GBA", "status": "phase_1_active", "repository": "SakuraiTsubaki/PocketMonsters-Sapphire-Decompilation", "tracker": "../../../../SAPPHIRE/ALL/ALL/DECOMPILATION/START.json"},
+    "Pokemon Emerald": {"platform": "GBA", "status": "phase_1_active", "repository": "SakuraiTsubaki/PocketMonsters-Emerald-Decompilation", "tracker": "../../../../EMERALD/ALL/ALL/DECOMPILATION/START.json"},
+    "Pokemon FireRed": {"platform": "GBA", "status": "phase_1_active", "repository": "SakuraiTsubaki/PocketMonsters-FireRed-Decompilation", "tracker": "../../../../FIRERED/ALL/ALL/DECOMPILATION/START.json"},
+    "Pokemon LeafGreen": {"platform": "GBA", "status": "phase_1_active", "repository": "SakuraiTsubaki/PocketMonsters-LeafGreen-Decompilation", "tracker": "../../../../LEAFGREEN/ALL/ALL/DECOMPILATION/START.json"},
+    "Pokemon Colosseum": {"platform": "GameCube", "status": "phase_1_active_source_media_required", "tracker": "../../../../COLOSSEUM/ALL/ALL/DECOMPILATION/START.json"},
+    "Pokemon XD: Gale of Darkness": {"platform": "GameCube", "status": "phase_1_active_source_media_required", "tracker": "../../../../XD_GALE_OF_DARKNESS/ALL/ALL/DECOMPILATION/START.json"},
+    "Pokemon Box Ruby & Sapphire": {"platform": "GameCube", "status": "phase_1_active_source_media_required", "tracker": "../../../../POKEMON_BOX_RS/ALL/ALL/DECOMPILATION/START.json"}
   },
   "ecosystem_targets": {
-    "Pokemon Channel": {"platform": "GameCube", "status": "phase_1_active_source_media_required", "tracker": "../../../../../POKEMON_CHANNEL/ALL/ALL/DECOMPILATION/START.json"},
-    "e-Reader_and_e-Cards": {"platform": "GBA/e-Reader", "status": "phase_1_active", "tracker": "../../../../../E_READER/ALL/ALL/DECOMPILATION/START.json"},
-    "GBA_Wireless_Adapter": {"platform": "GBA peripheral", "status": "phase_1_active", "tracker": "../../../../../WIRELESS_ADAPTER/ALL/ALL/DECOMPILATION/START.json"},
-    "GameCube_GBA_Link": {"platform": "GameCube/GBA", "status": "phase_1_active", "tracker": "../../../../../GAMECUBE_GBA_LINK/ALL/ALL/DECOMPILATION/START.json"},
-    "Bonus_and_Distribution_Discs": {"platform": "GameCube", "status": "phase_1_active_source_media_required", "tracker": "../../../../../DISTRIBUTION_DISCS/ALL/ALL/DECOMPILATION/START.json"},
-    "Official_Distribution_Devices_and_Event_Cartridges": {"platform": "mixed", "status": "phase_1_active_source_required", "tracker": "../../../../../EVENT_DEVICES/ALL/ALL/DECOMPILATION/START.json"},
+    "Pokemon Channel": {"platform": "GameCube", "status": "phase_1_active_source_media_required", "tracker": "../../../../POKEMON_CHANNEL/ALL/ALL/DECOMPILATION/START.json"},
+    "e-Reader_and_e-Cards": {"platform": "GBA/e-Reader", "status": "phase_1_active", "tracker": "../../../../E_READER/ALL/ALL/DECOMPILATION/START.json"},
+    "GBA_Wireless_Adapter": {"platform": "GBA peripheral", "status": "phase_1_active", "tracker": "../../../../WIRELESS_ADAPTER/ALL/ALL/DECOMPILATION/START.json"},
+    "GameCube_GBA_Link": {"platform": "GameCube/GBA", "status": "phase_1_active", "tracker": "../../../../GAMECUBE_GBA_LINK/ALL/ALL/DECOMPILATION/START.json"},
+    "Bonus_and_Distribution_Discs": {"platform": "GameCube", "status": "phase_1_active_source_media_required", "tracker": "../../../../DISTRIBUTION_DISCS/ALL/ALL/DECOMPILATION/START.json"},
+    "Official_Distribution_Devices_and_Event_Cartridges": {"platform": "mixed", "status": "phase_1_active_source_required", "tracker": "../../../../EVENT_DEVICES/ALL/ALL/DECOMPILATION/START.json"},
     "Mystery_Event_and_Mystery_Gift": {"platform": "GBA", "status": "phase_1_active", "registry": "external_events.json"}
   },
   "cross_generation_iii_workstreams": {
