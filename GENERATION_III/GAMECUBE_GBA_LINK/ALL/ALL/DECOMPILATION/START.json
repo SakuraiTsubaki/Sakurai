@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "product": "GameCube-GBA Link",
+  "platform": "Nintendo GameCube + Game Boy Advance",
+  "status": "phase_1_active",
+  "active_tracks": ["physical_transport_assumptions", "gba_multiboot_where_applicable", "handshake", "recipient_game_identity", "save_validation", "pokemon_transfer", "distribution_transfer", "error_paths", "regional_revision_diffs", "unused_handlers"]
+}
