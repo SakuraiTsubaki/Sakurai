@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "phase_1_active",
+  "rule": "unused, dummy, debug, inaccessible, and removed-feature residue remains in scope until positively classified",
+  "categories": [
+    "unused_maps",
+    "unused_map_connections_warps_objects_triggers",
+    "unused_trainers_and_parties",
+    "unused_npcs_and_overworld_objects",
+    "unused_dialogue_and_text",
+    "unused_items_and_key_items",
+    "unused_move_or_battle_data",
+    "dummy_species_or_form_records",
+    "unused_graphics_palettes_tiles_sprites_ui",
+    "unused_music_samples_and_sfx",
+    "debug_text_menus_and_routines",
+    "unreachable_scripts_and_event_flags",
+    "removed_feature_residue",
+    "unused_communication_handlers",
+    "unused_distribution_payload_handlers",
+    "padding_or_unknown_regions_that_contain_structured_data"
+  ],
+  "required_record_fields": [
+    "target_identity",
+    "category",
+    "location_or_offset",
+    "size_or_record_count",
+    "discovery_method",
+    "reachability",
+    "references",
+    "content_summary",
+    "comparison_with_other_versions",
+    "status",
+    "confidence",
+    "evidence"
+  ],
+  "statuses": [
+    "candidate",
+    "observed_unreferenced",
+    "observed_unreachable",
+    "used_only_externally",
+    "used_only_in_other_region_or_revision",
+    "confirmed_dummy",
+    "confirmed_debug",
+    "confirmed_removed_feature_residue",
+    "reclassified_as_used"
+  ]
+}
