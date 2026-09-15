@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "generation": "III",
+  "status": "started",
+  "scope_rule": "track the complete Generation III ecosystem; do not reduce scope to RSE",
+  "rom_and_disc_policy": "original commercial binaries stay outside GitHub",
+  "core_titles": {
+    "Pokemon Ruby": {"platform": "GBA", "status": "phase_1_started", "repository": "SakuraiTsubaki/PocketMonsters-Ruby-Decompilation"},
+    "Pokemon Sapphire": {"platform": "GBA", "status": "phase_1_started", "repository": "SakuraiTsubaki/PocketMonsters-Sapphire-Decompilation"},
+    "Pokemon Emerald": {"platform": "GBA", "status": "phase_1_started", "repository": "SakuraiTsubaki/PocketMonsters-Emerald-Decompilation"},
+    "Pokemon FireRed": {"platform": "GBA", "status": "phase_1_started", "repository": "SakuraiTsubaki/PocketMonsters-FireRed-Decompilation"},
+    "Pokemon LeafGreen": {"platform": "GBA", "status": "phase_1_started", "repository": "SakuraiTsubaki/PocketMonsters-LeafGreen-Decompilation"},
+    "Pokemon Colosseum": {"platform": "GameCube", "status": "started_source_media_required", "repository": null},
+    "Pokemon XD: Gale of Darkness": {"platform": "GameCube", "status": "started_source_media_required", "repository": null},
+    "Pokemon Box Ruby & Sapphire": {"platform": "GameCube", "status": "started_source_media_required", "repository": null}
+  },
+  "ecosystem_targets": {
+    "Pokemon Channel": {"platform": "GameCube", "status": "started_source_media_required"},
+    "e-Reader_and_e-Cards": {"platform": "GBA/e-Reader", "status": "started_media_and_card_data_required"},
+    "GBA_Wireless_Adapter": {"platform": "GBA peripheral", "status": "started_binary_interface_mapping"},
+    "GameCube_GBA_Link": {"platform": "GameCube/GBA", "status": "started_protocol_mapping"},
+    "Bonus_Discs": {"platform": "GameCube", "status": "started_source_media_required"},
+    "official_distribution_devices_and_event_cartridges": {"platform": "mixed", "status": "started_inventory_and_binary_intake"},
+    "Mystery_Event_and_Mystery_Gift": {"platform": "GBA", "status": "started_protocol_and_payload_mapping"}
+  },
+  "cross_generation_iii_workstreams": {
+    "regions_languages_revisions": "started",
+    "executable_code": "started",
+    "data_structures": "started",
+    "save_structures": "started",
+    "scripts_events": "started",
+    "maps_world_data": "started",
+    "pokemon_trainers_npcs": "started",
+    "moves_abilities_natures_items": "started",
+    "battle_and_field_systems": "started",
+    "graphics": "started",
+    "audio": "started",
+    "text_localization": "started",
+    "communications_and_protocols": "started",
+    "external_distributions": "started",
+    "unused_dummy_debug_data": "started",
+    "version_differences": "started",
+    "rebuild_and_binary_match": "started"
+  }
+}
