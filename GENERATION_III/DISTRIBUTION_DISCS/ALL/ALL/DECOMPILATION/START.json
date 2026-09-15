@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "product": "Generation III Bonus and Distribution Discs",
+  "platform": "Nintendo GameCube",
+  "status": "phase_1_active_source_media_required",
+  "source_media": "local_only",
+  "baseline_tool": "GENERATION_III/ECOSYSTEM/ALL/ALL/DECOMPILATION/tools/gc_baseline.py",
+  "payload_tool": "GENERATION_III/ECOSYSTEM/ALL/ALL/DECOMPILATION/tools/payload_baseline.py",
+  "active_tracks": ["disc_inventory", "region_revision_identity", "powerpc_host_code", "fst_payloads", "recipient_checks", "pokemon_or_ticket_payload_construction", "ot_tid_sid_level_moves_ball_ribbon_metadata", "save_mutation", "anti_repeat_logic", "gba_link_protocol", "unused_payloads_or_handlers"]
+}
