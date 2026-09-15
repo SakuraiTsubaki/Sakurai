@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "product": "Game Boy Advance Wireless Adapter",
+  "platform": "GBA peripheral",
+  "status": "phase_1_active",
+  "active_tracks": ["supported_titles_revisions", "adapter_initialization", "rfu_command_mapping", "discovery", "session_management", "union_room", "trade_battle", "mystery_gift", "error_paths", "regional_revision_diffs", "unused_handlers"]
+}
