@@ -3,10 +3,10 @@
 
 This parser consumes the generated config trees from freedom12/PokemonModelViewer.
 It deliberately preserves that project's neutral `formIndex` / `variantIndex`
-field names.  It does NOT reinterpret them as game-native `form` / `gender`
+field names. It does NOT reinterpret them as game-native `form` / `gender`
 until a resource-catalog cross-check proves that mapping.
 
-The output is research/control data only.  It is not a game-native catalog and
+The output is research/control data only. It is not a game-native catalog and
 is not sufficient by itself to declare a Generation III battle sprite final.
 """
 
@@ -17,6 +17,7 @@ import csv
 import hashlib
 import json
 import re
+from collections import Counter
 from pathlib import Path
 
 SOURCE_REPO = "freedom12/PokemonModelViewer"
@@ -47,6 +48,10 @@ def classify_animation_names(names: list[str]) -> dict[str, bool]:
 def load_json(path: Path) -> tuple[object, str]:
     data = path.read_bytes()
     return json.loads(data.decode("utf-8")), sha256_bytes(data)
+
+
+def int_or_none(value: object) -> int | None:
+    return value if isinstance(value, int) else None
 
 
 def build(config_root: Path, family: str, source_commit: str, out_dir: Path) -> None:
@@ -156,9 +161,26 @@ def build(config_root: Path, family: str, source_commit: str, out_dir: Path) -> 
         duplicate_resource_ids[rid] = duplicate_resource_ids.get(rid, 0) + 1
     duplicate_resource_ids = {k: v for k, v in duplicate_resource_ids.items() if v > 1}
 
+    form_index_counts = Counter(str(r["config_form_index"]) for r in rows)
+    variant_index_counts = Counter(str(r["config_variant_index"]) for r in rows)
+    roles_per_species = Counter(
+        int(r["species_number"]) for r in rows if isinstance(r["species_number"], int)
+    )
+    multi_resource_species = {str(k): v for k, v in sorted(roles_per_species.items()) if v > 1}
+    top_species_by_resource_roles = [
+        {"species_number": species, "resource_roles": count}
+        for species, count in sorted(roles_per_species.items(), key=lambda kv: (-kv[1], kv[0]))[:25]
+    ]
+    consistency_issue_rows = [str(r["resource_id"]) for r in rows if r["consistency_flags"]]
+    nonzero_form_rows = [r for r in rows if int_or_none(r["config_form_index"]) not in (None, 0)]
+    nonzero_variant_rows = [r for r in rows if int_or_none(r["config_variant_index"]) not in (None, 0)]
+
+    form_values = [x for x in (int_or_none(r["config_form_index"]) for r in rows) if x is not None]
+    variant_values = [x for x in (int_or_none(r["config_variant_index"]) for r in rows) if x is not None]
+
     tree_material = "\n".join(f"{name}\t{digest}" for name, digest in sorted(source_config_hashes)).encode("utf-8")
     summary = {
-        "schema_version": 1,
+        "schema_version": 2,
         "family": family,
         "source_repo": SOURCE_REPO,
         "source_commit": source_commit,
@@ -173,9 +195,24 @@ def build(config_root: Path, family: str, source_commit: str, out_dir: Path) -> 
         "resource_role_rows": len(rows),
         "unique_resource_ids": len({str(r["resource_id"]) for r in rows}),
         "duplicate_resource_ids": duplicate_resource_ids,
+        "species_with_multiple_resource_roles": len(multi_resource_species),
+        "multi_resource_species": multi_resource_species,
+        "top_species_by_resource_roles": top_species_by_resource_roles,
+        "config_form_index_counts": dict(sorted(form_index_counts.items(), key=lambda kv: int(kv[0]))),
+        "config_variant_index_counts": dict(sorted(variant_index_counts.items(), key=lambda kv: int(kv[0]))),
+        "rows_with_nonzero_config_form_index": len(nonzero_form_rows),
+        "rows_with_nonzero_config_variant_index": len(nonzero_variant_rows),
+        "max_config_form_index": max(form_values) if form_values else None,
+        "max_config_variant_index": max(variant_values) if variant_values else None,
+        "consistency_issue_count": len(consistency_issue_rows),
+        "consistency_issue_resource_ids": consistency_issue_rows,
         "rows_with_icons": sum(bool(r["icon_path"]) for r in rows),
+        "rows_with_default_wait": sum(bool(r["has_default_wait"]) for r in rows),
         "rows_with_battle_wait": sum(bool(r["has_battle_wait"]) for r in rows),
         "rows_with_attack": sum(bool(r["has_attack"]) for r in rows),
+        "rows_with_damage": sum(bool(r["has_damage"]) for r in rows),
+        "rows_with_eye_track": sum(bool(r["has_eye_track"]) for r in rows),
+        "rows_with_mouth_track": sum(bool(r["has_mouth_track"]) for r in rows),
         "total_animation_names": sum(int(r["animation_name_count"]) for r in rows),
         "total_animation_files": sum(int(r["animation_file_count"]) for r in rows),
         "semantic_warning": (
