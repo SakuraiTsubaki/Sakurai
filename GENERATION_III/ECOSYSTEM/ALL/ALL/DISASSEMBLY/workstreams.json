@@ -1,0 +1,78 @@
+{
+  "program": "Pokemon Generation III full ecosystem disassembly",
+  "phase": "phase_1",
+  "policy": {
+    "source_media": "local_only",
+    "github": "no ROM/disc/firmware/event dump binaries",
+    "regions_languages_revisions": "keep distinct until equivalence is demonstrated",
+    "unknowns": "record as pending; never convert unverified absence into none"
+  },
+  "workstreams": [
+    {
+      "id": "gba-core",
+      "targets": ["Ruby", "Sapphire", "Emerald", "FireRed", "LeafGreen"],
+      "architecture": "ARM7TDMI",
+      "tasks": ["target/revision inventory", "ROM address map", "ARM/Thumb boundary recovery", "data/script/asset classification", "symbolization", "matching verification"],
+      "status": "active",
+      "location": "dedicated repositories"
+    },
+    {
+      "id": "gamecube-colosseum-xd",
+      "targets": ["Pokemon Colosseum", "Pokemon XD: Gale of Darkness"],
+      "architecture": "PowerPC/Gekko",
+      "tasks": ["disc/revision inventory", "filesystem map", "DOL/REL/module inventory where applicable", "code/data boundary recovery", "scripts/assets/save structures", "GBA link routines"],
+      "status": "active",
+      "location": "central workspace until dedicated repositories exist"
+    },
+    {
+      "id": "gamecube-box-channel",
+      "targets": ["Pokemon Box Ruby & Sapphire", "Pokemon Channel"],
+      "architecture": "PowerPC/Gekko",
+      "tasks": ["disc/revision inventory", "filesystem/executable map", "save and memory-card structures", "GBA link/distribution routines", "regional differences"],
+      "status": "active",
+      "location": "central workspace until dedicated repositories exist"
+    },
+    {
+      "id": "ereader-ecard",
+      "targets": ["Nintendo e-Reader", "official e-Cards/e-Card payloads"],
+      "tasks": ["hardware/software revision inventory", "card set inventory", "dot-code/payload container mapping", "trainer/event/script payload recovery", "region feature differences", "title-side handlers"],
+      "status": "active"
+    },
+    {
+      "id": "wireless-and-link",
+      "targets": ["GBA Wireless Adapter", "GameCube-GBA Link Cable", "Mystery Gift", "Mystery Event"],
+      "tasks": ["protocol state machines", "packet/frame structures", "title-side routines", "compatibility gates", "save flags and transfer state", "regional/revision differences"],
+      "status": "active"
+    },
+    {
+      "id": "distribution-media",
+      "targets": ["Bonus Discs", "official distribution discs", "official event cartridges", "official distribution devices"],
+      "tasks": ["media/revision inventory", "executable/container map", "payload catalog", "distribution protocol", "OT/ID/level/moves/ribbons/balls metadata", "region-specific deployment evidence"],
+      "status": "active"
+    },
+    {
+      "id": "event-payloads",
+      "targets": ["Eon Ticket", "AuroraTicket", "MysticTicket", "Old Sea Map", "other verified Gen III event payloads"],
+      "tasks": ["payload bytes/structures", "save/event flags", "map/script linkage", "transport method", "distribution history separation", "used vs data-only classification"],
+      "status": "active"
+    },
+    {
+      "id": "unused-dummy-debug",
+      "targets": ["all Generation III products and media"],
+      "tasks": ["unused code", "unused maps", "unused trainers/NPC/text", "dummy items/moves/species data", "unused graphics/audio", "debug/development residue", "unreachable event flags"],
+      "status": "active"
+    },
+    {
+      "id": "regional-revision-matrix",
+      "targets": ["all Generation III products and media"],
+      "tasks": ["JP/NA/PAL and other official region comparison", "language differences", "Rev 0/Rev 1 and later revision diffs", "bug/text/graphics/routine changes", "communication compatibility"],
+      "status": "active"
+    },
+    {
+      "id": "cross-ecosystem-integration",
+      "targets": ["GBA games", "GameCube games/software", "peripherals", "distribution media"],
+      "tasks": ["Pokemon transfer formats", "save/party/box structures", "trade/link compatibility", "special move provenance", "event provenance", "386-species acquisition graph"],
+      "status": "active"
+    }
+  ]
+}
