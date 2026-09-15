@@ -1,0 +1,9 @@
+{
+  "id": "example-research-control-record",
+  "origin_repository": "TBD",
+  "project_id": "TBD",
+  "target": {"game": "TBD", "release": "TBD", "revision": "TBD"},
+  "source": {"locator": "TBD", "sha256": null},
+  "relationship": {"tsubaki_record": "TBD", "type": "research-control-subset"},
+  "verification": {"level": "hypothesis", "notes": "Replace TBD fields with verified data."}
+}
