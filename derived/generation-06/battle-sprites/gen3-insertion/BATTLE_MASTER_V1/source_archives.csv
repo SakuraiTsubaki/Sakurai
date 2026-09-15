@@ -1,0 +1,5 @@
+generation,game,upstream_repository,archive_path,asset_class,evidence_status,identity_status,notes,source_reference
+6,X,PocketMonsters-X-Decompilation,a/0/0/7,pokemon-models,confirmed-public,unresolved-per-version,"Pokemon model archive; do not infer X/Y byte identity until hashes are available",https://projectpokemon.org/home/docs/gen-6/xy-file-system-r89/
+6,Y,PocketMonsters-Y-Decompilation,a/0/0/7,pokemon-models,confirmed-public,unresolved-per-version,"Pokemon model archive; do not infer X/Y byte identity until hashes are available",https://projectpokemon.org/home/docs/gen-6/xy-file-system-r89/
+6,OmegaRuby,PocketMonsters-OmegaRuby-Decompilation,a/0/0/8,pokemon-models,confirmed-public,unresolved-per-version,"Pokemon model archive; member-level model/normal-texture/shiny-texture/animation mapping still requires verification",https://projectpokemon.org/home/docs/gen-6/oras-file-system-r32/
+6,AlphaSapphire,PocketMonsters-AlphaSapphire-Decompilation,a/0/0/8,pokemon-models,confirmed-public,unresolved-per-version,"Pokemon model archive; do not infer OR/AS byte identity until hashes are available",https://projectpokemon.org/home/docs/gen-6/oras-file-system-r32/
