@@ -1,0 +1,30 @@
+{
+  "updated": "2026-09-16",
+  "phase": "phase_1",
+  "targets": {
+    "pokemon_ruby": {"workspace": "SakuraiTsubaki/PocketMonsters-Ruby-Disassembly", "status": "active", "source_media": "local_only", "next": "revision inventory and full ROM map"},
+    "pokemon_sapphire": {"workspace": "SakuraiTsubaki/PocketMonsters-Sapphire-Disassembly", "status": "active", "source_media": "local_only", "next": "revision inventory and full ROM map"},
+    "pokemon_emerald": {"workspace": "SakuraiTsubaki/PocketMonsters-Emerald-Disassembly", "status": "active", "source_media": "local_only", "next": "revision inventory and full ROM map"},
+    "pokemon_firered": {"workspace": "SakuraiTsubaki/PocketMonsters-FireRed-Disassembly", "status": "active", "source_media": "local_only", "next": "revision inventory and full ROM map"},
+    "pokemon_leafgreen": {"workspace": "SakuraiTsubaki/PocketMonsters-LeafGreen-Disassembly", "status": "active", "source_media": "local_only", "next": "revision inventory and full ROM map"},
+    "pokemon_colosseum": {"workspace": "central", "dedicated_repository_found": false, "status": "active_source_required", "source_media": "local_only", "next": "disc/revision inventory and filesystem/executable map"},
+    "pokemon_xd": {"workspace": "central", "dedicated_repository_found": false, "status": "active_source_required", "source_media": "local_only", "next": "disc/revision inventory and filesystem/executable map"},
+    "pokemon_box": {"workspace": "central", "dedicated_repository_found": false, "status": "active_source_required", "source_media": "local_only", "next": "disc/revision inventory plus save/GBA-link map"},
+    "pokemon_channel": {"workspace": "central", "dedicated_repository_found": false, "status": "active_source_required", "source_media": "local_only", "next": "distribution/link-relevant executable and regional inventory"},
+    "nintendo_e_reader": {"workspace": "central", "status": "active", "source_media": "local_only", "next": "hardware/software/card-format inventory"},
+    "e_card_payloads": {"workspace": "central", "status": "active", "source_media": "local_only", "next": "official card set and payload format inventory"},
+    "gba_wireless_adapter": {"workspace": "central", "status": "active", "source_media": "local_only_when_binary_evidence_exists", "next": "protocol and title-side routine map"},
+    "gamecube_gba_link": {"workspace": "central", "status": "active", "source_media": "n/a_for_cable", "next": "both-side protocol state map"},
+    "bonus_and_distribution_discs": {"workspace": "central", "status": "active_source_required", "source_media": "local_only", "next": "disc/revision/payload inventory"},
+    "event_cartridges_and_devices": {"workspace": "central", "status": "active_source_required", "source_media": "local_only", "next": "device/cartridge revision and payload inventory"},
+    "mystery_event": {"workspace": "central", "status": "active", "next": "per-title/per-region handler and save-flag map"},
+    "mystery_gift": {"workspace": "central", "status": "active", "next": "per-title/per-region wireless/event handler map"},
+    "eon_ticket": {"workspace": "central", "status": "active", "next": "payload/flag/transport variants"},
+    "aurora_ticket": {"workspace": "central", "status": "active", "next": "payload/flag/distribution variants"},
+    "mystic_ticket": {"workspace": "central", "status": "active", "next": "payload/flag/distribution variants"},
+    "old_sea_map": {"workspace": "central", "status": "active", "next": "Japan payload/flag/distribution evidence"},
+    "unused_dummy_debug": {"workspace": "cross_target", "status": "active", "next": "classify unreachable and unused code/data per revision"},
+    "regional_revision_diffs": {"workspace": "cross_target", "status": "active", "next": "build region/language/revision binary-diff matrix"},
+    "cross_ecosystem_interoperability": {"workspace": "cross_target", "status": "active", "next": "build GBA/GameCube/peripheral compatibility and transfer graph"}
+  }
+}
