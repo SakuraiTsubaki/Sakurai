@@ -1,0 +1,89 @@
+name: Gen IX battle master public census
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'derived/generation-09/to-generation-03/battle-sprites/BATTLE_MASTER_V1/tools/build_public_model_role_census.py'
+      - '.github/workflows/gen9-battle-master-public-census.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build-public-model-role-census:
+    runs-on: ubuntu-latest
+    env:
+      PMV_REPO: https://github.com/freedom12/PokemonModelViewer.git
+      PMV_COMMIT: c5952930343748e6dcb4cae21ee383e0bd13b75c
+      MASTER_ROOT: derived/generation-09/to-generation-03/battle-sprites/BATTLE_MASTER_V1
+    steps:
+      - name: Checkout Sakurai
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sparse-checkout pinned public model-viewer configs
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/PokemonModelViewer
+          git clone --filter=blob:none --no-checkout "$PMV_REPO" /tmp/PokemonModelViewer
+          cd /tmp/PokemonModelViewer
+          git sparse-checkout init --cone
+          git sparse-checkout set assets/local/configs/SCVI assets/local/configs/LZA
+          git checkout --detach "$PMV_COMMIT"
+          test "$(git rev-parse HEAD)" = "$PMV_COMMIT"
+
+      - name: Build Scarlet/Violet public model-role census
+        shell: bash
+        run: |
+          set -euo pipefail
+          python "$MASTER_ROOT/tools/build_public_model_role_census.py" \
+            --config-root /tmp/PokemonModelViewer/assets/local/configs/SCVI \
+            --family SCVI \
+            --source-commit "$PMV_COMMIT" \
+            --out-dir "$MASTER_ROOT/generated/public-model-role-census"
+
+      - name: Build Legends Z-A public model-role census
+        shell: bash
+        run: |
+          set -euo pipefail
+          python "$MASTER_ROOT/tools/build_public_model_role_census.py" \
+            --config-root /tmp/PokemonModelViewer/assets/local/configs/LZA \
+            --family LZA \
+            --source-commit "$PMV_COMMIT" \
+            --out-dir "$MASTER_ROOT/generated/public-model-role-census"
+
+      - name: Validate census summaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path('derived/generation-09/to-generation-03/battle-sprites/BATTLE_MASTER_V1/generated/public-model-role-census')
+          for family in ('SCVI', 'LZA'):
+              p = root / f'{family}_PUBLIC_MODEL_ROLE_SUMMARY.json'
+              data = json.loads(p.read_text(encoding='utf-8'))
+              assert data['resource_role_rows'] > 0, data
+              assert data['pokemon_ids_with_config'] > 0, data
+              assert data['missing_config_count'] == 0, data
+              assert data['unique_resource_ids'] > 0, data
+              print(f"{family}: species={data['species_with_resource_rows']} roles={data['resource_role_rows']} animations={data['total_animation_names']}")
+          PY
+
+      - name: Commit refreshed generated census
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add "$MASTER_ROOT/generated/public-model-role-census"
+          if git diff --cached --quiet; then
+            echo 'No census changes.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Generate Gen IX public model-role census'
+          git push
