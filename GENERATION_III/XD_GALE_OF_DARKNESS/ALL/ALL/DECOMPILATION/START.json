@@ -1,9 +1,0 @@
-{
-  "schema_version": 1,
-  "product": "Pokemon XD: Gale of Darkness",
-  "platform": "Nintendo GameCube",
-  "status": "phase_1_active_source_media_required",
-  "source_media": "local_only",
-  "baseline_tool": "GENERATION_III/ECOSYSTEM/ALL/ALL/DECOMPILATION/tools/gc_baseline.py",
-  "active_tracks": ["disc_identity_revision", "powerpc_dol", "fst_filesystem", "orre_maps", "shadow_pokemon", "snag_system", "purification_chamber", "trainers_npcs", "battle_system", "items_moves_special_moves", "graphics", "audio", "text", "memory_card_save", "gba_trade_link", "regional_revision_diffs", "unused_dummy_debug", "rebuild_match"]
-}

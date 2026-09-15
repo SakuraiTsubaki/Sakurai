@@ -1,9 +1,0 @@
-{
-  "schema_version": 1,
-  "product": "Pokemon FireRed",
-  "platform": "Game Boy Advance",
-  "status": "phase_1_active",
-  "decompilation_repository": "SakuraiTsubaki/PocketMonsters-FireRed-Decompilation",
-  "source_media": "local_only",
-  "active_tracks": ["identity_and_revision", "arm_thumb_code", "data_tables", "kanto_maps", "sevii_islands", "scripts_events", "pokemon_trainers_npcs", "moves_abilities_natures_items", "battle_field", "graphics", "audio", "text", "save", "national_dex_unlock", "communications", "wireless_adapter_and_mystery_gift", "unused_dummy_debug", "bugs", "regional_revision_diffs", "rebuild_match"]
-}

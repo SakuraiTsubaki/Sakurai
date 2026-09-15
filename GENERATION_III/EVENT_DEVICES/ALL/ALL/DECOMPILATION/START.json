@@ -1,9 +1,0 @@
-{
-  "schema_version": 1,
-  "product": "Official Generation III Event Cartridges and Distribution Devices",
-  "platform": "GBA and mixed official distribution hardware",
-  "status": "phase_1_active_source_required",
-  "source_media": "local_only",
-  "payload_tool": "GENERATION_III/ECOSYSTEM/ALL/ALL/DECOMPILATION/tools/payload_baseline.py",
-  "active_tracks": ["device_and_cartridge_inventory", "region_language_revision", "host_code", "recipient_validation", "payload_format", "pokemon_generation", "ticket_event_generation", "save_mutation", "anti_repeat_logic", "transport", "metadata", "unused_payloads_or_handlers"]
-}

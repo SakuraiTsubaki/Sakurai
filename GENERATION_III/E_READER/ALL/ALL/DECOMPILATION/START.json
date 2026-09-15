@@ -1,9 +1,0 @@
-{
-  "schema_version": 1,
-  "product": "Nintendo e-Reader / Pokemon e-Cards",
-  "platform": "Game Boy Advance peripheral",
-  "status": "phase_1_active",
-  "source_media": "local_only",
-  "payload_tool": "GENERATION_III/ECOSYSTEM/ALL/ALL/DECOMPILATION/tools/payload_baseline.py",
-  "active_tracks": ["hardware_software_identity", "card_set_inventory", "card_encoding", "dotcode_scan_reconstruction", "payload_format", "trainer_data", "battle_data", "items_events_decorations_minigames", "gba_transfer_protocol", "save_script_insertion", "japan_vs_overseas_support", "unused_or_inaccessible_card_data", "regional_revision_diffs"]
-}
