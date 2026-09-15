@@ -1,70 +1,99 @@
 # Generation VIII Decompilation — Master Tracker
 
-This document tracks the active Generation VIII source-reconstruction effort across the five canonical game repositories. It is an index and research-control document; each game repository remains canonical for its own reconstructed source, manifests, tools, and verification evidence.
+This document tracks the active **Generation VIII-wide** source-reconstruction and data-census program. Each game repository remains canonical for its own reconstructed source, manifests, tools, and verification evidence; `Sakurai` is the cross-title research-control index and `Tsubaki` is the non-ROM asset workspace.
 
-## Active targets
+## Active canonical targets
 
-| Target | Canonical repository | Current stage | Immediate gate |
-| --- | --- | --- | --- |
-| Pokémon Sword | `SakuraiTsubaki/PocketMonsters-Sword-Decompilation` | Phase 0 — target intake | Verified local base/update/DLC inventory |
-| Pokémon Shield | `SakuraiTsubaki/PocketMonsters-Shield-Decompilation` | Phase 0 — target intake | Verified local base/update/DLC inventory |
-| Pokémon Brilliant Diamond | `SakuraiTsubaki/PocketMonsters-BrilliantDiamond-Decompilation` | Phase 0 — target intake | Verified local base/update inventory |
-| Pokémon Shining Pearl | `SakuraiTsubaki/PocketMonsters-ShiningPearl-Decompilation` | Phase 0 — target intake | Verified local base/update inventory |
-| Pokémon Legends: Arceus | `SakuraiTsubaki/PokemonLegends-Arceus-Decompilation` | Phase 0 — target intake | Verified local base/update revision inventory |
+| Target | Canonical repository | Current stage | Full-scope epic | Immediate gate |
+| --- | --- | --- | --- | --- |
+| Pokémon Sword | `SakuraiTsubaki/PocketMonsters-Sword-Decompilation` | Phase 0 — target intake | #1 | Verified local base/update/DLC inventory |
+| Pokémon Shield | `SakuraiTsubaki/PocketMonsters-Shield-Decompilation` | Phase 0 — target intake | #1 | Verified local base/update/DLC inventory |
+| Pokémon Brilliant Diamond | `SakuraiTsubaki/PocketMonsters-BrilliantDiamond-Decompilation` | Phase 0 — target intake | #1 | Verified local base/update inventory |
+| Pokémon Shining Pearl | `SakuraiTsubaki/PocketMonsters-ShiningPearl-Decompilation` | Phase 0 — target intake | #1 | Verified local base/update inventory |
+| Pokémon Legends: Arceus | `SakuraiTsubaki/PokemonLegends-Arceus-Decompilation` | Phase 0 — target intake | #1 | Verified local base/update revision inventory |
 
-## Generation VIII scope
+## Generation VIII program scope
 
-The active decompilation program covers:
+The active program covers all of the following, without reducing the generation to Sword alone or to a representative subset:
 
 - Pokémon Sword and Pokémon Shield;
 - The Isle of Armor and The Crown Tundra as distinct Expansion Pass content targets;
-- Pokémon Brilliant Diamond and Pokémon Shining Pearl as independent remake targets;
-- Pokémon Legends: Arceus as an independent system/runtime/data target;
-- update/revision differences, version-exclusive code/data/assets, and direct Pokémon HOME or save-link behavior when it is represented in the target games.
+- Pokémon Brilliant Diamond and Pokémon Shining Pearl as independent Generation VIII remake targets;
+- Pokémon Legends: Arceus as an independent runtime/data/system target;
+- every materially relevant base/update/revision difference;
+- version-exclusive code, data, encounters, trainers, scripts, text and assets;
+- Pokémon, forms, stats, evolution, encounters, raids, research tasks and game-specific parameters;
+- every move, ability, item and battle-system record by title/revision;
+- every map/subarea/interior and world-connectivity record;
+- every character, trainer, NPC, battle-team variant, script, event, quest/request and progression state;
+- UI, localization, models, textures, animations, VFX, audio and other non-ROM assets;
+- Pokémon HOME-facing game behavior, save-data linkage, local/online communication, Mystery Gift and official distribution hooks represented by the games;
+- official distributions and event-table overrides;
+- patch history, fixed/unfixed bugs, translation/data/display errors;
+- unused/dummy/debug/deleted shipped data and development traces with evidence grading;
+- reproducible extraction, conversion, reconstruction and verification tooling.
 
-The five projects are developed in parallel. Sword is not a master implementation for Shield, BDSP, or PLA.
+## Active cross-title epics in Sakurai
 
-## Shared Phase 0 contract
+- **#122 — Full decompilation program master epic:** whole-generation control checklist.
+- **#123 — Connected systems:** HOME, save linkage, online/local behavior, distributions and patch-facing integration.
+- **#124 — Official distributions/event-data census:** exhaustive Generation VIII gift/event corpus.
+- **#126 — Version/patch/unused-data/bug census:** historical revision preservation and edge-data research.
+- **#127 — Complete data census:** Pokémon, moves, items, maps, trainers, scripts and text.
+- **#128 — Official-source linked-bonus/HOME baseline:** official-reference facts awaiting local-game verification.
+- **#129 — Maps/world connectivity census:** complete map/subarea/connectivity reconstruction.
+- **#131 — Characters/trainers/NPCs census:** every actor and every distinct battle-team/state variant.
+- **#133 — Moves/abilities/items/battle systems:** complete title-specific mechanical parameter census.
 
-Each canonical repository now uses the same evidence contract:
+## Asset program
 
-1. retail game images, complete redistributed game binaries, and console keys remain outside Git;
-2. local extracted trees are inventoried by relative path, size, and SHA-256;
-3. external title IDs, update histories, and public build identifiers are `reference_only` until independently matched to local material;
-4. ExeFS and RomFS structure is recorded from observed files before semantic interpretation;
-5. reconstructed source/data advances through `Unverified -> Observed -> Reproduced -> Matched`;
-6. cross-version deduplication requires byte/hash evidence.
+`SakuraiTsubaki/Tsubaki` issue **#103** tracks full Generation VIII non-ROM asset extraction/reconstruction: models, textures, animations, VFX, map/environment resources, UI/icons/fonts, audio, materials/shaders, update/DLC variants and evidenced unused assets.
 
-## Pairwise / cross-title rules
+Asset deduplication requires byte/hash or equivalent structural evidence; visually identical material is not assumed identical. Provenance remains attached to every title/revision that uses a shared asset.
+
+## Official connected-systems baseline
+
+`docs/GENERATION_VIII_CONNECTED_SYSTEMS_BASELINE.md` records current official-reference facts for HOME compatibility, HOME move handling, BDSP save-record bonuses, PLA save-record bonuses, PLA-linked BDSP distribution behavior, and revision-sensitive Daybreak content. These remain `Reference only` until matched to local game material.
+
+## Shared Phase 0 evidence contract
+
+1. Retail game images, complete redistributed game binaries and console keys remain outside Git.
+2. Local extracted trees are inventoried by relative path, size and SHA-256.
+3. External title IDs, update histories, public build identifiers and official web behavior are `Reference only` until independently matched to local material.
+4. ExeFS and RomFS structure is recorded from observed files before semantic interpretation.
+5. Reconstructed source/data advances through `Unverified -> Reference only/Observed -> Reproduced -> Matched` as appropriate.
+6. Cross-version and cross-title deduplication requires byte/hash or equivalent evidence.
+7. Unknown offsets, paths, field names, symbols or internal types stay unknown rather than being guessed.
+
+## Cross-title rules
 
 ### Sword / Shield
 
-Map both independently first. Compare matching revisions only after target identity is established. Preserve version-exclusive encounters, trainers, text, events, assets, executable differences, and Expansion Pass conditions.
+Map both independently first. Compare only matching identified revisions. Preserve version-exclusive gyms, encounters, trainers, text, events, assets, executable differences and Expansion Pass conditions. Isle of Armor and Crown Tundra remain large independent content tracks inside the paired projects.
 
 ### Brilliant Diamond / Shining Pearl
 
-Map both independently first. The Nintendo DS Diamond/Pearl/Platinum games are comparison references, not assumed implementation templates. Base versus update content must also be preserved because major functionality shipped through updates.
+Map both independently first. Original Nintendo DS Diamond/Pearl/Platinum are comparison references, not assumed implementation templates. Base-versus-update state is preserved because substantial content and functionality changed through updates.
 
 ### Pokémon Legends: Arceus
 
-Keep PLA independent. Do not project conventional Sword/Shield or BDSP subsystem boundaries onto it. Field capture, research tasks, Strong/Agile Style, action order, Alpha Pokémon, space-time distortions, mass outbreaks, Massive Mass Outbreaks, rides, crafting, and mission/request systems become separate tracks only after their underlying code/data boundaries are observed.
+Keep PLA independent. Do not project Sword/Shield or BDSP subsystem boundaries onto it. Field capture, wild behavior, research tasks, Strong/Agile Style, action order, Effort Levels, Alpha Pokémon, outbreaks, Massive Mass Outbreaks, space-time distortions, rides, crafting, missions and requests are independent analysis tracks.
 
-## Immediate analysis order
+## Immediate execution order
 
-1. Acquire or locate lawful local extractions for each target.
-2. Run each repository's `tools/hash_tree.py` against the selected extraction.
-3. Commit sanitized metadata manifests only; never commit complete game dumps or keys.
-4. Build exact ExeFS inventories and executable section maps.
-5. Build exact RomFS inventories and base/update/dlc difference maps.
-6. Select one small, deterministic reconstruction candidate per title.
-7. Expand subsystem-by-subsystem while continuously recording revision differences.
+1. Locate lawful local extractions for every exact target/revision.
+2. Run each repository's `tools/hash_tree.py` and record sanitized target identity.
+3. Build complete ExeFS inventories and executable/metadata maps.
+4. Build complete RomFS inventories and base/update/DLC/version difference maps.
+5. Populate the parallel content censuses while executable mapping proceeds.
+6. Select one bounded reconstruction candidate per title with an explicit verification method.
+7. Expand subsystem-by-subsystem and keep every revision/title distinction intact.
+8. Extract/reconstruct non-ROM assets into Tsubaki with exact provenance and deduplication evidence.
+9. Reconcile official web/archive references with actual game-side flags/tables/scripts/files.
+10. Continue until every listed workstream has exhaustive coverage or an explicitly evidenced terminal status.
 
-## Current input availability
+## Current hard gate
 
-No Generation VIII ExeFS/RomFS extraction is currently present in the connected File Library. Therefore executable offsets, internal field names, and filesystem paths that have not been directly observed remain intentionally unfilled rather than guessed.
+No Generation VIII ExeFS/RomFS extraction is currently present in the connected File Library. Therefore executable offsets, Build IDs, internal field names and filesystem paths that have not been directly observed remain intentionally unfilled rather than guessed.
 
-## Repository artifacts established
-
-All five canonical repositories now have an active decompilation start workflow. Sword, Shield, Brilliant Diamond, Shining Pearl, and Pokémon Legends: Arceus have active analysis queues; the non-Sword repositories have deterministic local-tree hashing and game-specific target manifests, while Sword already had those artifacts from its initial Phase 0 commit.
-
-Update this tracker whenever a title advances from target intake to executable mapping, bounded reconstruction, or exact matching.
+The program itself is active now: all five canonical game repositories, the connected-systems research tracks, the complete data/map/character/mechanics censuses, distribution/history research, and the Tsubaki asset pipeline have been opened in parallel.
