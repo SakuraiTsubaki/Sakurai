@@ -1,9 +1,0 @@
-file,target_id,game_code,software_version,family,function,file_offset,runtime_address,size,sha256
-Pokemon - Versione Zaffiro (Italy).gba,ITA-AXPI-v0,AXPI,0,extended_european,FreeAllSpritePalettes,0x000026FC,0x080026FC,56,7c46aaf8dc95ae227f20af40e66b614a919db4ebc4e7031464c28adfe103a856
-Pokemon - Versione Zaffiro (Italy).gba,ITA-AXPI-v0,AXPI,0,extended_european,LoadSpritePalette,0x00002734,0x08002734,76,aa0fb947cd91aeeaa4a334244a3bc67b944bcedabc96f3fb448fc7d541c41156
-Pokemon - Versione Zaffiro (Italy).gba,ITA-AXPI-v0,AXPI,0,extended_european,LoadSpritePalettes,0x00002780,0x08002780,44,dd5cd801873565d68cd5fd0555c44d926a58e862b1309d9b242b900dcf71a1e4
-Pokemon - Versione Zaffiro (Italy).gba,ITA-AXPI-v0,AXPI,0,extended_european,DoLoadSpritePalette,0x000027AC,0x080027AC,24,9b349c16bee0eb8aa27ceffef60900eb7b660b812293bdac5aaf00fb1d536824
-Pokemon - Versione Zaffiro (Italy).gba,ITA-AXPI-v0,AXPI,0,extended_european,AllocSpritePalette,0x000027C4,0x080027C4,48,2275e88a87c6ef480641ed1aea6a376b1283531803d604a25b67bbdc8a80305e
-Pokemon - Versione Zaffiro (Italy).gba,ITA-AXPI-v0,AXPI,0,extended_european,IndexOfSpritePaletteTag,0x000027F4,0x080027F4,56,07019a3fb24f35d200ac42db4bd8db226f7004557108830aec1997855e7acf09
-Pokemon - Versione Zaffiro (Italy).gba,ITA-AXPI-v0,AXPI,0,extended_european,GetSpritePaletteTagByPaletteNum,0x0000282C,0x0800282C,16,0122f8423d200c9b348d5507da393b9daa0294ecf49771c251da71117e971ccd
-Pokemon - Versione Zaffiro (Italy).gba,ITA-AXPI-v0,AXPI,0,extended_european,FreeSpritePaletteByTag,0x0000283C,0x0800283C,40,3d077d509c38845fb27b3db7507dc3ec9622c2ef9d5932a398c8b4192e68b2de

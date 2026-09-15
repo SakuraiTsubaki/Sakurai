@@ -1,9 +1,0 @@
-file,target_id,game_code,software_version,family,function,file_offset,runtime_address,size,sha256
-Pocket Monsters - Sapphire (Japan).gba,JPN-AXPJ-v0,AXPJ,0,jp,FreeAllSpritePalettes,0x000024E4,0x080024E4,56,a9a5523e2b0f4385ca01ca40a237413d437948d7e8e8ed9c19cb385f03befcf8
-Pocket Monsters - Sapphire (Japan).gba,JPN-AXPJ-v0,AXPJ,0,jp,LoadSpritePalette,0x0000251C,0x0800251C,76,76eda1193e3a38c4cc855cccd74d84c8a17d69cb55524fb21786753cafe98fa4
-Pocket Monsters - Sapphire (Japan).gba,JPN-AXPJ-v0,AXPJ,0,jp,LoadSpritePalettes,0x00002568,0x08002568,44,9a3bca2f5fa8775e15c9d38f82d38168e6c036d9038f25abc6f46109cc89e4c2
-Pocket Monsters - Sapphire (Japan).gba,JPN-AXPJ-v0,AXPJ,0,jp,DoLoadSpritePalette,0x00002594,0x08002594,24,a728a863cecf6e3cf45fcc589c4c68ef414b5b5c89c123d010e9e550a4825cab
-Pocket Monsters - Sapphire (Japan).gba,JPN-AXPJ-v0,AXPJ,0,jp,AllocSpritePalette,0x000025AC,0x080025AC,48,9fb2e1425aceb035538004dd9493f6195a92bd85b6b48ab4a34683c91ca90a5c
-Pocket Monsters - Sapphire (Japan).gba,JPN-AXPJ-v0,AXPJ,0,jp,IndexOfSpritePaletteTag,0x000025DC,0x080025DC,56,5f4586b33b5c87e6b32071d5db6b3dc3987ac41afa00dc52aab9207a41eaa42c
-Pocket Monsters - Sapphire (Japan).gba,JPN-AXPJ-v0,AXPJ,0,jp,GetSpritePaletteTagByPaletteNum,0x00002614,0x08002614,16,ac7595eb8fe4ffea206339b56368e0cc90997c06fe0df8c2c31daa3205d75f2e
-Pocket Monsters - Sapphire (Japan).gba,JPN-AXPJ-v0,AXPJ,0,jp,FreeSpritePaletteByTag,0x00002624,0x08002624,40,ff657c3a57fff2534f1c8aad3a73d0751945a8144752f40d641b2e135b1fcfcb

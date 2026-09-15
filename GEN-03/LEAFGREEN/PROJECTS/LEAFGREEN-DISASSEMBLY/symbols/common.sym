@@ -1,4 +1,0 @@
-# Confirmed common startup symbols (GBA ROM address space)
-08000204 start_vector
-08000248 intr_main
-080003A4 AgbMain

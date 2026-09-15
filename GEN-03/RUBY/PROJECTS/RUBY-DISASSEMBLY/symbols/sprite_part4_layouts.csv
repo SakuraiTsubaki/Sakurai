@@ -1,7 +1,0 @@
-layout,symbol,relative_offset,size
-japanese,SetSubspriteTables,0x0,12
-japanese,AddSpriteToOamBuffer,0xC,108
-japanese,AddSubspritesToOamBuffer,0x78,548
-international,SetSubspriteTables,0x0,12
-international,AddSpriteToOamBuffer,0xC,108
-international,AddSubspritesToOamBuffer,0x78,516
