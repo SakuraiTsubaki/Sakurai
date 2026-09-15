@@ -2,7 +2,7 @@
 
 Research date: **2026-09-15**
 
-Status: **Phase 1 in progress — public-source census, no local retail ROM/game dump required**
+Status: **Phase 1 technical census established; Phase 2 public role census complete for pinned source; native catalog crosswalk continues**
 
 This census records candidate sources for reconstructing Generation IX Pokémon battle visuals for Generation III conversion. A source appearing here does not automatically make it canonical. Canonical selection is performed per logical sprite role and must be recorded in the manifest.
 
@@ -64,9 +64,13 @@ Public `GameFileMapping.cs` currently maps both Generation IX families to:
 - `arc/data.trpfd`
 - `arc/data.trpfs`
 
-This is useful as independent technical evidence that Scarlet/Violet and Z-A expose a Trinity-style resource-container baseline in public reverse-engineering tooling.
+The older Legends: Arceus `PokeResourceTable` implementation also provides an explicit Trinity resource naming mapping:
 
-Verification state: **public technical source; exact game-version resource inventory still incomplete**.
+`pm{species:0000}_{gender:00}_{form:00}`
+
+This is confirmed as a tool mapping for Legends: Arceus and used only as continuity evidence for Generation IX until native Generation IX rows are observed.
+
+Verification state: **public technical source; exact Generation IX game-version resource inventory remains incomplete**.
 
 ### GFTool
 
@@ -88,20 +92,94 @@ Verification state: **public reverse-engineering implementation; member-by-membe
 
 Source: `https://github.com/KotMatrosk1n/KM-Editor`
 
-Public project scope includes Scarlet, Violet, and LEGENDS Z-A and exposes 3D model inspection/editing workflows across supported games. It is useful for:
+Public project scope includes Scarlet, Violet, and LEGENDS Z-A and exposes 3D model inspection/editing workflows across supported games.
 
-- model availability cross-checks
-- texture/material handling evidence
-- animation support/limitations
-- game-specific Pokémon data references
+Verified useful evidence includes:
+
+- Scarlet/Violet catalog: `pokemon/catalog/catalog/poke_resource_table.trpmcatalog`
+- Scarlet/Violet model namespace: `pokemon/data/`
+- Z-A catalog: `ik_pokemon/catalog/catalog/poke_resource_table.trpmcatalog`
+- Z-A model namespace: `ik_pokemon/data/`
+- title-aware model/material/shiny handling
+- species/form/gender catalog projection
+- animation-resource handling
 
 Verification state: **public technical/modding source; bundled visual assets require per-file provenance/licensing review**.
 
+### sv2za
+
+Source: `https://github.com/Aqua-0/sv2za`
+
+This is currently one of the strongest semantic sources for Phase 2B because it:
+
+- parses both Scarlet/Violet and Z-A `poke_resource_table.trpmcatalog` files;
+- defines the native key as `(species:u16, form:u16, gender:u8)`;
+- retains `model_path`, material/config paths, animation and locator information;
+- directly pairs a parsed native key with `pm`, `pm_variant`, and `model_path`;
+- compares Scarlet/Violet and Z-A by native key;
+- provides `catalog_inspect` for row-level inspection when catalog bytes are supplied.
+
+Verification state: **strong public reverse-engineering implementation; no complete committed retail SV/Z-A decoded catalog dump located in the current public search pass**.
+
+### trpmcatalog-anvil / poke-dot
+
+Sources:
+
+- `https://github.com/TM-C0M8U570RZ/trpmcatalog-anvil`
+- `https://github.com/pkZukan/poke-dot`
+
+These independently reinforce Generation IX catalog paths and format/tooling, but the current searched source trees did not expose a complete decoded retail catalog row set.
+
 ## 4. Pokémon model-role evidence
+
+### Pinned PokemonModelViewer configuration corpus
+
+Source: `https://github.com/freedom12/PokemonModelViewer`
+
+Pinned commit:
+
+`c5952930343748e6dcb4cae21ee383e0bd13b75c`
+
+The repository's own generator mechanically scans Generation IX model directories named `pmXXXX_YY_ZZ` and emits per-ID configuration files with source-local fields named:
+
+- `formIndex = YY`
+- `variantIndex = ZZ`
+- icon path
+- animation-name/file inventory
+
+These labels are preserved exactly and are **not** assumed to equal native catalog `form` / `gender` fields.
+
+The deterministic project parser has exhaustively processed the pinned SCVI and LZA configuration trees.
+
+#### SCVI result
+
+- config IDs: **735**
+- complete config coverage: **735 / 735**
+- resource-role rows: **980**
+- unique resource IDs: **980**
+- IDs with multiple resource roles: **166**
+- animation names: **51,771**
+- animation-file references: **103,379**
+- parser consistency issues: **0**
+
+#### LZA result
+
+- config IDs: **366**
+- complete config coverage: **366 / 366**
+- resource-role rows: **590**
+- unique resource IDs: **590**
+- IDs with multiple resource roles: **142**
+- animation names: **41,790**
+- animation-file references: **83,580**
+- parser consistency issues: **0**
+
+Generated results are under `generated/public-model-role-census/`.
+
+Verification state: **exhaustive for this pinned secondary public configuration source; not equivalent to a retail native catalog dump**.
 
 ### Scarlet/Violet scene-data output
 
-Source: `https://gist.github.com/sora10pls`
+Source: public `sora10pls` scene-data output.
 
 The public Scarlet/Violet scene-data Pokémon model output records model-component fields including examples of:
 
@@ -116,6 +194,17 @@ The public Scarlet/Violet scene-data Pokémon model output records model-compone
 This is important because the Generation III conversion manifest must not collapse form/sex/shiny/model roles into a single species-level image.
 
 Verification state: **public extracted/reverse-engineered scene data; use as role-structure evidence, not as a replacement for model/texture bytes**.
+
+### Independent model preservation
+
+Public Scarlet/Violet model preservation provides asset-identity cross-checks, including:
+
+- Alolan Raichu: `pm0026_00_11`
+- Pikachu resource family including `pm0025_00_00`, `pm0025_01_00`, and `pm0025_11_00` through `pm0025_18_00`
+
+These examples prove that suffix axes must be preserved raw. They do not by themselves complete the native catalog crosswalk.
+
+Verification state: **secondary preserved-asset identity evidence**.
 
 ## 5. 2D image families — secondary evidence only
 
@@ -166,13 +255,28 @@ Each candidate gets one of these source classes:
 
 The highest available class is not blindly accepted: completeness, form correctness, pose, texture/material accuracy, update version, and reproducibility must also be checked.
 
-## 7. Required census axes per Pokémon logical role
+## 7. Native crosswalk evidence ladder
+
+Native-key/resource-path semantics use a separate state machine:
+
+- `CONFIRMED_NATIVE_ROW`
+- `CONFIRMED_TOOL_MAPPING`
+- `SUPPORTED_BY_ASSET_IDENTITY`
+- `INFERRED_FROM_CONTINUITY`
+- `CONFLICT`
+- `UNRESOLVED`
+
+The current strongest whole-family suffix hypothesis remains provisional. See `NATIVE_CATALOG_CROSSWALK.md`.
+
+## 8. Required census axes per Pokémon logical role
 
 The complete census must eventually account for every applicable combination of:
 
-- species/internal species id
-- form
-- sex/gender presentation
+- native species/internal species id
+- National Pokédex mapping where applicable
+- native form
+- native gender/catalog presentation field
+- interpreted sex/costume/presentation role
 - normal/shiny
 - Scarlet/Violet/Z-A game identity
 - update/revision
@@ -189,7 +293,7 @@ The complete census must eventually account for every applicable combination of:
 - source hash availability
 - canonical-source decision state
 
-## 8. Canonical-source decision states
+## 9. Canonical-source decision states
 
 Every role must be one of:
 
@@ -205,17 +309,19 @@ Every role must be one of:
 
 No role skips directly from `UNRESEARCHED` to `FINAL_VALIDATED`.
 
-## 9. Immediate research queue
+## 10. Current research queue
 
-1. Enumerate Scarlet/Violet Pokémon model/texture naming and archive/member conventions from public Trinity tooling/documentation.
-2. Enumerate Z-A model/texture naming and resource differences separately.
-3. Build the complete form/sex/shiny logical-role table for Scarlet/Violet.
-4. Build the complete form/sex/shiny/Mega logical-role table for Z-A.
-5. Reconcile DLC/update additions and changed visual resources.
-6. Establish reproducible model-render capture settings for front/back canonical review.
-7. Only after the above, begin Generation III 64×64 palette/index conversion candidates.
+1. Continue native catalog row search and semantic crosswalk (`Phase 2B`).
+2. Reconcile public `pmXXXX_YY_ZZ` roles against native `(species, form, gender)` without silently renaming suffix axes.
+3. Split Scarlet vs Violet update/DLC ownership where evidence differs.
+4. Complete Z-A Mega/form/presentation role mapping separately.
+5. Resolve normal/shiny material-table relationships per role.
+6. Establish reproducible front/back model-render capture settings and battle anchor/scale rules.
+7. Only after canonical source decisions, begin Generation III 64×64 indexed conversion candidates.
 
-## 10. Provisionality rule
+Search coverage and the current missing-native-dump limitation are recorded in `PUBLIC_NATIVE_CATALOG_SEARCH.md`.
+
+## 11. Provisionality rule
 
 Because the project currently has no local retail ROM/game dump, absence of direct game bytes does **not** stop work. It only changes the provenance status.
 
