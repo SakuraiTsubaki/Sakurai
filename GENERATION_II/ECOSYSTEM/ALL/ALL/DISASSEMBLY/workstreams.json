@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "generation": "II",
+  "status": "started",
+  "scope_rule": "track the complete Generation II ecosystem; do not reduce scope to Gold/Silver/Crystal story or representative examples",
+  "rom_policy": "original commercial ROM binaries stay outside GitHub; reconstructed source, analysis, manifests, tools, patches, and extracted/recreated assets may be tracked",
+  "canonical_core_targets": {
+    "Pocket Monsters Kin": {
+      "platform": "Game Boy Color",
+      "status": "disassembly_started_bank_00",
+      "repository": "SakuraiTsubaki/PocketMonsters-Kin-Disassembly",
+      "primary_baseline": "Japanese retail revisions kept separate"
+    },
+    "Pocket Monsters Gin": {
+      "platform": "Game Boy Color",
+      "status": "disassembly_started_bank_00",
+      "repository": "SakuraiTsubaki/PocketMonsters-Gin-Disassembly",
+      "primary_baseline": "Japanese retail revisions kept separate"
+    },
+    "Pocket Monsters Crystal Version": {
+      "platform": "Game Boy Color",
+      "status": "disassembly_started_bank_00",
+      "repository": "SakuraiTsubaki/PocketMonsters-Crystal-Disassembly",
+      "primary_baseline": "Japanese retail target; regional variants tracked separately"
+    }
+  },
+  "regional_language_targets": {
+    "japanese": "started",
+    "north_american_english": "started_inventory",
+    "european_languages": "started_inventory",
+    "korean_gold_silver": "started_inventory_and_structure_comparison",
+    "revision_matrix": "started"
+  },
+  "ecosystem_targets": {
+    "Generation_I_Time_Capsule_compatibility": "started_protocol_and_data_conversion_mapping",
+    "Mobile_System_GB_and_Pokemon_Communication_Center": "started_inventory_and_protocol_mapping",
+    "Mystery_Gift_and_infrared": "started_protocol_mapping",
+    "Pokemon_Stadium_2_connectivity": "started_interface_and_transfer_mapping",
+    "official_event_distributions": "started_inventory_and_payload_mapping",
+    "official_peripherals_and_region_specific_services": "started_inventory"
+  },
+  "cross_generation_ii_workstreams": {
+    "regions_languages_revisions": "started",
+    "rom_banks_sections_addresses_pointers": "started",
+    "executable_code": "started",
+    "data_structures": "started",
+    "save_and_sram_structures": "started",
+    "scripts_events_flags": "started",
+    "maps_tilesets_blocks_collision_warps": "started",
+    "pokemon_species_stats_evolution_breeding": "started",
+    "moves_move_effects_tm_hm": "started",
+    "items_held_items_apricorn_balls": "started",
+    "trainers_npcs_objects": "started",
+    "wild_encounters_fishing_headbutt_time_tables": "started",
+    "battle_system": "started",
+    "time_day_night_weekly_daily_systems": "started",
+    "pokegear_phone_radio": "started",
+    "breeding_eggs_friendship_gender": "started",
+    "communications_link_battle_trade_time_capsule": "started",
+    "graphics_sprites_tiles_fonts_palettes_animations": "started",
+    "audio_music_sfx_cries_radio_audio": "started",
+    "text_encoding_localization_ui": "started",
+    "pokedex_and_menu_ui": "started",
+    "external_distributions": "started",
+    "unused_dummy_debug_development_data": "started",
+    "bugs_glitches_and_revision_fixes": "started",
+    "generation_i_kanto_comparison": "started",
+    "crystal_vs_gold_silver_differences": "started",
+    "later_generation_comparison_separate_from_original": "started",
+    "rebuild_and_binary_match": "started"
+  }
+}
