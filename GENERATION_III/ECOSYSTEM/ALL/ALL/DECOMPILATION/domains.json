@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "generation": "III",
+  "status": "all_domains_started",
+  "domains": {
+    "games_and_software": "phase_1_active",
+    "regions_and_world_maps": "phase_1_active",
+    "pokemon_001_386": "phase_1_active",
+    "trainers": "phase_1_active",
+    "npcs": "phase_1_active",
+    "moves": "phase_1_active",
+    "abilities": "phase_1_active",
+    "natures": "phase_1_active",
+    "items": "phase_1_active",
+    "battle_systems": "phase_1_active",
+    "field_systems": "phase_1_active",
+    "contests_condition_pokeblocks": "phase_1_active",
+    "battle_facilities": "phase_1_active",
+    "events_ingame": "phase_1_active",
+    "events_external_distribution": "phase_1_active",
+    "communications": "phase_1_active",
+    "graphics": "phase_1_active",
+    "audio": "phase_1_active",
+    "text_and_localization": "phase_1_active",
+    "data_structures": "phase_1_active",
+    "save_structures": "phase_1_active",
+    "scripts": "phase_1_active",
+    "peripherals": "phase_1_active",
+    "external_linkage": "phase_1_active",
+    "unused_dummy_debug": "phase_1_active",
+    "bugs_and_glitches": "phase_1_active",
+    "regional_language_differences": "phase_1_active",
+    "revision_differences": "phase_1_active",
+    "rebuild_and_binary_matching": "phase_1_active"
+  },
+  "generation_specific_guards": [
+    "Physical/special move classification follows Generation III type-based rules.",
+    "Generation II cannot directly transfer Pokemon into Generation III.",
+    "Later-generation species/move/item/system values must not be backported into factual Generation III records.",
+    "GameCube titles and link software are core ecosystem targets, not optional side notes.",
+    "External-only and unused data remain first-class research targets."
+  ]
+}
