@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "product": "Pokemon Sapphire",
+  "platform": "Game Boy Advance",
+  "status": "phase_1_active",
+  "decompilation_repository": "SakuraiTsubaki/PocketMonsters-Sapphire-Decompilation",
+  "source_media": "local_only",
+  "active_tracks": ["identity_and_revision", "arm_thumb_code", "data_tables", "maps", "scripts_events", "pokemon_trainers_npcs", "moves_abilities_natures_items", "battle_field_contest", "graphics", "audio", "text", "save", "communications", "e_reader_and_mystery_event", "unused_dummy_debug", "bugs", "regional_revision_diffs", "rebuild_match"]
+}
