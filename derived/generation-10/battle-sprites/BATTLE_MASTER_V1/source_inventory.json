@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "master": "GENERATION-X-BATTLE_MASTER_V1",
   "research_date": "2026-09-15",
   "status": "pre-release-source-census",
@@ -24,19 +24,21 @@
       "official_url": "https://www.pokemon.co.jp/ex/winds_waves/images/image_101.png",
       "winds_path": "assets/public/jp/2026-02-27/pokemon/image_101.png",
       "waves_path": "assets/public/jp/2026-02-27/pokemon/image_101.png",
-      "winds_git_blob_sha1": "a2b4270c58cacf19451af54f435bb80d07ab344a",
-      "waves_git_blob_sha1": "a2b4270c58cacf19451af54f435bb80d07ab344a",
+      "tsubaki_path": "derived/generation-10/battle-sprites/BATTLE_MASTER_V1/source/jp/2026-02-27/image_101.png",
+      "git_blob_sha1": "a2b4270c58cacf19451af54f435bb80d07ab344a",
+      "sha256": "33909a123d2ea496873daeb4ffd6f1c07b0e7a25bc4fc52ea94bcff7e5be8e24",
       "byte_size": 397746,
-      "png_header": {
+      "png": {
         "width": 960,
         "height": 960,
-        "bit_depth": 8,
-        "color_type": 6,
-        "color_type_meaning": "RGBA truecolor with alpha"
+        "mode": "RGBA",
+        "alpha_bbox": [103, 53, 851, 891],
+        "transparent_pixels": 544395,
+        "partially_transparent_pixels": 52690,
+        "opaque_pixels": 324515,
+        "unique_rgba_colors": 13582
       },
-      "sha256": null,
-      "sha256_status": "pending-byte-level-hash",
-      "pixel_analysis_status": "pending-full-binary-inspection"
+      "pixel_analysis_status": "complete-for-current-public-source"
     },
     {
       "id": "GENX-JP-OFFICIAL-POKEMON-0002",
@@ -47,19 +49,21 @@
       "official_url": "https://www.pokemon.co.jp/ex/winds_waves/images/image_102.png",
       "winds_path": "assets/public/jp/2026-02-27/pokemon/image_102.png",
       "waves_path": "assets/public/jp/2026-02-27/pokemon/image_102.png",
-      "winds_git_blob_sha1": "2cd4ac1ef803b6dd55df72c961f664410119a589",
-      "waves_git_blob_sha1": "2cd4ac1ef803b6dd55df72c961f664410119a589",
+      "tsubaki_path": "derived/generation-10/battle-sprites/BATTLE_MASTER_V1/source/jp/2026-02-27/image_102.png",
+      "git_blob_sha1": "2cd4ac1ef803b6dd55df72c961f664410119a589",
+      "sha256": "6435b635e2dc6a8a6f256e946072894b01f9e27b452872f087a66acfc71508bb",
       "byte_size": 484717,
-      "png_header": {
+      "png": {
         "width": 960,
         "height": 960,
-        "bit_depth": 8,
-        "color_type": 6,
-        "color_type_meaning": "RGBA truecolor with alpha"
+        "mode": "RGBA",
+        "alpha_bbox": [53, 0, 883, 960],
+        "transparent_pixels": 381864,
+        "partially_transparent_pixels": 58567,
+        "opaque_pixels": 481169,
+        "unique_rgba_colors": 16575
       },
-      "sha256": null,
-      "sha256_status": "pending-byte-level-hash",
-      "pixel_analysis_status": "pending-full-binary-inspection"
+      "pixel_analysis_status": "complete-for-current-public-source"
     },
     {
       "id": "GENX-JP-OFFICIAL-POKEMON-0003",
@@ -70,19 +74,21 @@
       "official_url": "https://www.pokemon.co.jp/ex/winds_waves/images/image_103.png",
       "winds_path": "assets/public/jp/2026-02-27/pokemon/image_103.png",
       "waves_path": "assets/public/jp/2026-02-27/pokemon/image_103.png",
-      "winds_git_blob_sha1": "73363ae9c2a0b6090bc50f108618e82c6ca451fd",
-      "waves_git_blob_sha1": "73363ae9c2a0b6090bc50f108618e82c6ca451fd",
+      "tsubaki_path": "derived/generation-10/battle-sprites/BATTLE_MASTER_V1/source/jp/2026-02-27/image_103.png",
+      "git_blob_sha1": "73363ae9c2a0b6090bc50f108618e82c6ca451fd",
+      "sha256": "fc2493d2e9a3d94b2a62a2fca865178309afd04016dbd697bc92f67835bc4cd3",
       "byte_size": 387386,
-      "png_header": {
+      "png": {
         "width": 960,
         "height": 960,
-        "bit_depth": 8,
-        "color_type": 6,
-        "color_type_meaning": "RGBA truecolor with alpha"
+        "mode": "RGBA",
+        "alpha_bbox": [55, 132, 902, 825],
+        "transparent_pixels": 572022,
+        "partially_transparent_pixels": 70706,
+        "opaque_pixels": 278872,
+        "unique_rgba_colors": 19217
       },
-      "sha256": null,
-      "sha256_status": "pending-byte-level-hash",
-      "pixel_analysis_status": "pending-full-binary-inspection"
+      "pixel_analysis_status": "complete-for-current-public-source"
     },
     {
       "id": "GENX-JP-OFFICIAL-POKEMON-0004",
@@ -96,14 +102,22 @@
       "official_url": "https://www.pokemon.co.jp/ex/winds_waves/images/image_104.png",
       "winds_path": "assets/public/jp/2026-02-27/pokemon/image_104.png",
       "waves_path": "assets/public/jp/2026-02-27/pokemon/image_104.png",
-      "winds_git_blob_sha1": "a89b7d4bd8bbffbf37d5ae28ee6aa133f53c4b45",
-      "waves_git_blob_sha1": "a89b7d4bd8bbffbf37d5ae28ee6aa133f53c4b45",
+      "tsubaki_path": "derived/generation-10/battle-sprites/BATTLE_MASTER_V1/source/jp/2026-02-27/image_104.png",
+      "git_blob_sha1": "a89b7d4bd8bbffbf37d5ae28ee6aa133f53c4b45",
+      "sha256": "df7fa3ae3a16104ead9b8a49fc628c326279d72c582bcf89bb578c93e9fc54f9",
       "byte_size": 1088381,
-      "png_header": null,
-      "png_header_status": "pending-complete-binary-inspection; do not infer from sibling files",
-      "sha256": null,
-      "sha256_status": "pending-byte-level-hash",
-      "pixel_analysis_status": "pending-full-binary-inspection"
+      "png": {
+        "width": 1536,
+        "height": 960,
+        "mode": "RGBA",
+        "alpha_bbox": [3, 90, 1536, 934],
+        "transparent_pixels": 613045,
+        "partially_transparent_pixels": 95508,
+        "opaque_pixels": 766007,
+        "unique_rgba_colors": 59322
+      },
+      "pixel_analysis_status": "complete-for-combined-public-source",
+      "split_status": "pending-per-subject-source-or-deterministic-segmentation-with-validation"
     }
   ],
   "motion_visual_sources": [
@@ -121,6 +135,7 @@
   "dedup_evidence": {
     "scope": "current four Japanese official Pokémon PNG files",
     "winds_waves_git_blob_identity": true,
-    "interpretation": "same public-source bytes are shared by both logical game identities; logical provenance must remain separate"
+    "tsubaki_source_matches_upstream_git_blobs": true,
+    "interpretation": "one physical source asset can be canonical while Winds and Waves remain separate logical provenance entries"
   }
 }
