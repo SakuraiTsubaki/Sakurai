@@ -12,7 +12,9 @@ sudo apt-get install -y --no-install-recommends build-essential git curl ca-cert
 
 git clone https://github.com/SciresM/hactool.git "$TMP/hactool"
 git -C "$TMP/hactool" checkout "$HACTOOL_COMMIT"
+git -C "$TMP/hactool" submodule update --init --recursive
 git -C "$TMP/hactool" archive --format=tar.gz --output="$VENDOR_ROOT/source/hactool-${HACTOOL_COMMIT}.tar.gz" "$HACTOOL_COMMIT"
+cp "$TMP/hactool/config.mk.template" "$TMP/hactool/config.mk"
 (cd "$TMP/hactool" && make -j2)
 cp "$TMP/hactool/hactool" "$VENDOR_ROOT/bin/hactool"
 chmod 0755 "$VENDOR_ROOT/bin/hactool"
