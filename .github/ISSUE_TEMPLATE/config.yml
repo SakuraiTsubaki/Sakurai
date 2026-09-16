@@ -1,5 +1,0 @@
-blank_issues_enabled: true
-contact_links:
-  - name: Project documentation
-    url: ../../tree/main/docs
-    about: Check the documentation before opening a new issue.
