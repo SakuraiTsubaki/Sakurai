@@ -23,14 +23,14 @@ for repo in "${REPOS[@]}"; do
     git -C "$path" pull --ff-only
   fi
 
-  if [ ! -f "$path/tools/setup_toolchain.sh" ]; then
-    echo "[gen7] missing tools/setup_toolchain.sh in $repo" >&2
+  if [ ! -f "$path/tools/use_toolcache.py" ]; then
+    echo "[gen7] missing tools/use_toolcache.py in $repo" >&2
     exit 1
   fi
 
-  echo "[gen7] installing toolchain for $repo"
-  bash "$path/tools/setup_toolchain.sh"
+  echo "[gen7] hydrating prebuilt GitHub Release toolcache for $repo"
+  python3 "$path/tools/use_toolcache.py"
 done
 
-echo "[gen7] all six Generation VII toolchains processed"
-echo "[gen7] each repository keeps installed binaries under its ignored .tools/ directory"
+echo "[gen7] all six Generation VII prebuilt toolcaches are ready"
+echo "[gen7] no apt install, upstream clone, or tool compilation is performed in the working session"
