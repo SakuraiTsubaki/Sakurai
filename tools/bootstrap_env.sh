@@ -73,19 +73,143 @@ install_rgbds() {
 }
 
 install_mgba() {
-  command -v mgba-qt >/dev/null 2>&1 && { log 'mGBA already available system-wide'; return 0; }
-  [[ -x "$EMU_DIR/mGBA.AppImage" ]] && { log 'mGBA AppImage already installed'; return 0; }
-  download_latest_asset mgba-emu/mgba 'appimage-(x64|x86_64).*\.appimage$' "$EMU_DIR/mGBA.AppImage" || true
+  local system_mgba=''
+  if command -v mgba-qt >/dev/null 2>&1; then
+    system_mgba="$(command -v mgba-qt)"
+  elif command -v mgba >/dev/null 2>&1; then
+    system_mgba="$(command -v mgba)"
+  fi
+  if [[ -n "$system_mgba" ]]; then
+    link_bin "$system_mgba" mgba
+    log "mGBA already available system-wide: $system_mgba"
+    return 0
+  fi
+
+  if [[ ! -x "$EMU_DIR/mGBA.AppImage" ]]; then
+    case "$(uname -m)" in
+      x86_64|amd64) pattern='appimage-(x64|x86_64).*\.appimage$' ;;
+      aarch64|arm64) pattern='appimage-(arm64|aarch64).*\.appimage$' ;;
+      *) warn "unsupported mGBA AppImage architecture: $(uname -m)"; return 0 ;;
+    esac
+    download_latest_asset mgba-emu/mgba "$pattern" "$EMU_DIR/mGBA.AppImage" || true
+  fi
+  if [[ -x "$EMU_DIR/mGBA.AppImage" ]]; then
+    link_bin "$EMU_DIR/mGBA.AppImage" mgba
+    log "mGBA ready: $EMU_DIR/mGBA.AppImage"
+  fi
 }
 
 install_arm_toolchain() {
   apt_install gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi
-  command -v arm-none-eabi-gcc >/dev/null 2>&1 && link_bin "$(command -v arm-none-eabi-gcc)" arm-none-eabi-gcc
+  local t p
+  for t in gcc as ld objdump objcopy ar ranlib nm readelf size; do
+    p="$(command -v "arm-none-eabi-$t" 2>/dev/null || true)"
+    [[ -n "$p" ]] && link_bin "$p" "arm-none-eabi-$t"
+  done
 }
 
 install_agbcc() {
-  [[ -d "$SRC_DIR/agbcc/.git" ]] || git clone --depth 1 https://github.com/pret/agbcc.git "$SRC_DIR/agbcc"
-  (cd "$SRC_DIR/agbcc" && make -j"$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 2)") || warn 'agbcc build did not complete on this host'
+  local commit="${AGBCC_COMMIT:-da598c1d918402c42c0c0d7128ba14567f3175e9}"
+  local install_root="$TOOLS_DIR/agbcc-sdk"
+  local compiler="$install_root/tools/agbcc/bin/agbcc"
+
+  if [[ -x "$compiler" && -f "$SRC_DIR/agbcc/.git/HEAD" ]] && \
+     [[ "$(git -C "$SRC_DIR/agbcc" rev-parse HEAD 2>/dev/null || true)" == "$commit" ]]; then
+    log "agbcc $commit already installed"
+  else
+    [[ -d "$SRC_DIR/agbcc/.git" ]] || git clone https://github.com/pret/agbcc.git "$SRC_DIR/agbcc"
+    git -C "$SRC_DIR/agbcc" fetch --depth 1 origin "$commit"
+    git -C "$SRC_DIR/agbcc" checkout --detach FETCH_HEAD
+    log "building agbcc $commit"
+    (cd "$SRC_DIR/agbcc" && ./build.sh)
+    rm -rf "$install_root"
+    mkdir -p "$install_root"
+    (cd "$SRC_DIR/agbcc" && ./install.sh "$install_root")
+  fi
+
+  for t in agbcc old_agbcc agbcc_arm; do
+    link_bin "$install_root/tools/agbcc/bin/$t" "$t"
+  done
+}
+
+java_major() {
+  local line version
+  line="$(java -version 2>&1 | head -n1 || true)"
+  version="$(printf '%s\n' "$line" | sed -nE 's/.*version "([0-9]+).*/\1/p')"
+  printf '%s\n' "${version:-0}"
+}
+
+install_jdk25() {
+  if command -v java >/dev/null 2>&1 && [[ "$(java_major)" -ge 25 ]]; then
+    log "JDK $(java_major) already available system-wide"
+    return 0
+  fi
+  if [[ -x "$TOOLS_DIR/jdk25/bin/java" ]]; then
+    link_bin "$TOOLS_DIR/jdk25/bin/java" java
+    return 0
+  fi
+
+  local arch archive tmp extracted
+  case "$(uname -m)" in
+    x86_64|amd64) arch='x64' ;;
+    aarch64|arm64) arch='aarch64' ;;
+    *) warn "unsupported JDK architecture: $(uname -m)"; return 0 ;;
+  esac
+  archive="$(mktemp --suffix=.tar.gz)"
+  tmp="$(mktemp -d)"
+  log 'downloading Temurin JDK 25 for Ghidra'
+  if ! curl -fL --retry 3 --retry-delay 2 \
+      "https://api.adoptium.net/v3/binary/latest/25/ga/linux/${arch}/jdk/hotspot/normal/eclipse" \
+      -o "$archive"; then
+    warn 'could not download JDK 25; Ghidra will be skipped'
+    rm -f "$archive"
+    rm -rf "$tmp"
+    return 1
+  fi
+  tar -xzf "$archive" -C "$tmp"
+  extracted="$(find "$tmp" -mindepth 1 -maxdepth 1 -type d | head -n1 || true)"
+  if [[ -z "$extracted" ]]; then
+    warn 'JDK 25 archive did not contain an expected directory'
+    rm -f "$archive"
+    rm -rf "$tmp"
+    return 1
+  fi
+  rm -rf "$TOOLS_DIR/jdk25"
+  mv "$extracted" "$TOOLS_DIR/jdk25"
+  rm -f "$archive"
+  rm -rf "$tmp"
+  link_bin "$TOOLS_DIR/jdk25/bin/java" java
+}
+
+install_ghidra() {
+  local ghidra_dir="$TOOLS_DIR/ghidra"
+  if [[ -x "$ghidra_dir/ghidraRun" ]]; then
+    link_bin "$ghidra_dir/ghidraRun" ghidra
+    log 'Ghidra already installed'
+    return 0
+  fi
+  install_jdk25 || return 0
+
+  local archive tmp extracted
+  archive="$(mktemp --suffix=.zip)"
+  tmp="$(mktemp -d)"
+  if ! download_latest_asset NationalSecurityAgency/ghidra 'ghidra_.*_PUBLIC_.*\.zip$' "$archive"; then
+    rm -f "$archive"
+    rm -rf "$tmp"
+    return 0
+  fi
+  unzip -q "$archive" -d "$tmp"
+  extracted="$(find "$tmp" -mindepth 1 -maxdepth 1 -type d -name 'ghidra_*' | head -n1 || true)"
+  if [[ -n "$extracted" ]]; then
+    rm -rf "$ghidra_dir"
+    mv "$extracted" "$ghidra_dir"
+    link_bin "$ghidra_dir/ghidraRun" ghidra
+    log "Ghidra ready: $ghidra_dir"
+  else
+    warn 'Ghidra archive did not contain an expected directory'
+  fi
+  rm -f "$archive"
+  rm -rf "$tmp"
 }
 
 install_ndstool() {
@@ -175,7 +299,9 @@ case "$REPO_NAME" in
     log 'umbrella repository: installing all common reverse-engineering toolchains and emulators'
     install_rgbds || true
     install_arm_toolchain || true
+    apt_install libpng-dev
     install_agbcc || true
+    install_ghidra || true
     install_ndstool || true
     install_3ds_tools || true
     install_switch_tools || true
@@ -189,8 +315,10 @@ case "$REPO_NAME" in
     install_mgba
     ;;
   PocketMonsters-Ruby-Disassembly|PocketMonsters-Sapphire-Disassembly|PocketMonsters-Emerald-Disassembly|PocketMonsters-FireRed-Disassembly|PocketMonsters-LeafGreen-Disassembly|PocketMonsters-Ruby-Decompilation|PocketMonsters-Sapphire-Decompilation|PocketMonsters-Emerald-Decompilation|PocketMonsters-FireRed-Decompilation|PocketMonsters-LeafGreen-Decompilation)
+    apt_install libpng-dev
     install_arm_toolchain
     install_agbcc
+    install_ghidra || true
     install_mgba
     ;;
   PocketMonsters-Diamond-Decompilation|PocketMonsters-Pearl-Decompilation|PocketMonsters-Platinum-Decompilation|PocketMonsters-HeartGold-Decompilation|PocketMonsters-SoulSilver-Decompilation|PocketMonsters-Black-Decompilation|PocketMonsters-White-Decompilation|PocketMonsters-Black2-Decompilation|PocketMonsters-White2-Decompilation)
@@ -212,9 +340,12 @@ case "$REPO_NAME" in
     ;;
 esac
 
-cat > "$TOOLS_DIR/activate.sh" <<ACTIVATE
-export PATH="$BIN_DIR:\$PATH"
-ACTIVATE
+{
+  printf 'export PATH="%s:$PATH"\n' "$BIN_DIR"
+  if [[ -x "$TOOLS_DIR/jdk25/bin/java" ]]; then
+    printf 'export JAVA_HOME="%s"\n' "$TOOLS_DIR/jdk25"
+  fi
+} > "$TOOLS_DIR/activate.sh"
 
 log "done for $REPO_NAME"
 log "add tools to this shell with: source '$TOOLS_DIR/activate.sh'"
