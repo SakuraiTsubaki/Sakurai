@@ -40,7 +40,7 @@ install_common() {
 latest_asset_url() {
   local repo="$1" pattern="$2"
   curl -fsSL "https://api.github.com/repos/$repo/releases/latest" | \
-    python3 -c 'import json,re,sys; d=json.load(sys.stdin); p=re.compile(sys.argv[1],re.I);\nfor a in d.get("assets",[]):\n n=a.get("name",""); u=a.get("browser_download_url","");\n if p.search(n): print(u); break' "$pattern"
+    python3 -c 'import json,re,sys; d=json.load(sys.stdin); p=re.compile(sys.argv[1],re.I); print(next((a.get("browser_download_url","") for a in d.get("assets",[]) if p.search(a.get("name",""))), ""))' "$pattern"
 }
 
 download_latest_asset() {
@@ -141,7 +141,25 @@ install_switch_tools() {
 install_eden() {
   [[ -x "$EMU_DIR/Eden.AppImage" ]] && { log 'Eden AppImage already installed'; return 0; }
   local url
-  url="$(curl -fsSL https://nightly.eden-emu.dev/latest/release.json 2>/dev/null | python3 -c 'import json,sys\nd=json.load(sys.stdin)\ndef walk(x):\n  if isinstance(x,dict):\n    for v in x.values(): yield from walk(v)\n  elif isinstance(x,list):\n    for v in x: yield from walk(v)\n  elif isinstance(x,str): yield x\nfor s in walk(d):\n  if s.startswith("http") and s.endswith(".AppImage") and ("amd64" in s or "x86_64" in s) and "pgo" in s.lower():\n    print(s); break' 2>/dev/null || true)"
+  url="$(curl -fsSL https://nightly.eden-emu.dev/latest/release.json 2>/dev/null | python3 -c '
+import json, sys
+root = json.load(sys.stdin)
+stack = [root]
+urls = []
+while stack:
+    item = stack.pop()
+    if isinstance(item, dict):
+        stack.extend(item.values())
+    elif isinstance(item, list):
+        stack.extend(item)
+    elif isinstance(item, str):
+        urls.append(item)
+for s in urls:
+    low = s.lower()
+    if s.startswith("http") and low.endswith(".appimage") and ("amd64" in low or "x86_64" in low) and "pgo" in low:
+        print(s)
+        break
+' 2>/dev/null || true)"
   if [[ -n "$url" ]]; then
     log 'downloading latest Eden nightly AppImage'
     curl -fL --retry 3 "$url" -o "$EMU_DIR/Eden.AppImage" && chmod +x "$EMU_DIR/Eden.AppImage"
