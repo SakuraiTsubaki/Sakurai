@@ -78,6 +78,8 @@ install_mgba() {
     system_mgba="$(command -v mgba-qt)"
   elif command -v mgba >/dev/null 2>&1; then
     system_mgba="$(command -v mgba)"
+  elif command -v mgba-sdl >/dev/null 2>&1; then
+    system_mgba="$(command -v mgba-sdl)"
   fi
   if [[ -n "$system_mgba" ]]; then
     link_bin "$system_mgba" mgba
@@ -97,6 +99,35 @@ install_mgba() {
     link_bin "$EMU_DIR/mGBA.AppImage" mgba
     log "mGBA ready: $EMU_DIR/mGBA.AppImage"
   fi
+}
+
+install_dolphin() {
+  local system_dolphin=''
+  if command -v dolphin-emu >/dev/null 2>&1; then
+    system_dolphin="$(command -v dolphin-emu)"
+  elif command -v dolphin >/dev/null 2>&1; then
+    system_dolphin="$(command -v dolphin)"
+  fi
+  if [[ -n "$system_dolphin" ]]; then
+    link_bin "$system_dolphin" dolphin-emu
+    log "Dolphin already available system-wide: $system_dolphin"
+    return 0
+  fi
+  if ! command -v flatpak >/dev/null 2>&1; then
+    warn 'Flatpak is unavailable; Dolphin installation skipped'
+    return 0
+  fi
+  flatpak remote-add --user --if-not-exists dolphin https://flatpak.dolphin-emu.org/releases.flatpakrepo || true
+  flatpak install --user -y dolphin org.DolphinEmu.dolphin-emu || {
+    warn 'Dolphin Flatpak installation did not complete'
+    return 0
+  }
+  cat > "$BIN_DIR/dolphin-emu" <<'DOLPHIN'
+#!/usr/bin/env bash
+exec flatpak run org.DolphinEmu.dolphin-emu "$@"
+DOLPHIN
+  chmod +x "$BIN_DIR/dolphin-emu"
+  log 'Dolphin ready for GameCube/GBA-link verification'
 }
 
 install_arm_toolchain() {
@@ -299,13 +330,14 @@ case "$REPO_NAME" in
     log 'umbrella repository: installing all common reverse-engineering toolchains and emulators'
     install_rgbds || true
     install_arm_toolchain || true
-    apt_install libpng-dev
+    apt_install libpng-dev gdb-multiarch flatpak
     install_agbcc || true
     install_ghidra || true
     install_ndstool || true
     install_3ds_tools || true
     install_switch_tools || true
     install_mgba || true
+    install_dolphin || true
     install_melonds || true
     install_azahar || true
     install_eden || true
@@ -315,11 +347,12 @@ case "$REPO_NAME" in
     install_mgba
     ;;
   PocketMonsters-Ruby-Disassembly|PocketMonsters-Sapphire-Disassembly|PocketMonsters-Emerald-Disassembly|PocketMonsters-FireRed-Disassembly|PocketMonsters-LeafGreen-Disassembly|PocketMonsters-Ruby-Decompilation|PocketMonsters-Sapphire-Decompilation|PocketMonsters-Emerald-Decompilation|PocketMonsters-FireRed-Decompilation|PocketMonsters-LeafGreen-Decompilation)
-    apt_install libpng-dev
+    apt_install libpng-dev gdb-multiarch flatpak
     install_arm_toolchain
     install_agbcc
     install_ghidra || true
     install_mgba
+    install_dolphin || true
     ;;
   PocketMonsters-Diamond-Decompilation|PocketMonsters-Pearl-Decompilation|PocketMonsters-Platinum-Decompilation|PocketMonsters-HeartGold-Decompilation|PocketMonsters-SoulSilver-Decompilation|PocketMonsters-Black-Decompilation|PocketMonsters-White-Decompilation|PocketMonsters-Black2-Decompilation|PocketMonsters-White2-Decompilation)
     install_arm_toolchain
