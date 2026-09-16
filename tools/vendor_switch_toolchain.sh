@@ -104,7 +104,7 @@ unzip -q "$TMP/$GHIDRA_ARCHIVE" -d "$TMP/ghidra-unpack"
 GHIDRA_HOME="$(find "$TMP/ghidra-unpack" -maxdepth 1 -mindepth 1 -type d -name 'ghidra_*_PUBLIC' | head -n1)"
 git clone https://github.com/Adubbz/Ghidra-Switch-Loader.git "$TMP/switch-loader"
 git -C "$TMP/switch-loader" checkout --detach "$SWITCH_LOADER_COMMIT"
-GHIDRA_INSTALL_DIR="$GHIDRA_HOME" JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$(command -v javac)")")")" "$TMP/switch-loader/gradlew" --no-daemon
+(cd "$TMP/switch-loader" && GHIDRA_INSTALL_DIR="$GHIDRA_HOME" JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$(command -v javac)")")")" ./gradlew --no-daemon)
 LOADER_ZIP="$(find "$TMP/switch-loader/dist" -type f -name '*.zip' | head -n1)"
 mkdir -p "$GHIDRA_HOME/Ghidra/Extensions"; unzip -q "$LOADER_ZIP" -d "$GHIDRA_HOME/Ghidra/Extensions"
 git -C "$TMP/switch-loader" archive --format=tar.gz --output="$VENDOR_ROOT/source/Ghidra-Switch-Loader-${SWITCH_LOADER_COMMIT}.tar.gz" "$SWITCH_LOADER_COMMIT"
