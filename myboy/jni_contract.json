@@ -9,11 +9,6 @@
     "jniSignature": "I",
     "arm64Rule": "opaque 32-bit handle only; never store a native pointer here"
   },
-  "linkCurrentConsoleField": {
-    "class": "com.fastemulator.gba.Link",
-    "name": "a",
-    "type": "com.fastemulator.gba.Console"
-  },
   "screenBuffer": {
     "allocation": "ByteBuffer.allocateDirect(0x12C00)",
     "bytes": 76800,
@@ -26,6 +21,7 @@
     "returnUnit": "number of int16 elements written, not stereo-frame count",
     "consumer": "AudioTrack.write(short[], offset, size)"
   },
+  "nativeMethodCount": 31,
   "methods": [
     {"class":"Console","name":"nativeInitIds","signature":"()V","static":true},
     {"class":"Console","name":"setGameSaveListener","signature":"(Lcom/fastemulator/gba/Console$GameSaveListener;)V","static":true},
@@ -59,11 +55,10 @@
     {"class":"Link","name":"runFrame","signature":"(Z)V","static":false},
     {"class":"Link","name":"unloadRom","signature":"(Ljava/lang/String;)V","static":false}
   ],
-  "observedFlow": [
-    "Link.loadRom(path, autoIPS) returns a non-null String on success.",
-    "Java then calls Link.nativeOpenConsole(path, order), whose returned int is passed to Console(int, Link).",
-    "Console constructor stores that int in Console.nativeConsole.",
-    "Link.runFrame(boolean) advances the link context; multiple Console objects may exist.",
-    "Current compatibility bridge advances all registered cores but does not yet emulate GBA link-cable synchronization."
-  ]
+  "linkCompatibility": {
+    "nativeOpenConsoleOrder": "used as preferred mGBA player ID",
+    "scheduler": "cooperative local lockstep",
+    "backend": "GBASIOLockstepCoordinator + GBASIOLockstepDriver + mPERIPH_GBA_LINK_PORT",
+    "status": "source-wired; real multiplayer device testing still required"
+  }
 }
