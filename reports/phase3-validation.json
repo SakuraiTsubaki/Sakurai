@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-18",
+  "checks": {
+    "shell_syntax": "pass",
+    "python_compile": "pass",
+    "cpp_bridge_syntax_with_compatible_stubs": "pass",
+    "original_myboy_arm64_16k_verifier": "expected_fail",
+    "synthetic_aarch64_16k_verifier": "pass",
+    "real_android_ndk_build": "not_run_no_ndk_in_environment",
+    "real_device_test": "not_run"
+  },
+  "originalMyBoyVerifier": {
+    "arm64Present": false,
+    "armeabiElfClass": 32,
+    "armeabiMachine": 40,
+    "armeabiMinLoadAlignment": 4096
+  },
+  "syntheticVerifierPositive": {
+    "elfClass": 64,
+    "machine": 183,
+    "loadAlignment": 16384,
+    "accepted": true
+  }
+}
