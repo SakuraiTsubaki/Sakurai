@@ -1,47 +1,60 @@
-# STATUS — Phase 3 — 2026-09-18
+# STATUS — Phase 4 — 2026-09-18
+
+## Build baseline
+
+- Android NDK: **r30**
+- SDK package: **30.0.16248370**
+- My Boy ABI: **arm64-v8a**
+- Native alignment target: **16 KiB**
+- CI: **GitHub Actions**
 
 ## GBC.emu 1.5.45
 
-**Route:** source rebuild, because the supplied APK is a split-required base package and contains no ABI split native library.
+**Route:** source rebuild.
 
-- current upstream ARM64 build route: prepared
-- current upstream source pin: `1c12fac5ce49badaadff2e2f210dcc30b89f4943`
-- modern NDK / 16 KiB verification: added to build script
-- exact historical 1.5.45 source backport: still separate work; no exact source revision was established from this APK alone
+The supplied APK is a split-required base package and contains no ABI-specific native library.
+
+- upstream ARM64 build route prepared
+- upstream source pin: `1c12fac5ce49badaadff2e2f210dcc30b89f4943`
+- NDK r30 workflow added
+- ARM64/16 KiB verification added
+- exact historical 1.5.45 source backport remains separate work
 
 ## My Boy! 1.8.0
 
-**Route:** keep legacy Java/UI first, replace native `libgba.so` with an ARM64 mGBA-backed compatibility layer.
+**Route:** preserve the legacy Java/UI initially and replace `libgba.so`.
 
 ### Implemented
 
 - 31-method JNI contract
 - ARM64-safe 32-bit Console handle table
 - 240×160 RGB565 framebuffer
-- audio count semantics matched to `AudioTrack.write(short[])`
-- ROM/BIOS, input, audio, savestate, battery save, ROM code/hash, cheats, sensors, basic rumble
-- automatic `.ups` then `.ips` handling
-- `patchRom()` output-file implementation and legacy-style result codes
-- `autoPatch` carried from `Link.loadRom()` into real Console cores
-- mGBA GBA SIO lockstep coordinator + per-console driver
-- `nativeOpenConsole(..., order)` player-order mapping
-- cooperative single-thread lockstep frame scheduler
-- ARM64 / 16 KiB APK verifier
-- repack/sign/device-smoke-test scripts
+- legacy AudioTrack short-count semantics
+- ROM/BIOS, input, audio, savestate, battery save, ROM code/hash
+- cheats, gyro/tilt/solar, basic rumble
+- UPS then IPS auto-patch handling
+- `patchRom()` output-file implementation and legacy-style return codes
+- mGBA `GBASIOLockstepCoordinator` / `GBASIOLockstepDriver`
+- `mPERIPH_GBA_LINK_PORT` wiring
+- `nativeOpenConsole(..., order)` player ordering
+- cooperative local link scheduler
+- ARM64 / 16 KiB verifier
+- repack/sign/device smoke-test scripts
+- GitHub Actions NDK r30 build
 
-### Validation completed in this environment
+### Validated so far
 
-- shell scripts: syntax OK
-- Python tools: compile OK
-- C++ bridge/JNI: syntax-checked with API-compatible stubs
-- verifier negative test: original My Boy! correctly rejected (no ARM64, old ARM is 4 KiB aligned)
-- verifier positive test: synthetic ELF64/AArch64 16 KiB library correctly accepted
+- shell syntax
+- Python tools
+- C++ bridge/JNI syntax with compatible stubs
+- original APK correctly fails modern ARM64/16 KiB verification
+- synthetic ELF64/AArch64 16 KiB test correctly passes
 
-### Not yet proven
+### Still to prove
 
-- actual Android NDK build of Phase 3 (`NDK r28+` is not installed in this execution environment)
-- real-device launch/render/audio/save test
+- real NDK r30 compilation in GitHub Actions
+- real-device launch/render/audio/save behavior
 - real GBA multiplayer/link-game behavior
-- old My Boy! native savestate format conversion
+- old My Boy! native savestate conversion
 - auxiliary RTC save-file compatibility
-- full modern Java/API migration for target API 36 distribution
+- later Java/API modernization for target API 36 distribution
