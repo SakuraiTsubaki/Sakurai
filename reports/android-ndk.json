@@ -1,0 +1,12 @@
+{
+  "verifiedOn": "2026-09-18",
+  "officialGitHubRepository": "android/ndk",
+  "release": "r30",
+  "gradleNdkVersion": "30.0.16248370",
+  "publishedAt": "2026-09-08T19:19:21Z",
+  "sourceNotes": [
+    "Official android/ndk GitHub release r30 is stable.",
+    "Rakashazi/emu-ex-plus-alpha CI had already moved to r30-beta1 before r30 final.",
+    "This workspace pins final r30 for both My Boy! and GBC.emu GitHub Actions builds."
+  ]
+}
