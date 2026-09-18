@@ -1,0 +1,69 @@
+{
+  "package": "com.fastemulator.gba",
+  "nativeLibrary": "gba",
+  "verifiedFrom": "supplied My Boy! 1.8.0 classes.dex",
+  "consoleNativeHandleField": {
+    "class": "com.fastemulator.gba.Console",
+    "name": "nativeConsole",
+    "type": "int",
+    "jniSignature": "I",
+    "arm64Rule": "opaque 32-bit handle only; never store a native pointer here"
+  },
+  "linkCurrentConsoleField": {
+    "class": "com.fastemulator.gba.Link",
+    "name": "a",
+    "type": "com.fastemulator.gba.Console"
+  },
+  "screenBuffer": {
+    "allocation": "ByteBuffer.allocateDirect(0x12C00)",
+    "bytes": 76800,
+    "geometry": "240x160",
+    "bytesPerPixel": 2,
+    "recommendedFormat": "RGB565"
+  },
+  "audioContract": {
+    "method": "Console.getAudioSamples(short[], int)",
+    "returnUnit": "number of int16 elements written, not stereo-frame count",
+    "consumer": "AudioTrack.write(short[], offset, size)"
+  },
+  "methods": [
+    {"class":"Console","name":"nativeInitIds","signature":"()V","static":true},
+    {"class":"Console","name":"setGameSaveListener","signature":"(Lcom/fastemulator/gba/Console$GameSaveListener;)V","static":true},
+    {"class":"Console","name":"addCheat","signature":"(Ljava/lang/String;Ljava/lang/String;Z)I","static":false},
+    {"class":"Console","name":"clearCheats","signature":"()V","static":false},
+    {"class":"Console","name":"enableCheat","signature":"(IZ)V","static":false},
+    {"class":"Console","name":"enableRumble","signature":"(Z)V","static":false},
+    {"class":"Console","name":"enableSound","signature":"(Z)V","static":false},
+    {"class":"Console","name":"getAudioSamples","signature":"([SI)I","static":false},
+    {"class":"Console","name":"getRomCode","signature":"()[B","static":false},
+    {"class":"Console","name":"getRomHash","signature":"()Ljava/lang/String;","static":false},
+    {"class":"Console","name":"getRumblePattern","signature":"([J)Z","static":false},
+    {"class":"Console","name":"loadBattery","signature":"(Ljava/lang/String;Ljava/lang/String;)V","static":false},
+    {"class":"Console","name":"loadState","signature":"(Ljava/lang/String;)I","static":false},
+    {"class":"Console","name":"loadStateFromMemory","signature":"([B)I","static":false},
+    {"class":"Console","name":"reset","signature":"(Z)V","static":false},
+    {"class":"Console","name":"saveBattery","signature":"()V","static":false},
+    {"class":"Console","name":"saveState","signature":"(Ljava/lang/String;)I","static":false},
+    {"class":"Console","name":"saveStateToMemory","signature":"()[B","static":false},
+    {"class":"Console","name":"setGyroValue","signature":"(I)V","static":false},
+    {"class":"Console","name":"setKeys","signature":"(I)V","static":false},
+    {"class":"Console","name":"setOption","signature":"(Ljava/lang/String;Ljava/lang/String;)V","static":false},
+    {"class":"Console","name":"setScreenBuffer","signature":"(Ljava/nio/Buffer;)V","static":false},
+    {"class":"Console","name":"setSolarValue","signature":"(I)V","static":false},
+    {"class":"Console","name":"setTiltValue","signature":"(II)V","static":false},
+    {"class":"Link","name":"nativeCloseConsole","signature":"(Lcom/fastemulator/gba/Console;)V","static":false},
+    {"class":"Link","name":"nativeOpenConsole","signature":"(Ljava/lang/String;I)I","static":false},
+    {"class":"Link","name":"patchRom","signature":"(Ljava/lang/String;Ljava/lang/String;)I","static":true},
+    {"class":"Link","name":"loadBios","signature":"(Ljava/lang/String;)Z","static":false},
+    {"class":"Link","name":"loadRom","signature":"(Ljava/lang/String;Z)Ljava/lang/String;","static":false},
+    {"class":"Link","name":"runFrame","signature":"(Z)V","static":false},
+    {"class":"Link","name":"unloadRom","signature":"(Ljava/lang/String;)V","static":false}
+  ],
+  "observedFlow": [
+    "Link.loadRom(path, autoIPS) returns a non-null String on success.",
+    "Java then calls Link.nativeOpenConsole(path, order), whose returned int is passed to Console(int, Link).",
+    "Console constructor stores that int in Console.nativeConsole.",
+    "Link.runFrame(boolean) advances the link context; multiple Console objects may exist.",
+    "Current compatibility bridge advances all registered cores but does not yet emulate GBA link-cable synchronization."
+  ]
+}
