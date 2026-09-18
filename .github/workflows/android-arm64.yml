@@ -59,11 +59,11 @@ jobs:
 
       - name: Fetch pinned mGBA
         shell: bash
-        run: myboy/scripts/fetch-mgba.sh
+        run: bash myboy/scripts/fetch-mgba.sh
 
       - name: Build arm64-v8a libgba.so
         shell: bash
-        run: myboy/scripts/build-arm64.sh
+        run: bash myboy/scripts/build-arm64.sh
 
       - name: Verify ELF64 AArch64 and 16 KiB PT_LOAD alignment
         shell: bash
@@ -144,7 +144,7 @@ jobs:
         shell: bash
         env:
           WORKDIR: ${{ github.workspace }}/gbc-modern-build
-        run: gbc-emu/build-current-gbc.sh
+        run: bash gbc-emu/build-current-gbc.sh
 
       - name: Collect GBC.emu APK
         shell: bash
