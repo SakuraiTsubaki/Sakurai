@@ -1,0 +1,13 @@
+{
+  "generated": "2026-09-18",
+  "mgba": {
+    "repository": "mgba-emu/mgba",
+    "commit": "25ca25612eb806ad3a70f3209ccd93890ea0c2c6",
+    "commitDate": "2026-09-16"
+  },
+  "gbcEmu": {
+    "repository": "Rakashazi/emu-ex-plus-alpha",
+    "commit": "1c12fac5ce49badaadff2e2f210dcc30b89f4943",
+    "commitDate": "2026-04-13"
+  }
+}

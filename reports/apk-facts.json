@@ -1,0 +1,37 @@
+{
+  "inputs": {
+    "GBC.emu.1.5.45.apk": {
+      "sha256": "3dea3579eba5302b564f4957c21defb97f4fc711d1814678a463166c217cac91",
+      "package": "com.explusalpha.GbcEmu",
+      "versionName": "1.5.45",
+      "versionCode": 15010545,
+      "minSdk": 9,
+      "targetSdk": 28,
+      "splitRequired": true,
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.WRITE_MEDIA_STORAGE",
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.VIBRATE",
+        "com.android.launcher.permission.INSTALL_SHORTCUT"
+      ],
+      "nativeLibrariesInThisBaseApk": []
+    },
+    "My Boy!.1.8.0.apk": {
+      "sha256": "8d56fc34e0e35e0ef3f9e195bc9c353f584e5e876db6b52848b616ae82605f81",
+      "package": "com.fastemulator.gba",
+      "versionName": "1.8.0",
+      "versionCode": 90048,
+      "minSdk": 9,
+      "targetSdk": 24,
+      "nativeLibraries": [
+        {"abi":"armeabi","file":"libgba.so","elfClass":"ELF32","machine":"ARM","loadAlignment":"0x1000"},
+        {"abi":"x86","file":"libgba.so","elfClass":"ELF32","machine":"Intel 80386"}
+      ],
+      "arm64Present": false,
+      "critical64BitIssue": "Console.nativeConsole is an int field. Do not store a raw 64-bit native pointer in it; use an opaque 32-bit handle table."
+    }
+  }
+}

@@ -1,0 +1,38 @@
+name: Android signing tools
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/android-signing-tools.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  signing-tools:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Android build-tools
+        shell: bash
+        run: |
+          SDK_ROOT="${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}"
+          SDKMANAGER="$SDK_ROOT/cmdline-tools/latest/bin/sdkmanager"
+          test -x "$SDKMANAGER"
+          yes | "$SDKMANAGER" --licenses >/dev/null || true
+          "$SDKMANAGER" "build-tools;36.0.0"
+          BT="$SDK_ROOT/build-tools/36.0.0"
+          test -x "$BT/apksigner"
+          test -x "$BT/zipalign"
+          mkdir -p artifact/lib
+          cp "$BT/apksigner" artifact/
+          cp "$BT/zipalign" artifact/
+          cp "$BT/lib/apksigner.jar" artifact/lib/
+          chmod +x artifact/apksigner artifact/zipalign
+
+      - name: Upload official Android signing tools
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-build-tools-36-signing
+          path: artifact
+          if-no-files-found: error
