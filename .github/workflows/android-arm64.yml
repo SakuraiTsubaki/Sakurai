@@ -7,6 +7,7 @@ on:
       - "myboy/**"
       - "gbc-emu/**"
       - "tools/**"
+      - "reports/**"
       - ".github/workflows/android-arm64.yml"
 
 permissions:
@@ -31,23 +32,28 @@ jobs:
           distribution: temurin
           java-version: "21"
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install build tools and NDK r30
+      - name: Install host build tools
         shell: bash
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends cmake file git ninja-build python3
+
+      - name: Install Android NDK r30
+        shell: bash
+        run: |
+          SDK_ROOT="${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}"
+          command -v sdkmanager
           yes | sdkmanager --licenses >/dev/null || true
           sdkmanager "platform-tools" "ndk;${NDK_VERSION}"
-          echo "ANDROID_NDK_HOME=${ANDROID_SDK_ROOT}/ndk/${NDK_VERSION}" >> "$GITHUB_ENV"
-          echo "ANDROID_NDK_ROOT=${ANDROID_SDK_ROOT}/ndk/${NDK_VERSION}" >> "$GITHUB_ENV"
+          test -f "$SDK_ROOT/ndk/${NDK_VERSION}/build/cmake/android.toolchain.cmake"
+          echo "ANDROID_SDK_ROOT=$SDK_ROOT" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_HOME=$SDK_ROOT/ndk/${NDK_VERSION}" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_ROOT=$SDK_ROOT/ndk/${NDK_VERSION}" >> "$GITHUB_ENV"
 
       - name: Show NDK toolchain
         shell: bash
         run: |
-          test -f "$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake"
+          echo "NDK=$ANDROID_NDK_HOME"
           "$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++" --version
 
       - name: Fetch pinned mGBA
@@ -63,18 +69,17 @@ jobs:
         run: |
           SO=myboy/out/libgba.so
           file "$SO"
-          "$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readelf" -h "$SO" | tee /tmp/elf-header.txt
+          READELF="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readelf"
+          "$READELF" -h "$SO" | tee /tmp/elf-header.txt
           grep -q 'Class:.*ELF64' /tmp/elf-header.txt
           grep -q 'Machine:.*AArch64' /tmp/elf-header.txt
-          "$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readelf" -lW "$SO" | tee /tmp/elf-program.txt
+          "$READELF" -lW "$SO" | tee /tmp/elf-program.txt
           python3 - <<'PY'
           import re
-          rows=[]
+          rows = []
           for line in open('/tmp/elf-program.txt', encoding='utf-8'):
-              if re.match(r's*LOADs', line):
-                  parts=line.split()
-                  align=int(parts[-1],16)
-                  rows.append(align)
+              if re.match(r'\s*LOAD\s', line):
+                  rows.append(int(line.split()[-1], 16))
           if not rows:
               raise SystemExit('No PT_LOAD segments found')
           print('PT_LOAD alignments:', [hex(x) for x in rows])
@@ -117,18 +122,21 @@ jobs:
         shell: bash
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends             autoconf automake autopoint bash gcc-arm-linux-gnueabi file gawk gettext             git libtool libtool-bin make nasm pkg-config unzip wget cmake
+          sudo apt-get install -y --no-install-recommends \
+            autoconf automake autopoint bash gcc-arm-linux-gnueabi file gawk gettext \
+            git libtool libtool-bin make nasm pkg-config unzip wget cmake
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install NDK r30
+      - name: Install Android NDK r30
         shell: bash
         run: |
+          SDK_ROOT="${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}"
+          command -v sdkmanager
           yes | sdkmanager --licenses >/dev/null || true
           sdkmanager "platform-tools" "ndk;${NDK_VERSION}"
-          echo "ANDROID_NDK_HOME=${ANDROID_SDK_ROOT}/ndk/${NDK_VERSION}" >> "$GITHUB_ENV"
-          echo "ANDROID_NDK_PATH=${ANDROID_SDK_ROOT}/ndk/${NDK_VERSION}" >> "$GITHUB_ENV"
+          test -f "$SDK_ROOT/ndk/${NDK_VERSION}/build/cmake/android.toolchain.cmake"
+          echo "ANDROID_SDK_ROOT=$SDK_ROOT" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_HOME=$SDK_ROOT/ndk/${NDK_VERSION}" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_PATH=$SDK_ROOT/ndk/${NDK_VERSION}" >> "$GITHUB_ENV"
 
       - name: Build pinned GBC.emu ARM64
         shell: bash
@@ -140,7 +148,8 @@ jobs:
         shell: bash
         run: |
           mkdir -p artifact
-          find gbc-modern-build/emu-ex-plus-alpha/GBC.emu/build/android/build/outputs/apk             -name '*.apk' -type f -exec cp {} artifact/ ;
+          find gbc-modern-build/emu-ex-plus-alpha/GBC.emu/build/android/build/outputs/apk \
+            -name '*.apk' -type f -exec cp {} artifact/ \;
           test -n "$(find artifact -name '*.apk' -print -quit)"
 
       - name: Upload GBC.emu APK
