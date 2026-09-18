@@ -46,7 +46,7 @@ add_library(gba SHARED
 
 target_include_directories(gba PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
 target_compile_features(gba PRIVATE cxx_std_20)
-target_compile_definitions(gba PRIVATE COLOR_16_BIT COLOR_5_6_5)
+target_compile_definitions(gba PRIVATE COLOR_16_BIT COLOR_5_6_5 ENABLE_VFS)
 target_compile_options(gba PRIVATE -Wall -Wextra -Wpedantic)
 
 target_link_options(gba PRIVATE
