@@ -1,46 +1,38 @@
 # My Boy! 1.8.0 → ARM64 compatibility track
 
-## What is now implemented
+## Verified contract
 
-The supplied APK's DEX contract was re-checked directly.
+- `Console.nativeConsole` is Java `int` (`I`), so ARM64 uses opaque 32-bit handles.
+- `Link.nativeOpenConsole(...)` and `Link.nativeCloseConsole(...)` are instance native methods.
+- 31 JNI native methods are listed in `jni_contract.json`.
+- framebuffer: `0x12C00` bytes = **240×160×2**, configured as RGB565.
+- `getAudioSamples(short[], int)` returns the number of `short` elements written.
 
-- `Console.nativeConsole` is `int` (`I`), so ARM64 uses an opaque handle table.
-- `Link.nativeOpenConsole(...)` and `Link.nativeCloseConsole(...)` are **instance** native methods.
-- 31 JNI native methods are enumerated in `jni_contract.json`.
-- The Java renderer allocates a direct framebuffer of `0x12C00` bytes = **240×160×2**.
-- The replacement core is therefore configured for **RGB565**.
-- `getAudioSamples(short[], int)` returns the number of `short` elements because Java passes the result directly to `AudioTrack.write(short[], offset, size)`.
+## Implemented native bridge
 
-`mgba_core_bridge.cpp` now implements a real mGBA-backed bridge for:
+`mgba_core_bridge.cpp` covers:
 
-- GBA ROM loading and validation
-- optional GBA BIOS loading
-- 240×160 RGB565 framebuffer
-- input keys
-- stereo audio extraction
-- reset
-- file and in-memory savestates
-- battery save/load
-- ROM code + MD5 hash
-- cheat sets
-- gyro / tilt / solar sensor hooks
-- basic rumble plumbing
-- old `setOption()` JNI compatibility surface
+- ROM and BIOS loading
+- RGB565 framebuffer
+- input and stereo audio
+- savestates and battery saves
+- ROM code and MD5
+- cheats
+- gyro / tilt / solar
+- basic rumble
+- UPS/IPS patch handling
+- mGBA GBA SIO lockstep link wiring
 
-`myboy_jni_bridge.cpp` now keeps a **per-Link context** and supports multiple Console handles safely on ARM64.
+`myboy_jni_bridge.cpp` provides:
 
-## Still not exact
+- ARM64-safe handle management
+- per-Link contexts
+- preferred player ordering from `nativeOpenConsole(path, order)`
+- local link-cable scheduling across multiple Console instances
 
-These are the remaining compatibility items, not hidden as “done”:
+## Build baseline
 
-1. **GBA link cable synchronization**: multiple cores advance, but mGBA link/SIO wiring is not connected yet.
-2. **`patchRom()` / auto-IPS behavior**: the exact My Boy! 1.8.0 status codes and patch workflow still need matching.
-3. **Legacy `.st*` state compatibility**: new mGBA states work with the bridge, but old My Boy! native savestates are a different engine format.
-4. **Auxiliary battery/RTC file format**: primary `.sav` data works; the second legacy battery path is retained but not decoded yet.
-5. **Rumble pulse shaping**: functional scaffold, not cycle-exact My Boy! behavior.
-6. **Legacy engine-only options** such as `cpuCore`, `saveType`, and `smcCheck` are accepted but mostly no-ops because mGBA manages those differently.
-
-## Build
+Use **Android NDK r30 / 30.0.16248370**.
 
 ```bash
 ./scripts/fetch-mgba.sh
@@ -54,19 +46,18 @@ Output:
 out/libgba.so
 ```
 
-Then inject it into **your supplied APK copy** and re-sign:
+Repack your supplied APK copy:
 
 ```bash
 ./scripts/repack-apk.sh "/path/to/My Boy!.1.8.0.apk" out/libgba.so MyBoy-1.8.0-arm64.apk
 ```
 
-Because the APK must be re-signed with your own key, it cannot be installed as an update over the store-signed original.
+## Remaining compatibility work
 
-## Compatibility strategy
-
-For personal sideload compatibility, keep the original `targetSdkVersion=24` first. Android 15 blocks apps **below** target 24, so this package is exactly at the installation floor. Raising it immediately to API 36 would also activate many modern behavior changes in the old Java UI. The safer order is:
-
-1. make ARM64 + 16-KB native code work;
-2. test the original Java UI;
-3. modernize storage/Bluetooth/manifest APIs;
-4. only then raise target SDK for a Play-distributable rebuild.
+- prove the NDK r30 build in CI
+- real-device rendering/audio/save testing
+- real multiplayer game testing
+- legacy My Boy! `.st*` savestate conversion
+- auxiliary RTC save mapping
+- tune rumble behavior
+- modernize old Java storage/Bluetooth/manifest APIs before raising target SDK for store distribution
