@@ -1,0 +1,17 @@
+game,font_id,member,tail_bytes,block_size_excluding_size_word,section_count,section_index,end_exclusive_glyph_index,selector_hex,arg,interpreted_mode,literal_width
+SS,0,0,541,537,3,0,509,FFFF,28,variable_width_table,
+SS,0,0,541,537,3,1,1024,FFFE,0,reserved_special_unknown,
+SS,0,0,541,537,3,2,3440,000B,0,literal_fixed_width,11
+SS,1,1,541,537,3,0,509,FFFF,28,variable_width_table,
+SS,1,1,541,537,3,1,1024,FFFE,0,reserved_special_unknown,
+SS,1,1,541,537,3,2,3440,000C,0,literal_fixed_width,12
+SS,2,2,541,537,3,0,509,FFFF,28,variable_width_table,
+SS,2,2,541,537,3,1,1024,FFFE,0,reserved_special_unknown,
+SS,2,2,541,537,3,2,3440,000D,0,literal_fixed_width,13
+SS,3,3,525,521,1,0,509,FFFF,12,variable_width_table,
+SS,4,4,541,537,3,0,509,FFFF,28,variable_width_table,
+SS,4,4,541,537,3,1,1024,FFFE,0,reserved_special_unknown,
+SS,4,4,541,537,3,2,3440,000C,0,literal_fixed_width,12
+SS,5,10,541,537,3,0,509,FFFF,28,variable_width_table,
+SS,5,10,541,537,3,1,1024,FFFE,0,reserved_special_unknown,
+SS,5,10,541,537,3,2,3440,000B,0,literal_fixed_width,11
