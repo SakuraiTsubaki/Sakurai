@@ -1,0 +1,14 @@
+{
+  "schema": "gen4-korean-font-slot-layout.v1",
+  "status": "inferred_from_pixel_order_pending_message_code_correlation",
+  "num_glyphs": 3440,
+  "ranges": [
+    {"start": 0, "end": 508, "class": "legacy_base", "count": 509},
+    {"start": 509, "end": 1023, "class": "fallback_reserved", "count": 515},
+    {"start": 1024, "end": 3373, "class": "ks_x_1001_wansung_hangul", "count": 2350, "euc_kr_start": "B0A1", "euc_kr_end": "C8FE", "order": "row_major"},
+    {"start": 3374, "end": 3375, "class": "fallback_or_unmapped", "count": 2},
+    {"start": 3376, "end": 3426, "class": "ks_x_1001_compatibility_jamo", "count": 51, "euc_kr_start": "A4A1", "euc_kr_end": "A4D3", "order": "row_major"},
+    {"start": 3427, "end": 3428, "class": "nonfallback_unmapped", "count": 2},
+    {"start": 3429, "end": 3439, "class": "fallback_or_unmapped", "count": 11}
+  ]
+}

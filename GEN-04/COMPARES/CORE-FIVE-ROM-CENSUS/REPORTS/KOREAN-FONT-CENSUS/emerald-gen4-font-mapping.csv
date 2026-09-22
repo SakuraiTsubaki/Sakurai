@@ -1,0 +1,6 @@
+emerald_font,gen4_source,policy,native_ko_ink,target
+FONT_NORMAL,Pt FONT_MESSAGE / HGSS FontID 1 (member 1),primary Korean dialogue/body source,12x12,"retain Gen IV pixels in 16px cell; Korean width about 12, do not force stock Latin width 6"
+FONT_SMALL,Pt FONT_SYSTEM / HGSS FontID 0 (member 0),compact system/UI source,11x11,fit within 12px-high class; preserve pixels where possible
+FONT_SHORT,Pt FONT_SUBSCREEN / HGSS FontID 2 (member 2),subscreen/menu source,12-13 x 11-12,"14px-high class, use native design with minimal vertical adjustment"
+FONT_NARROW,HGSS FontID 5 (member 10),compact/narrow derivative source; exact original use still under call-site census,11x10,16px cell with compact width; do not horizontally crush Font 1
+FONT_SMALL_NARROW,HGSS FontID 5 (member 10) -> project derivative,no direct Gen IV 8px counterpart; derive deterministically and flag as project conversion,11x10,8px-high derivative with manual overrides/verification
