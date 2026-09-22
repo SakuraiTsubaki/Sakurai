@@ -1,0 +1,16 @@
+[
+  {"a":"pt_font_0","b":"pt_pl_0","all_equal":2917,"base_0_508":501,"gap_509_1023":0,"ko_1024_3439":2416,"ko_total":2416,"ko_pct":100.0,"whole_member_equal":false},
+  {"a":"pt_font_1","b":"pt_pl_1","all_equal":2917,"base_0_508":501,"gap_509_1023":0,"ko_1024_3439":2416,"ko_total":2416,"ko_pct":100.0,"whole_member_equal":false},
+  {"a":"pt_font_2","b":"pt_pl_2","all_equal":2925,"base_0_508":509,"gap_509_1023":0,"ko_1024_3439":2416,"ko_total":2416,"ko_pct":100.0,"whole_member_equal":false},
+  {"a":"pt_pl_0","b":"ss_0","all_equal":3434,"base_0_508":503,"gap_509_1023":515,"ko_1024_3439":2416,"ko_total":2416,"ko_pct":100.0,"whole_member_equal":false},
+  {"a":"pt_pl_1","b":"ss_1","all_equal":3434,"base_0_508":503,"gap_509_1023":515,"ko_1024_3439":2416,"ko_total":2416,"ko_pct":100.0,"whole_member_equal":false},
+  {"a":"pt_pl_2","b":"ss_2","all_equal":3435,"base_0_508":504,"gap_509_1023":515,"ko_1024_3439":2416,"ko_total":2416,"ko_pct":100.0,"whole_member_equal":false},
+  {"a":"pt_font_0","b":"ss_0","all_equal":2911,"base_0_508":495,"gap_509_1023":0,"ko_1024_3439":2416,"ko_total":2416,"ko_pct":100.0,"whole_member_equal":false},
+  {"a":"pt_font_1","b":"ss_1","all_equal":2911,"base_0_508":495,"gap_509_1023":0,"ko_1024_3439":2416,"ko_total":2416,"ko_pct":100.0,"whole_member_equal":false},
+  {"a":"pt_font_2","b":"ss_2","all_equal":2920,"base_0_508":504,"gap_509_1023":0,"ko_1024_3439":2416,"ko_total":2416,"ko_pct":100.0,"whole_member_equal":false},
+  {"a":"ss_0","b":"ss_4","all_equal":18,"base_0_508":18,"gap_509_1023":0,"ko_1024_3439":0,"ko_total":2416,"ko_pct":0.0,"whole_member_equal":false},
+  {"a":"ss_0","b":"ss_10","all_equal":27,"base_0_508":27,"gap_509_1023":0,"ko_1024_3439":0,"ko_total":2416,"ko_pct":0.0,"whole_member_equal":false},
+  {"a":"ss_1","b":"ss_4","all_equal":18,"base_0_508":18,"gap_509_1023":0,"ko_1024_3439":0,"ko_total":2416,"ko_pct":0.0,"whole_member_equal":false},
+  {"a":"ss_2","b":"ss_4","all_equal":54,"base_0_508":26,"gap_509_1023":0,"ko_1024_3439":28,"ko_total":2416,"ko_pct":1.159,"whole_member_equal":false},
+  {"a":"ss_4","b":"ss_10","all_equal":18,"base_0_508":18,"gap_509_1023":0,"ko_1024_3439":0,"ko_total":2416,"ko_pct":0.0,"whole_member_equal":false}
+]
