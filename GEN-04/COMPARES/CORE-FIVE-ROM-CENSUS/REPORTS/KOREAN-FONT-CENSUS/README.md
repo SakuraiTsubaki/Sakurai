@@ -5,22 +5,38 @@ Status: working census from supplied retail ROMs; raw `.nds` images are not repo
 ## Confirmed ROM evidence
 
 - Korean Platinum CPUK-HV0 (`SHA-256 51050f65…11d7b`): `graphic/font.narc` and `graphic/pl_font.narc`, 10 members each.
-- Korean SoulSilver IPGK-HV0 (`SHA-256 8e1c82d2…8b55`): `a/0/1/6`, 13 members.
+- Korean SoulSilver IPGK-HV0 (`SHA-256 8e1c82d2…8b55`): localized font archive `a/0/1/6`, 13 members.
 - The principal Korean members have a 16-byte simple-font header: `tableOffset=0x35C10`, `numGlyphs=3440`, `16x16`, `2bpp`, total member size `220717`.
 - The tail is only `541` bytes. It decomposes structurally as a 32-byte block plus exactly `509` bytes, not 3440 bytes. Therefore the Korean extension does **not** simply append a width byte for every Korean glyph. The exact localized width code path remains to be pinned from Korean executable code.
+- HGSS also contains `pbr/font.narc`; this is byte-identical to Platinum's generic `graphic/font.narc`, but it is **not** the primary localized HGSS Korean font archive. Korean gameplay font analysis uses `a/0/1/6`.
 
-## Slot layout now established
+## Slot layout confirmed by localized message data
 
-Pixel identity and visible glyph order establish the following layout:
+The Korean mapping is now confirmed by both pixel order and actual Korean message-code correlation.
 
 - slots `0..508`: legacy/base 509-glyph set;
 - slots `509..1023`: 515 repeated fallback/reserved slots;
-- slots `1024..3373`: 2350 KS X 1001/Wansung Hangul syllables, in EUC-KR `B0A1..C8FE` row-major order (mapping recorded as inferred pending message-code correlation);
-- slots `3376..3426`: 51 modern compatibility jamo corresponding to EUC-KR `A4A1..A4D3` (same caveat);
+- slots `1024..3373`: 2350 KS X 1001/Wansung Hangul syllables, in EUC-KR `B0A1..C8FE` row-major order;
+- slots `3376..3426`: 51 modern compatibility jamo corresponding to EUC-KR `A4A1..A4D3` row-major;
 - `3374,3375,3429..3439`: fallback/unmapped;
-- `3427..3428`: real non-fallback glyphs, exact character identity still requires message correlation.
+- `3427..3428`: real non-fallback glyphs whose character identity remains unknown. Neither code occurs in the main Korean localized message archives scanned below.
 
-This means the Gen IV Korean table contains 2403 clearly usable Korean glyph slots (2350 syllables + 51 modern jamo + 2 still-unidentified non-fallback glyphs), not all modern Unicode Hangul syllables.
+The Gen IV Korean table therefore contains 2403 clearly usable Korean glyph slots (2350 syllables + 51 modern jamo + 2 still-unidentified non-fallback glyphs), not all modern Unicode Hangul syllables.
+
+### Message-code correlation
+
+The retail Korean message archives were decrypted using the Generation IV message-table algorithm and compared directly with the font slots.
+
+- SoulSilver: `a/0/2/7`, 822 members. Species-name table is member `233`, count `496`.
+- Platinum: `msgdata/pl_msg.narc`, 714 members. Species-name table is member `408`, count `496`.
+- The font loader uses one-based glyph IDs, so localized text code `N` selects zero-based font slot `N - 1`.
+- Confirmed examples in both games:
+  - species 1: `0A0C 085D 0CAA 0942` → `이상해씨`
+  - species 25: `0C99 0B63 0B4C` → `피카츄`
+  - species 152: `0B59 0B0D 0AE8 0B9C` → `치코리타`
+  - species 493 resolves to `아르세우스`
+- For the Wansung range, code-to-slot relation is exact: `glyph_slot = message_code - 1`, and slot `1024` is EUC-KR `B0A1` (`가`).
+- This promotes the previous Wansung/jamo ordering from inferred pixel-order evidence to confirmed localized text behavior.
 
 ## Cross-game pixel identity
 
@@ -59,7 +75,7 @@ Emerald's stock byte encoding has no room for 2350+ syllables. `CHAR_EXTRA_SYMBO
 
 ## Next executable work
 
-1. Correlate Korean message codes against the 1024+ glyph slots to promote the EUC-KR mapping from inferred to confirmed and identify slots 3427/3428.
+1. **DONE** — correlate Korean message codes against the 1024+ glyph slots and confirm `glyph_slot = message_code - 1`.
 2. Pin the localized Korean width logic in Pt/HGSS ARM9/overlays.
 3. Complete HGSS FontID 4/5 call-site census.
 4. Feed the extracted Gen IV pixels into the existing Hangul generator pipeline, replacing the vector-font raster source for covered syllables; generate only missing modern syllables as explicitly marked project derivatives.
