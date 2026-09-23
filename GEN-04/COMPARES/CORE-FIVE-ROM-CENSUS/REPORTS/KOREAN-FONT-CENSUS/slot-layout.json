@@ -1,14 +1,27 @@
 {
   "schema": "gen4-korean-font-slot-layout.v1",
-  "status": "inferred_from_pixel_order_pending_message_code_correlation",
+  "status": "confirmed_by_pixel_order_and_localized_message_code_correlation",
   "num_glyphs": 3440,
+  "message_code_relation": "glyph_slot = message_code - 1",
+  "message_correlation": {
+    "platinum": {
+      "archive": "msgdata/pl_msg.narc",
+      "species_member": 408,
+      "species_count": 496
+    },
+    "soulsilver": {
+      "archive": "a/0/2/7",
+      "species_member": 233,
+      "species_count": 496
+    }
+  },
   "ranges": [
     {"start": 0, "end": 508, "class": "legacy_base", "count": 509},
     {"start": 509, "end": 1023, "class": "fallback_reserved", "count": 515},
-    {"start": 1024, "end": 3373, "class": "ks_x_1001_wansung_hangul", "count": 2350, "euc_kr_start": "B0A1", "euc_kr_end": "C8FE", "order": "row_major"},
+    {"start": 1024, "end": 3373, "class": "ks_x_1001_wansung_hangul", "count": 2350, "euc_kr_start": "B0A1", "euc_kr_end": "C8FE", "order": "row_major", "status": "confirmed"},
     {"start": 3374, "end": 3375, "class": "fallback_or_unmapped", "count": 2},
-    {"start": 3376, "end": 3426, "class": "ks_x_1001_compatibility_jamo", "count": 51, "euc_kr_start": "A4A1", "euc_kr_end": "A4D3", "order": "row_major"},
-    {"start": 3427, "end": 3428, "class": "nonfallback_unmapped", "count": 2},
+    {"start": 3376, "end": 3426, "class": "ks_x_1001_compatibility_jamo", "count": 51, "euc_kr_start": "A4A1", "euc_kr_end": "A4D3", "order": "row_major", "status": "confirmed"},
+    {"start": 3427, "end": 3428, "class": "nonfallback_unmapped", "count": 2, "status": "identity_unresolved_not_observed_in_scanned_main_messages"},
     {"start": 3429, "end": 3439, "class": "fallback_or_unmapped", "count": 11}
   ]
 }
