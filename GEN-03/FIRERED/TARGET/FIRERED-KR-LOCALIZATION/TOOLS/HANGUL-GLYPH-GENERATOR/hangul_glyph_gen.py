@@ -11,6 +11,7 @@ font installed on the current system.
 from __future__ import annotations
 
 import argparse
+import base64
 import csv
 import gzip
 import json
@@ -215,7 +216,9 @@ def load_gen4_source_pack(path: str | None, member: int) -> Dict[str, Dict]:
     member_meta = matches[0]
     source_path = root / member_meta["source_file"]
     raw = source_path.read_bytes()
-    if member_meta.get("source_file_encoding") == "gzip" or source_path.suffix == ".gz":
+    if member_meta.get("source_file_transport") == "base64" or source_path.suffix == ".b64":
+        raw = base64.b64decode(raw)
+    if member_meta.get("source_file_encoding") == "gzip" or ".gz" in source_path.suffixes:
         raw = gzip.decompress(raw)
     bytes_per_glyph = int(member_meta["bytes_per_glyph"])
     if len(raw) != len(mapping) * bytes_per_glyph:
