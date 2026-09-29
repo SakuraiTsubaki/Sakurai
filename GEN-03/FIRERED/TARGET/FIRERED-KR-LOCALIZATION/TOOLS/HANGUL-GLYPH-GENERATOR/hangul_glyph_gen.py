@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import gzip
 import json
 import math
 import os
@@ -162,12 +163,19 @@ def load_gen4_source_pack(path: str | None, member: int) -> Dict[str, Dict]:
         return {}
     root = Path(path)
     manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
-    mapping = json.loads((root / "mapping.json").read_text(encoding="utf-8"))
+    mapping_path = root / manifest.get("mapping_file", "mapping.json")
+    mapping_bytes = mapping_path.read_bytes()
+    if manifest.get("mapping_file_encoding") == "gzip" or mapping_path.suffix == ".gz":
+        mapping_bytes = gzip.decompress(mapping_bytes)
+    mapping = json.loads(mapping_bytes.decode("utf-8"))
     matches = [entry for entry in manifest["members"] if int(entry["member"]) == member]
     if len(matches) != 1:
         raise ValueError(f"Generation IV source member {member} not found")
     member_meta = matches[0]
-    raw = (root / member_meta["source_file"]).read_bytes()
+    source_path = root / member_meta["source_file"]
+    raw = source_path.read_bytes()
+    if member_meta.get("source_file_encoding") == "gzip" or source_path.suffix == ".gz":
+        raw = gzip.decompress(raw)
     bytes_per_glyph = int(member_meta["bytes_per_glyph"])
     if len(raw) != len(mapping) * bytes_per_glyph:
         raise ValueError("Generation IV source pack length mismatch")
