@@ -215,17 +215,22 @@ def load_gen4_source_pack(path: str | None, member: int) -> Dict[str, Dict]:
     if len(matches) != 1:
         raise ValueError(f"Generation IV source member {member} not found")
     member_meta = matches[0]
-    if manifest.get("bundle_file"):
-        bundle_path = root / manifest["bundle_file"]
-        bundle = bundle_path.read_bytes()
-        if manifest.get("bundle_transport") == "base64" or bundle_path.suffix == ".b64":
+    if manifest.get("bundle_file") or manifest.get("bundle_chunks"):
+        if manifest.get("bundle_chunks"):
+            source_name = "+".join(manifest["bundle_chunks"])
+            bundle_path = None
+            bundle = b"".join((root / name).read_bytes() for name in manifest["bundle_chunks"])
+        else:
+            source_name = manifest["bundle_file"]
+            bundle_path = root / source_name
+            bundle = bundle_path.read_bytes()
+        if manifest.get("bundle_transport") == "base64" or (bundle_path and bundle_path.suffix == ".b64"):
             bundle = base64.b64decode(bundle)
-        if manifest.get("bundle_encoding") == "xz" or ".xz" in bundle_path.suffixes:
+        if manifest.get("bundle_encoding") == "xz" or (bundle_path and ".xz" in bundle_path.suffixes):
             bundle = lzma.decompress(bundle)
         start = int(member_meta["bundle_offset"])
         end = start + int(member_meta["bundle_length"])
         raw = bundle[start:end]
-        source_name = manifest["bundle_file"]
     else:
         source_path = root / member_meta["source_file"]
         raw = source_path.read_bytes()
