@@ -158,16 +158,57 @@ def pack_nds_glyph_2bpp_from_mask(im: Image.Image) -> bytes:
     return bytes(out)
 
 
+def build_gen4_korean_mapping() -> List[Dict]:
+    mapping = []
+    slot = 1024
+    for lead in range(0xB0, 0xC9):
+        for trail in range(0xA1, 0xFF):
+            try:
+                ch = bytes((lead, trail)).decode("euc_kr")
+            except UnicodeDecodeError:
+                continue
+            if len(ch) == 1 and HANGUL_START <= ord(ch) <= HANGUL_END:
+                mapping.append({
+                    "char": ch,
+                    "codepoint": f"U+{ord(ch):04X}",
+                    "slot": slot,
+                    "message_code": slot + 1,
+                    "class": "ks_x_1001_wansung",
+                })
+                slot += 1
+    if slot != 3374:
+        raise ValueError(f"unexpected Wansung mapping end: {slot}")
+
+    for i, trail in enumerate(range(0xA1, 0xD4)):
+        ch = bytes((0xA4, trail)).decode("euc_kr")
+        mapping.append({
+            "char": ch,
+            "codepoint": f"U+{ord(ch):04X}",
+            "slot": 3376 + i,
+            "message_code": 3377 + i,
+            "class": "ks_x_1001_compatibility_jamo",
+        })
+    if len(mapping) != 2401:
+        raise ValueError(f"unexpected Generation IV mapping size: {len(mapping)}")
+    return mapping
+
+
 def load_gen4_source_pack(path: str | None, member: int) -> Dict[str, Dict]:
     if not path:
         return {}
     root = Path(path)
     manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
-    mapping_path = root / manifest.get("mapping_file", "mapping.json")
-    mapping_bytes = mapping_path.read_bytes()
-    if manifest.get("mapping_file_encoding") == "gzip" or mapping_path.suffix == ".gz":
-        mapping_bytes = gzip.decompress(mapping_bytes)
-    mapping = json.loads(mapping_bytes.decode("utf-8"))
+    mapping_name = manifest.get("mapping_file")
+    if mapping_name:
+        mapping_path = root / mapping_name
+        mapping_bytes = mapping_path.read_bytes()
+        if manifest.get("mapping_file_encoding") == "gzip" or mapping_path.suffix == ".gz":
+            mapping_bytes = gzip.decompress(mapping_bytes)
+        mapping = json.loads(mapping_bytes.decode("utf-8"))
+    elif manifest.get("mapping_scheme") == "ks_x_1001_wansung2350_plus_compat_jamo51":
+        mapping = build_gen4_korean_mapping()
+    else:
+        raise ValueError("Generation IV source pack has no supported mapping definition")
     matches = [entry for entry in manifest["members"] if int(entry["member"]) == member]
     if len(matches) != 1:
         raise ValueError(f"Generation IV source member {member} not found")
