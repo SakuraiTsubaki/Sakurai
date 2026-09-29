@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import gzip
 import hashlib
 import json
 import struct
@@ -211,9 +212,9 @@ def main():
             "class": "ks_x_1001_compatibility_jamo",
         })
 
-    (out / "mapping.json").write_text(
-        json.dumps(mapping, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
+    mapping_json = json.dumps(mapping, ensure_ascii=False, indent=2).encode("utf-8")
+    mapping_name = "mapping.json.gz"
+    (out / mapping_name).write_bytes(gzip.compress(mapping_json, compresslevel=9, mtime=0))
     with (out / "mapping.csv").open("w", encoding="utf-8-sig", newline="") as f:
         writer = csv.DictWriter(
             f, fieldnames=["char", "codepoint", "slot", "message_code", "class"]
@@ -232,6 +233,8 @@ def main():
         "archive_file_id": file_id,
         "archive_sha256": hashlib.sha256(narc).hexdigest(),
         "glyph_format": "nds_font_16x16_2bpp_4tiles_64bytes",
+        "mapping_file": mapping_name,
+        "mapping_file_encoding": "gzip",
         "mapped_glyph_count": len(mapping),
         "unresolved_slots_excluded": [3427, 3428],
         "members": [],
@@ -264,15 +267,20 @@ def main():
             raw += glyph
             bboxes.append(ink_bbox(decode_glyph(glyph)))
 
-        file_name = f"member_{member_id:02d}_official_2bpp.bin"
-        (out / file_name).write_bytes(raw)
+        raw_bytes = bytes(raw)
+        file_name = f"member_{member_id:02d}_official_2bpp.bin.gz"
+        compressed = gzip.compress(raw_bytes, compresslevel=9, mtime=0)
+        (out / file_name).write_bytes(compressed)
         wansung_boxes = [b for b in bboxes[:WANSUNG_COUNT] if b]
         manifest["members"].append({
             "member": member_id,
             "member_size": len(member),
             "member_sha256": hashlib.sha256(member).hexdigest(),
             "source_file": file_name,
-            "source_file_sha256": hashlib.sha256(raw).hexdigest(),
+            "source_file_encoding": "gzip",
+            "source_file_sha256": hashlib.sha256(compressed).hexdigest(),
+            "source_raw_sha256": hashlib.sha256(raw_bytes).hexdigest(),
+            "source_raw_size": len(raw_bytes),
             "glyph_count": len(mapping),
             "bytes_per_glyph": 64,
             "header": {
