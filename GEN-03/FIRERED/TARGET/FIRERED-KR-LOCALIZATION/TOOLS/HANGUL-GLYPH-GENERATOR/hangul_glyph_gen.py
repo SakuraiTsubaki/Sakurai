@@ -90,6 +90,98 @@ def render_glyph(ch: str, cell: int, font_path: str, font_index: int,
     return low.point(lambda p: 255 if p >= threshold else 0, mode="L")
 
 
+
+def decode_nds_tile_2bpp(tile: bytes) -> List[List[int]]:
+    if len(tile) != 16:
+        raise ValueError("NDS font tile must be 16 bytes")
+    pixels = [[0] * 8 for _ in range(8)]
+    for y in range(8):
+        x = 0
+        for value in (tile[2 * y + 1], tile[2 * y]):
+            for shift in (6, 4, 2, 0):
+                pixels[y][x] = (value >> shift) & 3
+                x += 1
+    return pixels
+
+
+def decode_nds_glyph_2bpp(raw: bytes) -> List[List[int]]:
+    if len(raw) != 64:
+        raise ValueError("NDS 16x16 font glyph must be 64 bytes")
+    pixels = [[0] * 16 for _ in range(16)]
+    for tile_index, (ox, oy) in enumerate(((0, 0), (8, 0), (0, 8), (8, 8))):
+        tile = decode_nds_tile_2bpp(raw[tile_index * 16:(tile_index + 1) * 16])
+        for y in range(8):
+            for x in range(8):
+                pixels[oy + y][ox + x] = tile[y][x]
+    return pixels
+
+
+def nds_glyph_to_mask(raw: bytes) -> Image.Image:
+    # Gen IV semantic indices: 0=zero/transparent, 1=foreground,
+    # 2=shadow, 3=background. Legacy binary derivatives keep 1+2 as ink.
+    pixels = decode_nds_glyph_2bpp(raw)
+    out = Image.new("L", (16, 16), 0)
+    px = out.load()
+    for y, row in enumerate(pixels):
+        for x, value in enumerate(row):
+            px[x, y] = 255 if value in (1, 2) else 0
+    return out
+
+
+def pack_nds_tile_2bpp(pixels: List[List[int]]) -> bytes:
+    out = bytearray()
+    for y in range(8):
+        halves = []
+        for x0 in (0, 4):
+            value = 0
+            for i in range(4):
+                value |= (pixels[y][x0 + i] & 3) << (6 - 2 * i)
+            halves.append(value)
+        # Gen IV DecompressGlyphTile reads the high byte of each little-endian
+        # u16 before the low byte.
+        out += bytes((halves[1], halves[0]))
+    return bytes(out)
+
+
+def pack_nds_glyph_2bpp_from_mask(im: Image.Image) -> bytes:
+    if im.size != (16, 16):
+        raise ValueError("Generation IV semantic source projection requires 16x16")
+    px = im.load()
+    out = bytearray()
+    for ox, oy in ((0, 0), (8, 0), (0, 8), (8, 8)):
+        tile = [
+            [1 if px[ox + x, oy + y] >= 128 else 0 for x in range(8)]
+            for y in range(8)
+        ]
+        out += pack_nds_tile_2bpp(tile)
+    return bytes(out)
+
+
+def load_gen4_source_pack(path: str | None, member: int) -> Dict[str, Dict]:
+    if not path:
+        return {}
+    root = Path(path)
+    manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
+    mapping = json.loads((root / "mapping.json").read_text(encoding="utf-8"))
+    matches = [entry for entry in manifest["members"] if int(entry["member"]) == member]
+    if len(matches) != 1:
+        raise ValueError(f"Generation IV source member {member} not found")
+    member_meta = matches[0]
+    raw = (root / member_meta["source_file"]).read_bytes()
+    bytes_per_glyph = int(member_meta["bytes_per_glyph"])
+    if len(raw) != len(mapping) * bytes_per_glyph:
+        raise ValueError("Generation IV source pack length mismatch")
+
+    result = {}
+    for i, rec in enumerate(mapping):
+        entry = dict(rec)
+        entry["raw"] = raw[i * bytes_per_glyph:(i + 1) * bytes_per_glyph]
+        entry["member"] = member
+        entry["source_file"] = member_meta["source_file"]
+        result[rec["char"]] = entry
+    return result
+
+
 def apply_override(im: Image.Image, override: Dict | None) -> Image.Image:
     if not override:
         return im
@@ -199,46 +291,141 @@ def generate(args) -> None:
     outdir.mkdir(parents=True, exist_ok=True)
     chars = load_chars(args)
     overrides = load_overrides(args.overrides)
-    summary = {"font": font_path, "font_index": font_index, "glyph_count": len(chars),
-               "sizes": args.sizes, "unicode_range": "U+AC00..U+D7A3",
-               "oversample": args.oversample, "threshold": args.threshold, "margin": args.margin}
+    gen4_source = load_gen4_source_pack(args.gen4_source_dir, args.gen4_member)
+
+    summary = {
+        "font": font_path,
+        "font_index": font_index,
+        "glyph_count": len(chars),
+        "sizes": args.sizes,
+        "unicode_range": "U+AC00..U+D7A3",
+        "oversample": args.oversample,
+        "threshold": args.threshold,
+        "margin": args.margin,
+        "gen4_source_dir": args.gen4_source_dir,
+        "gen4_member": args.gen4_member,
+        "source_counts": {},
+    }
+
     meta_common = []
     for i, ch in enumerate(chars):
         dec = decompose_hangul(ch)
-        rec = {"id": i, "char": ch, "codepoint": f"U+{ord(ch):04X}", "unicode": ord(ch),
-               "is_modern_hangul": dec is not None}
+        rec = {
+            "id": i,
+            "char": ch,
+            "codepoint": f"U+{ord(ch):04X}",
+            "unicode": ord(ch),
+            "is_modern_hangul": dec is not None,
+        }
         if dec:
             l, v, t = dec
-            rec.update({"l_index": l, "l_jamo": L_TABLE[l], "v_index": v, "v_jamo": V_TABLE[v],
-                        "t_index": t, "t_jamo": T_TABLE[t]})
+            rec.update({
+                "l_index": l,
+                "l_jamo": L_TABLE[l],
+                "v_index": v,
+                "v_jamo": V_TABLE[v],
+                "t_index": t,
+                "t_jamo": T_TABLE[t],
+            })
         meta_common.append(rec)
+
     for cell in args.sizes:
-        glyphs, raw1, raw2, records = [], bytearray(), bytearray(), []
+        glyphs = []
+        raw1 = bytearray()
+        raw2 = bytearray()
+        raw_semantic2 = bytearray()
+        records = []
+        source_counts = {}
         one_bytes = (cell * cell + 7) // 8
         tiles_per_glyph = (cell // 8) * (cell // 8)
         two_bytes = tiles_per_glyph * 16
+
         for i, ch in enumerate(chars):
-            g = render_glyph(ch, cell, font_path, font_index, args.oversample, args.threshold, args.margin)
+            official = gen4_source.get(ch) if cell == 16 else None
+            if official:
+                glyph = nds_glyph_to_mask(official["raw"])
+                source_kind = "gen4_official"
+                source_member = official["member"]
+                source_slot = official["slot"]
+                source_class = official["class"]
+                semantic2 = official["raw"]
+            else:
+                glyph = render_glyph(
+                    ch,
+                    cell,
+                    font_path,
+                    font_index,
+                    args.oversample,
+                    args.threshold,
+                    args.margin,
+                )
+                source_kind = "project_derived_vector"
+                source_member = None
+                source_slot = None
+                source_class = None
+                semantic2 = pack_nds_glyph_2bpp_from_mask(glyph) if cell == 16 else None
+
             ov = overrides.get(ch, {}).get(str(cell)) if ch in overrides else None
-            g = apply_override(g, ov)
-            glyphs.append(g)
-            b1, b2 = pack_1bpp(g), pack_gb_2bpp_glyph(g, args.gb_ink_index)
-            raw1 += b1; raw2 += b2
-            r = dict(meta_common[i])
-            r.update({"cell": cell, "1bpp_offset": i * one_bytes, "1bpp_length": len(b1),
-                      "gb_2bpp_offset": i * two_bytes, "gb_2bpp_length": len(b2),
-                      "tile_count": tiles_per_glyph})
-            records.append(r)
+            if ov:
+                glyph = apply_override(glyph, ov)
+                source_kind = "project_override"
+                source_member = None
+                source_slot = None
+                source_class = None
+                semantic2 = pack_nds_glyph_2bpp_from_mask(glyph) if cell == 16 else None
+
+            source_counts[source_kind] = source_counts.get(source_kind, 0) + 1
+            glyphs.append(glyph)
+            b1 = pack_1bpp(glyph)
+            b2 = pack_gb_2bpp_glyph(glyph, args.gb_ink_index)
+            raw1 += b1
+            raw2 += b2
+            if cell == 16:
+                raw_semantic2 += semantic2
+
+            rec = dict(meta_common[i])
+            rec.update({
+                "cell": cell,
+                "source_kind": source_kind,
+                "source_member": source_member,
+                "source_slot": source_slot,
+                "source_class": source_class,
+                "1bpp_offset": i * one_bytes,
+                "1bpp_length": len(b1),
+                "gb_2bpp_offset": i * two_bytes,
+                "gb_2bpp_length": len(b2),
+                "tile_count": tiles_per_glyph,
+            })
+            if cell == 16:
+                rec.update({
+                    "semantic_2bpp_offset": i * 64,
+                    "semantic_2bpp_length": 64,
+                })
+            records.append(rec)
+
         cols = args.cols8 if cell == 8 else args.cols16
         make_atlas(glyphs, cell, cols).save(outdir / f"atlas_{cell}x{cell}.png")
         (outdir / f"glyphs_{cell}x{cell}_1bpp.bin").write_bytes(raw1)
         (outdir / f"glyphs_{cell}x{cell}_gb2bpp.bin").write_bytes(raw2)
-        (outdir / f"mapping_{cell}x{cell}.json").write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding="utf-8")
-        with (outdir / f"mapping_{cell}x{cell}.csv").open("w", encoding="utf-8-sig", newline="") as f:
+        if cell == 16:
+            (outdir / "glyphs_16x16_semantic2bpp.bin").write_bytes(raw_semantic2)
+
+        (outdir / f"mapping_{cell}x{cell}.json").write_text(
+            json.dumps(records, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        with (outdir / f"mapping_{cell}x{cell}.csv").open(
+            "w", encoding="utf-8-sig", newline=""
+        ) as csv_file:
             fields = list(records[0].keys()) if records else ["id", "char", "codepoint"]
-            w = csv.DictWriter(f, fieldnames=fields); w.writeheader(); w.writerows(records)
+            writer = csv.DictWriter(csv_file, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(records)
+        summary["source_counts"][str(cell)] = source_counts
+
     (outdir / "charset.txt").write_text("".join(chars), encoding="utf-8")
-    (outdir / "build_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    (outdir / "build_summary.json").write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
 
@@ -258,6 +445,17 @@ def parse_args():
     ap.add_argument("--cols16", type=int, default=64)
     ap.add_argument("--gb-ink-index", type=int, default=3, choices=[1, 2, 3])
     ap.add_argument("--overrides")
+    ap.add_argument(
+        "--gen4-source-dir",
+        help="source pack produced by extract-gen4-korean-font.py",
+    )
+    ap.add_argument(
+        "--gen4-member",
+        type=int,
+        default=1,
+        choices=[0, 1, 2, 4, 10],
+        help="Generation IV source font member to use for exact 16x16 coverage",
+    )
     return ap.parse_args()
 
 
