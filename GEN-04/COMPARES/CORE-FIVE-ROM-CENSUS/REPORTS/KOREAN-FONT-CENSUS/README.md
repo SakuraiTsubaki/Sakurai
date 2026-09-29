@@ -4,10 +4,10 @@ Status: working census from supplied retail ROMs; raw `.nds` images are not repo
 
 ## Confirmed ROM evidence
 
-- Korean Platinum CPUK-HV0 (`SHA-256 51050f65…11d7b`): `graphic/font.narc` and `graphic/pl_font.narc`, 10 members each.
-- Korean SoulSilver IPGK-HV0 (`SHA-256 8e1c82d2…8b55`): localized font archive `a/0/1/6`, 13 members.
+- Korean Platinum CPUK-HV0 (`SHA-256 51050f65776f402f86b8b2b2d3b84ab5bbe80dbec75129c86f8bd9b447f11d7b`): `graphic/font.narc` and `graphic/pl_font.narc`, 10 members each.
+- Korean SoulSilver IPGK-HV0 (`SHA-256 8e1c82d2f718fa404f0b13df1666c70cdfaa75cb67e0adcbdcfb6c002f4d8b55`): localized font archive `a/0/1/6`, 13 members.
 - The principal Korean members have a 16-byte simple-font header: `tableOffset=0x35C10`, `numGlyphs=3440`, `16x16`, `2bpp`, total member size `220717`.
-- The tail is only `541` bytes. It decomposes structurally as a 32-byte block plus exactly `509` bytes, not 3440 bytes. Therefore the Korean extension does **not** simply append a width byte for every Korean glyph. The exact localized width code path remains to be pinned from Korean executable code.
+- The 541-byte width tail is now decoded and its runtime behavior is confirmed from both Pt and HGSS Korean ARM9. It is a range-aware width block: 3 descriptors plus 509 per-glyph legacy widths. The Korean `1024..3439` range uses fixed per-font widths rather than 3440 individual width bytes. See `korean-width-routing.md`.
 - HGSS also contains `pbr/font.narc`; this is byte-identical to Platinum's generic `graphic/font.narc`, but it is **not** the primary localized HGSS Korean font archive. Korean gameplay font analysis uses `a/0/1/6`.
 
 ## Slot layout confirmed by localized message data
@@ -44,16 +44,18 @@ For corresponding Korean members 0/1/2, **all 2416 slots in 1024..3439 are byte-
 
 HGSS members 4 and 10 are genuinely different Korean designs; they are not copies of members 0/1/2.
 
-## HGSS Korean glyph geometry
+## HGSS Korean glyph geometry and usage
 
 - FontID 0 → member 0: Korean ink is exactly 11×11 across the 2350 Wansung syllables.
 - FontID 1 → member 1: exactly 12×12.
 - FontID 2 → member 2: about 12–13×11–12.
-- FontID 4 → member 4: about 11–12×11–12.
-- FontID 5 → member 10: exactly 11×10.
+- FontID 4 → member 4: about 11–12×11–12; broad HGSS application/UI font.
+- FontID 5 → member 10: exactly 11×10; **used by the Pokéwalker connection UI**, including player-name and related UI-string rendering.
 - FontID 3 → member 3 is the 509-glyph class and is not a 3440 Korean member.
 
 Platinum names the first four logical fonts `SYSTEM=0`, `MESSAGE=1`, `SUBSCREEN=2`, `UNOWN=3`. HGSS maps Font IDs `0,1,2,3,4,5` to members `0,1,2,3,4,10`.
+
+The supplied Korean SoulSilver binary was scanned directly across decompressed ARM9 plus all 129 ARM9 overlays. All 83 `FontID_Alloc` calls were resolved: ID0=1, ID1=1, ID2=13, ID3=1, ID4=65, ID5=2. Full addresses are in `fontid-callsite-census.csv`; semantic notes are in `fontid4-5-callsite-census.md`.
 
 ## Emerald mapping decision (phase 1)
 
@@ -62,7 +64,7 @@ The mapping is by original usage and actual Korean pixel geometry, not by copyin
 - `FONT_NORMAL` ← Gen IV MESSAGE / HGSS FontID 1.
 - `FONT_SMALL` ← Gen IV SYSTEM / HGSS FontID 0.
 - `FONT_SHORT` ← Gen IV SUBSCREEN / HGSS FontID 2.
-- `FONT_NARROW` ← HGSS FontID 5 / member 10 as the compact source, subject to completion of its original call-site census.
+- `FONT_NARROW` ← HGSS FontID 5 / member 10 as the compact source. This is a **project mapping**; its original HGSS role is specifically Pokéwalker compact UI/player-name rendering, not a global narrow-font role.
 - `FONT_SMALL_NARROW` ← deterministic 8px project derivative of member 10; there is no direct Gen IV 8px Korean original.
 
 HGSS FontID 4 is retained as an additional application/UI source rather than discarded; it is heavily used by HGSS application screens and may become a separate project UI font if Emerald screen-specific routing warrants it.
@@ -76,7 +78,7 @@ Emerald's stock byte encoding has no room for 2350+ syllables. `CHAR_EXTRA_SYMBO
 ## Next executable work
 
 1. **DONE** — correlate Korean message codes against the 1024+ glyph slots and confirm `glyph_slot = message_code - 1`.
-2. Pin the localized Korean width logic in Pt/HGSS ARM9/overlays.
-3. Complete HGSS FontID 4/5 call-site census.
+2. **DONE** — pin localized Korean width logic in Pt/HGSS ARM9; confirm range descriptors and fixed Korean widths.
+3. **DONE** — complete HGSS FontID 4/5 call-site census from the Korean retail binary; confirm FontID 5/member 10 Pokéwalker usage.
 4. Feed the extracted Gen IV pixels into the existing Hangul generator pipeline, replacing the vector-font raster source for covered syllables; generate only missing modern syllables as explicitly marked project derivatives.
 5. Implement the Emerald multi-byte Korean token and 16px-capable glyph lookup without replacing existing Latin/Japanese assets.
