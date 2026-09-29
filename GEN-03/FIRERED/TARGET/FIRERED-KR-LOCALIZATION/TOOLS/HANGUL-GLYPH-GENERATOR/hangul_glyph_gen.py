@@ -15,6 +15,7 @@ import base64
 import csv
 import gzip
 import json
+import lzma
 import math
 import os
 from functools import lru_cache
@@ -214,12 +215,25 @@ def load_gen4_source_pack(path: str | None, member: int) -> Dict[str, Dict]:
     if len(matches) != 1:
         raise ValueError(f"Generation IV source member {member} not found")
     member_meta = matches[0]
-    source_path = root / member_meta["source_file"]
-    raw = source_path.read_bytes()
-    if member_meta.get("source_file_transport") == "base64" or source_path.suffix == ".b64":
-        raw = base64.b64decode(raw)
-    if member_meta.get("source_file_encoding") == "gzip" or ".gz" in source_path.suffixes:
-        raw = gzip.decompress(raw)
+    if manifest.get("bundle_file"):
+        bundle_path = root / manifest["bundle_file"]
+        bundle = bundle_path.read_bytes()
+        if manifest.get("bundle_transport") == "base64" or bundle_path.suffix == ".b64":
+            bundle = base64.b64decode(bundle)
+        if manifest.get("bundle_encoding") == "xz" or ".xz" in bundle_path.suffixes:
+            bundle = lzma.decompress(bundle)
+        start = int(member_meta["bundle_offset"])
+        end = start + int(member_meta["bundle_length"])
+        raw = bundle[start:end]
+        source_name = manifest["bundle_file"]
+    else:
+        source_path = root / member_meta["source_file"]
+        raw = source_path.read_bytes()
+        if member_meta.get("source_file_transport") == "base64" or source_path.suffix == ".b64":
+            raw = base64.b64decode(raw)
+        if member_meta.get("source_file_encoding") == "gzip" or ".gz" in source_path.suffixes:
+            raw = gzip.decompress(raw)
+        source_name = member_meta["source_file"]
     bytes_per_glyph = int(member_meta["bytes_per_glyph"])
     if len(raw) != len(mapping) * bytes_per_glyph:
         raise ValueError("Generation IV source pack length mismatch")
@@ -229,7 +243,7 @@ def load_gen4_source_pack(path: str | None, member: int) -> Dict[str, Dict]:
         entry = dict(rec)
         entry["raw"] = raw[i * bytes_per_glyph:(i + 1) * bytes_per_glyph]
         entry["member"] = member
-        entry["source_file"] = member_meta["source_file"]
+        entry["source_file"] = source_name
         result[rec["char"]] = entry
     return result
 
