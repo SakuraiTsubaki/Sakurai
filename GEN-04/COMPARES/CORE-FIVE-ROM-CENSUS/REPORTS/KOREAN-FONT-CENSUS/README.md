@@ -57,6 +57,20 @@ Platinum names the first four logical fonts `SYSTEM=0`, `MESSAGE=1`, `SUBSCREEN=
 
 The supplied Korean SoulSilver binary was scanned directly across decompressed ARM9 plus all 129 ARM9 overlays. All 83 `FontID_Alloc` calls were resolved: ID0=1, ID1=1, ID2=13, ID3=1, ID4=65, ID5=2. Full addresses are in `fontid-callsite-census.csv`; semantic notes are in `fontid4-5-callsite-census.md`.
 
+## Gen IV source-first generator integration
+
+`extract-gen4-korean-font.py` now creates a reproducible mapped source pack directly from the supplied retail ROM without storing the ROM itself. It preserves each mapped 16×16 glyph as its original 64-byte semantic 2bpp block and records ROM/archive/member hashes.
+
+The existing Hangul generator now accepts `--gen4-source-dir` and `--gen4-member`. For 16×16 output:
+
+- official-covered characters use exact Gen IV source pixels;
+- missing modern Hangul uses `project_derived_vector`;
+- manual edits use `project_override`;
+- source provenance is written into the mapping metadata;
+- `glyphs_16x16_semantic2bpp.bin` preserves official source blocks byte-for-byte.
+
+Full `U+AC00..U+D7A3` validation with HGSS member 1 produced 2,350 `gen4_official` syllables plus 8,822 project-derived syllables, with **0 byte mismatches across all 2,350 official source blocks**. See `gen4-source-pipeline-validation.md`.
+
 ## Emerald mapping decision (phase 1)
 
 The mapping is by original usage and actual Korean pixel geometry, not by copying one DS font everywhere:
@@ -80,5 +94,5 @@ Emerald's stock byte encoding has no room for 2350+ syllables. `CHAR_EXTRA_SYMBO
 1. **DONE** — correlate Korean message codes against the 1024+ glyph slots and confirm `glyph_slot = message_code - 1`.
 2. **DONE** — pin localized Korean width logic in Pt/HGSS ARM9; confirm range descriptors and fixed Korean widths.
 3. **DONE** — complete HGSS FontID 4/5 call-site census from the Korean retail binary; confirm FontID 5/member 10 Pokéwalker usage.
-4. Feed the extracted Gen IV pixels into the existing Hangul generator pipeline, replacing the vector-font raster source for covered syllables; generate only missing modern syllables as explicitly marked project derivatives.
+4. **DONE** — integrate exact Gen IV Korean source pixels into the Hangul generator and validate 2,350 official Wansung blocks byte-for-byte; generate only missing modern syllables as explicitly marked project derivatives.
 5. Implement the Emerald multi-byte Korean token and 16px-capable glyph lookup without replacing existing Latin/Japanese assets.
